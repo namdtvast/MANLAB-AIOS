@@ -1,5 +1,7 @@
 # MANLAB-AIOS — Enterprise Operating System Repository
 
+[![Validate links](https://github.com/namdtvast/MANLAB-AIOS/actions/workflows/validate-links.yml/badge.svg)](https://github.com/namdtvast/MANLAB-AIOS/actions/workflows/validate-links.yml)
+
 **Viện Kiểm định Công nghệ và Môi trường (ETV)** · Kiến trúc **v4.1**
 
 > Đây không phải kho tài liệu. Đây là **Hệ điều hành doanh nghiệp**.
