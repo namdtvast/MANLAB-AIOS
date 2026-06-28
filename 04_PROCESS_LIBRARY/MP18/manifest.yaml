@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP18
+name: Quy tắc quyết định và tuyên bố sự phù hợp
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-05,CAP-06,CAP-07]
+module: M18

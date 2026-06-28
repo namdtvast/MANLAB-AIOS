@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP26
+name: Quản lý tri thức tổ chức
+owner: "(cập nhật)"
+status: active
+standards: ['ISO9001']
+legal: []
+capabilities: [CAP-22]
+module: M26

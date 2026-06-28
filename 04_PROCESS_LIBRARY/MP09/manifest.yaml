@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP09
+name: Lấy mẫu, xử lý và bảo quản mẫu
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-04,CAP-08]
+module: M09

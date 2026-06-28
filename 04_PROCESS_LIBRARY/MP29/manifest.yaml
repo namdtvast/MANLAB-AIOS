@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP29
+name: Quản lý hệ thống trí tuệ nhân tạo
+owner: "(cập nhật)"
+status: active
+standards: ['ISO42001']
+legal: []
+capabilities: [CAP-20]
+module: M29

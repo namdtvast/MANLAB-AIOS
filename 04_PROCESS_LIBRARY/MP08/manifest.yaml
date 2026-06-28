@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP08
+name: Lựa chọn, xác nhận phương pháp và đánh giá độ không đảm bảo đo
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-05,CAP-06,CAP-07]
+module: M08

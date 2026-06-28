@@ -1,0 +1,5 @@
+schema: manlab-aios/capability@1.0
+code: CAP-13
+name: Quản lý nhân sự
+processes:
+  - ../04_PROCESS_LIBRARY/MP03

@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP16
+name: Đánh giá nội bộ và đánh giá bên ngoài
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-17]
+module: M16

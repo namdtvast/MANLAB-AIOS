@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP28
+name: Quản lý an toàn thông tin
+owner: "(cập nhật)"
+status: active
+standards: ['ISO27001']
+legal: []
+capabilities: [CAP-19]
+module: M28

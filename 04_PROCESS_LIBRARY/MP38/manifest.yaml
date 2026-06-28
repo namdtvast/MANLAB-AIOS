@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP38
+name: Quản lý dịch vụ số
+owner: "(cập nhật)"
+status: active
+standards: ['(none)']
+legal: []
+capabilities: [CAP-20]
+module: M38

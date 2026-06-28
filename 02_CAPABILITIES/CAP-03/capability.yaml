@@ -1,0 +1,6 @@
+schema: manlab-aios/capability@1.0
+code: CAP-03
+name: Lập kế hoạch thực hiện
+processes:
+  - ../04_PROCESS_LIBRARY/MP07
+  - ../04_PROCESS_LIBRARY/MP09

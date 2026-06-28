@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP10
+name: Đảm bảo giá trị sử dụng của kết quả
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-17]
+module: M10

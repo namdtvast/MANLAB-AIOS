@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP36
+name: Quản lý chứng chỉ số và truy xuất nguồn gốc
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-21]
+module: M36

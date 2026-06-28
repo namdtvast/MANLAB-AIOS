@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP14
+name: Kiểm soát tài liệu
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-18]
+module: M14

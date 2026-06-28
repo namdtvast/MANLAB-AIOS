@@ -1,0 +1,10 @@
+schema: manlab-aios/links@1.0
+procedure:  ../../03_MANAGEMENT_SYSTEM/ETV.QM
+iso:        ../../03_MANAGEMENT_SYSTEM
+module:     ../../05_MODULE_LIBRARY/M29
+forms:      ../../06_SHARED_RESOURCES/Forms
+skill:      ../../07_AI_OPERATING_SYSTEM/Skills
+law:        ../../08_KNOWLEDGE_GRAPH/Regulations
+evidence:   ../../11_COMPLIANCE/Evidence
+capabilities:
+  - ../../02_CAPABILITIES/CAP-20

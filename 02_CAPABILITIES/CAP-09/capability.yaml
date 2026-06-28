@@ -1,0 +1,7 @@
+schema: manlab-aios/capability@1.0
+code: CAP-09
+name: Sản xuất mẫu chuẩn (CRM)
+processes:
+  - ../04_PROCESS_LIBRARY/MP19
+  - ../04_PROCESS_LIBRARY/MP20
+  - ../04_PROCESS_LIBRARY/MP23

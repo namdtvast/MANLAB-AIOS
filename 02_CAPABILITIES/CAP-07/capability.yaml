@@ -1,0 +1,10 @@
+schema: manlab-aios/capability@1.0
+code: CAP-07
+name: Thử nghiệm
+processes:
+  - ../04_PROCESS_LIBRARY/MP04
+  - ../04_PROCESS_LIBRARY/MP08
+  - ../04_PROCESS_LIBRARY/MP09
+  - ../04_PROCESS_LIBRARY/MP10
+  - ../04_PROCESS_LIBRARY/MP11
+  - ../04_PROCESS_LIBRARY/MP18

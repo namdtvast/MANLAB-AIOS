@@ -1,0 +1,8 @@
+schema: manlab-aios/capability@1.0
+code: CAP-08
+name: Quan trắc môi trường
+processes:
+  - ../04_PROCESS_LIBRARY/MP09
+  - ../04_PROCESS_LIBRARY/MP10
+  - ../04_PROCESS_LIBRARY/MP11
+  - ../04_PROCESS_LIBRARY/MP21

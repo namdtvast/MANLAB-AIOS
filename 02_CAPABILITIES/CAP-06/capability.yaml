@@ -1,0 +1,10 @@
+schema: manlab-aios/capability@1.0
+code: CAP-06
+name: Kiểm định
+processes:
+  - ../04_PROCESS_LIBRARY/MP04
+  - ../04_PROCESS_LIBRARY/MP05
+  - ../04_PROCESS_LIBRARY/MP08
+  - ../04_PROCESS_LIBRARY/MP10
+  - ../04_PROCESS_LIBRARY/MP11
+  - ../04_PROCESS_LIBRARY/MP18

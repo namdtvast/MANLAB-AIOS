@@ -1,0 +1,9 @@
+schema: manlab-aios/process@1.0
+code: MP20
+name: Phân phối và truy xuất nguồn gốc
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17034']
+legal: []
+capabilities: [CAP-09]
+module: M20
