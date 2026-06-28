@@ -1,36 +1,41 @@
 # MANLAB-AIOS — Enterprise Operating System Repository
 
-**Viện Kiểm định Công nghệ và Môi trường (ETV)** · Phiên bản kiến trúc **v4.0**
+**Viện Kiểm định Công nghệ và Môi trường (ETV)** · Kiến trúc **v4.0**
 
-> Đây không phải kho tài liệu. Đây là **Hệ điều hành doanh nghiệp** (Enterprise Operating System).
+> Đây không phải kho tài liệu. Đây là **Hệ điều hành doanh nghiệp**.
 > Đơn vị nhỏ nhất của hệ thống là **Business Capability (Năng lực nghiệp vụ)**, không phải tài liệu hay module.
 
 ## Mô hình phân rã
-
 ```
 BUSINESS → CAPABILITY → PROCESS (MPxx) → MODULE (Mxx) → DATA/FORMS/API → AI/WORKFLOW → EVIDENCE/AUDIT
 ```
 
-## 5 lớp liên kết logic
+## Bản đồ thư mục — ý nghĩa từng tầng
 
-| Lớp | Ý nghĩa | Tầng vật lý |
-|---|---|---|
-| 1. Capability Layer | Doanh nghiệp có năng lực gì | `02_CAPABILITIES` |
-| 2. Process Layer | MP01–MP38 thực hiện năng lực thế nào | `04_PROCESS_LIBRARY` |
-| 3. Application Layer | M01–M38 số hóa từng quy trình | `05_MODULE_LIBRARY` |
-| 4. AI Layer | Skill, Harness, Agent, Memory, Prompt | `07_AI_OPERATING_SYSTEM` |
-| 5. Compliance Layer | Mọi hoạt động truy xuất được bằng chứng | `11_COMPLIANCE` |
+| Tầng | Trả lời câu hỏi | Lưu gì (tóm tắt) | KHÔNG lưu |
+|---|---|---|---|
+| `01_ENTERPRISE` | Vì sao Viện tồn tại | Chiến lược, tầm nhìn, tổ chức, lộ trình | Quy trình, biểu mẫu, hồ sơ |
+| `02_CAPABILITIES` ⭐ | Viện làm được **gì** | Định nghĩa năng lực CAP-xx + link tới MP | Cách làm chi tiết, code |
+| `03_MANAGEMENT_SYSTEM` | Theo **luật chơi** nào | Chuẩn mực ISO + Sổ tay ETV.QM | **Quy trình MP**, biểu mẫu, hồ sơ |
+| `04_PROCESS_LIBRARY` ⭐ | Làm **thế nào** | 38 Hub MP (README+manifest+links) | Nội dung thủ tục đầy đủ, bản copy biểu mẫu |
+| `05_MODULE_LIBRARY` ⭐ | Số hóa **bằng gì** | Đặc tả 38 module M01–M38 | Dữ liệu nghiệp vụ thật, secrets |
+| `06_SHARED_RESOURCES` ⭐ | Tài nguyên **dùng chung** | Biểu mẫu gốc, master/reference data | Hồ sơ đã điền, dữ liệu giao dịch |
+| `07_AI_OPERATING_SYSTEM` ⭐ | **AI** vận hành ra sao | Skill, Agent, Prompt, Guardrail, Policy | Dữ liệu mật trong prompt, cấu hình tự phê duyệt |
+| `08_KNOWLEDGE_GRAPH` ⭐ | AI **đọc** ở đâu | QPPL, ISO, ĐLVN, ontology, vector | Chuẩn mực kiểm soát (ở 03), tài liệu vi phạm bản quyền |
+| `09_ENGINEERING` | **Code** ra sao | Backend/Frontend/API/DB/Test | Secrets, dữ liệu sản xuất |
+| `10_DEPLOYMENT` | **Vận hành** ra sao | Docker/K8s/Cloud/Backup/DR | Khóa/bí mật thật |
+| `11_COMPLIANCE` ⭐ | **Chứng minh** tuân thủ | Mapping ISO/luật, bằng chứng, audit, CAPA, risk | Bản nháp tài liệu hệ thống |
+| `12_RESEARCH` | **Tương lai** | KC4.0, DMC, OCR, paper, patent | Hệ thống vận hành chính thức |
 
-## Nguyên tắc cốt lõi
+> Cột chi tiết "Lưu gì / Không lưu / Lưu ý" của **từng thư mục con** nằm trong `README.md` của chính thư mục đó.
 
-1. **MP/M là Hub** — chỉ chứa `README.md` + `manifest.yaml` + `links.yaml`. **Link, không copy.**
-2. **Một nguồn sự thật (single source of truth)** — biểu mẫu ở `06_SHARED_RESOURCES`, tiêu chuẩn ở `03_MANAGEMENT_SYSTEM`, không nhân bản.
-3. **Digital Thread** — mỗi dịch vụ là một chuỗi số xuyên suốt, truy xuất được MP, M, biểu mẫu, hồ sơ, điều khoản ISO, pháp luật và AI Agent đã tham gia. Xem `04_PROCESS_LIBRARY/_DIGITAL_THREADS`.
+## 3 quy ước bất biến
+1. **MP/M là Hub** — `04_PROCESS_LIBRARY/MPxx/` chỉ có `README.md` + `manifest.yaml` + `links.yaml`. **Link, không copy.**
+2. **Một nguồn sự thật** — biểu mẫu ở `06`, tiêu chuẩn ở `03`, tri thức ở `08`. Không nhân bản.
+3. **Digital Thread** — mỗi dịch vụ là chuỗi số xuyên suốt, định nghĩa tại `04_PROCESS_LIBRARY/_DIGITAL_THREADS`.
 
-## 12 tầng
+## Quy ước đặt tên
+`CAP-xx` Năng lực · `MPxx` Quy trình · `Mxx` Module (số hóa MPxx 1–1) · `F-xxx` Biểu mẫu ·
+`EV-xxx` Bằng chứng · `SK-xxx` Skill · `AG-xxx` Agent · `DT-xx` Digital Thread.
 
-01_ENTERPRISE · 02_CAPABILITIES · 03_MANAGEMENT_SYSTEM · 04_PROCESS_LIBRARY ·
-05_MODULE_LIBRARY · 06_SHARED_RESOURCES · 07_AI_OPERATING_SYSTEM · 08_KNOWLEDGE_GRAPH ·
-09_ENGINEERING · 10_DEPLOYMENT · 11_COMPLIANCE · 12_RESEARCH
-
-Xem chi tiết tại [ARCHITECTURE.md](ARCHITECTURE.md).
+Xem thêm: [ARCHITECTURE.md](ARCHITECTURE.md) · lược đồ Hub: [_meta/SCHEMA.md](_meta/SCHEMA.md)

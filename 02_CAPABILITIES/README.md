@@ -27,3 +27,12 @@ hoặc nhiều quy trình MPxx và số hóa bởi các module Mxx.
 | CAP-20 | AI Office & Dịch vụ số | MP29, MP35, MP38 |
 | CAP-21 | Chứng chỉ số DMC | MP36 |
 | CAP-22 | Bối cảnh & Tri thức tổ chức | MP25, MP26 |
+
+
+---
+
+**Lưu file gì ở đây:** mỗi năng lực một thư mục `CAP-xx/` gồm `capability.yaml` (định nghĩa năng lực + link tới các MP thực hiện) và `README.md` (mô tả, chủ sở hữu năng lực, KPI năng lực).
+
+**KHÔNG lưu ở đây:** cách làm chi tiết (→ `04_PROCESS_LIBRARY`); mã nguồn/đặc tả module (→ `05`, `09`); tài liệu tiêu chuẩn (→ `03`).
+
+**Lưu ý:** Năng lực là đơn vị **ổn định nhất**, ít thay đổi. Khi mở dịch vụ mới: tạo `CAP` trước, rồi mới gắn `MP`/`M`. Không tạo CAP trùng nghĩa.
