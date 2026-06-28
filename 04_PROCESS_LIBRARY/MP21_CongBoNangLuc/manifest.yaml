@@ -2,9 +2,15 @@ schema: manlab-aios/process@1.0
 code: MP21
 slug: CongBoNangLuc
 name: Công bố, thông báo và kiểm soát năng lực hoạt động
-owner: "(cập nhật)"
+owner: "Trần Thị Hoa (biên soạn) – Lãnh đạo Viện (phê duyệt)"
 status: active
-standards: ['(none)']
-legal: ['xem 08_KNOWLEDGE_GRAPH/01_Regulations']
+standards: [ISO17025]
+legal: ["NĐ 36/2026", "NĐ 22/2026", "NQ 66.18/2026", "NQ 66.19/2026"]
 capabilities: [CAP-10]
 module: M21
+document:
+  controlled: ETV.MP21_Thu_tuc_Final_V5.docx
+  edition: "02"
+  issued: "2026-06-28"
+  doc_status: issued
+forms: [F21.01, F21.02, F21.03, F21.04, F21.05, F21.06, F21.07, F21.08, F21.09, F21.10, F21.11, F21.12]
