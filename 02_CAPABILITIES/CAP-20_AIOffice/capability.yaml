@@ -1,0 +1,7 @@
+schema: manlab-aios/capability@1.0
+code: CAP-20
+name: AI Office & Dịch vụ số
+processes:
+  - ../../04_PROCESS_LIBRARY/MP29_AI
+  - ../../04_PROCESS_LIBRARY/MP35_NenTangSo
+  - ../../04_PROCESS_LIBRARY/MP38_DichVuSo

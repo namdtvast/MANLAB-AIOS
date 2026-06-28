@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP37
+slug: TichHopDuLieu
+name: Quản lý tích hợp dữ liệu
+owner: "(cập nhật)"
+status: active
+standards: ['(none)']
+legal: []
+capabilities: [CAP-19,CAP-20]
+module: M37

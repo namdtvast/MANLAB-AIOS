@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP25
+slug: BoiCanh
+name: Quản lý bối cảnh tổ chức và các bên quan tâm
+owner: "(cập nhật)"
+status: active
+standards: ['ISO9001']
+legal: []
+capabilities: [CAP-22]
+module: M25

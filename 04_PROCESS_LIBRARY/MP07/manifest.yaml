@@ -1,9 +1,0 @@
-schema: manlab-aios/process@1.0
-code: MP07
-name: Xem xét yêu cầu, đề nghị và hợp đồng
-owner: "(cập nhật)"
-status: active
-standards: ['ISO17025']
-legal: []
-capabilities: [CAP-01,CAP-02,CAP-03]
-module: M07

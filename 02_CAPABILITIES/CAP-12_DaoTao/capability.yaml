@@ -1,0 +1,5 @@
+schema: manlab-aios/capability@1.0
+code: CAP-12
+name: Đào tạo chuyên môn
+processes:
+  - ../../04_PROCESS_LIBRARY/MP03_NhanSu

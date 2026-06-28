@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP15
+slug: HoSo
+name: Kiểm soát hồ sơ
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-18]
+module: M15

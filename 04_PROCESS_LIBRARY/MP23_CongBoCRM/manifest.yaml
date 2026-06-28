@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP23
+slug: CongBoCRM
+name: Công bố giá trị danh định và độ không đảm bảo đo của chất chuẩn
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17034']
+legal: []
+capabilities: [CAP-09]
+module: M23

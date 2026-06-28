@@ -1,0 +1,10 @@
+schema: manlab-aios/links@1.0
+procedure:  ../../03_MANAGEMENT_SYSTEM/01_ETV.QM
+iso:        ../../03_MANAGEMENT_SYSTEM
+module:     ../../05_MODULE_LIBRARY/M19_SanXuatCRM
+forms:      ../../06_SHARED_RESOURCES/01_Forms
+skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
+law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
+evidence:   ../../11_COMPLIANCE/03_Evidence
+capabilities:
+  - ../../02_CAPABILITIES/CAP-09_CRM

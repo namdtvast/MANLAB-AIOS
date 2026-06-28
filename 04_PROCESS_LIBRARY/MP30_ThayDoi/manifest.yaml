@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP30
+slug: ThayDoi
+name: Quản lý thay đổi
+owner: "(cập nhật)"
+status: active
+standards: ['ISO9001']
+legal: []
+capabilities: [CAP-17]
+module: M30

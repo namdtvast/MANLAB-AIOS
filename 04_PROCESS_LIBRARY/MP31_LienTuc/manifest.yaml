@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP31
+slug: LienTuc
+name: Quản lý tính liên tục hoạt động
+owner: "(cập nhật)"
+status: active
+standards: ['ISO27001']
+legal: []
+capabilities: [CAP-19]
+module: M31

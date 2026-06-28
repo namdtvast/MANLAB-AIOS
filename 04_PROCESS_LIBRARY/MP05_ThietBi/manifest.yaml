@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP05
+slug: ThietBi
+name: Kiểm soát thiết bị, chuẩn và chất chuẩn
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025']
+legal: []
+capabilities: [CAP-16]
+module: M05

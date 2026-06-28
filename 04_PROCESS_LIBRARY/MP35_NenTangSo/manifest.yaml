@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP35
+slug: NenTangSo
+name: Quản lý nền tảng số
+owner: "(cập nhật)"
+status: active
+standards: ['(none)']
+legal: []
+capabilities: [CAP-20]
+module: M35

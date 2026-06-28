@@ -1,9 +1,0 @@
-schema: manlab-aios/process@1.0
-code: MP32
-name: Chuyển đổi số và cải tiến hệ thống
-owner: "(cập nhật)"
-status: active
-standards: ['ISO9001']
-legal: []
-capabilities: [CAP-17]
-module: M32

@@ -1,20 +1,24 @@
 # 07 — AI OPERATING SYSTEM ⭐ (AI-native)
 
-**Ý nghĩa:** AI Office của Viện — định nghĩa cách AI hỗ trợ vận hành. Tách bạch năng lực AI khỏi nghiệp vụ và code.
+**Ý nghĩa:** AI Office — cách AI hỗ trợ vận hành, tách khỏi nghiệp vụ và code.
 
 | Thư mục con | Lưu gì |
 |---|---|
-| `Skills` | Định nghĩa kỹ năng AI (mục đích, hướng dẫn kích hoạt). |
-| `Harness` | Khung điều phối/ghép nối nhiều tác vụ AI. |
-| `Agents` | Định nghĩa AI Agent: vai trò, quyền hạn, công cụ được dùng. |
-| `Memory` | Bộ nhớ ngữ cảnh bền vững của agent. |
-| `Contexts` | Ngữ cảnh/tài liệu nạp vào cho AI theo nhiệm vụ. |
-| `Prompts` | Thư viện prompt mẫu, có kiểm soát phiên bản. |
-| `MCP` | Cấu hình máy chủ và công cụ MCP kết nối. |
-| `Guardrails` | Ràng buộc an toàn, giới hạn quyền và phạm vi của AI. |
-| `Evaluations` | Bộ kiểm thử/đánh giá chất lượng và độ tin cậy AI. |
-| `Reasoning` | Cấu hình suy luận, chính sách lập luận. |
-| `Workflows` | Luồng tự động hóa có AI tham gia. |
-| `Policies` | Chính sách quản trị AI (gắn ISO/IEC 42001). |
+| `01_Skills` | Định nghĩa kỹ năng AI |
+| `02_Harness` | Khung điều phối tác vụ AI |
+| `03_Agents` | Định nghĩa AI Agent: vai trò, quyền, công cụ |
+| `04_Memory` | Bộ nhớ ngữ cảnh bền vững |
+| `05_Contexts` | Ngữ cảnh/tài liệu nạp cho AI |
+| `06_Prompts` | Thư viện prompt |
+| `07_MCP` | Cấu hình máy chủ/công cụ MCP |
+| `08_Guardrails` | Ràng buộc an toàn, giới hạn quyền AI |
+| `09_Evaluations` | Bộ đánh giá chất lượng AI |
+| `10_Reasoning` | Cấu hình suy luận |
+| `11_Workflows` | Luồng tự động hóa có AI |
+| `12_Policies` | Chính sách quản trị AI (42001) |
 
-**Lưu ý:** Nguyên tắc 42001: AI KHÔNG tự ra kết luận đo lường cần thẩm quyền; mọi agent triển khai phải có hồ sơ đánh giá tác động AI (AIA) theo MP29.
+**KHÔNG lưu trong tầng này:**
+- Dữ liệu cá nhân/mật trong prompt
+- Cấu hình cho AI tự phê duyệt kết quả/chứng chỉ
+
+**Lưu ý:** 42001: AI KHÔNG tự ra kết luận đo lường; mọi agent triển khai phải có hồ sơ AIA theo MP29.

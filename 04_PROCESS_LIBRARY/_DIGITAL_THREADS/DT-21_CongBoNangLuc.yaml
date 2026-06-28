@@ -2,10 +2,10 @@ schema: manlab-aios/digital-thread@1.0
 code: DT-21
 name: Công bố năng lực & vòng đời dịch vụ đo lường
 steps:
-  - {step: "Yêu cầu khách hàng", process: MP07, module: M07, form: F-007}
-  - {step: "Hợp đồng",          process: MP07, module: M07, form: F-007b}
+  - {step: "Yêu cầu khách hàng", process: MP07, module: M07}
+  - {step: "Hợp đồng",          process: MP07, module: M07}
   - {step: "Kế hoạch",          process: MP07, module: M07}
-  - {step: "Hiện trường",       process: MP09, module: M09, form: F-009}
+  - {step: "Hiện trường",       process: MP09, module: M09}
   - {step: "Hiệu chuẩn",        process: MP08, module: M08, iso: ISO17025}
   - {step: "Kết quả",           process: MP11, module: M11}
   - {step: "Thẩm tra",          process: MP10, module: M10}
@@ -13,4 +13,4 @@ steps:
   - {step: "DCC/DVC/DTC",       process: MP36, module: M36}
   - {step: "Khách hàng",        process: MP38, module: M38}
   - {step: "Hồ sơ lưu",         process: MP15, module: M15}
-  - {step: "Audit",             process: MP16, module: M16, evidence: EV-audit}
+  - {step: "Audit",             process: MP16, module: M16}

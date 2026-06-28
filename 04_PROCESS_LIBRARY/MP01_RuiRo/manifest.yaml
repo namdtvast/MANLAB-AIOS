@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP01
+slug: RuiRo
+name: Giải quyết rủi ro và cơ hội
+owner: "(cập nhật)"
+status: active
+standards: ['ISO9001', 'ISO17025']
+legal: []
+capabilities: [CAP-17]
+module: M01

@@ -1,0 +1,13 @@
+schema: manlab-aios/capability@1.0
+code: CAP-17
+name: Chất lượng & Cải tiến
+processes:
+  - ../../04_PROCESS_LIBRARY/MP01_RuiRo
+  - ../../04_PROCESS_LIBRARY/MP10_DamBaoKQ
+  - ../../04_PROCESS_LIBRARY/MP12_KhieuNai
+  - ../../04_PROCESS_LIBRARY/MP13_KhacPhuc
+  - ../../04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo
+  - ../../04_PROCESS_LIBRARY/MP17_XemXetLanhDao
+  - ../../04_PROCESS_LIBRARY/MP24_KPI
+  - ../../04_PROCESS_LIBRARY/MP30_ThayDoi
+  - ../../04_PROCESS_LIBRARY/MP32_ChuyenDoiSo

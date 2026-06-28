@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP19
+slug: SanXuatCRM
+name: Hoạch định và sản xuất chất chuẩn
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17034']
+legal: []
+capabilities: [CAP-09]
+module: M19

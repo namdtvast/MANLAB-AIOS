@@ -4,13 +4,17 @@
 
 | Thư mục con | Lưu gì |
 |---|---|
-| `Backend` | Mã nguồn phía máy chủ, dịch vụ nghiệp vụ. |
-| `Frontend` | Mã nguồn giao diện web. |
-| `Mobile` | Ứng dụng di động. |
-| `API` | Triển khai API, cổng tích hợp. |
-| `Database` | Script CSDL, migration, seed. |
-| `Testing` | Kiểm thử tự động, test case. |
-| `DevOps` | Hạ tầng dưới dạng mã (IaC), script vận hành. |
-| `CI_CD` | Pipeline tích hợp/triển khai liên tục. |
+| `01_Backend` | Mã nguồn máy chủ, dịch vụ nghiệp vụ |
+| `02_Frontend` | Mã nguồn giao diện web |
+| `03_Mobile` | Ứng dụng di động |
+| `04_API` | Triển khai API, cổng tích hợp |
+| `05_Database` | Script CSDL, migration, seed |
+| `06_Testing` | Kiểm thử tự động |
+| `07_DevOps` | Hạ tầng như mã (IaC) |
+| `08_CI_CD` | Pipeline tích hợp/triển khai liên tục |
 
-**Lưu ý:** Code thực tế nên đặt ở repo mã nguồn riêng và liên kết; tầng này có thể chứa submodule hoặc đặc tả kỹ thuật.
+**KHÔNG lưu trong tầng này:**
+- Secrets/khóa thật (dùng vault)
+- Dữ liệu sản xuất thật
+
+**Lưu ý:** Code thực tế nên ở repo riêng và liên kết; tầng này có thể chứa submodule hoặc đặc tả.

@@ -1,9 +1,0 @@
-schema: manlab-aios/process@1.0
-code: MP12
-name: Giải quyết khiếu nại, phàn nàn, góp ý
-owner: "(cập nhật)"
-status: active
-standards: ['ISO17025']
-legal: []
-capabilities: [CAP-17]
-module: M12

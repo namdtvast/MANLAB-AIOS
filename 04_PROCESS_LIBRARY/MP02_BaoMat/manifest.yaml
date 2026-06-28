@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP02
+slug: BaoMat
+name: Bảo mật thông tin và quyền sở hữu của khách hàng
+owner: "(cập nhật)"
+status: active
+standards: ['ISO17025', 'ISO27001']
+legal: []
+capabilities: [CAP-19]
+module: M02

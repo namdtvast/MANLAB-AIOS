@@ -1,21 +1,6 @@
-schema: manlab-aios/repo-manifest@4.0
+schema: manlab-aios/repo-manifest@4.1
 enterprise: Viện Kiểm định Công nghệ và Môi trường (ETV)
-architecture_version: "4.0"
-unit_of_system: business-capability
-layers:
-  - {id: "01", name: ENTERPRISE}
-  - {id: "02", name: CAPABILITIES}
-  - {id: "03", name: MANAGEMENT_SYSTEM}
-  - {id: "04", name: PROCESS_LIBRARY}
-  - {id: "05", name: MODULE_LIBRARY}
-  - {id: "06", name: SHARED_RESOURCES}
-  - {id: "07", name: AI_OPERATING_SYSTEM}
-  - {id: "08", name: KNOWLEDGE_GRAPH}
-  - {id: "09", name: ENGINEERING}
-  - {id: "10", name: DEPLOYMENT}
-  - {id: "11", name: COMPLIANCE}
-  - {id: "12", name: RESEARCH}
-cross_cutting:
-  - digital_thread
-standards: [ISO9001, ISO17025, ISO17034, ISO27001, ISO42001]
+architecture_version: "4.1"
+naming: "code + short-slug; numbered subfolders"
 counts: {capabilities: 22, processes: 38, modules: 38}
+standards: [ISO9001, ISO17025, ISO17034, ISO27001, ISO42001]

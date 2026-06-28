@@ -1,9 +1,0 @@
-schema: manlab-aios/process@1.0
-code: MP13
-name: Hành động khắc phục và kiểm soát công việc không phù hợp
-owner: "(cập nhật)"
-status: active
-standards: ['ISO17025']
-legal: []
-capabilities: [CAP-17]
-module: M13

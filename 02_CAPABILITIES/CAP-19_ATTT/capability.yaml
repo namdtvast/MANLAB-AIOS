@@ -1,0 +1,10 @@
+schema: manlab-aios/capability@1.0
+code: CAP-19
+name: An toàn thông tin & Dữ liệu
+processes:
+  - ../../04_PROCESS_LIBRARY/MP27_TaiSanTT
+  - ../../04_PROCESS_LIBRARY/MP28_ATTT
+  - ../../04_PROCESS_LIBRARY/MP31_LienTuc
+  - ../../04_PROCESS_LIBRARY/MP33_HeThongTT
+  - ../../04_PROCESS_LIBRARY/MP34_DuLieuSo
+  - ../../04_PROCESS_LIBRARY/MP37_TichHopDuLieu

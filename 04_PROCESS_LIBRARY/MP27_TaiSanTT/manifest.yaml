@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP27
+slug: TaiSanTT
+name: Quản trị dữ liệu và tài sản thông tin
+owner: "(cập nhật)"
+status: active
+standards: ['ISO27001']
+legal: []
+capabilities: [CAP-19]
+module: M27

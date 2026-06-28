@@ -1,0 +1,10 @@
+schema: manlab-aios/process@1.0
+code: MP21
+slug: CongBoNangLuc
+name: Công bố, thông báo và kiểm soát năng lực hoạt động
+owner: "(cập nhật)"
+status: active
+standards: ['(none)']
+legal: ['xem 08_KNOWLEDGE_GRAPH/01_Regulations']
+capabilities: [CAP-10]
+module: M21
