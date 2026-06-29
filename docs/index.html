@@ -217,6 +217,84 @@ html[data-theme=dark] .chip.law{color:#fcd34d;border-color:#92670c}
 .spin{width:22px;height:22px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 
+/* ---------- Sub-navigation ---------- */
+nav.subnav{position:sticky;top:var(--header-h);z-index:30;background:color-mix(in srgb,var(--surface) 90%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.subnav-in{max-width:1400px;margin:0 auto;display:flex;gap:4px;padding:0 14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.navlink{display:inline-flex;align-items:center;gap:7px;padding:12px 14px;font-size:13.5px;font-weight:600;color:var(--muted-fg);
+  border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none}
+.navlink:hover{color:var(--fg)}
+.navlink.active{color:var(--accent);border-bottom-color:var(--accent)}
+.navlink svg{width:16px;height:16px}
+
+/* ---------- Progress / matrix ---------- */
+.page-head{padding:30px 0 6px}
+.page-head h1{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 6px}
+.page-head p{color:var(--muted-fg);margin:0;max-width:760px}
+.prog-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:20px 0}
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm)}
+.pcard .pn{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.pcard .pl{font-size:13px;color:var(--muted-fg);margin-top:6px}
+.pbar{height:8px;border-radius:99px;background:var(--muted);margin-top:12px;overflow:hidden}
+.pbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#22c55e);border-radius:99px}
+
+.filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 18px;padding:14px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.filters .flabel{font-size:12px;font-weight:600;color:var(--muted-fg);text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
+.fchip{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px;border:1px solid var(--border-strong);
+  background:var(--bg);color:var(--fg);cursor:pointer;transition:all .14s}
+.fchip:hover{border-color:var(--accent)}
+.fchip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.fchip.tog.on{background:var(--ok);border-color:var(--ok)}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+table.matrix{border-collapse:collapse;width:100%;font-size:13.5px;min-width:760px}
+table.matrix th,table.matrix td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+table.matrix th{background:var(--muted);font-weight:600;position:sticky;top:0;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted-fg)}
+table.matrix tr{cursor:pointer;transition:background .12s}
+table.matrix tbody tr:hover{background:var(--muted)}
+table.matrix .mp-code{font-family:var(--mono);font-weight:600;color:var(--accent)}
+table.matrix .mp-name{font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot.green{background:var(--ok)} .dot.amber{background:var(--star)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;margin:1px 3px 1px 0;
+  background:var(--bg);border:1px solid var(--border)}
+.tag.std{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.tag.has{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);border-color:transparent}
+.tag.no{color:var(--muted-fg);background:var(--muted);border-color:transparent}
+.no-res{padding:40px;text-align:center;color:var(--muted-fg)}
+
+/* ---------- Digital Thread ---------- */
+.pipeline{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:18px 0;padding:16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);overflow-x:auto}
+.pstep{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:8px;background:var(--bg);
+  border:1px solid var(--border);font-size:12.5px;font-weight:600;white-space:nowrap;cursor:pointer}
+.pstep.star{border-color:color-mix(in srgb,var(--star) 50%,transparent)}
+.pstep .pc{font-family:var(--mono);color:var(--accent);font-size:11px}
+.parrow{color:var(--muted-fg);flex-shrink:0}
+.thread-pick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:20px 0 8px}
+.thread-pick select{height:42px;padding:0 14px;border-radius:9px;border:1px solid var(--border-strong);background:var(--surface);
+  color:var(--fg);font-size:14.5px;font-family:inherit;min-width:280px;max-width:100%}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:18px;align-items:start}
+.flow-col{display:flex;flex-direction:column;gap:10px;position:relative;padding:0 10px}
+.flow-col>.ch{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-fg);
+  text-align:center;padding-bottom:6px}
+.tnode{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px;cursor:pointer;
+  transition:border-color .14s,transform .12s,box-shadow .14s;box-shadow:var(--shadow-sm)}
+.tnode:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.tnode .tc{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600}
+.tnode .tt{font-size:13px;font-weight:600;margin-top:3px;line-height:1.35}
+.tnode .ts{font-size:11.5px;color:var(--muted-fg);margin-top:4px}
+.tnode.accent{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.flow-col:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:42px;color:var(--border-strong);
+  font-size:18px;font-weight:700;z-index:2}
+@media(max-width:760px){
+  .flow{grid-template-columns:1fr}
+  .flow-col{padding:0 0 22px}
+  .flow-col:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:2px;transform:translateX(-50%)}
+  .flow-col>.ch{text-align:left}
+}
+
 footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 18px;text-align:center;color:var(--muted-fg);font-size:13px}
 footer a{font-weight:500}
 
@@ -267,6 +345,19 @@ footer a{font-weight:500}
   </div>
 </header>
 
+<nav class="subnav">
+  <div class="subnav-in">
+    <button class="navlink" data-nav="home" onclick="go('#/home')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2Z"/></svg>Tổng quan</button>
+    <button class="navlink" data-nav="explore" onclick="go('#/explore')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>Khám phá</button>
+    <button class="navlink" data-nav="matrix" onclick="go('#/matrix')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"/></svg>Quy trình</button>
+    <button class="navlink" data-nav="thread" onclick="go('#/thread')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M5 8v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M12 14v2"/></svg>Digital Thread</button>
+  </div>
+</nav>
+
 <main>
   <!-- HOME -->
   <section id="view-home" class="view">
@@ -314,6 +405,34 @@ footer a{font-weight:500}
         <div class="loading"><div class="spin"></div> Đang tải…</div>
       </div>
     </div>
+  </section>
+
+  <!-- PROCESSES / MATRIX -->
+  <section id="view-matrix" class="view">
+    <div class="page-head">
+      <h1>38 Quy trình quản lý (MP)</h1>
+      <p>Ma trận toàn cảnh: trạng thái tài liệu, chuẩn ISO áp dụng, năng lực và module số hóa liên quan. Lọc theo chuẩn/năng lực để truy ngược nhanh. Nhấp một hàng để mở Hub quy trình.</p>
+    </div>
+    <div class="prog-cards" id="prog-cards"></div>
+    <div class="filters" id="filters"></div>
+    <div class="tbl-wrap"><table class="matrix">
+      <thead><tr><th>Quy trình</th><th>Trạng thái</th><th>Chuẩn ISO</th><th>Năng lực</th><th>Module</th><th>Tài liệu</th></tr></thead>
+      <tbody id="matrix-body"></tbody>
+    </table></div>
+  </section>
+
+  <!-- DIGITAL THREAD -->
+  <section id="view-thread" class="view">
+    <div class="page-head">
+      <h1>Digital Thread — Dòng chảy số xuyên tầng</h1>
+      <p>Kiến trúc v4.1 nối liền 5 lớp logic: <b>Năng lực → Quy trình → Ứng dụng → AI → Tuân thủ</b>. Chọn một quy trình để xem chuỗi liên kết cụ thể của nó qua các tầng.</p>
+    </div>
+    <div class="pipeline" id="pipeline"></div>
+    <div class="thread-pick">
+      <label for="thread-sel" style="font-weight:600;font-size:14px">Xem chuỗi của quy trình:</label>
+      <select id="thread-sel" onchange="renderThreadFlow(this.value)"></select>
+    </div>
+    <div id="thread-flow"></div>
   </section>
 
   <!-- SEARCH RESULTS -->
@@ -388,9 +507,11 @@ function buildIndex(node,depth=0){
 /* ============================ Home ============================ */
 function renderHome(){
   const c=DATA.counts;
+  const withDoc=(DATA.processes||[]).filter(p=>p.has_doc).length;
   $('#stats').innerHTML=[
     [c.dirs,'Thư mục'],[c.files,'Tệp tài liệu'],[c.capabilities,'Năng lực (CAP)'],
-    [c.processes,'Quy trình (MP)'],[c.modules,'Module (M)'],[DATA.standards.length,'Chuẩn ISO']
+    [c.processes,'Quy trình (MP)'],[c.modules,'Module (M)'],
+    [withDoc+'/'+c.processes,'Thủ tục đã ban hành']
   ].map(([n,l])=>`<div class="stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join('');
 
   $('#tiers').innerHTML=Object.entries(DATA.tiers).map(([key,t])=>`
@@ -701,9 +822,86 @@ document.addEventListener('keydown',e=>{
   if(e.key==='/'&&document.activeElement!==$('#q')){e.preventDefault();$('#q').focus();}
 });
 
+/* ============================ Processes: matrix + progress + filter ============================ */
+let MFILTER={std:null,onlyDoc:false};
+function renderMatrix(){
+  const P=DATA.processes||[];
+  const withDoc=P.filter(p=>p.has_doc).length;
+  const active=P.filter(p=>(p.status||'').toLowerCase()==='active').length;
+  const pct=P.length?Math.round(withDoc/P.length*100):0;
+  $('#prog-cards').innerHTML=`
+    <div class="pcard"><div class="pn">${P.length}</div><div class="pl">Quy trình quản lý (MP)</div></div>
+    <div class="pcard"><div class="pn">${withDoc}/${P.length}</div><div class="pl">Đã có thủ tục ban hành</div><div class="pbar"><i style="width:${pct}%"></i></div></div>
+    <div class="pcard"><div class="pn">${active}</div><div class="pl">Trạng thái đang áp dụng</div></div>
+    <div class="pcard"><div class="pn">${DATA.counts.modules}</div><div class="pl">Module số hóa (ánh xạ 1–1)</div></div>`;
+  let f=`<span class="flabel">Chuẩn ISO</span>
+    <button class="fchip ${MFILTER.std===null?'on':''}" onclick="setFilter('std',null)">Tất cả</button>`;
+  (DATA.standards||[]).forEach(s=>{f+=`<button class="fchip ${MFILTER.std===s?'on':''}" onclick="setFilter('std','${esc(s)}')">${esc(s)}</button>`;});
+  f+=`<span class="flabel" style="margin-left:8px">Tài liệu</span>
+    <button class="fchip tog ${MFILTER.onlyDoc?'on':''}" onclick="setFilter('onlyDoc',${!MFILTER.onlyDoc})">Chỉ MP đã có thủ tục</button>`;
+  $('#filters').innerHTML=f;
+  renderMatrixBody();
+}
+function setFilter(k,v){MFILTER[k]=v;renderMatrix();}
+function renderMatrixBody(){
+  const rows=(DATA.processes||[]).filter(p=>{
+    if(MFILTER.std && !(p.standards||[]).includes(MFILTER.std))return false;
+    if(MFILTER.onlyDoc && !p.has_doc)return false;
+    return true;
+  });
+  const B=$('#matrix-body');
+  if(!rows.length){B.innerHTML=`<tr><td colspan="6"><div class="no-res">Không có quy trình nào khớp bộ lọc.</div></td></tr>`;return;}
+  B.innerHTML=rows.map(p=>{
+    const std=(p.standards||[]).filter(s=>s&&s!=='(none)').map(s=>`<span class="tag std">${esc(s)}</span>`).join('')||'<span class="tag no">—</span>';
+    const caps=(p.capabilities||[]).map(c=>`<span class="tag">${esc(c)}</span>`).join('')||'—';
+    const active=(p.status||'').toLowerCase()==='active';
+    const doc=p.has_doc?`<span class="tag has">✓ Bản ${esc(p.doc_edition||'')}</span>`:`<span class="tag no">Chưa có</span>`;
+    return `<tr onclick="openPath('${esc(p.path)}')">
+      <td><span class="mp-code">${esc(p.code)}</span> · <span class="mp-name">${esc(p.name)}</span></td>
+      <td><span class="dot ${active?'green':'amber'}"></span>${esc(p.status||'—')}</td>
+      <td>${std}</td><td>${caps}</td>
+      <td>${p.module?`<span class="tag">${esc(p.module)}</span>`:'—'}</td>
+      <td>${doc}</td></tr>`;
+  }).join('');
+}
+
+/* ============================ Digital Thread ============================ */
+function renderThread(){
+  $('#pipeline').innerHTML=Object.entries(DATA.tiers).map(([k,t],i)=>{
+    const code=esc(k.split('_')[0]);
+    return `${i?'<span class="parrow">→</span>':''}<button class="pstep ${t.star?'star':''}" onclick="openPath('${esc(k)}')"><span class="pc">${code}</span> ${esc(t.title)}${t.star?' ★':''}</button>`;
+  }).join('');
+  const sel=$('#thread-sel');
+  sel.innerHTML=(DATA.processes||[]).map(p=>`<option value="${esc(p.code)}">${esc(p.code)} — ${esc(p.name)}</option>`).join('');
+  renderThreadFlow(sel.value);
+}
+function renderThreadFlow(code){
+  const p=(DATA.processes||[]).find(x=>x.code===code); if(!p){$('#thread-flow').innerHTML='';return;}
+  const node=(c,t,s,path,accent)=>`<div class="tnode ${accent?'accent':''}"${path?` onclick="openPath('${esc(path)}')"`:''}>
+    <div class="tc">${esc(c)}</div><div class="tt">${esc(t)}</div>${s?`<div class="ts">${esc(s)}</div>`:''}</div>`;
+  const capNodes=(p.capabilities||[]).map(c=>{
+    const path=p.cap_paths?p.cap_paths[c]:null;
+    const nm=path?(friendly(path.split('/').pop())||'Năng lực'):'Năng lực';
+    return node(c,nm,'02_CAPABILITIES',path);
+  }).join('')||node('—','Chưa gắn năng lực','');
+  const mp=node(p.code,p.name,'04_PROCESS_LIBRARY · Hub điều hướng',p.path,true);
+  const mod=p.module?node(p.module,p.name,'05_MODULE_LIBRARY · đặc tả số hóa',p.module_path)
+                    :node('—','Chưa có module','');
+  const last=p.has_doc
+    ? node('Thủ tục',p.doc_controlled,'Tài liệu kiểm soát · bản '+(p.doc_edition||''),p.path+'/'+p.doc_controlled,true)
+    : node('11','Tuân thủ & bằng chứng','Bằng chứng, đánh giá, CAPA','11_COMPLIANCE');
+  $('#thread-flow').innerHTML=`<div class="flow">
+    <div class="flow-col"><div class="ch">Năng lực · 02</div>${capNodes}</div>
+    <div class="flow-col"><div class="ch">Quy trình · 04</div>${mp}</div>
+    <div class="flow-col"><div class="ch">Module · 05</div>${mod}</div>
+    <div class="flow-col"><div class="ch">Tài liệu / Tuân thủ</div>${last}</div>
+  </div>`;
+}
+
 /* ============================ Views & routing ============================ */
 function showView(v){
-  ['home','explore','search'].forEach(x=>$('#view-'+x).classList.toggle('active',x===v));
+  ['home','explore','matrix','thread','search'].forEach(x=>$('#view-'+x).classList.toggle('active',x===v));
+  document.querySelectorAll('.navlink').forEach(n=>n.classList.toggle('active',n.dataset.nav===v));
   window.scrollTo({top:0});
 }
 function go(hash,replace){
@@ -725,6 +923,16 @@ function route(){
   if(h==='#/explore'){
     showView('explore'); ensureExplorer();
     if(!$('#detail').dataset.init){ renderDir(DATA.tree,''); $('#detail').dataset.init='1'; }
+    return;
+  }
+  if(h==='#/matrix'){
+    showView('matrix');
+    if(!$('#view-matrix').dataset.init){ renderMatrix(); $('#view-matrix').dataset.init='1'; }
+    return;
+  }
+  if(h==='#/thread'){
+    showView('thread');
+    if(!$('#view-thread').dataset.init){ renderThread(); $('#view-thread').dataset.init='1'; }
     return;
   }
   showView('home');

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-06-29 00:33 UTC",
+ "generated_at": "2026-06-29 01:25 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -210,6 +210,1010 @@
   "MP38_DichVuSo": "Quản lý dịch vụ số",
   "M38_DichVuSo": "Quản lý dịch vụ số"
  },
+ "processes": [
+  {
+   "code": "MP01",
+   "slug": "RuiRo",
+   "name": "Giải quyết rủi ro và cơ hội",
+   "status": "active",
+   "standards": [
+    "ISO9001",
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M01",
+   "module_path": "05_MODULE_LIBRARY/M01_RuiRo",
+   "path": "04_PROCESS_LIBRARY/MP01_RuiRo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP02",
+   "slug": "BaoMat",
+   "name": "Bảo mật thông tin và quyền sở hữu của khách hàng",
+   "status": "active",
+   "standards": [
+    "ISO17025",
+    "ISO27001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M02",
+   "module_path": "05_MODULE_LIBRARY/M02_BaoMat",
+   "path": "04_PROCESS_LIBRARY/MP02_BaoMat",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP03",
+   "slug": "NhanSu",
+   "name": "Tuyển dụng và đào tạo",
+   "status": "active",
+   "standards": [
+    "ISO9001",
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-12",
+    "CAP-13"
+   ],
+   "cap_paths": {
+    "CAP-12": "02_CAPABILITIES/CAP-12_DaoTao",
+    "CAP-13": "02_CAPABILITIES/CAP-13_NhanSu"
+   },
+   "module": "M03",
+   "module_path": "05_MODULE_LIBRARY/M03_NhanSu",
+   "path": "04_PROCESS_LIBRARY/MP03_NhanSu",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP04",
+   "slug": "MoiTruong",
+   "name": "Kiểm soát cơ sở vật chất và điều kiện môi trường",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-05",
+    "CAP-06",
+    "CAP-07"
+   ],
+   "cap_paths": {
+    "CAP-05": "02_CAPABILITIES/CAP-05_HieuChuan",
+    "CAP-06": "02_CAPABILITIES/CAP-06_KiemDinh",
+    "CAP-07": "02_CAPABILITIES/CAP-07_ThuNghiem"
+   },
+   "module": "M04",
+   "module_path": "05_MODULE_LIBRARY/M04_MoiTruong",
+   "path": "04_PROCESS_LIBRARY/MP04_MoiTruong",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP05",
+   "slug": "ThietBi",
+   "name": "Kiểm soát thiết bị, chuẩn và chất chuẩn",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-16"
+   ],
+   "cap_paths": {
+    "CAP-16": "02_CAPABILITIES/CAP-16_ThietBi"
+   },
+   "module": "M05",
+   "module_path": "05_MODULE_LIBRARY/M05_ThietBi",
+   "path": "04_PROCESS_LIBRARY/MP05_ThietBi",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP06",
+   "slug": "MuaSam",
+   "name": "Mua sản phẩm và dịch vụ do bên ngoài cung cấp",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-15"
+   ],
+   "cap_paths": {
+    "CAP-15": "02_CAPABILITIES/CAP-15_MuaSam"
+   },
+   "module": "M06",
+   "module_path": "05_MODULE_LIBRARY/M06_MuaSam",
+   "path": "04_PROCESS_LIBRARY/MP06_MuaSam",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP07",
+   "slug": "HopDong",
+   "name": "Xem xét yêu cầu, đề nghị và hợp đồng",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-01",
+    "CAP-02",
+    "CAP-03"
+   ],
+   "cap_paths": {
+    "CAP-01": "02_CAPABILITIES/CAP-01_BaoGia",
+    "CAP-02": "02_CAPABILITIES/CAP-02_HopDong",
+    "CAP-03": "02_CAPABILITIES/CAP-03_KeHoach"
+   },
+   "module": "M07",
+   "module_path": "05_MODULE_LIBRARY/M07_HopDong",
+   "path": "04_PROCESS_LIBRARY/MP07_HopDong",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP08",
+   "slug": "PhuongPhap",
+   "name": "Lựa chọn, xác nhận phương pháp và đánh giá độ không đảm bảo đo",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-05",
+    "CAP-06",
+    "CAP-07"
+   ],
+   "cap_paths": {
+    "CAP-05": "02_CAPABILITIES/CAP-05_HieuChuan",
+    "CAP-06": "02_CAPABILITIES/CAP-06_KiemDinh",
+    "CAP-07": "02_CAPABILITIES/CAP-07_ThuNghiem"
+   },
+   "module": "M08",
+   "module_path": "05_MODULE_LIBRARY/M08_PhuongPhap",
+   "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP09",
+   "slug": "LayMau",
+   "name": "Lấy mẫu, xử lý và bảo quản mẫu",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-04",
+    "CAP-08"
+   ],
+   "cap_paths": {
+    "CAP-04": "02_CAPABILITIES/CAP-04_HienTruong",
+    "CAP-08": "02_CAPABILITIES/CAP-08_QuanTrac"
+   },
+   "module": "M09",
+   "module_path": "05_MODULE_LIBRARY/M09_LayMau",
+   "path": "04_PROCESS_LIBRARY/MP09_LayMau",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP10",
+   "slug": "DamBaoKQ",
+   "name": "Đảm bảo giá trị sử dụng của kết quả",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M10",
+   "module_path": "05_MODULE_LIBRARY/M10_DamBaoKQ",
+   "path": "04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP11",
+   "slug": "BaoCao",
+   "name": "Báo cáo kết quả",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-05",
+    "CAP-06",
+    "CAP-07",
+    "CAP-08"
+   ],
+   "cap_paths": {
+    "CAP-05": "02_CAPABILITIES/CAP-05_HieuChuan",
+    "CAP-06": "02_CAPABILITIES/CAP-06_KiemDinh",
+    "CAP-07": "02_CAPABILITIES/CAP-07_ThuNghiem",
+    "CAP-08": "02_CAPABILITIES/CAP-08_QuanTrac"
+   },
+   "module": "M11",
+   "module_path": "05_MODULE_LIBRARY/M11_BaoCao",
+   "path": "04_PROCESS_LIBRARY/MP11_BaoCao",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP12",
+   "slug": "KhieuNai",
+   "name": "Giải quyết khiếu nại, phàn nàn, góp ý",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M12",
+   "module_path": "05_MODULE_LIBRARY/M12_KhieuNai",
+   "path": "04_PROCESS_LIBRARY/MP12_KhieuNai",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP13",
+   "slug": "KhacPhuc",
+   "name": "Hành động khắc phục và kiểm soát công việc không phù hợp",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M13",
+   "module_path": "05_MODULE_LIBRARY/M13_KhacPhuc",
+   "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP14",
+   "slug": "TaiLieu",
+   "name": "Kiểm soát tài liệu",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-18"
+   ],
+   "cap_paths": {
+    "CAP-18": "02_CAPABILITIES/CAP-18_TaiLieuHoSo"
+   },
+   "module": "M14",
+   "module_path": "05_MODULE_LIBRARY/M14_TaiLieu",
+   "path": "04_PROCESS_LIBRARY/MP14_TaiLieu",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP15",
+   "slug": "HoSo",
+   "name": "Kiểm soát hồ sơ",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-18"
+   ],
+   "cap_paths": {
+    "CAP-18": "02_CAPABILITIES/CAP-18_TaiLieuHoSo"
+   },
+   "module": "M15",
+   "module_path": "05_MODULE_LIBRARY/M15_HoSo",
+   "path": "04_PROCESS_LIBRARY/MP15_HoSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP16",
+   "slug": "DanhGiaNoiBo",
+   "name": "Đánh giá nội bộ và đánh giá bên ngoài",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M16",
+   "module_path": "05_MODULE_LIBRARY/M16_DanhGiaNoiBo",
+   "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP17",
+   "slug": "XemXetLanhDao",
+   "name": "Xem xét của lãnh đạo",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M17",
+   "module_path": "05_MODULE_LIBRARY/M17_XemXetLanhDao",
+   "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP18",
+   "slug": "QuyTacQuyetDinh",
+   "name": "Quy tắc quyết định và tuyên bố sự phù hợp",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-05",
+    "CAP-06",
+    "CAP-07"
+   ],
+   "cap_paths": {
+    "CAP-05": "02_CAPABILITIES/CAP-05_HieuChuan",
+    "CAP-06": "02_CAPABILITIES/CAP-06_KiemDinh",
+    "CAP-07": "02_CAPABILITIES/CAP-07_ThuNghiem"
+   },
+   "module": "M18",
+   "module_path": "05_MODULE_LIBRARY/M18_QuyTacQuyetDinh",
+   "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP19",
+   "slug": "SanXuatCRM",
+   "name": "Hoạch định và sản xuất chất chuẩn",
+   "status": "active",
+   "standards": [
+    "ISO17034"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-09"
+   ],
+   "cap_paths": {
+    "CAP-09": "02_CAPABILITIES/CAP-09_CRM"
+   },
+   "module": "M19",
+   "module_path": "05_MODULE_LIBRARY/M19_SanXuatCRM",
+   "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP20",
+   "slug": "PhanPhoi",
+   "name": "Phân phối và truy xuất nguồn gốc",
+   "status": "active",
+   "standards": [
+    "ISO17034"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-09"
+   ],
+   "cap_paths": {
+    "CAP-09": "02_CAPABILITIES/CAP-09_CRM"
+   },
+   "module": "M20",
+   "module_path": "05_MODULE_LIBRARY/M20_PhanPhoi",
+   "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP21",
+   "slug": "CongBoNangLuc",
+   "name": "Công bố, thông báo và kiểm soát năng lực hoạt động",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [
+    "NĐ 36/2026",
+    "NĐ 22/2026",
+    "NQ 66.18/2026",
+    "NQ 66.19/2026"
+   ],
+   "capabilities": [
+    "CAP-10"
+   ],
+   "cap_paths": {
+    "CAP-10": "02_CAPABILITIES/CAP-10_CongBoNangLuc"
+   },
+   "module": "M21",
+   "module_path": "05_MODULE_LIBRARY/M21_CongBoNangLuc",
+   "path": "04_PROCESS_LIBRARY/MP21_CongBoNangLuc",
+   "doc_controlled": "ETV.MP21_Thu_tuc_Final_V5.docx",
+   "doc_edition": "02",
+   "doc_issued": "2026-06-28",
+   "doc_status": "issued",
+   "has_doc": true,
+   "forms": [
+    "F21.01",
+    "F21.02",
+    "F21.03",
+    "F21.04",
+    "F21.05",
+    "F21.06",
+    "F21.07",
+    "F21.08",
+    "F21.09",
+    "F21.10",
+    "F21.11",
+    "F21.12"
+   ]
+  },
+  {
+   "code": "MP22",
+   "slug": "DamBaoDoLuongDN",
+   "name": "Đảm bảo đo lường tại doanh nghiệp",
+   "status": "active",
+   "standards": [
+    "(none)"
+   ],
+   "legal": [
+    "xem 08_KNOWLEDGE_GRAPH/01_Regulations"
+   ],
+   "capabilities": [
+    "CAP-11"
+   ],
+   "cap_paths": {
+    "CAP-11": "02_CAPABILITIES/CAP-11_DamBaoDoLuongDN"
+   },
+   "module": "M22",
+   "module_path": "05_MODULE_LIBRARY/M22_DamBaoDoLuongDN",
+   "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP23",
+   "slug": "CongBoCRM",
+   "name": "Công bố giá trị danh định và độ không đảm bảo đo của chất chuẩn",
+   "status": "active",
+   "standards": [
+    "ISO17034"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-09"
+   ],
+   "cap_paths": {
+    "CAP-09": "02_CAPABILITIES/CAP-09_CRM"
+   },
+   "module": "M23",
+   "module_path": "05_MODULE_LIBRARY/M23_CongBoCRM",
+   "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP24",
+   "slug": "KPI",
+   "name": "Quản lý và đánh giá hiệu suất công việc (KPI)",
+   "status": "active",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M24",
+   "module_path": "05_MODULE_LIBRARY/M24_KPI",
+   "path": "04_PROCESS_LIBRARY/MP24_KPI",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP25",
+   "slug": "BoiCanh",
+   "name": "Quản lý bối cảnh tổ chức và các bên quan tâm",
+   "status": "active",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-22"
+   ],
+   "cap_paths": {
+    "CAP-22": "02_CAPABILITIES/CAP-22_BoiCanhTriThuc"
+   },
+   "module": "M25",
+   "module_path": "05_MODULE_LIBRARY/M25_BoiCanh",
+   "path": "04_PROCESS_LIBRARY/MP25_BoiCanh",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP26",
+   "slug": "TriThuc",
+   "name": "Quản lý tri thức tổ chức",
+   "status": "active",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-22"
+   ],
+   "cap_paths": {
+    "CAP-22": "02_CAPABILITIES/CAP-22_BoiCanhTriThuc"
+   },
+   "module": "M26",
+   "module_path": "05_MODULE_LIBRARY/M26_TriThuc",
+   "path": "04_PROCESS_LIBRARY/MP26_TriThuc",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP27",
+   "slug": "TaiSanTT",
+   "name": "Quản trị dữ liệu và tài sản thông tin",
+   "status": "active",
+   "standards": [
+    "ISO27001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M27",
+   "module_path": "05_MODULE_LIBRARY/M27_TaiSanTT",
+   "path": "04_PROCESS_LIBRARY/MP27_TaiSanTT",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP28",
+   "slug": "ATTT",
+   "name": "Quản lý an toàn thông tin",
+   "status": "active",
+   "standards": [
+    "ISO27001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M28",
+   "module_path": "05_MODULE_LIBRARY/M28_ATTT",
+   "path": "04_PROCESS_LIBRARY/MP28_ATTT",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP29",
+   "slug": "AI",
+   "name": "Quản lý hệ thống trí tuệ nhân tạo",
+   "status": "active",
+   "standards": [
+    "ISO42001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-20"
+   ],
+   "cap_paths": {
+    "CAP-20": "02_CAPABILITIES/CAP-20_AIOffice"
+   },
+   "module": "M29",
+   "module_path": "05_MODULE_LIBRARY/M29_AI",
+   "path": "04_PROCESS_LIBRARY/MP29_AI",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP30",
+   "slug": "ThayDoi",
+   "name": "Quản lý thay đổi",
+   "status": "active",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M30",
+   "module_path": "05_MODULE_LIBRARY/M30_ThayDoi",
+   "path": "04_PROCESS_LIBRARY/MP30_ThayDoi",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP31",
+   "slug": "LienTuc",
+   "name": "Quản lý tính liên tục hoạt động",
+   "status": "active",
+   "standards": [
+    "ISO27001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M31",
+   "module_path": "05_MODULE_LIBRARY/M31_LienTuc",
+   "path": "04_PROCESS_LIBRARY/MP31_LienTuc",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP32",
+   "slug": "ChuyenDoiSo",
+   "name": "Chuyển đổi số và cải tiến hệ thống",
+   "status": "active",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-17"
+   ],
+   "cap_paths": {
+    "CAP-17": "02_CAPABILITIES/CAP-17_ChatLuong"
+   },
+   "module": "M32",
+   "module_path": "05_MODULE_LIBRARY/M32_ChuyenDoiSo",
+   "path": "04_PROCESS_LIBRARY/MP32_ChuyenDoiSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP33",
+   "slug": "HeThongTT",
+   "name": "Quản lý hệ thống thông tin",
+   "status": "active",
+   "standards": [
+    "ISO27001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M33",
+   "module_path": "05_MODULE_LIBRARY/M33_HeThongTT",
+   "path": "04_PROCESS_LIBRARY/MP33_HeThongTT",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP34",
+   "slug": "DuLieuSo",
+   "name": "Quản lý dữ liệu số",
+   "status": "active",
+   "standards": [
+    "ISO27001",
+    "ISO42001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT"
+   },
+   "module": "M34",
+   "module_path": "05_MODULE_LIBRARY/M34_DuLieuSo",
+   "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP35",
+   "slug": "NenTangSo",
+   "name": "Quản lý nền tảng số",
+   "status": "active",
+   "standards": [
+    "(none)"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-20"
+   ],
+   "cap_paths": {
+    "CAP-20": "02_CAPABILITIES/CAP-20_AIOffice"
+   },
+   "module": "M35",
+   "module_path": "05_MODULE_LIBRARY/M35_NenTangSo",
+   "path": "04_PROCESS_LIBRARY/MP35_NenTangSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP36",
+   "slug": "ChungChiSo",
+   "name": "Quản lý chứng chỉ số và truy xuất nguồn gốc",
+   "status": "active",
+   "standards": [
+    "ISO17025"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-21"
+   ],
+   "cap_paths": {
+    "CAP-21": "02_CAPABILITIES/CAP-21_DMC"
+   },
+   "module": "M36",
+   "module_path": "05_MODULE_LIBRARY/M36_ChungChiSo",
+   "path": "04_PROCESS_LIBRARY/MP36_ChungChiSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP37",
+   "slug": "TichHopDuLieu",
+   "name": "Quản lý tích hợp dữ liệu",
+   "status": "active",
+   "standards": [
+    "(none)"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-19",
+    "CAP-20"
+   ],
+   "cap_paths": {
+    "CAP-19": "02_CAPABILITIES/CAP-19_ATTT",
+    "CAP-20": "02_CAPABILITIES/CAP-20_AIOffice"
+   },
+   "module": "M37",
+   "module_path": "05_MODULE_LIBRARY/M37_TichHopDuLieu",
+   "path": "04_PROCESS_LIBRARY/MP37_TichHopDuLieu",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP38",
+   "slug": "DichVuSo",
+   "name": "Quản lý dịch vụ số",
+   "status": "active",
+   "standards": [
+    "(none)"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-20"
+   ],
+   "cap_paths": {
+    "CAP-20": "02_CAPABILITIES/CAP-20_AIOffice"
+   },
+   "module": "M38",
+   "module_path": "05_MODULE_LIBRARY/M38_DichVuSo",
+   "path": "04_PROCESS_LIBRARY/MP38_DichVuSo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  }
+ ],
  "tree": {
   "name": "MANLAB-AIOS",
   "path": "",
@@ -330,6 +1334,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-01_BaoGia/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-01",
+       "name": "Tiếp nhận & Báo giá",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP07_HopDong"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -355,6 +1367,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-02_HopDong/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-02",
+       "name": "Ký hợp đồng",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP07_HopDong"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -380,6 +1400,15 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-03_KeHoach/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-03",
+       "name": "Lập kế hoạch thực hiện",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP07_HopDong",
+        "../../04_PROCESS_LIBRARY/MP09_LayMau"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -405,6 +1434,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-04_HienTruong/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-04",
+       "name": "Hiện trường & Lấy mẫu",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP09_LayMau"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -430,6 +1467,19 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-05_HieuChuan/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-05",
+       "name": "Hiệu chuẩn",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP04_MoiTruong",
+        "../../04_PROCESS_LIBRARY/MP05_ThietBi",
+        "../../04_PROCESS_LIBRARY/MP08_PhuongPhap",
+        "../../04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+        "../../04_PROCESS_LIBRARY/MP11_BaoCao",
+        "../../04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -455,6 +1505,19 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-06_KiemDinh/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-06",
+       "name": "Kiểm định",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP04_MoiTruong",
+        "../../04_PROCESS_LIBRARY/MP05_ThietBi",
+        "../../04_PROCESS_LIBRARY/MP08_PhuongPhap",
+        "../../04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+        "../../04_PROCESS_LIBRARY/MP11_BaoCao",
+        "../../04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -480,6 +1543,19 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-07_ThuNghiem/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-07",
+       "name": "Thử nghiệm",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP04_MoiTruong",
+        "../../04_PROCESS_LIBRARY/MP08_PhuongPhap",
+        "../../04_PROCESS_LIBRARY/MP09_LayMau",
+        "../../04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+        "../../04_PROCESS_LIBRARY/MP11_BaoCao",
+        "../../04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -505,6 +1581,17 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-08_QuanTrac/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-08",
+       "name": "Quan trắc môi trường",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP09_LayMau",
+        "../../04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+        "../../04_PROCESS_LIBRARY/MP11_BaoCao",
+        "../../04_PROCESS_LIBRARY/MP21_CongBoNangLuc"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -530,6 +1617,16 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-09_CRM/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-09",
+       "name": "Sản xuất mẫu chuẩn (CRM)",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP19_SanXuatCRM",
+        "../../04_PROCESS_LIBRARY/MP20_PhanPhoi",
+        "../../04_PROCESS_LIBRARY/MP23_CongBoCRM"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -555,6 +1652,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-10_CongBoNangLuc/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-10",
+       "name": "Công bố năng lực hoạt động",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP21_CongBoNangLuc"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -580,6 +1685,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-11_DamBaoDoLuongDN/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-11",
+       "name": "Đảm bảo đo lường tại doanh nghiệp",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -605,6 +1718,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-12_DaoTao/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-12",
+       "name": "Đào tạo chuyên môn",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP03_NhanSu"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -630,6 +1751,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-13_NhanSu/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-13",
+       "name": "Quản lý nhân sự",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP03_NhanSu"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -655,6 +1784,12 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-14_KeToan/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-14",
+       "name": "Kế toán & Tài chính",
+       "processes": []
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -680,6 +1815,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-15_MuaSam/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-15",
+       "name": "Mua sắm & Quản lý nhà cung cấp",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP06_MuaSam"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -705,6 +1848,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-16_ThietBi/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-16",
+       "name": "Quản lý thiết bị & chuẩn",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP05_ThietBi"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -730,6 +1881,22 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-17_ChatLuong/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-17",
+       "name": "Chất lượng & Cải tiến",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP01_RuiRo",
+        "../../04_PROCESS_LIBRARY/MP10_DamBaoKQ",
+        "../../04_PROCESS_LIBRARY/MP12_KhieuNai",
+        "../../04_PROCESS_LIBRARY/MP13_KhacPhuc",
+        "../../04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo",
+        "../../04_PROCESS_LIBRARY/MP17_XemXetLanhDao",
+        "../../04_PROCESS_LIBRARY/MP24_KPI",
+        "../../04_PROCESS_LIBRARY/MP30_ThayDoi",
+        "../../04_PROCESS_LIBRARY/MP32_ChuyenDoiSo"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -755,6 +1922,15 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-18_TaiLieuHoSo/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-18",
+       "name": "Quản lý tài liệu & hồ sơ",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP14_TaiLieu",
+        "../../04_PROCESS_LIBRARY/MP15_HoSo"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -780,6 +1956,19 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-19_ATTT/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-19",
+       "name": "An toàn thông tin & Dữ liệu",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP27_TaiSanTT",
+        "../../04_PROCESS_LIBRARY/MP28_ATTT",
+        "../../04_PROCESS_LIBRARY/MP31_LienTuc",
+        "../../04_PROCESS_LIBRARY/MP33_HeThongTT",
+        "../../04_PROCESS_LIBRARY/MP34_DuLieuSo",
+        "../../04_PROCESS_LIBRARY/MP37_TichHopDuLieu"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -805,6 +1994,16 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-20_AIOffice/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-20",
+       "name": "AI Office & Dịch vụ số",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP29_AI",
+        "../../04_PROCESS_LIBRARY/MP35_NenTangSo",
+        "../../04_PROCESS_LIBRARY/MP38_DichVuSo"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -830,6 +2029,14 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-21_DMC/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-21",
+       "name": "Chứng chỉ số DMC",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP36_ChungChiSo"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -855,6 +2062,15 @@
       ],
       "desc": "Năng lực nghiệp vụ.",
       "readme": "02_CAPABILITIES/CAP-22_BoiCanhTriThuc/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-22",
+       "name": "Bối cảnh & Tri thức tổ chức",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP25_BoiCanh",
+        "../../04_PROCESS_LIBRARY/MP26_TriThuc"
+       ]
+      },
       "n_dirs": 0,
       "n_files": 2
      },
@@ -9246,7 +10462,7 @@
       "path": "_meta/build_site.py",
       "type": "file",
       "ext": ".py",
-      "size": 12705
+      "size": 15011
      },
      {
       "name": "github-setup.sh",

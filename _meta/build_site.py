@@ -195,14 +195,16 @@ def build_node(abs_path, rel_path):
             node["desc"] = desc
         node["readme"] = (rel_path + "/README.md").lstrip("/")
 
-    # Manifest hub (MP/M)
-    manifest = os.path.join(abs_path, "manifest.yaml")
-    if os.path.isfile(manifest):
-        try:
-            with open(manifest, encoding="utf-8") as f:
-                node["meta"] = parse_simple_yaml(f.read())
-        except Exception:
-            pass
+    # Manifest hub (MP/M) hoặc capability.yaml (CAP)
+    for mf in ("manifest.yaml", "capability.yaml"):
+        mp = os.path.join(abs_path, mf)
+        if os.path.isfile(mp):
+            try:
+                with open(mp, encoding="utf-8") as f:
+                    node["meta"] = parse_simple_yaml(f.read())
+            except Exception:
+                pass
+            break
 
     entries = sorted(os.listdir(abs_path), key=lambda s: s.lower())
     dirs, files = [], []
@@ -241,6 +243,62 @@ def build_node(abs_path, rel_path):
     node["n_dirs"] = len(dirs)
     node["n_files"] = len(files)
     return node
+
+
+def collect_dir_map(prefix):
+    """Map mã (MPxx / Mxx / CAP-xx) -> đường dẫn thư mục con của `prefix`."""
+    m = {}
+    base = os.path.join(ROOT, prefix)
+    if not os.path.isdir(base):
+        return m
+    for e in os.listdir(base):
+        if os.path.isdir(os.path.join(base, e)):
+            code = e.split("_")[0]
+            m[code] = prefix + "/" + e
+    return m
+
+
+def collect_processes(tree):
+    """Tổng hợp 38 quy trình MP từ cây + metadata để dựng ma trận/Digital Thread."""
+    procs = []
+    pl = next((c for c in tree["children"] if c["name"] == "04_PROCESS_LIBRARY"), None)
+    if not pl:
+        return procs
+    mod_map = collect_dir_map("05_MODULE_LIBRARY")
+    cap_map = collect_dir_map("02_CAPABILITIES")
+    for hub in pl.get("children", []):
+        if hub["type"] != "dir":
+            continue
+        m = hub.get("meta")
+        if not m or not str(m.get("code", "")).startswith("MP"):
+            continue
+        doc = m.get("document") if isinstance(m.get("document"), dict) else {}
+        controlled = doc.get("controlled")
+        has_doc = bool(controlled) and any(
+            ch["name"] == controlled for ch in hub.get("children", [])
+        )
+        caps = m.get("capabilities") or []
+        procs.append({
+            "code": m.get("code"),
+            "slug": m.get("slug"),
+            "name": m.get("name") or hub["name"],
+            "status": m.get("status"),
+            "standards": m.get("standards") or [],
+            "legal": m.get("legal") or [],
+            "capabilities": caps,
+            "cap_paths": {c: cap_map.get(c) for c in caps if cap_map.get(c)},
+            "module": m.get("module"),
+            "module_path": mod_map.get(m.get("module")),
+            "path": hub["path"],
+            "doc_controlled": controlled,
+            "doc_edition": doc.get("edition"),
+            "doc_issued": doc.get("issued"),
+            "doc_status": doc.get("doc_status"),
+            "has_doc": has_doc,
+            "forms": m.get("forms") or [],
+        })
+    procs.sort(key=lambda p: int(re.sub(r"\D", "", p["code"] or "0") or 0))
+    return procs
 
 
 def main():
@@ -282,6 +340,8 @@ def main():
     counts["dirs"] += len(top_dirs)
     root_node["children"] = top_dirs + top_files
 
+    processes = collect_processes(root_node)
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "repo": repo,
@@ -299,6 +359,7 @@ def main():
         "standards": ["ISO9001", "ISO17025", "ISO17034", "ISO27001", "ISO42001"],
         "tiers": TIERS,
         "names": names,
+        "processes": processes,
         "tree": root_node,
     }
 
