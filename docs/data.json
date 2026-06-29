@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-06-29 01:25 UTC",
+ "generated_at": "2026-06-29 09:30 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -3271,7 +3271,7 @@
         "path": "04_PROCESS_LIBRARY/MP21_CongBoNangLuc/ETV.MP21_Thu_tuc_Final_V5.docx",
         "type": "file",
         "ext": ".docx",
-        "size": 68795
+        "size": 71407
        },
        {
         "name": "links.yaml",
