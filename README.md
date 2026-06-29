@@ -2,6 +2,8 @@
 
 [![Validate links](https://github.com/namdtvast/MANLAB-AIOS/actions/workflows/validate-links.yml/badge.svg)](https://github.com/namdtvast/MANLAB-AIOS/actions/workflows/validate-links.yml)
 
+> 🌐 **Cổng tra cứu tương tác:** **https://namdtvast.github.io/MANLAB-AIOS/** — duyệt cấu trúc thư mục, mở tài liệu và chia sẻ cho đoàn đánh giá. (Mã nguồn trang: [`docs/`](docs/) · cách bật Pages: [docs/README.md](docs/README.md))
+
 **Viện Kiểm định Công nghệ và Môi trường (ETV)** · Kiến trúc **v4.1**
 
 > Đây không phải kho tài liệu. Đây là **Hệ điều hành doanh nghiệp**.
