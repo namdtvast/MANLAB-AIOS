@@ -36,4 +36,54 @@
 2. **Một nguồn sự thật** — biểu mẫu ở `06`, tiêu chuẩn ở `03`, tri thức ở `08`.
 3. **Digital Thread** — `04_PROCESS_LIBRARY/_DIGITAL_THREADS`.
 
+---
+
+## Bản đồ di chuyển — từ Dropbox cũ vào repo này
+
+> Dùng bảng này khi chuyển tài liệu từ cấu trúc Dropbox cũ. Mỗi dòng = **1 thư mục nguồn → 1 đích duy nhất**.
+
+| Thư mục Dropbox cũ | Chuyển vào | Ghi chú |
+|--------------------|-----------|---------|
+| `1.ManLab_Cal/1.Ban Mo ta/` | `05_MODULE_LIBRARY/M08_QuanTrac/01_Requirement/` | Bản mô tả sản phẩm ManLab |
+| `1.ManLab_Cal/5.ManCheck/` | `05_MODULE_LIBRARY/M08_QuanTrac/` | ManCheck → module quản trắc |
+| `1.Vien ETV/0.Data_ManLab/1.Form BM/` | `06_SHARED_RESOURCES/01_Forms/` | Biểu mẫu gốc chưa điền |
+| `1.Vien ETV/0.Data_ManLab/2_BaoGia/` | `02_CAPABILITIES/CAP-01_BaoGia/` | Dữ liệu báo giá thực tế |
+| `1.Vien ETV/0.Data_ManLab/2_KQ_Hopdong/` | `02_CAPABILITIES/CAP-02_HopDong/` | Hợp đồng đã ký |
+| `1.Vien ETV/0.Data_ManLab/13_KQ_KPH/` | `11_COMPLIANCE/05_NC/` | Sự không phù hợp |
+| `1.Vien ETV/0.Data_ManLab/17_KQ_XemxetLanhdao/` | `11_COMPLIANCE/07_Management_Review/` | Xem xét lãnh đạo |
+| `1.Vien ETV/1.E_ISO17025/1.ETV.QM_STCL/` | `03_MANAGEMENT_SYSTEM/01_ETV.QM/` | Sổ tay chất lượng |
+| `1.Vien ETV/1.E_ISO17025/2.ETV.P_Thu tuc/` | `03_MANAGEMENT_SYSTEM/03_ISO17025/` → procedures | Thủ tục ISO |
+| `1.Vien ETV/1.E_ISO17025/3.ETV.P_Quy trinh/` | `03_MANAGEMENT_SYSTEM/03_ISO17025/` → processes | Quy trình kỹ thuật |
+| `1.Vien ETV/1.E_ISO17025/4.HS_BoA/` | `11_COMPLIANCE/boa/` | Hồ sơ công nhận BoA |
+| `1.Vien ETV/2.E_TDC_DK 105/` | `11_COMPLIANCE/tdc-dk105/` | Đăng ký kiểm định ND105 |
+| `1.Vien ETV/2.E_TDC_DK 107_TN/` | `11_COMPLIANCE/tdc-dk107/` | Đăng ký thử nghiệm ND107 |
+| `1.Vien ETV/4.E_Thu tuc/1–2` | `01_ENTERPRISE/legal/` | Quyết định, đăng ký KD |
+| `1.Vien ETV/4.E_Thu tuc/3–4, 8` | `01_ENTERPRISE/banking-tax/` | Ngân hàng, thuế, HĐĐT |
+| `1.Vien ETV/4.E_Thu tuc/10–20` | `01_ENTERPRISE/assets/` | Mua đất, xe, chung cư |
+| `1.Vien ETV/5.E_Ho so/*_Nhan hieu/` | `01_ENTERPRISE/ip-trademark/` | Nhãn hiệu đã đăng ký |
+| `1.Vien ETV/5.E_Ho so/*_Sang che, GPHI, KDCN/` | `01_ENTERPRISE/ip-patent/` | Sáng chế đã nộp đơn |
+| `1.Vien ETV/12.Dich vu_CHTD/` | `12_RESEARCH/10_CHTD/` | Dịch vụ CHTD, HTIC |
+| `1.Vien ETV/13.Van thu Di Den/` | `01_ENTERPRISE/correspondence/` | Công văn đi/đến |
+| `1.Vien ETV/14.HS.Ke toan/` | `01_ENTERPRISE/finance/` | Hồ sơ kế toán |
+| `1.Vien ETV/Logo, hinh anh/` | `06_SHARED_RESOURCES/13_Branding/` | Logo tất cả thương hiệu |
+| `1.Vien ETV/TLTK/5.TCVN/` | `08_KNOWLEDGE_GRAPH/04_TCVN/` | Tiêu chuẩn TCVN |
+| `1.Vien ETV/TLTK/6.QCVN/` | `08_KNOWLEDGE_GRAPH/13_QCVN/` | Quy chuẩn QCVN |
+| `1.Vien ETV/TLTK/7.DLVN/` | `08_KNOWLEDGE_GRAPH/03_DLVN/` | ĐLVN |
+| `1.Vien ETV/TLTK/8.BoA/` | `08_KNOWLEDGE_GRAPH/05_ILAC/` | Tài liệu tổ chức công nhận |
+| `TAI LIEU/0.1.* (khí)/` | `04_PROCESS_LIBRARY/air/` | Tài liệu kỹ thuật đo khí |
+| `TAI LIEU/0.9.* (nước)/` | `04_PROCESS_LIBRARY/water/` | Tài liệu kỹ thuật đo nước |
+| `TAI LIEU/0.3.* (lưu lượng)/` | `04_PROCESS_LIBRARY/flow/` | Lưu lượng, tốc độ gió |
+| `TAI LIEU/0.4–7 (vật lý)/` | `04_PROCESS_LIBRARY/physical/` | Bụi, nhiệt, ẩm, ồn |
+| `TAI LIEU/0.10–12 (hiệu chuẩn)/` | `04_PROCESS_LIBRARY/calibration/` | RM, CRM, uncertainty |
+| `TAI LIEU/1.4.* (pháp luật)/` | `08_KNOWLEDGE_GRAPH/01_Regulations/` | Luật, NĐ, TT |
+| `TAI LIEU/2.1.EPA, 2.9.ASTM, 2.7.APHA/` | `08_KNOWLEDGE_GRAPH/12_International/` | Tiêu chuẩn quốc tế |
+| `TAI LIEU/2.2.ISO/` | `08_KNOWLEDGE_GRAPH/02_ISO/` | Tiêu chuẩn ISO |
+| `TAI LIEU/2.4.VIM, GUM/` | `08_KNOWLEDGE_GRAPH/12_International/` | VIM, GUM |
+| `4.Presentation/` | `12_RESEARCH/11_Presentations/` | Slide theo năm |
+| `Z.Dang hoan thien/0.Bieu mau chung/` | `06_SHARED_RESOURCES/01_Forms/` | Biểu mẫu chung |
+
+> **Sau khi di chuyển xong**: xoá thư mục nguồn để tránh trùng lặp. Dùng script `_meta/migrate.sh` (nếu có).
+
+---
+
 Xem [ARCHITECTURE.md](ARCHITECTURE.md) · [_meta/SCHEMA.md](_meta/SCHEMA.md) · [_meta/INDEX.md](_meta/INDEX.md)

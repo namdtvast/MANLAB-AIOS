@@ -1,23 +1,53 @@
-# 08 — KNOWLEDGE GRAPH ⭐
+# 08 — KNOWLEDGE GRAPH ⭐ (Kho tri thức & Tiêu chuẩn)
 
-**Ý nghĩa:** Tri thức có cấu trúc để AI đọc: quy định, tiêu chuẩn, ontology, vector.
+**Ý nghĩa:** Tri thức có cấu trúc để AI đọc: quy định, tiêu chuẩn kỹ thuật, ontology, vector. Đây là **thư viện tham chiếu** — phân biệt với `03_MANAGEMENT_SYSTEM` là chuẩn mực kiểm soát nội bộ.
 
-| Thư mục con | Lưu gì |
-|---|---|
-| `01_Regulations` | Văn bản QPPL: luật, nghị định, thông tư |
-| `02_ISO` | Tri thức về tiêu chuẩn ISO |
-| `03_DLVN` | Văn bản kỹ thuật đo lường VN |
-| `04_TCVN` | Tiêu chuẩn quốc gia |
-| `05_ILAC` | Tài liệu ILAC/APAC |
-| `06_FAQ` | Câu hỏi thường gặp |
-| `07_Case_Study` | Tình huống thực tế |
-| `08_Ontology` | Khái niệm và quan hệ |
-| `09_Embedding` | Vector nhúng |
-| `10_Vector_DB` | CSDL vector tra cứu ngữ nghĩa |
-| `11_Lessons_Learned` | Bài học kinh nghiệm |
+---
 
-**KHÔNG lưu trong tầng này:**
-- Chuẩn mực kiểm soát hệ thống (→03)
-- Tài liệu vi phạm bản quyền
+## Cấu trúc thư mục
 
-**Lưu ý:** Nội dung nên ở dạng văn bản/markdown để index cho AI. 03 = chuẩn mực kiểm soát; 08 = tri thức tham khảo.
+| Thư mục | Lưu gì | Nguồn Dropbox cũ |
+|---------|--------|------------------|
+| `01_Regulations/` | Văn bản QPPL: Luật, Nghị định, Thông tư, Quyết định | `TAI LIEU/1.4.*`, `TLTK/0.VBQPPL/` |
+| `02_ISO/` | Tiêu chuẩn ISO (17025, 9001, 27001, 42001…) | `TAI LIEU/2.2.ISO/`, `TLTK/ISO/` |
+| `03_DLVN/` | Văn bản kỹ thuật đo lường VN (ĐLVN) | `TAI LIEU/1.2.ĐLVN/`, `TLTK/7.DLVN/` |
+| `04_TCVN/` | Tiêu chuẩn quốc gia Việt Nam | `TAI LIEU/1.3.TCVN/`, `TLTK/5.TCVN/` |
+| `05_ILAC/` | Tài liệu ILAC, APAC, EA, A2LA, ANAB | `TAI LIEU/2.6.ILAC/`, `2.5.*`, `2.8.*` |
+| `06_FAQ/` | Câu hỏi thường gặp từ khách hàng & đánh giá viên | Mới tạo |
+| `07_Case_Study/` | Tình huống thực tế, bài học từ đánh giá | Mới tạo |
+| `08_Ontology/` | Khái niệm và quan hệ trong lĩnh vực đo lường | Mới tạo |
+| `09_Embedding/` | Vector nhúng cho tra cứu ngữ nghĩa | Mới tạo |
+| `10_Vector_DB/` | CSDL vector (Chroma, Qdrant…) | Mới tạo |
+| `11_Lessons_Learned/` | Bài học kinh nghiệm tổng hợp | Mới tạo |
+| `12_International/` | EPA (US), OIML, BS EN, APHA, ASTM, SMEWW, VIM/GUM, mCERTs | `TAI LIEU/2.1.*`, `2.3–2.9.*` |
+| `13_QCVN/` | Quy chuẩn kỹ thuật quốc gia | `TAI LIEU/1.3.QCVN/`, `TLTK/6.QCVN/` |
+
+---
+
+## Phân loại nhanh — đặt vào thư mục nào?
+
+| Tài liệu | Thư mục |
+|----------|---------|
+| Luật BVMT, Luật ĐLCL, Nghị định | `01_Regulations/` |
+| ISO 17025:2017, ISO 9001, bản mua từ STAMEQ | `02_ISO/` |
+| ĐLVN 117, ĐLVN 160... | `03_DLVN/` |
+| TCVN 6000, TCVN 7876... | `04_TCVN/` |
+| QCVN 05/MT, QCVN 08/MT... | `13_QCVN/` |
+| ILAC-G8, P14, EA-4/02, A2LA R205... | `05_ILAC/` |
+| EPA Method 18, ASTM D1067, SMEWW 4500... | `12_International/` |
+| VIM (JCGM 200), GUM (JCGM 100), OIML | `12_International/` |
+
+---
+
+## KHÔNG lưu ở đây
+
+| Loại tài liệu | Lưu đúng chỗ |
+|---------------|-------------|
+| Sổ tay chất lượng, thủ tục nội bộ ETV | → `03_MANAGEMENT_SYSTEM/` |
+| Hồ sơ đăng ký BoA dựa trên tiêu chuẩn | → `11_COMPLIANCE/boa/` |
+| Tài liệu vi phạm bản quyền (bản scan lậu) | Không lưu |
+
+---
+
+**Định dạng ưu tiên:** `.md`, `.txt`, `.json` (AI đọc được). File PDF lưu kèm summary `.md` cùng tên.  
+**Lưu ý:** `03_MANAGEMENT_SYSTEM` = luật chơi ETV phải tuân theo; `08_KNOWLEDGE_GRAPH` = kho tra cứu để hiểu luật chơi đó.
