@@ -504,7 +504,7 @@ html[data-theme=dark] .tier-managed.both{color:#a78bfa}
     <div class="prog-cards" id="prog-cards"></div>
     <div class="filters" id="filters"></div>
     <div class="tbl-wrap"><table class="matrix">
-      <thead><tr><th>Quy trình</th><th>Trạng thái</th><th>Chuẩn ISO</th><th>Năng lực</th><th>Module</th><th>Tài liệu</th></tr></thead>
+      <thead><tr><th>Quy trình</th><th>Trạng thái</th><th>Chuẩn ISO</th><th>Năng lực</th><th>Module</th><th>Ngày ban hành</th><th>Phiên bản</th></tr></thead>
       <tbody id="matrix-body"></tbody>
     </table></div>
   </section>
@@ -704,8 +704,10 @@ fetch('data.json').then(r=>r.json()).then(d=>{
   DATA=d; buildIndex(d.tree); renderHome();
   const gh=d.repo.tree;
   $('#ghlink').href=gh; $('#ghbtn').href=gh;
+  const hanoiTime=(()=>{const t=new Date(d.generated_at);if(isNaN(t))return d.generated_at;
+    return t.toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false})+' ICT';})();
   $('#foot').innerHTML=`MANLAB-AIOS · ${esc(d.enterprise)} · Kiến trúc v${esc(d.architecture_version)}<br>
-    Cập nhật dữ liệu: ${esc(d.generated_at)} · <a href="${gh}" target="_blank" rel="noopener">Kho mã GitHub</a>`;
+    Cập nhật dữ liệu: ${esc(hanoiTime)} · <a href="${gh}" target="_blank" rel="noopener">Kho mã GitHub</a>`;
   route();
 }).catch(e=>{
   document.querySelector('main').innerHTML='<div class="empty" style="padding:120px 20px"><h2>Không tải được dữ liệu</h2><p>Thiếu tệp <code>data.json</code>. Hãy chạy <code>python3 _meta/build_site.py</code> rồi tải lại.</p></div>';
@@ -1101,17 +1103,19 @@ function renderMatrixBody(){
     return true;
   });
   const B=$('#matrix-body');
-  if(!rows.length){B.innerHTML=`<tr><td colspan="6"><div class="no-res">Không có quy trình nào khớp bộ lọc.</div></td></tr>`;return;}
+  if(!rows.length){B.innerHTML=`<tr><td colspan="7"><div class="no-res">Không có quy trình nào khớp bộ lọc.</div></td></tr>`;return;}
   B.innerHTML=rows.map(p=>{
     const std=(p.standards||[]).filter(s=>s&&s!=='(none)').map(s=>`<span class="tag std">${esc(s)}</span>`).join('')||'<span class="tag no">—</span>';
     const caps=(p.capabilities||[]).map(c=>`<span class="tag">${esc(c)}</span>`).join('')||'—';
     const active=(p.status||'').toLowerCase()==='active';
+    const issued=p.doc_issued||(p.document&&p.document.issued)||'—';
     const doc=p.has_doc?`<span class="tag has">✓ Bản ${esc(p.doc_edition||'')}</span>`:`<span class="tag no">Chưa có</span>`;
     return `<tr onclick="openPath('${esc(p.path)}')">
       <td><span class="mp-code">${esc(p.code)}</span> · <span class="mp-name">${esc(p.name)}</span></td>
       <td><span class="dot ${active?'green':'amber'}"></span>${esc(p.status||'—')}</td>
       <td>${std}</td><td>${caps}</td>
       <td>${p.module?`<span class="tag">${esc(p.module)}</span>`:'—'}</td>
+      <td>${esc(issued)}</td>
       <td>${doc}</td></tr>`;
   }).join('');
 }
