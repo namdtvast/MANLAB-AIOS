@@ -189,21 +189,21 @@ def scan_documents():
 
                 documents[code] = doc
 
-    # Second pass: add .docx files that don't have .md version
+    # Second pass: add .docx and .doc files that don't have .md version
     md_codes = set(documents.keys())
     for root, dirs, files in os.walk(MANAGEMENT_SYSTEM_DIR):
         for file in files:
-            if file.endswith('.docx'):
-                # Extract code from docx filename
+            if file.endswith('.docx') or file.endswith('.doc'):
+                # Extract code from filename
                 code = extract_code_from_filename(file)
 
                 # Skip if we already have a .md version
                 if code in md_codes:
                     continue
 
-                docx_path = Path(root) / file
+                doc_path = Path(root) / file
 
-                # For docx files, infer metadata from filename
+                # For doc/docx files, infer metadata from filename
                 doc = {
                     'code': code,
                     'title': file.rsplit('.', 1)[0].replace('_', ' '),  # Convert filename to title
@@ -216,8 +216,8 @@ def scan_documents():
                     'approver': '',
                     'iso_clause': [],
                     'legal_basis': [],
-                    'file_path': str(docx_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
-                    'relative_path': str(docx_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
+                    'file_path': str(doc_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
+                    'relative_path': str(doc_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
                     'iso_standard': '',
                 }
                 documents[code] = doc

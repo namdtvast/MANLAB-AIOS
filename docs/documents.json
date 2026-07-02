@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-02T16:53:07.040820",
-  "total_documents": 10,
+  "generated_at": "2026-07-02T16:58:58.331311",
+  "total_documents": 11,
   "documents": [
     {
       "code": "ETV.P.F14.01",
@@ -178,6 +178,22 @@
       "legal_basis": [],
       "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_MucTieuChatLuong.docx",
       "relative_path": "01_QM/ETV.QM_MucTieuChatLuong.docx",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.QM.QUA",
+      "title": "ETV.QM QuanlyChatluong",
+      "type": "Sổ-tay",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.doc",
+      "relative_path": "01_QM/ETV.QM_QuanlyChatluong.doc",
       "iso_standard": ""
     }
   ]
