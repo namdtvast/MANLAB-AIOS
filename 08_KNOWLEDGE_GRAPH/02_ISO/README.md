@@ -1,12 +1,5 @@
-# 02 — ISO
+# 05 — ISO27001
 
-**Ý nghĩa:** Tri thức về tiêu chuẩn ISO
+ISO/IEC 27001:2022 — Hệ thống quản lý an toàn thông tin
 
-**Lưu file gì ở đây:**
-- Các file: tri thức về tiêu chuẩn iso
-
-**KHÔNG lưu ở đây:**
-- Chuẩn mực kiểm soát hệ thống (→03)
-- Tài liệu vi phạm bản quyền
-
-**Lưu ý:** Nội dung nên ở dạng văn bản/markdown để index cho AI. 03 = chuẩn mực kiểm soát; 08 = tri thức tham khảo.
+> Bản kiểm soát/đối chiếu điều khoản và ghi chú áp dụng.
