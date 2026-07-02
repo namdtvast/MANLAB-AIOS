@@ -376,6 +376,18 @@ html[data-theme=dark] .tier-managed.both{color:#a78bfa}
 .pyr-layer.l3{background:var(--bg)}
 .pyr-layer.l4{background:var(--bg)}
 
+/* ---------- Documents table ---------- */
+.docs-table{width:100%;border-collapse:collapse;font-size:13px}
+.docs-table th,.docs-table td{padding:10px;border:1px solid var(--border);text-align:left;vertical-align:middle}
+.docs-table th{background:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted-fg);white-space:nowrap}
+.docs-table tr:nth-child(even) td{background:color-mix(in srgb,var(--muted) 50%,transparent)}
+.docs-table .code{font-family:var(--mono);font-weight:600;color:var(--accent)}
+.docs-table .title{font-weight:500}
+.docs-table .status{display:inline-block;padding:2px 8px;border-radius:4px;background:var(--muted);font-size:11px}
+.docs-table .std{font-size:12px;color:var(--muted-fg)}
+.btn-sm{padding:4px 12px;font-size:12px;border-radius:4px;background:var(--accent);color:white;border:none;cursor:pointer;transition:opacity .15s}
+.btn-sm:hover{opacity:0.8}
+
 /* mobile */
 .menubtn{display:none}
 .scrim{display:none}
@@ -880,6 +892,13 @@ function renderDetail(path){
 
 function renderDir(node,path){
   const D=$('#detail');
+
+  // Special handling for 03_MANAGEMENT_SYSTEM — show documents table
+  if(node.name==='03_MANAGEMENT_SYSTEM'||path==='03_MANAGEMENT_SYSTEM'){
+    renderDocumentsTable();
+    return;
+  }
+
   const tier=DATA.tiers[node.name];
   const fr=friendly(node.name);
   const meta=node.meta;
@@ -1132,6 +1151,55 @@ function renderMatrixBody(){
       <td>${esc(issued)}</td>
       <td>${doc}</td></tr>`;
   }).join('');
+}
+
+/* ============================ Documents Table ============================ */
+let DOCS=null;
+function loadDocuments(){
+  if(DOCS)return Promise.resolve(DOCS);
+  return fetch('documents.json').then(r=>r.json()).then(d=>{DOCS=d;return d;})
+    .catch(e=>{console.error('Error loading documents',e);return {documents:[]};});
+}
+
+function renderDocumentsTable(){
+  loadDocuments().then(d=>{
+    const docs=d.documents||[];
+    if(!docs.length){
+      $('#detail').innerHTML='<div class="empty">Không tìm thấy tài liệu nào.</div>';
+      return;
+    }
+    const tbl=`
+      <div class="detail-body">
+        <div class="filehead"><div class="fi ic-dir">${SVG.diropen}</div>
+          <div><h2>Danh mục tài liệu quản lý (03_MANAGEMENT_SYSTEM)</h2>
+          <div class="meta">${docs.length} tài liệu · Thủ tục, biểu mẫu, quy trình</div></div></div>
+        <div class="tbl-wrap" style="margin-top:22px">
+          <table class="docs-table">
+            <thead><tr>
+              <th>Mã số</th><th>Tên đầy đủ</th><th>Trạng thái</th><th>Chuẩn ISO</th>
+              <th>Ngày ban hành</th><th>Lần ban hành</th><th>Biên soạn</th><th>Soát xét</th><th>Phê duyệt</th><th>Liên kết</th>
+            </tr></thead>
+            <tbody>${docs.map(d=>{
+              const ghUrl=DATA.repo.raw+'/'+d.file_path.split('/').map(encodeURIComponent).join('/');
+              const ghBlob=DATA.repo.blob+'/'+d.file_path.split('/').map(encodeURIComponent).join('/');
+              return `<tr>
+                <td><span class="code">${esc(d.code)}</span></td>
+                <td><span class="title">${esc(d.title)}</span></td>
+                <td><span class="status">${esc(d.status)}</span></td>
+                <td><span class="std">${esc(d.iso_standard)}</span></td>
+                <td>${esc(d.effective_date)}</td>
+                <td>${esc(d.revision)}</td>
+                <td>${esc(d.author)}</td>
+                <td>${esc(d.reviewer)}</td>
+                <td>${esc(d.approver)}</td>
+                <td><a class="btn btn-sm" href="${ghBlob}" target="_blank" rel="noopener">Xem</a></td>
+              </tr>`;
+            }).join('')}</tbody>
+          </table>
+        </div>
+      </div>`;
+    $('#detail').innerHTML=tbl;
+  });
 }
 
 /* ============================ Digital Thread ============================ */

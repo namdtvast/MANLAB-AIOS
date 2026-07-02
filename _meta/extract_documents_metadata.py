@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+"""
+Extract document metadata from 03_MANAGEMENT_SYSTEM markdown files
+for the "Khám phá" (Explore) view on the website.
+"""
+
+import os
+import json
+import re
+from pathlib import Path
+from datetime import datetime
+
+MANAGEMENT_SYSTEM_DIR = Path(__file__).parent.parent / "03_MANAGEMENT_SYSTEM"
+
+def parse_yaml_value(value_str):
+    """Simple YAML value parser."""
+    value_str = value_str.strip()
+
+    # Handle quoted strings
+    if value_str.startswith('"') and value_str.endswith('"'):
+        return value_str[1:-1]
+    if value_str.startswith("'") and value_str.endswith("'"):
+        return value_str[1:-1]
+
+    # Handle lists
+    if value_str.startswith('[') and value_str.endswith(']'):
+        list_str = value_str[1:-1]
+        items = [item.strip().strip('"\'') for item in list_str.split(',')]
+        return [item for item in items if item]
+
+    # Handle boolean
+    if value_str.lower() in ('true', 'false'):
+        return value_str.lower() == 'true'
+
+    # Handle null
+    if value_str.lower() in ('null', 'none', ''):
+        return None
+
+    return value_str
+
+def extract_frontmatter(md_file):
+    """Extract YAML frontmatter from markdown file."""
+    try:
+        with open(md_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Match YAML frontmatter between --- delimiters
+        match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+        if not match:
+            return None
+
+        yaml_text = match.group(1)
+        frontmatter = {}
+
+        for line in yaml_text.split('\n'):
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            if ':' not in line:
+                continue
+
+            key, value = line.split(':', 1)
+            key = key.strip()
+            value = value.strip()
+
+            frontmatter[key] = parse_yaml_value(value)
+
+        return frontmatter
+    except Exception as e:
+        print(f"Error parsing {md_file}: {e}")
+        return None
+
+def extract_author_info(md_file):
+    """Extract author, reviewer, approver from markdown content."""
+    try:
+        with open(md_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        author = reviewer = approver = None
+
+        # Look for pattern: | **Biên soạn** | Name | or | Biên soạn | Name |
+        match = re.search(r'\|\s*\*?\*?Biên soạn\*?\*?\s*\|\s*([^|]+)\s*\|', content)
+        if match:
+            author = match.group(1).strip()
+
+        match = re.search(r'\|\s*\*?\*?Soát xét\*?\*?\s*\|\s*([^|]+)\s*\|', content)
+        if match:
+            reviewer = match.group(1).strip()
+
+        match = re.search(r'\|\s*\*?\*?Phê duyệt\*?\*?\s*\|\s*([^|]+)\s*\|', content)
+        if match:
+            approver = match.group(1).strip()
+
+        return author, reviewer, approver
+    except Exception as e:
+        print(f"Error extracting author info from {md_file}: {e}")
+        return None, None, None
+
+def scan_documents():
+    """Scan 03_MANAGEMENT_SYSTEM and extract document metadata."""
+    documents = []
+
+    if not MANAGEMENT_SYSTEM_DIR.exists():
+        print(f"Error: {MANAGEMENT_SYSTEM_DIR} not found")
+        return documents
+
+    # Walk through subdirectories
+    for root, dirs, files in os.walk(MANAGEMENT_SYSTEM_DIR):
+        for file in files:
+            if file.endswith('.md') and not file.startswith('_'):
+                md_path = Path(root) / file
+
+                # Extract frontmatter
+                frontmatter = extract_frontmatter(md_path)
+                if not frontmatter:
+                    continue
+
+                # Extract author info from content
+                author, reviewer, approver = extract_author_info(md_path)
+
+                # Build document record
+                doc = {
+                    'code': frontmatter.get('id', ''),
+                    'title': frontmatter.get('title', file),
+                    'type': frontmatter.get('type', ''),
+                    'status': frontmatter.get('status', ''),
+                    'effective_date': frontmatter.get('effective_date', ''),
+                    'revision': str(frontmatter.get('revision', '')),
+                    'author': author or frontmatter.get('owner', ''),
+                    'reviewer': reviewer or '',
+                    'approver': approver or '',
+                    'iso_clause': frontmatter.get('iso_clause', []),
+                    'legal_basis': frontmatter.get('legal_basis', []),
+                    'file_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
+                    'relative_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
+                }
+
+                # Extract first ISO standard from iso_clause
+                iso_standard = None
+                if doc['iso_clause']:
+                    for clause in doc['iso_clause']:
+                        # Extract ISO number (e.g., "ISO/IEC 17025:2017" from "ISO/IEC 17025:2017 §7.7")
+                        match = re.search(r'(ISO[^\s]* \d{4,5}(?::\d{4})?)', clause)
+                        if match:
+                            iso_standard = match.group(1).strip()
+                            break
+
+                doc['iso_standard'] = iso_standard or ''
+                documents.append(doc)
+
+    # Sort by code
+    documents.sort(key=lambda x: x['code'])
+    return documents
+
+def main():
+    """Extract and save documents metadata."""
+    documents = scan_documents()
+
+    print(f"Found {len(documents)} documents")
+    for doc in documents:
+        print(f"  - {doc['code']:15} {doc['title'][:40]:40}")
+
+    # Save to JSON
+    output_file = MANAGEMENT_SYSTEM_DIR.parent / 'docs' / 'documents.json'
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    output = {
+        'generated_at': datetime.now().isoformat(),
+        'total_documents': len(documents),
+        'documents': documents
+    }
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"\nSaved to {output_file}")
+
+if __name__ == '__main__':
+    main()

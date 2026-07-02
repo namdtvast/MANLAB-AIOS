@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-07-02T16:39:21.203069",
+  "total_documents": 2,
+  "documents": [
+    {
+      "code": "ETV.P14",
+      "title": "Thủ tục Kiểm soát tài liệu, dữ liệu, thông tin",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "01/07/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §8.3",
+        "ISO 9001:2015 §7.5",
+        "ISO 17034:2016 §8.3 (có điều kiện)",
+        "ISO/IEC 27001:2022 A.5.9–A.5.18",
+        "A.5.37",
+        "A.8.13",
+        "ISO/IEC 42001:2023 §7.5"
+      ],
+      "legal_basis": [
+        "Nghị định 30/2020/NĐ-CP",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 130/2018/NĐ-CP (chờ thay thế theo văn bản hướng dẫn Luật GDĐT 2023)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md",
+      "relative_path": "02_P/ETV.P14_KiemSoatTaiLieu.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P21",
+      "title": "Thủ tục Công bố, Thông báo và Kiểm soát Năng lực Đo lường và Quan trắc Môi trường",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "26/06/2026",
+      "revision": "02",
+      "author": "Trần Thị Hoa",
+      "reviewer": "Nguyễn Ngọc Tuấn",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §7.7",
+        "ISO 17034:2016 §7.7 (có điều kiện)"
+      ],
+      "legal_basis": [
+        "Nghị quyết 66.18/2026/NQ-CP",
+        "Nghị quyết 66.19/2026/NQ-CP"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
+      "relative_path": "02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    }
+  ]
+}

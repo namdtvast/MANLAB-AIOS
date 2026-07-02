@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "manlab-portal",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8766"],
-      "port": 8766
+      "name": "docs-server",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd docs && python3 -m http.server $PORT"],
+      "port": 8000,
+      "autoPort": true
     }
   ]
 }
