@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP14_TaiLieu
 capability: CAP-18_TaiLieuHoSo
 module: M14_TaiLieu
-effective_date: "(cập nhật khi phê duyệt)"
+effective_date: "01/07/2026"
 revision: "03"
-status: Du-thao
+status: Da-phe-duyet
 keywords: [kiểm soát tài liệu, kiểm soát hồ sơ, chữ ký số, ManLab, ISO 17025 §8.3]
 related_documents: [ETV.QM, ETV.P15]
 iso_clause: ["ISO/IEC 17025:2017 §8.3", "ISO 9001:2015 §7.5", "ISO 17034:2016 §8.3 (có điều kiện)", "ISO/IEC 27001:2022 A.5.9–A.5.18, A.5.37, A.8.13", "ISO/IEC 42001:2023 §7.5"]
@@ -31,12 +31,12 @@ superseded_by: null
 |---|---|
 | **Mã số** | ETV.P 14 |
 | **Lần ban hành** | 03 |
-| **Ngày ban hành** | *(điền khi LĐV phê duyệt)* |
-| **Biên soạn** | *(cập nhật)* |
-| **Soát xét** | *(cập nhật — LĐP)* |
-| **Phê duyệt** | *(cập nhật — LĐV)* |
+| **Ngày ban hành** | 01/07/2026 |
+| **Biên soạn** | Nguyễn Văn Đồng |
+| **Soát xét** | Trần Thị Hoa |
+| **Phê duyệt** | Nguyễn Hoàng Giang |
 
-> **Tình trạng bản này: DỰ THẢO** — thiết kế lại toàn diện thay thế lần ban hành 02 (22/4/2023, soát xét 06/01/2024). Bản này phải đi qua đúng vòng đời mô tả tại §10 (Đề xuất → Soát xét → Phê duyệt → Ban hành) trước khi có hiệu lực. Căn cứ và lý do thiết kế lại: xem [ETV.P14_PhanTich_ThietKeLai.md](ETV.P14_PhanTich_ThietKeLai.md).
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thiết kế lại toàn diện thay thế lần ban hành 02 (22/4/2023, soát xét 06/01/2024). Bản này có hiệu lực từ ngày 01/07/2026. Căn cứ và lý do thiết kế lại: xem [ETV.P14_PhanTich_ThietKeLai.md](ETV.P14_PhanTich_ThietKeLai.md).
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
@@ -46,7 +46,7 @@ superseded_by: null
 | 21/05/2020 | Áp dụng chính thức phần mềm quản lý ManLab | 01 |
 | 22/04/2023 | Ban hành lần thứ hai | 02 |
 | 06/01/2024 | Bổ sung văn bản bên ngoài (đến), văn bản nội bộ (đi) | 02 |
-| *(chờ phê duyệt)* | Thiết kế lại toàn diện: RACI, metadata AI, đồng bộ trạng thái với ManLab, dẫn chiếu pháp luật/ISO cập nhật; thu hẹp phạm vi — hợp đồng chuyển về các thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ...) | 03 |
+| 01/07/2026 | Thiết kế lại toàn diện: RACI, metadata AI, đồng bộ trạng thái với ManLab, dẫn chiếu pháp luật/ISO cập nhật; thu hẹp phạm vi — hợp đồng chuyển về các thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ...) | 03 |
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
