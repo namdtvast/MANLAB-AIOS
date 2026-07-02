@@ -1,0 +1,13 @@
+{
+  "name": "etv-gen-docx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dựng bản Word (.docx) phát hành cho thủ tục/quy trình ETV theo đúng thể thức HTQL (nguồn kiểm soát là bản .md).",
+  "bin": { "etv-gen-docx": "build.js" },
+  "scripts": {
+    "p14": "node build.js ETV.P14"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

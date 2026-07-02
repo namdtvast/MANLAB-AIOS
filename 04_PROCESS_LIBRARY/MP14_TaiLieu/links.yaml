@@ -1,9 +1,9 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_ETV.QM
+procedure:  ../../03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/ETV.P14_KiemSoatTaiLieu.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M14_TaiLieu
 forms:      ../../06_SHARED_RESOURCES/01_Forms
-skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
+skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance
 law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
