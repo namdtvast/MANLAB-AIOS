@@ -25,8 +25,36 @@ def parse_yaml_value(value_str):
     # Handle lists
     if value_str.startswith('[') and value_str.endswith(']'):
         list_str = value_str[1:-1]
-        items = [item.strip().strip('"\'') for item in list_str.split(',')]
-        return [item for item in items if item]
+        # Parse list while respecting quotes
+        items = []
+        current_item = ""
+        in_quotes = False
+        quote_char = None
+
+        for char in list_str:
+            if char in ('"', "'") and (not in_quotes or char == quote_char):
+                if in_quotes and char == quote_char:
+                    in_quotes = False
+                    quote_char = None
+                else:
+                    in_quotes = True
+                    quote_char = char
+            elif char == ',' and not in_quotes:
+                # End of item
+                item = current_item.strip().strip('"\'')
+                if item:
+                    items.append(item)
+                current_item = ""
+                continue
+
+            current_item += char
+
+        # Don't forget the last item
+        item = current_item.strip().strip('"\'')
+        if item:
+            items.append(item)
+
+        return items
 
     # Handle boolean
     if value_str.lower() in ('true', 'false'):

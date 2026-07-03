@@ -10,9 +10,9 @@ module: M15_HoSo
 effective_date: "01/07/2026"
 revision: "01"
 status: Da-phe-duyet
-keywords: [kiểm soát hồ sơ, dữ liệu đo lường, chứng chỉ, lưu trữ hồ sơ, ISO 17025 §8.2]
-related_documents: [ETV.P14, ETV.P.F 14.06]
-iso_clause: ["ISO/IEC 17025:2017 §8.2", "ISO 9001:2015 §7.5"]
+keywords: [kiểm soát hồ sơ, dữ liệu đo lường, chứng chỉ, lưu trữ hồ sơ, HTQL]
+related_documents: [ETV.P14, ETV.P.F 14.06, ETV.QM]
+iso_clause: ["ISO/IEC 17025:2017 §8.2", "ISO 9001:2015 §7.5", "ISO 17034:2016 §8.2", "ISO/IEC 27001:2022 A.5.9–A.5.18, A.8.13", "ISO/IEC 42001:2023 §7.5"]
 legal_basis: ["Luật Giao dịch điện tử 20/2023/QH15", "Nghị định 30/2020/NĐ-CP"]
 ai_tags: [record-management, data-retention, compliance]
 knowledge_category: HTQL-noi-bo
@@ -35,7 +35,7 @@ superseded_by: null
 | **Soát xét** | (Cập nhật) |
 | **Phê duyệt** | Nguyễn Hoàng Giang |
 
-> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — triển khai lần đầu tiên theo ISO/IEC 17025:2017 §8.2 và nhu cầu quản lý hồ sơ toàn diện tại ETV. Bản này có hiệu lực từ ngày 01/07/2026.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thủ tục chung áp dụng cho tất cả 5 chuẩn ISO (9001, 17025, 17034, 27001, 42001) để tránh phải sửa mỗi khi bổ sung tiêu chuẩn mới. Triển khai lần đầu tiên 01/07/2026 với nhấn mạo ISO/IEC 17025:2017 §8.2.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
@@ -49,7 +49,14 @@ superseded_by: null
 
 ## I. MỤC ĐÍCH
 
-Thủ tục này quy định nội dung, trách nhiệm và trình tự kiểm soát, lưu trữ và bảo quản hồ sơ, dữ liệu đo lường, dữ liệu kỹ thuật thô và các chứng chỉ của ETV nhằm đáp ứng yêu cầu Điều 8.2 của ISO/IEC 17025:2017, bảo đảm toàn vẹn dữ liệu, tính chính xác, bảo mật và khả năng truy cập khi cần thiết. Áp dụng thống nhất trong toàn Viện Kiểm định Công nghệ và Môi trường (ETV), thực hiện qua phần mềm ManLab.
+Thủ tục này quy định nội dung, trách nhiệm và trình tự kiểm soát, lưu trữ và bảo quản hồ sơ, dữ liệu đo lường, dữ liệu kỹ thuật thô và các chứng chỉ của ETV nhằm đáp ứng các yêu cầu về kiểm soát hồ sơ và dữ liệu trong chuẩn ISO:
+- **ISO/IEC 17025:2017 §8.2** — Kiểm soát hồ sơ
+- **ISO 9001:2015 §7.5** — Kiểm soát thông tin được lưu trữ
+- **ISO 17034:2016 §8.2** — Quản lý dữ liệu hồ sơ sản xuất chất chuẩn
+- **ISO/IEC 27001:2022 A.5.9–A.5.18, A.8.13** — Bảo vệ dữ liệu & quản lý truy cập
+- **ISO/IEC 42001:2023 §7.5** — Kiểm soát dữ liệu trong hệ thống AI
+
+Bảo đảm toàn vẹn dữ liệu, tính chính xác, bảo mật, khả năng truy cập và lưu trữ lâu dài. Áp dụng thống nhất trong toàn Viện Kiểm định Công nghệ và Môi trường (ETV), thực hiện qua phần mềm ManLab.
 
 ## II. PHẠM VI ÁP DỤNG
 
@@ -85,11 +92,21 @@ Thủ tục này quy định nội dung, trách nhiệm và trình tự kiểm s
 
 ## IV. TÀI LIỆU TRÍCH DẪN
 
-- ISO/IEC 17025:2017 §8.2 — Kiểm soát hồ sơ
-- ISO 9001:2015 §7.5 — Kiểm soát thông tin được lưu trữ
+### Chuẩn ISO áp dụng:
+- **ISO/IEC 17025:2017 §8.2** — Kiểm soát hồ sơ
+- **ISO 9001:2015 §7.5** — Kiểm soát thông tin được lưu trữ
+- **ISO 17034:2016 §8.2** — Quản lý hồ sơ sản xuất chất chuẩn
+- **ISO/IEC 27001:2022 A.5.9–A.5.18, A.8.13** — Bảo vệ dữ liệu, kiểm soát truy cập
+- **ISO/IEC 42001:2023 §7.5** — Kiểm soát dữ liệu trong hệ thống AI
+- `11_COMPLIANCE/01_ISO_Mapping/MP-ISO-mapping.md` — Bảng ánh xạ đầy đủ
+
+### Cơ sở pháp lý:
 - Luật Giao dịch điện tử 20/2023/QH15 — Dữ liệu điện tử, bảo vệ & xác thực
 - Nghị định 30/2020/NĐ-CP — Công tác văn thư, lưu trữ
+
+### Tài liệu liên quan nội bộ:
 - ETV.P14 — Kiểm soát tài liệu (phần liên quan đến tài liệu nguồn)
+- ETV.QM — Sổ tay chất lượng (yêu cầu chung về HTQL)
 - ETV.P.F 14.06 — Danh mục phân quyền & thời hạn lưu giữ
 - ETV.P03 — Kiểm soát hợp đồng lao động (hồ sơ nhân sự)
 
