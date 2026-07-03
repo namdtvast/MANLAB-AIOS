@@ -131,7 +131,7 @@ Thủ tục này quy định trình tự, trách nhiệm và yêu cầu kỹ thu
 | NQ | Nghị quyết |
 | ManLab | Hệ thống quản lý thông tin tập trung |
 
-## VI. NỘI DUNG
+## 6. NỘI DUNG
 
 ### 6.1 Nguyên tắc kiểm soát và số hóa
 
