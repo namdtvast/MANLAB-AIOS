@@ -135,10 +135,10 @@ Thủ tục này quy định trình tự, trách nhiệm và yêu cầu kỹ thu
 
 ### 6.1 Nguyên tắc kiểm soát và số hóa
 
-1. **Toàn bộ dữ liệu năng lực phải được lưu trữ điện tử trên ManLab** — không được duy trì quản lý song song với giấy.
-2. **Năng lực chỉ được công khai khi đạt đủ điều kiện:** Đánh giá xong, Phê duyệt nội bộ, Ký số bản công bố/thông báo.
-3. **Mọi thay đổi năng lực phải được ghi nhận, kiểm soát, và tuân thủ quy trình điều chỉnh/tạm dừng/hủy bỏ.**
-4. **Dữ liệu PTĐ, năng lực trên ManLab là dữ liệu nguồn duy nhất** — bản công bố/thông báo được sinh tự động từ dữ liệu này.
+**Toàn bộ dữ liệu năng lực phải được lưu trữ điện tử trên ManLab** — không được duy trì quản lý song song với giấy.
+**Năng lực chỉ được công khai khi đạt đủ điều kiện:** Đánh giá xong, Phê duyệt nội bộ, Ký số bản công bố/thông báo.
+**Mọi thay đổi năng lực phải được ghi nhận, kiểm soát, và tuân thủ quy trình điều chỉnh/tạm dừng/hủy bỏ.**
+**Dữ liệu PTĐ, năng lực trên ManLab là dữ liệu nguồn duy nhất** — bản công bố/thông báo được sinh tự động từ dữ liệu này.
 
 ### 6.2 Mục tiêu nghiệp vụ, actor, đầu vào, đầu ra
 
@@ -186,21 +186,21 @@ Thủ tục này quy định trình tự, trách nhiệm và yêu cầu kỹ thu
 
 #### 6.3.3 Quy trình nhập liệu và kiểm tra PTĐ trước khi gửi duyệt
 
-1. NVK lập phiếu F21.01, điền đầy đủ thông tin PTĐ
-2. NVK tự kiểm tra: Dữ liệu bắt buộc có đầy đủ? Hiệu chuẩn còn hiệu lực? Phạm vi và độ không đảm bảo hợp lý?
-3. NVK gửi cho LĐP soát xét
-4. LĐP xác nhận hoặc yêu cầu sửa
-5. Sau khi LĐP xác nhận, dữ liệu tự động chuyển trạng thái "Chờ phê duyệt"
-6. LĐV phê duyệt, dữ liệu chuyển sang "Đã phê duyệt" (sẵn sàng công bố)
+NVK lập phiếu F21.01, điền đầy đủ thông tin PTĐ
+NVK tự kiểm tra: Dữ liệu bắt buộc có đầy đủ? Hiệu chuẩn còn hiệu lực? Phạm vi và độ không đảm bảo hợp lý?
+NVK gửi cho LĐP soát xét
+LĐP xác nhận hoặc yêu cầu sửa
+Sau khi LĐP xác nhận, dữ liệu tự động chuyển trạng thái "Chờ phê duyệt"
+LĐV phê duyệt, dữ liệu chuyển sang "Đã phê duyệt" (sẵn sàng công bố)
 
 ### 6.4 Lập kế hoạch đánh giá năng lực
 
 #### 6.4.1 Điều kiện gate (G) bắt buộc trước khi đưa vào kế hoạch
 
-1. Hồ sơ P21 (NVK) đã lập phiếu F21.01
-2. Danh mục PTĐ liên quan đã được LĐV phê duyệt
-3. Trường dữ liệu bắt buộc (Phụ lục B) đã điền đầy đủ
-4. Không có xung đột với hồ sơ P21 hiện hành
+Hồ sơ P21 (NVK) đã lập phiếu F21.01
+Danh mục PTĐ liên quan đã được LĐV phê duyệt
+Trường dữ liệu bắt buộc (Phụ lục B) đã điền đầy đủ
+Không có xung đột với hồ sơ P21 hiện hành
 
 #### 6.4.2 Luồng xử lý màn hình Lập kế hoạch
 
@@ -262,11 +262,11 @@ Thủ tục này quy định trình tự, trách nhiệm và yêu cầu kỹ thu
 
 #### 6.6.2 Lập, ký, gửi bản công bố/thông báo
 
-1. PPCO lập bản công bố (Mẫu 01, NQ 66.18) hoặc thông báo (Mẫu 9.01, NQ 66.19) từ dữ liệu ManLab
-2. Bản được sinh tự động từ danh mục PTĐ và năng lực phê duyệt
-3. PPCO xác minh lại (tên dịch vụ, phạm vi, PTĐ, người thực hiện)
-4. PPCO in bản cứng, ký tay hoặc ký số
-5. PPCO gửi bản cứng (có con dấu + chữ ký) cho cơ quan công nhận/chỉ định
+PPCO lập bản công bố (Mẫu 01, NQ 66.18) hoặc thông báo (Mẫu 9.01, NQ 66.19) từ dữ liệu ManLab
+Bản được sinh tự động từ danh mục PTĐ và năng lực phê duyệt
+PPCO xác minh lại (tên dịch vụ, phạm vi, PTĐ, người thực hiện)
+PPCO in bản cứng, ký tay hoặc ký số
+PPCO gửi bản cứng (có con dấu + chữ ký) cho cơ quan công nhận/chỉ định
 
 #### 6.6.3 Chữ ký số và QR
 
