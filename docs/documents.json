@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T09:27:49.659120",
+  "generated_at": "2026-07-04T19:33:04.429146",
   "total_documents": 12,
   "documents": [
     {
@@ -131,8 +131,8 @@
       "status": "Da-phe-duyet",
       "effective_date": "01/07/2026",
       "revision": "01",
-      "author": "(Cập nhật)",
-      "reviewer": "(Cập nhật)",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa",
       "approver": "Nguyễn Hoàng Giang",
       "iso_clause": [
         "ISO/IEC 17025:2017 §8.2",
@@ -172,9 +172,9 @@
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
-      "code": "ETV.QM.CHI",
-      "title": "ETV.QM ChinhSachChatLuong",
-      "type": "Sổ-tay",
+      "code": "ETV.QM.F01",
+      "title": "ETV.QM.F01 ChinhSachChatLuong",
+      "type": "Biểu-mẫu",
       "status": "",
       "effective_date": "",
       "revision": "",
@@ -183,14 +183,14 @@
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_ChinhSachChatLuong.docx",
-      "relative_path": "01_QM/ETV.QM_ChinhSachChatLuong.docx",
+      "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F01_ChinhSachChatLuong.docx",
+      "relative_path": "01_QM/ETV.QM.F01_ChinhSachChatLuong.docx",
       "iso_standard": ""
     },
     {
-      "code": "ETV.QM.MUC",
-      "title": "ETV.QM MucTieuChatLuong",
-      "type": "Sổ-tay",
+      "code": "ETV.QM.F02",
+      "title": "ETV.QM.F02 MucTieuChatLuong",
+      "type": "Biểu-mẫu",
       "status": "",
       "effective_date": "",
       "revision": "",
@@ -199,8 +199,8 @@
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_MucTieuChatLuong.docx",
-      "relative_path": "01_QM/ETV.QM_MucTieuChatLuong.docx",
+      "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.docx",
+      "relative_path": "01_QM/ETV.QM.F02_MucTieuChatLuong.docx",
       "iso_standard": ""
     },
     {
