@@ -185,15 +185,20 @@ def scan_documents():
                         'relative_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
                     }
 
-                    # Extract first ISO standard from iso_clause
-                    iso_standard = None
-                    if doc['iso_clause']:
-                        for clause in doc['iso_clause']:
-                            # Extract ISO number (e.g., "ISO/IEC 17025:2017" from "ISO/IEC 17025:2017 §7.7")
-                            match = re.search(r'(ISO[^\s]* \d{4,5}(?::\d{4})?)', clause)
-                            if match:
-                                iso_standard = match.group(1).strip()
-                                break
+                    # Extract every distinct ISO standard mentioned across iso_clause (not just the first).
+                    # Only the 5 standards of ETV's integrated management system count as "Chuẩn ISO" scope;
+                    # other cross-references (vocab/guides like ISO 9000, ISO 19011, ISO/IEC 17043/17000)
+                    # stay in iso_clause but are excluded from this summary column.
+                    CORE_ISO_NUMBERS = {'9001', '17025', '17034', '27001', '42001'}
+                    iso_standards = []
+                    for clause in doc['iso_clause']:
+                        # Extract ISO number (e.g., "ISO/IEC 17025:2017" from "ISO/IEC 17025:2017 §7.7")
+                        match = re.search(r'(ISO[^\s]* (\d{4,5})(?::\d{4})?)', clause)
+                        if match and match.group(2) in CORE_ISO_NUMBERS:
+                            standard = match.group(1).strip()
+                            if standard not in iso_standards:
+                                iso_standards.append(standard)
+                    iso_standard = ', '.join(iso_standards) if iso_standards else None
 
                     doc['iso_standard'] = iso_standard or ''
                 else:

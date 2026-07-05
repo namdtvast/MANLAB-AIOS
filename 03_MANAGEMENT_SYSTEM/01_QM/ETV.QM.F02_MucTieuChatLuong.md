@@ -10,7 +10,7 @@ revision: "08"
 status: Da-phe-duyet
 keywords: [mục tiêu chất lượng, xem xét lãnh đạo, VILAS, ISO/IEC 17025, KPI, HTQL]
 related_documents: [ETV.QM, ETV.QM.F01, ETV.P.F 17.02]
-iso_clause: ["ISO 9001:2015 §6.2", "ISO/IEC 17025:2017 §8.5", "ISO/IEC 42001:2023 §6.2"]
+iso_clause: ["ISO 9001:2015 §6.2", "ISO/IEC 17025:2017 §8.5", "ISO 17034:2016 §8.5", "ISO/IEC 27001:2022 §6.2", "ISO/IEC 42001:2023 §6.2"]
 legal_basis: []
 ai_tags: [quality-objectives]
 knowledge_category: HTQL-noi-bo
@@ -28,7 +28,9 @@ superseded_by: null
 | **Mã số**         | ETV.QM.F02           |
 | **Lần ban hành**  | 08 (theo năm)        |
 | **Ngày ban hành** | 02/01/2026           |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Viện trưởng |
+| **Biên soạn**     | Nguyễn Ngọc Tuấn      |
+| **Soát xét**      | Nguyễn Văn Huy        |
+| **Phê duyệt**     | Nguyễn Hoàng Giang    |
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT.** Mục tiêu chất lượng được thiết lập hằng năm căn cứ vào Biên bản họp xem xét của Lãnh đạo (`ETV.P.F 17.02`), theo `ETV.QM` §2.7. Tài liệu này lưu mục tiêu chất lượng hiện hành (2026) và toàn bộ các năm trước để đối chiếu lịch sử.
 

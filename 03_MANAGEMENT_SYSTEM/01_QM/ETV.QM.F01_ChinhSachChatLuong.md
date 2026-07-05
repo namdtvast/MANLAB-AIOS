@@ -10,7 +10,7 @@ revision: "02"
 status: Da-phe-duyet
 keywords: [chính sách chất lượng, chính xác, kịp thời, thấu hiểu, hiệu quả, HTQL]
 related_documents: [ETV.QM, ETV.QM.F02]
-iso_clause: ["ISO 9001:2015 §5.2", "ISO/IEC 17025:2017 §8.5", "ISO/IEC 42001:2023 §5.2"]
+iso_clause: ["ISO 9001:2015 §5.2", "ISO/IEC 17025:2017 §8.5", "ISO 17034:2016 §8.5", "ISO/IEC 27001:2022 §5.2", "ISO/IEC 42001:2023 §5.2"]
 legal_basis: []
 ai_tags: [quality-policy]
 knowledge_category: HTQL-noi-bo
@@ -28,7 +28,9 @@ superseded_by: null
 | **Mã số**         | ETV.QM.F01           |
 | **Lần ban hành**  | 02                   |
 | **Ngày ban hành** | 01/01/2025           |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Viện trưởng |
+| **Biên soạn**     | Nguyễn Ngọc Tuấn      |
+| **Soát xét**      | Nguyễn Văn Huy        |
+| **Phê duyệt**     | Nguyễn Hoàng Giang    |
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT.** Tài liệu tập hợp Chính sách chất lượng hiện hành và các phiên bản trước để đối chiếu lịch sử. Chính sách chất lượng chi tiết cũng được dẫn chiếu tại [ETV.QM](ETV.QM.01_QuanlyChatluong.md) §2.6.
 
