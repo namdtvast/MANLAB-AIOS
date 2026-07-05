@@ -1,5 +1,5 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/ETV.P14_KiemSoatTaiLieu.md
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M14_TaiLieu
 forms:      ../../06_SHARED_RESOURCES/01_Forms
