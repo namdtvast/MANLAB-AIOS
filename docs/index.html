@@ -1000,10 +1000,14 @@ async function fetchText(path){
   for(const u of tries){ try{const r=await fetch(u); if(r.ok)return await r.text(); err=r.status;}catch(e){err=e;} }
   throw err;
 }
+/* bỏ khối YAML front-matter (--- ... ---) ở đầu file trước khi render, vì mdToHtml không nhận diện được cú pháp YAML */
+function stripFrontmatter(md){
+  return md.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/,'');
+}
 function loadAndRenderMD(path,slot){
   const el=$(slot); if(!el)return;
   el.innerHTML='<div class="loading"><div class="spin"></div> Đang tải nội dung…</div>';
-  fetchText(path).then(t=>{el.innerHTML=`<div class="md">${mdToHtml(t)}</div>`; rewriteMdLinks(el,path);})
+  fetchText(path).then(t=>{el.innerHTML=`<div class="md">${mdToHtml(stripFrontmatter(t))}</div>`; rewriteMdLinks(el,path);})
     .catch(()=>{el.innerHTML=note('Không tải được nội dung Markdown trực tiếp (có thể do chưa đẩy lên GitHub hoặc kho ở chế độ riêng tư). Dùng "Xem trên GitHub".');});
 }
 /* chuyển link tương đối trong README thành điều hướng nội bộ khi trỏ tới node có trong cây */
