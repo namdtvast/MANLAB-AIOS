@@ -1,7 +1,103 @@
 {
-  "generated_at": "2026-07-05T17:17:26.461769",
-  "total_documents": 12,
+  "generated_at": "2026-07-05T21:29:55.761217",
+  "total_documents": 17,
   "documents": [
+    {
+      "code": "ETV.MCL 04",
+      "title": "Phương tiện đo định vị bằng vệ tinh (GNSS/GPS) cầm tay — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/05/2026",
+      "revision": "01",
+      "author": "Trần Thị Hoa",
+      "reviewer": "Nguyễn Ngọc Tuấn",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO 19157:2013",
+        "ISO 17123-8:2015",
+        "TCVN 9595-3:2013",
+        "JCGM 100:2008 (GUM)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCL.F04.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo định vị bằng vệ tinh (GNSS/GPS) cầm tay",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/05/2026",
+      "revision": "01",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/ETV.MCL.F04.01_BienBan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/ETV.MCL.F04.01_BienBan.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCL.F04.02",
+      "title": "Phụ lục 02 — Bảng tính sai số và độ không đảm bảo đo (Handheld GNSS/GPS Calibration)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/05/2026",
+      "revision": "01",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "JCGM 100:2008 (GUM)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/ETV.MCL.F04.02_BangTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/ETV.MCL.F04.02_BangTinh.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCL.F04.03",
+      "title": "Phụ lục 03 — Hồ sơ xác lập điểm chuẩn tọa độ (Applied for Calibration of Handheld GNSS/GPS Devices)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/05/2026",
+      "revision": "1.0",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 Điều 6.6",
+        "ILAC-P10:01/2020"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/ETV.MCL.F04.03_HosoDiemchuan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/ETV.MCL.F04.03_HosoDiemchuan.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCL.F04.04",
+      "title": "Giấy chứng nhận hiệu chuẩn (Calibration Certificate) — mẫu Phương tiện đo định vị GNSS/GPS cầm tay",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/05/2026",
+      "revision": "01",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/ETV.MCL.F04.04_GCN.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/ETV.MCL.F04.04_GCN.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
     {
       "code": "ETV.P.F14.01",
       "title": "ETV.P.F14.01 DeNghiSoatXetBanHanhVanBan",
