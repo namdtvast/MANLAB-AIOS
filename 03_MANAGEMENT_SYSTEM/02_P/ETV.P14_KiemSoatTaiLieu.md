@@ -78,6 +78,23 @@ Thủ tục này quy định nội dung, trách nhiệm và trình tự kiểm s
 
 Các thủ tục nêu trên dẫn chiếu ngược lại P14 cho phần "kiểm soát văn bản" của chúng, tránh trùng lặp.
 
+## III. PHÂN QUYỀN VAI TRÒ VÀ TRÁCH NHIỆM (RACI)
+
+| Bước trong vòng đời | NTH | LĐP | LĐV | Văn thư/QLCL |
+|---|---|---|---|---|
+| Đề xuất xây dựng/soát xét văn bản | **R** | C | I | I |
+| Thẩm định sự cần thiết | I | **R/A** | C | I |
+| Soạn thảo/sửa đổi | **R** | I | I | I |
+| Soát xét kỹ thuật | C | **R/A** | I | I |
+| Phê duyệt ban hành | I | C | **R/A** | I |
+| Cấp mã số, cập nhật danh mục | I | I | I | **R/A** |
+| Phân phối, thu hồi bản cũ | C | I | I | **R/A** |
+| Phổ biến áp dụng | **R** | A | I | I |
+| Soát xét định kỳ | **R** | A | I | I |
+| Thanh lý, chuyển "Hết hiệu lực" | I | **R/A** | I | C |
+| Hủy bỏ khỏi hệ thống kiểm soát | I | C | **R/A** | I |
+| Lưu trữ bản gốc | I | I | I | **R/A** |
+
 ## IV. TÀI LIỆU TRÍCH DẪN
 
 > Nguyên tắc: **chỉ dẫn chiếu, không chép lại nội dung.** Bản đầy đủ đặt tại `03_MANAGEMENT_SYSTEM/` (chuẩn mực) và `08_KNOWLEDGE_GRAPH/01_Regulations/` (pháp luật).
@@ -109,23 +126,6 @@ Các thủ tục nêu trên dẫn chiếu ngược lại P14 cho phần "kiểm 
 | HTQL | Hệ thống quản lý |
 | ETV.QM | Sổ tay chất lượng |
 | RACI | Responsible – Accountable – Consulted – Informed |
-
-## III. PHÂN QUYỀN VAI TRÒ VÀ TRÁCH NHIỆM (RACI)
-
-| Bước trong vòng đời | NTH | LĐP | LĐV | Văn thư/QLCL |
-|---|---|---|---|---|
-| Đề xuất xây dựng/soát xét văn bản | **R** | C | I | I |
-| Thẩm định sự cần thiết | I | **R/A** | C | I |
-| Soạn thảo/sửa đổi | **R** | I | I | I |
-| Soát xét kỹ thuật | C | **R/A** | I | I |
-| Phê duyệt ban hành | I | C | **R/A** | I |
-| Cấp mã số, cập nhật danh mục | I | I | I | **R/A** |
-| Phân phối, thu hồi bản cũ | C | I | I | **R/A** |
-| Phổ biến áp dụng | **R** | A | I | I |
-| Soát xét định kỳ | **R** | A | I | I |
-| Thanh lý, chuyển "Hết hiệu lực" | I | **R/A** | I | C |
-| Hủy bỏ khỏi hệ thống kiểm soát | I | C | **R/A** | I |
-| Lưu trữ bản gốc | I | I | I | **R/A** |
 
 > LĐV luôn là **A** cuối cùng đối với Sổ tay chất lượng, Thủ tục và phương pháp thử nội bộ (không ủy quyền).
 
