@@ -128,7 +128,7 @@ Bảo đảm toàn vẹn dữ liệu, tính chính xác, bảo mật, khả năn
 **Định nghĩa chung:**
 
 - **Hồ sơ:** Tập hợp dữ liệu, tài liệu, bằng chứng liên quan đến một hoạt động, sản phẩm hoặc dịch vụ.
-- **Dữ liệu đo lường:** Giá trị số, kết quả tính toán, độ không đảm bảo phát sinh từ hoạt động đo lường, kiểm định, hiệu chuẩn.
+- **Dữ liệu đo lường:** Giá trị số, kết quả tính toán, độ không đảm bảo, QA/QC, thử nghiệm thành thạo, so sánh liên phòng phát sinh từ hoạt động đo lường (kiểm định/ hiệu chuẩn/ thử nghiệm), sản xuất mẫu chuẩn, quan trắc môi trường, độ chính xác tương đối (RA), đánh giá chất lượng hệ thống trạm quan trắc.
 - **Chứng chỉ:** Giấy xác nhận chính thức năng lực hoặc hoàn thành tiêu chuẩn.
 - **Bảo vệ dữ liệu:** Biện pháp ngăn chặn thất thoát, sai lệch, truy cập trái phép.
 
@@ -137,9 +137,9 @@ Bảo đảm toàn vẹn dữ liệu, tính chính xác, bảo mật, khả năn
 ### 6.1 Phân loại hồ sơ
 
 - **Hồ sơ nội bộ:** Lập tạo bởi ETV, quản lý trọn vẹn vòng đời
-  - Kỹ thuật: Biên  kiểm định, hiệu chuẩn, thử nghiệm, dữ liệu thô
+  - Kỹ thuật: Biên bản kiểm định, hiệu chuẩn, thử nghiệm, dữ liệu thô, kết quả quan trắc, phân tích
   - Quản lý: Hồ sơ khách hàng, hợp đồng, năng lực, đánh giá
-  - Nhân sự: Sơ yếu lý lịch, hợp đồng lao động (theo ETV.P03)
+  - Nhân sự: Sơ yếu lý lịch, bản mô tả công việc, hợp đồng lao động (theo ETV.P03)
 - **Hồ sơ bên ngoài:** Tiếp nhận từ cơ quan, khách hàng, đối tác
   - Giấy phép, chứng chỉ đào tạo, chứng chỉ ISO
 
@@ -163,13 +163,14 @@ Hồ sơ kỹ thuật phải chứa đầy đủ:
 
 **Vị trí lưu giữ:**
 
-- Hồ sơ kỹ thuật: Phòng Kiểm định/Hiệu chuẩn/Thử nghiệm (bản giấy), ManLab (điện tử)
+- Hồ sơ kỹ thuật: Phòng Kiểm định/Hiệu chuẩn/Thử nghiệm/QTMT (bản giấy), ManLab (điện tử)
 - Hồ sơ quản lý: Phòng QLCL (bản giấy), ManLab (điện tử)
 - Hồ sơ nhân sự: Phòng Hành chính (bản giấy), theo ETV.P03
 
 **Thời hạn lưu:**
 
 - Kiểm định/Hiệu chuẩn/Thử nghiệm: 10 năm từ ngày cấp chứng chỉ (theo chuẩn hoặc pháp lý)
+- Quan trắc môi trường (QTMT): 05 năm từ ngày cấp chứng chỉ/phiếu trả kết quả
 - Hồ sơ khách hàng: Tối thiểu 5 năm kể từ ngày kết thúc dịch vụ
 - Hồ sơ nhân sự: Theo ETV.P03 & quy định pháp lý (tối thiểu 3 năm sau khi kết thúc)
 - Hồ sơ quản lý/năng lực: Vĩnh viễn (bản hiện hành) + 5 năm (bản cũ)
@@ -261,12 +262,12 @@ Danh mục đầy đủ thời hạn lưu: xem `ETV.P.F 14.06`.
 
 ## VII. BIỂU MẪU ÁP DỤNG
 
-| Mã               | Tên                                    |
-| ----------------- | --------------------------------------- |
-| `ETV.P.F 15.01` | Phiếu yêu cầu truy xuất hồ sơ     |
-| `ETV.P.F 15.02` | Phiếu hủy/lưu trữ hồ sơ           |
-| `ETV.P.F 15.03` | Báo cáo soát xét hồ sơ định kỳ |
-| `ETV.P.F 15.04` | Báo cáo sự cố thất thoát/hư hỏng hồ sơ    |
+| Mã               | Tên                                             |
+| ----------------- | ------------------------------------------------ |
+| `ETV.P.F 15.01` | Phiếu yêu cầu truy xuất hồ sơ              |
+| `ETV.P.F 15.02` | Phiếu hủy/lưu trữ hồ sơ                    |
+| `ETV.P.F 15.03` | Báo cáo soát xét hồ sơ định kỳ          |
+| `ETV.P.F 15.04` | Báo cáo sự cố thất thoát/hư hỏng hồ sơ |
 
 Bản trắng: `06_SHARED_RESOURCES/01_Forms/`
 
