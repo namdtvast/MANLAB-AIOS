@@ -2,7 +2,7 @@
 
 Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.
 
-Cấu trúc thư mục có **3 cấp**: Dịch vụ → Lĩnh vực → Số hiệu quy trình.
+Cấu trúc thư mục có **4 cấp**: Dịch vụ → Lĩnh vực → Số hiệu quy trình → Loại tài liệu.
 
 ## **Cấp 1 — Thư mục theo Dịch vụ**
 
@@ -68,7 +68,20 @@ Ví dụ: `9. MC_Length/MCL04_MaydinhviGPS`.
 
 **Trường hợp quy trình áp dụng trực tiếp một văn bản ĐLVN đã ban hành** (không phải quy trình nội bộ ETV tự đánh số): giữ nguyên số hiệu ĐLVN làm phần `{Số hiệu}` (bỏ dấu cách/hai chấm và bỏ năm ban hành, vd. `DLVN 389:2021` → `DLVN389` — năm ban hành không thuộc số hiệu quy trình nên không đưa vào tên thư mục), xếp trực tiếp vào đúng thư mục Lĩnh vực như quy trình thường — không dùng slot `0. DLVN_Ban hanh` cho trường hợp này (slot đó chỉ dành cho các văn bản ĐLVN lưu tham khảo, chưa gắn với một lĩnh vực/quy trình áp dụng cụ thể). Ví dụ: `1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ`.
 
-Toàn bộ tài liệu thuộc quy trình đó — quy trình chính, biên bản, bảng tính, hồ sơ điểm chuẩn, GCN, biểu mẫu/phụ lục khác, thư mục `diagrams/` — đều nằm chung trong thư mục Cấp 3 này, không rải ở cấp Lĩnh vực.
+Toàn bộ tài liệu thuộc quy trình đó nằm chung trong thư mục Cấp 3 này, không rải ở cấp Lĩnh vực — nhưng được chia tiếp theo **Cấp 4** bên dưới, không để phẳng trực tiếp trong thư mục Cấp 3.
+
+## **Cấp 4 — Thư mục con theo Loại tài liệu**
+
+Trong mỗi thư mục quy trình (Cấp 3), tạo thư mục con đánh số theo loại tài liệu:
+
+| Số | Thư mục | Nội dung |
+|---|---|---|
+| 1 | `1. Quy trinh` | Văn bản quy trình chính |
+| 2 | `2. Bieu mau` | Biên bản, bảng tính, hồ sơ đi kèm |
+| 3 | `3. GCN` | Mẫu giấy chứng nhận (hiệu chuẩn/kiểm định) |
+| 4 | `4. Diagrams` | Sơ đồ, hình ảnh minh hoạ |
+
+Chỉ tạo những thư mục con thực sự có tài liệu — không cần đủ 1–4 ngay từ đầu (vd. quy trình chỉ có Quy trình + Biểu mẫu thì không cần tạo `3. GCN`/`4. Diagrams`).
 
 ## **Mã số văn bản và cách xếp thư mục**
 
@@ -78,14 +91,14 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 1. Chữ cái ngay sau `ETV.M` → tra bảng Cấp 1 → thư mục Dịch vụ (vd. `C` → `ETV.MC_HieuChuan`).
 2. Chữ cái tiếp theo → tra bảng Cấp 2 → thư mục Lĩnh vực (vd. `L` → `9. MC_Length`).
 3. Số hiệu quy trình (vd. `04`) → tra/khớp với thư mục Cấp 3 có tiền tố `{Mã dịch vụ}{Mã lĩnh vực}{Số hiệu}_` trong thư mục Lĩnh vực đó (vd. `MCL04_MaydinhviGPS`); nếu quy trình mới, tạo thư mục Cấp 3 mới theo đúng quy tắc đặt tên ở trên.
-4. Toàn bộ quy trình chính + biểu mẫu/phụ lục + diagrams của cùng một mã số nằm chung trong thư mục Cấp 3 đó.
+4. Theo loại tài liệu (quy trình/biểu mẫu/GCN/diagram) → xếp vào đúng thư mục Cấp 4 tương ứng trong bảng trên; nếu chưa có thì tạo mới.
 
 ## **Danh mục phương pháp hiện có**
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL04_MaydinhviGPS/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay (quy trình hiệu chuẩn), 4 biểu mẫu/phụ lục đi kèm (F04.01–F04.04) và thư mục `diagrams/` (sơ đồ liên kết chuẩn) |
-| [`ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/`](ETV.MV_KiemDinh/1.%20MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/) | `ĐLVN 389:2021` — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh (quy trình kiểm định, chuyển đổi sang `.md` từ văn bản ĐLVN đã ban hành) và biểu mẫu biên bản kiểm định `ETV.MVA.F389.01` đi kèm — không lưu bản `.pdf`/`.doc` gốc trong repo |
+| [`ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL04_MaydinhviGPS/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay: `1. Quy trinh/` (quy trình hiệu chuẩn), `2. Bieu mau/` (biên bản, bảng tính, hồ sơ điểm chuẩn F04.01–F04.03), `3. GCN/` (mẫu GCN F04.04), `4. Diagrams/` (sơ đồ liên kết chuẩn) |
+| [`ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/`](ETV.MV_KiemDinh/1.%20MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/) | `ĐLVN 389:2021` — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh: `1. Quy trinh/` (quy trình kiểm định, chuyển đổi `.md` từ văn bản ĐLVN đã ban hành), `2. Bieu mau/` (biên bản kiểm định `ETV.MVA.F389.01`) — không lưu bản `.pdf`/`.doc` gốc trong repo |
 
 Các thư mục Dịch vụ/Lĩnh vực khác chưa có nội dung — tạo theo đúng quy tắc ở trên khi bắt đầu chuyển đổi/soạn thảo tài liệu thuộc dịch vụ/lĩnh vực đó.
 

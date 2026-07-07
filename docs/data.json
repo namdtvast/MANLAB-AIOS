@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07 04:34 UTC",
+ "generated_at": "2026-07-07 06:30 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -12,7 +12,7 @@
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
   "files": 575,
-  "dirs": 544,
+  "dirs": 549,
   "docs": 7,
   "capabilities": 22,
   "processes": 38,
@@ -2201,20 +2201,82 @@
             "type": "dir",
             "children": [
              {
-              "name": "diagrams",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams",
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCL.04_QTHC_MaydinhviGPS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/1. Quy trinh/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 25616
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCL.F04.01_BienBan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BienBan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 6779
+               },
+               {
+                "name": "ETV.MCL.F04.02_BangTinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 6967
+               },
+               {
+                "name": "ETV.MCL.F04.03_HosoDiemchuan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HosoDiemchuan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 11808
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 3
+             },
+             {
+              "name": "3. GCN",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCL.F04.04_GCN.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14125
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "4. Diagrams",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/4. Diagrams",
               "type": "dir",
               "children": [
                {
                 "name": "MCL04_LienKetChuan_v1.drawio",
-                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams/MCL04_LienKetChuan_v1.drawio",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/4. Diagrams/MCL04_LienKetChuan_v1.drawio",
                 "type": "file",
                 "ext": ".drawio",
                 "size": 11597
                },
                {
                 "name": "MCL04_LienKetChuan_v1.jpg",
-                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams/MCL04_LienKetChuan_v1.jpg",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/4. Diagrams/MCL04_LienKetChuan_v1.jpg",
                 "type": "file",
                 "ext": ".jpg",
                 "size": 591812
@@ -2222,45 +2284,10 @@
               ],
               "n_dirs": 0,
               "n_files": 2
-             },
-             {
-              "name": "ETV.MCL.04_QTHC_MaydinhviGPS.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.04_QTHC_MaydinhviGPS.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 25616
-             },
-             {
-              "name": "ETV.MCL.F04.01_BienBan.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.01_BienBan.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 6779
-             },
-             {
-              "name": "ETV.MCL.F04.02_BangTinh.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.02_BangTinh.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 6967
-             },
-             {
-              "name": "ETV.MCL.F04.03_HosoDiemchuan.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.03_HosoDiemchuan.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 11808
-             },
-             {
-              "name": "ETV.MCL.F04.04_GCN.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 14125
              }
             ],
-            "n_dirs": 1,
-            "n_files": 5
+            "n_dirs": 4,
+            "n_files": 0
            }
           ],
           "n_dirs": 1,
@@ -2286,22 +2313,40 @@
             "type": "dir",
             "children": [
              {
-              "name": "DLVN389_QTKD_NongDoKhiXQ.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/DLVN389_QTKD_NongDoKhiXQ.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 21883
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN389_QTKD_NongDoKhiXQ.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/1. Quy trinh/DLVN389_QTKD_NongDoKhiXQ.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 21883
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              },
              {
-              "name": "ETV.MVA.F389.01_BienBanKiemDinh.md",
-              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/ETV.MVA.F389.01_BienBanKiemDinh.md",
-              "type": "file",
-              "ext": ".md",
-              "size": 8661
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MVA.F389.01_BienBanKiemDinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BienBanKiemDinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8661
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 0,
-            "n_files": 2
+            "n_dirs": 2,
+            "n_files": 0
            }
           ],
           "n_dirs": 1,
@@ -2316,7 +2361,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 8307
+        "size": 9095
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
