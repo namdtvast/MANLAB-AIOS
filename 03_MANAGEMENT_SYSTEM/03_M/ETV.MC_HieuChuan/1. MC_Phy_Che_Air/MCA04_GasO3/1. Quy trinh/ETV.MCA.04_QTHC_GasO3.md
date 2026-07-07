@@ -27,10 +27,10 @@ superseded_by: null
 
 |                           |                      |
 | ------------------------- | -------------------- |
-| **Mã số**         | ETV.MCA 04             |
+| **Mã số**         | ETV.MCA 04           |
 | **Lần ban hành**  | 01                   |
 | **Ngày ban hành** | 11/09/2023           |
-| **Biên soạn**     | Trần Sơn Tùng   |
+| **Biên soạn**     | Trần Sơn Tùng     |
 | **Soát xét**      | Trần Thị Hoa       |
 | **Phê duyệt**     | Nguyễn Hoàng Giang |
 
@@ -39,8 +39,8 @@ superseded_by: null
 ## THEO DÕI SỬA ĐỔI TÀI LIỆU
 
 | Thời gian | Lý do soát xét, ban hành lại | Lần ban hành |
-|---|---|---|
-| 11/09/2023 | Ban hành lần 01 | 01 |
+| ---------- | --------------------------------- | -------------- |
+| 11/09/2023 | Ban hành lần 01                 | 01             |
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
@@ -76,16 +76,16 @@ Phải lần lượt tiến hành các phép hiệu chuẩn ghi trong Bảng 1.
 
 **Bảng 1**
 
-| TT | Tên phép hiệu chuẩn | Theo điều mục của QTHC |
-|---|---|---|
-| 1 | Kiểm tra bên ngoài | 7.1 |
-| 2 | Kiểm tra kỹ thuật | 7.2 |
-| 3 | Kiểm tra đo lường | 7.3 |
-| 3.1 | – Kiểm tra điểm "0" | 7.3.2 |
-| 3.2 | – Kiểm tra sai số | 7.3.3 |
-| 3.3 | – Kiểm tra độ tuyến tính | 7.3.4 |
-| 3.4 | – Kiểm tra độ lặp lại | 7.3.5 |
-| 3.5 | – Kiểm tra độ trôi | 7.3.6 |
+| TT  | Tên phép hiệu chuẩn        | Theo điều mục của QTHC |
+| --- | ------------------------------ | -------------------------- |
+| 1   | Kiểm tra bên ngoài          | 7.1                        |
+| 2   | Kiểm tra kỹ thuật           | 7.2                        |
+| 3   | Kiểm tra đo lường          | 7.3                        |
+| 3.1 | – Kiểm tra điểm "0"        | 7.3.2                      |
+| 3.2 | – Kiểm tra sai số           | 7.3.3                      |
+| 3.3 | – Kiểm tra độ tuyến tính | 7.3.4                      |
+| 3.4 | – Kiểm tra độ lặp lại    | 7.3.5                      |
+| 3.5 | – Kiểm tra độ trôi        | 7.3.6                      |
 
 ## 4. Phương tiện hiệu chuẩn
 
@@ -228,7 +228,5 @@ Hệ số phủ k = 2, tương ứng mức tin cậy xấp xỉ 95 %.
 - TCVN 6165:2009 (ISO/IEC GUIDE 99:2007) — Từ vựng quốc tế về đo lường học — khái niệm, thuật ngữ chung và cơ bản (VIM).
 
 ---
-
-*Bản dự thảo do AI xây dựng dựa trên tài liệu tham khảo quốc tế (US EPA) và đối chiếu với cấu trúc các quy trình ĐLVN/ETV hiện có trong hệ thống (ĐLVN 389, ĐLVN 380, ETV.ĐLVN.76); GIẢ ĐỊNH phạm vi đo 0–500 ppb dựa theo dải chuẩn tham chiếu 2B Tech Model 202 — cần LĐP xác nhận lại phạm vi đo, số điểm hiệu chuẩn và tiêu chí sai số cho phép cụ thể trước khi phê duyệt chính thức.*
 
 *Quy trình hiệu chuẩn Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh — ETV.MCA 04 — Lần BH: 01 — Trang tài liệu điện tử, không áp dụng đánh số trang thủ công (bản in xuất từ ManLab tự sinh header/footer).*
