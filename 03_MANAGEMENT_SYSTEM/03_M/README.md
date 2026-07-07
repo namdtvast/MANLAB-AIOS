@@ -85,7 +85,7 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 | Đường dẫn | Nội dung |
 |---|---|
 | [`ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL04_MaydinhviGPS/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay (quy trình hiệu chuẩn), 4 biểu mẫu/phụ lục đi kèm (F04.01–F04.04) và thư mục `diagrams/` (sơ đồ liên kết chuẩn) |
-| [`ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/`](ETV.MV_KiemDinh/1.%20MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/) | `ĐLVN 389:2021` — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh (quy trình kiểm định, văn bản ĐLVN đã ban hành) và biên bản kiểm định mẫu đi kèm |
+| [`ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/`](ETV.MV_KiemDinh/1.%20MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/) | `ĐLVN 389:2021` — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh (quy trình kiểm định, chuyển đổi sang `.md` từ văn bản ĐLVN đã ban hành) và biểu mẫu biên bản kiểm định `ETV.MVA.F389.01` đi kèm — không lưu bản `.pdf`/`.doc` gốc trong repo |
 
 Các thư mục Dịch vụ/Lĩnh vực khác chưa có nội dung — tạo theo đúng quy tắc ở trên khi bắt đầu chuyển đổi/soạn thảo tài liệu thuộc dịch vụ/lĩnh vực đó.
 

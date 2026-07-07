@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-06-29 10:04 UTC",
+ "generated_at": "2026-07-07 04:34 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,20 +11,23 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 502,
-  "dirs": 528,
+  "files": 575,
+  "dirs": 544,
   "docs": 7,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 390,
+   ".md": 449,
    ".yaml": 100,
-   ".pdf": 6,
-   ".docx": 1,
-   ".py": 2,
+   ".drawio": 2,
+   ".jpg": 2,
+   ".pdf": 7,
+   ".py": 3,
+   ".js": 2,
+   ".json": 2,
    ".sh": 1,
-   ".png": 2
+   ".png": 7
   }
  },
  "standards": [
@@ -567,9 +570,16 @@
    "name": "Kiểm soát tài liệu",
    "status": "active",
    "standards": [
-    "ISO17025"
+    "ISO9001",
+    "ISO17025",
+    "ISO17034",
+    "ISO27001",
+    "ISO42001"
    ],
-   "legal": [],
+   "legal": [
+    "NĐ 30/2020/NĐ-CP",
+    "Luật GDĐT 20/2023/QH15"
+   ],
    "capabilities": [
     "CAP-18"
    ],
@@ -767,7 +777,7 @@
    "doc_edition": "02",
    "doc_issued": "2026-06-28",
    "doc_status": "issued",
-   "has_doc": true,
+   "has_doc": false,
    "forms": [
     "F21.01",
     "F21.02",
@@ -1299,10 +1309,10 @@
       "path": "01_ENTERPRISE/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 552
+      "size": 3315
      }
     ],
-    "desc": "**Ý nghĩa:** Bản sắc và định hướng của Viện — vì sao tồn tại và đi về đâu.",
+    "desc": "**Ý nghĩa:** Toàn bộ hồ sơ pháp lý, tài chính, sở hữu trí tuệ và truyền thông của Viện ETV với tư cách pháp nhân — tách biệt với hồ sơ nghiệp vụ hàng ngày.",
     "readme": "01_ENTERPRISE/README.md",
     "n_dirs": 0,
     "n_files": 11
@@ -2093,166 +2103,316 @@
     "type": "dir",
     "children": [
      {
-      "name": "01_ETV.QM",
-      "path": "03_MANAGEMENT_SYSTEM/01_ETV.QM",
+      "name": "01_QM",
+      "path": "03_MANAGEMENT_SYSTEM/01_QM",
       "type": "dir",
       "children": [
        {
-        "name": "ETV.QM_L4.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/01_ETV.QM/ETV.QM_L4.pdf",
+        "name": "ETV.QM.01_QuanlyChatluong.md",
+        "path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.01_QuanlyChatluong.md",
         "type": "file",
-        "ext": ".pdf",
-        "size": 4403260
+        "ext": ".md",
+        "size": 122840
+       },
+       {
+        "name": "ETV.QM.F01_ChinhSachChatLuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F01_ChinhSachChatLuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3598
+       },
+       {
+        "name": "ETV.QM.F02_MucTieuChatLuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 13316
        },
        {
         "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/01_ETV.QM/README.md",
+        "path": "03_MANAGEMENT_SYSTEM/01_QM/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 690
+        "size": 194
        }
       ],
-      "desc": "Tài liệu cấp cao nhất của Hệ thống quản lý tích hợp; liên kết tới toàn bộ quy trình MPxx (tầng 04).",
-      "readme": "03_MANAGEMENT_SYSTEM/01_ETV.QM/README.md",
+      "desc": "Sổ tay chất lượng, chính sách chất lượng, mục tiêu chất lượng, phạm vi hệ thống quản lý, sơ đồ tổ chức, sơ đồ quá trình.",
+      "readme": "03_MANAGEMENT_SYSTEM/01_QM/README.md",
       "n_dirs": 0,
-      "n_files": 2
+      "n_files": 4
      },
      {
-      "name": "02_ISO9001",
-      "path": "03_MANAGEMENT_SYSTEM/02_ISO9001",
+      "name": "02_P",
+      "path": "03_MANAGEMENT_SYSTEM/02_P",
       "type": "dir",
       "children": [
        {
-        "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/02_ISO9001/README.md",
+        "name": "ETV.P14_KiemSoatTaiLieu.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md",
         "type": "file",
         "ext": ".md",
-        "size": 154
+        "size": 33198
        },
        {
-        "name": "TCVN ISO 9001-2008.PDF",
-        "path": "03_MANAGEMENT_SYSTEM/02_ISO9001/TCVN ISO 9001-2008.PDF",
+        "name": "ETV.P15_KiemSoatHoSo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P15_KiemSoatHoSo.md",
         "type": "file",
-        "ext": ".pdf",
-        "size": 3515659
+        "ext": ".md",
+        "size": 15374
+       },
+       {
+        "name": "ETV.P21_CongBoKiemSoatNangLuc.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 33883
+       },
+       {
+        "name": "README.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 208
        }
       ],
-      "desc": "ISO 9001:2015 — Hệ thống quản lý chất lượng",
-      "readme": "03_MANAGEMENT_SYSTEM/02_ISO9001/README.md",
+      "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
+      "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 2
+      "n_files": 4
      },
      {
-      "name": "03_ISO17025",
-      "path": "03_MANAGEMENT_SYSTEM/03_ISO17025",
+      "name": "03_M",
+      "path": "03_MANAGEMENT_SYSTEM/03_M",
       "type": "dir",
       "children": [
        {
-        "name": "ISO-IEC 17025_2017.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/03_ISO17025/ISO-IEC 17025_2017.pdf",
-        "type": "file",
-        "ext": ".pdf",
-        "size": 1233684
+        "name": "ETV.MC_HieuChuan",
+        "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan",
+        "type": "dir",
+        "children": [
+         {
+          "name": "9. MC_Length",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCL04_MaydinhviGPS",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS",
+            "type": "dir",
+            "children": [
+             {
+              "name": "diagrams",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams",
+              "type": "dir",
+              "children": [
+               {
+                "name": "MCL04_LienKetChuan_v1.drawio",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams/MCL04_LienKetChuan_v1.drawio",
+                "type": "file",
+                "ext": ".drawio",
+                "size": 11597
+               },
+               {
+                "name": "MCL04_LienKetChuan_v1.jpg",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/diagrams/MCL04_LienKetChuan_v1.jpg",
+                "type": "file",
+                "ext": ".jpg",
+                "size": 591812
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 2
+             },
+             {
+              "name": "ETV.MCL.04_QTHC_MaydinhviGPS.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 25616
+             },
+             {
+              "name": "ETV.MCL.F04.01_BienBan.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.01_BienBan.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 6779
+             },
+             {
+              "name": "ETV.MCL.F04.02_BangTinh.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.02_BangTinh.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 6967
+             },
+             {
+              "name": "ETV.MCL.F04.03_HosoDiemchuan.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.03_HosoDiemchuan.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 11808
+             },
+             {
+              "name": "ETV.MCL.F04.04_GCN.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 14125
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 5
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         }
+        ],
+        "n_dirs": 1,
+        "n_files": 0
+       },
+       {
+        "name": "ETV.MV_KiemDinh",
+        "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh",
+        "type": "dir",
+        "children": [
+         {
+          "name": "1. MV_Phy_Che_Air",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MVA_DLVN389_NongDoKhiXQ",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DLVN389_QTKD_NongDoKhiXQ.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/DLVN389_QTKD_NongDoKhiXQ.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 21883
+             },
+             {
+              "name": "ETV.MVA.F389.01_BienBanKiemDinh.md",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/ETV.MVA.F389.01_BienBanKiemDinh.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 8661
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         }
+        ],
+        "n_dirs": 1,
+        "n_files": 0
        },
        {
         "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/03_ISO17025/README.md",
+        "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 173
+        "size": 8307
        }
       ],
-      "desc": "ISO/IEC 17025:2017 — Năng lực phòng thử nghiệm và hiệu chuẩn",
-      "readme": "03_MANAGEMENT_SYSTEM/03_ISO17025/README.md",
-      "n_dirs": 0,
-      "n_files": 2
-     },
-     {
-      "name": "04_ISO17034",
-      "path": "03_MANAGEMENT_SYSTEM/04_ISO17034",
-      "type": "dir",
-      "children": [
-       {
-        "name": "01. ISO 17034-2016 (BS EN) General requirements for the competence of reference material producers.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/04_ISO17034/01. ISO 17034-2016 (BS EN) General requirements for the competence of reference material producers.pdf",
-        "type": "file",
-        "ext": ".pdf",
-        "size": 2213141
-       },
-       {
-        "name": "01. TCVN 17034 -2017. ISO 17034.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/04_ISO17034/01. TCVN 17034 -2017. ISO 17034.pdf",
-        "type": "file",
-        "ext": ".pdf",
-        "size": 1048923
-       },
-       {
-        "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_ISO17034/README.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 160
-       }
-      ],
-      "desc": "ISO 17034:2016 — Năng lực nhà sản xuất mẫu chuẩn",
-      "readme": "03_MANAGEMENT_SYSTEM/04_ISO17034/README.md",
-      "n_dirs": 0,
-      "n_files": 3
-     },
-     {
-      "name": "05_ISO27001",
-      "path": "03_MANAGEMENT_SYSTEM/05_ISO27001",
-      "type": "dir",
-      "children": [
-       {
-        "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/05_ISO27001/README.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 164
-       }
-      ],
-      "desc": "ISO/IEC 27001:2022 — Hệ thống quản lý an toàn thông tin",
-      "readme": "03_MANAGEMENT_SYSTEM/05_ISO27001/README.md",
-      "n_dirs": 0,
+      "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
+      "readme": "03_MANAGEMENT_SYSTEM/03_M/README.md",
+      "n_dirs": 2,
       "n_files": 1
      },
      {
-      "name": "06_ISO42001",
-      "path": "03_MANAGEMENT_SYSTEM/06_ISO42001",
+      "name": "04_F",
+      "path": "03_MANAGEMENT_SYSTEM/04_F",
       "type": "dir",
       "children": [
        {
-        "name": "ISO-IEC 42001_He thong Quan ly AI.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/06_ISO42001/ISO-IEC 42001_He thong Quan ly AI.pdf",
+        "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
         "type": "file",
-        "ext": ".pdf",
-        "size": 1950734
+        "ext": ".md",
+        "size": 1656
+       },
+       {
+        "name": "ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1375
+       },
+       {
+        "name": "ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1069
+       },
+       {
+        "name": "ETV.P.F14.04_GiaoNhanVanBan.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.04_GiaoNhanVanBan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 720
+       },
+       {
+        "name": "ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1211
+       },
+       {
+        "name": "ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1644
        },
        {
         "name": "README.md",
-        "path": "03_MANAGEMENT_SYSTEM/06_ISO42001/README.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 167
+        "size": 864
        }
       ],
-      "desc": "ISO/IEC 42001:2023 — Hệ thống quản lý trí tuệ nhân tạo",
-      "readme": "03_MANAGEMENT_SYSTEM/06_ISO42001/README.md",
+      "desc": "Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.",
+      "readme": "03_MANAGEMENT_SYSTEM/04_F/README.md",
       "n_dirs": 0,
-      "n_files": 2
+      "n_files": 7
+     },
+     {
+      "name": "05_R",
+      "path": "03_MANAGEMENT_SYSTEM/05_R",
+      "type": "dir",
+      "children": [
+       {
+        "name": "README.md",
+        "path": "03_MANAGEMENT_SYSTEM/05_R/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 267
+       }
+      ],
+      "desc": "Hồ sơ, minh chứng, dữ liệu phát sinh từ việc thực hiện các quy trình (kết quả đánh giá, hồ sơ hoàn thành, v.v.).",
+      "readme": "03_MANAGEMENT_SYSTEM/05_R/README.md",
+      "n_dirs": 0,
+      "n_files": 1
      },
      {
       "name": "README.md",
       "path": "03_MANAGEMENT_SYSTEM/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 597
+      "size": 1618
      }
     ],
-    "desc": "**Ý nghĩa:** Nơi đặt 'luật chơi' — chuẩn mực ISO và Sổ tay chất lượng. Mô tả phải tuân thủ gì, KHÔNG mô tả làm thế nào.",
+    "desc": "**Ý nghĩa:** Chuẩn mực kiểm soát nội bộ ETV — luật chơi mà tất cả MP, M phải tuân theo.",
     "readme": "03_MANAGEMENT_SYSTEM/README.md",
-    "n_dirs": 6,
+    "n_dirs": 5,
     "n_files": 1
    },
    {
@@ -2295,7 +2455,7 @@
         "path": "04_PROCESS_LIBRARY/MP01_RuiRo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 415
+        "size": 440
        },
        {
         "name": "manifest.yaml",
@@ -2344,7 +2504,7 @@
         "path": "04_PROCESS_LIBRARY/MP02_BaoMat/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 411
+        "size": 436
        },
        {
         "name": "manifest.yaml",
@@ -2393,7 +2553,7 @@
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 453
+        "size": 478
        },
        {
         "name": "manifest.yaml",
@@ -2443,7 +2603,7 @@
         "path": "04_PROCESS_LIBRARY/MP04_MoiTruong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 504
+        "size": 529
        },
        {
         "name": "manifest.yaml",
@@ -2493,7 +2653,7 @@
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 415
+        "size": 440
        },
        {
         "name": "manifest.yaml",
@@ -2541,7 +2701,7 @@
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 413
+        "size": 438
        },
        {
         "name": "manifest.yaml",
@@ -2589,7 +2749,7 @@
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 496
+        "size": 521
        },
        {
         "name": "manifest.yaml",
@@ -2639,7 +2799,7 @@
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 505
+        "size": 530
        },
        {
         "name": "manifest.yaml",
@@ -2689,7 +2849,7 @@
         "path": "04_PROCESS_LIBRARY/MP09_LayMau/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 459
+        "size": 484
        },
        {
         "name": "manifest.yaml",
@@ -2738,7 +2898,7 @@
         "path": "04_PROCESS_LIBRARY/MP10_DamBaoKQ/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 418
+        "size": 443
        },
        {
         "name": "manifest.yaml",
@@ -2786,7 +2946,7 @@
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 543
+        "size": 568
        },
        {
         "name": "manifest.yaml",
@@ -2837,7 +2997,7 @@
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 418
+        "size": 443
        },
        {
         "name": "manifest.yaml",
@@ -2885,7 +3045,7 @@
         "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 418
+        "size": 443
        },
        {
         "name": "manifest.yaml",
@@ -2929,25 +3089,48 @@
       "type": "dir",
       "children": [
        {
+        "name": "diagrams",
+        "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/diagrams",
+        "type": "dir",
+        "children": [
+         {
+          "name": "P14_Workflow_v1.drawio",
+          "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/diagrams/P14_Workflow_v1.drawio",
+          "type": "file",
+          "ext": ".drawio",
+          "size": 13465
+         },
+         {
+          "name": "P14_Workflow_v1.jpg",
+          "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/diagrams/P14_Workflow_v1.jpg",
+          "type": "file",
+          "ext": ".jpg",
+          "size": 489133
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 2
+       },
+       {
         "name": "links.yaml",
         "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 419
+        "size": 465
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 196
+        "size": 292
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 367
+        "size": 525
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -2960,15 +3143,22 @@
        "owner": "(cập nhật)",
        "status": "active",
        "standards": [
-        "ISO17025"
+        "ISO9001",
+        "ISO17025",
+        "ISO17034",
+        "ISO27001",
+        "ISO42001"
        ],
-       "legal": [],
+       "legal": [
+        "NĐ 30/2020/NĐ-CP",
+        "Luật GDĐT 20/2023/QH15"
+       ],
        "capabilities": [
         "CAP-18"
        ],
        "module": "M14"
       },
-      "n_dirs": 0,
+      "n_dirs": 1,
       "n_files": 3
      },
      {
@@ -2981,7 +3171,7 @@
         "path": "04_PROCESS_LIBRARY/MP15_HoSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 416
+        "size": 441
        },
        {
         "name": "manifest.yaml",
@@ -3029,7 +3219,7 @@
         "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 422
+        "size": 447
        },
        {
         "name": "manifest.yaml",
@@ -3077,7 +3267,7 @@
         "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 423
+        "size": 448
        },
        {
         "name": "manifest.yaml",
@@ -3125,7 +3315,7 @@
         "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 510
+        "size": 535
        },
        {
         "name": "manifest.yaml",
@@ -3175,7 +3365,7 @@
         "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 414
+        "size": 439
        },
        {
         "name": "manifest.yaml",
@@ -3223,7 +3413,7 @@
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 412
+        "size": 437
        },
        {
         "name": "manifest.yaml",
@@ -3267,18 +3457,11 @@
       "type": "dir",
       "children": [
        {
-        "name": "ETV.MP21_Thu_tuc_Final_V5.docx",
-        "path": "04_PROCESS_LIBRARY/MP21_CongBoNangLuc/ETV.MP21_Thu_tuc_Final_V5.docx",
-        "type": "file",
-        "ext": ".docx",
-        "size": 71407
-       },
-       {
         "name": "links.yaml",
         "path": "04_PROCESS_LIBRARY/MP21_CongBoNangLuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 504
+        "size": 529
        },
        {
         "name": "manifest.yaml",
@@ -3339,7 +3522,7 @@
        ]
       },
       "n_dirs": 0,
-      "n_files": 4
+      "n_files": 3
      },
      {
       "name": "MP22_DamBaoDoLuongDN",
@@ -3351,7 +3534,7 @@
         "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 431
+        "size": 456
        },
        {
         "name": "manifest.yaml",
@@ -3401,7 +3584,7 @@
         "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 413
+        "size": 438
        },
        {
         "name": "manifest.yaml",
@@ -3449,7 +3632,7 @@
         "path": "04_PROCESS_LIBRARY/MP24_KPI/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 413
+        "size": 438
        },
        {
         "name": "manifest.yaml",
@@ -3497,7 +3680,7 @@
         "path": "04_PROCESS_LIBRARY/MP25_BoiCanh/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 422
+        "size": 447
        },
        {
         "name": "manifest.yaml",
@@ -3545,7 +3728,7 @@
         "path": "04_PROCESS_LIBRARY/MP26_TriThuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 422
+        "size": 447
        },
        {
         "name": "manifest.yaml",
@@ -3593,7 +3776,7 @@
         "path": "04_PROCESS_LIBRARY/MP27_TaiSanTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 413
+        "size": 438
        },
        {
         "name": "manifest.yaml",
@@ -3641,7 +3824,7 @@
         "path": "04_PROCESS_LIBRARY/MP28_ATTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 409
+        "size": 434
        },
        {
         "name": "manifest.yaml",
@@ -3689,7 +3872,7 @@
         "path": "04_PROCESS_LIBRARY/MP29_AI/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 411
+        "size": 436
        },
        {
         "name": "manifest.yaml",
@@ -3737,7 +3920,7 @@
         "path": "04_PROCESS_LIBRARY/MP30_ThayDoi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 417
+        "size": 442
        },
        {
         "name": "manifest.yaml",
@@ -3785,7 +3968,7 @@
         "path": "04_PROCESS_LIBRARY/MP31_LienTuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 412
+        "size": 437
        },
        {
         "name": "manifest.yaml",
@@ -3833,7 +4016,7 @@
         "path": "04_PROCESS_LIBRARY/MP32_ChuyenDoiSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 421
+        "size": 446
        },
        {
         "name": "manifest.yaml",
@@ -3881,7 +4064,7 @@
         "path": "04_PROCESS_LIBRARY/MP33_HeThongTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 414
+        "size": 439
        },
        {
         "name": "manifest.yaml",
@@ -3929,7 +4112,7 @@
         "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 413
+        "size": 438
        },
        {
         "name": "manifest.yaml",
@@ -3978,7 +4161,7 @@
         "path": "04_PROCESS_LIBRARY/MP35_NenTangSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 418
+        "size": 443
        },
        {
         "name": "manifest.yaml",
@@ -4026,7 +4209,7 @@
         "path": "04_PROCESS_LIBRARY/MP36_ChungChiSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 414
+        "size": 439
        },
        {
         "name": "manifest.yaml",
@@ -4074,7 +4257,7 @@
         "path": "04_PROCESS_LIBRARY/MP37_TichHopDuLieu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 460
+        "size": 485
        },
        {
         "name": "manifest.yaml",
@@ -4123,7 +4306,7 @@
         "path": "04_PROCESS_LIBRARY/MP38_DichVuSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 417
+        "size": 442
        },
        {
         "name": "manifest.yaml",
@@ -5871,7 +6054,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 787
+          "size": 3514
          }
         ],
         "n_dirs": 0,
@@ -5887,7 +6070,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/02_API/API.md",
           "type": "file",
           "ext": ".md",
-          "size": 743
+          "size": 2033
          }
         ],
         "n_dirs": 0,
@@ -5903,7 +6086,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/03_Database/DataModel.md",
           "type": "file",
           "ext": ".md",
-          "size": 501
+          "size": 1551
          }
         ],
         "n_dirs": 0,
@@ -5927,7 +6110,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/05_Report/Outputs.md",
           "type": "file",
           "ext": ".md",
-          "size": 439
+          "size": 1091
          }
         ],
         "n_dirs": 0,
@@ -5951,7 +6134,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/07_Workflow/StateMachine.md",
           "type": "file",
           "ext": ".md",
-          "size": 1301
+          "size": 1740
          }
         ],
         "n_dirs": 0,
@@ -5978,9 +6161,10 @@
         "path": "05_MODULE_LIBRARY/M14_TaiLieu/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 466
+        "size": 712
        }
       ],
+      "desc": "Phạm vi: tài liệu/dữ liệu/thông tin. **Không** gồm hợp đồng (thuộc P03/P07). Thủ tục nguồn: `03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/ETV.P14_KiemSoatTaiLieu.md`. Đặc tả chi tiết: `01_Requirement/DacTa.md`.",
       "readme": "05_MODULE_LIBRARY/M14_TaiLieu/README.md",
       "n_dirs": 9,
       "n_files": 1
@@ -9106,6 +9290,48 @@
       "type": "dir",
       "children": [
        {
+        "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1656
+       },
+       {
+        "name": "ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1375
+       },
+       {
+        "name": "ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1069
+       },
+       {
+        "name": "ETV.P.F14.04_GiaoNhanVanBan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 720
+       },
+       {
+        "name": "ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1211
+       },
+       {
+        "name": "ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1644
+       },
+       {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/01_Forms/README.md",
         "type": "file",
@@ -9116,7 +9342,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 7
      },
      {
       "name": "02_Templates",
@@ -9358,6 +9584,270 @@
       "type": "dir",
       "children": [
        {
+        "name": "etv-document-governance",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance",
+        "type": "dir",
+        "children": [
+         {
+          "name": "examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/examples",
+          "type": "dir",
+          "children": [
+           {
+            "name": "example_metadata.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/examples/example_metadata.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1326
+           },
+           {
+            "name": "example_quyet_dinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/examples/example_quyet_dinh.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1938
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "knowledge",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge",
+          "type": "dir",
+          "children": [
+           {
+            "name": "01_phap_luat.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/01_phap_luat.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2560
+           },
+           {
+            "name": "02_iso.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/02_iso.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2081
+           },
+           {
+            "name": "03_ma_hoa_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/03_ma_hoa_van_ban.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2868
+           },
+           {
+            "name": "04_metadata_schema.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/04_metadata_schema.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2539
+           },
+           {
+            "name": "05_vong_doi_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/05_vong_doi_van_ban.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2286
+           },
+           {
+            "name": "07_ky_so.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/knowledge/07_ky_so.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1786
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 6
+         },
+         {
+          "name": "templates",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates",
+          "type": "dir",
+          "children": [
+           {
+            "name": "bao_cao.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/bao_cao.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1103
+           },
+           {
+            "name": "bien_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/bien_ban.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1185
+           },
+           {
+            "name": "bieu_mau.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/bieu_mau.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1273
+           },
+           {
+            "name": "cong_van.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/cong_van.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1100
+           },
+           {
+            "name": "giay_chung_nhan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/giay_chung_nhan.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1620
+           },
+           {
+            "name": "huong_dan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/huong_dan.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1038
+           },
+           {
+            "name": "quy_trinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/quy_trinh.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1272
+           },
+           {
+            "name": "quyet_dinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/quyet_dinh.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1567
+           },
+           {
+            "name": "thong_bao.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/thong_bao.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1065
+           },
+           {
+            "name": "thu_tuc.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/templates/thu_tuc.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1393
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 10
+         },
+         {
+          "name": "validation",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation",
+          "type": "dir",
+          "children": [
+           {
+            "name": "checklist_document_release.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_document_release.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1165
+           },
+           {
+            "name": "checklist_document_review.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_document_review.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1181
+           },
+           {
+            "name": "checklist_iso_compliance.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_iso_compliance.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1058
+           },
+           {
+            "name": "checklist_legal_compliance.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_legal_compliance.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1124
+           },
+           {
+            "name": "checklist_procedure.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_procedure.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1108
+           },
+           {
+            "name": "checklist_template.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/validation/checklist_template.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 936
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 6
+         },
+         {
+          "name": "workflows",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/workflows",
+          "type": "dir",
+          "children": [
+           {
+            "name": "workflow_ban_hanh_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/workflows/workflow_ban_hanh_van_ban.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1724
+           },
+           {
+            "name": "workflow_ky_so.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/workflows/workflow_ky_so.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1603
+           },
+           {
+            "name": "workflow_soat_xet_sua_doi.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/workflows/workflow_soat_xet_sua_doi.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1727
+           },
+           {
+            "name": "workflow_thu_hoi_huy.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/workflows/workflow_thu_hoi_huy.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1458
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 4
+         },
+         {
+          "name": "CLAUDE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/CLAUDE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5568
+         },
+         {
+          "name": "SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance/SKILL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4627
+         }
+        ],
+        "n_dirs": 5,
+        "n_files": 2
+       },
+       {
         "name": "README.md",
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
         "type": "file",
@@ -9367,7 +9857,7 @@
       ],
       "desc": "**Ý nghĩa:** Định nghĩa kỹ năng AI",
       "readme": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
-      "n_dirs": 0,
+      "n_dirs": 1,
       "n_files": 1
      },
      {
@@ -9587,10 +10077,56 @@
     "type": "dir",
     "children": [
      {
+      "name": "00_RAW_DATA",
+      "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA",
+      "type": "dir",
+      "children": [
+       {
+        "name": "Quyết-định-33-2026-QĐ-TTg.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/Quyết-định-33-2026-QĐ-TTg.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 2442505
+       },
+       {
+        "name": "README.md",
+        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1464
+       }
+      ],
+      "desc": "**Mục đích:** Lưu trữ tạm thời tài liệu PDF, Word, ảnh liên quan đến ISO, pháp lý, tiêu chuẩn, quy trình trước khi phân loại vào các thư mục chính.",
+      "readme": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/README.md",
+      "n_dirs": 0,
+      "n_files": 2
+     },
+     {
       "name": "01_Regulations",
       "path": "08_KNOWLEDGE_GRAPH/01_Regulations",
       "type": "dir",
       "children": [
+       {
+        "name": "Luat-GDDT-2023_20-2023-QH15.md",
+        "path": "08_KNOWLEDGE_GRAPH/01_Regulations/Luat-GDDT-2023_20-2023-QH15.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1260
+       },
+       {
+        "name": "ND-130-2018-NDCP_ChuKySo.md",
+        "path": "08_KNOWLEDGE_GRAPH/01_Regulations/ND-130-2018-NDCP_ChuKySo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1301
+       },
+       {
+        "name": "ND-30-2020-NDCP_CongTacVanThu.md",
+        "path": "08_KNOWLEDGE_GRAPH/01_Regulations/ND-30-2020-NDCP_CongTacVanThu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1409
+       },
        {
         "name": "README.md",
         "path": "08_KNOWLEDGE_GRAPH/01_Regulations/README.md",
@@ -9602,7 +10138,7 @@
       "desc": "**Ý nghĩa:** Văn bản QPPL: luật, nghị định, thông tư",
       "readme": "08_KNOWLEDGE_GRAPH/01_Regulations/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 4
      },
      {
       "name": "02_ISO",
@@ -9610,17 +10146,52 @@
       "type": "dir",
       "children": [
        {
+        "name": "01. ISO 17034-2016 (BS EN) General requirements for the competence of reference material producers.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/02_ISO/01. ISO 17034-2016 (BS EN) General requirements for the competence of reference material producers.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 2213141
+       },
+       {
+        "name": "01. TCVN 17034 -2017. ISO 17034.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/02_ISO/01. TCVN 17034 -2017. ISO 17034.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1048923
+       },
+       {
+        "name": "ISO-IEC_17025_2017.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/02_ISO/ISO-IEC_17025_2017.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1233684
+       },
+       {
+        "name": "ISO-IEC_42001_2023_He_Thong_Quan_Ly_AI.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/02_ISO/ISO-IEC_42001_2023_He_Thong_Quan_Ly_AI.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1950734
+       },
+       {
+        "name": "ISO_17034-2016_BS_EN.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/02_ISO/ISO_17034-2016_BS_EN.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 2213141
+       },
+       {
         "name": "README.md",
         "path": "08_KNOWLEDGE_GRAPH/02_ISO/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 399
+        "size": 164
        }
       ],
-      "desc": "**Ý nghĩa:** Tri thức về tiêu chuẩn ISO",
+      "desc": "ISO/IEC 27001:2022 — Hệ thống quản lý an toàn thông tin",
       "readme": "08_KNOWLEDGE_GRAPH/02_ISO/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 6
      },
      {
       "name": "03_DLVN",
@@ -9651,12 +10222,19 @@
         "type": "file",
         "ext": ".md",
         "size": 382
+       },
+       {
+        "name": "TCVN_17034-2017_ISO_17034.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/04_TCVN/TCVN_17034-2017_ISO_17034.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1048923
        }
       ],
       "desc": "**Ý nghĩa:** Tiêu chuẩn quốc gia",
       "readme": "08_KNOWLEDGE_GRAPH/04_TCVN/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 2
      },
      {
       "name": "05_ILAC",
@@ -9789,12 +10367,12 @@
       "path": "08_KNOWLEDGE_GRAPH/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 982
+      "size": 2840
      }
     ],
-    "desc": "**Ý nghĩa:** Tri thức có cấu trúc để AI đọc: quy định, tiêu chuẩn, ontology, vector.",
+    "desc": "**Ý nghĩa:** Tri thức có cấu trúc để AI đọc: quy định, tiêu chuẩn kỹ thuật, ontology, vector. Đây là **thư viện tham chiếu** — phân biệt với `03_MANAGEMENT_SYSTEM` là chuẩn mực kiểm soát nội bộ.",
     "readme": "08_KNOWLEDGE_GRAPH/README.md",
-    "n_dirs": 11,
+    "n_dirs": 12,
     "n_files": 1
    },
    {
@@ -10100,7 +10678,7 @@
         "path": "11_COMPLIANCE/01_ISO_Mapping/MP-ISO-mapping.md",
         "type": "file",
         "ext": ".md",
-        "size": 3171
+        "size": 3315
        },
        {
         "name": "README.md",
@@ -10264,10 +10842,10 @@
       "path": "11_COMPLIANCE/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 960
+      "size": 2542
      }
     ],
-    "desc": "**Ý nghĩa:** Lớp chứng minh tuân thủ — nơi đánh giá viên (BoA/VILAS, cơ quan QLNN) truy bằng chứng.",
+    "desc": "**Ý nghĩa:** Lớp chứng minh tuân thủ — nơi đánh giá viên (BoA/VILAS, TDC, cơ quan QLNN) truy bằng chứng. Bao gồm toàn bộ hồ sơ đăng ký hoạt động với cơ quan nhà nước.",
     "readme": "11_COMPLIANCE/README.md",
     "n_dirs": 9,
     "n_files": 1
@@ -10444,10 +11022,10 @@
       "path": "12_RESEARCH/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 884
+      "size": 2257
      }
     ],
-    "desc": "**Ý nghĩa:** Không gian R&D, thử nghiệm ý tưởng — tách khỏi hệ thống vận hành.",
+    "desc": "**Ý nghĩa:** Không gian R&D và truyền thông khoa học — tách khỏi hệ thống vận hành chính thức.",
     "readme": "12_RESEARCH/README.md",
     "n_dirs": 9,
     "n_files": 1
@@ -10458,11 +11036,64 @@
     "type": "dir",
     "children": [
      {
+      "name": "gen_docx",
+      "path": "_meta/gen_docx",
+      "type": "dir",
+      "children": [
+       {
+        "name": "build.js",
+        "path": "_meta/gen_docx/build.js",
+        "type": "file",
+        "ext": ".js",
+        "size": 2073
+       },
+       {
+        "name": "etv-docx-lib.js",
+        "path": "_meta/gen_docx/etv-docx-lib.js",
+        "type": "file",
+        "ext": ".js",
+        "size": 7001
+       },
+       {
+        "name": "package-lock.json",
+        "path": "_meta/gen_docx/package-lock.json",
+        "type": "file",
+        "ext": ".json",
+        "size": 8062
+       },
+       {
+        "name": "package.json",
+        "path": "_meta/gen_docx/package.json",
+        "type": "file",
+        "ext": ".json",
+        "size": 369
+       },
+       {
+        "name": "README.md",
+        "path": "_meta/gen_docx/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2280
+       }
+      ],
+      "desc": "Công cụ tái tạo bản **`.docx` phát hành** (để in, trình ký, lưu kho ISO) từ nội dung thủ tục, theo đúng **thể thức tài liệu HTQL của ETV** (ETV.P14 §8): A4, Times New Roman 12, lề trên/dưới 2cm–trái 2,5cm–phải 2cm, header (tên tài liệu) + footer (mã số | lần BH | ngày BH | trang/tổng), trang bìa + bảng \"Những thay đổi đã có\".",
+      "readme": "_meta/gen_docx/README.md",
+      "n_dirs": 0,
+      "n_files": 5
+     },
+     {
       "name": "build_site.py",
       "path": "_meta/build_site.py",
       "type": "file",
       "ext": ".py",
       "size": 15011
+     },
+     {
+      "name": "extract_documents_metadata.py",
+      "path": "_meta/extract_documents_metadata.py",
+      "type": "file",
+      "ext": ".py",
+      "size": 10838
      },
      {
       "name": "github-setup.sh",
@@ -10493,8 +11124,66 @@
       "size": 1818
      }
     ],
+    "n_dirs": 1,
+    "n_files": 6
+   },
+   {
+    "name": "ETV_Infographic",
+    "path": "ETV_Infographic",
+    "type": "dir",
+    "children": [
+     {
+      "name": "ISO17025.png",
+      "path": "ETV_Infographic/ISO17025.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1926549
+     },
+     {
+      "name": "ISO27001.png",
+      "path": "ETV_Infographic/ISO27001.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1871512
+     },
+     {
+      "name": "ISO42001.png",
+      "path": "ETV_Infographic/ISO42001.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1970073
+     },
+     {
+      "name": "ISO9001.png",
+      "path": "ETV_Infographic/ISO9001.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1837347
+     },
+     {
+      "name": "ISO_Tichhop.png",
+      "path": "ETV_Infographic/ISO_Tichhop.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1968124
+     },
+     {
+      "name": "Repo_ManLab_AIOS1.png",
+      "path": "ETV_Infographic/Repo_ManLab_AIOS1.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 2028290
+     },
+     {
+      "name": "Repo_ManLab_AIOS2.png",
+      "path": "ETV_Infographic/Repo_ManLab_AIOS2.png",
+      "type": "file",
+      "ext": ".png",
+      "size": 1860520
+     }
+    ],
     "n_dirs": 0,
-    "n_files": 5
+    "n_files": 7
    },
    {
     "name": "ARCHITECTURE.md",
@@ -10508,7 +11197,7 @@
     "path": "README.md",
     "type": "file",
     "ext": ".md",
-    "size": 3122
+    "size": 7187
    },
    {
     "name": "repo-manifest.yaml",
@@ -10516,20 +11205,6 @@
     "type": "file",
     "ext": ".yaml",
     "size": 303
-   },
-   {
-    "name": "Repo_ManLab_AIOS1.png",
-    "path": "Repo_ManLab_AIOS1.png",
-    "type": "file",
-    "ext": ".png",
-    "size": 2028290
-   },
-   {
-    "name": "Repo_ManLab_AIOS2.png",
-    "path": "Repo_ManLab_AIOS2.png",
-    "type": "file",
-    "ext": ".png",
-    "size": 1860520
    }
   ]
  }

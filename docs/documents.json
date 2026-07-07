@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T09:18:51.654451",
-  "total_documents": 17,
+  "generated_at": "2026-07-07T11:34:14.680950",
+  "total_documents": 19,
   "documents": [
     {
       "code": "ETV.MCL 04",
@@ -97,6 +97,22 @@
       "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
       "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
       "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MVA.F389.01",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/ETV.MVA.F389.01_BienBanKiemDinh.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/ETV.MVA.F389.01_BienBanKiemDinh.md",
+      "iso_standard": ""
     },
     {
       "code": "ETV.P.F14.01",
@@ -345,6 +361,32 @@
       "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md",
       "relative_path": "01_QM/ETV.QM.F02_MucTieuChatLuong.md",
       "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ĐLVN 389:2021",
+      "title": "Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2021",
+      "revision": "",
+      "author": "Trung tâm Quan trắc môi trường miền Bắc",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "ĐLVN 113:2003",
+        "ĐLVN 214:2017",
+        "ĐLVN 265:2016",
+        "ĐLVN 333:2016",
+        "TCVN 3286-79",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)",
+        "OIML R143:2009",
+        "OIML R144:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/DLVN389_QTKD_NongDoKhiXQ.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/DLVN389_QTKD_NongDoKhiXQ.md",
+      "iso_standard": ""
     }
   ]
 }
