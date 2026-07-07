@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07 06:41 UTC",
+ "generated_at": "2026-07-07 08:27 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,14 +11,14 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 579,
-  "dirs": 555,
+  "files": 583,
+  "dirs": 563,
   "docs": 7,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 453,
+   ".md": 457,
    ".yaml": 100,
    ".drawio": 2,
    ".jpg": 2,
@@ -2191,6 +2191,106 @@
         "type": "dir",
         "children": [
          {
+          "name": "1. MC_Phy_Che_Air",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCA04_GasO3",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.04_QTHC_GasO3.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh/ETV.MCA.04_QTHC_GasO3.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 17894
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.F04.01_BienBanHieuChuan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau/ETV.MCA.F04.01_BienBanHieuChuan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 5223
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
+          "name": "7. MC_Pressure",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCP_DLVN76_ApKe",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN76_QTHC_ApKe.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/1. Quy trinh/DLVN76_QTHC_ApKe.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15772
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.DLVN.76_BienBanHieuChuan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau/ETV.DLVN.76_BienBanHieuChuan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 7007
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "9. MC_Length",
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length",
           "type": "dir",
@@ -2294,7 +2394,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 1,
+        "n_dirs": 3,
         "n_files": 0
        },
        {
@@ -2443,7 +2543,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 10015
+        "size": 10901
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
