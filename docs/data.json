@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07 06:30 UTC",
+ "generated_at": "2026-07-07 06:41 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,14 +11,14 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 575,
-  "dirs": 549,
+  "files": 579,
+  "dirs": 555,
   "docs": 7,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 449,
+   ".md": 453,
    ".yaml": 100,
    ".drawio": 2,
    ".jpg": 2,
@@ -2308,6 +2308,88 @@
           "type": "dir",
           "children": [
            {
+            "name": "MVA_DLVN333_KhiTuDong",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN333_QTKD_KhiTuDong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/1. Quy trinh/DLVN333_QTKD_KhiTuDong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 17151
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN333_BienBanKiemDinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BienBanKiemDinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 5349
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
+            "name": "MVA_DLVN380_NongDoKhiThai",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN380_QTKD_NongDoKhiThai.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/1. Quy trinh/DLVN380_QTKD_NongDoKhiThai.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 18825
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN380_BienBanKiemDinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BienBanKiemDinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 4863
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
             "name": "MVA_DLVN389_NongDoKhiXQ",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ",
             "type": "dir",
@@ -2349,7 +2431,7 @@
             "n_files": 0
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 3,
           "n_files": 0
          }
         ],
@@ -2361,7 +2443,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 9095
+        "size": 10015
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T13:27:56.350325",
-  "total_documents": 19,
+  "generated_at": "2026-07-07T13:41:35.555735",
+  "total_documents": 23,
   "documents": [
     {
       "code": "ETV.MCL 04",
@@ -361,6 +361,89 @@
       "file_path": "03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md",
       "relative_path": "01_QM/ETV.QM.F02_MucTieuChatLuong.md",
       "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ĐLVN 333:2016",
+      "title": "Phương tiện đo nồng độ SO2, CO, NO, NO2 của trạm quan trắc không khí tự động, liên tục — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2016",
+      "revision": "",
+      "author": "Trung tâm Quan trắc môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "ĐLVN 113:2003",
+        "ĐLVN 265:2014",
+        "ĐLVN 282:2015",
+        "TCVN 3286-79",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)",
+        "OIML R143:2009",
+        "OIML R144:2013",
+        "EPA-40 CFR Part 53"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/1. Quy trinh/DLVN333_QTKD_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/1. Quy trinh/DLVN333_QTKD_KhiTuDong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 333:2016 — Phụ lục 01",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ SO2, CO, NO, NO2 của trạm quan trắc không khí tự động, liên tục",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BienBanKiemDinh.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BienBanKiemDinh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 380:2021",
+      "title": "Phương tiện đo nồng độ khí của trạm quan trắc khí thải — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2021",
+      "revision": "",
+      "author": "Trung tâm Quan trắc môi trường miền Bắc",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "ĐLVN 113:2003",
+        "ĐLVN 214:2017",
+        "ĐLVN 265:2016",
+        "TCVN 3286-79",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)",
+        "OIML R143:2009",
+        "OIML R144:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/1. Quy trinh/DLVN380_QTKD_NongDoKhiThai.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/1. Quy trinh/DLVN380_QTKD_NongDoKhiThai.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 380:2021 — Phụ lục 01",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm quan trắc khí thải",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BienBanKiemDinh.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BienBanKiemDinh.md",
+      "iso_standard": ""
     },
     {
       "code": "ĐLVN 389:2021",
