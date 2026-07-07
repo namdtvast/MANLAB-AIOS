@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T21:45:37.919863",
+  "generated_at": "2026-07-07T09:18:51.654451",
   "total_documents": 17,
   "documents": [
     {
@@ -20,8 +20,8 @@
         "JCGM 100:2008 (GUM)"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.04_QTHC_MaydinhviGPS.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.04_QTHC_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.04_QTHC_MaydinhviGPS.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -38,8 +38,8 @@
         "ISO/IEC 17025:2017"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.01_BienBan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.01_BienBan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.01_BienBan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.01_BienBan.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -57,8 +57,8 @@
         "JCGM 100:2008 (GUM)"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.02_BangTinh.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.02_BangTinh.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.02_BangTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.02_BangTinh.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -76,8 +76,8 @@
         "ILAC-P10:01/2020"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.03_HosoDiemchuan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.03_HosoDiemchuan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.03_HosoDiemchuan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.03_HosoDiemchuan.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -94,8 +94,8 @@
         "ISO/IEC 17025:2017"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.04_GCN.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/ETV.MCL.F04.04_GCN.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/ETV.MCL.F04.04_GCN.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {

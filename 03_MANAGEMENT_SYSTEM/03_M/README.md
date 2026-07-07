@@ -2,7 +2,7 @@
 
 Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.
 
-Cấu trúc thư mục có **2 cấp**: Dịch vụ → Lĩnh vực.
+Cấu trúc thư mục có **3 cấp**: Dịch vụ → Lĩnh vực → Số hiệu quy trình.
 
 ## **Cấp 1 — Thư mục theo Dịch vụ**
 
@@ -53,6 +53,21 @@ Ví dụ: `9. MC_Length`, `1. MC_Phy_Che_Air`.
 
 **Nguồn tham chiếu đầy đủ:** `Danh_Muc_linh_vuc_do_luong_11_...xlsx` (do người dùng cung cấp) — danh sách chính thức tên lĩnh vực + ký hiệu (QT) dùng trong mã số văn bản. File này không lưu trong repo; dùng để tra cứu khi cần thêm lĩnh vực mới.
 
+## **Cấp 3 — Thư mục con theo Số hiệu quy trình**
+
+Trong mỗi thư mục Lĩnh vực, mỗi quy trình (một số hiệu cụ thể) có một thư mục con riêng, đặt tên:
+
+```
+{Mã dịch vụ}{Mã lĩnh vực}{Số hiệu}_{Tên viết tắt của đối tượng}
+```
+
+- `{Mã dịch vụ}{Mã lĩnh vực}{Số hiệu}` = ghép mã số văn bản của quy trình chính, bỏ `ETV.` và bỏ các dấu chấm (vd. `ETV.MCL 04` → `MCL04`).
+- `{Tên viết tắt của đối tượng}` = tên viết tắt (không dấu, liền không cách) của đối tượng đo/thiết bị mà quy trình áp dụng (vd. `MaydinhviGPS`).
+
+Ví dụ: `9. MC_Length/MCL04_MaydinhviGPS`.
+
+Toàn bộ tài liệu thuộc quy trình đó — quy trình chính, biên bản, bảng tính, hồ sơ điểm chuẩn, GCN, biểu mẫu/phụ lục khác, thư mục `diagrams/` — đều nằm chung trong thư mục Cấp 3 này, không rải ở cấp Lĩnh vực.
+
 ## **Mã số văn bản và cách xếp thư mục**
 
 Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MCL 04` = **M**ethod + **C**alibration (dịch vụ) + **L**ength (lĩnh vực) + số 04. Biểu mẫu/phụ lục đi kèm dùng mã `ETV.M{Dịch vụ}{Lĩnh vực}.F{số}.{yy}` (vd. `ETV.MCL.F04.01`).
@@ -60,13 +75,14 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 **Khi nhận một file quy trình/biểu mẫu mới, xác định thư mục lưu theo đúng ký hiệu trong Số/mã của file:**
 1. Chữ cái ngay sau `ETV.M` → tra bảng Cấp 1 → thư mục Dịch vụ (vd. `C` → `ETV.MC_HieuChuan`).
 2. Chữ cái tiếp theo → tra bảng Cấp 2 → thư mục Lĩnh vực (vd. `L` → `9. MC_Length`).
-3. Toàn bộ quy trình chính + biểu mẫu/phụ lục của cùng một mã số nằm chung trong thư mục Lĩnh vực đó.
+3. Số hiệu quy trình (vd. `04`) → tra/khớp với thư mục Cấp 3 có tiền tố `{Mã dịch vụ}{Mã lĩnh vực}{Số hiệu}_` trong thư mục Lĩnh vực đó (vd. `MCL04_MaydinhviGPS`); nếu quy trình mới, tạo thư mục Cấp 3 mới theo đúng quy tắc đặt tên ở trên.
+4. Toàn bộ quy trình chính + biểu mẫu/phụ lục + diagrams của cùng một mã số nằm chung trong thư mục Cấp 3 đó.
 
 ## **Danh mục phương pháp hiện có**
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`ETV.MC_HieuChuan/9. MC_Length/`](ETV.MC_HieuChuan/9.%20MC_Length/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay (quy trình hiệu chuẩn) và 4 biểu mẫu/phụ lục đi kèm (F04.01–F04.04) |
+| [`ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL04_MaydinhviGPS/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay (quy trình hiệu chuẩn), 4 biểu mẫu/phụ lục đi kèm (F04.01–F04.04) và thư mục `diagrams/` (sơ đồ liên kết chuẩn) |
 
 Các thư mục Dịch vụ/Lĩnh vực khác chưa có nội dung — tạo theo đúng quy tắc ở trên khi bắt đầu chuyển đổi/soạn thảo tài liệu thuộc dịch vụ/lĩnh vực đó.
 
