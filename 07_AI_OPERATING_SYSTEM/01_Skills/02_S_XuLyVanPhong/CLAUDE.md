@@ -4,7 +4,7 @@ Khi tạo, sửa, hoặc chuyển đổi bất kỳ file DOCX/XLSX/PPTX/PDF nào
 
 ## 1. Xác định phạm vi: nội dung hay file vật lý
 
-Nếu yêu cầu liên quan đến **nội dung/pháp lý** của Công văn, Quyết định, Báo cáo, Thông báo, Biên bản (5 loại VB hành chính chuẩn ETV) và nội dung đó **chưa được chốt** → dừng lại, dùng skill `etv-document-governance` trước (`07_AI_OPERATING_SYSTEM/01_Skills/01_etv-document-governance_kiem-soat-tai-lieu-etv`). Skill này chỉ nhận nội dung đã chốt và sinh file `.docx` đúng chuẩn — không tự soạn thể thức pháp lý của 5 loại đó.
+Nếu yêu cầu liên quan đến **nội dung/pháp lý** của Công văn, Quyết định, Báo cáo, Thông báo, Biên bản (5 loại VB hành chính chuẩn ETV) và nội dung đó **chưa được chốt** → dừng lại, dùng skill `etv-document-governance` trước (`07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv`). Skill này chỉ nhận nội dung đã chốt và sinh file `.docx` đúng chuẩn — không tự soạn thể thức pháp lý của 5 loại đó.
 
 ## 2. Hỏi trước khi vẽ (Dual-Track)
 

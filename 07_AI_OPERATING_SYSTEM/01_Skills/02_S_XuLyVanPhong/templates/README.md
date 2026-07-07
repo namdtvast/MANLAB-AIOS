@@ -10,4 +10,4 @@ Thư mục này chỉ chứa khung nội dung cho các loại văn bản **chưa
 | `docx-hanh-chinh-giay-moi-uy-quyen.md` | Giấy mời / Giấy ủy quyền |
 | `docx-de-xuat-sieu-de-xuat.md` | Đề xuất (Track 2 — Brand Kit) |
 
-**Công văn, Quyết định, Báo cáo, Thông báo, Biên bản** — 5 loại văn bản hành chính chuẩn ETV — dùng template tại `07_AI_OPERATING_SYSTEM/01_Skills/01_etv-document-governance_kiem-soat-tai-lieu-etv/templates/` (nguồn sự thật duy nhất cho nội dung, metadata, căn cứ pháp lý). `xu-ly-van-phong` chỉ sinh file `.docx` vật lý từ nội dung đã chốt, theo bảng biến thể kỹ thuật tại `standards/nd30.md`.
+**Công văn, Quyết định, Báo cáo, Thông báo, Biên bản** — 5 loại văn bản hành chính chuẩn ETV — dùng template tại `07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/` (nguồn sự thật duy nhất cho nội dung, metadata, căn cứ pháp lý). `xu-ly-van-phong` chỉ sinh file `.docx` vật lý từ nội dung đã chốt, theo bảng biến thể kỹ thuật tại `standards/nd30.md`.
