@@ -1,0 +1,4 @@
+<javax.swing.JPopupMenu label="General" width="10">
+  <javax.swing.JMenuItem  action="com.jctal.land.das.actions.DeleteData"/>
+</javax.swing.JPopupMenu>
+

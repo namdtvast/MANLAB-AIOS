@@ -1,0 +1,7 @@
+<javax.swing.JPopupMenu label="General" width="10">
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.SetStartCursor"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.SetEndCursor"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.SetCursorRange"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.DeleteCursors"/>
+</javax.swing.JPopupMenu>
+

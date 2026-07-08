@@ -1,0 +1,7 @@
+Connected to 192.168.0.222 port 5900
+RFB server supports protocol version 3.8
+Connected to RFB server, using protocol version 3.4
+No authentication needed
+Desktop name "x11 "
+Cache: Cache buffer bitmap creation
+rdr::Exception (1): rdr::SystemException: read: Unknown error (10004)

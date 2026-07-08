@@ -1,0 +1,11 @@
+<javax.swing.JMenuBar text="Table">
+   <com.jctal.land.das.menus.JMenu localiseKey="FDGRAPH.GRAPH" text="Graph">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditGraph"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.SetPlotColours"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditGraphNotes"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.PageSetup"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.PrintGraph"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.ExportGraph"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.CloseGraph"/>
+   </com.jctal.land.das.menus.JMenu>
+</javax.swing.JMenuBar>

@@ -1,0 +1,75 @@
+SensorCalibration__20180209.csv
+
+Sensor,Pitot
+Cal Time, 10:25:31
+Old Slope, 1.0102
+Old Intercept, 0.0047
+New Slope, 0.9886
+New Intercept, 0.024025
+Test Data
+Voltage, Input
+-0.0201, 0.0000
+1.1163, 1.1300
+2.0864, 2.0900
+3.0881, 3.0800
+4.2183, 4.1900
+
+
+Sensor,Static
+Cal Time, 10:35:53
+Old Slope, 0.2000
+Old Intercept, -0.5000
+New Slope, 9.9006
+New Intercept, -24.474365
+Test Data
+Voltage, Input
+2.4683, 0.0000
+3.0035, 5.2700
+3.5248, 10.3900
+1.8878, -5.7500
+1.3585, -11.0700
+
+
+Sensor,Venturi
+Cal Time, 10:43:53
+Old Slope, 1.9367
+Old Intercept, -0.0437
+New Slope, 1.9900
+New Intercept, -0.005697
+Test Data
+Voltage, Input
+0.0114, 0.0000
+1.0076, 2.0100
+1.9908, 3.9700
+3.0440, 6.0600
+4.0407, 8.0200
+
+
+Sensor,Venturi
+Cal Time, 12:23:08
+Old Slope, 1.9900
+Old Intercept, -0.0057
+New Slope, 1509.0311
+New Intercept, -37.133207
+Test Data
+Voltage, Input
+0.0246, 0.0000
+0.0299, 7.96200
+0.0317, 10.70
+0.0337, 13.7380
+
+
+Sensor,Vacuum
+Cal Time, 12:23:20
+Old Slope, 609.7484
+Old Intercept, -10.7356
+New Slope, 1509.0311
+New Intercept, -37.133207
+Test Data
+Voltage, Input
+0.0246, 0.0000
+0.0299, 7.96200
+0.0317, 10.70
+0.0337, 13.7380
+
+

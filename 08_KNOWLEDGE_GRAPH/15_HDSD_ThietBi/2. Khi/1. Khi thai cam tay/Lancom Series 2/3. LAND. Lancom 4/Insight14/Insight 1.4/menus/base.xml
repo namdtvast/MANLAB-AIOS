@@ -1,0 +1,17 @@
+
+
+<javax.swing.JMenuBar text="BaseTable">
+   <com.jctal.land.das.menus.JMenu localiseKey="BASE.FILE" text="Base Table">
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.InputParameters"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.TriggerEdit"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.RenameDataLog"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.RemoveRecording"/>
+  <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditRecordingNotes">
+            <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditRecordingNotes"></javax.swing.JMenuItem>
+        </javax.swing.JMenuItem> 
+	<javax.swing.JMenuItem action="com.jctal.land.das.actions.PageSetup"></javax.swing.JMenuItem>
+        <javax.swing.JMenuItem action="com.jctal.land.das.actions.PrintTable"></javax.swing.JMenuItem>
+    </com.jctal.land.das.menus.JMenu>
+    
+</javax.swing.JMenuBar>
+

@@ -1,0 +1,17 @@
+<javax.swing.JToolBar name="Insight Toolbar">
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.NewProject"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.OpenProject"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.SaveProject"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.SaveAsProject"/>
+   <javax.swing.JLabel text="     "/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.NewDataLog"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.AddUserTable"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.NewGraph"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.NewFDGraph"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.NewInstPanel"/>
+   <javax.swing.JLabel text="     "/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.StartAction"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.Download"/>
+   <com.jctal.foundation.gui.elements.SmallButton action="com.jctal.land.das.actions.ToggleScroll"/>
+   <javax.swing.JLabel text="     "/>
+</javax.swing.JToolBar>

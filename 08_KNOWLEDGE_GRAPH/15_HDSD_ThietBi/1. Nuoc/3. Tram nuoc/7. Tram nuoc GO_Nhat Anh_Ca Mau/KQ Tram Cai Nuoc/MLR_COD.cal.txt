@@ -1,0 +1,66 @@
+Program version :  ISA plus 1.1.0
+User            :  TRẦN VĂN LINH
+Project name    :  C:\Users\BAOLINH\Documents\2016 Camau.cpf
+
+
+SERIES:
+
+Name             : [T40168](GMT)
+Created          : 29/06/2016 8:39:37 AM
+Modified         : 29/06/2016 8:39:37 AM
+Spectra          : 30
+Wavelength range : 200...708, 255, Inc=2
+
+
+CALIBRATION:
+
+Name                    : MLR_COD
+Created                 : 29/06/2016 8:40:23 AM
+Modified                : 29/06/2016 8:40:23 AM
+Property                : COD
+Calibration series      : cal_[T40168](GMT)_COD
+Transformation          : abs
+                          - Absorbance
+Wavelength Range        : 200...708, 255, Inc=2
+Replicates treatment    : None
+Actual no. of samples   : 30
+Samples removed         : 0
+Actual property range   : 40.0000 ... 46.0000
+Actual standard dev.    : 1.2690
+
+Best wavelength combinations:
+                                  1           2           3           4           5
+                             ----------  ----------  ----------  ----------  ----------
+                               508.0      488.0      490.0      552.0      488.0
+                               516.0      516.0      516.0      648.0      516.0
+                               532.0      552.0      552.0      666.0      554.0
+
+Correlation coefficient:        0.7764      0.7740      0.7718      0.7700      0.7691
+
+
+                     Regression          t value
+  Wavelength         coefficient      of coefficient
+---------------    ---------------   ---------------
+ Intercept              44.9226
+   508.0            -2955.3177           -6.2764
+   516.0             4625.2301            5.9729
+   532.0            -1664.7229           -4.7198
+
+F-value of selected regression model:    13.1532
+
+Outliers:
+Index    Predicted    Actual  Difference      'H'        'T'        'D'
+    2      40.2185     40.0000    0.2185     3.5485*    0.3221     0.0927 
+    5      44.5210     46.0000   -1.4790     4.9873*   -2.4732     9.8891*
+   20      43.7121     43.0000    0.7121     3.8318*    1.0735     1.1633 
+   21      44.5669     46.0000   -1.4331     3.8582*   -2.1650     4.7849*
+
+Outliers :    4
+
+Multiple correlation coefficient (Rcal) :     0.7764
+Coefficient of determination (RSQcal)   :     0.6028
+Standard error of calibration (SEC)     :     0.8446
+Index of systematic variation (ISV)     :     5.1895
+Index of random variation (IRV)         :  5735.6742
+
+

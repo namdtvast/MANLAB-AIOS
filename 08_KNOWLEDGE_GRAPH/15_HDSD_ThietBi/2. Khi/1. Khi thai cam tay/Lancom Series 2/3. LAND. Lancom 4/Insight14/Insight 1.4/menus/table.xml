@@ -1,0 +1,25 @@
+
+
+<javax.swing.JMenuBar text="Table">
+   <com.jctal.land.das.menus.JMenu localiseKey="TABLE.TABLE" text="Table">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.RenameTable"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditSampleScheme"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.FDRangeEdit"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.PageSetup"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.PrintTable"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.CloseTable"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="TABLE.CURSORS" text="Cursors">
+     <javax.swing.JMenuItem action="com.jctal.land.das.actions.DeleteCursors"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="TABLE.INSERT" text="Insert">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.AddDataColumn"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.AddSummaryRow"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.AddSetPoint"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="TABLE.VIEW" text="View">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.ViewSummary"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.ViewFreqDist"/>
+   </com.jctal.land.das.menus.JMenu>
+</javax.swing.JMenuBar>
+

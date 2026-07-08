@@ -1,0 +1,22 @@
+08/07/2022 16:05:48 No Data to download
+08/07/2022 16:18:19 Timeout.    at System.Environment.get_StackTrace()
+   at SamplerCommunicator.SNMPManager.SNMPGet(String remoteHost, String OID, String instrumentPassword)
+   at SamplerCommunicator.ConnectionManager.UpdateAllConnectionStatus()
+   at SamplerCommunicator.frmCommunicator.OpenExistingConfig()
+   at SamplerCommunicator.frmCommunicator.frmCommunicator_Shown(Object sender, EventArgs e)
+   at System.Windows.Forms.Form.OnShown(EventArgs e)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at SamplerCommunicator.Program.Main()
+12/07/2022 15:57:12 No Data to download
+12/07/2022 16:02:58 No Data to download

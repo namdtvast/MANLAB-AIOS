@@ -1,0 +1,6 @@
+<javax.swing.JMenuBar text="Instrument Panel">
+   <com.jctal.land.das.menus.JMenu localiseKey="INSTPANEL.PANEL" text="Panel">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.CloseInstPanel"/>
+  </com.jctal.land.das.menus.JMenu>
+</javax.swing.JMenuBar>
+

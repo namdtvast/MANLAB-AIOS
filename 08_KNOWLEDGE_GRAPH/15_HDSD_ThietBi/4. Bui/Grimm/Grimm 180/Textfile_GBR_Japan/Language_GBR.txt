@@ -1,0 +1,1015 @@
+/***** Titel (Hauptfenster): *****
+
+/********** General **********
+/Unit Delete "Memory Card"
+-19	0	The software delete all the data at the memory (card)! Are you sure to delete the memory (card)?
+-19	1	Memory (Card) deleted
+-19	10	Could not change the gravimetric factor (C-Factor), because the selected file contains COUNT (particle/liter) data.
+-19	11	Do not change the gravimetric factor (1.00) from ENVIRONMENTAL measurements. The dust monitors model 107/1.107/180/190 were optimized for environmental measurments! Change the gravimetric factor (C-Factor)?
+
+/***** Buttons: (für alle Fenster) *****
+-18	1	&OK
+-18	2	&Cancel
+-18	3	Close the dialogue box and saves your input
+-18	4	This key dismisses all new inputs made
+-18	5	&Close
+-18	6	Close the window
+-18	10	Licence to
+-18	11	No licence
+-18	12	Local representative
+
+/***** Object TData *****
+-17	0	Not enough memory
+-17	1	Data DATARAM out of range!
+-17	2	File
+-17	3	is damaged.
+-17	4	Could not load the file
+-17	5	Please proof, if the file exists
+-17	6	datactr divide with zero
+-17	7	zctr divide with zero
+-17	8	Dust Monitor UPSTREAM and DOWNSTREAM are different.
+-17	9	Both files contains different data. Not the same mode.
+-17	10	Environmental or occupational measurement are not allowed!
+-17	11	Both files contains different data. Not the interval time.
+-17	12	The maximum of measurement cycles was reached. Can not download more data.
+
+/***** Object TContr *****
+/Error messages
+-16	0	Serial port initialisation failed. Error:
+-16	1	Access denied. No licence for S/N:
+-16	2	Serial port not exists. Please select an existing serial port in the menu [OPTIONS-->DUST MONITOR-->page COMPUTER].
+-16	3	Serial Port is not available. Perhaps the serial port is use by another running program. In this case close this program.
+/Simple Text
+-16	10	Standby mode
+-16	11	Count mode
+-16	12	Reset
+-16	13	Environmental mode
+-16	14	Fast mode (6 second interval)
+-16	15	Normal mode(1 minute Interval)
+-16	16	Measurement run
+-16	17	Select channel 9 - 15/16
+-16	18	Select channel 1..8
+-16	19	Check model number
+-16	20	Model =
+-16	21	Version =
+-16	22	Check serial number
+-16	23	Serial number =
+-16	24	S/N Sensor =
+-16	25	Check Sensor calibration data
+-16	26	Check free memory of the internal memory or of the memory card
+-16	27	Send C-factor to the Dust Monitor. C-Factor =
+-16	28	Send loaction number to the Dust Monitor. Location nr. =
+-16	29	Change baud rate for the data transfer. Baud rate =
+-16	30	Change interval
+-16	31	Set Dust Monitor timer
+-16	32	Data transfer finish! Start calculation mode
+-16	33	Start modem
+-16	34	Modem started
+-16	35	Modem start failed
+-16	36	Dialing
+-16	37	Connection to the Dust Monitor failed
+-16	38	Connection to the Dust Monitor is allright
+-16	39	Stoped data transfer with the memory (card)
+-16	40	Read memory (card) is finish
+-16	41	Measurement is Finish
+-16	42	Cancel Sensor Scan
+-16	43	Please proof the connection between the PC and the Dust Monitor!	
+-16	44	Switch on 6 second interval of the sensor data
+-16	45	Data transfer was finish untimely. EOT (End-of-text) sign not received.
+
+/********** Group OPTIONS **********
+/***** Dialogue box SYSTEM *****
+-15	0	This is not a licenced driver!
+-15	1	This driver is to old. Please use a newer driver!
+-15	2	Finish program. Please restart the program.
+-15	3	Open unit driver
+-15	4	Unit driver
+-15	5	Could not load the driver
+-15	6	New Measurement file
+-15	7	Measurement file
+-15	8	Delete all the drivers include all user parameters! Are you sure?
+-15	9	File USER.INI deleted! Finish program. Please restart the program and load a new driver file.
+-15	10	Driver file not accept. This driver file is unsuitable for simultaniously filter testing. Please select only driver files with identification "F".
+-15	11	List is full. You can not load more than 30 driver files.
+
+/*** Child Windows Measurement *****
+/Buttons and Tabs
+-14	0	&End
+-14	1	&Online
+-14	2	&Memory
+-14	3	&Automatic
+-14	4	&Stop
+-14	5	&Control Panel
+-14	6	&Graph
+-14	7	Senso&rs
+-14	8	&Table
+/Messages
+-14	10	Value lower than zero in GRAPHINIT!
+-14	11	Value SERIE or NUMMER is out of range!
+-14	12	No start time greater than actual time in the list!
+-14	13	The calculation of the environmental data is not possible without humidity data. Please input the calibration data of the sensor in OPTIONS->SENSOR
+-14	14	File not exists or is empty or not enough data for zooming. Close window!
+/Simple Text
+-14	20	File name > 245 characters. Program reduce the file name
+-14	21	Error received
+-14	22	Last error was nr.
+/Technical labels
+-14	30	Environmental
+-14	31	Occupational health
+-14	32	Mass
+-14	33	Count (particle/
+-14	34	(%)
+-14	35	(ug/
+-14	36	litre
+-14	37	m3
+-14	38	cfm
+-14	39	Surface area (mm2/m3)
+-14	40	Percent
+-14	41	Real
+-14	42	Accu.
+-14	43	Diff
+-14	44	Slid.Av.
+-14	45	Mean
+-14	46	Mean Sensor Data
+-14	47	Channel (um)
+-14	48	Values
+-14	49	Filter efficiency
+-14	50	Mass Distribution
+-14	51	Count Distribution
+-14	52	%
+-14	54	List is empty
+-14	56	PM Coarse
+-14	57	None
+-14	58	Filter Efficiency (%)
+-14	59	PM Fine
+/DM Error codes
+-14	60	Imot too high
+-14	61	Imot too low
+-14	62	Critical flow error
+-14	63	Imot critical
+-14	64	Accu. < 10%
+-14	65	Accumulator empty
+-14	66	Whirl > 5%
+-14	67	Battery MC low
+-14	68	New Calibration
+-14	69	Wrong data received
+-14	70	Wrong sensor par.
+-14	71	Check filter
+-14	72	Check filter and sample inlet
+-14	73	Recharge accumulator
+-14	74	Check sample inlet
+-14	75	Check battery from the memory card
+-14	76	Contact the service department
+-14	77	Wrong data received
+-14	78	Stop measurement and check meteorological sensor parameter
+/Panels
+-14	80	Start Time:
+-14	81	Stop Time:
+-14	82	Location:
+-14	83	C-Factor:
+-14	84	Alarm:
+-14	85	Battery:
+-14	86	Pump:
+-14	87	Error:
+-14	88	Actual time:
+-14	89	Measurement Parameter
+-14	90	Automatic Start && Stop Time
+-14	91	Nr. -  Start Time - Stop Time - Location Number
+-14	92	Received Data:
+-14	93	Nr. of Meas. Cycles from selected mode
+-14	94	Sa&ve
+-14	95	Ma&rk All
+-14	100	Sensor Data
+-14	101	Parameter
+-14	102	pA/p
+-14	103	pR/p
+/Postscript
+-14	110	Value overflow
+-14	111	Measurement value or sensor value overflow
+-14	112	Refresh
+/Boxen + Hints: "Calculation"
+-14	120	Select the data presentation as "Absolute" values or in "Percent"
+-14	121	&Real Data
+-14	122	&Percent Relation
+-14	123	Select the presentation mode between "Accumative" (=larger than...) or "Differential" (from...to)
+-14	124	Acc&umulativ
+-14	125	&Differential
+-14	126	Select the appropriate physical parameter for your data presentation
+-14	127	&Litre
+-14	128	Cu&bic Metre
+-14	129	Cubic &Foot
+-14	130	&Histogram
+-14	131	Select if graphical presentation to be shown in real time or as Histogram
+-14	132	&Sliding Average
+-14	133	Select between "instant reading" (every 6 sec.) or "sliding Average" (of last 10 measurements)
+-14	134	Calc. Surf. Area
+-14	135	Calculates the appropriate surface area of each size channel (only possible in the COUNT mode)
+-14	136	Scientific Values
+-14	137	Line width:
+-14	138	Control Panel
+-14	139	Select one or more parameter, then press REFRESH to update graph and table.
+/Boxen + Hints: "Axis/Zoom"
+-14	140	&Autom. Scale
+-14	141	Y-max:
+-14	142	Enter Your desired max. concentration level
+-14	143	Select one of the possible averaging values
+-14	144	&None
+-14	145	&1 Minute Starts at Second "0"
+-14	146	1 &Hour - Starts at Minute "0"
+-14	147	1 &Day - Starts at Midnight
+-14	148	1 &Week - Starts at Monday "0"
+-14	149	1 &Month - Starts at Day "1" of Month
+-14	150	Pixval.:
+
+/***** MDI Window *****
+/General
+-13	0	Licence to
+-13	1	Online Measurement
+-13	2	Open UPSTREAM file
+-13	3	Open DOWNSTREAM file
+-13	4	Delete measurement file
+-13	5	Open file
+-13	6	Open Raw Data File
+/Messages
+-13	10	You can only open 7 files. Please close one window before you open the next window.
+-13	11	Please load your Dust monitor driver file.
+-13	12	Delete file
+-13	13	There are no data for the report!
+/ErrorMessages
+-13	22	Could not create the directory
+-13	23	Proof your access rights
+-13	24	Access denied. Program abort
+-13	25	The operating system is out of memory of resources
+-13	26	The specified file was not found
+-13	27	The specified path was not found
+-13	28	The operating system denied access to the specified file
+-13	29	There was not enough memory to complete the operation
+-13	30	Unknown error
+
+/***** Dialogue box EXPORT *****
+-12	0	File name:	
+-12	1	Factor C =
+-12	2	Mode:
+-12	3	Text files
+-12	4	Measurement
+/Sample time part 1
+-12	10	6 seconds
+-12	11	1 minute
+-12	12	5 minutes
+-12	13	10 minutes
+-12	14	15 minutes
+-12	15	30 minutes
+-12	16	1 hour
+-12	17	Sample interval:
+/Calculation
+-12	20	Accumulative
+-12	21	Differential
+-12	22	Calculation:
+-12	23	Date/time
+-12	24	Sliding Average
+//Service data
+-12	30	Battery
+-12	31	Motor Current
+-12	32	Error Code
+/Messages
+-12	40	Peculiar calculation parameter in OPTIONS->GRAPH->CALCULATION. Proof this parameter. Continue?
+-12	41	File(s) printed
+-12	42	File(s) saved
+-12	43	Access denied. File is open and/or write protected. Close the spreadsheet software.
+-12	44	File operation error:
+-12	45	Could not open the file. The filename include the path is longer as 218 signs or the file name contains one of the following signs: <,>,?,:,|,/,*,"
+/Sample time part 2
+-12	50	1 second
+-12	51	2 seconds
+-12	52	3 seconds
+
+/***** Dialogue box FILE MANAGER *****
+-11	0	File name include directory is too long. NOT add in the list!
+-11	1	Database not exit! Could not save the file name in the file manager database
+-11	2	You get too many results. Try using additional search criteria to make your search more specific.
+
+/***** Fenster "Statistic": *****
+-10	0	Statistic
+/Boxen + Hints: "Date / Time Range"
+-10	10	Date / Time Range
+-10	11	Shows the date and time range from the loaded file
+-10	12	From
+-10	13	Insert the start date in your country format
+-10	15	To
+-10	16	Insert the stop date in your country format
+/Boxen + Hints: "Data"
+-10	20	Data
+-10	22	Measurement Data
+-10	23	Shows the measurement data in the table
+-10	24	Sensor Data
+-10	25	Shows the sensor data in the table
+/Boxen + Hints: "File Parameter"
+-10	30	File Parameter
+-10	31	Displays some file parameter
+-10	32	Mode:
+-10	33	Displays measurement mode of the loaded file
+-10	34	C-Factor:
+-10	35	Displays gravimetric factor of the loaded file
+-10	36	File name:
+-10	37	Displays file name of the loaded file
+-10	38	Location:
+-10	39	Displays location number of the loaded file
+/Boxen + Hints: "Data:"
+-10	40	Data:
+-10	41	Displays number of datasets in this file
+/Table:
+-10	50	Displays statistical values of the loaded file
+-10	51	Minimum
+-10	52	Maximum
+-10	53	Statist. Range
+-10	54	Arithmtic Mean
+-10	55	Variance
+-10	56	St. Deviation
+-10	57	Variation Coeff.
+/Buttons + Hints:
+-10	60	&Calculation
+-10	61	Calculate the statistical values (range, arithmetical mean, variance, standard deviation and variation coefficiency)
+-10	62	&Load file
+-10	63	Load a new measurement file
+-10	64	Cl&ose
+-10	65	Close this window
+/Mode
+-10	70	Environmental (ug/m3)
+-10	71	Occupational health (ug/m3)
+-10	72	Mass (ug/m3)
+-10	73	Count (particle/litre)
+-10	74	Data:
+/Messages
+-10	80	File not exists or is empty or damaged or contains only one data
+-10	81	No data in the selected date/time range
+-10	82	Not enough data for statistical calculation.
+-10	83	Empty file
+-10	84	Reset date/time, because the Start date/time is greater or equal as the end date/time!
+
+/***** Print/Preview window *****
+-9	0	Dust Measurement Protocol
+-9	1	Start date/time:
+-9	2	Stop date/time:
+-9	3	Mode:
+-9	4	Location:
+-9	5	C-Factor:
+-9	6	File name:
+-9	10	Channel/sensor             Mean value            Unit                      Channel/sensor             Mean value           Unit
+-9	11	Signature:
+
+-8	0	dummy
+-7	0	dummy
+
+/********** Group EXTRAS **********
+
+/********** Group OPTIONS **********
+/***** Dialogue box DUST MONITOR *****
+/Sample time interval
+-6	0	&1 second
+-6	1	&2 seconds
+-6	2	&3 seconds
+-6	3	6 &seconds
+-6	4	1 mi&nute
+-6	5	&5 minutes
+-6	6	1&0 minutes
+-6	7	15 minu&tes
+-6	8	30 m&inutes
+-6	9	1 &hour
+/Mode
+-6	10	&Environmental
+-6	11	Occu&pational Health
+-6	12	&Mass Distribution
+-6	13	Co&unt Distribution
+/Technical word
+-6	20	baud
+/Messages
+-6	30	Proof modem
+-6	31	Modem OK. Connection with the Dust Monitor is allright!
+-6	32	Modem NOT found
+-6	33	Modem is allright
+
+/***** Dialogue box AUTOMATIC PARAMETER *****
+/List box messages
+-5	0	Daily
+-5	1	Memory
+-5	2	Modem
+-5	3	data transfered
+-5	4	data transfer failed
+/Messages
+-5	10	The list is full!
+-5	11	Start date/time is greater or equal as the stop date/time. Please correct it!
+-5	12	Your date/time overlapped one oe more date/times in the list. Please correct it!
+-5	13	Data transfer run
+-5	14	Data transfer failed. Please proof the connection from the computer to the dust monitor!
+-5	15	Data transfer complete
+-5	16	Switch OFF your dust monitor. The automatic mode starts only, when the dust monitor is OFF.
+-5	17	No analogue sensor detected.
+-5	18	No analogue sensor detected at the DOWNSTREAM dust monitor.
+
+/***** Dialogue box GRAPHIC SELECTION PANEL *****
+/Messages
+-4	0	Delete user configuration for the graph?
+/Mode
+-4	10	Environmental
+-4	11	Occupational Health
+-4	12	Mass Distribution
+-4	13	Count Distribution
+-4	14	Filter Efficency
+-4	15	Sensors
+/***** Dialogue box SENSOR CALIBRATION DATA *****
+/Sensors
+-3	0	Sensors
+-3	1	SVC Heater
+-3	2	Wind speed
+-3	3	Wind dir.
+-3	4	Rain
+-3	5	PAH
+/Physical units
+-3	10	°C
+-3	11	m/s
+-3	12	degr.
+-3	13	mm
+-3	14	ng/m3
+/Messages
+-3	20	Read sensor calibration data with modem
+-3	21	Read sensor calibration data
+
+/***** Dialogue box ALARM PARAMETER *****
+-2	0	dummy
+
+/***** Dialogue box DUST MONITOR *****
+-1	0	Location
+-1	1	The selected serial port is reserved by the UPSTREAM unit. Select another port.
+
+0	0	Dummy
+
+/********** Group OPTIONS **********
+/***** Fenster "Locations": *****
+1	0	Location List
+/Button-Hints:
+1	1	Close the dialogue box and saves your input
+1	2	This key dismisses all new inputs made
+/Location-Liste (beim Loeschen: 1 - Location 1 - 1.00)
+1	19	Location
+/Boxen + Hints: "Location List"
+1	20	Number - Location Name - C-Factor
+1	21	List of all the different measurement locations (with "C-Factor")|
+1	22	Insert in Location List
+1	24	Number:
+1	25	Insert the number of the location you want to change
+1	26	Name:
+1	27	Enter the name describing best the appopriate measurement location
+1	28	C-Factor:
+1	29	"C-Factor" for this location. If this factor is unknown, enter 1.00
+/Buttons + Hints: "Driver"
+1	30	&Insert
+1	31	Changes the name and C-Factor for the place given in "number"
+1	32	Clear &All
+1	33	Delete the complete location list
+
+/***** Fenster "Alarm Parameter": *****
+2	0	Alarm Parameter
+/Button-Hints:
+2	1	Close the dialogue box and saves your input
+2	2	This key dismisses all new inputs made
+/Boxen + Hints: "Alarm Parameter"
+2	20	Mode           Alarm Chanel          Alarm Value
+2	21	Environmental:
+2	22	Select your desired operating mode YOUR approprate alarm level
+2	23	Enter YOUR desired ALARM LEVEL (as NR only)
+2	24	Occuptional:
+2	28	Mass:
+2	32	Counts:
+
+/***** Fenster "Sensor Data": *****
+3	0	Sensor Data
+/Button-Hints:
+3	1	Close the dialogue box and saves your input
+3	2	This key dismisses all new inputs made
+//Tabs
+3	10	Sensor
+3	11	Sensor DOWNSTREAM
+3	12	Input the sensor calibration data of the attached sensor.
+3	13	Input the sensor calibration data of sensor of the second dust monitor.
+/Boxen + Hints: "Alarm Parameter"
+3	20	Analogue Sensor Calibration Data
+3	21	Serial Number:
+3	22	Input the serial number of the attached sensor
+3	23	Name                  Unit              Factor               Offset
+3	24	Analogue Sensor Calibration Data (Sensor DOWNSTREAM)
+3	30	Input the name of the sensor (e.g. Humidity)
+3	31	Input the physical unit of the sensor (e.g. %)
+3	32	Input the factor of the sensor. This is the growing rate by an increase of 1V.
+3	33	Input the offset value. This is the value by 0V.
+3	70	&Scan Sensor Data
+3	71	Scan the sensor calibration data, if this is possible (only sensors with a serial number xxExxxxx)
+3	80	One Wire Bus Sensors
+3	81	Wind Speed / Wind Direction
+3	82	Rain
+3	83	PAH
+3	84	Select the connected sensors
+
+/***** Fenster "Graphic Selection Panel": *****
+4	0	Graphic Selection Panel
+/Button-Hints: General
+4	1	Close the dialogue box and saves your input
+4	2	This key dismisses all new inputs made
+4	3	View Channels
+4	4	Calculation
+4	5	Graph
+4	6	Stripes
+/Boxen + Hints: "View Channels"
+4	30	Operational Mode:
+4	31	Select the measurement mode. This mode is shown in the size channels list.
+4	32	Channels
+4	33	Select the appropriate size channels to be displayed graphically
+4	34	Sensors
+4	35	Select the appropriate sensors to be displayed graphically
+4	36	Sensors (DOWNSTREAM)
+4	37	Select the appropriate size channels of the DOWNSTREAM dust monitor to be displayed graphically
+/Boxen + Hints: "Calculation"
+4	40	Real Data/Percent
+4	41	Select the data presentation as "Absolute" values or in "Percent"
+4	42	&Real Data
+4	43	&Percent Relation
+4	50	Channels
+4	51	Select the presentation mode between "Accumative" (=larger than...) or "Differential" (from...to)
+4	52	Acc&umulativ
+4	53	&Differential
+4	60	Cal. Volume
+4	61	Select the appropriate physical parameter for your data presentation
+4	62	&Litre
+4	63	Cu&bic Metre
+4	64	Cubic &Foot
+4	65	&Standard
+4	70	Data Presentation
+4	71	&Histogram
+4	72	Select if graphical presentation to be shown in real time or as Histogram
+4	73	&Sliding Average
+4	74	Select between "instant reading" (every 6 sec.) or "sliding Average" (of last 10 measurements)
+4	80	Calculated Surface Area (m2/counts/&Vol)
+4	81	Calculates the appropriate surface area of each size channel (only possible in the COUNT mode)
+4	82	Scientific Number
+4	83	Shows the data in the table in the scientific number representation.
+4	84	Histogram/calculated Surface Aerea 
+/Boxen + Hints: "Axis/Zoom"
+4	90	Axis/Zoom
+4	95	Y-Axis
+4	100	&Automatic Scale
+4	101	The software scales the Y-Axis automatically, when it select.
+4	102	Y-max:
+4	103	Enter Your desired max. concentration level
+4	104	Pixel value:
+4	105	You can change the factor for each unit in the Y-axis, to accomplish vertical scroll bars in the chart window (0 = off)
+4	106	Filter
+4	107	Meas.
+4	108	Sensor
+4	110	Calculated Average
+4	111	Select one of the possible averaging values
+4	112	&None
+4	113	&1 Minute Starts at Second "0"
+4	114	1 &Hour - Starts at Minute "0"
+4	115	1 &Day - Starts at Midnight
+4	116	1 &Week - Starts at Monday "0"
+4	117	1 &Month - Starts at Day "1" of Month
+/Boxen + Hints: "Graph"
+4	120	Graph View
+4	121	&Save Graph View
+4	122	Check control box, if you like to store YOUR preselected graphic mode
+/Buttons + Hints: "Graph"
+4	123	&Reset Graph View
+4	124	Press button, if you like to return to the factory presetted graphic mode
+4	125	Line width:
+4	126	Set the line width for 2D line graph.
+4	127	Line width
+/Boxen + Hints: "Stripes"
+4	130	Stripes List
+4	131	List of stripes in the graph for the selected mode
+4	132	From (Y-Axis)          To (Y-Axis)              Stripe Color
+4	133	Input the beginning, the end and the color of the vertical stripes.
+4	134	Input the beginning of the stripe referring to the Y-Axis values.
+4	135	Input the end of the stripe referring to the Y-Axis values.
+4	136	Input the color of the stripe. Click on the panel to open the color-selector-box.
+4	137	Clear list
+4	138	Clear the stripes of the selected operational mode
+4	139	Select the measurement mode.
+
+/***** Fenster "Automatic Parameter": *****
+5	0	Automatic Parameter
+/Button-Hints:
+5	1	Close the dialogue box and saves your input
+5	2	This key dismisses all new inputs made
+/Boxen + Hints: "Presetting with attached PC"
+5	10	Presetting with attached PC
+5	21	List of All Start Date & Times and Stop Date & Times and Parameters
+5	22	Shows the preselected time frames for automatic restarts
+5	30	Program Panel
+5	31	Start Date && Time:
+5	32	Insert the start date in your country format
+5	34	Stop Date && Time:
+5	35	Insert the stop date in your country format
+5	37	&Read Memory (Card)
+5	38	Downloads automatically all data from the Memory Card
+5	39	Dail&y
+5	40	Starts and stops the measurement period shown above daily
+/Buttons + Hints: "Presetting with attached PC"
+5	50	&Insert
+5	51	Transfers the entered start and stop time into the list above
+5	52	&Delete
+5	53	Deletes a marked time/date line from the list above
+5	54	Clear &All
+5	55	Delete the complete date/time list above
+/Boxen + Hints: "Presetting without attached PC"
+5	60	Presetting without attached PC
+5	61	List of All Start Dates & Times and Stop Dates & Times and Transfer Messages
+5	62	List of automatic start/stop periods to be transfered to the attached Dust Monitor
+5	70	Program Panel
+5	71	Start Date && Time:
+5	72	Insert the start date in your country format
+5	74	Stop Date && Time:
+5	75	Insert the stop date in your country format
+/Buttons + Hints: "Presetting without attached PC"
+5	80	&Insert
+5	81	Transfers the entered start and stop time into the list above
+5	82	&Delete
+5	83	Deletes a marked time/date line from the list above
+5	84	Clear &All
+5	85	Delete the complete date/time list above
+5	86	&Transfer Data to Dust Monitor
+5	87	Send all the start/stop files to the Dust Monitor from the list above
+
+/***** Fenster "Dust Monitor Parameter": *****
+6	0	Dust Monitor Parameter
+/Button-Hints:
+6	1	Close the dialogue box and saves your input
+6	2	This key dismisses all new inputs made
+/Boxen + Hints: "Measurement Mode"
+6	10	Measurement Mode
+6	11	Operational Mode
+6	12	Select one of the four different Operating Modes: (EPA (ug/m3), Occup. (ug/m3), Mass (ug/m3) or Counts (p/litre))
+6	13	&Environmental
+6	14	Occu&pational Health
+6	15	&Mass Distribution
+6	16	Co&unt Distribution
+6	20	Multiplex
+6	21	Select one of the three different size ranges
+6	22	8 Channels (>0.3um - >&2um)
+6	23	&8 Channels (>2um - >20um)
+6	24	1&5 Channels
+6	30	Sample Period
+6	31	Select your Sampling interval
+6	32	6 &seconds
+6	33	1 mi&nute
+6	34	&5 minutes
+6	35	1&0 minutes
+6	36	15 minu&tes
+6	37	30 m&inutes
+6	38	1 &hour
+/Boxen + Hints: "Unit/C-Factor"
+6	40	Unit/C-Factor
+6	41	Unit Parameter
+6	42	Select and enter measurement parameter
+6	43	&Standby after Measurement or after download
+6	44	Switches the Dust Monitor into STANDBY mode after measurement.
+6	50	C-Factor/Location Nr.
+6	51	C-&Factor from Location List
+6	52	Send the "C-Factor" of your measurement location to the Dust Monitor automatically
+6	53	&Location Number from PC
+6	54	Send this location number to the attached Dust Monitor
+6	55	&Read Memo Card Data from Location above
+6	56	Read measurement data from memory card with this location number only
+6	57	Location:
+6	58	Enter your measurement location number (from 1 to 99)
+/Boxen + Hints: "Computer"
+6	60	Computer
+6	61	Serial Interface
+6	62	Select Serial port of your attached computer
+6	63	COM &1
+6	64	COM &2
+6	65	COM &3
+6	66	COM &4
+6	67	COM &5
+6	70	Baud Rate
+6	71	Select the appropriate Baud rate of your attached computer (only for data transfere from memory card)
+6	72	9&600 Baud
+6	73	1&9200 Baud
+6	74	&56000 Baud
+6	80	Modem Parameter
+6	81	&Modem On
+6	82	Switches the Data transfer into MODEM mode
+6	83	Phone Number:
+6	84	Enter the local phone NR (with area code) of the connected Dust Monitor
+/Buttons + Hints: "Computer/Modem Parameter":
+6	90	&Verify Connection
+6	91	Check if the modem card is working
+/Filter
+6	100	Filter
+6	101	Select port for the second dust monitor by filter testing measurements.
+6	102	Serial Interface Unit 2
+6	103	Select Serial port for Dust Monitor 2 of your attached computer
+
+/***** Fenster "About": *****
+7	0	About
+/Button-Hints: (Cancel-Button)
+7	1	Close window
+/Labels "About"
+7	10	Local representative: Grimm Aerosol Technik GmbH && Co. KG
+7	11	Licence to 
+
+/********** Group EXTRAS **********
+/***** Fenster "Gravimetric Correction": *****
+8	0	Gravimetric Correction
+/Button-Hints: (Cancel-Button)
+8	21	This key dismisses all new inputs made
+/Boxen + Hints: "Gravimetric Correction":
+8	10	Calculate Gravimetric Factor
+8	11	Real Dust Weight
+8	12	Input the real weight of the dust on the filter
+8	13	Calculated Dust Weight
+8	14	Input the calculated dust weight
+/Buttons + Hints:
+8	20	C&alculate
+8	21	Calculate the C-Factor
+8	22	&Transfer to file
+8	23	Change the C-Factor in the choosen file (without effect by COUNT data)
+
+/***** Fenster "PAH Correction": *****
+9	0	PAH Correction
+/Button-Hints: (Cancel-Button)
+9	2	This key dismisses all new inputs made
+/Boxen + Hints: "PAH Correction":
+9	10	Calculate PAH Correction Factor
+9	11	Reference Value
+9	12	Input the reference value
+9	13	Instrument Value
+9	14	Input the instrumental value
+/Buttons + Hints:
+9	20	C&alculate
+9	21	Calculate the C-Factor
+9	22	&Transfer to file
+9	23	Change the C-Factor in the choosen file
+
+/***** Dialogue box LANGUAGE *****
+10	0	Language
+10	1	&German
+10	2	&English
+10	3	&Chinese
+10	10	Reopen all Childwindows of the program to refresh the language
+
+/***** Fenster "File Management": *****
+11	0	File Management
+11	1	Search for measurement files
+/Boxen + Hints: "Search Criterias"
+11	10	Search Criterias
+11	11	Opens or closes the serch criteria groups Date/Mode/Indices
+11	12	&Date
+11	13	Opens or closes the search criteria group DATE
+11	14	M&ode
+11	15	Opens or closes the search criteria group MODE
+/Boxen + Hints: "Date"
+11	20	Date
+11	21	Specify date
+11	22	&Before
+11	23	Search for all files, which were created before this date
+11	24	&This date
+11	25	Seach for all files, which were created at this date
+11	26	&After
+11	27	Search for all files, which were created after this date
+11	28	Insert the date in your country format
+/Boxen + Hints: "Mode"
+11	30	Mode
+11	31	Select one or more modes
+11	32	&Environmental
+11	33	Search for all files with environmental data (EPA standard)
+11	34	&Occupational Health
+11	35	Search for all files with occupational health measurement data (EN481)
+11	36	&Mass
+11	37	Search for all files with mass distribution data
+11	38	&Counts
+11	39	Search for all files with particle number distribution data
+/Boxen + Hints: "Date - Directory/Filename"
+11	40	Date - Directory/Filename
+11	41	This list displays the files found in the search. Check one or more items and load the files with the button LOAD FILES
+/Buttons + Hints:
+11	50	&Search Files
+11	51	&Load Files
+11	52	&OK
+11	53	Close the dialog box
+
+/***** Fenster "Export data to an ASCII file": *****
+12	0	Export data to an ASCII file
+12	1	Closes the window
+/Boxen + Hints: "Separator"
+12	10	Separator
+12	11	Choose the sign to separate the data (TABULATOR is recommended for MS-Excel)
+12	12	C&omma
+12	13	&Semicolon
+12	14	S&pace
+12	15	&Tabulator
+/Boxen + Hints: "Data"
+12	20	Data
+12	21	Check the data, which were transfered into the text file
+12	22	&Measurement data
+12	23	Transfer the measurement data into the text file
+12	24	Se&nsor data
+12	25	Transfer the sensor data into the text file
+12	26	S&ervice data
+12	27	Transfer the battery capacity, the motor current and the error code into the text file
+/Boxen + Hints: "Unit Parameter"
+12	30	Unit Parameter
+12	31	&Headline
+12	32	Create a headline at the beginning of the text file
+12	33	Space &Line
+12	34	Create a space line between each data line
+12	35	Thousand Separator
+12	36	Set the separator at 1000 value
+/Buttons + Hints:
+12	40	E&xport Data
+12	41	Create the text file
+12	42	&Open MS-Excel
+12	43	Open MS-Excel with the choosen measurement file
+12	44	&Print
+12	45	Print the measurement file on paper
+12	46	&End
+12	47	Close the dialogue box
+
+/***** MDI Window *****
+/Main menu + Tool bar
+13	1	&File
+13	3	E&xtras
+13	4	&Options
+13	6	&Window
+13	7	&Help
+13	10	&New
+13	11	New Measurement|New measurement: Online measurement OR read memory card OR start automatic measurement
+13	12	&Open
+13	13	Open existing data file|Open a measurement file
+13	14	&Delete file
+13	15	Delete Files|Delete a measurement file
+13	16	&Create Filter File
+13	17	Filter test|Create a filter measurement file from an UPSTREAM and a DOWNLOAD measurement file
+13	18	&Export file
+13	19	Export data|Transfer the measurement file into an ASCII File
+13	20	&Search file
+13	21	Search file|Open the file manager
+13	22	&Print
+13	23	Print a report|Print a measurement protocol
+13	24	P&review
+13	25	Preview|Show the report
+13	26	Printer &Setup...
+13	27	Printer setup|Open the printer configuration program
+13	28	Ex&it
+13	29	Exit|Close Software
+13	30	&Gravimetric
+13	31	Gravimetric Correction|Calculate the gravimetric factor (C-Factor)
+13	32	&PAH Correction
+13	34	&Statistic
+13	35	Statistic|Calculate statistical values from a measurement file
+13	40	&Dust Monitor
+13	41	Dust Monitor Parameters|Set measurement parameter, e.g. sample time, measurement mode, serial interface, ...
+13	42	&Automatic
+13	43	Timer|Set the parameter for automatic measurements
+13	44	&Graph
+13	45	Graphic Parameters|Set the parameters for the presentation of the measurement graph
+13	46	S&ensor
+13	47	Sensor Calibration Data|Input the sensor calibration data or scan the data automatically
+13	48	Alar&m
+13	49	Alarm Values|Set the alarm range
+13	50	&Locations
+13	51	Location List|Set the location name and the gravimetric factor (C-Factor)
+13	52	La&nguage
+13	53	Select your language
+13	54	&System
+13	55	System Parameters|Load the driver file and set the modem parameter
+13	60	&Cascade
+13	61	Cascade|Cascade
+13	62	Tile &Horizontal
+13	63	Tile horizontal|Tile Horizontal
+13	64	Tile &Vertical
+13	65	Tile vertical|Tile Vertical
+13	66	&Arrange Item
+13	67	Arrager Items|Arrange Item
+13	70	&Manual
+13	71	Manual|Open the software manual
+13	72	&Tutorial
+13	73	Tutorial|Start the tutorial program
+13	74	&Grimm Homepage
+13	75	Grimm Homepage|Start the Internet Explorer and load the GRIMM Homepage
+13	76	&About
+13	77	Information|Information about the Software
+13	78	Start &filter test
+13	79	Start filter test|Starts a filter test with two dust monitors.
+
+
+/*** Child Windows Measurement *****
+/***** Fenster "Measurement:": *****
+14	0	Measurement:
+/Register "Numeric"
+14	1	Numeric
+/Boxen + Hints: "Measurement Parameter":
+14	10	Measurement Parameter
+14	11	Start Time:
+14	12	Stop Time
+14	13	Location:
+14	14	C-Factor:
+14	15	Alarm:
+14	16	Battery:
+14	17	Pump:
+14	18	Error:
+/Boxen + Hints: "Mean Environmental (ug/m3)":
+14	20	Mean Environmental (ug/m3)
+14	21	Mean Count (particle/litre)
+14	22	Mean Mass (ug/m3)
+14	23	
+/Boxen + Hints: "Sensor Data":
+14	30	Sensor Data
+14	31	Temp.:
+14	32	Humidity:
+14	33	Pressure:
+14	34	PAH:
+14	40	Real/Accu./Slid.Av.
+/Boxen + Hints: "Graph":
+14	50	Graph
+/Boxen + Hints: "Sensor":
+14	60	Sensor
+/Buttons + Hints:
+14	70	&End
+
+/***** Fenster "System": *****
+15	0	System Parameter
+/Boxen: "Modem"
+15	3	Modem Dialogue
+15	4	Modem Parameter
+/Registereintraege:
+15	10	Driver
+15	11	Modem
+15	12	Parameter
+/Boxen + Hints: "Driver"
+15	20	Driver List
+15	21	Shows all the possible drivers for your Dust Monitor
+15	22	Active Driver and Unit
+15	23	Version:
+15	24	S/N:
+15	25	Shows the presently activated driver
+15	26	Shows the presently activated unit
+15	27	Version (DM2):
+15	28	S/N (DM2):
+/Buttons + Hints: "Driver"
+15	30	C&hange Active Driver
+15	31	Allws you change present driver by pressing this button. The preselected driver at the left is now the active driver
+15	32	&Load Driver
+15	33	Load new driver (from a floppy disk)
+15	34	&Delete Driver List
+15	35	Delete present drivers
+15	36	C&hange Driver (DM2)
+/ Texte + Hints: "Modem"
+15	40	Answer:
+15	41	Message for a received call
+15	42	Arq:
+15	43	Message for safty connection
+15	44	Busy:
+15	45	Message when engaged tone
+15	46	Connect:
+15	47	Message when the connection is right
+15	48	Dial:
+15	49	Order for dialing
+15	50	Init:
+15	51	Init string for the modem
+15	52	No Connect:
+15	53	This message was sent to the computer, when the modem becomes no connection with the unit
+15	54	Ring:
+15	55	Message when the modem identifies the tone
+15	56	Dial Type:
+15	57	Dial with the old impuls dial or the new tone dial
+15	58	Handshake:
+15	59	Select the handshake
+15	60	Port:
+15	61	Select the port of your modem (see by PROPERTIES of your modem)
+15	62	Baud Rate:
+15	63	Select the maximum baud rate for your modem (56 kBaud is recommend)
+15	64	Rings:
+15	65	Number of dial tones, before the modem connects the call
+15	66	Wait Connect:
+15	67	Stops the call after this time (seconds), when a connection is inpossible
+15	68	Wait Redial:
+15	69	If the modem gets a busy signal, it will wait the number of seconds in this field before trying again
+/Boxen + Hints: "Parameter"
+15	5	Save file
+15	80	Automatic file name
+15	81	Allows the software to create automatically a new file name
+15	83	Opens the DIRECTORY where your data should be stored
+15	85	Permits SELECTION of your drive (even in networks)
+15	90	General
+15	91	General parameters
+15	92	Dynamic windows size
+15	93	The program set the width of the measurement windows in depending of your selected resolution (only >800*600)
+
+/Window Change Unit Version
+16	0	Change Unit Version
+16	1	Change Version
+16	2	Version 7.80
+16	3	Version 12.30
+16	4	Change Version
+16	5	Please do not forget to change the driver file (menu OPTIONS-->SYSTEM).
+
+17	0	dummy

@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<Instruments>
+  <Instrument>
+    <ID>0</ID>
+    <Name>Thermo</Name>
+    <Type>Dichot</Type>
+    <IPAddress>192.168.0.222</IPAddress>
+    <SerialNo>1405A248872110</SerialNo>
+    <Status>Active</Status>
+    <Group>ETV</Group>
+    <DownloadFilePath>D:\Thermo\ePort\Data</DownloadFilePath>
+    <IsDownloadLog>False</IsDownloadLog>
+    <DownloadLogPath>D:\Thermo\ePort\Log</DownloadLogPath>
+    <IsAutoDownloadEnabled>False</IsAutoDownloadEnabled>
+    <SPLocation>2022/07/12 05:00:01</SPLocation>
+    <LastDownloadTimestamp>12/07/2022 16:20:13</LastDownloadTimestamp>
+    <DownloadType>Manual</DownloadType>
+    <DownloadFrom>All</DownloadFrom>
+    <IsDownloadAll>False</IsDownloadAll>
+    <AutoDownloadStartTime>07/08/2022   03:53 PM</AutoDownloadStartTime>
+    <AutoDownloadFrequency>Daily</AutoDownloadFrequency>
+    <Notes />
+    <InstrumentPassword />
+  </Instrument>
+</Instruments>

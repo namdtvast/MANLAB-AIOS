@@ -1,0 +1,18 @@
+
+
+<com.jctal.foundation.gui.elements.JCTPanelGrid>
+   <javax.swing.JTabbedPane>
+      <com.jctal.foundation.gui.elements.JCTPanel name="Graph Area">
+         <com.jctal.land.das.ChartBeanPropertyEditorElement beanProperty="headerText"/>
+         <com.jctal.land.das.ChartBeanPropertyEditorElement beanProperty="footerText"/>
+      </com.jctal.foundation.gui.elements.JCTPanel>
+      <com.jctal.foundation.gui.elements.JCTPanel name="X-Axis">
+         <com.jctal.land.das.ChartBeanPropertyEditorElement beanProperty="xAxisGridIsShowing"/>
+      </com.jctal.foundation.gui.elements.JCTPanel>
+      <com.jctal.foundation.gui.elements.JCTPanel name="Y-Axis">
+         <com.jctal.land.das.ChartBeanPropertyEditorElement beanProperty="yAxisGridIsShowing"/>
+         <com.jctal.land.das.ChartBeanPropertyEditorElement beanProperty="yAxisMinMax"/>
+      </com.jctal.foundation.gui.elements.JCTPanel>
+    </javax.swing.JTabbedPane>
+</com.jctal.foundation.gui.elements.JCTPanelGrid>
+

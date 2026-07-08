@@ -1,0 +1,38 @@
+<javax.swing.JMenuBar label="General" width="10">
+   <com.jctal.land.das.menus.JMenu localiseKey="MAIN.FILE" text="File">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.NewProject"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.OpenProject"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.CloseProject"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.SaveProject"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.SaveAsProject"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.Export"/>
+      <javax.swing.JSeparator/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditPreferences"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.ExitAction"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="MAIN.ADD" text="Add">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.AddUserTable"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.NewGraph"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.NewFDGraph"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.NewInstPanel"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="MAIN.RECORD" text="Record">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.StartAction"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.PrimeTrigger"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.Download"/>
+      <javax.swing.JSeparator/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.NewDataLog"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.RenameDataLog"/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.RemoveRecording"/>
+      <javax.swing.JSeparator/>
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.EditRecordingNotes"/>      
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="MAIN.INSTRUMENT" text="Instrument">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.InstrumentConnect"/>
+   </com.jctal.land.das.menus.JMenu>
+   <com.jctal.land.das.menus.JMenu localiseKey="MAIN.HELP" text="Help">
+      <javax.swing.JMenuItem action="com.jctal.land.das.actions.Help"/>
+        <javax.swing.JMenuItem action="com.jctal.land.das.actions.HelpAbout"></javax.swing.JMenuItem>
+    </com.jctal.land.das.menus.JMenu>
+</javax.swing.JMenuBar>
+

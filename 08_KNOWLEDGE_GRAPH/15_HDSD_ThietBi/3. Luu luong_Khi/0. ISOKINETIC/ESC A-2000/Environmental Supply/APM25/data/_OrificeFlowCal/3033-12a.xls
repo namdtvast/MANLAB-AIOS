@@ -1,0 +1,19 @@
+
+Filename: 	3033-12a.xls
+2/12/2018	11:49 AM	Critical Orifice Flow Calibration
+Variable Name	Units	Value
+Console Serial Number	-	8077
+Venturi Serial Number	-	1653
+Critical Orifice Serial Number	-	3033
+Critical Orifice K'	-	0.3376
+Critical Orifice Temperature	oF	74.6
+Critical Orifice Vacuum	inHg	18.50
+Critical Orifice Flow Rate	DSCFM	0.438
+Barometric Pressure	inHg	30.06
+Venturi Pressure Drop	inH2O	0.614
+A2000 Flow Rate	DSCFM	0.440
+Average Time	MM:SS	00:30
+Old K	-	0.7195
+New K	-	0.7162
+% Difference	%	0.46
+Saved Changes?	-	No

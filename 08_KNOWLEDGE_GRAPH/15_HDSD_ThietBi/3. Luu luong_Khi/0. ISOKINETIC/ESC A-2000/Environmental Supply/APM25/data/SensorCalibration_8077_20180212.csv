@@ -1,0 +1,17 @@
+SensorCalibration_8077_20180212.csv
+
+Sensor,Venturi
+Cal Time, 11:46:34
+Old Slope, 1.9855
+Old Intercept, 0.0121
+New Slope, 1.9771
+New Intercept, 0.009360
+Test Data
+Voltage, Input
+0.5550, 1.1100
+1.1594, 2.3000
+1.8152, 3.6000
+2.3410, 4.6300
+3.5134, 6.9600
+
+
