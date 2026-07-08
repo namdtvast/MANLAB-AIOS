@@ -1,0 +1,539 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff15\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f14\fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f15\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnTime;}
+{\f16\fswiss\fcharset0\fprq2{\*\panose 020b0604030504040204}Tahoma;}{\f17\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnAvantH;}{\f18\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnTimeH;}
+{\f19\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnAvant;}{\f20\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnUniverseH;}{\f21\fswiss\fcharset0\fprq2{\*\panose 020b7200000000000000}.VnArial Narrow;}
+{\f125\froman\fcharset238\fprq2 Times New Roman CE;}{\f126\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f128\froman\fcharset161\fprq2 Times New Roman Greek;}{\f129\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f130\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f137\fmodern\fcharset238\fprq1 Courier New CE;}{\f138\fmodern\fcharset204\fprq1 Courier New Cyr;}{\f140\fmodern\fcharset161\fprq1 Courier New Greek;}
+{\f141\fmodern\fcharset162\fprq1 Courier New Tur;}{\f142\fmodern\fcharset186\fprq1 Courier New Baltic;}{\f221\fswiss\fcharset238\fprq2 Tahoma CE;}{\f222\fswiss\fcharset204\fprq2 Tahoma Cyr;}{\f224\fswiss\fcharset161\fprq2 Tahoma Greek;}
+{\f225\fswiss\fcharset162\fprq2 Tahoma Tur;}{\f226\fswiss\fcharset186\fprq2 Tahoma Baltic;}{\f237\fswiss\fcharset162\fprq2 .VnTimeH Tur;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\stylesheet{\nowidctlpar\widctlpar\adjustright \f15\fs26\cgrid \snext0 Normal;}{\s1\sb20\keepn\nowidctlpar\widctlpar\adjustright \i\f15\fs28\cgrid \sbasedon0 \snext0 heading 1;}{\s3\sl-340\slmult0
+\keepn\nowidctlpar\widctlpar\adjustright \b\f15\fs26\cgrid \sbasedon0 \snext0 heading 3;}{\*\cs10 \additive Default Paragraph Font;}{\s15\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid \sbasedon0 \snext15 abc;}{\*\cs16 \additive \sbasedon10 
+page number;}{\s17\nowidctlpar\widctlpar\tqc\tx4153\tqr\tx8306\adjustright \f15\fs26\lang2057\cgrid \sbasedon0 \snext17 footer;}{\s18\nowidctlpar\widctlpar\tqc\tx4153\tqr\tx8306\adjustright \f15\fs26\lang2057\cgrid \sbasedon0 \snext18 header;}{
+\s19\nowidctlpar\widctlpar\adjustright \cbpat9 \f16\fs26\cgrid \sbasedon0 \snext19 Document Map;}}{\*\listtable{\list\listtemplateid1168916114{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat3\levelspace0\levelindent0{\leveltext
+\'01-;}{\levelnumbers;}\fbias0 \fi-360\li720\jclisttab\tx720 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440 }{\listlevel\levelnfc23\leveljc0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li2160\jclisttab\tx2160 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600 }{\listlevel
+\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li4320\jclisttab\tx4320 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760 }{\listlevel
+\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li6480\jclisttab\tx6480 }{\listname ;}\listid521668112}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0
+\leveljc0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'02\'00.;}{\levelnumbers\'01;}\fi-360\li360 }{\listname ;}\listid1348677854}{\list\listtemplateid-2085438718{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat3
+\levelspace360\levelindent0{\leveltext\'01-;}{\levelnumbers;}\fbias0 \fi-360\li502\jclisttab\tx502 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1222
+\jclisttab\tx1222 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li1942\jclisttab\tx1942 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2662\jclisttab\tx2662 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01o;}{\levelnumbers;}\f2\fbias0 
+\fi-360\li3382\jclisttab\tx3382 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li4102\jclisttab\tx4102 }{\listlevel\levelnfc23\leveljc0\levelfollow0
+\levelstartat1\levelspace360\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li4822\jclisttab\tx4822 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01o;}{\levelnumbers;}
+\f2\fbias0 \fi-360\li5542\jclisttab\tx5542 }{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'01\u-3929 ?;}{\levelnumbers;}\f14\fbias0 \fi-360\li6262\jclisttab\tx6262 }{\listname ;}\listid1554461603}
+{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\leveljc0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'02\'00.;}{\levelnumbers\'01;}\fi-360\li360 }{\listname ;}\listid1912621120}}{\*\listoverridetable
+{\listoverride\listid1348677854\listoverridecount0\ls1}{\listoverride\listid1912621120\listoverridecount0\ls2}{\listoverride\listid521668112\listoverridecount0\ls3}{\listoverride\listid1554461603\listoverridecount0\ls4}}{\info{\title     \'a7LVN}
+{\author Do Khac Hieu}{\operator Chi Doan}{\creatim\yr2001\mo11\dy12\hr11\min24}{\revtim\yr2002\mo9\dy10\hr3\min8}{\printim\yr2001\mo12\dy17\hr17\min13}{\version28}{\edmins141}{\nofpages6}{\nofwords1137}{\nofchars6485}{\*\company C.I.T 11 Nguyen Khuyen}
+{\nofcharsws0}{\vern71}}\paperw11907\paperh16834\margl1418\margr1021\margt1418\margb1418 \widowctrl\ftnbj\aenddoc\pgnstart3\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\lytprtmet\hyphcaps0\formshade\viewkind1\viewscale90\pgbrdrhead\pgbrdrfoot 
+\fet0\sectd \psz9\pgnrestart\pgnstarts3\linex0\endnhere\sectdefaultcl {\footer \pard\plain \s17\nowidctlpar\widctlpar\tqc\tx4153\tqr\tx8306\pvpara\phmrg\posxo\posy0\adjustright \f15\fs26\lang2057\cgrid {\field{\*\fldinst {\cs16\fs22 PAGE  }}{\fldrslt {
+\cs16\fs22\lang1024 8}}}{\cs16 
+\par }\pard \s17\fi360\ri360\nowidctlpar\widctlpar\tqc\tx4153\tqr\tx8306\adjustright {
+\par }}{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}
+{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\lang1024 
+{\shp{\*\shpinst\shpleft-51\shptop-9\shpright9526\shpbottom-8\shpfhdr0\shpbxcolumn\shpbypara\shpwr3\shpwrk0\shpfblwtxt0\shpz0\shplid1026{\sp{\sn shapeType}{\sv 20}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}
+{\sp{\sn lineWidth}{\sv 25400}}{\sp{\sn fShadow}{\sv 0}}}{\shprslt{\*\do\dobxcolumn\dobypara\dodhgt8192\dpline\dpptx0\dppty0\dpptx9577\dppty1\dpx-51\dpy-9\dpxsize9577\dpysize1\dplinew40\dplinecor0\dplinecog0\dplinecob0}}}}{\b\f17\fs28 v\'a8n b\'b6n k\'fc
+ thu\'cbt \'aeo l\'ad\'eang vi\'d6t nam                     \'aelvn   88  : 2001}{\b\f19\fs32 
+\par }{\lang1024 {\shp{\*\shpinst\shpleft-51\shptop8\shpright9526\shpbottom9\shpfhdr0\shpbxcolumn\shpbypara\shpwr3\shpwrk0\shpfblwtxt0\shpz1\shplid1027{\sp{\sn shapeType}{\sv 20}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}
+{\sp{\sn lineWidth}{\sv 25400}}{\sp{\sn fShadow}{\sv 0}}}{\shprslt{\*\do\dobxcolumn\dobypara\dodhgt8193\dpline\dpptx0\dppty0\dpptx9577\dppty1\dpx-51\dpy8\dpxsize9577\dpysize1\dplinew40\dplinecor0\dplinecog0\dplinecob0}}}}{\b\f19\fs32 
+\par Ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd ki\'d3u c\'b6m bi\'d5n
+\par Quy tr\'d7nh ki\'d3m \'ae\'denh t\'b9m th\'eai
+\par }{\b\i\fs28 
+\par }{\b\i\fs32 Measuring instruments for measure temperature of air
+\par Methods and means of verification
+\par }\pard \s15\qj\sb40\sa40\nowidctlpar\widctlpar\adjustright {\b\f18\fs28 
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright {\b\fs28 1 Ph\'b9m vi \'b8p d\'f4ng
+\par }{
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {V\'a8n b\'b6n k\'fc thu\'cbt n\'b5y quy \'ae\'denh ph\'ad\'acng ph\'b8p v\'b5 ph\'ad\'acng ti\'d6n ki\'d3m \'ae\'denh ban \'ae\'c7u, ki\'d3m \'ae\'denh  \'ae\'denh k\'fa v\'b5 ki\'d3m \'ae\'denh b\'cat th
+\'ad\'eang c\'b8c ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd ki\'d3u c\'b6m bi\'d5n c\'e3 ph\'b9m vi \'aeo t\'f5 0 }{\super o}{C \'ae\'d5n 50 }{\super o}{C, \'ae\'e9 ch\'ddnh x\'b8c t\'f5  }{{\field{\*\fldinst SYMBOL 177 \\f "Symbol"
+ \\s 13}{\fldrslt\f3\fs26}}}{ 0,3 }{\super o}{C \'ae\'d5n }{{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{ 1 }{\super o}{C , v\'a8n b\'b6n n\'b5y c\'f2ng \'ae\'ad\'eec \'b8p d\'f4ng \'ae\'e8i v\'edi c\'b8c ph\'ad\'acng ti\'d6n 
+\'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd t\'f9 ghi.
+\par 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b\fs28 2 C\'b8c ph\'d0p ki\'d3m \'ae\'denh
+\par }{
+\par Ph\'b6i l\'c7n l\'ad\'eet ti\'d5n h\'b5nh c\'b8c ph\'d0p ki\'d3m \'ae\'denh ghi trong b\'b6ng sau:}{\b\i  
+\par }{\fs28 
+\par }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9356\pard \s15\qc\nowidctlpar\widctlpar\intbl\adjustright {\b T\'aan ph\'d0p ki\'d3m \'ae\'denh\cell 
+Theo \'aei\'d2u n\'b5o c\'f1a QTK\'a7\cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\b \row }\trowd \trgaph108\trrh2917\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 
+\trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9356
+\pard\plain \s15\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {
+\par }\pard \s15\fi-284\li284\nowidctlpar\widctlpar\intbl\adjustright {1 Ki\'d3m tra b\'aan ngo\'b5i 
+\par 
+\par 2 Ki\'d3m tra k\'fc thu\'cbt
+\par }\pard \s15\nowidctlpar\widctlpar\intbl\adjustright {
+\par }\pard \s15\fi-284\li284\nowidctlpar\widctlpar\intbl\adjustright {3 Ki\'d3m tra \'aeo l\'ad\'eang
+\par 
+\par {\listtext\pard\plain\s15 \intbl\f15\fs26\lang2057\cgrid \hich\af15\dbch\af0\loch\f15 -\tab}}\pard \s15\fi-360\li502\nowidctlpar\widctlpar\intbl\jclisttab\tx502\ls4\adjustright {Ki\'d3m tra sai s\'e8 \'aeo nhi\'d6t \'ae\'e9
+\par }\pard \s15\li142\nowidctlpar\widctlpar\intbl\adjustright {
+\par {\listtext\pard\plain\s15 \intbl\f15\fs26\lang2057\cgrid \hich\af15\dbch\af0\loch\f15 -\tab}}\pard \s15\fi-360\li502\nowidctlpar\widctlpar\intbl\jclisttab\tx502\ls4\adjustright {Ki\'d3m tra th\'eai gian t\'f9 ghi\cell }\pard 
+\s15\fi210\nowidctlpar\widctlpar\intbl\adjustright {
+\par }\pard \s15\qc\fi210\nowidctlpar\widctlpar\intbl\adjustright {5.1
+\par 
+\par 5.2
+\par 
+\par  5.3
+\par 
+\par  5.3.1
+\par 
+\par  5.3.2
+\par }\pard \s15\fi210\nowidctlpar\widctlpar\intbl\adjustright {\cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\b\fs28 
+\par 3 Ph\'ad\'acng ph\'b8p v\'b5 ph\'ad\'acng ti\'d6n ki\'d3m \'ae\'denh
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {\b 
+\par 3.1}{ Ph\'ad\'acng ph\'b8p ki\'d3m \'ae\'denh ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd ki\'d3u c\'b6m bi\'d5n l\'b5 so s\'b8nh k\'d5t qu\'b6 \'aeo tr\'f9c ti\'d5p nhi\'d6t \'ae\'e9 b\'bbng ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 c
+\'c7n ki\'d3m \'ae\'denh v\'b5 gi\'b8 tr\'de c\'f1a ngu\'e5n chu\'c8n nhi\'d6t \'ae\'e9.
+\par }{\fs28 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b 3.2}{ Ph\'ad\'acng ti\'d6n ki\'d3m \'ae\'denh }{\b\fs28 
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {
+\par 3.2.1 Ngu\'e5n chu\'c8n nhi\'d6t \'ae\'e9 kh\'abng kh\'dd t\'f5  0 }{\super o}{C \'ae\'d5n  70 }{\super o}{C, \'ae\'e9 ch\'ddnh x\'b8c g\'cap 3 l\'c7n \'ae\'e9 ch\'ddnh x\'b8c c\'f1a ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 c\'c7n ki\'d3m \'ae\'denh.}
+{\b 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b\f17\fs28 \'aelvn   88  : 2001
+\par }\pard \s15\fi-450\li450\nowidctlpar\widctlpar\tx450\adjustright {\b 
+\par }{3.2.2}{\b \tab }{\'a7\'e5ng h\'e5 b\'cam gi\'a9y, c\'e3 gi\'b8 tr\'de \'ae\'e9 chia 0,01 s.
+\par 
+\par 3.2.3}{\b \tab }{Ph\'ad\'acng ti\'d6n r\'e4i s\'b8ng.
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par 3.2.4 Thi\'d5t b\'de \'ae\'e3ng ng\'bet ngu\'e5n cho ph\'ad\'acng ti\'d6n \'aeo c\'c7n ki\'d3m \'ae\'denh.
+\par 
+\par 3.2.5 Ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 v\'b5 \'ae\'e9 \'c8m m\'abi tr\'ad\'eang. 
+\par Ph\'b9m vi \'aeo nhi\'d6t \'ae\'e9: (0 }{{\field{\*\fldinst SYMBOL 184 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{50) }{\super o}{C, gi\'b8 tr\'de \'ae\'e9 chia 1 }{\super o}{C;
+\par Ph\'b9m vi \'aeo \'ae\'e9 \'c8m: (0 }{{\field{\*\fldinst SYMBOL 184 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{ 100) %RH, gi\'b8 tr\'de \'ae\'e9 chia 1 %RH.
+\par }{\b 
+\par }{\b\fs28 4 \'a7i\'d2u ki\'d6n ki\'d3m \'ae\'denh v\'b5 chu\'c8n b\'de ki\'d3m \'ae\'denh
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {
+\par }{\b 4.1 \'a7i\'d2u ki\'d6n ki\'d3m \'ae\'denh
+\par }{
+\par Khi ti\'d5n h\'b5nh ki\'d3m \'ae\'denh ph\'b6i \'ae\'b6m b\'b6o c\'b8c \'aei\'d2u ki\'d6n sau \'ae\'a9y:}{\b 
+\par }{Nhi\'d6t \'ae\'e9: (20 }{{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{ 2) }{\super o}{C;
+\par \'a7\'e9 \'c8m :  t\'f5  40 %RH \'ae\'d5n  70 %RH.
+\par 
+\par }{\b 4.2 Chu\'c8n b\'de ki\'d3m \'ae\'denh
+\par }{
+\par Ch\'b9y s\'cay ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd c\'c7n ki\'d3m \'ae\'denh theo h\'ad\'edng d\'c9n v\'cbn h\'b5nh c\'f1a c\'f1a ph\'ad\'acng ti\'d6n n\'b5y.
+\par 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b\fs28 5 Ti\'d5n h\'b5nh ki\'d3m \'ae\'denh
+\par }{\fs28 
+\par }{\b 5.1 Ki\'d3m tra b\'aan ngo\'b5i
+\par }{
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {Ki\'d3m tra b\'bbng m\'bet \'ae\'d3 x\'b8c \'ae\'denh s\'f9 ph\'ef h\'eep c\'f1a ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd \'ae\'e8i v\'edi c\'b8c y\'aau c\'c7u quy \'ae\'denh trong t
+\'b5i li\'d6u k\'fc thu\'cbt, v\'d2 h\'d7nh d\'b8ng, k\'ddch th\'ad\'edc, ch\'d8 th\'de, ngu\'e5n nu\'abi, k\'fd nh\'b7n hi\'d6u, c\'ac c\'cau ni\'aam phong c\'f1a m\'b8y, t\'b5i li\'d6u v\'b5 ph\'f4 t\'efng k\'ccm theo.
+\par 
+\par }{\b 5.2 Ki\'d3m tra k\'fc thu\'cbt
+\par 
+\par }{Ki\'d3m tra tr\'b9ng th\'b8i ho\'b9t \'ae\'e9ng b\'d7nh th\'ad\'eang c\'f1a ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd theo h\'ad\'edng d\'c9n v\'cbn h\'b5nh.
+\par }\pard \s15\fi-284\li284\nowidctlpar\widctlpar\adjustright {\b 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b 5.3 Ki\'d3m tra \'aeo l\'ad\'eang
+\par 
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {5.3.1 Ki\'d3m tra sai s\'e8 \'aeo nhi\'d6t \'ae\'e9.
+\par 
+\par Ti\'d5n h\'b5nh ki\'d3m tra sai s\'e8 \'aeo nhi\'d6t \'ae\'e9 theo tr\'d7nh t\'f9 sau:
+\par 
+\par 5.3.1.1 Ch\'e4n c\'b8c gi\'b8 tr\'de \'aei\'d3m nhi\'d6t \'ae\'e9 c\'f1a ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd t\'b9i c\'b8c \'aei\'d3m sau: 10 }{\super o}{C, 20 }{\super o}{C, 30 }{\super  o}{C v\'b5 40 }{\super o}{C .
+\par }\pard \s15\qr\nowidctlpar\widctlpar\adjustright {\b\f17\fs28 \'aelvn   88 : 2001
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {
+\par 
+\par 5.3.1.2 \'a7\'c6t ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd c\'c7n ki\'d3m \'ae\'denh v\'b5o trong bu\'e5ng \'aeo c\'f1a ngu\'e5n chu\'c8n nhi\'d6t \'ae\'e9 kh\'abng kh\'dd.
+\par 
+\par 5.3.1.3 Thi\'d5t l\'cbp ch\'d5 \'ae\'e9 ho\'b9t \'ae\'e9ng c\'f1a ngu\'e5n chu\'c8n nhi\'d6t \'ae\'e9 v\'edi \'aei\'d3m 10 }{\super o}{C \'eb \'ae\'e9 \'c8m
+\par  60 %RH. Cho ngu\'e5n ho\'b9t \'ae\'e9ng. Sau 1 gi\'ea ghi s\'e8 ch\'d8 nhi\'d6t \'ae\'e9 c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh v\'b5 gi\'b8 tr\'de nhi\'d6t \'ae\'e9 c\'f1a chu\'c8n v\'b5o bi\'aan b\'b6n \'eb ph\'f4 l\'f4c. 
+\par 
+\par 5.3.1.4 Sai s\'e8 tuy\'d6t \'ae\'e8i t\'b9i \'aei\'d3m 10 }{\super o}{C \'ae\'ad\'eec t\'ddnh b\'bbng hi\'d6u gi\'f7a s\'e8 ch\'d8 gi\'b8 tr\'de nhi\'d6t \'ae\'e9 c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh v\'b5 gi\'b8 tr\'de nhi\'d6t \'ae\'e9
+  c\'f1a chu\'c8n:
+\par 
+\par }\pard \s15\qc\nowidctlpar\widctlpar\adjustright {{\field{\*\fldinst SYMBOL 68 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{\pard\plain \s15\qc\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\object\objemb\objw200\objh360{\*\objclass Equation.3}
+{\*\objdata 01050000020000000b0000004571756174696f6e2e33000000000000000000000c0000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff04000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c000000000000046000000000000000000000000806d
+7505b258c20103000000400100000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002010100000003000000ffffffff0000000000000000000000000000000000000000000000000000
+0000000000000000000001000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff04000000ffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000000400000000000000feffffff02000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c0000000000000461700
+00004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000001c0000000200bcd32000000000000000589a4900d8a549000000000003010103010a01030f02000b0112835400000102883100028830000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffffffffffffffff000000000000
+000000000000000000000000000000000000000000000000000000000000040000003c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c4550494354006101000085fdffff34010000080061017b020000
+010009000003950000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02400240011200000026060f001a00ffffffff000010000000f6ffffffb7ffffff36010000f70100000b0000002606
+0f000c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000a5040000002d01000008000000320af400240002000000313008000000320a000239000100000054000a00000026060f000a00ffffffff01000000000010000000fb021000
+070000000000bc02000000000102022253797374656d0000040000002d01010004000000f00100000300000000000000}{\result {\fs20\dn10 {\pict{\*\picprop\shplid1025{\sp{\sn shapeType}{\sv 75}}{\sp{\sn fFlipH}{\sv 0}}
+{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn pictureGray}{\sv 0}}{\sp{\sn pictureBiLevel}{\sv 0}}{\sp{\sn fillColor}{\sv 268435473}}{\sp{\sn fFilled}{\sv 0}}{\sp{\sn fHitTestFill}{\sv 1}}
+{\sp{\sn fillShape}{\sv 1}}{\sp{\sn fillUseRect}{\sv 0}}{\sp{\sn fNoFillHitTest}{\sv 0}}{\sp{\sn fLine}{\sv 0}}}\picscalex100\picscaley100\piccropl0\piccropr0\piccropt0\piccropb0
+\picw353\pich635\picwgoal200\pichgoal360\wmetafile8\bliptag1894148245\blipupi2303{\*\blipuid 70e66895927e5b308e37cbbb79cba25c}010009000003950000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000
+050000000b0200000000050000000c02400240011200000026060f001a00ffffffff000010000000f6ffffffb7ffffff36010000f70100000b00000026060f00
+0c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000a5040000002d010000
+08000000320af400240002000000313008000000320a000239000100000054000a00000026060f000a00ffffffff01000000000010000000fb02100007000000
+0000bc02000000000102022253797374656d0000040000002d01010004000000f001000003000000000000000000000000000000000000000000000000000000}}}}}{ =  }{\pard\plain \s15\qc\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\object\objemb\objw1080\objh380
+{\*\objclass Equation.3}{\*\objdata 01050000020000000b0000004571756174696f6e2e33000000000000000000000c0000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff04000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c000000000000046000000000000000000000000a00e
+7d05b258c20103000000800100000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002010100000003000000ffffffff0000000000000000000000000000000000000000000000000000
+0000000000000000000001000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff04000000ffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000000400000000000000feffffff02000000fefffffffeffffff05000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c0000000000000461700
+00004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000001c0000000200bcd35000000000000000ac804900d48249000000000003010103010a0112835400030f02000b011283500012835400128344000001028831000288300000000a0286122212835400030f02000b01128343001283
+68000001028831000288300000000000efef000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffffffffffffffff000000000000
+000000000000000000000000000000000000000000000000000000000000040000006c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c4550494354007107000062fdfffff0010000080071079e020000
+010009000003f30000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c026002c0061200000026060f001a00ffffffff000010000000c0ffffffb7ffffff80060000170200000b0000002606
+0f000c004d617468547970650000600015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e000080040000002d01000008000000320af4007d0502000000313008000000320a0002620502000000436808000000320af400320102000000313009000000320a00021b010300
+00005054440015000000fb0280fe0000000000009001000000000402001054696d6573204e657720526f6d616e000080040000002d01010004000000f001000008000000320aa0017f0401000000540008000000320aa001340001000000540010000000fb0280fe0000000000009001000000020002001053796d626f6c
+0002040000002d01000004000000f001010008000000320aa0015a03010000002d000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0000040000002d01010004000000f00100000300000000006100}{\result {\fs20\dn12 
+{\pict{\*\picprop\shplid1026{\sp{\sn shapeType}{\sv 75}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn pictureGray}{\sv 0}}{\sp{\sn pictureBiLevel}{\sv 0}}{\sp{\sn fillColor}{\sv 268435473}}{\sp{\sn fFilled}{\sv 0}}{\sp{\sn fHitTestFill}{\sv 1}}
+{\sp{\sn fillShape}{\sv 1}}{\sp{\sn fillUseRect}{\sv 0}}{\sp{\sn fNoFillHitTest}{\sv 0}}{\sp{\sn fLine}{\sv 0}}}\picscalex100\picscaley100\piccropl0\piccropr0\piccropt0\piccropb0
+\picw1905\pich670\picwgoal1080\pichgoal380\wmetafile8\bliptag-365216688\blipupi2304{\*\blipuid ea3b3c50e0b72e1791cc1eb3a9677b53}
+010009000003f30000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000
+050000000b0200000000050000000c026002c0061200000026060f001a00ffffffff000010000000c0ffffffb7ffffff80060000170200000b00000026060f00
+0c004d617468547970650000600015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e000080040000002d010000
+08000000320af4007d0502000000313008000000320a0002620502000000436808000000320af400320102000000313009000000320a00021b01030000005054
+440015000000fb0280fe0000000000009001000000000402001054696d6573204e657720526f6d616e000080040000002d01010004000000f001000008000000
+320aa0017f0401000000540008000000320aa001340001000000540010000000fb0280fe0000000000009001000000020002001053796d626f6c000204000000
+2d01000004000000f001010008000000320aa0015a03010000002d000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0000040000002d01010004000000f001000003000000000000000000000000000000000000000000000000000000}}}}}{
+
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }{\i\ul Trong \'ae\'e3}{: 
+\par 
+\par }{{\field{\*\fldinst SYMBOL 68 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\object\objemb\objw200\objh360{\*\objclass Equation.3}{\*\objdata 01050000020000000b000000
+4571756174696f6e2e33000000000000000000000c0000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff04000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c0000000000000460000000000000000000000006036
+8605b258c20103000000400100000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002010100000003000000ffffffff0000000000000000000000000000000000000000000000000000
+0000000000000000000001000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff04000000ffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000000400000000000000feffffff02000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c0000000000000461700
+00004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000001c0000000200bcd3200000000000000008be49000cad49000000000003010103010a01030f02000b0112835400000102883100028830000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffffffffffffffff000000000000
+000000000000000000000000000000000000000000000000000000000000040000003c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c4550494354006101000085fdffff34010000080061017b020000
+010009000003950000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02400240011200000026060f001a00ffffffff000010000000f6ffffffb7ffffff36010000f70100000b0000002606
+0f000c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000ca040000002d01000008000000320af400240002000000313008000000320a000239000100000054000a00000026060f000a00ffffffff01000000000010000000fb021000
+070000000000bc02000000000102022253797374656d0000040000002d01010004000000f00100000300000000000080}{\result {\fs20\dn10 {\pict{\*\picprop\shplid1027{\sp{\sn shapeType}{\sv 75}}{\sp{\sn fFlipH}{\sv 0}}
+{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn pictureGray}{\sv 0}}{\sp{\sn pictureBiLevel}{\sv 0}}{\sp{\sn fillColor}{\sv 268435473}}{\sp{\sn fFilled}{\sv 0}}{\sp{\sn fHitTestFill}{\sv 1}}
+{\sp{\sn fillShape}{\sv 1}}{\sp{\sn fillUseRect}{\sv 0}}{\sp{\sn fNoFillHitTest}{\sv 0}}{\sp{\sn fLine}{\sv 0}}}\picscalex100\picscaley100\piccropl0\piccropr0\piccropt0\piccropb0
+\picw353\pich635\picwgoal200\pichgoal360\wmetafile8\bliptag-1475322341\blipupi2303{\*\blipuid a8105e1ba0fe37368bd015e20a91a87f}010009000003950000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000
+050000000b0200000000050000000c02400240011200000026060f001a00ffffffff000010000000f6ffffffb7ffffff36010000f70100000b00000026060f00
+0c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000ca040000002d010000
+08000000320af400240002000000313008000000320a000239000100000054000a00000026060f000a00ffffffff01000000000010000000fb02100007000000
+0000bc02000000000102022253797374656d0000040000002d01010004000000f001000003000000000000000000000000000000000000000000000000000000}}}}}{- Sai s\'e8 tuy\'d6t \'ae\'e8i c\'f1a ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd t\'b9i \'aei\'d3m 10 }
+{\super o}{C,
+\par }{\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\object\objemb\objw480\objh360{\*\objclass Equation.3}{\*\objdata 01050000020000000b0000004571756174696f6e2e33000000000000000000000c0000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff04000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c0000000000000460000000000000000000000006036
+8605b258c20103000000800100000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002010100000003000000ffffffff0000000000000000000000000000000000000000000000000000
+0000000000000000000001000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff04000000ffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000000400000000000000feffffff02000000fefffffffeffffff05000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c0000000000000461700
+00004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000001c0000000200bcd32c00000000000000c0bf49001cc949000000000003010103010a0112835400030f02000b01128350001283540012834400000102883100028830000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffffffffffffffff000000000000
+0000000000000000000000000000000000000000000000000000000000000400000048000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c4550494354004f03000085fdffff8001000008004f037b020000
+010009000003bb0000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02400200031200000026060f001a00ffffffff000010000000c0ffffffb7ffffffc0020000f70100000b0000002606
+0f000c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000de040000002d01000008000000320af400320102000000313009000000320a00021b01030000005054440015000000fb0280fe000000000000900100000000040200105469
+6d6573204e657720526f6d616e0000de040000002d01010004000000f001000008000000320aa00134000100000054000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0000040000002d01000004000000f00101000300000000006d62
+}{\result {\fs20\dn10 {\pict{\*\picprop\shplid1028{\sp{\sn shapeType}{\sv 75}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn pictureGray}{\sv 0}}{\sp{\sn pictureBiLevel}{\sv 0}}
+{\sp{\sn fillColor}{\sv 268435473}}{\sp{\sn fFilled}{\sv 0}}{\sp{\sn fHitTestFill}{\sv 1}}{\sp{\sn fillShape}{\sv 1}}{\sp{\sn fillUseRect}{\sv 0}}{\sp{\sn fNoFillHitTest}{\sv 0}}{\sp{\sn fLine}{\sv 0}}}
+\picscalex100\picscaley100\piccropl0\piccropr0\piccropt0\piccropb0\picw847\pich635\picwgoal480\pichgoal360\wmetafile8\bliptag-1059653922\blipupi2303{\*\blipuid c0d6f6de450d6615fe05254d155f5aeb}
+010009000003bb0000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000
+050000000b0200000000050000000c02400200031200000026060f001a00ffffffff000010000000c0ffffffb7ffffffc0020000f70100000b00000026060f00
+0c004d617468547970650000500015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000de040000002d010000
+08000000320af400320102000000313009000000320a00021b01030000005054440015000000fb0280fe0000000000009001000000000402001054696d657320
+4e657720526f6d616e0000de040000002d01010004000000f001000008000000320aa00134000100000054000a00000026060f000a00ffffffff010000000000
+10000000fb021000070000000000bc02000000000102022253797374656d0000040000002d01000004000000f001010003000000000000000000000000000000000000000000000000000000}}}}}{- S\'e8 ch\'d8 nhi\'d6t \'ae\'e9 kh\'abng kh\'dd c\'f1a ph\'ad\'acng }{\expnd-2\expndtw-12 ti\'d6
+n }{\'aeo c\'c7n ki\'d3m \'ae\'denh t\'b9i \'aei\'d3m 10 }{\super o}{C,
+\par }{\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\object\objemb\objw380\objh380{\*\objclass Equation.3}{\*\objdata 01050000020000000b0000004571756174696f6e2e33000000000000000000000c0000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff04000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c0000000000000460000000000000000000000006036
+8605b258c20103000000800100000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002010100000003000000ffffffff0000000000000000000000000000000000000000000000000000
+0000000000000000000001000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff04000000ffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000000400000000000000feffffff02000000fefffffffeffffff05000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c0000000000000461700
+00004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000001c0000000200bcd3280000000000000094f1490060f249000000000003010103010a0112835400030f02000b01128343001283680000010288310002883000000000008000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffffffffffffffff000000000000
+0000000000000000000000000000000000000000000000000000000000000400000044000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c4550494354009e02000062fdffff7c01000008009e029e020000
+010009000003ba0000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02600260021200000026060f001a00ffffffff000010000000c0ffffffb7ffffff20020000170200000b0000002606
+0f000c004d617468547970650000600015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000f1040000002d01000008000000320af400320102000000313008000000320a0002170102000000436815000000fb0280fe0000000000009001000000000402001054696d65
+73204e657720526f6d616e0000f1040000002d01010004000000f001000008000000320aa00134000100000054000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0000040000002d01000004000000f0010100030000000000}{\result {
+\fs20\dn12 {\pict{\*\picprop\shplid1029{\sp{\sn shapeType}{\sv 75}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn pictureGray}{\sv 0}}{\sp{\sn pictureBiLevel}{\sv 0}}
+{\sp{\sn fillColor}{\sv 268435473}}{\sp{\sn fFilled}{\sv 0}}{\sp{\sn fHitTestFill}{\sv 1}}{\sp{\sn fillShape}{\sv 1}}{\sp{\sn fillUseRect}{\sv 0}}{\sp{\sn fNoFillHitTest}{\sv 0}}{\sp{\sn fLine}{\sv 0}}}
+\picscalex100\picscaley100\piccropl0\piccropr0\piccropt0\piccropb0\picw670\pich670\picwgoal380\pichgoal380\wmetafile8\bliptag-536778202\blipupi2304{\*\blipuid e0016a266a0612c5f06ef1e23d1a829b}
+010009000003ba0000000200150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000
+050000000b0200000000050000000c02600260021200000026060f001a00ffffffff000010000000c0ffffffb7ffffff20020000170200000b00000026060f00
+0c004d617468547970650000600015000000fb0220ff0000000000009001000000000402001054696d6573204e657720526f6d616e0000f1040000002d010000
+08000000320af400320102000000313008000000320a0002170102000000436815000000fb0280fe0000000000009001000000000402001054696d6573204e65
+7720526f6d616e0000f1040000002d01010004000000f001000008000000320aa00134000100000054000a00000026060f000a00ffffffff0100000000001000
+0000fb021000070000000000bc02000000000102022253797374656d0000040000002d01000004000000f0010100030000000000000000000000000000000000000000000000000000000000}}}}}{-Gi\'b8 tr\'de nhi\'d6t \'ae\'e9 kh\'abng kh\'dd c\'f1a chu\'c8n t\'b9i \'aei\'d3m 10 }{\super o}
+{C.
+\par                                                        
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {5.3.1.5 Th\'f9c hi\'d6n ph\'d0p \'aeo v\'b5 t\'ddnh to\'b8n nh\'ad m\'f4c 5..3.1.3 v\'b5 5.3.1.4 \'ae\'e8i v\'edi \'aei\'d3m  20}{\super  o}{C,    30 }{\super  o}{C,  40 }{\super  o}{C. Ghi k\'d5t qu\'b6 
+\'aeo \'ae\'ad\'eec v\'b5o bi\'aan b\'b6n \'eb ph\'f4 l\'f4c. 
+\par 
+\par 5.3.1.6 Sai s\'e8 tuy\'d6t \'ae\'e8i t\'b9i c\'b8c \'aei\'d3m ki\'d3m tra kh\'abng \'ae\'ad\'eec l\'edn h\'acn sai s\'e8 cho ph\'d0p c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh, x\'b8c \'ae\'denh trong t\'b5i li\'d6u k\'fc thu\'cbt k\'ccm theo.
+
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }\pard \s15\fi-645\li645\nowidctlpar\widctlpar\tx645\adjustright {\b 5.3.2 Ki\'d3m tra th\'eai gian t\'f9 ghi }{
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {5.3.2.1 \'a7o th\'eai gian t\'f9 ghi c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh v\'b5 b\'bbng \'ae\'e5ng h\'e5 b\'cam gi\'a9y sau 24 gi\'ea. Ghi k\'d5t qu\'b6 \'aeo \'ae\'ad\'eec v\'b5o bi\'aa
+n b\'b6n \'eb ph\'f4 l\'f4c.
+\par 
+\par 5.3.2.2 Sai s\'e8 th\'eai gian ghi \'ae\'ad\'eec t\'ddnh b\'bbng c\'abng th\'f8c sau:
+\par 
+\par }\pard \s15\qc\nowidctlpar\widctlpar\adjustright {{\field{\*\fldinst SYMBOL 68 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{t = t}{\sub PT\'a7}{ - t}{\sub Ch
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {Trong \'ae\'e3: \tab }{{\field{\*\fldinst SYMBOL 68 \\f "Symbol" \\s 13}{\fldrslt\f3\fs26}}}{t - Sai l\'d6ch th\'eai gian  t\'ddnh b\'bbng ph\'f3t.
+\par \tab            t}{\sub PT\'a7 }{- S\'e8 ch\'d8 th\'eai gian c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh.
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\tab \tab t}{\sub Ch}{ - S\'e8 ch\'d8 th\'eai gian b\'bbng \'ae\'e5ng h\'e5 b\'cam gi\'a9y.
+\par 
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {5.3.2.3 Sai s\'e8 kh\'abng \'ae\'ad\'eec l\'edn h\'acn sai s\'e8 cho ph\'d0p c\'f1a ph\'ad\'acng ti\'d6n c\'c7n ki\'d3m \'ae\'denh, x\'b8c \'ae\'denh trong t\'b5i li\'d6u k\'fc thu\'cbt k\'ccm theo.
+\par }\pard \s15\qj\sb20\sa20\nowidctlpar\widctlpar\adjustright {\b\fs28 
+\par 6 X\'f6 l\'fd chung
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {\b 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\b\f17\fs28 \'aelvn   88 : 2001}{
+\par }\pard \s15\qj\nowidctlpar\widctlpar\adjustright {\b 
+\par 6.1}{ Ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd ki\'d3u c\'b6m bi\'d5n \'ae\'b9t y\'aau c\'c7u quy \'ae\'denh \'eb m\'f4c 5 \'ae\'ad\'eec ni\'aam phong c\'ac c\'cau ch\'d8nh, \'ae\'ad\'eec c\'cap gi\'cay ch\'f8ng nh\'cbn ki\'d3m \'ae
+\'denh v\'b5 \'ae\'ad\'eec ph\'d0p s\'f6 d\'f4ng.
+\par }{\b 
+\par 6.2}{ Ph\'ad\'acng ti\'d6n \'aeo nhi\'d6t \'ae\'e9 kh\'abng kh\'dd ki\'d3u c\'b6m bi\'d5n kh\'abng \'ae\'b9t y\'aau c\'c7u quy \'ae\'denh \'eb m\'f4c 5 ph\'b6i xo\'b8 b\'e1 d\'cau ki\'d3m \'ae\'denh (n\'d5u c\'e3).
+\par 
+\par }{\b 6.3}{ Chu k\'fa ki\'d3m \'ae\'denh 1 n\'a8m.
+\par 
+\par 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {\fs28 
+\par 
+\par 
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright {\ul 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }\pard\plain \qr\nowidctlpar\widctlpar\adjustright \f15\fs26\cgrid {\b\i\f20 Ph\'f4 l\'f4c }{\b\i\f20\fs28 
+\par }\pard\plain \s15\qj\nowidctlpar\widctlpar\tqc\tx1418\tqc\tx7088\adjustright \f15\fs26\lang2057\cgrid {\b\fs28 
+\par }\pard \s15\qj\sl360\slmult1\nowidctlpar\widctlpar\tqc\tx-1701\tqc\tx-1560\adjustright {\b T\'aan c\'ac quan ki\'d3m \'ae\'denh}{\b\fs24 \tab         }{\fs24                \tab  \tab  }{\b\f18\fs24 Bi\'aan b\'b6n ki\'d3m \'ae\'denh}{\fs24 
+\par   }{\b\fs24 ......................................... \tab \tab             \tab \tab  S\'e8:...............}{\fs24 
+\par }\pard \s15\qj\nowidctlpar\widctlpar\tqc\tx-1701\adjustright {\fs24 \tab 
+\par }\pard \s15\qj\sb80\nowidctlpar\widctlpar\adjustright {T\'aan ph\'ad\'acng ti\'d6n \'aeo: ..........................................................................................................
+\par Ki\'d3u: ....................................................................S\'e8:........................................................
+\par C\'ac s\'eb s\'b6n xu\'cat: ................................................... N\'a8m s\'b6n xu\'cat: .......................................
+\par \'a7\'c6c tr\'adng k\'fc thu\'cbt:
+\par .........................................................................................................................................
+\par ..........................................................................................................................................
+\par N\'aci s\'f6 d\'f4ng: ....................................................................................................................
+\par Ph\'ad\'acng ph\'b8p th\'f9c hi\'d6n: ....................................................................................................
+\par .................................................. .....................................................................................
+\par .........................................................................................................................................
+\par Chu\'c8n thi\'d5t b\'de ch\'ddnh \'ae\'ad\'eec s\'f6 d\'f4ng: 
+\par ................................................. .....................................................................................
+\par ........................................................................................................................................
+\par .................................................. .....................................................................................
+\par \'a7i\'d2u ki\'d6n m\'abi tr\'ad\'eang: 
+\par - Nhi\'d6t \'ae\'e9: ....................................................... ...................................................................
+\par - \'a7\'e9 \'c8m: ....................................................... ......................................................................
+\par ...........................................................................................................................................
+\par Ng\'ad\'eai th\'f9c hi\'d6n: ................................................................................................................
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright {Ng\'b5y th\'f9c hi\'d6n: ...................................................................................................................}{\b\f17 
+\par }\pard \s15\qc\sb40\sa40\nowidctlpar\widctlpar\adjustright {\b\f17 
+\par 
+\par K\'d5t qu\'b6
+\par 
+\par {\pntext\pard\plain\s15 \b\f15\fs26\lang2057\cgrid \hich\af15\dbch\af0\loch\f15 1.\tab}}\pard \s15\fi-360\li360\sb40\sa40\nowidctlpar\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec\pnstart1\pnindent360\pnhang{\pntxta .}}\ls1\adjustright {\b Ki
+\'d3m tra b\'aan ngo\'b5i
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar{\*\pn \pnlvlcont\ilvl12\ls0\pnrnot0\pndec }\ilvl12\adjustright {
+\par {\pntext\pard\plain\s15 \b\f15\fs26\lang2057\cgrid \hich\af15\dbch\af0\loch\f15 2.\tab}}\pard \s15\fi-360\li360\sb40\sa40\nowidctlpar\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec\pnstart1\pnindent360\pnhang{\pntxta .}}\ls1\adjustright {\b Ki
+\'d3m tra k\'fc thu\'cbt
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar{\*\pn \pnlvlcont\ilvl12\ls0\pnrnot0\pndec }\ilvl12\adjustright {
+\par {\pntext\pard\plain\s15 \b\f15\fs26\lang2057\cgrid \hich\af15\dbch\af0\loch\f15 3.\tab}}\pard \s15\fi-360\li360\sb40\sa40\nowidctlpar\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec\pnstart1\pnindent360\pnhang{\pntxta .}}\ls1\adjustright {\b Ki
+\'d3m tra \'aeo l\'ad\'eang
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar\tx360\adjustright {\b 
+\par Ki\'d3m tra sai s\'e8 \'aeo nhi\'d6t \'ae\'e9:
+\par 
+\par }\trowd \trgaph108\trrh85\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 
+\clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx7655\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9498\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\b\f21\fs24 \'a7i\'d3m ki\'d3m tra\cell Ng\'b5y, gi\'ea  
+\cell S\'e8 ch\'d8 c\'f1a PT\'a7
+\par (}{\b\super o}{\b C}{\b\f21\fs24 )\cell Gi\'b8 tr\'de chu\'c8n  (}{\b\super o}{\b C}{\b\f21\fs24 )\cell Sai l\'d6ch
+\par (}{\b\super o}{\b C)}{\b\f21\fs24 \cell Sai s\'e8 cho ph\'d0p
+\par (}{\b\super o}{\b C)}{\b\f21\fs24 \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\b\f21\fs24 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh
+\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrl\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cltxlrtb \cellx5103\clvertalt\clbrdrl\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 
+\cltxlrtb \cellx9498\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {(\'a7i\'d3m 10 }{\super o}{C)\cell \cell \cell }{\f21\fs24 \cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell 
+}\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard\plain 
+\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr
+\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx3402\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright 
+\f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid 
+{\f18 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {(\'a7i\'d3m 20 }{\super o}{C)
+\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }{\f18 \cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\f21\fs24 \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 
+\row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cltxlrtb \cellx2127\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\f18 \cell \cell }\pard\plain 
+\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }{\f18 \cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright 
+\f15\fs26\cgrid {\f18 \row }\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }{\f18 \cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\trowd 
+\trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {(\'a7
+i\'d3m 30 }{\super o}{C)\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\f18 \cell \cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 
+\trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain 
+\s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }\pard 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell 
+}\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\pard\plain 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell \cell }\pard\plain 
+\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {(\'a7i\'d3m 40 }{\super o}{C)\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {
+\cell }\pard \s15\qc\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell }\pard \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright {\cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\trowd \trgaph108\trkeep
+\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103
+\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell }{\f18 \cell \cell \cell \cell \cell 
+}\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\pard\plain \s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell }{\f18 \cell \cell \cell \cell \cell }\pard\plain 
+\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\trowd \trgaph108\trkeep\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2127\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx3402\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx5103\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6663\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx7655\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw30 \cltxlrtb \cellx9498\pard\plain 
+\s15\nowidctlpar\widctlpar\intbl\ilvl12\adjustright \f15\fs26\lang2057\cgrid {\cell }{\f18 \cell \cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\pard\plain \s15\sb40\sa40\nowidctlpar\widctlpar
+\tx360\adjustright \f15\fs26\lang2057\cgrid {\b\i\f20 
+\par }{\b Ki\'d3m tra th\'eai gian t\'f9 ghi:
+\par }\pard \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright {
+\par }\trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx1276\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2694\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx4678\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6521\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cltxlrtb \cellx8222\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx9639\pard \s15\qc\nowidctlpar\widctlpar\intbl\adjustright {\b\f21\fs24 Ng\'b5y, gi\'ea}{\b \cell Kho
+\'b6ng th\'eai gian (h)}{\b\f21\fs24 \cell Ch\'d8 s\'e8 th\'eai gian c\'f1a PT\'a7
+\par (h)\cell Gi\'b8 tr\'de chu\'c8n  
+\par (h)\cell Sai l\'d6ch
+\par (ph\'f3t)\cell Sai s\'e8 cho ph\'d0p
+\par (ph\'f3t)\cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\b\f21\fs24 \row }\trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 
+\trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx1276\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cltxlrtb \cellx2694\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx4678\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb 
+\cellx6521\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx8222\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx9639
+\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {\f21\fs24 \cell \cell \cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f21\fs24 \row }\pard\plain 
+\s15\qc\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {\cell \cell \cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\adjustright {\f18 \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row 
+}\trowd \trgaph108\trrh383\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx1276\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2694\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx4678\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6521\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx8222\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx9639\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\adjustright 
+\f15\fs26\lang2057\cgrid {\cell \cell \cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\adjustright {\cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 
+\trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx1276\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx2694\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx4678\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx6521\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx8222\clvertalt\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx9639\pard\plain \s15\qc\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {\cell \cell }\pard \s15\nowidctlpar\widctlpar\intbl\adjustright {
+\cell \cell \cell \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\pard\plain \s15\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {\cell \cell \cell \cell \cell \cell }\pard\plain 
+\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\row }\trowd \trgaph108\trrh1155\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 
+\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx1276\clvertalt\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cltxlrtb \cellx9639
+\pard\plain \s15\nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\lang2057\cgrid {\b K\'d5t lu\'cbn :
+\par }{\cell }{\f18 \cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \f15\fs26\cgrid {\f18 \row }\pard\plain \s15\sb40\sa40\nowidctlpar\widctlpar\adjustright \f15\fs26\lang2057\cgrid {\b\f19\fs24 Ng\'ad\'eai so\'b8t l\'b9i                  \tab 
+\tab \tab \tab \tab       Ng\'ad\'eai th\'f9c hi\'d6n
+\par 
+\par }}

@@ -1,0 +1,406 @@
+{\rtf1\ansi \deff15\deflang1033{\fonttbl{\f1\froman\fcharset2\fprq2 Symbol;}{\f15\fswiss\fcharset0\fprq2 .VnTime;}{\f16\fswiss\fcharset0\fprq2 .VnTimeH;}{\f17\fswiss\fcharset0\fprq2 .VnArial;}
+{\f25\fswiss\fcharset0\fprq2 .VnAvantH;}{\f49\fswiss\fcharset0\fprq2 .VnUniverseH;}{\f85\fswiss\fcharset0\fprq2 .VnArial NarrowH;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;
+\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\nowidctlpar \f15\fs26 \snext0 Normal;}{\s1\qr\keepn\nowidctlpar \b\i\f15\fs28 \sbasedon0\snext0 heading 1;}{\s2\qj\keepn\nowidctlpar \b\f15\fs26 \sbasedon0\snext0 heading 2;}{\*\cs10 \additive Default Paragraph Font;}{\s15\qc\nowidctlpar 
+\f15\fs26 \sbasedon0\snext15 Body Text 2;}{\s16\nowidctlpar\tqc\tx4320\tqr\tx8640 \f15\fs28 \sbasedon0\snext16 footer;}{\*\cs17 \additive\sbasedon10 page number;}{\s18\qj\sb100\sa60\nowidctlpar \f15\fs28 \sbasedon0\snext18 Body Text;}{
+\s19\qj\fi-567\li567\sb120\nowidctlpar \f15\fs26 \sbasedon0\snext19 Body Text Indent 2;}{\s20\qj\li567\sb80\sa80\nowidctlpar \f15\fs28 \sbasedon0\snext20 Body Text Indent 3;}{\s21\qc\nowidctlpar \b\f16\fs32 \sbasedon0\snext21 Title;}{
+\s22\nowidctlpar\tqc\tx4320\tqr\tx8640 \f15\fs26 \sbasedon0\snext22 header;}}{\info{\title T\'e6 ch\'f8c Qu\'e8c t\'d5 v\'d2 \'aeo l\'ad\'eang ph\'b8p quy\'d2n}{\author PHUC}{\operator SON}{\creatim\yr2000\mo10\dy9\hr11\min12}
+{\revtim\yr2000\mo10\dy9\hr11\min12}{\printim\yr2000\mo12\dy27\hr11\min5}{\version1}{\edmins3}{\nofpages0}{\nofwords0}{\nofchars0}{\vern49203}}\paperw11907\paperh16840\margl1985\margr964\margb680 \widowctrl\ftnbj\aenddoc\pgnstart32\hyphcaps0\formshade 
+\fet0\sectd \psz9\sbknone\pgnrestart\pgnstarts32\linex0\footery1134\colsx709\endnhere {\footer \pard\plain \s16\nowidctlpar\tqc\tx4320\tqr\tx8640\pvpara\phmrg\posxo\posy0 \f15\fs28 {\field{\*\fldinst {\cs17\fs24 PAGE  }}{\fldrslt {\cs17\fs24 38}}}{
+\cs17\fs24 
+\par }\pard \s16\fi360\ri360\nowidctlpar\tqc\tx4320\tqr\tx8640 
+\par }{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5
+\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \qr\nowidctlpar \f15\fs26 {\b\i\f49\fs28 Ph\'f4 l\'f4c C}{\b\f49\fs28  
+\par }\pard \qc\nowidctlpar {\b\i\f85 
+\par }\pard\plain \s21\qc\nowidctlpar \b\f16\fs32 {\f25\fs28 PIPET chu\'c8n - y\'aau c\'c7u k\'fc thu\'cbt v\'b5 \'aeo l\'ad\'eang
+\par }\pard\plain \qj\nowidctlpar \f15\fs26 
+\par {\b\fs28 1 \'a7\'denh ngh\'dca
+\par }
+\par {\b 1.1 Dung t\'ddch 
+\par }
+\par Dung t\'ddch \'f8ng v\'edi m\'e9t v\'b9ch d\'cau b\'cat k\'fa tr\'aan thang \'aeo l\'b5 th\'d3 t\'ddch c\'f1a n\'ad\'edc \'eb nhi\'d6t \'ae\'e9 ti\'aau chu\'c8n \'ae\'ad\'eec x\'b6 ra t\'f5 pipet sau khi n\'b9p \'ae\'c7y t\'edi v\'b9ch d\'cau \'ae\'e3 c
+\'f1a pipet.
+\par 
+\par {\i\ul Ghi ch\'f3:}{\i  M\'c6t cong c\'f1a n\'ad\'edc trong pipet \'ae\'ad\'eec \'aei\'d2u ch\'d8nh sao cho m\'c6t ph\'bbng theo ph\'ad\'acng n\'bbm ngang \'aei qua m\'d0p tr\'aan c\'f1a v\'b9ch d\'cau ti\'d5p tuy\'d5n v\'edi \'aei\'d3m th\'cap nh\'cat c
+\'f1a m\'c6t cong khi quan s\'b8t trong m\'c6t ph\'bcng n\'b5y. 
+\par 
+\par }{\b 1.2 Dung t\'ddch danh \'ae\'denh 
+\par }
+\par Dung t\'ddch danh \'ae\'denh l\'b5 gi\'b8 tr\'de th\'d3 t\'ddch b\'bbng s\'e8 l\'edn nh\'cat \'ae\'ad\'eec bi\'d3u th\'de tr\'aan thang \'aeo c\'f1a pipet.
+\par 
+\par {\b 1.3 Th\'eai gian ch\'b6y 
+\par }
+\par L\'b5 th\'eai gian c\'c7n thi\'d5t \'ae\'d3 m\'c6t cong c\'f1a n\'ad\'edc h\'b9 t\'f9 do t\'f5 v\'b9ch d\'cau cao nh\'cat \'ae\'d5n \'aei\'d3m m\'b5 m\'c6t cong d\'f5ng l\'b9i t\'b9i \'ae\'c7u m\'f3t c\'f1a pipet.
+\par 
+\par {\b\fs28 2 Dung t\'ddch danh \'ae\'denh 
+\par }
+\par {\b 2.1 \'a7\'acn v\'de 
+\par }
+\par \'a7\'acn v\'de c\'f1a dung t\'ddch l\'b5 centimet kh\'e8i (cm{\super 3}).
+\par \pard\plain \s15\qj\nowidctlpar \f15\fs26 
+\par C\'e3 th\'d3 s\'f6 d\'f4ng \'ae\'acn v\'de mililit (mL) thay cho centimet kh\'e8i.
+\par \pard\plain \qj\nowidctlpar \f15\fs26 
+\par {\b 2.2 Gi\'b8 tr\'de  
+\par }
+\par Dung t\'ddch danh \'ae\'denh c\'f1a pipet ph\'b6i c\'e3 m\'e9t trong c\'b8c gi\'b8 tr\'de sau: 1 cm{\super 3}, 2 cm{\super 3}, 5 cm{\super 3},  10 cm{\super 3}, 25 cm{\super 3}, 50 cm{\super 3}, 100 cm{\super 3} v\'b5 200 cm{\super 3}.          
+\par 
+\par {\i\ul Ghi ch\'f3: }{\i Khi s\'f6 d\'f4ng v\'edi nh\'f7ng m\'f4c \'ae\'ddch \'ae\'c6c bi\'d6t, cho ph\'d0p pipet c\'e3 dung t\'ddch danh \'ae\'denh kh\'b8c (v\'dd d\'f4 : 20 cm}{\i\super 3}{\i ) v\'edi \'aei\'d2u ki\'d6n ch\'f3ng ph\'ef h\'eep v\'edi c
+\'b8c y\'aau c\'c7u c\'f1a t\'b5i li\'d6u n\'b5y.
+\par }
+\par {\b 2.3 Nhi\'d6t \'ae\'e9 ti\'aau chu\'c8n 
+\par }
+\par Nhi\'d6t \'ae\'e9 ti\'aau chu\'c8n l\'b5 nhi\'d6t \'ae\'e9 m\'b5 t\'b9i \'ae\'e3 pipet s\'cf x\'b6 ra m\'e9t th\'d3 t\'ddch n\'ad\'edc t\'ad\'acng \'f8ng v\'edi dung t\'ddch danh \'ae\'denh c\'f1a n\'e3. Nhi\'d6t \'ae\'e9 n\'b5y \'ae\'ad\'eec l\'cay b\'bb
+ng 20 {\super 0}C.
+\par {\b\fs28 3 V\'cbt li\'d6u
+\par }{\b\i 
+\par }Pipet ph\'b6i \'ae\'ad\'eec l\'b5m b\'bbng thu\'fb tinh s\'b9ch, trong su\'e8t, \'ae\'ad\'eec gia c\'abng t\'e8t v\'b5 c\'e3 c\'b8c t\'ddnh ch\'cat v\'d2 nhi\'d6t \'ae\'e9 v\'b5 ho\'b8 h\'e4c th\'ddch h\'eep. Thu\'fb tinh kh\'abng \'ae\'ad\'eec c\'e3 c
+\'b8c khuy\'d5t t\'cbt l\'b5m \'b6nh h\'ad\'ebng \'ae\'d5n vi\'d6c quan s\'b8t ho\'c6c s\'f6 d\'f4ng pipet, \'ae\'c6c bi\'d6t t\'b9i v\'efng l\'a9n c\'cbn c\'f1a thang \'aeo \'ae\'b7 \'ae\'ad\'eec chia \'ae\'e9.
+\par 
+\par {\b\fs28 4 K\'d5t c\'cau 
+\par }{\f16 
+\par }{\b\f16 4.1}{\f16  }Pipet ph\'b6i c\'e3 k\'d5t c\'cau \'ae\'f1 b\'d2n v\'f7ng \'ae\'d3 ch\'deu \'ae\'f9ng \'ae\'ad\'eec vi\'d6c s\'f6 d\'f4ng b\'d7nh th\'ad\'eang.
+\par {\b\i 
+\par }{\b 4.2} Th\'b5nh pipet kh\'abng \'ae\'ad\'eec c\'e3 b\'cat c\'f8 s\'f9 thay \'ae\'e6i \'ae\'b8ng k\'d3 n\'b5o v\'d2 \'ae\'e9 d\'b5y.
+\par {\b 
+\par 4.3} M\'d0p tr\'aan ph\'b6i vu\'abng g\'e3c v\'edi tr\'f4c c\'f1a pipet v\'b5 ph\'b6i kh\'abng c\'e3 b\'cat c\'f8 khuy\'d5t t\'cbt n\'b5o c\'e3 th\'d3 \'b6nh h\'ad\'ebng \'ae\'d5n v\'de tr\'dd \'ae\'f3ng c\'f1a m\'c6t cong khi \'aei\'d2u khi\'d3n b\'bb
+ng tay. 
+\par 
+\par M\'d0p tr\'aan ph\'b6i h\'aci v\'b8t ra ph\'dda ngo\'b5i, \'ae\'ad\'eec m\'b5i nh\'bdn ho\'c6c h\'ac l\'f6a nh\'d1.
+\par 
+\par {\b 4.4} \'a7\'c7u d\'ad\'edi c\'f1a pipet \'ae\'ad\'eec k\'d5t th\'f3c t\'b9i \'ae\'c7u h\'f3t c\'e3 d\'b9ng c\'abn d\'c7n \'ae\'d2u v\'b5 kh\'abng \'ae\'ad\'eec c\'e3 b\'cat k\'fa ch\'e7 th\'bet \'ae\'e9t ng\'e9t n\'b5o t\'b9i l\'e7. 
+\par 
+\par \'a7\'c7u m\'f3t c\'c7n \'ae\'ad\'eec v\'aa tr\'dfn \'ae\'d2u, vu\'abng g\'e3c v\'edi tr\'f4c pipet v\'b5 h\'aci v\'b8t ra ph\'dda ngo\'b5i. 
+\par 
+\par C\'e3 th\'d3 l\'b5m b\'e3ng b\'bbng c\'b8ch h\'ac l\'f6a nh\'e1 \'ae\'d3 \'ae\'b9t \'ae\'ad\'eec y\'aau c\'c7u n\'aau tr\'aan. 
+\par 
+\par {\b 4.5} \'a7\'c7u m\'f3t ph\'b6i c\'e3 k\'d5t c\'cau v\'f7ng ch\'bec \'ae\'d3 b\'b6o \'ae\'b6m d\'dfng ch\'b6y \'e6n \'ae\'denh theo y\'aau c\'c7u n\'aau trong m\'f4c 6.
+\par {\b\i 
+\par }{\b 4.6} Kh\'bec \'ae\'e9
+\par 
+\par Pipet c\'e3 th\'d3 \'ae\'ad\'eec kh\'bec \'ae\'e9 v\'edi m\'e9t v\'b9ch d\'cau \'f8ng v\'edi dung t\'ddch danh \'ae\'denh (g\'e4i l\'b5 pip\'d0t m\'e9t m\'f8c) ho\'c6c c\'e3 th\'d3 \'ae\'ad\'eec ghi kh\'bec thang \'aeo v\'edi c\'b8c v\'b9ch d\'cau (g\'e4
+i l\'b5 pip\'d0t k\'ce \'ae\'e9).
+\par 
+\par \pard \qj\sb100\sa60\nowidctlpar {\b\fs28 5 H\'d7nh d\'b8ng v\'b5 k\'ddch th\'ad\'edc
+\par }{\b 5.1} Pipet ph\'b6i c\'e3 h\'d7nh d\'b8ng t\'e6ng qu\'b8t nh\'ad m\'ab t\'b6 tr\'aan h\'d7nh C1 a), b), c) \'ae\'e8i v\'edi pip\'d0t m\'e9t m\'f8c v\'b5 h\'d7nh C2 \'ae\'e8i v\'edi pipet k\'ce \'ae\'e9.
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par                   a)                                              b)                                                 c)
+\par 
+\par \pard \qc\sb100\sa60\nowidctlpar {\b\i H\'d7nh C1}
+\par \pard \qj\sb100\sa60\nowidctlpar 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par \pard \qc\sb100\sa60\nowidctlpar a)                                              b)                                                 c)
+\par {\b\i H\'d7nh C2}
+\par \pard \qj\sb100\sa60\nowidctlpar {\b 
+\par 5.2} Pipet ph\'b6i c\'e3 c\'b8c k\'ddch th\'ad\'edc ph\'ef h\'eep v\'edi b\'b6ng C1 \'ae\'e8i v\'edi pipet m\'e9t m\'f8c v\'b5 b\'b6ng C2 \'ae\'e8i v\'edi pipet k\'ce \'ae\'e9.
+\par \pard\plain \s1\qr\keepn\nowidctlpar \b\i\f15\fs28 B\'b6ng C1{\i0 
+\par }\pard \s1\qc\keepn\nowidctlpar {\i0 C\'b8c k\'ddch th\'ad\'edc, mm
+\par }\pard\plain \nowidctlpar \f15\fs26 
+\par \trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qc\nowidctlpar\intbl Dung t\'ddch danh \'ae\'denh
+\cell           H\'d7nh \cell L\cell l\cell l{\sub 1}\cell s\cell d\cell d{\sub 1}\cell \pard \intbl \row \trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh
+\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qc\nowidctlpar\intbl cm{\super 3}\cell d
+\'b9ng\cell Danh \'ae\'denh\cell Dung sai\cell {{\field{\*\fldinst SYMBOL 179 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}\cell {{\field{\*\fldinst SYMBOL 163 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}\cell Dung sai {{\field{\*\fldinst SYMBOL 177 \\f "Symbol"
+ \\s 13}{\fldrslt\f1\fs26}}} 1\cell \pard \intbl \row \trowd \trgaph107\trleft-107\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qc\sb40\sa40\nowidctlpar\intbl 1 ; 2\cell C1 a)\cell 260\cell {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 20\cell -\cell -\cell 1,0\cell -\cell -\cell \pard \intbl \row 
+\trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx1277\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard 
+\qr\ri319\sb40\sa40\nowidctlpar\intbl 1\cell \pard \qc\sb40\sa40\nowidctlpar\intbl C1 b), c)\cell 310\cell {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 15\cell 150\cell 110\cell 0,7\cell 9\cell 13\cell \pard \intbl \row \trowd 
+\trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cellx4395\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 2\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 330\cell \pard 
+\sb40\sa40\nowidctlpar\intbl   {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 20\cell \pard \qc\sb40\sa40\nowidctlpar\intbl 150\cell 125\cell \cell \cell 13\cell \pard \intbl \row \trowd \trgaph107\trleft-107\trkeep\trbrdrt
+\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 5\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 390\cell \cell \cell 145\cell 1,0\cell 12\cell 
+\cell \pard \intbl \row \trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 10\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 430
+\cell \cell 160\cell 160\cell \cell 16\cell \cell \pard \intbl \row \trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440
+\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard 
+\qr\ri319\sb40\sa40\nowidctlpar\intbl 20\cell \pard \qc\sb40\sa40\nowidctlpar\intbl C1 b), c)\cell 500\cell {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 20\cell 170\cell 210\cell 1,0\cell 22\cell \cell \pard \intbl \row \trowd 
+\trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrl
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 25\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 510\cell \cell \cell 220\cell \cell 24\cell 18
+\cell \pard \intbl \row \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 50\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 530\cell \cell 170\cell 230\cell \cell 30\cell \cell \pard \intbl \row \trowd \trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 
+\trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard \qr\ri319\sb40\sa40\nowidctlpar\intbl 100\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 580\cell \cell \cell 240\cell \cell 38\cell 20\cell \pard \intbl \row \trowd 
+\trgaph107\trleft-107\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx1277\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2431\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3440\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx4395\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5416\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6436\clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7456\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8476\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9497 \pard 
+\qr\ri319\sb40\sa40\nowidctlpar\intbl 200\cell \pard \qc\sb40\sa40\nowidctlpar\intbl \cell 620\cell \cell \cell \cell \cell 49\cell \cell \pard \intbl \row \pard \qj\sb100\sa60\nowidctlpar 
+\par \pard\plain \s1\qr\keepn\nowidctlpar \b\i\f15\fs28 B\'b6ng C2
+\par \pard \s1\qc\keepn\nowidctlpar {\i0 C\'b8c k\'ddch th\'ad\'edc, mm
+\par }\pard\plain \nowidctlpar \f15\fs26 
+\par \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253
+\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl \cell \pard \qc\nowidctlpar\intbl Dung t\'ddch danh \'ae\'denh (cm{\super 3})\cell \pard \intbl \row \trowd 
+\trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 
+\pard \qc\nowidctlpar\intbl Th\'abng s\'e8\cell \pard \qc\sb120\sa120\nowidctlpar\intbl 1\cell 2\cell 5\cell 10\cell 25\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr
+\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl Kho\'b6ng c\'b8ch gi\'f7a 2 v\'b9ch d\'cau xa nhau\cell Max    200\cell \pard \qc\nowidctlpar\intbl 
+200\cell 200\cell 200\cell 200\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl nh\'cat tr\'aan thang \'aeo\cell Min    140\cell \pard \qc\nowidctlpar\intbl 140\cell 160\cell 160\cell 160\cell \pard \intbl \row \trowd 
+\trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 
+\pard \nowidctlpar\intbl \cell \cell \pard \qc\nowidctlpar\intbl \cell \cell \cell \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh
+\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl T\'e6ng chi\'d2u d\'b5i\cell Max    370\cell \pard \qc\nowidctlpar\intbl 370\cell 370\cell 
+\pard\plain \s16\qc\nowidctlpar\intbl \f15\fs28 {\fs26 370\cell }\pard\plain \qc\nowidctlpar\intbl \f15\fs26 370\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr
+\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl \cell Min    350\cell \pard \qc\nowidctlpar\intbl 350\cell 350\cell 350\cell 
+350\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 
+\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl \cell \cell \pard \qc\nowidctlpar\intbl \cell \cell \cell \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr
+\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl Chi\'d2u d\'b5i \'ae\'c7u m\'f3t\cell Max    25\cell \pard 
+\qc\nowidctlpar\intbl 25\cell 30\cell 30\cell 35\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trkeep\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 
+\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl \cell Min    15\cell \pard \qc\nowidctlpar\intbl 15\cell 20\cell 20\cell 25\cell \pard \intbl \row \trowd \trgaph108\trrh419\trleft-108\trkeep\trbrdrt
+\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt\brdrs\brdrw15 
+\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 \pard 
+\nowidctlpar\intbl Kho\'b6ng c\'b8ch t\'f5 v\'b9ch d\'cau tr\'aan c\'efng t\'edi
+\par m\'d0p tr\'aan c\'f1a pipet\cell \pard\plain \s16\sl360\slmult1\nowidctlpar\intbl \f15\fs28 {\fs26 Min   100\cell }\pard\plain \qc\sl360\slmult1\nowidctlpar\intbl \f15\fs26 100\cell 100\cell 100\cell 100\cell \pard \intbl \row \trowd \trgaph108\trleft-108
+\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4253\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9498 
+\pard \nowidctlpar\intbl Chi\'d2u d\'b5i \'aeo\'b9n \'e8ng h\'f3t\cell \pard\plain \s16\sl360\slmult1\nowidctlpar\intbl \f15\fs28 {\fs26 Min      -\cell }\pard\plain \qc\sl360\slmult1\nowidctlpar\intbl \f15\fs26 -\cell 25\cell 25\cell 25\cell \pard 
+\intbl \row \pard \nowidctlpar\intbl \'a7\'ad\'eang k\'ddnh ngo\'b5i c\'f1a ph\'c7n kh\'bec \'ae\'e9\cell \pard \sl360\slmult1\nowidctlpar\intbl kho\'b6ng  7\cell \pard \qc\sl360\slmult1\nowidctlpar\intbl 7\cell _\cell _\cell _\cell \pard \intbl \row 
+\pard \nowidctlpar\intbl \'a7\'ad\'eang k\'ddnh ngo\'b5i c\'f1a \'aeo\'b9n \'e8ng h\'f3t\cell \pard \sl360\slmult1\nowidctlpar\intbl kho\'b6ng   -\cell \pard \qc\sl360\slmult1\nowidctlpar\intbl -\cell 6\cell 7\cell 7\cell \pard \intbl \row \pard 
+\nowidctlpar\intbl \'a7\'ad\'eang k\'ddnh ngo\'b5i \'ae\'c7u m\'f3t t\'b9i ch\'e7 v\'b8t\cell \pard \sl360\slmult1\nowidctlpar\intbl kho\'b6ng  2,5\cell \pard \qc\sl360\slmult1\nowidctlpar\intbl 2,5\cell 2,5\cell 3\cell 3\cell \pard \intbl \row \trowd 
+\trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cellx4253\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5812\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6804\clbrdrt\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx7797\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8647\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx9498 \pard \nowidctlpar\intbl \'a7\'e9 d\'b5y th\'b5nh pipet\cell \pard \sl360\slmult1\nowidctlpar\intbl Min      2\cell \pard \qc\sl360\slmult1\nowidctlpar\intbl 1.5\cell 1\cell 1\cell 1\cell \pard \intbl \row \pard \qj\nowidctlpar {
+\b\fs28 
+\par 6 Th\'eai gian ch\'b6y
+\par 
+\par }{\b 6.1} Th\'eai gian ch\'b6y c\'f1apipet c\'c7n ph\'b6i n\'bbm trong kho\'b6ng t\'f5 20 gi\'a9y \'ae\'d5n 40 gi\'a9y \'ae\'e8i v\'edi pipet c\'e3 dung t\'ddch danh \'ae\'denh t\'f5 (1 {{\field{\*\fldinst SYMBOL 184 \\f "Symbol" \\s 13}{\fldrslt
+\f1\fs26}}} 25) cm{\super 3} v\'b5 t\'f5 30 gi\'a9y \'ae\'d5n 70 gi\'a9y \'ae\'e8i v\'edi pipet c\'e3 dung t\'ddch danh \'ae\'denh  t\'f5 (50 {{\field{\*\fldinst SYMBOL 184 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 200) cm{\super 3}.
+\par 
+\par {\b 6.2} Th\'eai gian ch\'b6y ph\'b6i \'ae\'ad\'eec ghi kh\'bec tr\'aan pipet.
+\par 
+\par Th\'eai gian ch\'b6y \'ae\'ad\'eec x\'b8c \'ae\'denh khi ki\'d3m \'ae\'denh v\'b5 ghi kh\'bec tr\'aan pipet ph\'b6i n\'bbm trong gi\'edi h\'b9n quy \'ae\'denh trong m\'f4c 6.1 v\'b5 kh\'abng \'ae\'ad\'eec sai l\'d6ch nhau qu\'b8 4 gi\'a9y.
+\par {\b\fs28 
+\par 7 Thang \'aeo
+\par }\pard\plain \s20\qj\nowidctlpar \f15\fs28 {\b\fs26 
+\par 7.1}{\i\fs26  }{\fs26 Thang \'aeo c\'c7n ph\'b6i \'ae\'d2u, c\'b8c v\'b9ch d\'cau ph\'b6i r\'e2 n\'d0t, c\'e3 \'ae\'e9 d\'b5y b\'bbng nhau v\'b5 kh\'abng v\'ad\'eet qu\'b8 0,3 mm.
+\par }\pard\plain \qj\nowidctlpar \f15\fs26 {\b 
+\par 7.2 }C\'b8c v\'b9ch d\'cau ph\'b6i \'eb g\'e3c b\'aan ph\'b6i c\'f1a tr\'f4c d\'e4c c\'f1a ph\'c7n kh\'bec \'ae\'e9 tr\'aan pipet.
+\par {\b 
+\par 7.3} Thang \'aeo kh\'abng \'ae\'ad\'eec k\'d0o d\'b5i t\'edi \'ae\'c7u m\'f3t. V\'b9ch d\'cau c\'e3 \'ae\'b8nh s\'e8 d\'ad\'edi c\'efng ph\'b6i \'eb v\'de tr\'dd ph\'ef h\'eep v\'edi y\'aau c\'c7u trong c\'b8c b\'b6ng C2 v\'b5 C3.
+\par 
+\par Thang \'aeo c\'e3 th\'d3 k\'d5t th\'f3c t\'b9i v\'b9ch \'ae\'b8nh s\'e8 n\'b5y ho\'c6c c\'e3 th\'d3 \'ae\'ad\'eec k\'d0o d\'b5i th\'aam  3 v\'b9ch v\'edi {\expnd0\expndtw4 \'aei\'d2u ki\'d6n c\'b8c v\'b9ch kh\'abng n\'bbm v\'b5o ph\'c7n \'ae\'c7u m\'f3
+t (xem v\'dd d\'f4 \'ae\'e8i v\'edi pipet lo\'b9i 2 cm}{\expnd0\expndtw4\super 3}{\expnd0\expndtw4  v\'b5}  10 cm{\super 3}).
+\par {\b 
+\par 7.4} Gi\'b8 tr\'de \'ae\'e9 chia
+\par 
+\par Gi\'b8 tr\'de \'ae\'e9 chia thang \'aeo \'ae\'ad\'eec quy \'ae\'denh trong b\'b6ng C3.
+\par \pard \qc\nowidctlpar {\b\i 
+\par }\pard \qr\nowidctlpar {\b\i B\'b6ng C3
+\par }\pard \qc\nowidctlpar {\b\fs28 Gi\'b8 tr\'de \'ae\'e9 chia, cm}{\b\fs28\super 3}{\b\f16 
+\par }
+\par \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2410\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4536\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6379\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9180 \pard\plain 
+\s15\qc\nowidctlpar\intbl \f15\fs26 Dung t\'ddch danh \'ae\'denh 
+\par \pard\plain \qc\nowidctlpar\intbl \f15\fs26 \cell Gi\'b8 tr\'de \'ae\'e9 chia\cell \'a7\'b8nh s\'e8 \cell Dung t\'ddch \'f8ng v\'edi 
+\par v\'b9ch \'ae\'b8nh s\'e8 d\'ad\'edi c\'efng \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2410\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4536\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6379\clbrdrt\brdrs\brdrw15 
+\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9180 \pard \qr\ri1026\sl360\slmult1\nowidctlpar\intbl 1\cell \pard \li601\sl360\slmult1\nowidctlpar\intbl 0,01\cell 0,1\cell \pard \li1168\sl360\slmult1\nowidctlpar\intbl 0,1\cell \pard \intbl \row 
+\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2410\clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx4536\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6379\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9180 \pard \qr\ri1026\sl360\slmult1\nowidctlpar\intbl 2\cell \pard \li601\sl360\slmult1\nowidctlpar\intbl 0,02\cell 0,2
+\cell \pard \li1168\sl360\slmult1\nowidctlpar\intbl 0,2\cell \pard \intbl \row \pard \qr\ri1026\sl360\slmult1\nowidctlpar\intbl 5\cell \pard \li601\sl360\slmult1\nowidctlpar\intbl 0,05\cell 0,5\cell \pard \li1168\sl360\slmult1\nowidctlpar\intbl 0,5\cell 
+\pard \intbl \row \pard \qr\ri1026\sl360\slmult1\nowidctlpar\intbl 10\cell \pard \li601\sl360\slmult1\nowidctlpar\intbl 0,1\cell 1\cell \pard \li1168\sl360\slmult1\nowidctlpar\intbl 1\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt
+\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx2410\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx4536\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6379\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx9180 \pard \qr\ri884\sl360\slmult1\nowidctlpar\intbl 25*\cell \pard 
+\li601\sl360\slmult1\nowidctlpar\intbl 0,2\cell 2\cell \pard \li1168\sl360\slmult1\nowidctlpar\intbl 2\cell \pard \intbl \row \pard \nowidctlpar {\fs24 
+\par 
+\par }\pard \qj\nowidctlpar {\i (*) Ngo\'b5i vi\'d6c \'ae\'b8nh s\'e8 b\'d7nh th\'ad\'eang t\'f5 2 cm}{\i\super 3}{\i  \'ae\'d5n 24 cm}{\i\super 3}{\i  (c\'f8 2 cm}{\i\super 3}{\i  m\'e9t s\'e8), v\'b9ch d\'cau t\'ad\'acng \'f8ng v\'edi 25 cm}{\i\super 3}{\i 
+ c\'f2ng ph\'b6i \'ae\'ad\'eec \'ae\'b8nh s\'e8.
+\par }\pard\plain \s1\qc\keepn\nowidctlpar \b\i\f15\fs28 {\b0\i0 
+\par }\pard\plain \qj\nowidctlpar \f15\fs26 Chi\'d2u d\'b5i c\'f1a kho\'b6ng chia \'ae\'e9 ph\'b6i \'ae\'b6m b\'b6o sao cho chi\'d2u d\'b5i c\'f1a to\'b5n thang \'aeo n\'bbm trong gi\'edi h\'b9n \'ae\'ad\'eec quy \'ae\'denh trong b\'b6ng C2.
+\par 
+\par {\b 7.5} \'a7\'d3 d\'d4 ph\'a9n bi\'d6t, chi\'d2u d\'b5i c\'f1a c\'b8c v\'b9ch d\'cau ph\'b6i kh\'b8c nhau, c\'f4 th\'d3 nh\'ad sau:
+\par {\b\i 
+\par }7.5.1{\b\i  }V\'b9ch d\'b5i ph\'b6i k\'d0o d\'b5i to\'b5n b\'e9 chu vi ho\'c6c kho\'b6ng 9/10 chu vi c\'f1a pipet v\'b5 li\'d2n n\'d0t. N\'d5u c\'e3 s\'f9 ng\'bet qu\'b7ng n\'b5o \'ae\'e3 tr\'aan v\'b9ch n\'b5y th\'d7 n\'e3 ph\'b6i n\'bbm tr\'aan \'ae
+\'ad\'eang sinh b\'aan c\'b9nh khi nh\'d7n v\'b5o pipet t\'f5 ph\'dda tr\'ad\'edc.
+\par {\b\i 
+\par }7.5.2{\b\i  }Chi\'d2u d\'b5i c\'f1a v\'b9ch trung b\'d7nh ph\'b6i b\'bbng kho\'b6ng 2/3 chu vi c\'f1a pipet.
+\par {\b\i 
+\par }7.5.3{\b\i  }Chi\'d2u d\'b5i c\'f1a v\'b9ch ng\'ben ph\'b6i b\'bbng ho\'c6c l\'edn h\'acn 1/2 chu vi c\'f1a pipet.
+\par {\b\i 
+\par }7.5.4{\b\i  }Ph\'c7n k\'d0o d\'b5i sang hai ph\'dda c\'f1a v\'b9ch trung b\'d7nh ph\'b6i l\'b5 \'ae\'e8i x\'f8ng t\'ad\'acng \'f8ng v\'edi c\'b8c \'ae\'c7u m\'f3t c\'f1a{\b  }v\'b9ch ng\'ben.
+\par \pard \nowidctlpar {\b\i 
+\par }{\b 7.6}{\b\i  }Vi\'d6c b\'e8 tr\'dd c\'b8c v\'b9ch c\'e3 \'ae\'e9 d\'b5i kh\'b8c nhau ph\'b6i tu\'a9n th\'f1 theo c\'b8c y\'aau c\'c7u d\'ad\'edi \'ae\'a9y:
+\par \pard \qj\nowidctlpar {\b\i 
+\par }7.6.1{\b\i  } Pipet c\'e3 dung t\'ddch \'ae\'denh danh l\'b5 1 cm{\super 3} v\'b5 10 cm{\super 3 }:
+\par \pard \qj\sb120\nowidctlpar \tab a) V\'b9ch d\'cau \'f8ng v\'edi dung t\'ddch danh \'ae\'denh v\'b5 c\'b8ch 10 v\'b9ch l\'b5 v\'b9ch d\'b5i;
+\par \tab b) Ph\'b6i c\'e3 1 v\'b9ch trung b\'d7nh n\'bbm gi\'f7a 2 v\'b9ch d\'b5i li\'d2n k\'d2 nhau;
+\par {\expnd-1\expndtw-6 \tab c) Ph\'b6i c\'e3 4 v\'b9ch ng\'ben c\'b8ch \'ae\'d2u n\'bbm gi\'f7a v\'b9ch trung b\'d7nh v\'b5 v\'b9ch d\'b5i li\'d2n k\'d2 nhau.}
+\par \pard \qj\nowidctlpar {\b\i 
+\par }7.6.2{\b\i  }Pipet c\'e3 dung t\'ddch danh \'ae\'denh l\'b5 2 cm{\super 3} v\'b5 25 cm{\super 3 }:
+\par \pard \qj\sb120\nowidctlpar \tab a)  V\'b9ch d\'cau \'f8ng v\'edi dung t\'ddch danh \'ae\'denh v\'b5 c\'b8ch 5 v\'b9ch l\'b5 v\'b9ch d\'b5i;
+\par \tab b)  Ph\'b6i c\'e3 4 v\'b9ch ng\'ben c\'b8ch \'ae\'d2u n\'bbm gi\'f7a 2 v\'b9ch d\'b5i li\'d2n k\'d2 nhau.
+\par \pard \qj\nowidctlpar {\b\i 
+\par }7.6.3{\b\i  }Pipet c\'e3 dung t\'ddch danh \'ae\'denh l\'b5 5 cm{\super 3} :
+\par \pard \qj\sb120\nowidctlpar \tab a)  V\'b9ch d\'cau \'f8ng v\'edi dung t\'ddch danh \'ae\'denh v\'b5 c\'b8ch 10 v\'b9ch l\'b5 v\'b9ch d\'b5i;
+\par \tab b)  Ph\'b6i c\'e3 4 v\'b9ch trung b\'d7nh c\'b8ch \'ae\'d2u n\'bbm gi\'f7a 2 v\'b9ch d\'b5i li\'d2n k\'d2 nhau;
+\par \tab c)  Ph\'b6i c\'e3 1 v\'b9ch ng\'ben n\'bbm gi\'f7a 2 v\'b9ch trung b\'d7nh li\'d2n k\'d2 v\'b5 gi\'f7a v\'b9ch trung b\'d7nh v\'b5 v\'b9ch d\'b5i li\'d2n k\'d2 nhau.
+\par \pard \qj\nowidctlpar {\b 
+\par 7.7} Khi nh\'d7n v\'b5o pipet t\'f5 ph\'dda tr\'ad\'edc t\'b9i v\'de tr\'dd s\'f6 d\'f4ng b\'d7nh th\'ad\'eang th\'d7 \'aei\'d3m b\'bet \'ae\'c7u c\'f1a m\'e7i v\'b9ch ng\'ben ph\'b6i n\'bbm tr\'aan m\'e9t \'ae\'ad\'eang th\'bcng \'ae\'f8ng t\'ad\'ebng t
+\'ad\'eeng, b\'bet \'ae\'c7u t\'f5 gi\'f7a  m\'c6t ph\'dda tr\'ad\'edc c\'f1a pipet v\'b5 k\'d0o d\'b5i v\'d2 ph\'dda b\'aan tr\'b8i.
+\par {\b 
+\par 7.8} C\'b8c v\'b9ch ph\'b6i \'ae\'ad\'eec \'ae\'b8nh s\'e8 t\'f5 d\'ad\'edi l\'aan tr\'aan, \'aei\'d3m \ldblquote 0\rdblquote  l\'b5 \'aei\'d3m \'ae\'c7u m\'f3t c\'f1a pipet; c\'b8c kho\'b6ng \'ae\'ad\'eec \'ae\'b8nh s\'e8 ph\'b6i ph\'ef h\'eep v\'edi c
+\'b8c y\'aau c\'c7u trong b\'b6ng C3.
+\par {\b 
+\par 7.9} C\'b8c ch\'f7 s\'e8 ph\'b6i \'ae\'ad\'eec ghi kh\'bec ngay tr\'aan nh\'f7ng v\'b9ch d\'b5i t\'ad\'acng \'f8ng v\'b5 \'eb v\'d2 ph\'dda b\'aan ph\'b6i c\'f1a c\'b8c v\'b9ch ng\'ben h\'acn li\'d2n k\'d2.
+\par {\b 
+\par 7.10 }C\'b8c v\'b9ch chia v\'b5 ch\'f7 s\'e8 ph\'b6i r\'e2 n\'d0t, d\'d4 \'ae\'e4c v\'b5 kh\'abng t\'c8y xo\'b8 \'ae\'ad\'eec.
+\par {\b 
+\par }\pard \qj\sb100\sa60\nowidctlpar {\b\fs28 8 Sai s\'e8 cho ph\'d0p l\'edn nh\'cat 
+\par }\pard \qj\nowidctlpar {\b\i 
+\par }{\b 8.1} Sai s\'e8 cho ph\'d0p{\b  }l\'edn nh\'cat c\'f1a dung t\'ddch danh \'ae\'denh c\'f1a pipet khi ki\'d3m \'ae\'denh ban \'ae\'c7u v\'b5 \'ae\'denh k\'fa \'ae\'ad\'eec cho trong b\'b6ng C4:
+\par \pard \qj\sb100\sa60\nowidctlpar 
+\par \pard \qr\sb100\sa60\nowidctlpar {\b\i B\'b6ng C4
+\par }
+\par \trowd \trgaph108\trleft142\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3119\clbrdrt
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard \qc\sb100\sa60\nowidctlpar\intbl Dung t\'ddch danh \'ae\'denh\cell Sai s\'e8 cho ph\'d0p l\'edn nh\'cat\cell \pard \intbl \row \trowd \trgaph108\trleft142\trbrdrt\brdrs\brdrw15 
+\trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3119\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx6096\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard \qc\sb100\sa60\nowidctlpar\intbl \cell Pipet k\'ce \'ae\'e9\cell Pipet m\'e9t m\'f8c\cell \pard \intbl \row \trowd \trgaph108\trleft142\trbrdrt
+\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard \qc\sb100\sa60\nowidctlpar\intbl cm{
+\super 3}\cell \pard \intbl \row \trowd \trgaph108\trleft142\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx3119\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6096\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard \qc\sb100\sa60\nowidctlpar\intbl 
+\par 1\cell \pard \li1026\sb100\sa60\nowidctlpar\intbl 
+\par {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,006\cell \pard \li884\sb100\sa60\nowidctlpar\intbl 
+\par {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,006\cell \pard \intbl \row \trowd \trgaph108\trleft142\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv
+\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3119\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6096\clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard \qc\sb100\sa60\nowidctlpar\intbl 2\cell \pard 
+\li1026\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,01\cell \pard \li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,01\cell \pard 
+\intbl \row \pard \qc\sb100\sa60\nowidctlpar\intbl 5\cell \pard \li1026\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,03\cell \pard \li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL
+ 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,01\cell \pard \intbl \row \pard \qc\sb100\sa60\nowidctlpar\intbl 10\cell \pard \li1026\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,05\cell \pard 
+\li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,02\cell \pard \intbl \row \pard \qc\sb100\sa60\nowidctlpar\intbl 25\cell \pard \li1026\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL
+ 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,1\cell \pard \li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,3\cell \pard \intbl \row \pard \qc\sb100\sa60\nowidctlpar\intbl 50\cell \cell \pard 
+\li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,05\cell \pard \intbl \row \pard \qc\sb100\sa60\nowidctlpar\intbl 100\cell \cell \pard \li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst 
+SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,08\cell \pard \intbl \row \trowd \trgaph108\trleft142\trbrdrt\brdrs\brdrw15 \trbrdrl\brdrs\brdrw15 \trbrdrb\brdrs\brdrw15 \trbrdrr\brdrs\brdrw15 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3119\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6096\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx8931 \pard 
+\qc\sb100\sa60\nowidctlpar\intbl 200\cell \cell \pard \li884\sb100\sa60\nowidctlpar\intbl {{\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}} 0,1
+\par \cell \pard \intbl \row \pard \sb120\nowidctlpar {\f17 
+\par }\pard \qj\nowidctlpar {\b 8.2}{\b\i  } Sai s\'e8 cho ph\'d0p l\'edn nh\'cat c\'f1a dung t\'ddch \'f8ng v\'edi b\'cat k\'fa v\'b9ch d\'cau n\'b5o tr\'aan thang \'aeo \'ae\'ad\'eec quy \'ae\'denh b\'bbng v\'edi sai s\'e8 l\'edn nh\'cat cho ph\'d0p c\'f1
+a dung t\'ddch danh \'ae\'denh c\'f1a pipet.
+\par 
+\par Sai s\'e8 cho ph\'d0p l\'edn nh\'cat c\'f1a dung t\'ddch c\'f1a kho\'b6ng gi\'f7a hai v\'b9ch d\'cau b\'cat k\'fa tr\'aan thang \'aeo c\'f2ng \'ae\'ad\'eec quy \'ae\'denh b\'bbng v\'edi sai s\'e8 cho ph\'d0p l\'edn nh\'cat c\'f1a dung t\'ddch danh \'ae
+\'denh c\'f1a pipet.
+\par {\b\fs28 
+\par 9  Ghi nh\'b7n
+\par }{\b 
+\par 9.1} Nh\'f7ng n\'e9i dung sau ph\'b6i \'ae\'ad\'eec ghi t\'b9i ph\'c7n kh\'abng \'ae\'ad\'eec kh\'bec \'ae\'e9 c\'f1a pipet :
+\par \pard \qj\fi720\sb120\nowidctlpar a) M\'e9t ho\'c6c nhi\'d2u ch\'f7 c\'b8i th\'ddch h\'eep bi\'d3u th\'de pipet chu\'c8n;
+\par b) {\f16 D}ung t\'ddch danh \'ae\'denh b\'bbng ch\'f7 s\'e8 {\f16 \'b6} r\'cbp k\'ccm theo k\'fd hi\'d6u cm{\super 3} (hay mL);
+\par c) D\'cau hi\'d6u quy \'ad\'edc "Ex 20 {\super 0}C" \'ae\'d3 bi\'d3u th\'de r\'bbng pipet \'ae\'ad\'eec hi\'d6u chu\'c8n b\'bbng ph\'ad\'acng ph\'b8p \'ae\'e6 ra t\'b9i nhi\'d6t \'ae\'e9 ti\'aau chu\'c8n l\'b5 20 {\super 0}C;
+\par d) Th\'eai gian ch\'b6y t\'ddnh theo gi\'a9y;
+\par e) T\'aan ho\'c6c k\'fd hi\'d6u c\'f1a c\'ac s\'eb s\'b6n xu\'cat;
+\par f) S\'e8 ch\'d5 t\'b9o c\'f1a pipet.
+\par \pard \qj\fi720\nowidctlpar 
+\par \pard \qj\nowidctlpar {\b 9.2} T\'cat c\'b6 c\'b8c k\'fd, nh\'b7n hi\'d6u tr\'aan ph\'b6i r\'e2 n\'d0t, d\'d4 \'ae\'e4c v\'b5 kh\'abng t\'c8y xo\'b8 \'ae\'ad\'eec trong \'aei\'d2u ki\'d6n s\'f6 d\'f4ng b\'d7nh th\'ad\'eang c\'f1a pipet.
+\par {\b 
+\par }{\b\fs28 10 Bao g\'e3i
+\par }{\b\i 
+\par }{\b 10.1} Pipet c\'e3 th\'d3 \'ae\'ad\'eec \'ae\'f9ng trong h\'e9p ch\'e8ng b\'f4i \'ae\'ad\'eec l\'b5m b\'bbng v\'cbt li\'d6u th\'ddch h\'eep, n\'d5u c\'c7n  l\'e3t nhung, da, nh\'f9a m\'d2m ho\'c6c v\'cbt li\'d6u th\'ddch h\'eep kh\'b8c.
+\par 
+\par {\b 10.2} {\f16 c}\'b8c pipet ph\'b6i \'ae\'ad\'eec \'ae\'f9ng trong h\'e9p c\'f1a n\'e3 \'ae\'d3 tr\'b8nh b\'cat m\'e4i s\'f9 x\'aa d\'dech, r\'aci l\'b5m h\'ad h\'e1ng.
+\par 
+\par {\b\fs28 11 Ghi nh\'b7n h\'e9p \'ae\'f9ng 
+\par }{\b 
+\par 11.1} H\'e9p \'ae\'f9ng pipet chu\'c8n ph\'b6i c\'e3 bi\'d3n nh\'b7n hi\'d6u bao g\'e5m c\'b8c th\'abng tin sau:
+\par \pard \qj\sb120\nowidctlpar \tab a) D\'cau nh\'cbn d\'b9ng qu\'e8c gia;
+\par \pard \qj\fi720\sb120\nowidctlpar b) T\'aan ho\'c6c k\'fd hi\'d6u c\'f1a c\'ac s\'eb s\'b6n xu\'cat;
+\par c) S\'e8 nh\'cbn d\'b9ng;
+\par d) Ph\'b9m vi \'aeo c\'f1a c\'b8c pipet;
+\par \pard \qj\nowidctlpar {\b 
+\par 11.2 }C\'e3 th\'d3 s\'f6 d\'f4ng c\'b8c k\'fd nh\'b7n hi\'d6u kh\'b8c kh\'abng tr\'b8i v\'edi quy \'ae\'denh c\'f1a Nh\'b5 n\'ad\'edc.
+\par }

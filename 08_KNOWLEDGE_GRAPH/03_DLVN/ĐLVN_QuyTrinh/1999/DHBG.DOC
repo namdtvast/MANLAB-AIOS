@@ -1,0 +1,637 @@
+{\rtf1\ansi \deff15\deflang1033{\fonttbl{\f1\froman\fcharset2\fprq2 Symbol;}{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f15\fswiss\fcharset0\fprq2 .VnTime;}{\f16\fswiss\fcharset0\fprq2 .VnTimeH;}
+{\f17\fswiss\fcharset0\fprq2 .VnArial;}{\f25\fswiss\fcharset0\fprq2 .VnAvantH;}{\f49\fswiss\fcharset0\fprq2 .VnUniverseH;}{\f55\fswiss\fcharset0\fprq2 .VnAvant;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;
+\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;
+\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar \f15\fs28\cf1 \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}{\s15\nowidctlpar \f15\fs28\cf1 \sbasedon0\snext15 abc;}{\s16\nowidctlpar\tqc\tx4320\tqr\tx8640 
+\f15\fs28\cf1 \sbasedon0\snext16 footer;}{\*\cs17 \additive\sbasedon10 page number;}{\s18\nowidctlpar\tqc\tx4320\tqr\tx8640 \f15\fs28\cf1 \sbasedon0\snext18 header;}}{\info
+{\title \'a7LVN              v\'a8n bn k\'fc thu\'cbt \'aeo l\'ad\'eang vi\'d6t nam_}{\author Microsoft (Thailand)}{\operator ninh}{\creatim\yr2098\mo6\dy10\hr9\min47}{\revtim\yr1999\mo6\dy25\hr19\min45}{\printim\yr1999\mo9\dy17\hr14\min7}{\version1}
+{\edmins1}{\nofpages0}{\nofwords0}{\nofchars0}{\vern49203}}\paperw11907\paperh16834\margl1644\margr907\margt1247\margb1474 \widowctrl\ftnbj\aenddoc\pgnstart3\hyphcaps0\formshade \fet0\sectd 
+\psz9\pgnrestart\pgnstarts3\linex0\headery289\footery794\endnhere {\footer \pard\plain \s16\nowidctlpar\tqc\tx4320\tqr\tx8640\pvpara\phmrg\posxo\posy0 \f15\fs28\cf1 {\field{\*\fldinst {\cs17\fs24 PAGE  }}{\fldrslt {\cs17\fs24 7}}}{\cs17\fs24 
+\par }\pard \s16\fi360\ri360\nowidctlpar\tqc\tx4320\tqr\tx8640\pvpara\phmrg\posxi\posy0 {\cs17 
+\par }\pard \s16\fi360\ri360\nowidctlpar\tqr\tx-1843 
+\par }{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5
+\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s15\nowidctlpar \f15\fs28\cf1 {\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt8199\dpline\dpptx0\dppty0\dpptx9182\dppty2
+\dpx-51\dpy-52\dpxsize9183\dpysize3\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew40}}{\b\f25 V\'a8n b\'b6n k\'fc thu\'cbt \'aeo l\'ad\'eang Vi\'d6t nam\tab        \tab        \'a7LVN 52 : 1999
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt8197\dpline\dpptx0\dppty0\dpptx9182\dppty0\dpx-51\dpy45\dpxsize9183\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew40}}{\b\f55\fs32 
+\par 
+\par \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 - Quy tr\'d7nh hi\'d6u chu\'c8n}{\b\f16\fs26 
+\par }{\b\i 
+\par Digital quartz stop watches - Methods and means of calibration}{\i\fs26 
+\par }\pard \s15\qc\nowidctlpar {\fs26 
+\par }\pard \s15\nowidctlpar {\b\fs26 
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par }{\b 1 Ph\'b9m vi \'b8p d\'f4ng}
+\par \pard \s15\nowidctlpar {\fs26 
+\par }\pard \s15\qj\sl264\slmult1\nowidctlpar {\fs26\expnd0\expndtw4 V\'a8n b\'b6n k\'fc thu\'cbt n\'b5y quy \'ae\'denh ph\'ad\'acng ph\'b8p v\'b5 ph\'ad\'acng ti\'d6n hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 l\'b5 nh\'f7ng lo\'b9i 
+\'ae\'e5ng h\'e5 th\'b9ch anh dao \'ae\'e9ng \'eb t\'c7n s\'e8 c\'ac b\'b6n 32,768 kHz, c\'e3 c\'ac c\'cau kh\'ebi \'ae\'e9ng v\'b5 d\'f5ng b\'bbng tay \'ae\'d3 \'aeo kho\'b6ng th\'eai gian nh\'e1 nh\'cat l\'b5 0,01 s, c\'e3 \'ae\'e9 ch\'ddnh x\'b8c t\'ed
+i 0,1 s/d. V\'a8n b\'b6n n\'b5y c\'f2ng \'b8p d\'f4ng cho nh\'f7ng lo\'b9i \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 kh\'b8c, c\'e3 t\'ddnh n\'a8ng t\'ad\'acng t\'f9.
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par }{\b 2 C\'b8c ph\'d0p ki\'d3m tra v\'b5 hi\'d6u chu\'c8n
+\par }{\b\fs26 
+\par }{\fs26 Ph\'b6i l\'c7n l\'ad\'eet ti\'d5n h\'b5nh c\'b8c ph\'d0p ki\'d3m tra v\'b5 hi\'d6u chu\'c8n sau:
+\par 
+\par }{\b\fs26 2.1 }{\fs26 Ki\'d3m tra b\'aan ngo\'b5i (theo \'aei\'d2u 5.1).
+\par }{\b\fs26 
+\par 2.2 }{\fs26 Ki\'d3m tra k\'fc thu\'cbt (theo \'aei\'d2u 5.2).
+\par }{\b\fs26 
+\par 2.3 }{\fs26 Hi\'d6u chu\'c8n (theo \'aei\'d2u 5.3).
+\par }{\b\fs26 
+\par }{\b 3 Ph\'ad\'acng ti\'d6n hi\'d6u chu\'c8n
+\par }{\fs26 
+\par }{\b\fs26 3.1}{\fs26  Thi\'d5t b\'de hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 v\'edi \'ae\'c7u \'ae\'e4c c\'b6m \'f8ng ho\'c6c dung t\'ddnh.
+\par 
+\par Ph\'b9m vi \'aeo : \tab nh\'e1 nh\'cat: 0,01 s/d
+\par }\pard \s15\qj\fi1418\nowidctlpar {\fs26 \tab l\'edn nh\'cat : 99,9 s/d
+\par }\pard \s15\qj\nowidctlpar {\fs26 \'a7\'e9 \'e6n \'ae\'denh c\'f1a th\'b9ch anh : }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26  0,03 s/d
+\par 
+\par }\pard \s15\nowidctlpar {\b\fs26 3.2}{\fs26  M\'b8y \'aeo t\'c7n s\'e8  
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par - \'a7\'e9 \'e6n \'ae\'denh theo ng\'b5y c\'f1a th\'b9ch anh : }{\fs26 {\field{\*\fldinst SYMBOL 163 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26   3.10}{\fs26\super -7}{\fs26 .
+\par - Giao di\'d6n GPIB ho\'c6c RS.232S.
+\par 
+\par }{\b\fs26 3.3}{\fs26  M\'b8y t\'ddnh c\'b8 nh\'a9n 
+\par 
+\par T\'efy theo y\'aau c\'c7u hi\'d6u chu\'c8n, }{\fs26\expnd0\expndtw-4 c\'e3 th\'d3 s\'f6 d\'f4ng c\'b8c ph\'ad\'acng ti\'d6n hi\'d6u chu\'c8n c\'e3 t\'ddnh n\'a8ng t\'ad\'acng}{\fs26  t\'f9 nh\'ad thi\'d5t b\'de hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi
+\'a9y NMC (6).
+\par }\pard \s15\nowidctlpar {\b\f25 
+\par \'a7LVN 52 : 1999
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par }{\b\fs26 
+\par }{\b 4 \'a7i\'d2u ki\'d6n hi\'d6u chu\'c8n v\'b5 chu\'c8n b\'de hi\'d6u chu\'c8n
+\par }{\b\fs26 
+\par }\pard \s15\nowidctlpar {\b\fs26 4.1}{\fs26  Khi ti\'d5n h\'b5nh hi\'d6u chu\'c8n ph\'b6i \'ae\'b6m b\'b6o c\'b8c \'aei\'d2u ki\'d6n sau \'ae\'a9y:
+\par }\pard \s15\qj\nowidctlpar {\b\fs26 
+\par }{\fs26 Nhi\'d6t \'ae\'e9 m\'abi tr\'ad\'eang  : ( 23  }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26   5 )}{\fs26\super 0}{\fs26 C
+\par \'a7\'e9 \'c8m t\'ad\'acng \'ae\'e8i        :  }{\fs26 {\field{\*\fldinst SYMBOL 163 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26  70 %
+\par \'a7i\'d6n \'b8p ngu\'e5n            : 220 V  }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26   10 % 
+\par }{\b\fs26 
+\par 4.2}{\fs26  Tr\'ad\'edc khi ti\'d5n h\'b5nh hi\'d6u chu\'c8n ph\'b6i th\'f9c hi\'d6n c\'b8c c\'abng vi\'d6c sau \'ae\'a9y:
+\par 
+\par }{\fs26\expnd1\expndtw6 \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 ph\'b6i l\'b5m vi\'d6c v\'b5 \'ae\'c6t trong m\'abi tr\'ad\'eang hi\'d6u chu\'c8n \'ddt nh\'cat l\'b5 1 gi\'ea. Ph\'ad\'acng ti\'d6n hi\'d6u chu\'c8n c\'f2ng ph\'b6i t\'f9 l\'b5m 
+\ldblquote \'cam\rdblquote  m\'b8y theo quy \'ae\'denh k\'fc thu\'cbt.
+\par }{\b\fs26 
+\par }{\b 5 Ti\'d5n h\'b5nh hi\'d6u chu\'c8n
+\par }{\fs26 
+\par }{\b\fs26 5.1}{\fs26  Ki\'d3m tra b\'aan ngo\'b5i 
+\par 
+\par  Ph\'b6i ki\'d3m tra b\'aan ngo\'b5i theo c\'b8c y\'aau c\'c7u sau \'ae\'a9y:
+\par - \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 ph\'b6i c\'e3 k\'fd, m\'b7 hi\'d6u \'ae\'d3 nh\'cbn d\'b9ng v\'b5 \'ae\'d3 ph\'a9n bi\'d6t.
+\par - Kh\'abng c\'e3 nh\'f7ng h\'ad h\'e1ng b\'aan ngo\'b5i \'b6nh h\'ad\'ebng \'ae\'d5n t\'ddnh n\'a8ng c\'f1a \'ae\'e5ng h\'e5.
+\par 
+\par }{\b\fs26 5.2}{\fs26  Ki\'d3m tra k\'fc thu\'cbt 
+\par 
+\par }\pard \s15\qj\fi-142\li142\nowidctlpar {\fs26 - C\'b8c ch\'d5 \'ae\'e9 l\'b5m vi\'d6c \'ae\'f3ng theo quy \'ae\'denh c\'f1a nh\'b5 s\'b6n su\'cat cho t\'f5ng lo\'b9i \'ae\'e5ng h\'e5 c\'f4 th\'d3. Hi\'d3n th\'de s\'e8 r\'e2 r\'b5ng v\'edi t\'f5ng h\'b5
+ng s\'e8.
+\par }\pard \s15\qj\nowidctlpar {\fs26 - C\'b8c c\'ac c\'cau kh\'ebi \'ae\'e9ng v\'b5 d\'f5ng ph\'b6i tin c\'cby, b\'bbng c\'b8ch cho ch\'b9y th\'f6 \'ddt nh\'cat l\'b5 5 l\'c7n.
+\par 
+\par }{\b\fs26 5.3}{\fs26  Hi\'d6u chu\'c8n
+\par 
+\par \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 \'ae\'ad\'eec hi\'d6u chu\'c8n theo tr\'d7nh t\'f9 sau:
+\par 
+\par 5.3.1 Ph\'ad\'acng ph\'b8p hi\'d6u chu\'c8n \'ae\'ad\'eec th\'f9c hi\'d6n theo s\'ac \'ae\'e5 :
+\par 
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt4\dprect\dpx6408\dpy249\dpxsize1009\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr255\dpfillbgcg255\dpfillbgcb255\dpfillpat1}
+{\*\do\dobxcolumn\dobypara\dodhgt3\dprect\dpx4824\dpy249\dpxsize1009\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr255\dpfillbgcg255\dpfillbgcb255\dpfillpat1}
+{\*\do\dobxcolumn\dobypara\dodhgt2\dprect\dpx3240\dpy249\dpxsize1009\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr255\dpfillbgcg255\dpfillbgcb255\dpfillpat1}
+{\*\do\dobxcolumn\dobypara\dodhgt1\dprect\dpx1656\dpy249\dpxsize1009\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr255\dpfillbgcg255\dpfillbgcb255\dpfillpat1}
+{\*\do\dobxcolumn\dobypara\dodhgt0\dprect\dpx72\dpy249\dpxsize1009\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr255\dpfillbgcg255\dpfillbgcb255\dpfillpat1}}{\fs26 
+\par 
+\par }\pard \s15\nowidctlpar {\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt8209\dpline\dpptx0\dppty0\dpptx577\dppty1\dpx5832\dpy61\dpxsize577\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15}{\*\do\dobxcolumn\dobypara\dodhgt8208
+\dpline\dpptx0\dppty0\dpptx577\dppty1\dpx4248\dpy61\dpxsize577\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15}{\*\do\dobxcolumn\dobypara\dodhgt8207\dpline\dpptx0\dppty0\dpptx577\dppty1\dpx2664\dpy61\dpxsize577\dpysize1
+\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15}{\*\do\dobxcolumn\dobypara\dodhgt8206\dpline\dpptx0\dppty0\dpptx577\dppty1\dpx1080\dpy61\dpxsize577\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15}}{\fs26 
+        1                       2                      3                       4                      5                        
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par 
+\par 
+\par \tab \tab 1 : \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 c\'c7n hi\'d6u chu\'c8n;
+\par \tab \tab 2 : \'ae\'c7u \'ae\'e4c c\'b6m \'f8ng ho\'c6c dung t\'ddnh g\'ben v\'edi 3;
+\par \tab \tab 3 : thi\'d5t b\'de hi\'d6u chu\'c8n \'ae\'e5ng h\'e5;
+\par }\pard \s15\nowidctlpar {\fs26 \tab \tab 4 : m\'b8y \'aeo t\'c7n s\'e8;
+\par }\pard \s15\qj\nowidctlpar {\fs26 \tab \tab 5 : m\'b8y t\'ddnh.
+\par }\pard \s15\qr\nowidctlpar {\b\f25 \'a7LVN 52 : 1999
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par 
+\par 5.3.2 Ph\'d0p \'aeo \'ae\'ad\'eec th\'f9c hi\'d6n b\'bbng c\'b8ch di chuy\'d3n \'ae\'e5ng h\'e5 tr\'aan \'ae\'c7u \'ae\'e4c th\'ddch h\'eep v\'b5 \'aei\'d2u ch\'d8nh \'ae\'e9 nh\'cby \'ae\'d3 s\'e8 ch\'d8 tr\'aan thi\'d5t b\'de hi\'d6u chu\'c8n \'e6n \'ae
+\'denh. M\'b8y \'aeo t\'c7n s\'e8 \'ae\'c6t \'eb ch\'d5 \'ae\'e9 \'aeo t\'c7n s\'e8 v\'edi th\'eai gian \'aeo l\'b5 1s, s\'e8 m\'c9u d\'f7 li\'d6u(M) \'ddt nh\'cat l\'b5 50, \'ae\'ad\'eec m\'b8y t\'ddnh \'aei\'d2u khi\'d3n v\'b5 x\'f6 l\'fd k\'d5t qu\'b6
+ theo ph\'c7n m\'d2m mong mu\'e8n.(Bi\'aan b\'b6n hi\'d6u chu\'c8n l\'b5 b\'b6n in ph\'c7n m\'d2m).
+\par 
+\par 5.3.3 Hi\'d6u th\'eai gian t\'ad\'acng \'ae\'e8i \'ae\'ad\'eec t\'ddnh t\'f5 hi\'d6u t\'c7n s\'e8 t\'ad\'acng \'ae\'e8i theo c\'abng th\'f8c:
+\par 
+\par }\pard \s15\qj\fi1701\nowidctlpar {\fs26        }{\pard\plain \s15\qj\fi1701\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw2900\objh900{\*\objclass }{\*\objdata 01050000020000000b0000004571756174696f6e2e3200000000000000000000100000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff05000000feffffff0400000006000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff020000000017020000000000c00000000000004600000000000000000000000086e7
+b363e925bf0103000000c00500000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000002803000000000000feffffff02000000feffffff0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000feffffff11000000fefffffffeffffff140000001500000016000000feffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000200000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c0000000000000000000800fb13000033060000540b0000840300000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000000000000000000001000000010000000800fb13330696af0100090000039001000003001100000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02a00520120e00000026060f001200ffffffff000008000000c0ffb4ffe01154050b00000026060f000c004d617468547970650000400109000000fa02000010000000
+000000002200040000002d010000050000001402ac023003050000001302ac02f1080500000014024c00f5020500000013020c05f5020500000014024c001c090500000013020c051c09050000001402ac02630b050000001302ac02fe100500000014024c00280b0500000013020c05280b0500000014024c0029110500
+000013020c05291111000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a20034000010000007900e00009000000320a20038d01010000003d00fa0009000000320aec015003010000005400030109000000320aec011407010000005400030109000000
+320a7c043205010000005400030109000000320aec01830b010000004600fa0009000000320aec01340f010000004600fa0009000000320a7c045b0d010000004600fa0011000000fb0220ff000000000000900100000000000200202e566e54696d650044e5040000002d01020004000000f001010009000000320a5c02
+5d040100000043008c0009000000320a5c0221080100000053006d0009000000320aec043f060100000053006d0009000000320a5c027d0c0100000043008c0009000000320a5c022e100100000053006d0009000000320aec04550e0100000053006d0010000000fb0240fe000000000000900100000002000200105379
+6d626f6c0012040000002d01010004000000f001020009000000320aec01a505010000002d00f60009000000320a2003b009010000003d00f60009000000320aec01c50d010000002d00f6000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d
+006e040000002d01020004000000f0010100030000000000d0cf11e0a1b11ae100000000000000000000000000000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300000005000000ffff
+ffff00000000000000000000000000000000000000000000000000000000000000000000000010000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff06000000
+ffffffff0000000000000000000000000000000000000000000000000000000000000000000000001200000004000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffff
+ffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000013000000dc000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff
+ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100feff030a0000ffffffff0017020000000000c000000000000046170000004d6963726f736f6674204571756174696f6e20322e30000c0000004453204571756174696f6e
+000b0000004571756174696f6e2e3200f439b271000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b0000000300d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c000000
+0200d0d1c00000000000ff430000000048001750d800175002010102000a0102817902813d0304000001030e000001128354030f01000b011283430011000a02862d128354030f01000b01128353001100000a01128354030f01000b011283530011000000000a0296610296620002863d0304000001030e000001128346
+030f01000b011283430011000a02862d128346030f01000b01128353001100000a01128346030f01000b011283530011000000000a02966102966200030f01000b010011000000ffffffffffffffffffffffffffffffffffffffd0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff01050000050000000d0000004d45544146494c455049435400fb130000cdf9ffff280400000800fb1333060000
+010009000003900100000300110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02a00520120e00000026060f001200ffffffff000008000000c0ffb4ffe01154050b00000026060f000c004d617468
+547970650000400109000000fa02000010000000000000002200040000002d010000050000001402ac023003050000001302ac02f1080500000014024c00f5020500000013020c05f5020500000014024c001c090500000013020c051c09050000001402ac02630b050000001302ac02fe100500000014024c00280b0500
+000013020c05280b0500000014024c0029110500000013020c05291111000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a20034000010000007900e00009000000320a20038d01010000003d00fa0009000000320aec01500301000000540003010900
+0000320aec011407010000005400030109000000320a7c043205010000005400030109000000320aec01830b010000004600fa0009000000320aec01340f010000004600fa0009000000320a7c045b0d010000004600fa0011000000fb0220ff000000000000900100000000000200202e566e54696d650044e504000000
+2d01020004000000f001010009000000320a5c025d040100000043008c0009000000320a5c0221080100000053006d0009000000320aec043f060100000053006d0009000000320a5c027d0c0100000043008c0009000000320a5c022e100100000053006d0009000000320aec04550e0100000053006d0010000000fb02
+40fe0000000000009001000000020002001053796d626f6c0012040000002d01010004000000f001020009000000320aec01a505010000002d00f60009000000320a2003b009010000003d00f60009000000320aec01c50d010000002d00f6000a00000026060f000a00ffffffff01000000000010000000fb0210000700
+00000000bc02000000000102022253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff002e646f630072332e646f630072342e646f630072352e646f630072362e646f001e8b472240c1e002508b9f8a01ff5f148b
+f08956f80bd075236a658b5e06ff00000900090009000d000008000000040000000000000000000000000000000000000a444c47494e434c5544450753434f4e46494700000f515545525950574400ffffffffffff80ffffffffff87ffffffffff80ffffffffff80fffffffffff9000002a1dc000000020058217c000000
+02000ea41c000000020002649c000000000000006f0000000d000000450000002e0000003e010000ee000000e3000000}{\result {\fs20\dn40 {\pict\wmetafile8\picw5115\pich1587\picwgoal2900\pichgoal900 
+010009000003900100000300110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02a00520120e00000026060f001200ffffffff000008000000c0ffb4ffe01154050b00000026060f000c004d61746854
+7970650000400109000000fa02000010000000000000002200040000002d010000050000001402ac023003050000001302ac02f1080500000014024c00f5020500000013020c05f5020500000014024c001c090500000013020c051c09050000001402ac02630b050000001302ac02fe100500000014024c00280b05000000
+13020c05280b0500000014024c0029110500000013020c05291111000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a20034000010000007900e00009000000320a20038d01010000003d00fa0009000000320aec01500301000000540003010900000032
+0aec011407010000005400030109000000320a7c043205010000005400030109000000320aec01830b010000004600fa0009000000320aec01340f010000004600fa0009000000320a7c045b0d010000004600fa0011000000fb0220ff000000000000900100000000000200202e566e54696d650044e5040000002d010200
+04000000f001010009000000320a5c025d040100000043008c0009000000320a5c0221080100000053006d0009000000320aec043f060100000053006d0009000000320a5c027d0c0100000043008c0009000000320a5c022e100100000053006d0009000000320aec04550e0100000053006d0010000000fb0240fe000000
+0000009001000000020002001053796d626f6c0012040000002d01010004000000f001020009000000320aec01a505010000002d00f60009000000320a2003b009010000003d00f60009000000320aec01c50d010000002d00f6000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02
+000000000102022253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff002e646f630072332e646f630072342e646f630072352e646f630072362e646f001e8b472240c1e002508b9f8a01ff5f148bf08956f80bd075
+236a658b5e06ff00000900090009000d000008000000040000000000000000000000000000000000000a444c47494e434c5544450753434f4e46494700000f515545525950574400ffffffffffff80ffffffffff87ffffffffff80ffffffffff80fffffffffff9000002a1dc000000020058217c00000002000ea41c000000
+020002649c000000000000006f0000000d000000450000002e0000003e010000ee000000e3000000}}}}}{\fs26 
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par v\'edi \tab T}{\fs26\sub C }{\fs26 , F}{\fs26\sub C}{\fs26     : th\'eai gian v\'b5 t\'c7n s\'e8 \'aeo \'ae\'ad\'eec theo gi\'a9y v\'b5 hec.
+\par \tab T}{\fs26\sub S }{\fs26 , F}{\fs26\sub S}{\fs26      : th\'eai gian v\'b5 t\'c7n s\'e8 danh \'ae\'denh theo gi\'a9y v\'b5 hec.
+\par 
+\par 5.3.4 Sai s\'e8 h\'d6 th\'e8ng c\'f1a ph\'d0p \'aeo:
+\par 
+\par }\pard \s15\qj\fi1701\nowidctlpar {\fs26         E }{\fs26\sub S}{\fs26  =  T}{\fs26\sub C}{\fs26   x  }{\pard\plain \s15\qj\fi1701\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw820\objh760{\*\objclass }{\*\objdata 01050000020000000b000000
+4571756174696f6e2e33000000000000000000000e0000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff05000000feffffff04000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c00000000000004600000000000000000000000086e7
+b363e925bf0103000000000400000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+00000000000000000000000003000000e801000000000000feffffff02000000feffffff0400000005000000060000000700000008000000090000000a000000feffffff0c000000fefffffffeffffff0f000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000204000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c0000000000000000000800a60500003c05000034030000f80200000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000000000000000000001000000010000000800a6053c05ce40010009000003e200000003001500000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02c00420050e00000026060f001200ffffffff000008000000c0ffacffe0046c040b00000026060f000c004d617468547970650000000108000000fa02000010000000
+00000000040000002d010000050000001402a000e101050000001302a000b5020500000014021403d4030500000013021403a8040500000014024c0240000500000013024c02c80415000000fb0240fe0000000000009001000000000002001054696d6573204e657720526f6d616e008a0b040000002d01010009000000
+320aa401e201010000007900d40009000000320aa401b70201000000200070000a000000320a18043600020000003120e000700009000000320a1804fe01010000002b00010109000000320a18046403010000002000700009000000320a1804d503010000007900d4000a00000026060f000a00ffffffff010000000000
+10000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f001010003000000000007000700000200070007000700070007000700f90000070007000700d0cf11e0a1b11ae1000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000
+c000000000000046170000004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b0000000300d0cf11e0a1b11ae1000000000000
+000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c0000000200b0c9400000000000bf3b00000000e807bf3f7809bf3f02010102000a01030e000001228179061100028120000102813102812002812b02812022817906110000000000ffffffffffffff
+fffffff0ffffffffffffffffd0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300000005000000ffff
+ffff0000000000000000000000000000000000000000000000000000000000000000000000000b000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff06000000
+ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000d00000004000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffff
+ffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000e0000005c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff
+ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c455049435400a6050000c3faffffa80300000800a6053d050000
+010009000003e20000000300150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02c00420050e00000026060f001200ffffffff000008000000c0ffacffe0046c040b00000026060f000c004d617468
+547970650000000108000000fa0200001000000000000000040000002d010000050000001402a000e101050000001302a000b5020500000014021403d4030500000013021403a8040500000014024c0240000500000013024c02c80415000000fb0240fe0000000000009001000000000002001054696d6573204e657720
+526f6d616e008a0b040000002d01010009000000320aa401e201010000007900d40009000000320aa401b70201000000200070000a000000320a18043600020000003120e000700009000000320a1804fe01010000002b00010109000000320a18046403010000002000700009000000320a1804d503010000007900d400
+0a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f001010003000000000007000700000200070007000700070007000700f9000007000700070000ffffff0000000000000000000000000000320a8701350d
+010000002d00800000000000320a8701010e03000000204673006000d60096000a000000320aad03000145310b000e00050163000b00870002002a263a0000000301a9320b00100000c37bda181e3ec43a24cf9d741e3ec43a24a08601000000000000000000018a00016a0f0b008e00050150000b0090000200d5309c00
+00000301481c0b001800000c8b4da4894f108d4b04ff03ff01833bff7506c703000000008339ff7506c70000fb1a9d0000000200802d5d00000005016a310b0094000301dc1b0b001d0000003b2ede0000000301312d0b0020000200bc0b1f0000000200b42ddf000000000176000b009d0003012f1f0b00250010000700
+00000000bc02000000000102002253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff002e646f630072332e646f630072342e646f630072352e646f630072362e646f00ffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff}{\result {\fs20\dn32 {\pict\wmetafile8\picw1446\pich1341\picwgoal820\pichgoal760 
+010009000003e20000000300150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02c00420050e00000026060f001200ffffffff000008000000c0ffacffe0046c040b00000026060f000c004d61746854
+7970650000000108000000fa0200001000000000000000040000002d010000050000001402a000e101050000001302a000b5020500000014021403d4030500000013021403a8040500000014024c0240000500000013024c02c80415000000fb0240fe0000000000009001000000000002001054696d6573204e657720526f
+6d616e008a0b040000002d01010009000000320aa401e201010000007900d40009000000320aa401b70201000000200070000a000000320a18043600020000003120e000700009000000320a1804fe01010000002b00010109000000320a18046403010000002000700009000000320a1804d503010000007900d4000a0000
+0026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f001010003000000000007000700000200070007000700070007000700f9000007000700070000ffffff0000000000000000000000000000320a8701350d01000000
+2d00800000000000320a8701010e03000000204673006000d60096000a000000320aad03000145310b000e00050163000b00870002002a263a0000000301a9320b00100000c37bda181e3ec43a24cf9d741e3ec43a24a08601000000000000000000018a00016a0f0b008e00050150000b0090000200d5309c000000030148
+1c0b001800000c8b4da4894f108d4b04ff03ff01833bff7506c703000000008339ff7506c70000fb1a9d0000000200802d5d00000005016a310b0094000301dc1b0b001d0000003b2ede0000000301312d0b0020000200bc0b1f0000000200b42ddf000000000176000b009d0003012f1f0b0025001000070000000000bc02
+000000000102002253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff002e646f630072332e646f630072342e646f630072352e646f630072362e646f00ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff}}}}}{\fs26 
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par }\pard \s15\qj\sb60\nowidctlpar {\fs26   \tab \tab             v\'edi }{\pard\plain \s15\qj\sb60\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw220\objh340{\*\objclass }{\*\objdata 01050000020000000b0000004571756174696f6e2e33000000000000000000000e0000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff05000000feffffff04000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff0200000002ce020000000000c00000000000004600000000000000000000000086e7
+b363e925bf0103000000400300000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000006801000000000000feffffff02000000feffffff0400000005000000060000000700000008000000feffffff0a000000fefffffffefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000204000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c00000000000000000008008401000057020000dc000000540100000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000000100000001000000080084015702ce40010009000003a000000003001500000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02200260010e00000026060f001200ffffffff000008000000c0fff0ff200110020b00000026060f000c004d617468547970650000600008000000fa02000010000000
+00000000040000002d0100000500000014025c0040000500000013025c00140115000000fb0240fe0000000000009001000000000002001054696d6573204e657720526f6d616e000000040000002d01010009000000320a60014100010000007900d4000a00000026060f000a00ffffffff01000000000010000000fb02
+1000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f00101000300000000000000000000000000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000000100feff030a0000ffffffff02ce020000000000c000
+000000000046170000004d6963726f736f6674204571756174696f6e20332e30000c0000004453204571756174696f6e000b0000004571756174696f6e2e3300f439b271000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b0000000300d0cf11e0a1b11ae10000000000000000
+00000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c0000000200b0c9200000000000bf3b00000000180fbf3fcc14bf3f02010102000a0122817906110000002a2f2fe034df0a080064005b0000001304d0cf11e0ffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300000005000000ffff
+ffff00000000000000000000000000000000000000000000000000000000000000000000000009000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff06000000
+ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000b00000004000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffff
+ffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000c0000003c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff
+ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001050000050000000d0000004d45544146494c45504943540084010000a8fdffff280300000800840158020000
+010009000003a00000000300150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02200260010e00000026060f001200ffffffff000008000000c0fff0ff200110020b00000026060f000c004d617468
+547970650000600008000000fa0200001000000000000000040000002d0100000500000014025c0040000500000013025c00140115000000fb0240fe0000000000009001000000000002001054696d6573204e657720526f6d616e000000040000002d01010009000000320a60014100010000007900d4000a0000002606
+0f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f0010100030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffff0003010000007900d400
+0a000000260600000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f001010003000000000007000700000200070007000700070007000700f9000007000700070000ffffff0000000000000000000000000000320a8701350d
+010000002d00800000000000000000000000000039ce0fa00c0041003c0041000000000000000000000145310b000e00050163000b00870002002a263a0000000301a9320b00100000c37bda181e3ec43a24cf9d741e3ec43a24a08601000000000000000000018a00016a0f0b008e00050150000b0090000200d5309c00
+00000301481c0b001800000c8b4da4894f108d4b04ff03ff01833bff7506c703000000008339ff7506c70000fb1a9d0000000200802d5d00000005016a310b0094000301dc1b0b001d0000003b2ede0000000301312d0b0020000200bc0b1f0000000200b42ddf00000000ffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff}{\result {\fs20\dn12 {\pict\wmetafile8\picw388\pich600\picwgoal220\pichgoal340 
+010009000003a00000000300150000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02200260010e00000026060f001200ffffffff000008000000c0fff0ff200110020b00000026060f000c004d61746854
+7970650000600008000000fa0200001000000000000000040000002d0100000500000014025c0040000500000013025c00140115000000fb0240fe0000000000009001000000000002001054696d6573204e657720526f6d616e000000040000002d01010009000000320a60014100010000007900d4000a00000026060f00
+0a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f0010100030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffff0003010000007900d4000a0000
+00260600000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d0006040000002d01020004000000f001010003000000000007000700000200070007000700070007000700f9000007000700070000ffffff0000000000000000000000000000320a8701350d01000000
+2d00800000000000000000000000000039ce0fa00c0041003c0041000000000000000000000145310b000e00050163000b00870002002a263a0000000301a9320b00100000c37bda181e3ec43a24cf9d741e3ec43a24a08601000000000000000000018a00016a0f0b008e00050150000b0090000200d5309c000000030148
+1c0b001800000c8b4da4894f108d4b04ff03ff01833bff7506c703000000008339ff7506c70000fb1a9d0000000200802d5d00000005016a310b0094000301dc1b0b001d0000003b2ede0000000301312d0b0020000200bc0b1f0000000200b42ddf00000000ffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff}}}}}{\fs26   = }{\pard\plain \s15\qj\sb60\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw520\objh960{\*\objclass }{\*\objdata 01050000020000000b0000004571756174696f6e2e3200
+000000000000000000100000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff05000000feffffff0400000006000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff020000000017020000000000c0000000000000460000000000000000000000008614
+e564e925bf0103000000c00400000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000008802000000000000feffffff02000000feffffff0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000feffffff0f000000fefffffffeffffff12000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000200000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c0000000000000000000800950300009d06000008020000c00300000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000000100000001000000080095039d066ea60100090000033501000003001100000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000640030e00000026060f001200ffffffff000008000000c0ffabff0003ab050b00000026060f000c004d617468547970650000d00009000000fa02000010000000
+000000002200040000002d010000050000001402ec034000050000001302ec03f50211000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a70020802010000007900e00009000000320abc05d600010000004d008e0111000000fb0220ff000000000000
+900100000000000200202e566e54696d650044e5040000002d01020004000000f001010009000000320a9c036000010000006b00700010000000fb0220ff0000000000009001000000020002001053796d626f6c0013040000002d01010004000000f001020009000000320a9c03ee00010000003d007b0010000000fb02
+40fe0000000000009001000000020002001053796d626f6c0013040000002d01020004000000f001010009000000320a8c02710001000000e5003d0111000000fb0220ff000000000000900100000000000200202e566e54696d65002ccd040000002d01010004000000f001020009000000320a9c036a01010000003100
+700009000000320a0401ad00010000004d00c7000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01020004000000f0010100030000000000ffffffff01000000000010000000fb02100007000000d0cf11e0a1b11ae10000
+00000000000000000000000000003b000300feff09000600000000000000000000000100000001000000000000000100feff030a0000ffffffff0017020000000000c000000000000046170000004d6963726f736f6674204571756174696f6e20322e30000c0000004453204571756174696f6e000b0000004571756174
+696f6e2e3200f439b271000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b00010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300000005000000ffff
+ffff0000000000000000000000000000000000000000000000000000000000000000000000000e000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff06000000
+ffffffff0000000000000000000000000000000000000000000000000000000000000000000000001000000004000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffff
+ffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000110000005c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff
+ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c0000000200
+d0d1400000000000ff430000000038041750c804175002010102000a01030e000001031d010001128379000b0112836b02863d028831000102814d000d0286e500000a0112834d000000000005000000310201000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000ffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff01050000050000000d0000004d45544146494c4550494354009503000063f9ffff88030000080095039d060000
+010009000003350100000300110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000640030e00000026060f001200ffffffff000008000000c0ffabff0003ab050b00000026060f000c004d617468
+547970650000d00009000000fa02000010000000000000002200040000002d010000050000001402ec034000050000001302ec03f50211000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a70020802010000007900e00009000000320abc05d6000100
+00004d008e0111000000fb0220ff000000000000900100000000000200202e566e54696d650044e5040000002d01020004000000f001010009000000320a9c036000010000006b00700010000000fb0220ff0000000000009001000000020002001053796d626f6c0013040000002d01010004000000f001020009000000
+320a9c03ee00010000003d007b0010000000fb0240fe0000000000009001000000020002001053796d626f6c0013040000002d01020004000000f001010009000000320a8c02710001000000e5003d0111000000fb0220ff000000000000900100000000000200202e566e54696d65002ccd040000002d01010004000000
+f001020009000000320a9c036a01010000003100700009000000320a0401ad00010000004d00c7000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01020004000000f0010100030000000000ffffffff0100000000001000
+0000fb0210000700000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000176000b009d0003012f1f0b00250010000700
+00000000bc02000000000102002253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffff}{\result {\fs20\dn26 {\pict\wmetafile8\picw917\pich1693\picwgoal520\pichgoal960 
+010009000003350100000300110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000640030e00000026060f001200ffffffff000008000000c0ffabff0003ab050b00000026060f000c004d61746854
+7970650000d00009000000fa02000010000000000000002200040000002d010000050000001402ec034000050000001302ec03f50211000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01010009000000320a70020802010000007900e00009000000320abc05d60001000000
+4d008e0111000000fb0220ff000000000000900100000000000200202e566e54696d650044e5040000002d01020004000000f001010009000000320a9c036000010000006b00700010000000fb0220ff0000000000009001000000020002001053796d626f6c0013040000002d01010004000000f001020009000000320a9c
+03ee00010000003d007b0010000000fb0240fe0000000000009001000000020002001053796d626f6c0013040000002d01020004000000f001010009000000320a8c02710001000000e5003d0111000000fb0220ff000000000000900100000000000200202e566e54696d65002ccd040000002d01010004000000f0010200
+09000000320a9c036a01010000003100700009000000320a0401ad00010000004d00c7000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01020004000000f0010100030000000000ffffffff01000000000010000000fb0210
+000700000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000176000b009d0003012f1f0b0025001000070000000000bc02
+000000000102002253797374656d006e040000002d01020004000000f001010003000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffff}}}}}{\fs26 
+\par 
+\par 5.3.5 Sai s\'e8 ng\'c9u nhi\'aan c\'f1a ph\'d0p \'aeo:
+\par 
+\par }\pard \s15\qj\fi1701\sb60\nowidctlpar {\fs26 E}{\fs26\sub r }{\fs26 = }{\fs26 {\field{\*\fldinst SYMBOL 115 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26 y}{\fs26\sub (}{\fs26\sub {\field{\*\fldinst SYMBOL 116 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{
+\fs26\sub ) }{\fs26 T}{\fs26\sub C}{\fs26 
+\par 
+\par 
+\par }\pard \s15\qj\sb60\nowidctlpar {\fs26 \tab \tab     v\'edi  }{\fs26 {\field{\*\fldinst SYMBOL 115 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26 y}{\fs26\sub (}{\fs26\sub {\field{\*\fldinst SYMBOL 116 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26\sub )}
+{\fs26  = }{\pard\plain \s15\qj\sb60\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw2180\objh1760\objscaley85{\*\objclass }{\*\objdata 01050000020000000b0000004571756174696f6e2e3200000000000000000000120000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff06000000feffffff040000000500000007000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff020000000017020000000000c0000000000000460000000000000000000000008614
+e564e925bf0103000000800700000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+00000000000000000000000003000000c804000000000000feffffff02000000feffffff0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000feffffff18000000fefffffffeff
+ffff1b0000001c0000001d000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000200000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c0000000000000000000800050f0000200c000084080000e00600000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000000000000000000001000000010000000800050f200c6ea60100090000035e02000004001100000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000ba00d0e00000026060f001200ffffffff000008000000c0ffbaff600dba0a0b00000026060f000c004d617468547970650000500209000000fa02000008000000
+000000002200040000002d0100000500000014025301c10c0500000013025301510d050000001402ec058300050000001302ec055e0c09000000fa02000010000000000000002200040000002d01010005000000140227014800050000001302b10a48000500000014022701890c050000001302b10a890c11000000fb02
+20ff000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320af500d10c010000003100700009000000320a4302d10c010000003200700011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f001020009000000
+320abc07a103010000003200e00009000000320abc070408010000003100e00011000000fb0280fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320a1f037e0b010000003200c00009000000320a5e04f304010000006b00c00009000000320a5e04
+d305010000002b00d70009000000320a5e048306010000003100c00009000000320a9c05bb00010000006b00c00009000000320a9c059b01010000003d00d70009000000320a9c054b02010000003100c00009000000320a7302a300010000004d00550109000000320a73021302010000002d007e0009000000320a7302
+6302010000003100c00011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f00102000a000000320aee0353030200000028799300e00010000000fb0240fe0000000000009001000000020002001053796d626f6c0013040000002d01020004000000f001
+030009000000320aee038f07010000002d00f60009000000320abc070d07010000002d00f60010000000fb0280fe0000000000009001000000020002001053796d626f6c0013040000002d01030004000000f001020009000000320af303440101000000e500100111000000fb0240fe0000000000009001000000000002
+00202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03be08010000007900e00009000000320abc074905010000004d008e0111000000fb0280fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f001020009000000320a5e04cb090100
+00006b00c00011000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03ee0a010000002900930009000000320abc07a404010000002800930009000000320abc07cf0801000000290093000a00000026060f000a00ffffffff0100
+0000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000320a5e04d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000000100000001000000000000000100feff030a0000
+ffffffff0017020000000000c000000000000046170000004d6963726f736f6674204571756174696f6e20322e30000c0000004453204571010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300
+000005000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000017000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201
+ffffffff06000000ffffffff0000000000000000000000000000000000000000000000000000000000000000000000001900000004000000000000004500710075006100740069006f006e0020004e0061007400690076006500000000000000000000000000000000000000000000000000000000000000000000002000
+0200ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000001a000000dc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000ffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000756174696f6e000b0000004571756174696f6e2e3200f439b271000000000000000000000000d0cf11e0a1b11ae100000000000000000000000000000000
+3b0000000300d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c0000000200d0d1c00000000000ff4300000000e00717507008175002010102000a01032a0000110b1101030e00000102883100010288320000000d
+010304000001030e000001031d010001032a0000110e1101028132000d01028128028179030f01000e0102816b02812b0281310011000d02862d128379030f01000e0112836b0011000d0282290000000e0102816b02813d028131000102814d02812d028131000286e500000d0102883202822812834d02862d02883102
+822900000002966102966200000000001302ec03f50211000000fb0240fe00000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff01050000050000000d0000004d45544146494c455049435400050f0000e0f3ffffc80500000800050f200c0000
+0100090000035e0200000400110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000ba00d0e00000026060f001200ffffffff000008000000c0ffbaff600dba0a0b00000026060f000c004d617468
+547970650000500209000000fa02000008000000000000002200040000002d0100000500000014025301c10c0500000013025301510d050000001402ec058300050000001302ec055e0c09000000fa02000010000000000000002200040000002d01010005000000140227014800050000001302b10a4800050000001402
+2701890c050000001302b10a890c11000000fb0220ff000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320af500d10c010000003100700009000000320a4302d10c010000003200700011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5
+040000002d01030004000000f001020009000000320abc07a103010000003200e00009000000320abc070408010000003100e00011000000fb0280fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320a1f037e0b010000003200c00009000000320a
+5e04f304010000006b00c00009000000320a5e04d305010000002b00d70009000000320a5e048306010000003100c00009000000320a9c05bb00010000006b00c00009000000320a9c059b01010000003d00d70009000000320a9c054b02010000003100c00009000000320a7302a300010000004d00550109000000320a
+73021302010000002d007e0009000000320a73026302010000003100c00011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f00102000a000000320aee0353030200000028799300e00010000000fb0240fe000000000000900100000002000200105379
+6d626f6c0013040000002d01020004000000f001030009000000320aee038f07010000002d00f60009000000320abc070d07010000002d00f60010000000fb0280fe0000000000009001000000020002001053796d626f6c0013040000002d01030004000000f001020009000000320af303440101000000e50010011100
+0000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03be08010000007900e00009000000320abc074905010000004d008e0111000000fb0280fe000000000000900100000000000200202e566e54696d650044e5040000002d010300
+04000000f001020009000000320a5e04cb09010000006b00c00011000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03ee0a010000002900930009000000320abc07a404010000002800930009000000320abc07cf0801000000
+290093000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000320a5e0400000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+00000000000000000000000014000000000000000000500049004300000000000000000000000000000000000000000000000000000100000100000000000000000000000000000000000000000000000000000000010203cc030105030000010603000001020396000204030c0203e81001070300ffffffff80ffffffff
+ff80ffffffffff82ffffffffff80ffffffffff80ffff00004d00450054004100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}{\result {\fs20\dn74 {\pict\wmetafile8\picw3845\pich3104
+\picwgoal2180\pichgoal1760 \picscaley85 
+0100090000035e0200000400110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c02000ba00d0e00000026060f001200ffffffff000008000000c0ffbaff600dba0a0b00000026060f000c004d61746854
+7970650000500209000000fa02000008000000000000002200040000002d0100000500000014025301c10c0500000013025301510d050000001402ec058300050000001302ec055e0c09000000fa02000010000000000000002200040000002d01010005000000140227014800050000001302b10a48000500000014022701
+890c050000001302b10a890c11000000fb0220ff000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320af500d10c010000003100700009000000320a4302d10c010000003200700011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000
+002d01030004000000f001020009000000320abc07a103010000003200e00009000000320abc070408010000003100e00011000000fb0280fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320a1f037e0b010000003200c00009000000320a5e04f304
+010000006b00c00009000000320a5e04d305010000002b00d70009000000320a5e048306010000003100c00009000000320a9c05bb00010000006b00c00009000000320a9c059b01010000003d00d70009000000320a9c054b02010000003100c00009000000320a7302a300010000004d00550109000000320a7302130201
+0000002d007e0009000000320a73026302010000003100c00011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f00102000a000000320aee0353030200000028799300e00010000000fb0240fe0000000000009001000000020002001053796d626f6c0013
+040000002d01020004000000f001030009000000320aee038f07010000002d00f60009000000320abc070d07010000002d00f60010000000fb0280fe0000000000009001000000020002001053796d626f6c0013040000002d01030004000000f001020009000000320af303440101000000e500100111000000fb0240fe00
+0000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03be08010000007900e00009000000320abc074905010000004d008e0111000000fb0280fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f0010200
+09000000320a5e04cb09010000006b00c00011000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020004000000f001030009000000320aee03ee0a010000002900930009000000320abc07a404010000002800930009000000320abc07cf0801000000290093000a00000026
+060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000320a5e0400000201ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000
+000014000000000000000000500049004300000000000000000000000000000000000000000000000000000100000100000000000000000000000000000000000000000000000000000000010203cc030105030000010603000001020396000204030c0203e81001070300ffffffff80ffffffffff80ffffffffff82ffffff
+ffff80ffffffffff80ffff00004d00450054004100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}}}}}{\fs26 
+\par \tab 
+\par v\'b5 }{\fs26 {\field{\*\fldinst SYMBOL 116 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26  l\'b5 th\'eai gian l\'cay m\'c9u b\'bbng 1s
+\par 
+\par 5.3.6 Sai s\'e8 ch\'d8 th\'de c\'f1a \'ae\'e5ng h\'e5
+\par }\pard \s15\qj\fi1701\sb60\nowidctlpar {\fs26 
+\par \tab \tab E}{\fs26\sub i}{\fs26  = 0,01 s.
+\par }\pard \s15\qj\sb60\nowidctlpar {\b\fs26 
+\par }\pard \s15\nowidctlpar {\b\f25 \'a7LVN 52 : 1999
+\par }\pard \s15\qj\sb60\nowidctlpar {\b\fs26 
+\par }{\fs26 5.3.7 \'a7\'e9 kh\'abng \'ae\'b6m b\'b6o chu\'c8n k\'d5t h\'eep t\'ddnh theo gi\'a9y:
+\par }\pard \s15\sb60\nowidctlpar {\fs26  
+\par                           U}{\fs26\sub c}{\fs26 (y) = }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26   ( E}{\fs26\sub S}{\fs26  + }{\pard\plain \s15\sb60\nowidctlpar \f15\fs26\cf1 {\object\objemb\objw1260\objh480
+{\*\objclass }{\*\objdata 01050000020000000b0000004571756174696f6e2e3200000000000000000000100000
+d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000000200000001000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdffffff05000000feffffff0400000006000000fefffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffff020000000017020000000000c0000000000000460000000000000000000000008614
+e564e925bf0103000000c00400000000000001004f006c00650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000201ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+0000000000000000000000001400000000000000030050004900430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0002010100000004000000ffffffff0000000000000000000000000000000000000000000000000000
+00000000000000000000010000004c0000000000000003004d004500540041000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000201ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+000000000000000000000000030000008802000000000000feffffff02000000feffffff0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000feffffff0f000000fefffffffeffffff12000000feffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000200000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff09000600000000000000000000004c0000000000000000000800ae0800004e030000ec040000e00100000000
+0000000000000000000000000000e8030000e8030000000000000000000000000000000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000000000000000000001000000010000000800ae084e036ea60100090000033301000004001100000000000500
+00000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c020003e0070e00000026060f001200ffffffff000008000000c0ffa8ffa007a8020b00000026060f000c004d617468547970650000700009000000fa02000010000000
+000000002200040000002d010000050000001402ec014800050000001302cb01830009000000fa02000020000000000000002200040000002d010100050000001402d3018300050000001302a002d800040000002d010000050000001402a002e00005000000130260004c0105000000140260004c010500000013026000
+8c0711000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320a20026f01010000004500110109000000320a20026405010000004500110111000000fb0220ff000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000
+f001020009000000320a9002c7020100000069003e0009000000320a9002bc06010000007200490009000000320a5701c702010000003200700009000000320a5701bc06010000003200700010000000fb0240fe0000000000009001000000020002001053796d626f6c0013040000002d01020004000000f00103000900
+0000320a2002f303010000002b00f6000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000ffffffff01000000000010000000fb021000070000000000bc02d0cf11e0a1b11ae10000
+00000000000000000000000000003b000300feff09000600000000000000000000000100000001000000000000000100feff030a0000ffffffff0017020000000000c000000000000046170000004d6963726f736f6674204571756174696f6e20322e30000c0000004453204571756174696f6e000b0000004571756174
+696f6e2e3200f439b271000000000000000000000000d0cf11e0a1b11ae1000000000000000000000000000000003b00010043006f006d0070004f0062006a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120002000300000005000000ffff
+ffff0000000000000000000000000000000000000000000000000000000000000000000000000e000000660000000000000003004f0062006a0049006e0066006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201ffffffff06000000
+ffffffff0000000000000000000000000000000000000000000000000000000000000000000000001000000004000000000000004500710075006100740069006f006e0020004e00610074006900760065000000000000000000000000000000000000000000000000000000000000000000000020000200ffffffffffff
+ffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000110000005c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff
+ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff0900060000000000000000000000010000000100000000000000001000001c0000000200
+d0d1400000000000ff4300000000ac0217508403175002010102000a01030d000001128345030f02000b01128369000102883200000a02862b128345030f02000b011283720001028832000000110000000201000000d0cf11e0a1b11ae1000000000000000000000000000000003b000300feff090006000000ffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff01050000050000000d0000004d45544146494c455049435400ae080000b2fcffff880300000800ae084e030000
+010009000003330100000400110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c020003e0070e00000026060f001200ffffffff000008000000c0ffa8ffa007a8020b00000026060f000c004d617468
+547970650000700009000000fa02000010000000000000002200040000002d010000050000001402ec014800050000001302cb01830009000000fa02000020000000000000002200040000002d010100050000001402d3018300050000001302a002d800040000002d010000050000001402a002e0000500000013026000
+4c0105000000140260004c0105000000130260008c0711000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320a20026f01010000004500110109000000320a20026405010000004500110111000000fb0220ff000000000000900100000000000200202e56
+6e54696d650044e5040000002d01030004000000f001020009000000320a9002c7020100000069003e0009000000320a9002bc06010000007200490009000000320a5701c702010000003200700009000000320a5701bc06010000003200700010000000fb0240fe0000000000009001000000020002001053796d626f6c
+0013040000002d01020004000000f001030009000000320a2002f303010000002b00f6000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000ffffffff01000000000010000000fb02
+1000070000000000bc02000009000000320a73026302010000003100c00011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f00102000a000000320aee0353030200000028799300e00010000000fb0200fe000000000000900100000002000200105379
+6d626f6c0013040000002d01000004000000f001030009000000320aee038f07010000002d00f600090000000000f00102000a000000320aee0353030200000028799300e00010000000fb0200ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffff}{\result {\fs20\dn14 {\pict\wmetafile8\picw2222\pich846\picwgoal1260\pichgoal480 
+010009000003330100000400110000000000050000000902000000000400000002010100050000000102ffffff00040000002e01180005000000310201000000050000000b0200000000050000000c020003e0070e00000026060f001200ffffffff000008000000c0ffa8ffa007a8020b00000026060f000c004d61746854
+7970650000700009000000fa02000010000000000000002200040000002d010000050000001402ec014800050000001302cb01830009000000fa02000020000000000000002200040000002d010100050000001402d3018300050000001302a002d800040000002d010000050000001402a002e00005000000130260004c01
+05000000140260004c0105000000130260008c0711000000fb0240fe000000000000900100000000000200202e566e54696d65002ccd040000002d01020009000000320a20026f01010000004500110109000000320a20026405010000004500110111000000fb0220ff000000000000900100000000000200202e566e5469
+6d650044e5040000002d01030004000000f001020009000000320a9002c7020100000069003e0009000000320a9002bc06010000007200490009000000320a5701c702010000003200700009000000320a5701bc06010000003200700010000000fb0240fe0000000000009001000000020002001053796d626f6c00130400
+00002d01020004000000f001030009000000320a2002f303010000002b00f6000a00000026060f000a00ffffffff01000000000010000000fb021000070000000000bc02000000000102022253797374656d006e040000002d01030004000000f0010200030000000000ffffffff01000000000010000000fb021000070000
+000000bc02000009000000320a73026302010000003100c00011000000fb0240fe000000000000900100000000000200202e566e54696d650044e5040000002d01030004000000f00102000a000000320aee0353030200000028799300e00010000000fb0200fe0000000000009001000000020002001053796d626f6c0013
+040000002d01000004000000f001030009000000320aee038f07010000002d00f600090000000000f00102000a000000320aee0353030200000028799300e00010000000fb0200ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffff}}}}}{\fs26 )
+\par 
+\par }\pard \s15\qj\sb60\nowidctlpar {\fs26 5.3.8 Tu\'fa theo y\'aau c\'c7u v\'b5 \'ae\'e8i t\'ad\'eeng hi\'d6u chu\'c8n c\'e3 th\'d3 \'b8p d\'f4ng c\'b8c ph\'ad\'acng ti\'d6n hi\'d6u chu\'c8n v\'b5 ph\'ad\'acng ph\'b8p hi\'d6u chu\'c8n, x\'f6 l\'fd k\'d5t qu
+\'b6 th\'ddch h\'eep.
+\par 
+\par }{\i\fs26 a) \'a7o hi\'d6u t\'c7n s\'e8 t\'ad\'acng \'ae\'e8i :
+\par }{\fs26 
+\par Ph\'d0p \'aeo \'ae\'ad\'eec th\'f9c hi\'d6n theo s\'ac \'ae\'e5 sau
+\par 
+\par 
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt12288\dprect\dpx2419\dpy-209\dpxsize1297\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew20\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr0\dpfillbgcg0\dpfillbgcb0\dpfillpat0}
+{\*\do\dobxcolumn\dobypara\dodhgt12289\dprect\dpx5011\dpy-209\dpxsize1441\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew20\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr0\dpfillbgcg0\dpfillbgcb0\dpfillpat0}}{\fs26 
+                                               1                                       4
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt12290\dpline\dpptx0\dppty0\dpptx1296\dppty0\dpx3716\dpy-190\dpxsize1297\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpastartsol\dpastartl1\dpastartw1}}{\fs26 
+\par }\pard \s15\qj\nowidctlpar {\b\fs26 
+\par }{\fs26 \tab \tab 1: \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 c\'c7n hi\'d6u chu\'c8n}{\b\fs26  
+\par }{\fs26 \tab \tab 4: M\'b8y \'aeo t\'c7n s\'e8.}{\b\fs26 
+\par 
+\par }{\fs26 M\'b8y \'aeo t\'c7n s\'e8 \'ae\'c6t \'eb ch\'d5 \'ae\'e9 \'aeo t\'c7n s\'e8 v\'edi th\'eai gian \'aeo 1 s, s\'e8 m\'c9u d\'f7 li\'d6u l\'b5 10.
+\par }{\b\fs26 
+\par }{\fs26 \'a7\'e9 kh\'abng \'ae\'b6m b\'b6o \'aeo t\'ddnh theo gi\'a9y :
+\par 
+\par                                                       U}{\fs26\sub c}{\fs26 (y) = }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26  ( E }{\fs26\sub S}{\fs26  + E }{\fs26\sub I}{\fs26  )
+\par }{\b\fs26 
+\par }{\fs26 Bi\'aan b\'b6n \'aeo theo ph\'f4 l\'f4c 1.
+\par 
+\par }{\i\fs26 b) \'a7o hi\'d6u th\'eai gian t\'ad\'acng \'ae\'e8i
+\par }{\fs26 
+\par Ph\'d0p \'aeo th\'f9c hi\'d6u theo s\'ac \'ae\'e5 sau 
+\par }\pard \s15\qj\sb60\nowidctlpar {\fs26 
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt12285\dprect\dpx2419\dpy190\dpxsize1297\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew20\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr0\dpfillbgcg0\dpfillbgcb0\dpfillpat0}
+{\*\do\dobxcolumn\dobypara\dodhgt12286\dprect\dpx5011\dpy190\dpxsize1441\dpysize865\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew20\dpfillfgcr255\dpfillfgcg255\dpfillfgcb255\dpfillbgcr0\dpfillbgcg0\dpfillbgcb0\dpfillpat0}}{\fs26 
+\par }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt12290\dpline\dpptx0\dppty0\dpptx1296\dppty0\dpx3715\dpy272\dpxsize1297\dpysize1\dplinesolid\dplinecor0\dplinecog0\dplinecob0\dplinew15\dpastartsol\dpastartl1\dpastartw1}}{\fs26 
+                                               1                                       6
+\par 
+\par }\pard \s15\qj\nowidctlpar {\b\fs26 
+\par }{\fs26 
+\par \tab \tab 1: \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 c\'c7n hi\'d6u chu\'c8n
+\par \tab \tab 6: thi\'d5t b\'de hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi\'a9y NMC 
+\par 
+\par Thi\'d5t b\'de hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi\'a9y NMC t\'b9o ra c\'b8c kho\'b6ng th\'eai gian chu\'c8n 1 s, 10 s, 100 s, 1000 s, t\'f9 \'ae\'e9ng kh\'ebi \'ae\'e9ng v\'b5 d\'f5ng \'ae\'e5ng h\'e5 \'aei\'d6n t\'f6 c\'c7n hi\'d6u chu\'c8n.
+
+\par }{\fs26\expnd0\expndtw4 
+\par }\pard \s15\qr\nowidctlpar {\b\f25 \'a7LVN 52 : 1999
+\par }\pard \s15\qj\nowidctlpar {\fs26 
+\par 
+\par \'a7\'e9 kh\'abng \'ae\'b6m b\'b6o \'aeo t\'ddnh theo gi\'a9y :
+\par 
+\par                                      U}{\fs26\sub c}{\fs26 (y) = }{\fs26 {\field{\*\fldinst SYMBOL 177 \\f "Symbol" \\s 13}{\fldrslt\f1\fs26}}}{\fs26  ( E }{\fs26\sub S}{\fs26  + E }{\fs26\sub I}{\fs26  )
+\par 
+\par Bi\'aan b\'b6n \'aeo theo ph\'f4 l\'f4c 2.
+\par 
+\par 
+\par }{\b 6. X\'f6 l\'fd chung}
+\par {\fs26 
+\par }{\b\fs26 6.1}{\fs26  Qua c\'b8c ph\'d0p hi\'d6u chu\'c8n n\'d5u \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 l\'b5m vi\'d6c b\'d7nh th\'ad\'eang th\'d7: c\'cap gi\'cay ch\'f8ng nh\'cbn hi\'d6u chu\'c8n v\'b5 tem hi\'d6u chu\'c8n.
+\par }\pard \s15\qj\fi1701\nowidctlpar {\fs26 
+\par }\pard \s15\qj\nowidctlpar {\b\fs26 6.2}{\fs26  N\'d5u ng\'ad\'eai s\'f6 d\'f4ng y\'aau c\'c7u hi\'d6u ch\'d8nh t\'c7n s\'e8 dao \'ae\'e9ng c\'f1a \'ae\'e5ng h\'e5 cho ph\'ef h\'eep v\'edi qui \'ae\'denh k\'fc thu\'cbt th\'d7 sau khi ti\'d5n h\'b5nh hi
+\'d6u ch\'d8nh ph\'b6i hi\'d6u chu\'c8n l\'b9i m\'f4c 5.3 r\'e5i m\'edi c\'cap gi\'cay ch\'f8ng nh\'cbn v\'b5 tem hi\'d6u chu\'c8n.
+\par }\pard \s15\qj\fi1701\nowidctlpar {\fs26 
+\par }\pard \s15\qj\nowidctlpar {\b\fs26 6.3}{\fs26  }{\f4\fs20\cf0\lang1024 {\*\do\dobxcolumn\dobypara\dodhgt8204\dpline\dpptx0\dppty0\dpptx577\dppty1\dpx1020\dpy568\dpxsize577\dpysize1\dplinesolid\dplinecor255\dplinecog255\dplinecob255\dplinew15}}{\fs26 
+Chu k\'fa hi\'d6u chu\'c8n c\'f1a \'ae\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6 l\'b5 1 n\'a8m.
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }\pard \s15\qr\nowidctlpar {\i\f49 
+\par Ph\'f4 l\'f4c 1
+\par }\pard \s15\qc\nowidctlpar {\f16\fs24 
+\par 
+\par }\trowd \trgaph108\trleft-426 \cellx3038\cellx9356 \pard\plain \nowidctlpar\intbl \f15\fs28\cf1 {\b\fs26 C\'ac quan ch\'f1 qu\'b6n}{\fs26 ..............}{\b\fs26 
+\par }\pard \sb120\nowidctlpar\intbl {\b\fs26 Ph\'dfng th\'dd nghi\'d6m}{\fs26  ..............}{\b \cell }\pard \qc\nowidctlpar\intbl {\b\f25 Bi\'aan b\'b6n hi\'d6u chu\'c8n}{\f17 
+\par }\pard \qc\sb120\nowidctlpar\intbl {\b\fs26 S\'e8:}\cell \pard \intbl \row \pard \nowidctlpar 
+\par 
+\par \pard \fi567\sl360\slmult1\nowidctlpar {\fs26 T\'aan ph\'ad\'acng ti\'d6n \'aeo :   \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6
+\par Ki\'d3u :                           S\'e8 :                      C\'ac s\'eb s\'b6n xu\'cat :
+\par \'a7\'c6c tr\'adng k\'fc thu\'cbt : 
+\par }\pard \fi567\sl312\slmult1\nowidctlpar {\fs26 \tab \tab \'a7\'e9 ph\'a9n gi\'b6i :
+\par \tab \tab Ph\'b9m vi \'aeo    :\tab 
+\par }\pard \fi567\sl360\slmult1\nowidctlpar\tx3402 {\fs26 C\'ac s\'eb s\'f6 d\'f4ng \tab : 
+\par Ph\'ad\'acng ph\'b8p th\'f9c hi\'d6n\tab :      \'a7LVN 52 : 1999
+\par Chu\'c8n \'ae\'ad\'eec s\'f6 d\'f4ng\tab :      M\'b8y \'aeo t\'c7n s\'e8 ..........
+\par \'a7i\'d2u ki\'d6n m\'abi tr\'ad\'eang  \tab :      Nhi\'d6t \'ae\'e9 :                  \'a7\'e9 \'c8m  :
+\par Ng\'b5y hi\'d6u chu\'c8n  \tab :
+\par K\'d5t qu\'b6  \'aeo             \tab :      \'a7o t\'c7n s\'e8 
+\par T\'c7n s\'e8 danh ngh\'dca} \tab :          
+\par \pard \qr\nowidctlpar\tqc\tx3780 
+\par \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw30 \clbrdrl\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt
+\brdrs\brdrw30 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrt\brdrs\brdrw30 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrt\brdrs\brdrw30 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard 
+\qc\nowidctlpar\intbl\tqc\tx3780 {\fs26 S\'e8 \cell T\'c7n s\'e8 \'aeo \'ae\'ad\'eec\cell S\'e8 \cell T\'c7n s\'e8 \'aeo \'ae\'ad\'eec\cell }\pard \intbl {\fs26 \row }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb
+\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\nowidctlpar\intbl\tqc\tx3780 {\fs26 l\'c7n \'aeo\cell \cell l\'c7n \'aeo\cell \cell }\pard 
+\intbl {\fs26 \row }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx810\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr
+\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 1\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 6\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \intbl 
+\row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrt
+\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 2\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard 
+\qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 7\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh
+\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230
+\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 3\cell \pard 
+\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 8\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb
+\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb
+\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw30 
+\cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 4\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 9\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \intbl \row \trowd 
+\trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 
+\cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx4230\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx5400\clbrdrt\brdrdot\brdrw15 \clbrdrl
+\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 5\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 10\cell \pard 
+\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \pard \intbl \row \pard \nowidctlpar\tqc\tx3780      
+\par 
+\par 
+\par {\b\f55\fs24             Ng\'ad\'eai so\'b8t l\'b9i                                                 \tab \tab Ng\'ad\'eai hi\'d6u chu\'c8n
+\par }      
+\par \pard \nowidctlpar 
+\par \pard\plain \s15\qc\nowidctlpar \f15\fs28\cf1 {\fs26 
+\par }\pard\plain \nowidctlpar \f15\fs28\cf1 
+\par \pard\plain \s15\qr\nowidctlpar \f15\fs28\cf1 {\i\f49 
+\par 
+\par Ph\'f4 l\'f4c 2
+\par }\pard \s15\qc\nowidctlpar {\f16\fs24 
+\par 
+\par }\trowd \trgaph108\trleft-426 \cellx3038\cellx9356 \pard\plain \nowidctlpar\intbl \f15\fs28\cf1 {\b\fs26 C\'ac quan ch\'f1 qu\'b6n}{\fs26 ..............}{\b\fs26 
+\par }\pard \sb120\nowidctlpar\intbl {\b\fs26 Ph\'dfng th\'dd nghi\'d6m}{\fs26  ..............}{\b \cell }\pard \qc\nowidctlpar\intbl {\b\f25 Bi\'aan b\'b6n hi\'d6u chu\'c8n}{\f17 
+\par }\pard \qc\sb120\nowidctlpar\intbl {\b\fs26 S\'e8:}\cell \pard \intbl \row \pard \nowidctlpar 
+\par 
+\par \pard \fi567\sl360\slmult1\nowidctlpar {\fs26 T\'aan ph\'ad\'acng ti\'d6n \'aeo:   \'a7\'e5ng h\'e5 b\'cam gi\'a9y \'aei\'d6n t\'f6
+\par Ki\'d3u :                           \tab S\'e8:                      C\'ac s\'eb s\'b6n xu\'cat :
+\par \'a7\'c6c tr\'adng k\'fc thu\'cbt : 
+\par }\pard \fi567\sl312\slmult1\nowidctlpar {\fs26 \tab \tab \'a7\'e9 ph\'a9n gi\'b6i:
+\par \tab \tab Ph\'b9m vi \'aeo:\tab 
+\par }\pard \fi567\sl360\slmult1\nowidctlpar\tx3402 {\fs26 C\'ac s\'eb s\'f6 d\'f4ng \tab : 
+\par Ph\'ad\'acng ph\'b8p th\'f9c hi\'d6n\tab :     \'a7LVN 52 : 1999
+\par Chu\'c8n \'ae\'ad\'eec s\'f6 d\'f4ng\tab :      M\'b8y hi\'d6u chu\'c8n \'ae\'e5ng h\'e5 b\'cam gi\'a9y NMC
+\par \'a7i\'d2u ki\'d6n m\'abi tr\'ad\'eang  \tab :      Nhi\'d6t \'ae\'e9 :                  \'a7\'e9 \'c8m  :
+\par Ng\'b5y hi\'d6u chu\'c8n         \tab :
+\par K\'d5t qu\'b6  \'aeo                \tab :      \'a7o th\'eai gian 
+\par }\pard \nowidctlpar\tqc\tx3780 
+\par 
+\par \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrs\brdrw30 \clbrdrl\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt
+\brdrs\brdrw30 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 {\fs26 S\'e8 \cell }{\b\fs26 Th\'eai gian chu\'c8n\cell }\pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt
+\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6302\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 {\fs26 l\'c7n 
+\'aeo\cell }10,00 s\cell 100,00 s\cell 1000,00 s\cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrl
+\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx6302\clbrdrt\brdrs\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 1\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \cell \cell 
+\pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb
+\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 
+\cellx6302\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 2\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \cell \cell \pard \intbl \row 
+\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr
+\brdrs\brdrw15 \cellx810\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6302\clbrdrt
+\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrr\brdrs\brdrw30 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 3\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \cell \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt
+\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt
+\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw15 \cellx6302\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrdot\brdrw15 \clbrdrr\brdrs\brdrw30 \clshdng2500 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 4\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \cell \cell \pard \intbl \row \trowd \trgaph108\trleft-108\trbrdrt
+\brdrs\brdrw30 \trbrdrl\brdrs\brdrw30 \trbrdrb\brdrs\brdrw30 \trbrdrr\brdrs\brdrw30 \trbrdrh\brdrs\brdrw15 \trbrdrv\brdrs\brdrw15 \clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw30 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx810\clbrdrt
+\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx3556\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 \clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw15 \cellx6302\clbrdrt\brdrdot\brdrw15 \clbrdrl\brdrs\brdrw15 
+\clbrdrb\brdrs\brdrw30 \clbrdrr\brdrs\brdrw30 \clshdng2500 \cellx9048 \pard \qc\sb60\sa60\nowidctlpar\intbl\tqc\tx3780 5\cell \pard \sb60\sa60\nowidctlpar\intbl\tqc\tx3780 \cell \cell \cell \pard \intbl \row \pard \nowidctlpar\tqc\tx3780      
+\par 
+\par 
+\par {\b\f55\fs24             Ng\'ad\'eai so\'b8t l\'b9i                                                 \tab \tab Ng\'ad\'eai hi\'d6u chu\'c8n
+\par }\pard\plain \s15\qj\nowidctlpar \f15\fs28\cf1      {\f16\fs24 
+\par }}
