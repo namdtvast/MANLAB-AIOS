@@ -130,10 +130,6 @@ main{max-width:1400px;margin:0 auto;padding:0 18px}
 .pyr-tx{min-width:0;flex:1}
 .pyr-t{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em}
 .pyr-s{display:block;font-size:12.5px;opacity:.92;margin-top:2px}
-.pyr-sub{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.pyr-doc-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border:1.5px solid rgba(255,255,255,.55);border-radius:7px;background:rgba(255,255,255,.15);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:background .15s;white-space:nowrap}
-.pyr-doc-btn:hover{background:rgba(255,255,255,.3)}
-.pyr-doc-btn svg{width:13px;height:13px;flex-shrink:0}
 .pyr-l .pyr-n{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:13px;opacity:.85;white-space:nowrap;flex-shrink:0}
 .pyr-l .pyr-tier{font-family:var(--mono);font-weight:800;font-size:15px;opacity:.8;flex-shrink:0}
 .pyr-l.l1{width:44%;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
@@ -769,35 +765,26 @@ function renderQualityPyramid(){
   const S2='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">';
   const icTarget=S2+'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>';
   const icBook=S2+'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>';
-  const icDoc=S2+'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>';
   const icList=S2+'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>';
   const icGear=S2+'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82A1.65 1.65 0 0 0 3 13.09H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
   const icForm=S2+'<path d="M9 2h6a2 2 0 0 1 2 2H7a2 2 0 0 1 2-2Z"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg>';
   const icCpu=S2+'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>';
   const layers=[
-    {ic:icTarget,name:'Chính sách & Mục tiêu chất lượng',desc:'Policy & Objectives — định hướng và cam kết của lãnh đạo',count:'',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM'},
+    {ic:icTarget,name:'Chính sách & Mục tiêu chất lượng',desc:'Policy & Objectives — định hướng và cam kết của lãnh đạo',count:'2 tài liệu',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM'},
     {ic:icBook,  name:'Sổ tay chất lượng',desc:'ETV.QM — hệ thống hoạt động như thế nào',count:'1 QM',cls:'l2',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md'},
     {ic:icList,  name:'Thủ tục',desc:'Procedure (Pxx) — ai làm, khi nào, theo trình tự nào',count:procCount+' tài liệu',cls:'l3',path:'03_MANAGEMENT_SYSTEM/02_P'},
-    {ic:icGear,  name:'Phương pháp / Hướng dẫn công việc',desc:'Method / WI / SOP — làm như thế nào',count:methodCount+' tài liệu',cls:'l4',path:'03_MANAGEMENT_SYSTEM/03_M'},
+    {ic:icGear,  name:'Phương pháp / Quy trình / Hướng dẫn công việc',desc:'Method / WI / SOP — làm như thế nào',count:methodCount+' tài liệu',cls:'l4',path:'03_MANAGEMENT_SYSTEM/03_M'},
     {ic:icForm,  name:'Biểu mẫu – Hồ sơ – Dữ liệu',desc:'Form / Record / Evidence — bằng chứng gì',count:formCount+' tài liệu',cls:'l5',path:'03_MANAGEMENT_SYSTEM/04_F'},
     {ic:icCpu,   name:'AI Knowledge Layer',desc:'Skills – Rules – Prompt – Knowledge Base – Agent',count:aiCount+' tài liệu',cls:'l6',path:'07_AI_OPERATING_SYSTEM'},
-  ];
-  const qmDocs=[
-    {label:'ETV.QM.F01 — Chính sách chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F01_ChinhSachChatLuong.md'},
-    {label:'ETV.QM.F02 — Mục tiêu chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md'},
   ];
   const el=document.getElementById('pyramid-quality');
   if(!el)return;
   el.className='pyramid';
   el.innerHTML=layers.map((l,i)=>{
-    let extra='';
-    if(i===0){
-      extra=`<span class="pyr-sub">${qmDocs.map(d=>`<button class="pyr-doc-btn" onclick="event.stopPropagation();openPath('${esc(d.path)}')">${icDoc}${esc(d.label)}</button>`).join('')}</span>`;
-    }
     return `<div class="pyr-l ${l.cls}" role="button" tabindex="0" onclick="openPath('${esc(l.path)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPath('${esc(l.path)}')}">
       <span class="pyr-tier">${i+1}</span>
       <span class="pyr-ic">${l.ic}</span>
-      <span class="pyr-tx"><span class="pyr-t">${esc(l.name)}</span><span class="pyr-s">${esc(l.desc)}</span>${extra}</span>
+      <span class="pyr-tx"><span class="pyr-t">${esc(l.name)}</span><span class="pyr-s">${esc(l.desc)}</span></span>
       ${l.count?`<span class="pyr-n">${esc(l.count)}</span>`:''}
     </div>`;
   }).join('');
