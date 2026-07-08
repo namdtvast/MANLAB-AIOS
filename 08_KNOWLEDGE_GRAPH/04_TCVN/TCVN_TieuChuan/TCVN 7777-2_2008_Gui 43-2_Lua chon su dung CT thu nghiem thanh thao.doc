@@ -1,0 +1,792 @@
+<html xmlns:v='urn:schemas-microsoft-com:vml'
+                        xmlns:o='urn:schemas-microsoft-com:office:office'
+                        xmlns:w='urn:schemas-microsoft-com:office:word'><head>
+                        <!--[if gte mso 9]>
+                        <xml>
+                        <w:WordDocument>
+                        <w:View>Print</w:View>
+                        <w:Zoom>100</w:Zoom>
+                        <w:DoNotOptimizeForBrowser/>
+                        </w:WordDocument>
+                        </xml>
+                        <![endif]-->
+                        <meta http-equiv=Content-Type content="text/html; charset=utf-8"><meta name=ProgId content=Word.Document></head><body>
+
+<div>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><a
+name=bookmark0><b><span style=''>TIÊU CHUẨN QUỐC GIA</span></b></a></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><b><span
+lang=VI style=''>TCVN </span></b><b><span style=''>7777-2 : 2008</span></b></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><b><span
+style=''>ISO/IEC GUIDE 43-2 : 1997</span></b></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><span
+style='font-size:10.0pt;'>THỬ NGHIỆM THÀNH THẠO BẰNG SO SÁNH
+LIÊN PHÒNG THÍ NGHIỆM - </span></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><span
+style='font-size:10.0pt;'>PHẦN 2: LỰA CHỌN VÀ SỬ DỤNG CÁC
+CHƯƠNG TRÌNH THỬ NGHIỆM THÀNH THẠO CỦA TỔ CHỨC CÔNG NHẬN PHÒNG THÍ NGHIỆM</span></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><i><span
+style='font-size:10.0pt;'>Proficiency testing by interlaboratory
+comparisons - </span></i></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><i><span
+style='font-size:10.0pt;'>Part 2: Selection and use of
+proficiency testing schemes by laboratory accreditation bodies</span></i></p>
+
+<p style='margin-top:6.0pt'><b><span style='font-size:10.0pt;'>Lời nói đầu</span></b></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>TCVN 7777-2 : 2008 hoàn toàn tương đương với ISO/IEC. Guide
+43-2 : 1997.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>TCVN 7777-2 : 2008 do Ban kỹ thuật tiêu chuẩn TCVN/TC 176 <i>Quản
+lý chất lượng và đảm bảo chất lượng </i>biên soạn, Tổng cục Tiêu chuẩn Đo lường
+Chất lượng đề nghị, Bộ Khoa học và Công nghệ công bố.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>TCVN 7777-2 : 2008 là một phần của bộ tiêu chuẩn TCVN 7777
+(ISO/IEC Guide 43). Bộ tiêu chuẩn này gồm 2 phần có tên chung <i>Thử nghiệm
+thành thạo bằng so sánh liên phòng thí nghiệm:</i></span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>- Phần 1: Xây dựng và triển khai các chương trình thử nghiệm
+thành thạo;</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>- Phần 2: Lựa chọn và sử dụng các chương trình thử nghiệm
+thành thạo của tổ chức công nhận phòng thí nghiệm.</span></p>
+
+<p style='margin-top:6.0pt'><b><span style='font-size:10.0pt;'>Lời giới thiệu</span></b></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>TCVN 7777-1 (ISO/IEC Guide 43-1) đưa ra các hướng dẫn cho
+việc xây dựng và triển khai so sánh liên phòng để sử dụng trong các chương
+trình thử nghiệm thành thạo.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Tiêu chuẩn này nhằm cung cấp mô hình hài hòa cho việc lựa
+chọn và sử dụng các chương trình thử nghiệm thành thạo. Điều này sẽ tạo thuận
+lợi cho việc hài hòa quốc gia và quốc tế cũng như việc chấp nhận dữ liệu thử
+nghiệm của các phòng thí nghiệm được công nhận ở nhiều nơi khác nhau.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Chương trình thử nghiệm thành thạo có thể được triển khai bởi
+tổ chức công nhận phòng thí nghiệm cũng như bởi các tổ chức khác. Vì kết quả
+của việc thực hiện chương trình thử nghiệm thành thạo của các phòng thí nghiệm
+được dùng cho việc đánh giá năng lực kỹ thuật của họ nên điều quan trọng là các
+chương trình thử nghiệm thành thạo được sử dụng bởi tổ chức công nhận phải được
+triển khai một cách chuyên nghiệp, hiệu quả, công bằng.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Mục tiêu của việc công nhận phòng thí nghiệm là đưa ra thừa
+nhận độc lập rằng một phòng thí nghiệm có đủ năng lực thực hiện các phép thử, phép
+đo, hiệu chuẩn hoặc lấy mẫu cụ thể. Thủ tục được sử dụng để xác định năng lực
+bao gồm việc đánh giá năng lực cụ thể của phòng thí nghiệm do các chuyên gia
+đánh giá kỹ thuật độc lập đánh giá phòng thí nghiệm về năng lực kỹ thuật và sự
+phù hợp với tiêu chí kỹ thuật và tiêu chí hệ thống chất lượng phù hợp như được
+mô tả trong TCVN ISO/IEC 17025 : 2007.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Phần lớn các tổ chức công nhận phòng thí nghiệm bổ sung cho
+việc đánh giá tại chỗ của mình bằng nhiều hình thức thử nghiệm thực tế khác
+nhau, để đánh giá khả năng so sánh giữa dữ liệu của phòng thí nghiệm với dữ
+liệu quy chiếu hoặc dữ liệu do một hay nhiều phòng thí nghiệm được xác định là
+có năng lực về các phép thử hoặc phép đo liên quan cung cấp.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Một số thử nghiệm thực tế hay thử nghiệm đánh giá có thể xuất
+phát từ nhu cầu đặc biệt đòi hỏi sự tham gia của một phòng thí nghiệm riêng lẻ,
+như thông qua việc gửi mẫu chuẩn được chứng nhận hay mẫu hiệu chuẩn quy chiếu
+cho một phòng thí nghiệm riêng lẻ. Tiêu chuẩn này không nhằm mục đích đề cập kỹ
+thuật này để đánh giá việc thực hiện của phòng thí nghiệm riêng lẻ.</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>&nbsp;</span></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><b><span
+style='font-size:10.0pt;'>THỬ NGHIỆM THÀNH THẠO BẰNG SO SÁNH
+LIÊN PHÒNG THÍ NGHIỆM –</span></b></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><b><span
+style='font-size:10.0pt;'>PHẦN 2: LỰA CHỌN VÀ SỬ DỤNG CÁC
+CHƯƠNG TRÌNH THỬ NGHIỆM THÀNH THẠO CỦA TỔ CHỨC CÔNG NHẬN PHÒNG THÍ NGHIỆM</span></b></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><i><span
+style='font-size:10.0pt;'>Proficiency testing by
+interlaboratory comparison-</span></i></p>
+
+<p style='margin-top:6.0pt'><i><span style='font-size:10.0pt;'>Part 2: Selection and use of proficiency testing schemes by
+laboratory accreditation bodies</span></i></p>
+
+<p style='margin-top:6.0pt'><b><span style='font-size:10.0pt;'>1. Phạm vi áp dụng</span></b></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Mục đích của tiêu chuẩn này là:</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>a) thiết lập các nguyên tắc cho việc lựa chọn chương trình
+thử nghiệm thành thạo để sử dụng trong các chương trình công nhận phòng thí
+nghiệm; và</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>b) hỗ trợ trong việc hài hòa sử dụng kết quả của các chương
+trình thử nghiệm thành thạo của các tổ chức công nhận phòng thí nghiệm (dưới
+đây gọi tắt là tổ chức công nhận).</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Vì kết quả của các chương trình thử nghiệm thành thạo có thể
+được sử dụng trong các quyết định công nhận, nên điều quan trọng là cả tổ chức
+công nhận và các phòng thí nghiệm tham gia đều có sự tin tưởng vào việc thiết
+kế và triển khai chương trình.</span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+lang=VI style='color:black'>Một điều cũng rất quan trọng với các phòng thí
+nghiệm tham gia và các chuyên gia đánh giá c</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng nh</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n phòng thí nghiệm là phải hiểu rõ về các chính sách của tổ
+chức công nhận đối với việc tham gia các chương trình này, tiêu chí dùng để
+đánh giá việc thực hiện thành công chương trình thử nghiệm thành thạo, các ch</span></span><span><span style='color:black'>í</span></span><span><span
+lang=VI style='color:black'>nh sách cũng như thủ tục tiếp theo đối với bất kỳ
+kết quả không phù hợp nào của thử nghiệm thành thạo.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+lang=VI style='color:black'>Tuy nhiên, c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>n thừa nhận rằng tổ chức c</span></span><span><span style='color:black'>ô</span></span><span><span
+lang=VI style='color:black'>ng nhận và các chuyên gia đ</span></span><span><span style='color:black'>á</span></span><span><span
+lang=VI style='color:black'>nh giá của họ có thể xét đến s</span></span><span><span style='color:black'>ự</span></span><span><span
+lang=VI style='color:black'> phù hợp của dữ liệu thử nghiệm có được từ các hoạt
+động khác ngo</span></span><span><span style='color:black'>à</span></span><span><span lang=VI style='color:black'>i chương trình thử nghiệm
+thành thạo. Dữ liệu này bao gồm các kết quả của các thủ tục kiểm soát chất
+lượng nội bộ của phòng th</span></span><span><span
+style='color:black'>í</span></span><span><span lang=VI
+style='color:black'> nghiệm với các mẫu kiểm tra, việc so sánh với dữ liệu mẫu
+tách của các phòng thí nghiệm khác, việc thực hiện các phép thử đánh giá với
+mẫu chuẩn được chứng nhận,.. Tiêu chuẩn này không để cập đến</span></span><span><span lang=VI style='color:black'> </span></span><span><span lang=VI style='color:black'>việc sử dụng dữ liệu từ các
+nguồn này của tổ chức công nhận. Tuy nhiên, cũng c</span></span><span><span style='color:black'>ó</span></span><span><span
+lang=VI style='color:black'> thể áp dụng các</span></span><span><span
+lang=VI style='color:black'> </span></span><span><span lang=VI
+style='color:black'>nguyên tắc đưa ra</span></span><span><span
+lang=VI style='color:black'> </span></span><span><span lang=VI
+style='color:black'>trong tiêu chuẩn, liên quan đến sự tiếp tục của việc thực
+hiện không th</span></span><span><span style='color:black'>ỏa</span></span><span><span lang=VI style='color:black'> mãn ch</span></span><span><span style='color:black'>o</span></span><span><span
+lang=VI style='color:black'> các hoạt động này.</span></span><a name=bookmark3></a></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>2. </span></b></span><span><b><span lang=VI
+style='color:black'>Tài liệu viện dẫn</span></b></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+lang=VI style='color:black'>Các tài liệu vi</span></span><span><span
+style='color:black'>ệ</span></span><span><span lang=VI
+style='color:black'>n dẫn d</span></span><span><span
+style='color:black'>ư</span></span><span><span lang=VI
+style='color:black'>ới đây rất cần thiết cho việc áp dụng tiêu chu</span></span><span><span style='color:black'>ẩ</span></span><span><span
+lang=VI style='color:black'>n nà</span></span><span><span
+style='color:black'>y</span></span><span><span lang=VI
+style='color:black'>. Đ</span></span><span><span
+style='color:black'>ố</span></span><span><span lang=VI
+style='color:black'>i v</span></span><span><span
+style='color:black'>ớ</span></span><span><span lang=VI
+style='color:black'>i các tài tiệu ghi </span></span><span><span
+style='color:black'>năm</span></span><span><span lang=VI
+style='color:black'> c</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng bố th</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'> áp dụng bản được nêu. Đối v</span></span><span><span style='color:black'>ớ</span></span><span><span
+lang=VI style='color:black'>i các tài liệu không ghi n</span></span><span><span style='color:black'>ă</span></span><span><span
+lang=VI style='color:black'>m công bố th</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'> áp dụng bản mới</span></span><span><span
+style='color:black'> n</span></span><span><span lang=VI
+style='color:black'>hất, bao g</span></span><span><span
+style='color:black'>ồ</span></span><span><span lang=VI
+style='color:black'>m c</span></span><span><span
+style='color:black'>ả</span></span><span><span style='color:
+black'> </span></span><span><span style='color:black'>các </span></span><span><span lang=VI style='color:black'>sửa đổi.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>- </span></span><span><span lang=VI
+style='color:black'>TCVN </span></span><span><span
+style='color:black'>I</span></span><span><span lang=VI
+style='color:black'>SO/</span></span><span><span
+style='color:black'>IE</span></span><span><span lang=VI
+style='color:black'>C</span></span><span><span style='color:
+black'> 1</span></span><span><span lang=VI style='color:black'>7025
+:</span></span><span><span lang=VI style='color:black'> </span></span><span><span lang=VI style='color:black'>200</span></span><span><span style='color:black'>7</span></span><span><span
+lang=VI style='color:black'> (</span></span><span><span
+style='color:black'>I</span></span><span><span lang=VI
+style='color:black'>SO/</span></span><span><span
+style='color:black'>I</span></span><span><span lang=VI
+style='color:black'>EC-17025 :</span></span><span><span lang=VI
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>2005</span></span><span><span
+style='color:black'>) Yêu cầu chung về năng lực của phòng thử nghiệm và hiệu
+chuẩn</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>- </span></span><span><span lang=VI
+style='color:black'>TCVN 7777-1 : 2008 (ISO/</span></span><span><span
+style='color:black'>I</span></span><span><span lang=VI
+style='color:black'>EC Guide 43-1</span></span><span><span
+style='color:black'>: </span></span><span><span lang=VI
+style='color:black'>1997) Thử nghiệm thành thạo </span></span><span><span style='color:black'>b</span></span><span><span
+lang=VI style='color:black'>ằng s</span></span><span><span
+style='color:black'>o</span></span><span><span lang=VI
+style='color:black'> sánh</span></span><span><span
+style='color:black'> liên phòng thí nghiệm - Phần 1: Xây dựng và triển khai
+chương trình thử nghiệm thành thạo<a name=bookmark4></a></span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>3. </span></b></span><span><b><span lang=VI
+style='color:black'>Thuật ngữ và định nghĩa</span></b></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>Tiêu chuẩn này áp dụng các định nghĩa được nêu trong TCVN
+7777-1 (ISO/IEC Guide 43-1).<a name=bookmark5></a></span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4. </span></b></span><span><b><span lang=VI
+style='color:black'>Lựa chọn chương trình thử nghiệm thành thạo</span></b></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4.1. </span></b></span><span><span lang=VI
+style='color:black'>Nhằm hỗ trợ việc đánh giá năng lực của phòng thí nghiệm cho
+mục đích c</span></span><span><span style='color:black'>ô</span></span><span><span lang=VI style='color:black'>ng nh</span></span><span><span style='color:black'>ậ</span></span><span><span
+lang=VI style='color:black'>n phòng th</span></span><span><span
+style='color:black'>í</span></span><span><span lang=VI
+style='color:black'> nghiệm, tổ chức công nhận c</span></span><span><span style='color:black'>ầ</span></span><span><span
+lang=VI style='color:black'>n sử dụng các chương tr</span></span><span><span style='color:black'>ì</span></span><span><span
+lang=VI style='color:black'>nh thử nghiệm thành thạo phù hợp với các huớng dẫn
+được m</span></span><span><span style='color:black'>ô</span></span><span><span lang=VI style='color:black'> tả trong TCVN 7777-1 (</span></span><span><span style='color:black'>I</span></span><span><span
+lang=VI style='color:black'>SO/IEC Guide 43-1).</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4.2. </span></b></span><span><span lang=VI
+style='color:black'>Khi triển khai chương trình thử nghiệm thành thạo tổ chức
+công nhận cần đánh giá và xem xét định kỳ (các) chương trình của riêng họ về sự
+phù hợp với TCVN 7777-1 (ISO/IEC Guide 43-1).</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4.3. </span></b></span><span><span lang=VI
+style='color:black'>Nếu sử dụng chương trình thử nghiệm thành thạo do một tổ
+chức khác triển khai, tổ chức công nhận cần tìm kiếm bằng chứng dạng văn bản
+rằng (các) chương tr</span></span><span><span style='color:black'>ì</span></span><span><span lang=VI style='color:black'>nh thầu phụ phù hợp với TCVN
+7777-1 (ISO/IEC Guide 43-1) </span></span><span><span
+style='color:black'>trước </span></span><span><span lang=VI
+style='color:black'>khi thừa nh</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n chương trình. Sự phù hợp cần được xác nhận thông qua việc
+đánh giá.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4.4. </span></b></span><span><span lang=VI
+style='color:black'>Trong quá trình lựa chọn chương trình thử nghiệm thành
+thạo, tổ chức công nhận cần xem xét các yếu tố sau:</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>a) </span></span><span><span lang=VI
+style='color:black'>phép thử, phép đo hoặc hiệu chuẩn liên quan phải phù hợp v</span></span><span><span style='color:black'>ớ</span></span><span><span
+lang=VI style='color:black'>i các loại phép thử, phép đo hoặc hiệu chuẩn do
+phòng thí nghiệm đang đ</span></span><span><span
+style='color:black'>ề</span></span><span><span lang=VI
+style='color:black'> nghị công nhận hoặc phòng thí nghiệm đ</span></span><span><span style='color:black'>ã</span></span><span><span
+lang=VI style='color:black'> được c</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng nh</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n được đề nghị tham gia thực hiện;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>b) với</span></span><span><span lang=VI
+style='color:black'> sự nhất trí của các phòng thí nghiệm đ</span></span><span><span style='color:black'>ượ</span></span><span><span
+lang=VI style='color:black'>c công nh</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n, tổ chức công nhận c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>n có sự tiếp c</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n các kết quả của b</span></span><span><span
+style='color:black'>ê</span></span><span><span lang=VI
+style='color:black'>n tham gia đã được công nhận, cùng với các chi tiết về
+thiết kế chư</span></span><span><span style='color:black'>ơ</span></span><span><span lang=VI style='color:black'>ng trình, các th</span></span><span><span style='color:black'>ủ</span></span><span><span
+lang=VI style='color:black'> t</span></span><span><span
+style='color:black'>ục</span></span><span><span lang=VI
+style='color:black'> thiết lập gi</span></span><span><span
+style='color:black'>á</span></span><span><span style='color:
+black'> <span lang=VI>trị ấn định, các chỉ d</span></span></span><span><span style='color:black'>ẫ</span></span><span><span
+lang=VI style='color:black'>n cho các bên tham gia, việc xử lý thống kê dữ liệu
+và báo c</span></span><span><span style='color:black'>á</span></span><span><span lang=VI style='color:black'>o cuối cùng của mỗi thử nghiệm
+thành th</span></span><span><span style='color:black'>ạ</span></span><span><span lang=VI style='color:black'>o được chọn;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>c) </span></span><span><span lang=VI
+style='color:black'>t</span></span><span><span style='color:
+black'>ầ</span></span><span><span lang=VI style='color:black'>n
+suất vận hành chương tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'>nh</span></span><span><span
+style='color:black'>;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>d) </span></span><span><span lang=VI
+style='color:black'>sự phù h</span></span><span><span
+style='color:black'>ợ</span></span><span><span lang=VI
+style='color:black'>p </span></span><span><span
+style='color:black'>của hoạt động hậu cần tổ chức đối với chương trình, như các
+xem xét về tính toán thời gian, xác định địa điểm, độ ổn định và sắp xếp phân
+bố mẫu thử,… liên quan tới nhóm các phòng thí nghiệm được công nhận được đề
+xuất cho chương trình;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>e) tính sẵn có của tiêu chí chấp nhận đối với các phòng thí
+nghiệm tham gia (nghĩa là tiêu chí đánh giá việc thực hiện thành công trong thử
+nghiệm thành thạo);</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>f) </span></span><span><span lang=VI
+style='color:black'>chi ph</span></span><span><span
+style='color:black'>í</span></span><span><span lang=VI
+style='color:black'> của chương tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'>nh đ</span></span><span><span
+style='color:black'>ược</span></span><span><span lang=VI
+style='color:black'> lựa chọn;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>g) </span></span><span><span lang=VI
+style='color:black'>chính sách của chương trình trong việc duy tr</span></span><span><span style='color:black'>ì</span></span><span><span
+lang=VI style='color:black'> sự bảo mật của các b</span></span><span><span style='color:black'>ê</span></span><span><span
+lang=VI style='color:black'>n tham gia;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>h) </span></span><span><span lang=VI
+style='color:black'>lịch b</span></span><span><span
+style='color:black'>á</span></span><span><span lang=VI
+style='color:black'>o cáo kết quả</span></span><span><span
+style='color:black'>;</span></span><span><span lang=VI
+style='color:black'> và</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>i) độ tin cậy về sự phù hợp của vật liệu thử nghiệm, mẫu
+phương tiện đo,… được sử dụng trong chương trình với những đặc trưng như độ ổn
+định, tính</span></span><span><span lang=VI style='color:black'>
+đồng nhất và khả n</span></span><span><span style='color:black'>ă</span></span><span><span lang=VI style='color:black'>ng </span></span><span><span style='color:black'>liên kết</span></span><span><span lang=VI style='color:black'> với chuẩn quốc gia hoặc quốc
+tế, khi thích hợp.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>CHÚ THÍCH; Một số chương trình thử nghiệm
+thành thạo có thể đưa ra các phép thử không phù hợp chính xác với phép thử được
+thực hiện bởi phòng thí nghiệm được công nhận (ví dụ việc sử dụng các tiêu
+chuẩn quốc gia khác nhau cho cùng sự xác định) nhưng vẫn có thể được chứng minh
+về kỹ thuật để đưa các phòng thí nghiệm vào </span></span><span><span style='font-size:10.0pt;color:black'>chương trình
+nếu việc xử lý dữ liệu cho phép xem xét bất kỳ khác biệt đáng kể nào về phương
+pháp thử hay các yếu tố khác.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>4.5. </span></b></span><span><span lang=VI
+style='color:black'>Việc lựa chọn chương tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'>nh thử nghiệm </span></span><span><span
+style='color:black'>t</span></span><span><span lang=VI
+style='color:black'>hành thạo cụ thể của t</span></span><span><span
+style='color:black'>ổ</span></span><span><span lang=VI
+style='color:black'> chức công nhận c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>n được sự cho phép và giám sát của nh</span></span><span><span style='color:black'>â</span></span><span><span
+lang=VI style='color:black'>n viên có năng lực phù hợp của tổ chức công nhận.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>5. </span></span><span><span
+lang=VI style='font-size:10.0pt;color:black'>Chính sách về việc tham gia chương
+trình thử nghiệm thành thạo</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>5.1.</span></b></span><span><span
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>T</span></span><span><span style='color:
+black'>ổ</span></span><span><span lang=VI style='color:black'>
+chức công nhận cần </span></span><span><span style='color:black'>l</span></span><span><span lang=VI style='color:black'>ập thành văn bản các ch</span></span><span><span style='color:black'>í</span></span><span><span
+lang=VI style='color:black'>nh sách đối với việc tham gia vào các chương tr</span></span><span><span style='color:black'>ì</span></span><span><span
+lang=VI style='color:black'>nh thử nghiệm thành thạo của các phòng thí nghiệm
+được công nhận và phòng thí nghiệm đăng ký tham gia. Các chính sách dạng văn
+bản này cần được công khai cho các phòng thí nghiệm và các b</span></span><span><span style='color:black'>ê</span></span><span><span
+lang=VI style='color:black'>n quan tâm khác.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>5.2. </span></b></span><span><span lang=VI
+style='color:black'>Các vấn đề cần được đưa vào chính sách tham gia bao g</span></span><span><span style='color:black'>ồ</span></span><span><span
+lang=VI style='color:black'>m:</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>a) </span></span><span><span lang=VI
+style='color:black'>việc tham gia l</span></span><span><span
+style='color:black'>à</span></span><span><span lang=VI
+style='color:black'> bắt buộc hoặc tự nguyện với các chương trình thử nghiệm
+thành thạo cụ thể;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>b) </span></span><span><span lang=VI
+style='color:black'>tần su</span></span><span><span
+style='color:black'>ấ</span></span><span><span lang=VI
+style='color:black'>t ph</span></span><span><span
+style='color:black'>ò</span></span><span><span lang=VI
+style='color:black'>ng thí nghiệm được mong đợi hay được mời tham gia vào </span></span><span><span style='color:black'>chương</span></span><span><span lang=VI style='color:black'> trình thử nghiệm thành thạ</span></span><span><span style='color:black'>o</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>c) tiêu </span></span><span><span lang=VI
+style='color:black'>ch</span></span><span><span
+style='color:black'>í </span></span><span><span lang=VI
+style='color:black'>tổ chức công nhận sử dụng để đánh giá việc thực hiện thành công
+hay không th</span></span><span><span style='color:black'>ỏa</span></span><span><span lang=VI style='color:black'> mãn trong chương trình cụ thể</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>d) </span></span><span><span lang=VI
+style='color:black'>phòng thí nghiệm c</span></span><span><span
+style='color:black'>ó</span></span><span><span lang=VI
+style='color:black'> thể được y</span></span><span><span
+style='color:black'>ê</span></span><span><span lang=VI
+style='color:black'>u c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>u tham gia vào các chương tr</span></span><span><span style='color:black'>ì</span></span><span><span
+lang=VI style='color:black'>nh tiếp theo hay khôn</span></span><span><span style='color:black'>g</span></span><span><span
+lang=VI style='color:black'> nếu</span></span><span><span
+style='color:black'> việc thực hiện được đánh giá là không thỏa mãn trong một
+chương trình cụ thể;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>e) kết quả của thử nghiệm thành thạo sẽ được sử dụng như
+thế nào trong quyết định công nhận, và</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>f) </span></span><span><span lang=VI
+style='color:black'>chi tiết về </span></span><span><span
+style='color:black'>chí</span></span><span><span lang=VI
+style='color:black'>nh sách của tổ chức công nh</span></span><span><span style='color:black'>ận</span></span><span><span
+style='color:black'> </span></span><span><span style='color:
+black'>trong việc duy trì tính bảo mật cho các bên tham gia.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>CHÚ THÍCH 1 Trong một số trường hợp, tổ
+chức công nhận có thể có các chính sách yêu cầu bắt buộc tham gia vào một số
+lượng chương trình thử nghiệm thành thạo tối thiểu đã được thông qua và chấp
+nhận sự tham gia tự nguyện vào bất kỳ chương trình bổ sung nào có thể.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>CHÚ THÍCH 2: Thiết kế của chương trình thử
+nghiệm thành thạo khác nhau tùy thuộc vào kỹ thuật sử dụng và tiêu </span></span><span><span style='font-size:10.0pt;color:black'>chí chấp nhận
+cũng có thể thay đổi theo chương trình. Trong nhiều trường hợp, dữ liệu chấp
+nhận sẽ có được từ kết quả thu được trong suốt quá trình tiến hành chương trình
+cụ thể và vì vậy sẽ không có trước cho các phòng thí nghiệm. Trong những trường
+hợp này, tổ chức công </span></span><span><span
+style='font-size:10.0pt;color:black'>nhận cần cung cấp cho các phòng thí nghiệm
+tham gia chi tiết về các nguyên tắc làm cơ sở xây dựng tiêu chí chấp nhận.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>6. S</span></span><span><span
+lang=VI style='font-size:10.0pt;color:black'>ử dụng kết quả của tổ chức công
+nhận</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>6.1.</span></b></span><span><span
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>Kết quả của các chương trình thử nghiệm thành thạo rất có
+ích cho cả phòng thí nghiệm tham gia và t</span></span><span><span
+style='color:black'>ổ</span></span><span><span lang=VI
+style='color:black'> chức công nhận. Tuy nhiên, cũng có các hạn chế trong việc
+sử dụng các kết quả này để xác định năng lực. Việc thực hiện thành công trong
+một chương trình cụ thể có thể </span></span><span><span
+style='color:black'>l</span></span><span><span lang=VI
+style='color:black'>à bằng chứng về năng lực của việc thực hiện đó nhưng có thể
+không phản </span></span><span><span style='color:black'>á</span></span><span><span lang=VI style='color:black'>nh năng lực liên tục. Tương tự
+như vậy, việc thực hiện không thành công một chương tr</span></span><span><span style='color:black'>ì</span></span><span><span
+lang=VI style='color:black'>nh cụ thể có thể ph</span></span><span><span style='color:black'>ả</span></span><span><span
+lang=VI style='color:black'>n ánh sự xa rời ngẫu nhiên khỏi trạng thái năng lực
+t</span></span><span><span style='color:black'>hô</span></span><span><span lang=VI style='color:black'>ng thường của phòng thí
+nghiệm. V</span></span><span><span style='color:black'>ì</span></span><span><span lang=VI style='color:black'> những lý do này mà tổ chức
+công nhận không nên chỉ sử dụng thử nghiệm thành thạo trong quá </span></span><span><span style='color:black'>trì</span></span><span><span
+lang=VI style='color:black'>nh công nhận.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>6.2. </span></b></span><span><span lang=VI
+style='color:black'>Nếu phòng th</span></span><span><span
+style='color:black'>í</span></span><span><span lang=VI
+style='color:black'> nghiệm đệ trình một hoặc nhiều kết quả nằm ngoài tiêu chí
+chấp nhận đối với một chương trình cụ thể th</span></span><span><span
+style='color:black'>ì</span></span><span><span style='color:
+black'> <span lang=VI>tổ chức công nhận cần có thủ tục để tác động đến các kết
+quả này.</span></span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>6.3. </span></b></span><span><span lang=VI
+style='color:black'>Các thủ tục này c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>n bao gồm việc báo cáo sớm cho phòng thí nghiệm về kết quả
+cùng với việc mời kiểm tra và cho ý kiến về việc thực hiện của họ.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+lang=VI style='color:black'>CHÚ THÍCH: </span></span><span><span
+style='color:black'>Mộ</span></span><span><span lang=VI
+style='color:black'>t số chương </span></span><span><span
+style='color:black'>trì</span></span><span><span lang=VI
+style='color:black'>nh thử nghiệm thành th</span></span><span><span
+style='color:black'>ạ</span></span><span><span lang=VI
+style='color:black'>o c</span></span><span><span
+style='color:black'>ầ</span></span><span><span lang=VI
+style='color:black'>n thời gian đáng kể để hoàn thành, đặc biệ</span></span><span><span style='color:black'>t</span></span><span><span
+lang=VI style='color:black'> khi các </span></span><span><span
+lang=VI style='color:black'>bên tham gia đ</span></span><span><span style='color:black'>ược</span></span><span><span lang=VI style='color:black'> cung cấp</span></span><span><span style='color:black'> liên </span></span><span><span lang=VI style='color:black'>tiếp cùng một mẫu thử
+nghiệm để thử</span></span><span><span style='color:black'>,</span></span><span><span lang=VI style='color:black'> đo hay hiệu chu</span></span><span><span style='color:black'>ẩ</span></span><span><span lang=VI style='color:black'>n. Trong những t</span></span><span><span style='color:black'>rường </span></span><span><span lang=VI style='color:black'>hợp này, các phòng th</span></span><span><span style='color:black'>í</span></span><span><span lang=VI style='color:black'> nghiệm cần được cung cấp
+các báo cáo tạm thời về việc thực hiện và đ</span></span><span><span style='color:black'>ặ</span></span><span><span lang=VI style='color:black'>c biệt khi các kết qu</span></span><span><span style='color:black'>ả</span></span><span><span lang=VI style='color:black'> báo</span></span><span><span lang=VI style='color:black'> </span></span><span><span lang=VI style='color:black'>cáo kh</span></span><span><span style='color:black'>ô</span></span><span><span lang=VI style='color:black'>ng th</span></span><span><span style='color:black'>ỏa</span></span><span><span lang=VI style='color:black'> mãn. Đi</span></span><span><span style='color:black'>ề</span></span><span><span lang=VI style='color:black'>u này s</span></span><span><span style='color:black'>ẽ</span></span><span><span lang=VI style='color:black'> cho phép tiến hành nhanh
+chóng việc kiểm tra và bất kỳ hành đ</span></span><span><span
+style='color:black'>ộ</span></span><span><span lang=VI
+style='color:black'>ng </span></span><span><span lang=VI
+style='color:black'>khắc phục nào sau đó mà kh</span></span><span><span style='color:black'>ô</span></span><span><span lang=VI style='color:black'>ng chờ đến khi ban hành
+báo cáo cuối cùng của chương trình.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>6.4.</span></b></span><span><span
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>V</span></span><span><span style='color:
+black'>ớ</span></span><span><span lang=VI style='color:black'>i
+những phòng thí nghiệm báo cáo</span></span><span><span lang=VI
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>kết</span></span><span><span lang=VI
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>quả không th</span></span><span><span
+style='color:black'>ỏa</span></span><span><span lang=VI
+style='color:black'> mãn</span></span><span><span
+style='color:black'>, </span></span><span><span lang=VI
+style='color:black'>tổ chức c</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng nhận cần có cá</span></span><span><span
+style='color:black'>c</span></span><span><span lang=VI
+style='color:black'> chính s</span></span><span><span
+style='color:black'>á</span></span><span><span lang=VI
+style='color:black'>ch để:</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>a) kiểm tra và góp ý cho phòng thí nghiệm về việc thực hiện
+của họ trong phạm vi thời gian thỏa thuận;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>b) khi cần phòng thí nghiệm phải đảm nhận bất kỳ thử nghiệm
+thành thạo tiếp theo nào có thể có, để xác nhận rằng mọi hành động khắc phục do
+phòng thí nghiệm thực hiện là có hiệu lực; và</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>d) đ</span></span><span><span lang=VI
+style='color:black'>ánh giá tại chỗ phòng </span></span><span><span
+style='color:black'>t</span></span><span><span lang=VI
+style='color:black'>hí nghiệm</span></span><span><span lang=VI
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>do các chuyên g</span></span><span><span
+style='color:black'>i</span></span><span><span lang=VI
+style='color:black'>a đánh giá kỹ thuật phù hợp thực hiện khi c</span></span><span><span style='color:black'>ầ</span></span><span><span
+lang=VI style='color:black'>n để xác nhận rằng mọi hành động khắc phục đ</span></span><span><span style='color:black'>ề</span></span><span><span
+lang=VI style='color:black'>u có hiệu l</span></span><span><span
+style='color:black'>ực;</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>6.5. </span></b></span><span><span lang=VI
+style='color:black'>Tổ chức công nhận cần báo cho các phòng thí nghiệm tham gia
+về kết quả có thể của việc thực hiện không th</span></span><span><span style='color:black'>ỏa</span></span><span><span
+lang=VI style='color:black'> mãn chương tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'>nh thử nghiệm thành thạo. Các kết quả này có thể ở các mức
+độ khác nhau, từ công nhận đối tượng với lưu ý thực hiện hành động khắc phục
+trong phạm vi thời gian thoả </span></span><span><span
+lang=VI style='color:black'>thuận,</span></span><span><span
+style='color:black'> đình chỉ tạm thời việc công nhận đối với các thử nghiệm
+liên quan (đối tượng của hành động khắc phục), cho đến hủy bỏ việc công nhận
+các thử nghiệm liên quan. Thông thường, lựa chọn của tổ chức công nhận sẽ phụ
+thuộc vào lịch sử thực hiện theo thời gian của phòng thí nghiệm và từ các đánh
+giá tại chỗ mới nhất.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+lang=VI style='color:black'>6.6.</span></b></span><span><span
+lang=VI style='color:black'> T</span></span><span><span
+style='color:black'>ổ</span></span><span><span lang=VI
+style='color:black'> ch</span></span><span><span
+style='color:black'>ức</span></span><span><span
+style='color:black'> <span lang=VI>công nhận c</span></span></span><span><span style='color:black'>ầ</span></span><span><span
+lang=VI style='color:black'>n có các thủ tục để đảm b</span></span><span><span style='color:black'>ả</span></span><span><span
+lang=VI style='color:black'>o duy trì h</span></span><span><span
+style='color:black'>ồ</span></span><span><span lang=VI
+style='color:black'> sơ việc thực hiện của các ph</span></span><span><span style='color:black'>ò</span></span><span><span
+lang=VI style='color:black'>ng thí nghi</span></span><span><span
+style='color:black'>ệ</span></span><span><span lang=VI
+style='color:black'>m trong chương tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'>nh thử nghiệm thành thạo (trong tệp dữ liệu hoặc hồ sơ công
+nhận) cho các ph</span></span><span><span style='color:black'>ò</span></span><span><span lang=VI style='color:black'>ng thí nghiệm tham gia và sẵn
+có để chuyên gia kỹ thu</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>t đánh giá tại chỗ.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+lang=VI style='color:black'>6.7</span></b></span><span><b><span
+style='color:black'>.</span></b></span><span><span lang=VI
+style='color:black'> Các tổ chức c</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng nh</span></span><span><span
+style='color:black'>ậ</span></span><span><span lang=VI
+style='color:black'>n cần có chính sách về việc phản hồi th</span></span><span><span style='color:black'>ô</span></span><span><span
+lang=VI style='color:black'>ng tin từ phòng thí nghiệm được công nhận về </span></span><span><span style='color:black'>h</span></span><span><span
+lang=VI style='color:black'>ành động được thực hiện từ kết quả của ch</span></span><span><span style='color:black'>ươ</span></span><span><span
+lang=VI style='color:black'>ng trình thử nghiệm thành thạo, đặc biệt đối với
+việc thực hiện không th</span></span><span><span
+style='color:black'>ỏa</span></span><span><span lang=VI
+style='color:black'> mãn.</span></span></p>
+
+<p align=left style='margin-top:6.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:left;
+line-height:normal;background:transparent'><span><span
+style='font-size:10.0pt;color:black'>7. </span></span><span><span
+lang=VI style='font-size:10.0pt;color:black'>Hành động và phản hồi của phòng
+thí nghiệm</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>7.1. </span></b></span><span><span lang=VI
+style='color:black'>Phòng thí nghiệm được công nhận c</span></span><span><span style='color:black'>ầ</span></span><span><span
+lang=VI style='color:black'>n duy tr</span></span><span><span
+style='color:black'>ì</span></span><span><span lang=VI
+style='color:black'> h</span></span><span><span
+style='color:black'>ồ</span></span><span><span lang=VI
+style='color:black'> sơ việc thực hiện thử nghiệm thành thạo của mình, bao gồm
+kết quả kiểm tra bất kỳ kết quả không thoả mãn nào và bất kỳ hành động khắc
+phục </span></span><span><span lang=VI style='color:black'>hay
+phòng ngừa nào sau đó</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><b><span
+style='color:black'>7.2. </span></b></span><span><span lang=VI
+style='color:black'>Các phòng thí nghiệm cần đưa ra kết luận riêng </span></span><span><span style='color:black'>về </span></span><span><span
+lang=VI style='color:black'>việc thực hiện của mình từ đánh giá v</span></span><span><span style='color:black'>ề</span></span><span><span
+style='color:black'> </span></span><span><span style='color:
+black'>t</span></span><span><span lang=VI style='color:black'>ổ
+chức và thiết kế thử nghiệm thành thạo</span></span><span><span
+style='color:black'>. </span></span><span><span lang=VI
+style='color:black'>Th</span></span><span><span
+style='color:black'>ô</span></span><span><span lang=VI
+style='color:black'>ng tin xem xét cần bao gồm:</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>a) </span></span><span><span lang=VI
+style='color:black'>nguồn gốc và đ</span></span><span><span
+style='color:black'>ặ</span></span><span><span lang=VI
+style='color:black'>c điểm của mẫu thử:</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>b) </span></span><span><span lang=VI
+style='color:black'>phương pháp thử được s</span></span><span><span
+style='color:black'>ử</span></span><span><span lang=VI
+style='color:black'> dụng v</span></span><span><span
+style='color:black'>à</span></span><span><span lang=VI
+style='color:black'> việc</span></span><span><span lang=VI
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>ổn </span></span><span><span
+style='color:black'>định</span></span><span><span lang=VI
+style='color:black'> kết quả cho các phư</span></span><span><span
+style='color:black'>ơ</span></span><span><span lang=VI
+style='color:black'>ng ph</span></span><span><span
+style='color:black'>á</span></span><span><span lang=VI
+style='color:black'>p cụ thể, khi có th</span></span><span><span
+style='color:black'>ể</span></span><span><span lang=VI
+style='color:black'>.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>c) </span></span><span><span
+lang=VI style='color:black'>việc tổ</span></span><span><span lang=VI style='color:black'> </span></span><span><span lang=VI style='color:black'>chức thử nghiệm </span></span><span><span lang=VI style='color:black'>thành </span></span><span><span lang=VI style='color:black'>thạo (ví dụ m</span></span><span><span style='color:black'>ô</span></span><span><span lang=VI style='color:black'> hình th</span></span><span><span style='color:black'>ố</span></span><span><span lang=VI style='color:black'>ng </span></span><span><span lang=VI style='color:black'>k</span></span><span><span style='color:black'>ê</span></span><span><span
+lang=VI style='color:black'>, </span></span><span><span
+style='color:black'>số</span></span><span><span
+style='color:black'> </span></span><span><span lang=VI
+style='color:black'>lượng </span></span><span><span
+style='color:black'>bản </span></span><span><span lang=VI
+style='color:black'>sao</span></span><span><span
+style='color:black'>, tham số được do, phương thức thực hiện);</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>d) tiêu chí mà cơ quan tổ chức sử dụng để đánh giá việc
+thực hiện, của các bên tham gia.</span></span></p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+0in;line-height:normal;background:transparent'><span><span
+style='color:black'>&nbsp;</span></span></p>
+
+<p align=center style='margin-top:6.0pt;text-align:center'><b><span
+style='font-size:10.0pt;'>MỤC LỤC</span></b></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Lời nói đầu</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>Lời giới thiệu</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>1 Phạm vi áp dụng</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>2 Tài liệu viện dẫn</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>3 Thuật ngữ và định nghĩa</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>4 Lựa chọn chương trình thử nghiệm thành thạo</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>5 Chính sách khi tham gia các chương trình thử nghiệm thành
+thạo</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>6 Sử dụng kết quả của các tổ chức công nhận</span></p>
+
+<p style='margin-top:6.0pt'><span style='font-size:10.0pt;'>7 Hành động và phản hồi của phòng thí nghiệm</span></p>
+
+</div>
+
+<!--LdABoAHUAdgBpAGUAbgBwAGgAYQBwAGwAdQBhAHQALgB2AG4A--></body></html>
