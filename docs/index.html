@@ -135,11 +135,14 @@ main{max-width:1400px;margin:0 auto;padding:0 18px}
 .pyr-doc-btn:hover{background:rgba(255,255,255,.3)}
 .pyr-doc-btn svg{width:13px;height:13px;flex-shrink:0}
 .pyr-l .pyr-n{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:13px;opacity:.85;white-space:nowrap}
-.pyr-l.l1{width:52%;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
-.pyr-l.l2{width:68%;background:linear-gradient(135deg,#0e7490,#06b6d4)}
-.pyr-l.l3{width:84%;background:linear-gradient(135deg,#15803d,#22c55e)}
-.pyr-l.l4{width:100%;background:linear-gradient(135deg,#b45309,#f59e0b)}
-@media(max-width:560px){.pyr-l,.pyr-l.l1,.pyr-l.l2,.pyr-l.l3,.pyr-l.l4{width:100%}.pyr-l .pyr-n{display:none}}
+.pyr-l .pyr-tier{font-family:var(--mono);font-weight:800;font-size:15px;opacity:.8;flex-shrink:0}
+.pyr-l.l1{width:40%;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+.pyr-l.l2{width:52%;background:linear-gradient(135deg,#15803d,#22c55e)}
+.pyr-l.l3{width:64%;background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.pyr-l.l4{width:76%;background:linear-gradient(135deg,#b45309,#f59e0b)}
+.pyr-l.l5{width:88%;background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.pyr-l.l6{width:100%;background:linear-gradient(135deg,#6d28d9,#a855f7)}
+@media(max-width:560px){.pyr-l,.pyr-l.l1,.pyr-l.l2,.pyr-l.l3,.pyr-l.l4,.pyr-l.l5,.pyr-l.l6{width:100%}.pyr-l .pyr-n{display:none}}
 
 /* ---------- Explorer ---------- */
 .explorer{display:grid;grid-template-columns:340px 1fr;gap:18px;padding:20px 0 60px;align-items:start}
@@ -521,8 +524,8 @@ html[data-theme=dark] .tier-managed.both{color:#a78bfa}
     <p class="section-sub">Từ "vì sao tồn tại" đến "tương lai" — dòng chảy giá trị xuyên suốt. Tầng có ⭐ là tầng cốt lõi. Nhấp để khám phá.</p>
     <div class="tiers" id="tiers"></div>
 
-    <h2 class="section-h"><span class="sh-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V8l6-5 6 5v13M10 21v-6h4v6"/></svg></span>Tháp tài liệu chất lượng</h2>
-    <p class="section-sub">Bốn tầng tài liệu theo ISO/IEC 17025 &amp; ISO 9001: từ Sổ tay chất lượng định hướng đến biểu mẫu/hồ sơ ghi nhận. Nhấp từng tầng để mở.</p>
+    <h2 class="section-h"><span class="sh-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V8l6-5 6 5v13M10 21v-6h4v6"/></svg></span>Mô hình QMS 6 tầng</h2>
+    <p class="section-sub">Một hệ thống — 6 tầng tài liệu — minh bạch, hiệu quả, sẵn sàng cho AI. Từ Chính sách/Mục tiêu định hướng đến AI Knowledge Layer hỗ trợ vận hành. Nhấp từng tầng để mở.</p>
     <div id="pyramid-quality"></div>
 
     <h2 class="section-h"><span class="sh-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7Z"/></svg></span>Ba quy ước bất biến</h2>
@@ -773,23 +776,30 @@ function countInTree(node){
 }
 
 function renderQualityPyramid(){
-  const withDoc=(DATA.processes||[]).filter(p=>p.has_doc).length;
-  const formsNode=BYPATH['06_SHARED_RESOURCES'];
-  const formsCount=formsNode?countInTree(formsNode):DATA.counts.docs;
+  const countAt=(p)=>{const n=BYPATH[p];return n?countInTree(n):0;};
+  const procCount=countAt('03_MANAGEMENT_SYSTEM/02_P');
+  const methodCount=countAt('03_MANAGEMENT_SYSTEM/03_M');
+  const formCount=countAt('03_MANAGEMENT_SYSTEM/04_F')+countAt('03_MANAGEMENT_SYSTEM/05_R');
+  const aiCount=countAt('07_AI_OPERATING_SYSTEM');
   const S2='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">';
+  const icTarget=S2+'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>';
   const icBook=S2+'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>';
-  const icGit=S2+'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M21 6h-7a4 4 0 0 0-4 4v4"/></svg>';
   const icDoc=S2+'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>';
+  const icList=S2+'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>';
+  const icGear=S2+'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82A1.65 1.65 0 0 0 3 13.09H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
   const icForm=S2+'<path d="M9 2h6a2 2 0 0 1 2 2H7a2 2 0 0 1 2-2Z"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg>';
+  const icCpu=S2+'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>';
   const layers=[
-    {ic:icBook,name:'Sổ tay chất lượng (STCL)',desc:'ETV.QM — chính sách & định hướng tổng thể',count:'1 QM',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.01_QuanlyChatluong.md'},
-    {ic:icGit, name:'Quy trình (MP)',desc:'38 quy trình quản lý — "làm thế nào"',count:DATA.counts.processes+' MP',cls:'l2',path:'04_PROCESS_LIBRARY'},
-    {ic:icDoc, name:'Thủ tục',desc:'Bản thủ tục chi tiết trong từng Hub MP',count:withDoc+' ban hành',cls:'l3',path:'04_PROCESS_LIBRARY/MP21_CongBoNangLuc'},
-    {ic:icForm,name:'Biểu mẫu / Hồ sơ',desc:'Biểu mẫu gốc dùng chung & hồ sơ ghi nhận bằng chứng',count:formsCount+' tài liệu',cls:'l4',path:'06_SHARED_RESOURCES'},
+    {ic:icTarget,name:'Chính sách & Mục tiêu chất lượng',desc:'Policy & Objectives — định hướng và cam kết của lãnh đạo',count:'2 tài liệu',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM'},
+    {ic:icBook,  name:'Sổ tay chất lượng',desc:'ETV.QM — hệ thống hoạt động như thế nào',count:'1 QM',cls:'l2',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md'},
+    {ic:icList,  name:'Thủ tục',desc:'Procedure (Pxx) — ai làm, khi nào, theo trình tự nào',count:procCount+' tài liệu',cls:'l3',path:'03_MANAGEMENT_SYSTEM/02_P'},
+    {ic:icGear,  name:'Phương pháp / Hướng dẫn công việc',desc:'Method / WI / SOP — làm như thế nào',count:methodCount+' tài liệu',cls:'l4',path:'03_MANAGEMENT_SYSTEM/03_M'},
+    {ic:icForm,  name:'Biểu mẫu – Hồ sơ – Dữ liệu',desc:'Form / Record / Evidence — bằng chứng gì',count:formCount+' tài liệu',cls:'l5',path:'03_MANAGEMENT_SYSTEM/04_F'},
+    {ic:icCpu,   name:'AI Knowledge Layer',desc:'Skills – Rules – Prompt – Knowledge Base – Agent',count:aiCount+' tài liệu',cls:'l6',path:'07_AI_OPERATING_SYSTEM'},
   ];
   const qmDocs=[
-    {label:'Chính sách chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F01_ChinhSachChatLuong.md'},
-    {label:'Mục tiêu chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md'},
+    {label:'ETV.QM.F01 — Chính sách chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F01_ChinhSachChatLuong.md'},
+    {label:'ETV.QM.F02 — Mục tiêu chất lượng',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.F02_MucTieuChatLuong.md'},
   ];
   const el=document.getElementById('pyramid-quality');
   if(!el)return;
@@ -800,6 +810,7 @@ function renderQualityPyramid(){
       extra=`<span class="pyr-sub">${qmDocs.map(d=>`<button class="pyr-doc-btn" onclick="event.stopPropagation();openPath('${esc(d.path)}')">${icDoc}${esc(d.label)}</button>`).join('')}</span>`;
     }
     return `<button class="pyr-l ${l.cls}" onclick="openPath('${esc(l.path)}')">
+      <span class="pyr-tier">${i+1}</span>
       <span class="pyr-ic">${l.ic}</span>
       <span class="pyr-tx"><span class="pyr-t">${esc(l.name)}</span><span class="pyr-s">${esc(l.desc)}</span>${extra}</span>
       <span class="pyr-n">${esc(l.count)}</span>

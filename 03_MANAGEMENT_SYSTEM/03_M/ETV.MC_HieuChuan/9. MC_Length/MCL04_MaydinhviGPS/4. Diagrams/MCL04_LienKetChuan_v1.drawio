@@ -120,7 +120,7 @@
           <mxGeometry x="725" y="1125" width="200" height="40" as="geometry" />
         </mxCell>
 
-        <mxCell id="legnote" value="Ghi chú: Liên kết chuẩn đo lường (LKC) là tính chất của kết quả đo cho phép liên hệ tới mốc quy chiếu qua một chuỗi hiệu chuẩn không gián đoạn, mỗi bước đóng góp vào độ không đảm bảo đo (VIM; ETV.QM.01 Mục 6.5). Chuẩn công tác và điểm chuẩn tọa độ được duy trì liên kết chuẩn thông qua hiệu chuẩn định kỳ độc lập, kiểm soát theo Thủ tục ETV.MP 05 (Quản lý thiết bị, chuẩn đo lường)." style="text;html=1;align=left;fontSize=10;fontColor=#666666;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="legnote" value="Ghi chú: Liên kết chuẩn đo lường (LKC) là tính chất của kết quả đo cho phép liên hệ tới mốc quy chiếu qua một chuỗi hiệu chuẩn không gián đoạn, mỗi bước đóng góp vào độ không đảm bảo đo (VIM; ETV.QM Mục 6.5). Chuẩn công tác và điểm chuẩn tọa độ được duy trì liên kết chuẩn thông qua hiệu chuẩn định kỳ độc lập, kiểm soát theo Thủ tục ETV.MP 05 (Quản lý thiết bị, chuẩn đo lường)." style="text;html=1;align=left;fontSize=10;fontColor=#666666;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="20" y="1180" width="905" height="55" as="geometry" />
         </mxCell>
 

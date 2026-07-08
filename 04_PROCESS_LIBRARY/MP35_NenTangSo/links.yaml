@@ -1,5 +1,5 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM.01_QuanlyChatluong.md
+procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M35_NenTangSo
 forms:      ../../06_SHARED_RESOURCES/01_Forms

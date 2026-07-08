@@ -32,7 +32,7 @@ superseded_by: null
 | **Soát xét**      | Nguyễn Văn Huy        |
 | **Phê duyệt**     | Nguyễn Hoàng Giang    |
 
-> **Tình trạng bản này: ĐÃ PHÊ DUYỆT.** Tài liệu tập hợp Chính sách chất lượng hiện hành và các phiên bản trước để đối chiếu lịch sử. Chính sách chất lượng chi tiết cũng được dẫn chiếu tại [ETV.QM](ETV.QM.01_QuanlyChatluong.md) §2.6.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT.** Tài liệu tập hợp Chính sách chất lượng hiện hành và các phiên bản trước để đối chiếu lịch sử. Chính sách chất lượng chi tiết cũng được dẫn chiếu tại [ETV.QM](ETV.QM_QuanlyChatluong.md) §2.6.
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
