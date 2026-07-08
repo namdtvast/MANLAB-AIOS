@@ -121,28 +121,28 @@ main{max-width:1400px;margin:0 auto;padding:0 18px}
 .section-h .sh-ic svg{width:18px;height:18px}
 
 /* ---------- Document pyramid ---------- */
-.pyramid{max-width:740px;margin:18px auto 0;display:flex;flex-direction:column;align-items:center;gap:9px}
-.pyr-l{border:none;cursor:pointer;color:#fff;padding:15px 22px;display:flex;align-items:center;gap:15px;
+.pyramid{max-width:980px;width:100%;margin:18px auto 0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.pyr-l{border:none;cursor:pointer;color:#fff;padding:16px 24px;display:flex;align-items:center;gap:16px;
   border-radius:10px;transition:transform .15s,box-shadow .16s,filter .15s;box-shadow:var(--shadow);text-align:left}
 .pyr-l:hover{transform:translateY(-2px) scale(1.012);box-shadow:var(--shadow-lg);filter:brightness(1.06)}
 .pyr-ic{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.22);display:grid;place-items:center;flex-shrink:0}
 .pyr-ic svg{width:22px;height:22px;color:#fff}
-.pyr-tx{min-width:0}
+.pyr-tx{min-width:0;flex:1}
 .pyr-t{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em}
 .pyr-s{display:block;font-size:12.5px;opacity:.92;margin-top:2px}
 .pyr-sub{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.pyr-doc-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border:1.5px solid rgba(255,255,255,.55);border-radius:7px;background:rgba(255,255,255,.15);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:background .15s}
+.pyr-doc-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border:1.5px solid rgba(255,255,255,.55);border-radius:7px;background:rgba(255,255,255,.15);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:background .15s;white-space:nowrap}
 .pyr-doc-btn:hover{background:rgba(255,255,255,.3)}
 .pyr-doc-btn svg{width:13px;height:13px;flex-shrink:0}
-.pyr-l .pyr-n{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:13px;opacity:.85;white-space:nowrap}
+.pyr-l .pyr-n{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:13px;opacity:.85;white-space:nowrap;flex-shrink:0}
 .pyr-l .pyr-tier{font-family:var(--mono);font-weight:800;font-size:15px;opacity:.8;flex-shrink:0}
-.pyr-l.l1{width:40%;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
-.pyr-l.l2{width:52%;background:linear-gradient(135deg,#15803d,#22c55e)}
-.pyr-l.l3{width:64%;background:linear-gradient(135deg,#0e7490,#06b6d4)}
-.pyr-l.l4{width:76%;background:linear-gradient(135deg,#b45309,#f59e0b)}
-.pyr-l.l5{width:88%;background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.pyr-l.l1{width:44%;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+.pyr-l.l2{width:56%;background:linear-gradient(135deg,#15803d,#22c55e)}
+.pyr-l.l3{width:68%;background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.pyr-l.l4{width:80%;background:linear-gradient(135deg,#b45309,#f59e0b)}
+.pyr-l.l5{width:90%;background:linear-gradient(135deg,#b91c1c,#ef4444)}
 .pyr-l.l6{width:100%;background:linear-gradient(135deg,#6d28d9,#a855f7)}
-@media(max-width:560px){.pyr-l,.pyr-l.l1,.pyr-l.l2,.pyr-l.l3,.pyr-l.l4,.pyr-l.l5,.pyr-l.l6{width:100%}.pyr-l .pyr-n{display:none}}
+@media(max-width:760px){.pyr-l,.pyr-l.l1,.pyr-l.l2,.pyr-l.l3,.pyr-l.l4,.pyr-l.l5,.pyr-l.l6{width:100%}.pyr-l .pyr-n{display:none}}
 
 /* ---------- Explorer ---------- */
 .explorer{display:grid;grid-template-columns:340px 1fr;gap:18px;padding:20px 0 60px;align-items:start}
@@ -381,21 +381,6 @@ html[data-theme=dark] .tier-managed.both{color:#a78bfa}
 .gtbl th{background:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted-fg)}
 .gtbl tr:nth-child(even) td{background:var(--bg)}
 
-/* ---------- Pyramid layers ---------- */
-.pyramid{display:flex;flex-direction:column;align-items:center;gap:12px;margin:30px 0;max-width:560px;margin-left:auto;margin-right:auto}
-.pyr-layer{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 20px;border-radius:10px;
-  border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s;cursor:pointer;position:relative;min-width:100%}
-.pyr-layer:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.pyr-layer .pyr-icon{width:32px;height:32px;display:grid;place-items:center;flex-shrink:0;color:var(--accent)}
-.pyr-layer .pyr-text{text-align:left;flex:1}
-.pyr-layer .pyr-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted-fg);display:block}
-.pyr-layer .pyr-name{font-size:15px;font-weight:600;color:var(--fg);display:block;margin-top:2px}
-.pyr-layer .pyr-arrow{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);color:var(--border-strong);font-size:20px}
-.pyr-layer:last-child .pyr-arrow{display:none}
-.pyr-layer.l1{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,transparent),color-mix(in srgb,var(--accent) 5%,transparent));border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
-.pyr-layer.l2{background:color-mix(in srgb,var(--accent) 8%,transparent)}
-.pyr-layer.l3{background:var(--bg)}
-.pyr-layer.l4{background:var(--bg)}
 
 /* ---------- Documents table ---------- */
 .docs-table{width:100%;border-collapse:collapse;font-size:13px}
@@ -790,7 +775,7 @@ function renderQualityPyramid(){
   const icForm=S2+'<path d="M9 2h6a2 2 0 0 1 2 2H7a2 2 0 0 1 2-2Z"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg>';
   const icCpu=S2+'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>';
   const layers=[
-    {ic:icTarget,name:'Chính sách & Mục tiêu chất lượng',desc:'Policy & Objectives — định hướng và cam kết của lãnh đạo',count:'2 tài liệu',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM'},
+    {ic:icTarget,name:'Chính sách & Mục tiêu chất lượng',desc:'Policy & Objectives — định hướng và cam kết của lãnh đạo',count:'',cls:'l1',path:'03_MANAGEMENT_SYSTEM/01_QM'},
     {ic:icBook,  name:'Sổ tay chất lượng',desc:'ETV.QM — hệ thống hoạt động như thế nào',count:'1 QM',cls:'l2',path:'03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md'},
     {ic:icList,  name:'Thủ tục',desc:'Procedure (Pxx) — ai làm, khi nào, theo trình tự nào',count:procCount+' tài liệu',cls:'l3',path:'03_MANAGEMENT_SYSTEM/02_P'},
     {ic:icGear,  name:'Phương pháp / Hướng dẫn công việc',desc:'Method / WI / SOP — làm như thế nào',count:methodCount+' tài liệu',cls:'l4',path:'03_MANAGEMENT_SYSTEM/03_M'},
@@ -809,12 +794,12 @@ function renderQualityPyramid(){
     if(i===0){
       extra=`<span class="pyr-sub">${qmDocs.map(d=>`<button class="pyr-doc-btn" onclick="event.stopPropagation();openPath('${esc(d.path)}')">${icDoc}${esc(d.label)}</button>`).join('')}</span>`;
     }
-    return `<button class="pyr-l ${l.cls}" onclick="openPath('${esc(l.path)}')">
+    return `<div class="pyr-l ${l.cls}" role="button" tabindex="0" onclick="openPath('${esc(l.path)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPath('${esc(l.path)}')}">
       <span class="pyr-tier">${i+1}</span>
       <span class="pyr-ic">${l.ic}</span>
       <span class="pyr-tx"><span class="pyr-t">${esc(l.name)}</span><span class="pyr-s">${esc(l.desc)}</span>${extra}</span>
-      <span class="pyr-n">${esc(l.count)}</span>
-    </button>`;
+      ${l.count?`<span class="pyr-n">${esc(l.count)}</span>`:''}
+    </div>`;
   }).join('');
 }
 
