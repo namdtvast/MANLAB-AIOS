@@ -1,23 +1,14 @@
 # 00_RAW_DATA — Kho tài liệu thô chưa phân loại
 
-**Mục đích:** Lưu trữ tạm thời tài liệu PDF, Word, ảnh liên quan đến ISO, pháp lý, tiêu chuẩn, quy trình trước khi phân loại vào các thư mục chính.
+**Mục đích:** Lưu trữ tạm thời tài liệu PDF, Word, ảnh liên quan đến ISO, pháp lý, tiêu chuẩn, quy trình trước khi phân loại vào các thư mục chính của `08_KNOWLEDGE_GRAPH`.
 
 **Quy trình:**
-1. Copy tài liệu vào `00_RAW_DATA/`
-2. Kiểm tra, tóm tắt nội dung (nếu cần)
-3. Di chuyển vào thư mục phù hợp (01_Regulations, 02_ISO, 03_DLVN, 04_TCVN, v.v.)
-4. Xoá hoặc archive file cũ từ 00_RAW_DATA
+1. Copy tài liệu vào `00_RAW_DATA/`.
+2. Khảo sát tên file/cấu trúc thư mục, đọc mẫu đại diện để hiểu nội dung.
+3. Biên soạn tóm tắt vào [`../Wiki/`](../Wiki/index.md) (mục lục trung tâm: `Wiki/index.md`).
+4. Di chuyển tài liệu vào thư mục đích phù hợp (`01_Regulations/`, `02_ISO/`, `03_DLVN/`, `04_TCVN/`, `05_ILAC/`, `12_International/`, `13_QCVN/`, hoặc `14_Technical_References/` nếu là tài liệu kỹ thuật theo thông số đo — xem quy tắc tại [`../README.md`](../README.md)).
+5. Ghi lại đợt xử lý vào [`../change-log.md`](../change-log.md).
 
-**Trạng thái hiện tại:** 7 tài liệu đang chờ phân loại
+**Trạng thái hiện tại (08/07/2026):** đã xử lý xong toàn bộ ~9.011 file / ~60 thư mục chủ đề từng có trong thư mục này — chỉ còn lại 1 thư mục rác không nội dung (`1. 4. Luat/2011. Luật Đo lường..._files/`). Xem bảng đầy đủ theo từng cụm tại [`../Wiki/index.md`](../Wiki/index.md) và nhật ký các đợt xử lý tại [`../change-log.md`](../change-log.md).
 
-| File | Loại | Phân loại đề xuất | Trạng thái |
-|---|---|---|---|
-| ISO-IEC 17025_2017.pdf | ISO | `02_ISO/` | ⏳ Chờ di chuyển |
-| 01. ISO 17034-2016 (BS EN)...pdf | ISO | `02_ISO/` | ⏳ Chờ di chuyển |
-| 01. TCVN 17034 -2017...pdf | TCVN | `04_TCVN/` | ⏳ Chờ di chuyển |
-| ISO-IEC 42001_He thong Quan ly AI.pdf | ISO | `02_ISO/` | ⏳ Chờ di chuyển |
-| ETV.QM_L4.pdf | Nội bộ ETV | `03_MANAGEMENT_SYSTEM/01_ETV.QM/` | ✓ Giữ nguyên vị trí |
-| ETV.QM_ChinhSachChatLuong.docx | Nội bộ ETV | `03_MANAGEMENT_SYSTEM/01_ETV.QM/` | ✓ Giữ nguyên vị trí |
-| ETV.QM_MucTieuChatLuong.docx | Nội bộ ETV | `03_MANAGEMENT_SYSTEM/01_ETV.QM/` | ✓ Giữ nguyên vị trí |
-
-**Ghi chú:** ETV.QM tài liệu đã ở đúng vị trí trong `03_MANAGEMENT_SYSTEM/`, nên giữ lại. ISO/TCVN sẽ được di chuyển sang thư mục chuyên biệt.
+**Rà soát tiếp:** nhiều cụm mới dừng ở mức catalog theo tên file/cấu trúc thư mục, chưa đọc sâu nội dung (đặc biệt ĐLVN, TCVN, Performance Test, TLTK Chuẩn Bụi, HDSD Thiết bị — xem mục "Vấn đề cần rà soát tiếp" trong [`../Wiki/index.md`](../Wiki/index.md)).
