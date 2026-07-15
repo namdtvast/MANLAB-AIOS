@@ -105,9 +105,18 @@ Nháp ──gửi soát xét──▶ Chờ soát xét ──(LĐP) đạt──
 
 ---
 
-## 7. Việc còn mở (TODO)
+## 7. Trạng thái đặc tả (hoàn thành)
 
-- [x] Wireframe/mockup cho `P10-F` (bố cục động theo `record_type`) → [`Wireframe_P10-F.md`](Wireframe_P10-F.md).
-- [x] Chốt component bảng danh sách + bộ lọc `P10-L` → [`Wireframe_P10-L.md`](Wireframe_P10-L.md).
-- [x] Đặc tả trạng thái công bố `P10-PUB` khớp bảng trạng thái F10.09 (PASS/CONDITIONAL/WARNING/FAIL-BLOCKED/EXPIRED) → [`Wireframe_P10-PUB.md`](Wireframe_P10-PUB.md).
-- [ ] Liên kết đặc tả API tương ứng ở [`../02_API/`](../02_API).
+Bộ tài liệu thiết kế M10 đã đủ ở mức đặc tả:
+
+| Hạng mục | File | Xong |
+|---|---|:--:|
+| Wireframe `P10-F` (biểu mẫu động theo `record_type`) | [`Wireframe_P10-F.md`](Wireframe_P10-F.md) | ✅ |
+| Wireframe `P10-L` (danh sách + bộ lọc) | [`Wireframe_P10-L.md`](Wireframe_P10-L.md) | ✅ |
+| Wireframe `P10-D` (chi tiết + audit trail) | [`Wireframe_P10-D.md`](Wireframe_P10-D.md) | ✅ |
+| Wireframe `P10-PUB` (công bố F10.09) | [`Wireframe_P10-PUB.md`](Wireframe_P10-PUB.md) | ✅ |
+| Dashboard `P10-DASH` (KPI) | [`../06_Dashboard/Dashboard_P10.md`](../06_Dashboard/Dashboard_P10.md) | ✅ |
+| Đặc tả API | [`../02_API/API.md`](../02_API/API.md) | ✅ |
+| Mô hình dữ liệu | [`../03_Database/DataModel.md`](../03_Database/DataModel.md) | ✅ |
+
+Bước tiếp theo (ngoài phạm vi đặc tả): mock high-fidelity (Figma/HTML) và mã nguồn triển khai ở [`../08_Source/`](../08_Source) / repo frontend riêng ([09_ENGINEERING/02_Frontend](../../../09_ENGINEERING/02_Frontend)).
