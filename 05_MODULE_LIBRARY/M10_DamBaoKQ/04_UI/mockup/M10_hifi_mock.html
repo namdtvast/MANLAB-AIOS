@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock hi-fi · M10 Đảm bảo hiệu lực kết quả (P10)</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#f5f7f9; --surface:#ffffff; --surface-2:#fafbfc; --sunk:#eef1f4;
+    --border:#e2e7ec; --border-strong:#cfd6dd;
+    --ink:#172231; --ink-2:#57636f; --ink-3:#8a94a1;
+    --accent:#0b6d78; --accent-ink:#ffffff; --accent-soft:#e3f1f2; --accent-line:#7fc4cb;
+    --good:#167c46; --good-soft:#e3f3ea; --warn:#a5620a; --warn-soft:#fbeed6; --crit:#b3261e; --crit-soft:#fbe5e3;
+    --shadow:0 1px 2px rgba(23,34,49,.05),0 4px 16px rgba(23,34,49,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,"Cascadia Mono","Roboto Mono",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --r:10px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0e131b; --surface:#151c27; --surface-2:#1a222f; --sunk:#111823;
+      --border:#263140; --border-strong:#33404f;
+      --ink:#e7edf4; --ink-2:#9aa7b6; --ink-3:#69758a;
+      --accent:#2aa7b4; --accent-ink:#04141a; --accent-soft:#123034; --accent-line:#1f5b62;
+      --good:#49c081; --good-soft:#122a1e; --warn:#d99a3a; --warn-soft:#2f2513; --crit:#e46f66; --crit-soft:#301715;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f5f7f9; --surface:#ffffff; --surface-2:#fafbfc; --sunk:#eef1f4;
+    --border:#e2e7ec; --border-strong:#cfd6dd;
+    --ink:#172231; --ink-2:#57636f; --ink-3:#8a94a1;
+    --accent:#0b6d78; --accent-ink:#ffffff; --accent-soft:#e3f1f2; --accent-line:#7fc4cb;
+    --good:#167c46; --good-soft:#e3f3ea; --warn:#a5620a; --warn-soft:#fbeed6; --crit:#b3261e; --crit-soft:#fbe5e3;
+    --shadow:0 1px 2px rgba(23,34,49,.05),0 4px 16px rgba(23,34,49,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e131b; --surface:#151c27; --surface-2:#1a222f; --sunk:#111823;
+    --border:#263140; --border-strong:#33404f;
+    --ink:#e7edf4; --ink-2:#9aa7b6; --ink-3:#69758a;
+    --accent:#2aa7b4; --accent-ink:#04141a; --accent-soft:#123034; --accent-line:#1f5b62;
+    --good:#49c081; --good-soft:#122a1e; --warn:#d99a3a; --warn-soft:#2f2513; --crit:#e46f66; --crit-soft:#301715;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .app{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
+
+  /* ---------- Sidebar ---------- */
+  .side{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;
+    position:sticky;top:0;height:100vh}
+  .brand{display:flex;align-items:center;gap:10px;padding:18px 18px 16px;border-bottom:1px solid var(--border)}
+  .brand .mark{width:30px;height:30px;flex:0 0 auto}
+  .brand b{font-size:14.5px;letter-spacing:-.01em;line-height:1.1;display:block}
+  .brand span{font-size:11px;color:var(--ink-3)}
+  .navsec{padding:14px 12px 4px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  .nav{display:flex;flex-direction:column;gap:2px;padding:0 10px}
+  .nav button{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;cursor:pointer;
+    background:transparent;color:var(--ink-2);font:inherit;font-weight:500;padding:9px 11px;border-radius:8px}
+  .nav button:hover{background:var(--sunk);color:var(--ink)}
+  .nav button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:650}
+  .nav button[aria-current="true"] svg{color:var(--accent)}
+  .nav svg{width:17px;height:17px;flex:0 0 auto;color:var(--ink-3)}
+  .nav .count{margin-left:auto;font:600 11px/1 var(--mono);color:var(--ink-3);
+    background:var(--sunk);padding:3px 6px;border-radius:20px}
+  .side .foot{margin-top:auto;padding:14px;border-top:1px solid var(--border);
+    display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-2)}
+  .avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-line));
+    color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:11px;flex:0 0 auto}
+
+  /* ---------- Topbar ---------- */
+  .main{min-width:0;display:flex;flex-direction:column}
+  .top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:12px;padding:12px 24px}
+  .crumb{font-size:12.5px;color:var(--ink-3);display:flex;gap:7px;align-items:center}
+  .crumb b{color:var(--ink);font-weight:600}
+  .top .spacer{flex:1}
+  .iconbtn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--surface);
+    color:var(--ink-2);cursor:pointer;display:grid;place-items:center}
+  .iconbtn:hover{color:var(--ink);border-color:var(--border-strong)}
+  .iconbtn svg{width:16px;height:16px}
+
+  .wrap{padding:24px;max-width:1120px;width:100%;margin:0 auto}
+  .screen{display:none;animation:fade .25s ease}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.screen,.app *{animation:none!important;transition:none!important}}
+
+  .pagehead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
+  .pagehead h1{font-size:21px;letter-spacing:-.02em;margin:0 0 3px;text-wrap:balance}
+  .pagehead p{margin:0;color:var(--ink-2);font-size:13px}
+  .eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:650;margin-bottom:7px}
+
+  /* ---------- Buttons ---------- */
+  .btn{font:inherit;font-weight:600;font-size:13px;border-radius:8px;padding:9px 14px;cursor:pointer;
+    border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;gap:7px}
+  .btn:hover{border-color:var(--ink-3)}
+  .btn svg{width:15px;height:15px}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .btn.primary:hover{filter:brightness(1.06)}
+  .btn.ghost{border-color:transparent;background:transparent;color:var(--ink-2)}
+  .btn.ghost:hover{background:var(--sunk);color:var(--ink)}
+  .btn.danger{color:var(--crit);border-color:color-mix(in srgb,var(--crit) 40%,var(--border))}
+
+  /* ---------- KPI strip ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 15px;box-shadow:var(--shadow)}
+  .kpi .lab{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+  .kpi .dot{width:7px;height:7px;border-radius:50%}
+  .kpi .val{font:700 26px/1.1 var(--sans);letter-spacing:-.02em;margin-top:9px;font-variant-numeric:tabular-nums}
+  .kpi .sub{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+  .kpi .sub .up{color:var(--good);font-weight:600}
+  .kpi .sub .down{color:var(--crit);font-weight:600}
+
+  /* ---------- Card ---------- */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow)}
+  .card + .card{margin-top:16px}
+  .card > .ch{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--border)}
+  .card > .ch h3{margin:0;font-size:13px;letter-spacing:.01em}
+  .card > .ch .n{width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:var(--accent);
+    font:700 11px/1 var(--mono);display:grid;place-items:center}
+  .card > .cb{padding:16px}
+
+  /* ---------- Toolbar / filters ---------- */
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:var(--surface);
+    border:1px solid var(--border);border-radius:8px;padding:8px 11px;color:var(--ink-3)}
+  .search input{border:0;background:transparent;color:var(--ink);font:inherit;flex:1;outline:none}
+  .search svg{width:15px;height:15px}
+  .chip{font-size:12.5px;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--border);
+    border-radius:8px;padding:8px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .chip:hover{border-color:var(--border-strong);color:var(--ink)}
+  .chip svg{width:13px;height:13px;color:var(--ink-3)}
+  .chip.on{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent)}
+
+  /* ---------- Table ---------- */
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  thead th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:600;padding:10px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+  tbody td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:var(--surface-2)}
+  .rid{font:600 12.5px/1 var(--mono);color:var(--ink)}
+  .muted{color:var(--ink-2)}
+  .num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:12.5px}
+
+  /* ---------- Badges & pills ---------- */
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .badge .g{width:6px;height:6px;border-radius:50%}
+  .b-good{background:var(--good-soft);color:var(--good)} .b-good .g{background:var(--good)}
+  .b-warn{background:var(--warn-soft);color:var(--warn)} .b-warn .g{background:var(--warn)}
+  .b-crit{background:var(--crit-soft);color:var(--crit)} .b-crit .g{background:var(--crit)}
+  .b-neutral{background:var(--sunk);color:var(--ink-2)} .b-neutral .g{background:var(--ink-3)}
+  .b-accent{background:var(--accent-soft);color:var(--accent)} .b-accent .g{background:var(--accent)}
+  .type-tag{font:600 11px/1 var(--mono);letter-spacing:.02em;color:var(--ink-2);
+    background:var(--sunk);border:1px solid var(--border);padding:3px 7px;border-radius:6px}
+
+  /* ---------- Form ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:11.5px;font-weight:600;color:var(--ink-2)}
+  .field label .req{color:var(--crit)}
+  .field .hint{font-size:11px;color:var(--ink-3)}
+  .inp{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:9px 11px;
+    color:var(--ink);font:inherit;outline:none;width:100%}
+  .inp:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .inp.ro{background:var(--sunk);color:var(--ink-2);font-family:var(--mono);font-size:12.5px}
+  select.inp{cursor:pointer;appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a94a1' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
+  .picker{display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:8px;padding:9px 11px}
+  .picker svg{width:14px;height:14px;color:var(--accent)}
+  .picker .val{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+  .picker .add{margin-left:auto;font-size:11.5px;color:var(--accent);font-weight:600;cursor:pointer}
+
+  .indbox{border:1px dashed var(--border-strong);border-radius:9px;padding:13px;background:var(--surface-2)}
+  .indbox .indhead{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:600;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+  .indgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .ind{display:flex;flex-direction:column;gap:5px}
+  .ind span{font-size:11px;color:var(--ink-2);font-weight:600}
+  .ind .box{font:600 15px/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);
+    background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:9px 10px}
+  .ind .box.flag{border-color:color-mix(in srgb,var(--warn) 45%,var(--border));color:var(--warn)}
+
+  .radiorow{display:flex;gap:9px;flex-wrap:wrap}
+  .radio{flex:1;min-width:120px;cursor:pointer;border:1px solid var(--border);border-radius:9px;padding:11px 13px;
+    background:var(--surface-2);display:flex;align-items:center;gap:9px;font-weight:600;font-size:13px}
+  .radio .ring{width:16px;height:16px;border-radius:50%;border:2px solid var(--border-strong);flex:0 0 auto}
+  .radio[data-on="true"]{border-color:currentColor}
+  .radio.good[data-on="true"]{color:var(--good);background:var(--good-soft)}
+  .radio.good[data-on="true"] .ring{border-color:var(--good);background:var(--good);box-shadow:inset 0 0 0 3px var(--good-soft)}
+  .radio.warn[data-on="true"]{color:var(--warn);background:var(--warn-soft)}
+  .radio.warn[data-on="true"] .ring{border-color:var(--warn);background:var(--warn);box-shadow:inset 0 0 0 3px var(--warn-soft)}
+  .radio.crit[data-on="true"]{color:var(--crit);background:var(--crit-soft)}
+  .radio.crit[data-on="true"] .ring{border-color:var(--crit);background:var(--crit);box-shadow:inset 0 0 0 3px var(--crit-soft)}
+
+  .ai{display:flex;align-items:flex-start;gap:10px;background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);
+    border-radius:9px;padding:11px 13px;font-size:12.5px;color:var(--ink);margin-top:12px}
+  .ai svg{width:16px;height:16px;color:var(--warn);flex:0 0 auto;margin-top:1px}
+  .ai b{color:var(--warn)}
+  .capa{display:none;align-items:center;gap:11px;background:var(--crit-soft);border:1px solid color-mix(in srgb,var(--crit) 35%,transparent);
+    border-radius:9px;padding:12px 14px;margin-top:12px;font-size:13px}
+  .capa.show{display:flex}
+  .capa svg{width:18px;height:18px;color:var(--crit);flex:0 0 auto}
+  .capa .t{flex:1}.capa .t b{color:var(--crit)}
+
+  /* footer action bar in form */
+  .actionbar{display:flex;align-items:center;gap:10px;margin-top:18px;padding:14px 16px;background:var(--surface);
+    border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);position:sticky;bottom:16px}
+  .actionbar .status-inline{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+  .actionbar .spacer{flex:1}
+
+  /* ---------- Timeline / approval flow ---------- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .step{display:flex;gap:12px;padding:2px 0}
+  .step .rail{display:flex;flex-direction:column;align-items:center}
+  .step .node{width:15px;height:15px;border-radius:50%;border:2px solid var(--border-strong);background:var(--surface);margin-top:2px}
+  .step .line{flex:1;width:2px;background:var(--border);margin:3px 0}
+  .step:last-child .line{display:none}
+  .step.done .node{border-color:var(--good);background:var(--good)}
+  .step.cur .node{border-color:var(--accent);background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  .step .body{padding-bottom:16px}
+  .step .body .t{font-size:13px;font-weight:600}
+  .step .body .m{font-size:11.5px;color:var(--ink-3);font-family:var(--mono);margin-top:2px}
+
+  .audit{list-style:none;margin:0;padding:0;font-size:12.5px}
+  .audit li{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--border)}
+  .audit li:last-child{border-bottom:0}
+  .audit time{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);white-space:nowrap;flex:0 0 auto}
+  .audit .who{font-weight:600}
+
+  /* ---------- Publication status table ---------- */
+  .statetable td,.statetable th{font-size:12.5px}
+  .statetable .num{white-space:nowrap}
+
+  /* ---------- Dashboard bars ---------- */
+  .bars{display:flex;align-items:flex-end;gap:14px;height:180px;padding:10px 4px 0}
+  .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end}
+  .bar .stack{width:70%;display:flex;flex-direction:column;justify-content:flex-end;border-radius:5px 5px 0 0;overflow:hidden}
+  .bar .seg{width:100%}
+  .bar .seg.g{background:var(--good)} .bar .seg.w{background:var(--warn)} .bar .seg.c{background:var(--crit)}
+  .bar .lbl{font-size:11px;color:var(--ink-3);font-family:var(--mono)}
+  .legend{display:flex;gap:16px;margin-top:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+  .hist{display:flex;align-items:flex-end;gap:4px;height:120px}
+  .hist .hb{flex:1;background:var(--accent);border-radius:3px 3px 0 0;opacity:.85}
+  .hist .hb.mark{background:var(--warn)}
+
+  .note{font-size:11.5px;color:var(--ink-3);margin-top:14px;display:flex;gap:7px;align-items:flex-start}
+  .note svg{width:14px;height:14px;flex:0 0 auto;margin-top:1px}
+
+  .attn{list-style:none;margin:0;padding:0}
+  .attn li{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px}
+  .attn li:last-child{border-bottom:0}
+  .attn .rid{flex:0 0 auto}
+  .attn .desc{color:var(--ink-2);flex:1}
+
+  @media (max-width:860px){
+    .app{grid-template-columns:1fr}
+    .side{display:none}
+    .kpis{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr}
+    .indgrid{grid-template-columns:1fr 1fr}
+  }
+</style>
+
+<div class="app">
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="side">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="var(--accent)"/>
+        <circle cx="16" cy="16" r="9" stroke="var(--accent-ink)" stroke-width="1.6" opacity="0.55"/>
+        <circle cx="16" cy="16" r="4.4" stroke="var(--accent-ink)" stroke-width="1.6"/>
+        <path d="M16 3.5v6M16 22.5v6M3.5 16h6M22.5 16h6" stroke="var(--accent-ink)" stroke-width="1.6"/>
+        <circle cx="16" cy="16" r="1.5" fill="var(--accent-ink)"/>
+      </svg>
+      <div><b>ManLab · ETV</b><span>Hệ thống phòng thí nghiệm</span></div>
+    </div>
+
+    <div class="navsec">Module M10 · Đảm bảo hiệu lực</div>
+    <nav class="nav" id="nav">
+      <button data-screen="list" aria-current="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Danh sách hồ sơ <span class="count">128</span>
+      </button>
+      <button data-screen="form">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>
+        Hồ sơ P10-…0042
+      </button>
+      <button data-screen="pub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/></svg>
+        Công bố F10.09
+      </button>
+      <button data-screen="dash">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        Dashboard KPI
+      </button>
+    </nav>
+
+    <div class="navsec" style="margin-top:8px">Liên kết</div>
+    <nav class="nav">
+      <button style="cursor:default">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>
+        M11 · Chứng chỉ số
+      </button>
+      <button style="cursor:default">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L14 3.9a2 2 0 00-3.4 0z"/></svg>
+        M13 · KPH / CAPA
+      </button>
+    </nav>
+
+    <div class="foot">
+      <div class="avatar">TH</div>
+      <div><div style="font-weight:600;color:var(--ink)">Trần Thị Hoa</div><div style="font-size:11px">LĐP · Soát xét</div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="top">
+      <div class="crumb">MANLAB-AIOS <span>/</span> M10 <span>/</span> <b id="crumb">Danh sách hồ sơ</b></div>
+      <div class="spacer"></div>
+      <button class="iconbtn" title="Thông báo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg>
+      </button>
+      <button class="iconbtn" id="theme" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện">
+        <svg id="themeicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+    </div>
+
+    <div class="wrap">
+
+      <!-- ============ SCREEN: LIST ============ -->
+      <section class="screen active" id="s-list">
+        <div class="pagehead">
+          <div>
+            <div class="eyebrow">ISO/IEC 17025 · §7.7</div>
+            <h1>Đảm bảo hiệu lực của kết quả</h1>
+            <p>Vòng đời hồ sơ bảo đảm hiệu lực — từ kế hoạch, thực hiện, đánh giá đến công bố nội bộ.</p>
+          </div>
+          <button class="btn primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            Tạo hồ sơ
+          </button>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--good)"></span>Tỉ lệ đạt</div><div class="val">92,4%</div><div class="sub"><span class="up">▲ 1,2đ</span> so với quý trước</div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--warn)"></span>Cảnh báo</div><div class="val">5,1%</div><div class="sub">7 hồ sơ trong kỳ</div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--crit)"></span>Không đạt</div><div class="val">2,5%</div><div class="sub"><span class="down">▲ 0,3đ</span> cần theo dõi</div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--accent)"></span>KPH mở</div><div class="val">7</div><div class="sub">3 quá hạn xử lý</div></div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input placeholder="Tìm mã hồ sơ, đối tượng, mẫu…" />
+          </div>
+          <button class="chip on">Chờ tôi soát xét <span class="count" style="background:var(--accent);color:var(--accent-ink);font:600 11px var(--mono);padding:2px 6px;border-radius:20px">4</span></button>
+          <button class="chip">Loại <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+          <button class="chip">Trạng thái <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+          <button class="chip">Kết quả <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        </div>
+
+        <div class="card">
+          <div class="tablewrap">
+            <table>
+              <thead><tr>
+                <th>Mã hồ sơ</th><th>Loại</th><th>Đối tượng</th><th>Chỉ số</th><th>Kết quả</th><th>Trạng thái</th><th>Cập nhật</th>
+              </tr></thead>
+              <tbody>
+                <tr onclick="go('form')">
+                  <td class="rid">P10-2026-0042</td>
+                  <td><span class="type-tag">PT_ILC</span></td>
+                  <td>Mẫu A · Chì trong nước</td>
+                  <td class="num">z = 2,4</td>
+                  <td><span class="badge b-warn"><span class="g"></span>Cảnh báo</span></td>
+                  <td><span class="badge b-accent"><span class="g"></span>Chờ soát xét</span></td>
+                  <td class="muted num">16/07 09:12</td>
+                </tr>
+                <tr>
+                  <td class="rid">P10-2026-0041</td>
+                  <td><span class="type-tag">QC</span></td>
+                  <td>Lô 12 · Cân phân tích</td>
+                  <td class="num">Bias 0,8%</td>
+                  <td><span class="badge b-good"><span class="g"></span>Đạt</span></td>
+                  <td><span class="badge b-neutral"><span class="g"></span>Đã phê duyệt</span></td>
+                  <td class="muted num">15/07 16:40</td>
+                </tr>
+                <tr>
+                  <td class="rid">P10-2026-0040</td>
+                  <td><span class="type-tag">STABILITY</span></td>
+                  <td>CRM-3 · Mẫu chuẩn</td>
+                  <td class="num">u_stab 0,12</td>
+                  <td><span class="badge b-crit"><span class="g"></span>Không đạt</span></td>
+                  <td><span class="badge b-neutral"><span class="g"></span>Nháp</span></td>
+                  <td class="muted num">15/07 11:05</td>
+                </tr>
+                <tr>
+                  <td class="rid">P10-2026-0039</td>
+                  <td><span class="type-tag">PT_ILC</span></td>
+                  <td>Mẫu B · Độ dẫn điện</td>
+                  <td class="num">En = 0,6</td>
+                  <td><span class="badge b-good"><span class="g"></span>Đạt</span></td>
+                  <td><span class="badge b-good"><span class="g"></span>Đã công bố</span></td>
+                  <td class="muted num">14/07 08:20</td>
+                </tr>
+                <tr>
+                  <td class="rid">P10-2026-0038</td>
+                  <td><span class="type-tag">TOOL_AI</span></td>
+                  <td>Phần mềm tính U · v2.1</td>
+                  <td class="num muted">—</td>
+                  <td><span class="badge b-good"><span class="g"></span>Đạt</span></td>
+                  <td><span class="badge b-accent"><span class="g"></span>Chờ phê duyệt</span></td>
+                  <td class="muted num">13/07 14:33</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12.5px;color:var(--ink-3)">
+          <span>Hiển thị 5 / <span class="num">128</span> hồ sơ</span>
+          <span style="display:flex;gap:4px">
+            <button class="chip" style="padding:6px 10px">‹</button>
+            <button class="chip on" style="padding:6px 11px">1</button>
+            <button class="chip" style="padding:6px 11px">2</button>
+            <button class="chip" style="padding:6px 11px">3</button>
+            <button class="chip" style="padding:6px 10px">›</button>
+          </span>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: FORM ============ -->
+      <section class="screen" id="s-form">
+        <div class="pagehead">
+          <div>
+            <div class="eyebrow" style="color:var(--ink-3)">Biểu mẫu F10.04 · PT/ILC</div>
+            <h1 style="display:flex;align-items:center;gap:12px">P10-2026-0042
+              <span class="badge b-accent" style="font-size:12px"><span class="g"></span>Chờ soát xét</span></h1>
+            <p>So sánh liên phòng (PT/ILC) · phiên bản 1 · người lập Nguyễn Thị H.</p>
+          </div>
+          <button class="btn ghost" onclick="go('list')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Danh sách
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="ch"><span class="n">1</span><h3>Định danh</h3></div>
+          <div class="cb">
+            <div class="grid2">
+              <div class="field"><label>Mã hồ sơ</label><div class="inp ro">P10-2026-0042</div><span class="hint">Tự sinh · chỉ đọc</span></div>
+              <div class="field"><label>Loại hồ sơ <span class="req">*</span></label>
+                <select class="inp" id="rtype" onchange="switchType(this.value)">
+                  <option value="PT_ILC">PT_ILC — So sánh liên phòng</option>
+                  <option value="QC">QC — Kiểm soát chất lượng nội bộ</option>
+                  <option value="STABILITY">STABILITY — Độ ổn định</option>
+                  <option value="CHARACTERIZATION">CHARACTERIZATION — Đặc trưng RM/CRM</option>
+                  <option value="TOOL_AI">TOOL_AI — Xác nhận công cụ số</option>
+                </select>
+                <span class="hint">Trường kỹ thuật thay đổi theo loại hồ sơ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><span class="n">2</span><h3>Liên kết</h3></div>
+          <div class="cb">
+            <div class="grid2">
+              <div class="field"><label>Kế hoạch (F10.01) <span class="req">*</span></label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4zM4 12h16v8H4z"/></svg><span class="val">F10.01-2026-007</span></div></div>
+              <div class="field"><label>Quy trình / phương pháp <span class="req">*</span></label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/></svg><span class="val">M08 · PP-014</span></div></div>
+              <div class="field"><label>Thiết bị (← M05)</label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M4 12h5M15 12h5"/></svg><span class="val">TB-AAS-02</span><span class="add">+ thêm</span></div></div>
+              <div class="field"><label>Nhân sự thực hiện <span class="req">*</span></label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg><span class="val">Nguyễn Thị H. (M03)</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><span class="n">3</span><h3>Kỹ thuật &amp; chỉ số</h3><span class="type-tag" id="tlabel" style="margin-left:auto">PT_ILC</span></div>
+          <div class="cb">
+            <div class="grid2" style="margin-bottom:14px">
+              <div class="field"><label>Tiêu chí (có phiên bản) <span class="req">*</span></label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12v7h16"/></svg><span class="val">TC-ISO17043 · v2</span></div>
+                <span class="hint">Ưu tiên: luật → công nhận → phương pháp → hợp đồng → nội bộ</span></div>
+              <div class="field"><label>Dữ liệu thô &amp; bằng chứng <span class="req">*</span></label>
+                <div class="picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="val">raw_data ×3 · evidence ×2</span><span class="add">tải lên</span></div></div>
+            </div>
+
+            <div class="indbox">
+              <div class="indhead">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>
+                Chỉ số đánh giá — <span id="indname">PT/ILC</span>
+              </div>
+              <div class="indgrid" id="ind-PT_ILC">
+                <div class="ind"><span>z-score</span><div class="box flag">2,4</div></div>
+                <div class="ind"><span>Eₙ</span><div class="box">0,8</div></div>
+                <div class="ind"><span>ζ (zeta)</span><div class="box">1,1</div></div>
+              </div>
+              <div class="indgrid" id="ind-QC" style="display:none">
+                <div class="ind"><span>Bias %</span><div class="box">0,8</div></div>
+                <div class="ind"><span>Recovery %</span><div class="box">99,2</div></div>
+                <div class="ind"><span>RSD-CV %</span><div class="box">1,4</div></div>
+              </div>
+              <div class="indgrid" id="ind-STABILITY" style="display:none">
+                <div class="ind"><span>u_stab</span><div class="box">0,12</div></div>
+                <div class="ind"><span>Xu hướng</span><div class="box">ổn định</div></div>
+              </div>
+              <div class="indgrid" id="ind-CHARACTERIZATION" style="display:none">
+                <div class="ind"><span>U_CRM</span><div class="box">0,05</div></div>
+                <div class="ind"><span>k</span><div class="box">2,0</div></div>
+              </div>
+              <div class="indgrid" id="ind-TOOL_AI" style="display:none;grid-template-columns:1fr">
+                <div class="ind"><span>Xác nhận công cụ số (F10.08)</span><div class="box" style="font-family:var(--sans);font-size:13px;font-weight:500">✓ Kiểm chứng bởi người đủ năng lực — AI chỉ hỗ trợ</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><span class="n">4</span><h3>Kết quả</h3></div>
+          <div class="cb">
+            <div class="radiorow" id="results">
+              <div class="radio good" data-on="false" data-r="good" onclick="pick(this)"><span class="ring"></span>ĐẠT</div>
+              <div class="radio warn" data-on="true" data-r="warn" onclick="pick(this)"><span class="ring"></span>CẢNH BÁO</div>
+              <div class="radio crit" data-on="false" data-r="crit" onclick="pick(this)"><span class="ring"></span>KHÔNG ĐẠT</div>
+            </div>
+
+            <div class="ai">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>
+              <div><b>Trợ lý AI gợi ý (M29):</b> z = 2,4 vượt ngưỡng cảnh báo |z| = 2 → đề xuất <b>CẢNH BÁO</b>. Cần người đủ năng lực kiểm chứng — AI không tự kết luận sự phù hợp.</div>
+            </div>
+
+            <div class="capa" id="capa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L14 3.9a2 2 0 00-3.4 0z"/></svg>
+              <div class="t"><b>Khóa phát hành.</b> Kết quả KHÔNG ĐẠT bắt buộc mở/liên kết KPH-CAPA trước khi tiếp tục.</div>
+              <button class="btn danger">Mở KPH → M13</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="actionbar">
+          <div class="status-inline">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Đang ở bước <b style="color:var(--ink)">Chờ soát xét</b> · vai trò LĐP
+          </div>
+          <div class="spacer"></div>
+          <button class="btn danger">Trả lại…</button>
+          <button class="btn primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+            Đạt → chuyển phê duyệt
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: PUBLICATION ============ -->
+      <section class="screen" id="s-pub">
+        <div class="pagehead">
+          <div>
+            <div class="eyebrow">Biểu mẫu F10.09 · Điểm chốt nội bộ</div>
+            <h1>Công bố trạng thái P10</h1>
+            <p>Chốt trạng thái nội bộ và khống chế nút phát hành ở M11 — không thay thế F11.03.</p>
+          </div>
+          <span class="badge b-neutral" style="font-size:12px;padding:6px 12px"><span class="g"></span>Chỉ LĐV thao tác</span>
+        </div>
+
+        <div class="card">
+          <div class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg><h3>Nguồn chứng chỉ (← F11.03 / M11)</h3></div>
+          <div class="cb">
+            <div class="grid2">
+              <div class="field"><label>Chứng chỉ nguồn</label><div class="inp ro">F11.03-2026-0210</div></div>
+              <div class="field"><label>Thời điểm chốt (snapshot)</label><div class="inp ro">16/07/2026 09:40:22</div></div>
+            </div>
+            <div class="ai" style="background:var(--accent-soft);border-color:var(--accent-line);margin-top:14px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 8v4M12 16h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
+              <div style="color:var(--ink)">Dữ liệu nguồn <b style="color:var(--accent)">đã khóa</b>. Hệ thống sẽ cảnh báo nếu F11.03 thay đổi sau thời điểm chốt.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><h3>Bảng trạng thái → khống chế phát hành</h3></div>
+          <div class="cb" style="padding:0">
+            <div class="tablewrap">
+              <table class="statetable">
+                <thead><tr><th>Trạng thái công bố</th><th>Phát hành</th><th>Xử lý tại F11.03 (M11)</th><th>Điều kiện</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="badge b-good"><span class="g"></span>PASS</span></td><td class="num" style="color:var(--good)">Cho phép</td><td class="muted">Mở nút phát hành</td><td class="muted">result = ĐẠT</td></tr>
+                  <tr style="background:var(--accent-soft)"><td><span class="badge b-accent"><span class="g"></span>CONDITIONAL</span></td><td class="num" style="color:var(--warn)">Có điều kiện</td><td class="muted">Phát hành kèm cảnh báo, cần hạn</td><td class="muted">ĐẠT có điều kiện · cần expires_at</td></tr>
+                  <tr><td><span class="badge b-warn"><span class="g"></span>WARNING</span></td><td class="num" style="color:var(--warn)">Gắn cờ</td><td class="muted">Chuyển LĐP/LĐV xem xét</td><td class="muted">result = CẢNH BÁO</td></tr>
+                  <tr><td><span class="badge b-crit"><span class="g"></span>FAIL-BLOCKED</span></td><td class="num" style="color:var(--crit)">⛔ Khóa</td><td class="muted">Bắt buộc mở/liên kết CAPA</td><td class="muted">KHÔNG ĐẠT → capa_id</td></tr>
+                  <tr><td><span class="badge b-neutral"><span class="g"></span>EXPIRED</span></td><td class="num" style="color:var(--crit)">⛔ Khóa</td><td class="muted">Yêu cầu đánh giá / gia hạn</td><td class="muted">quá expires_at</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><h3>Quyết định công bố — P10-2026-0039</h3></div>
+          <div class="cb">
+            <div class="grid2">
+              <div class="field"><label>Trạng thái công bố</label>
+                <select class="inp"><option>CONDITIONAL — cho phát hành kèm điều kiện</option><option>PASS</option><option>WARNING</option></select></div>
+              <div class="field"><label>Hết hiệu lực (expires_at)</label><div class="inp" style="font-family:var(--mono)">16/07/2027</div></div>
+            </div>
+            <div class="actionbar" style="position:static;margin-top:16px">
+              <div class="status-inline"><span class="badge b-accent"><span class="g"></span>Xem trước: CONDITIONAL</span> cho phát hành kèm cảnh báo, hết hạn 16/07/2027</div>
+              <div class="spacer"></div>
+              <button class="btn ghost">Hủy</button>
+              <button class="btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Công bố → F11.03</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: DASHBOARD ============ -->
+      <section class="screen" id="s-dash">
+        <div class="pagehead">
+          <div>
+            <div class="eyebrow">Tổng hợp KPI · đầu vào Xem xét lãnh đạo (M17)</div>
+            <h1>Dashboard đảm bảo hiệu lực</h1>
+            <p>Kỳ: Quý III/2026 · toàn Viện · số liệu chỉ đọc từ hồ sơ đã ghi nhận.</p>
+          </div>
+          <button class="btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Xuất báo cáo
+          </button>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--good)"></span>Tỉ lệ đạt</div><div class="val">92,4%</div><div class="sub"><span class="up">▲ 1,2đ</span></div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--warn)"></span>Cảnh báo</div><div class="val">5,1%</div><div class="sub"><span class="down">▼ 0,4đ</span></div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--crit)"></span>Không đạt</div><div class="val">2,5%</div><div class="sub"><span class="up">▲ 0,3đ</span></div></div>
+          <div class="kpi"><div class="lab"><span class="dot" style="background:var(--accent)"></span>KPH mở</div><div class="val">7</div><div class="sub">3 quá hạn</div></div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <div class="ch"><h3>Kết quả theo kỳ</h3></div>
+            <div class="cb">
+              <div class="bars">
+                <div class="bar"><div class="stack" style="height:72%"><div class="seg c" style="height:6%"></div><div class="seg w" style="height:9%"></div><div class="seg g" style="height:85%"></div></div><div class="lbl">Q4·25</div></div>
+                <div class="bar"><div class="stack" style="height:80%"><div class="seg c" style="height:4%"></div><div class="seg w" style="height:7%"></div><div class="seg g" style="height:89%"></div></div><div class="lbl">Q1·26</div></div>
+                <div class="bar"><div class="stack" style="height:88%"><div class="seg c" style="height:3%"></div><div class="seg w" style="height:6%"></div><div class="seg g" style="height:91%"></div></div><div class="lbl">Q2·26</div></div>
+                <div class="bar"><div class="stack" style="height:96%"><div class="seg c" style="height:2.5%"></div><div class="seg w" style="height:5.1%"></div><div class="seg g" style="height:92.4%"></div></div><div class="lbl">Q3·26</div></div>
+              </div>
+              <div class="legend">
+                <span><i style="background:var(--good)"></i>Đạt</span>
+                <span><i style="background:var(--warn)"></i>Cảnh báo</span>
+                <span><i style="background:var(--crit)"></i>Không đạt</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="ch"><h3>Phân bố z-score (PT/ILC)</h3></div>
+            <div class="cb">
+              <div class="hist">
+                <div class="hb" style="height:14%"></div><div class="hb" style="height:30%"></div>
+                <div class="hb" style="height:58%"></div><div class="hb" style="height:88%"></div>
+                <div class="hb" style="height:100%"></div><div class="hb" style="height:80%"></div>
+                <div class="hb" style="height:52%"></div><div class="hb mark" style="height:34%"></div>
+                <div class="hb mark" style="height:18%"></div>
+              </div>
+              <div class="legend"><span><i style="background:var(--accent)"></i>|z| &lt; 2 (đạt)</span><span><i style="background:var(--warn)"></i>|z| ≥ 2 (cảnh báo)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="ch"><h3>Hồ sơ cần chú ý</h3><span class="badge b-crit" style="margin-left:auto"><span class="g"></span>4 mục</span></div>
+          <div class="cb">
+            <ul class="attn">
+              <li><span class="rid">P10-2026-0040</span><span class="badge b-crit"><span class="g"></span>Không đạt</span><span class="desc">Chưa liên kết KPH-CAPA · quá 3 ngày</span><button class="btn danger" style="padding:6px 11px">Xử lý</button></li>
+              <li><span class="rid">P10-2026-0031</span><span class="badge b-neutral"><span class="g"></span>EXPIRED</span><span class="desc">Hết hiệu lực công bố từ 10/07 · đang khóa phát hành</span><button class="btn" style="padding:6px 11px">Gia hạn</button></li>
+              <li><span class="rid">P10-2026-0042</span><span class="badge b-warn"><span class="g"></span>Cảnh báo</span><span class="desc">Chờ soát xét quá 24h</span><button class="btn" style="padding:6px 11px">Nhắc</button></li>
+              <li><span class="rid">P10-2026-0028</span><span class="badge b-warn"><span class="g"></span>Cảnh báo</span><span class="desc">KPH đang mở · hạn xử lý 20/07</span><button class="btn" style="padding:6px 11px">Xem</button></li>
+            </ul>
+            <div class="note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
+              Trợ lý AI (M29) có thể gắn cờ xu hướng bất thường; chỉ cảnh báo, không kết luận sự phù hợp.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  var titles={list:"Danh sách hồ sơ",form:"Hồ sơ P10-…0042",pub:"Công bố F10.09",dash:"Dashboard KPI"};
+  function go(id){
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
+    document.getElementById('s-'+id).classList.add('active');
+    document.querySelectorAll('#nav button').forEach(function(b){
+      b.setAttribute('aria-current', b.dataset.screen===id ? 'true':'false');
+    });
+    document.getElementById('crumb').textContent=titles[id];
+    window.scrollTo({top:0,behavior:'auto'});
+  }
+  document.querySelectorAll('#nav button').forEach(function(b){
+    if(b.dataset.screen) b.addEventListener('click',function(){go(b.dataset.screen)});
+  });
+
+  var indNames={PT_ILC:"PT/ILC",QC:"Kiểm soát chất lượng",STABILITY:"Độ ổn định",CHARACTERIZATION:"Đặc trưng RM/CRM",TOOL_AI:"Công cụ số"};
+  function switchType(v){
+    ['PT_ILC','QC','STABILITY','CHARACTERIZATION','TOOL_AI'].forEach(function(k){
+      document.getElementById('ind-'+k).style.display = (k===v)?'grid':'none';
+    });
+    document.getElementById('indname').textContent=indNames[v];
+    document.getElementById('tlabel').textContent=v;
+  }
+
+  function pick(el){
+    document.querySelectorAll('#results .radio').forEach(function(r){r.dataset.on='false'});
+    el.dataset.on='true';
+    document.getElementById('capa').classList.toggle('show', el.dataset.r==='crit');
+  }
+
+  // theme toggle
+  var sun='<path d="M12 3v2M12 19v2M5 5l1.5 1.5M17.5 17.5L19 19M3 12h2M19 12h2M5 19l1.5-1.5M17.5 6.5L19 5"/><circle cx="12" cy="12" r="4"/>';
+  var moon='<path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>';
+  document.getElementById('theme').addEventListener('click',function(){
+    var root=document.documentElement;
+    var dark=(root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))==='dark';
+    root.setAttribute('data-theme', dark?'light':'dark');
+    document.getElementById('themeicon').innerHTML = dark?sun:moon;
+  });
+</script>
+</body>
+</html>
