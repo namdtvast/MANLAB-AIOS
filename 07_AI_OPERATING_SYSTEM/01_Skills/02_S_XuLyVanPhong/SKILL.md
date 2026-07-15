@@ -4,7 +4,7 @@ description: "TẠO, SỬA, CHUYỂN ĐỔI FILE VĂN PHÒNG (WORD, EXCEL, POWER
 argument-hint: "[loại file: docx|pptx|xlsx|pdf] [hành động: tạo|sửa|chuyển đổi|bóc tách]"
 license: Internal-ETV
 metadata:
-  author: Nguyễn Duy Tùng
+  author: Dương Thành Nam
   version: "2.0.0"
   maintainer: ETV-AIOS
 ---
