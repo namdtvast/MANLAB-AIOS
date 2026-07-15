@@ -7,6 +7,13 @@
       "runtimeArgs": ["-c", "cd docs && python3 -m http.server $PORT"],
       "port": 8000,
       "autoPort": true
+    },
+    {
+      "name": "m10-webapp",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/webapp' && python3 -m http.server $PORT"],
+      "port": 8010,
+      "autoPort": true
     }
   ]
 }
