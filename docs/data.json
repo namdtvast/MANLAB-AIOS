@@ -10072,25 +10072,25 @@
       "type": "dir",
       "children": [
        {
-        "name": "01_S_KiemSoatTaiLieuEtv",
-        "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv",
+        "name": "S14_KiemSoatTaiLieu",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu",
         "type": "dir",
         "children": [
          {
           "name": "examples",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/examples",
           "type": "dir",
           "children": [
            {
             "name": "example_metadata.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/examples/example_metadata.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/examples/example_metadata.md",
             "type": "file",
             "ext": ".md",
             "size": 1326
            },
            {
             "name": "example_quyet_dinh.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/examples/example_quyet_dinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/examples/example_quyet_dinh.md",
             "type": "file",
             "ext": ".md",
             "size": 1938
@@ -10101,47 +10101,47 @@
          },
          {
           "name": "knowledge",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge",
           "type": "dir",
           "children": [
            {
             "name": "01_phap_luat.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/01_phap_luat.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/01_phap_luat.md",
             "type": "file",
             "ext": ".md",
             "size": 2560
            },
            {
             "name": "02_iso.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/02_iso.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/02_iso.md",
             "type": "file",
             "ext": ".md",
             "size": 2081
            },
            {
             "name": "03_ma_hoa_van_ban.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/03_ma_hoa_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/03_ma_hoa_van_ban.md",
             "type": "file",
             "ext": ".md",
             "size": 2868
            },
            {
             "name": "04_metadata_schema.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/04_metadata_schema.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/04_metadata_schema.md",
             "type": "file",
             "ext": ".md",
             "size": 2539
            },
            {
             "name": "05_vong_doi_van_ban.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/05_vong_doi_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/05_vong_doi_van_ban.md",
             "type": "file",
             "ext": ".md",
             "size": 2286
            },
            {
             "name": "07_ky_so.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/07_ky_so.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/knowledge/07_ky_so.md",
             "type": "file",
             "ext": ".md",
             "size": 1786
@@ -10152,75 +10152,75 @@
          },
          {
           "name": "templates",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates",
           "type": "dir",
           "children": [
            {
             "name": "bao_cao.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/bao_cao.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/bao_cao.md",
             "type": "file",
             "ext": ".md",
             "size": 1103
            },
            {
             "name": "bien_ban.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/bien_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/bien_ban.md",
             "type": "file",
             "ext": ".md",
             "size": 1185
            },
            {
             "name": "bieu_mau.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/bieu_mau.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/bieu_mau.md",
             "type": "file",
             "ext": ".md",
             "size": 1273
            },
            {
             "name": "cong_van.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/cong_van.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/cong_van.md",
             "type": "file",
             "ext": ".md",
             "size": 1100
            },
            {
             "name": "giay_chung_nhan.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/giay_chung_nhan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/giay_chung_nhan.md",
             "type": "file",
             "ext": ".md",
             "size": 1620
            },
            {
             "name": "huong_dan.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/huong_dan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/huong_dan.md",
             "type": "file",
             "ext": ".md",
             "size": 1038
            },
            {
             "name": "quy_trinh.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/quy_trinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/quy_trinh.md",
             "type": "file",
             "ext": ".md",
             "size": 1272
            },
            {
             "name": "quyet_dinh.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/quyet_dinh.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/quyet_dinh.md",
             "type": "file",
             "ext": ".md",
             "size": 1567
            },
            {
             "name": "thong_bao.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/thong_bao.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/thong_bao.md",
             "type": "file",
             "ext": ".md",
             "size": 1065
            },
            {
             "name": "thu_tuc.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/templates/thu_tuc.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/templates/thu_tuc.md",
             "type": "file",
             "ext": ".md",
             "size": 1393
@@ -10231,47 +10231,47 @@
          },
          {
           "name": "validation",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation",
           "type": "dir",
           "children": [
            {
             "name": "checklist_document_release.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_document_release.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_document_release.md",
             "type": "file",
             "ext": ".md",
             "size": 1165
            },
            {
             "name": "checklist_document_review.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_document_review.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_document_review.md",
             "type": "file",
             "ext": ".md",
             "size": 1181
            },
            {
             "name": "checklist_iso_compliance.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_iso_compliance.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_iso_compliance.md",
             "type": "file",
             "ext": ".md",
             "size": 1058
            },
            {
             "name": "checklist_legal_compliance.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_legal_compliance.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_legal_compliance.md",
             "type": "file",
             "ext": ".md",
             "size": 1124
            },
            {
             "name": "checklist_procedure.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_procedure.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_procedure.md",
             "type": "file",
             "ext": ".md",
             "size": 1108
            },
            {
             "name": "checklist_template.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/validation/checklist_template.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/validation/checklist_template.md",
             "type": "file",
             "ext": ".md",
             "size": 936
@@ -10282,33 +10282,33 @@
          },
          {
           "name": "workflows",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/workflows",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/workflows",
           "type": "dir",
           "children": [
            {
             "name": "workflow_ban_hanh_van_ban.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/workflows/workflow_ban_hanh_van_ban.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/workflows/workflow_ban_hanh_van_ban.md",
             "type": "file",
             "ext": ".md",
             "size": 1724
            },
            {
             "name": "workflow_ky_so.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/workflows/workflow_ky_so.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/workflows/workflow_ky_so.md",
             "type": "file",
             "ext": ".md",
             "size": 1603
            },
            {
             "name": "workflow_soat_xet_sua_doi.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/workflows/workflow_soat_xet_sua_doi.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/workflows/workflow_soat_xet_sua_doi.md",
             "type": "file",
             "ext": ".md",
             "size": 1727
            },
            {
             "name": "workflow_thu_hoi_huy.md",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/workflows/workflow_thu_hoi_huy.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/workflows/workflow_thu_hoi_huy.md",
             "type": "file",
             "ext": ".md",
             "size": 1458
@@ -10319,14 +10319,14 @@
          },
          {
           "name": "CLAUDE.md",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/CLAUDE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/CLAUDE.md",
           "type": "file",
           "ext": ".md",
           "size": 5568
          },
          {
           "name": "SKILL.md",
-          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/SKILL.md",
           "type": "file",
           "ext": ".md",
           "size": 5100
