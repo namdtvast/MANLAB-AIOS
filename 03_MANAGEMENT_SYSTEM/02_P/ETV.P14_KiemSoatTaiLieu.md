@@ -32,10 +32,10 @@ superseded_by: null
 | **Lần ban hành**  | 03                   |
 | **Ngày ban hành** | 01/07/2026           |
 | **Biên soạn**     | Nguyễn Văn Đồng  |
-| **Soát xét**      | Trần Thị Hoa       |
-| **Phê duyệt**     | Nguyễn Hoàng Giang |
+| **Soát xét**      | Trần Thị Hoa (01/07/2026)       |
+| **Phê duyệt**     | Nguyễn Hoàng Giang (01/07/2026) |
 
-> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thiết kế lại toàn diện thay thế lần ban hành 02 (22/4/2023, soát xét 06/01/2024). Bản này có hiệu lực từ ngày 01/07/2026. Căn cứ và lý do thiết kế lại: xem [ETV.P14_PhanTich_ThietKeLai.md](ETV.P14_PhanTich_ThietKeLai.md).
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thiết kế lại toàn diện thay thế lần ban hành 02 (22/4/2023, soát xét 06/01/2024). Bản này có hiệu lực từ ngày 01/07/2026.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
@@ -45,7 +45,7 @@ superseded_by: null
 | 21/05/2020 | Áp dụng chính thức phần mềm quản lý ManLab                                                                                                                                                                                        | 01             |
 | 22/04/2023 | Ban hành lần thứ hai                                                                                                                                                                                                                   | 02             |
 | 06/01/2024 | Bổ sung văn bản bên ngoài (đến), văn bản nội bộ (đi)                                                                                                                                                                          | 02             |
-| 01/07/2026 | Thiết kế lại toàn diện: RACI, metadata AI, đồng bộ trạng thái với ManLab, dẫn chiếu pháp luật/ISO cập nhật; thu hẹp phạm vi — hợp đồng chuyển về các thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ...) | 03             |
+| 01/07/2026 | Thiết kế lại toàn diện: RACI, metadata AI, đồng bộ trạng thái với ManLab, dẫn chiếu pháp luật/ISO cập nhật; thu hẹp phạm vi — hợp đồng chuyển về các thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ...); bổ sung §IX. Các phụ lục (đăng ký Phụ lục I–VI). Theo phiếu ETV.P.F14.01 ngày 01/07/2026 | 03             |
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
@@ -282,6 +282,21 @@ Bản trắng của toàn bộ biểu mẫu: `06_SHARED_RESOURCES/01_Forms/`.
 ## VIII. LƯU HỒ SƠ
 
 Toàn bộ hồ sơ phát sinh từ thủ tục này được ghi chép đầy đủ và lưu trữ theo **ETV.P 15 — Thủ tục kiểm soát hồ sơ**.
+
+## IX. CÁC PHỤ LỤC
+
+Các phụ lục dưới đây là tài liệu bổ trợ, chi tiết hoá các quy tắc đã nêu tại §VI. Chúng được **vận hành hoá và duy trì** trong skill kiểm soát tài liệu (`07_AI_OPERATING_SYSTEM/01_Skills/01_S_KiemSoatTaiLieuEtv/knowledge/`), không chép nguyên văn luật/ISO mà chỉ dẫn chiếu điều khoản. Khi có mâu thuẫn, nội dung thân thủ tục (§I–VIII) được **ưu tiên áp dụng**; phụ lục được cập nhật đồng bộ khi thủ tục soát xét.
+
+| Phụ lục | Nội dung | Nguồn |
+| --------- | ---------- | ------- |
+| **Phụ lục I** | Căn cứ pháp luật áp dụng (chi tiết điều khoản) | `knowledge/01_phap_luat.md` |
+| **Phụ lục II** | Điều khoản ISO áp dụng | `knowledge/02_iso.md` |
+| **Phụ lục III** | Quy tắc mã hoá & phân loại văn bản | `knowledge/03_ma_hoa_van_ban.md` |
+| **Phụ lục IV** | Lược đồ metadata chuẩn của văn bản | `knowledge/04_metadata_schema.md` |
+| **Phụ lục V** | Vòng đời & bảng trạng thái văn bản | `knowledge/05_vong_doi_van_ban.md` |
+| **Phụ lục VI** | Quy tắc chữ ký số & chữ ký điện tử | `knowledge/07_ky_so.md` |
+
+> Các phụ lục trên là tài liệu tham chiếu kỹ thuật; việc bổ sung, sửa đổi phụ lục không làm thay đổi hiệu lực thân thủ tục nhưng phải được ghi nhận tại bảng "Những thay đổi đã có" khi soát xét.
 
 ---
 

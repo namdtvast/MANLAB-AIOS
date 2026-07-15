@@ -34,6 +34,7 @@ source: "ETV"
 6. Nội dung/quy trình thực hiện (bảng: Bước – Trách nhiệm – Biểu mẫu)
 7. Biểu mẫu áp dụng
 8. Lưu hồ sơ *(dẫn chiếu ETV.P15, không tự quy định lại)*
+9. Các phụ lục *(nếu có)* — nội dung bổ trợ tách khỏi thân thủ tục: lưu đồ quy trình, bảng tra, ma trận, ví dụ minh hoạ, danh mục tham chiếu. Mỗi phụ lục đánh số **Phụ lục I, II, III…**, đặt tiêu đề rõ ràng và phải được **dẫn chiếu từ thân bài** (không để phụ lục "mồ côi"). Không chép nguyên văn luật/ISO vào phụ lục — chỉ dẫn chiếu số điều khoản.
 
 ## Checklist trước khi trình soát xét/phê duyệt
 Xem `validation/checklist_procedure.md`.
