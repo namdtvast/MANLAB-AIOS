@@ -3,10 +3,10 @@
 id: ETV.P10
 title: "Thủ tục Đảm bảo hiệu lực của các kết quả"
 type: Thu-tuc
-owner: "(cập nhật — chức danh LĐP phụ trách đảm bảo hiệu lực kết quả)"
+owner: "Trần Thị Hoa (Lãnh đạo phòng phụ trách)"
 department: "Toàn Viện"
 process: MP10_DamBaoHieuLucKetQua
-module: "(cập nhật — mã module ManLab tương ứng)"
+module: M10_DamBaoKQ
 effective_date: "15/07/2026"
 revision: "04"
 status: Da-phe-duyet
