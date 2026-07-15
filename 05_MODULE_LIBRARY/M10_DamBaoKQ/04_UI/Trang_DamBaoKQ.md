@@ -108,6 +108,6 @@ Nháp ──gửi soát xét──▶ Chờ soát xét ──(LĐP) đạt──
 ## 7. Việc còn mở (TODO)
 
 - [x] Wireframe/mockup cho `P10-F` (bố cục động theo `record_type`) → [`Wireframe_P10-F.md`](Wireframe_P10-F.md).
-- [ ] Chốt component bảng danh sách + bộ lọc `P10-L`.
-- [ ] Đặc tả trạng thái công bố `P10-PUB` khớp bảng trạng thái F10.09 (PASS/CONDITIONAL/WARNING/FAIL-BLOCKED/EXPIRED).
+- [x] Chốt component bảng danh sách + bộ lọc `P10-L` → [`Wireframe_P10-L.md`](Wireframe_P10-L.md).
+- [x] Đặc tả trạng thái công bố `P10-PUB` khớp bảng trạng thái F10.09 (PASS/CONDITIONAL/WARNING/FAIL-BLOCKED/EXPIRED) → [`Wireframe_P10-PUB.md`](Wireframe_P10-PUB.md).
 - [ ] Liên kết đặc tả API tương ứng ở [`../02_API/`](../02_API).
