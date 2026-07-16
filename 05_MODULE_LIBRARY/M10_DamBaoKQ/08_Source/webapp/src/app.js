@@ -1,5 +1,5 @@
 // M10_DamBaoKQ — Giao diện & điều phối (vanilla ES modules)
-import { RECORD_TYPES, STATUS, RESULT, PUB_STATUS, ROLES, USERS, nextId, nowISO, fmtTime } from './model.js';
+import { RECORD_TYPES, STATUS, RESULT, PUB_STATUS, ROLES, USERS, fmtTime } from './model.js';
 import * as store from './store.js';
 import { validateForSubmit, canReview, canApprove, requiresCapa, derivePubStatus } from './rules.js';
 
@@ -104,21 +104,16 @@ function screenNew() {
         <button class="btn primary" onclick="_create()">Tạo bản Nháp</button>
       </div></div></div>`;
 }
-window._create = () => {
-  const rt = $('#f-rtype').value;
+window._create = async () => {
   const object = $('#f-object').value.trim();
   if (!object) return toast('Thiếu: đối tượng / mẫu', true);
-  const a = {
-    id: nextId(), recordType: rt, object, status: STATUS.DRAFT, result: null, version: 1,
-    indicators: {}, planId: $('#f-plan').value, procedureId: $('#f-proc').value, personnelId: $('#f-pers').value,
-    criteriaId: $('#f-crit').value, rawData: 0, evidence: 0, capaId: null,
-    pubStatus: null, sourceCertId: null, sourceSnapshotAt: null, releaseAllowed: false, expiresAt: null,
-    createdBy: 'U-NTH', reviewedBy: null, approvedBy: null,
-    audit: [{ ts: nowISO(), actor: store.currentUser().id, role: store.currentUser().role, action: 'Tạo hồ sơ', reason: null }],
+  const body = {
+    recordType: $('#f-rtype').value, object,
+    planId: $('#f-plan').value, procedureId: $('#f-proc').value, personnelId: $('#f-pers').value,
+    criteriaId: $('#f-crit').value,
   };
-  store.add(a);
-  toast('Đã tạo ' + a.id);
-  go('record', a.id);
+  try { const a = await store.create(body); toast('Đã tạo ' + a.id); go('record', a.id); }
+  catch (e) { toast(e.message, true); }
 };
 
 // ---------- màn Chi tiết + workflow ----------
@@ -256,7 +251,7 @@ function screenPublish() {
     <div class="card"><div class="ch"><h3>Nguồn chứng chỉ (← F11.03 / M11)</h3></div><div class="cb">
       <div class="grid2">
         <div class="field"><label>Chứng chỉ nguồn</label><input class="inp" id="p-src" value="${a.sourceCertId || 'F11.03-2026-0210'}"/></div>
-        <div class="field"><label>Thời điểm chốt (snapshot)</label><div class="inp ro">${fmtTime(a.sourceSnapshotAt || nowISO())}</div></div>
+        <div class="field"><label>Thời điểm chốt (snapshot)</label><div class="inp ro">${a.sourceSnapshotAt ? fmtTime(a.sourceSnapshotAt) : '(khi công bố)'}</div></div>
       </div>
       <div class="ai" style="background:var(--accent-soft);border-color:var(--accent-line);margin-top:14px">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 8v4M12 16h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
@@ -310,35 +305,40 @@ function screenDash() {
     </div>`;
 }
 
-// ---------- hành động (đọc rules, hiển thị lỗi/thành công) ----------
-window._setResult = (id, r) => { store.update(id, { result: r }); render(); };
-window._saveDraft = (id) => {
-  const patch = { rawData: +$('#ed-raw').value || 0, evidence: +$('#ed-ev').value || 0 };
-  const inds = {}; document.querySelectorAll('[data-ind]').forEach((i) => { if (i.value !== '') inds[i.dataset.ind] = parseFloat(i.value.replace(',', '.')); });
-  patch.indicators = inds;
-  store.update(id, patch); toast('Đã lưu nháp'); render();
+// ---------- hành động (gọi API; server thực thi rules; hiển thị lỗi/thành công) ----------
+function collectDraft() {
+  const patch = {};
+  if ($('#ed-raw')) patch.rawData = +$('#ed-raw').value || 0;
+  if ($('#ed-ev')) patch.evidence = +$('#ed-ev').value || 0;
+  const inds = {}; let has = false;
+  document.querySelectorAll('[data-ind]').forEach((i) => { has = true; if (i.value !== '') inds[i.dataset.ind] = parseFloat(i.value.replace(',', '.')); });
+  if (has) patch.indicators = inds;
+  return patch;
+}
+window._setResult = async (id, r) => { try { await store.edit(id, { ...collectDraft(), result: r }); render(); } catch (e) { toast(e.message, true); } };
+window._saveDraft = async (id) => { try { await store.edit(id, collectDraft()); toast('Đã lưu nháp'); render(); } catch (e) { toast(e.message, true); } };
+window._submit = async (id) => {
+  try { await store.edit(id, collectDraft()); await store.submit(id); toast('Đã gửi soát xét'); render(); }
+  catch (e) { toast(e.message, true); render(); }
 };
-window._submit = (id) => {
-  store.update(id, { rawData: +($('#ed-raw')?.value ?? store.byId(id).rawData), evidence: +($('#ed-ev')?.value ?? store.byId(id).evidence) });
-  const r = store.transition(id, 'submit'); r.ok ? toast('Đã gửi soát xét') : toast(r.message, true); render();
-};
-window._review = (id, decision) => {
+window._review = async (id, decision) => {
   let reason = null;
   if (decision === 'return') { reason = prompt('Lý do trả lại (bắt buộc):'); if (!reason) return toast('Trả lại bắt buộc nhập lý do (R3).', true); }
-  const r = store.transition(id, 'review', decision, reason); r.ok ? toast(decision === 'return' ? 'Đã trả lại' : 'Soát xét đạt') : toast(r.message, true); render();
+  try { await store.review(id, decision, reason); toast(decision === 'return' ? 'Đã trả lại' : 'Soát xét đạt'); render(); }
+  catch (e) { toast(e.message, true); }
 };
-window._approve = (id, decision) => {
+window._approve = async (id, decision) => {
   let reason = null;
   if (decision === 'reject') { reason = prompt('Lý do từ chối (bắt buộc):'); if (!reason) return toast('Từ chối bắt buộc nhập lý do (R3).', true); }
-  const r = store.transition(id, 'approve', decision, reason); r.ok ? toast(decision === 'reject' ? 'Đã từ chối' : 'Đã phê duyệt') : toast(r.message, true); render();
+  try { await store.approve(id, decision, reason); toast(decision === 'reject' ? 'Đã từ chối' : 'Đã phê duyệt'); render(); }
+  catch (e) { toast(e.message, true); }
 };
-window._capa = (id) => { const c = store.linkCapa(id); toast('Đã liên kết ' + c); render(); };
-window._newVer = (id) => { store.newVersion(id); toast('Đã tạo phiên bản mới (Nháp)'); render(); };
+window._capa = async (id) => { try { const a = await store.linkCapa(id); toast('Đã liên kết ' + a.capaId); render(); } catch (e) { toast(e.message, true); } };
+window._newVer = async (id) => { try { await store.newVersion(id); toast('Đã tạo phiên bản mới (Nháp)'); render(); } catch (e) { toast(e.message, true); } };
 window._openPublish = (id) => go('publish', id);
-window._publish = (id) => {
-  const r = store.transition(id, 'publish', $('#p-status').value, $('#p-exp').value);
-  if (r.ok) { store.update(id, { sourceCertId: $('#p-src').value, sourceSnapshotAt: nowISO() }); toast('Đã công bố'); go('record', id); }
-  else toast(r.message, true);
+window._publish = async (id) => {
+  try { await store.publish(id, $('#p-status').value, $('#p-exp').value, $('#p-src').value); toast('Đã công bố'); go('record', id); }
+  catch (e) { toast(e.message, true); }
 };
 
 // ---------- khung ----------
@@ -353,17 +353,18 @@ function render() {
   $('#view').innerHTML = view();
 }
 
-function mount() {
-  store.init();
-  store.subscribe(() => { /* re-render on demand via render() calls */ });
+async function mount() {
+  try { await store.init(); }
+  catch (e) { $('#view').innerHTML = `<div class="card"><div class="cb">Không kết nối được API. Chạy server: <code>node api/server.js</code>.<br>${esc(e.message)}</div></div>`; return; }
   document.querySelectorAll('#nav button[data-screen]').forEach((b) => b.addEventListener('click', () => go(b.dataset.screen)));
+  $('#role').value = store.getState().role;
   $('#role').addEventListener('change', (e) => { store.setRole(e.target.value); render(); });
   $('#theme').addEventListener('click', () => {
     const root = document.documentElement;
     const dark = (root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')) === 'dark';
     root.setAttribute('data-theme', dark ? 'light' : 'dark');
   });
-  $('#reset').addEventListener('click', () => { if (confirm('Đặt lại dữ liệu mẫu?')) { store.reset(); go('list'); } });
+  $('#reset').addEventListener('click', async () => { if (confirm('Đặt lại dữ liệu mẫu?')) { await store.reset(); go('list'); } });
   render();
 }
 document.addEventListener('DOMContentLoaded', mount);

@@ -1,0 +1,10 @@
+{
+  "name": "m10-dambaokq-api",
+  "version": "1.0.0",
+  "description": "API M10 Đảm bảo hiệu lực kết quả — Node built-in http, không phụ thuộc",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
