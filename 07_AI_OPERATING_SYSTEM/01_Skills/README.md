@@ -69,5 +69,6 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 |---|---|---|---|
 | `S14_KiemSoatTaiLieu` | A | `ETV.P14` — Kiểm soát tài liệu | `etv-document-governance` |
 | `02_S_XuLyVanPhong` | B | (không có) | `xu-ly-van-phong` |
+| `03_S_NghienCuuHocThuat` | B | (không có) | `manlab-academic-research-os` |
 
-Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `03` (số `01` đã bỏ, không tái sử dụng).
+Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `04` (số `01` đã bỏ, không tái sử dụng).
