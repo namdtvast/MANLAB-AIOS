@@ -1,77 +1,27 @@
-// M10_DamBaoKQ — Kho trạng thái (in-memory + localStorage) và dispatch hành động
-import { seed, nowISO, USERS } from './model.js';
-import { T } from './rules.js';
+// M10_DamBaoKQ — Kho trạng thái phía client (cache) gọi API làm nguồn xác thực.
+// Server thực thi control rules; client chỉ hiển thị và điều phối.
+import { USERS } from './model.js';
+import { api, setRole as apiSetRole } from './apiClient.js';
 
-const LS_KEY = 'm10_assessments_v1';
 const LS_ROLE = 'm10_role_v1';
+let state = { list: [], role: localStorage.getItem(LS_ROLE) || 'LDP' };
 
-let state = { list: [], role: 'LDP' };
-const subs = [];
-
-export function init() {
-  const raw = localStorage.getItem(LS_KEY);
-  state.list = raw ? JSON.parse(raw) : seed();
-  state.role = localStorage.getItem(LS_ROLE) || 'LDP';
-  persist();
-}
-
-function persist() {
-  localStorage.setItem(LS_KEY, JSON.stringify(state.list));
-  localStorage.setItem(LS_ROLE, state.role);
-  subs.forEach((f) => f(state));
-}
-
-export function subscribe(fn) { subs.push(fn); }
 export function getState() { return state; }
 export function currentUser() { return USERS[state.role]; }
-export function setRole(role) { state.role = role; persist(); }
 export function byId(id) { return state.list.find((a) => a.id === id); }
 
-export function add(a) { state.list.unshift(a); persist(); }
+export async function init() { apiSetRole(state.role); await refresh(); }
+export async function refresh() { state.list = await api.list(); return state.list; }
 
-export function update(id, patch) {
-  const a = byId(id);
-  Object.assign(a, patch);
-  persist();
-  return a;
-}
+export function setRole(role) { state.role = role; apiSetRole(role); localStorage.setItem(LS_ROLE, role); }
 
-// Ghi audit trail (append-only — R6)
-function logAudit(a, action, reason) {
-  const u = currentUser();
-  a.audit = a.audit || [];
-  a.audit.push({ ts: nowISO(), actor: u.id, role: u.role, action, reason: reason || null });
-}
-
-// Áp một transition từ rules.T; trả về kết quả để UI hiển thị lỗi/thành công
-export function transition(id, txName, ...args) {
-  const a = byId(id);
-  const user = currentUser();
-  const r = T[txName](a, user, ...args);
-  if (!r.ok) return r;
-  const from = a.status;
-  Object.assign(a, r.patch, { status: r.status });
-  logAudit(a, `${r.action} (${from} → ${r.status})`, r.reason);
-  persist();
-  return r;
-}
-
-export function linkCapa(id) {
-  const a = byId(id);
-  a.capaId = 'CAPA-' + a.id.slice(-4);
-  logAudit(a, `Liên kết KPH-CAPA ${a.capaId} (→ M13)`, null);
-  persist();
-  return a.capaId;
-}
-
-// R6 — sửa bản đã phê duyệt: tạo phiên bản mới thay vì ghi đè
-export function newVersion(id) {
-  const a = byId(id);
-  a.version += 1;
-  a.status = 'Nháp';
-  a.reviewedBy = null; a.approvedBy = null;
-  logAudit(a, `Tạo phiên bản v${a.version} (thay bản đã phê duyệt)`, null);
-  persist();
-}
-
-export function reset() { localStorage.removeItem(LS_KEY); localStorage.removeItem(LS_ROLE); init(); }
+// Các hành động — gọi API, làm mới cache, trả về hồ sơ đã cập nhật (ném lỗi nếu vi phạm quy tắc)
+export async function create(body) { const a = await api.create(body); await refresh(); return a; }
+export async function edit(id, patch) { const a = await api.edit(id, patch); await refresh(); return a; }
+export async function submit(id) { const a = await api.submit(id); await refresh(); return a; }
+export async function review(id, decision, reason) { const a = await api.review(id, decision, reason); await refresh(); return a; }
+export async function approve(id, decision, reason) { const a = await api.approve(id, decision, reason); await refresh(); return a; }
+export async function publish(id, pubStatus, expiresAt, sourceCertId) { const a = await api.publish(id, pubStatus, expiresAt, sourceCertId); await refresh(); return a; }
+export async function linkCapa(id) { const a = await api.linkCapa(id); await refresh(); return a; }
+export async function newVersion(id) { const a = await api.newVersion(id); await refresh(); return a; }
+export async function reset() { await api.reset(); await refresh(); }
