@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.2 — 2026-07-16
+
+- Đánh số template liền mạch (bỏ khoảng trống 02/06): 03→02, 04→03, 05→04, 07→05, 08→06, 09→07; cập nhật `init_project.py` và `TREE.md`.
+- Viết đầy đủ 8 lệnh `commands/ars-*`: mục đích, khi dùng, quy trình, agent/workflow/template/quality gate và nguyên tắc toàn vẹn.
+
 ## 3.0.1 — 2026-07-16
 
 - Chuyển skill vào `07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/` theo quy ước MANLAB (Mẫu B).
