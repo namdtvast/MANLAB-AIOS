@@ -2,6 +2,14 @@
 
 Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.
 
+## **Biểu mẫu P01 (Giải quyết rủi ro và cơ hội)**
+
+- `ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md` — Hành động khắc phục, giải quyết rủi ro, cải tiến
+- `ETV.P.F01.02_BangTongHop_MucTieu.md` — Bảng nhận diện và quản lý rủi ro (theo mục tiêu)
+- `ETV.P.F01.02_BangTongHop_QuaTrinh.md` — Bảng tổng hợp hành động khắc phục, giải quyết rủi ro và cải tiến (theo quá trình)
+- `ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md` — Biện pháp đảm bảo VSMT, PCCC, ATLĐ (phương án thi công và biện pháp an toàn lao động)
+- `ETV.P.F01.04_CamKet_ATLD_TrenCao.md` — Cam kết thực hiện an toàn lao động (làm việc trên cao)
+
 ## **Biểu mẫu P14 (Kiểm soát tài liệu)**
 
 - `ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md` — Phiếu đề nghị soát xét/ban hành văn bản
