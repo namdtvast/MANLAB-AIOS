@@ -3,7 +3,7 @@ procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M14_TaiLieu
 forms:      ../../06_SHARED_RESOURCES/01_Forms
-skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills/etv-document-governance
+skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu
 law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
