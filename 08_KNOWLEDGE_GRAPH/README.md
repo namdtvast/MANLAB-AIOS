@@ -53,6 +53,7 @@
 | Sổ tay chất lượng, thủ tục nội bộ ETV | → `03_MANAGEMENT_SYSTEM/` |
 | Hồ sơ đăng ký BoA dựa trên tiêu chuẩn | → `11_COMPLIANCE/boa/` |
 | Tài liệu vi phạm bản quyền (bản scan lậu) | Không lưu |
+| Dữ liệu khách hàng/dự án/quyết định đang sống (hợp đồng, biên bản họp, tiến độ dự án cụ thể) | → dữ liệu nghiệp vụ của module tương ứng (`05_MODULE_LIBRARY/Mxx_Slug/08_Source/`) — không đưa vào Wiki/Ontology dùng chung, xem [`07_AI_OPERATING_SYSTEM/04_Memory/README.md`](../07_AI_OPERATING_SYSTEM/04_Memory/README.md) |
 
 ---
 
