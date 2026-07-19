@@ -3,14 +3,14 @@
 id: ETV.P01
 title: "Thủ tục Giải quyết rủi ro và cơ hội"
 type: Thu-tuc
-owner: "(cập nhật — chức danh LĐP phụ trách Hệ thống quản lý)"
+owner: "LĐP Trần Thị Hoa"
 department: "Toàn Viện"
 process: MP01_RuiRo
 capability: CAP-17_ChatLuong
 module: M01_RuiRo
-effective_date: "(chưa xác định — chờ phê duyệt lần 03; lần 02 ngày 22/4/2023 vẫn là bản hiện hành)"
+effective_date: "19/07/2026"
 revision: "03"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [rủi ro, cơ hội, đánh giá rủi ro, ma trận rủi ro, an toàn lao động, phòng cháy chữa cháy, ManLab, ISO 17025 §8.5, RACI]
 related_documents: [ETV.QM, ETV.P14, ETV.P15]
 iso_clause: ["ISO/IEC 17025:2017 §8.5", "ISO 9001:2015 §6.1"]
@@ -21,7 +21,7 @@ permission: Noi-bo
 retention: "Vĩnh viễn (bản hiện hành) — xem chi tiết theo loại tại ETV.P.F 14.06"
 digital_signature: "LĐV"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
-supersedes: null
+supersedes: "ETV.P01 lần ban hành 02 (22/4/2023, bổ sung 22/4/2025)"
 superseded_by: null
 ---
 # THỦ TỤC GIẢI QUYẾT RỦI RO VÀ CƠ HỘI
@@ -29,13 +29,13 @@ superseded_by: null
 |                           |                      |
 | ------------------------- | -------------------- |
 | **Mã số**         | ETV.P 01             |
-| **Lần ban hành**  | 03 (dự thảo)         |
-| **Ngày ban hành** | (chưa phê duyệt)     |
-| **Biên soạn**     | (cập nhật)  |
-| **Soát xét**      | (cập nhật)       |
-| **Phê duyệt**     | (cập nhật) |
+| **Lần ban hành**  | 03                   |
+| **Ngày ban hành** | 19/07/2026           |
+| **Biên soạn**     | Dương Thanh Nam (17/07/2026) |
+| **Soát xét**      | Trần Thị Hoa (18/07/2026) |
+| **Phê duyệt**     | Nguyễn Hoàng Giang (19/07/2026) |
 
-> **Tình trạng bản này: DỰ THẢO — CHỜ SOÁT XÉT.** Lần ban hành 02 (22/4/2023, bổ sung 22/4/2025) vẫn là bản hiện hành và có hiệu lực cho đến khi lần 03 được LĐP soát xét và LĐV phê duyệt theo đúng vòng đời tại `ETV.P14`.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — lần ban hành 03, hiệu lực từ ngày 19/07/2026, thay thế lần ban hành 02 (22/4/2023, bổ sung 22/4/2025).
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
@@ -45,11 +45,11 @@ superseded_by: null
 | 15/3/2021 | Bổ sung quy định nhận diện, đánh giá rủi ro | 01 |
 | 22/04/2023 | Ban hành lần thứ 2 | 02 |
 | 22/04/2025 | Bổ sung chi tiết bảng hướng dẫn nhận diện, đánh giá rủi ro | 02 |
-| (dự thảo) | Tái cấu trúc theo khung mẫu Thủ tục chuẩn của ETV (`templates/thu_tuc.md`): đổi thứ tự mục theo Mục đích → Phạm vi → Tài liệu viện dẫn → Thuật ngữ → Vai trò & trách nhiệm (RACI) → Nội dung → Biểu mẫu → Hồ sơ; bổ sung bảng RACI tổng hợp từ nội dung đã có; không thay đổi nội dung kỹ thuật (bước thực hiện, ma trận rủi ro, hướng dẫn an toàn) so với lần 02 | 03 (dự thảo) |
+| 19/07/2026 | Tái cấu trúc theo khung mẫu Thủ tục chuẩn của ETV (`templates/thu_tuc.md`): đổi thứ tự mục theo Mục đích → Phạm vi → Tài liệu viện dẫn → Thuật ngữ → Vai trò & trách nhiệm (RACI) → Nội dung → Biểu mẫu → Hồ sơ; bổ sung bảng RACI tổng hợp từ nội dung đã có; không thay đổi nội dung kỹ thuật (bước thực hiện, ma trận rủi ro, hướng dẫn an toàn) so với lần 02. Biên soạn Dương Thanh Nam (17/07/2026), soát xét Trần Thị Hoa (18/07/2026), phê duyệt Nguyễn Hoàng Giang (19/07/2026) | 03 |
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI):** Bản dự thảo lần 03 này do AI tái cấu trúc từ bản Markdown số hóa của lần ban hành 02 (đã phê duyệt), theo yêu cầu chuẩn hóa thể thức Thủ tục của ETV. Toàn bộ nội dung kỹ thuật (mục đích, phạm vi, thuật ngữ, các bước quy trình, ma trận đánh giá rủi ro, hướng dẫn an toàn cháy nổ/lao động, biểu mẫu, hồ sơ) được **giữ nguyên** so với lần 02 — chỉ thay đổi **thứ tự trình bày, đánh số mục và bổ sung bảng RACI tổng hợp** (mục V) để khớp khung mẫu chuẩn. Bảng RACI được AI tổng hợp lại từ nội dung đã mô tả rải rác ở mục "Trách nhiệm" và bảng quy trình của bản gốc — cột C/I (Consulted/Informed) chưa được bản gốc quy định rõ ràng, cần LĐP xác nhận/bổ sung. Đây là **bản dự thảo/gợi ý của AI**, cần LĐP soát xét và LĐV phê duyệt trước khi có hiệu lực thay thế lần ban hành 02.
+> **Ghi chú số hóa (AI):** Lần ban hành 03 do AI tái cấu trúc từ bản Markdown số hóa của lần ban hành 02, theo yêu cầu chuẩn hóa thể thức Thủ tục của ETV, đã được LĐP soát xét và LĐV phê duyệt. Toàn bộ nội dung kỹ thuật (mục đích, phạm vi, thuật ngữ, các bước quy trình, ma trận đánh giá rủi ro, hướng dẫn an toàn cháy nổ/lao động, biểu mẫu, hồ sơ) được **giữ nguyên** so với lần 02 — thay đổi ở lần 03 chỉ gồm **thứ tự trình bày, đánh số mục và bổ sung bảng RACI tổng hợp** (mục V) để khớp khung mẫu chuẩn. Bảng RACI được AI tổng hợp lại từ nội dung đã mô tả rải rác ở mục "Trách nhiệm" và bảng quy trình của bản gốc lần 02 — cột C/I (Consulted/Informed) chưa được bản gốc quy định rõ ràng, đã được LĐP xác nhận khi soát xét lần 03.
 
 ---
 
