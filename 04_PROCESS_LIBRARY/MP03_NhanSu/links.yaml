@@ -1,6 +1,6 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
-iso:        ../../03_MANAGEMENT_SYSTEM
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md
+iso:        ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
 module:     ../../05_MODULE_LIBRARY/M03_NhanSu
 forms:      ../../06_SHARED_RESOURCES/01_Forms
 skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
