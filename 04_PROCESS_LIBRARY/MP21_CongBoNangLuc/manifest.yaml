@@ -6,7 +6,7 @@ owner: "Trần Thị Hoa (biên soạn) – Lãnh đạo Viện (phê duyệt)"
 status: active
 standards: [ISO17025]
 legal: ["NĐ 36/2026", "NĐ 22/2026", "NQ 66.18/2026", "NQ 66.19/2026"]
-capabilities: [CAP-10]
+capabilities: [CAP-21]
 module: M21
 document:
   controlled: ETV.MP21_Thu_tuc_Final_V5.docx

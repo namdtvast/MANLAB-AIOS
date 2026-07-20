@@ -48,4 +48,4 @@ NTH/Mọi tài khoản (tạo nháp, gửi duyệt, thực hiện) · LĐP (soá
 Kế hoạch F10.01 → hoạt động F10.02–F10.08 → đánh giá kết quả → công bố F10.09 (← chứng chỉ F11.03/M11) → khống chế phát hành; nhánh không đạt → KPH/CAPA (M13) → xác nhận hiệu lực. Tổng hợp KPI → đầu vào Xem xét lãnh đạo (M17).
 
 ## 6. Liên kết
-Quy trình: `MP10` · Năng lực: `CAP-17` · Căn cứ: ISO/IEC 17025 §7.7 (và §7.10, §7.11); ISO 17034 §7.7–7.15; ISO 9001 §9.1; ISO/IEC 27001; ISO/IEC 42001 §7.5. Module liên quan: M03, M05, M08, M11, M13, M17, M18, M29, M36.
+Quy trình: `MP10` · Năng lực: `CAP-16` · Căn cứ: ISO/IEC 17025 §7.7 (và §7.10, §7.11); ISO 17034 §7.7–7.15; ISO 9001 §9.1; ISO/IEC 27001; ISO/IEC 42001 §7.5. Module liên quan: M03, M05, M08, M11, M13, M17, M18, M29, M36.

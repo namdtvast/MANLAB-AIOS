@@ -15,7 +15,7 @@
 | MP11 | Báo cáo kết quả | ISO/IEC 17025 §7.8 |
 | MP12 | Giải quyết khiếu nại, phàn nàn, góp ý | ISO/IEC 17025 §7.9 |
 | MP13 | Hành động khắc phục và kiểm soát công việc không phù hợp | ISO/IEC 17025 §7.10, §8.7 |
-| MP14 | Kiểm soát tài liệu | ISO/IEC 17025 §8.3; ISO 9001 §7.5; ISO 17034 §8.3 (có điều kiện — khi vận hành CAP-09); ISO/IEC 27001 A.5.9-5.18, A.5.37, A.8.13; ISO/IEC 42001 §7.5 |
+| MP14 | Kiểm soát tài liệu | ISO/IEC 17025 §8.3; ISO 9001 §7.5; ISO 17034 §8.3 (có điều kiện — khi vận hành CAP-12); ISO/IEC 27001 A.5.9-5.18, A.5.37, A.8.13; ISO/IEC 42001 §7.5 |
 | MP15 | Kiểm soát hồ sơ | ISO/IEC 17025 §8.4 |
 | MP16 | Đánh giá nội bộ và đánh giá bên ngoài | ISO/IEC 17025 §8.8 |
 | MP17 | Xem xét của lãnh đạo | ISO/IEC 17025 §8.9 |

@@ -4,27 +4,27 @@
 | Mã | Tên |
 |---|---|
 | CAP-01_BaoGia | Tiếp nhận & Báo giá |
-| CAP-02_HopDong | Ký hợp đồng |
-| CAP-03_KeHoach | Lập kế hoạch thực hiện |
+| CAP-07_HopDong | Ký hợp đồng |
+| CAP-02_KeHoach | Lập kế hoạch thực hiện |
 | CAP-04_HienTruong | Hiện trường & Lấy mẫu |
-| CAP-05_HieuChuan | Hiệu chuẩn |
-| CAP-06_KiemDinh | Kiểm định |
-| CAP-07_ThuNghiem | Thử nghiệm |
-| CAP-08_QuanTrac | Quan trắc môi trường |
-| CAP-09_CRM | Sản xuất mẫu chuẩn (CRM) |
-| CAP-10_CongBoNangLuc | Công bố năng lực hoạt động |
-| CAP-11_DamBaoDoLuongDN | Đảm bảo đo lường tại doanh nghiệp |
-| CAP-12_DaoTao | Đào tạo chuyên môn |
-| CAP-13_NhanSu | Quản lý nhân sự |
-| CAP-14_KeToan | Kế toán & Tài chính |
-| CAP-15_MuaSam | Mua sắm & Quản lý nhà cung cấp |
-| CAP-16_ThietBi | Quản lý thiết bị & chuẩn |
-| CAP-17_ChatLuong | Chất lượng & Cải tiến |
-| CAP-18_TaiLieuHoSo | Quản lý tài liệu & hồ sơ |
-| CAP-19_ATTT | An toàn thông tin & Dữ liệu |
-| CAP-20_AIOffice | AI Office & Dịch vụ số |
-| CAP-21_DMC | Chứng chỉ số DMC |
-| CAP-22_BoiCanhTriThuc | Bối cảnh & Tri thức tổ chức |
+| CAP-08_HieuChuan | Hiệu chuẩn |
+| CAP-09_KiemDinh | Kiểm định |
+| CAP-10_ThuNghiem | Thử nghiệm |
+| CAP-11_QuanTrac | Quan trắc môi trường |
+| CAP-12_CRM | Sản xuất mẫu chuẩn (CRM) |
+| CAP-21_CongBoNangLuc | Công bố năng lực hoạt động |
+| CAP-22_DamBaoDoLuongDN | Đảm bảo đo lường tại doanh nghiệp |
+| CAP-13_DaoTao | Đào tạo chuyên môn |
+| CAP-03_NhanSu | Quản lý nhân sự |
+| CAP-15_KeToan | Kế toán & Tài chính |
+| CAP-06_MuaSam | Mua sắm & Quản lý nhà cung cấp |
+| CAP-05_ThietBi | Quản lý thiết bị & chuẩn |
+| CAP-16_ChatLuong | Chất lượng & Cải tiến |
+| CAP-14_TaiLieuHoSo | Quản lý tài liệu & hồ sơ |
+| CAP-28_ATTT | An toàn thông tin & Dữ liệu |
+| CAP-29_AIOffice | AI Office & Dịch vụ số |
+| CAP-36_DMC | Chứng chỉ số DMC |
+| CAP-25_BoiCanhTriThuc | Bối cảnh & Tri thức tổ chức |
 
 ## Quy trình (MP) & Module (M)
 | MP | M | Tên |

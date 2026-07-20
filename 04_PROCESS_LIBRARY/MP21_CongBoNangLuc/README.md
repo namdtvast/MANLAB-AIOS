@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP21 |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.8; NĐ 36/2026; NĐ 22/2026; NQ 66.18 & 66.19/2026 |
-| Năng lực liên quan | CAP-10 (Công bố năng lực hoạt động) |
+| Năng lực liên quan | CAP-21 (Công bố năng lực hoạt động) |
 | Module số hóa | M21_CongBoNangLuc |
 | Chủ sở hữu | Biên soạn: Trần Thị Hoa · Phê duyệt: Lãnh đạo Viện |
 

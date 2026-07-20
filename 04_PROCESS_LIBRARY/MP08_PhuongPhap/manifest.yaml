@@ -6,5 +6,5 @@ owner: "(cập nhật)"
 status: active
 standards: ['ISO17025']
 legal: []
-capabilities: [CAP-05,CAP-06,CAP-07]
+capabilities: [CAP-08,CAP-09,CAP-10]
 module: M08

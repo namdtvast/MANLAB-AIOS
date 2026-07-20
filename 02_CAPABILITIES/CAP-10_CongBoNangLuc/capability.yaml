@@ -1,5 +1,0 @@
-schema: manlab-aios/capability@1.0
-code: CAP-10
-name: Công bố năng lực hoạt động
-processes:
-  - ../../04_PROCESS_LIBRARY/MP21_CongBoNangLuc

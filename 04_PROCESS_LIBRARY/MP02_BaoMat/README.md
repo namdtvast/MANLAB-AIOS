@@ -5,7 +5,7 @@
 | Mã quy trình | MP02 |
 | Tên gọi ngắn | BaoMat |
 | Điều khoản/căn cứ | ISO/IEC 17025 §4.2; ISO/IEC 27001 |
-| Năng lực liên quan | CAP-19 |
+| Năng lực liên quan | CAP-28 |
 | Module số hóa | M02_BaoMat |
 | Chủ sở hữu | (cập nhật) |
 

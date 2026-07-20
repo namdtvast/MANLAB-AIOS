@@ -6,7 +6,7 @@ type: Thu-tuc
 owner: "(cập nhật — chức danh LĐP phụ trách Hệ thống quản lý)"
 department: "Toàn Viện"
 process: MP14_TaiLieu
-capability: CAP-18_TaiLieuHoSo
+capability: CAP-14_TaiLieuHoSo
 module: M14_TaiLieu
 effective_date: "01/07/2026"
 revision: "03"
@@ -104,7 +104,7 @@ Các thủ tục nêu trên dẫn chiếu ngược lại P14 cho phần "kiểm 
 - Văn bản hướng dẫn thi hành hiện hành về chữ ký số/dịch vụ tin cậy (thay thế dần Nghị định 130/2018/NĐ-CP khi có hiệu lực)
 - ISO 9000:2015, TCVN ISO 9001:2015 §7.5
 - ISO/IEC 17025:2017 §8.3
-- ISO 17034:2016 §8.3 (áp dụng khi vận hành năng lực sản xuất chất chuẩn — CAP-09)
+- ISO 17034:2016 §8.3 (áp dụng khi vận hành năng lực sản xuất chất chuẩn — CAP-12)
 - ISO/IEC 27001:2022 — kiểm soát A.5.9–A.5.18, A.5.37, A.8.13
 - ISO/IEC 42001:2023 §7.5
 - `11_COMPLIANCE/01_ISO_Mapping/MP-ISO-mapping.md` — bảng ánh xạ đầy đủ MP ↔ điều khoản

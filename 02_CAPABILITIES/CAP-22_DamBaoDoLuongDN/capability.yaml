@@ -1,0 +1,5 @@
+schema: manlab-aios/capability@1.0
+code: CAP-22
+name: Đảm bảo đo lường tại doanh nghiệp
+processes:
+  - ../../04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN

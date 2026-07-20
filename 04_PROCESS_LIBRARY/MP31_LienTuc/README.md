@@ -5,7 +5,7 @@
 | Mã quy trình | MP31 |
 | Tên gọi ngắn | LienTuc |
 | Điều khoản/căn cứ | ISO/IEC 27001 A.5.29-A.5.30 |
-| Năng lực liên quan | CAP-19 |
+| Năng lực liên quan | CAP-28 |
 | Module số hóa | M31_LienTuc |
 | Chủ sở hữu | (cập nhật) |
 

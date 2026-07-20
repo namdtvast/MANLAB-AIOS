@@ -20,4 +20,4 @@ Người lập · Người soát xét · Người phê duyệt · (Người côn
 - (cập nhật) — ví dụ: dữ liệu bắt buộc, điều kiện hợp lệ, lỗi cần chặn.
 
 ## 6. Liên kết
-Quy trình: MP38 · Năng lực: CAP-20 · Căn cứ: —
+Quy trình: MP38 · Năng lực: CAP-29 · Căn cứ: —

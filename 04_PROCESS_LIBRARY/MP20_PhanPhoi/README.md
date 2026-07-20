@@ -5,7 +5,7 @@
 | Mã quy trình | MP20 |
 | Tên gọi ngắn | PhanPhoi |
 | Điều khoản/căn cứ | ISO 17034 |
-| Năng lực liên quan | CAP-09 |
+| Năng lực liên quan | CAP-12 |
 | Module số hóa | M20_PhanPhoi |
 | Chủ sở hữu | (cập nhật) |
 

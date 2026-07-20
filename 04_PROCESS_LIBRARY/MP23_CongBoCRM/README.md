@@ -5,7 +5,7 @@
 | Mã quy trình | MP23 |
 | Tên gọi ngắn | CongBoCRM |
 | Điều khoản/căn cứ | ISO 17034 |
-| Năng lực liên quan | CAP-09 |
+| Năng lực liên quan | CAP-12 |
 | Module số hóa | M23_CongBoCRM |
 | Chủ sở hữu | (cập nhật) |
 

@@ -5,7 +5,7 @@
 | Mã quy trình | MP07 |
 | Tên gọi ngắn | HopDong |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.1 |
-| Năng lực liên quan | CAP-01,CAP-02,CAP-03 |
+| Năng lực liên quan | CAP-01,CAP-07,CAP-02 |
 | Module số hóa | M07_HopDong |
 | Chủ sở hữu | (cập nhật) |
 

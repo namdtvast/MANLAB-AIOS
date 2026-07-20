@@ -5,7 +5,7 @@
 | Mã quy trình | MP06 |
 | Tên gọi ngắn | MuaSam |
 | Điều khoản/căn cứ | ISO/IEC 17025 §6.6 |
-| Năng lực liên quan | CAP-15 |
+| Năng lực liên quan | CAP-06 |
 | Module số hóa | M06_MuaSam |
 | Chủ sở hữu | (cập nhật) |
 

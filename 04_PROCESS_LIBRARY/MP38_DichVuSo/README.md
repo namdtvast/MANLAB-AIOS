@@ -5,7 +5,7 @@
 | Mã quy trình | MP38 |
 | Tên gọi ngắn | DichVuSo |
 | Điều khoản/căn cứ | — |
-| Năng lực liên quan | CAP-20 |
+| Năng lực liên quan | CAP-29 |
 | Module số hóa | M38_DichVuSo |
 | Chủ sở hữu | (cập nhật) |
 

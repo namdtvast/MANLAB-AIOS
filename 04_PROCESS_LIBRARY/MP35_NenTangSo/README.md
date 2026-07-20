@@ -5,7 +5,7 @@
 | Mã quy trình | MP35 |
 | Tên gọi ngắn | NenTangSo |
 | Điều khoản/căn cứ | — |
-| Năng lực liên quan | CAP-20 |
+| Năng lực liên quan | CAP-29 |
 | Module số hóa | M35_NenTangSo |
 | Chủ sở hữu | (cập nhật) |
 

@@ -1,0 +1,8 @@
+schema: manlab-aios/capability@1.0
+code: CAP-11
+name: Quan trắc môi trường
+processes:
+  - ../../04_PROCESS_LIBRARY/MP09_LayMau
+  - ../../04_PROCESS_LIBRARY/MP10_DamBaoKQ
+  - ../../04_PROCESS_LIBRARY/MP11_BaoCao
+  - ../../04_PROCESS_LIBRARY/MP21_CongBoNangLuc

@@ -6,7 +6,7 @@ type: Thu-tuc
 owner: "LĐP Trần Thị Hoa"
 department: "Toàn Viện"
 process: MP01_RuiRo
-capability: CAP-17_ChatLuong
+capability: CAP-16_ChatLuong
 module: M01_RuiRo
 effective_date: "19/07/2026"
 revision: "03"

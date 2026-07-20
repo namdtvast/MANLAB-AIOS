@@ -5,7 +5,7 @@
 | Mã quy trình | MP09 |
 | Tên gọi ngắn | LayMau |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.3, §7.4 |
-| Năng lực liên quan | CAP-04,CAP-08 |
+| Năng lực liên quan | CAP-04,CAP-11 |
 | Module số hóa | M09_LayMau |
 | Chủ sở hữu | (cập nhật) |
 

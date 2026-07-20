@@ -5,7 +5,7 @@
 | Mã quy trình | MP33 |
 | Tên gọi ngắn | HeThongTT |
 | Điều khoản/căn cứ | ISO/IEC 27001 |
-| Năng lực liên quan | CAP-19 |
+| Năng lực liên quan | CAP-28 |
 | Module số hóa | M33_HeThongTT |
 | Chủ sở hữu | (cập nhật) |
 

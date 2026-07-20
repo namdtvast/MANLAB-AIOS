@@ -6,7 +6,7 @@ type: Thu-tuc
 owner: "Lãnh đạo Viện (LĐV)"
 department: "Phòng Đo lường Chất lượng (PTN)"
 process: MP02_BaoMat
-capability: CAP-19_ATTT
+capability: CAP-28_ATTT
 module: M02_BaoMat
 effective_date: "18/07/2026"
 revision: "03"

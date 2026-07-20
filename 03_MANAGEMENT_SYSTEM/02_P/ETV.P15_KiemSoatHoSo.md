@@ -5,7 +5,7 @@ type: Thu-tuc
 owner: "(cập nhật — chức danh LĐP phụ trách Hệ thống quản lý)"
 department: "Toàn Viện"
 process: MP15_HoSo
-capability: CAP-18_TaiLieuHoSo
+capability: CAP-14_TaiLieuHoSo
 module: M15_HoSo
 effective_date: "01/07/2026"
 revision: "01"

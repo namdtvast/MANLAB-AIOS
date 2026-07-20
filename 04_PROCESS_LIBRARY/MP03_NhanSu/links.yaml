@@ -7,5 +7,5 @@ skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
 law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
-  - ../../02_CAPABILITIES/CAP-12_DaoTao
-  - ../../02_CAPABILITIES/CAP-13_NhanSu
+  - ../../02_CAPABILITIES/CAP-13_DaoTao
+  - ../../02_CAPABILITIES/CAP-03_NhanSu

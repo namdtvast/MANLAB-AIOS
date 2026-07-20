@@ -5,7 +5,7 @@
 | Mã quy trình | MP24 |
 | Tên gọi ngắn | KPI |
 | Điều khoản/căn cứ | ISO 9001 §9.1 |
-| Năng lực liên quan | CAP-17 |
+| Năng lực liên quan | CAP-16 |
 | Module số hóa | M24_KPI |
 | Chủ sở hữu | (cập nhật) |
 

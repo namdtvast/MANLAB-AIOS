@@ -10,7 +10,7 @@
 > Đơn vị nhỏ nhất là **Business Capability (Năng lực nghiệp vụ)**.
 
 ## Quy ước đặt tên (mới)
-- Thư mục có **mã + tên gọi ngắn** không dấu: `MP01_RuiRo`, `M21_CongBoNangLuc`, `CAP-05_HieuChuan`.
+- Thư mục có **mã + tên gọi ngắn** không dấu: `MP01_RuiRo`, `M21_CongBoNangLuc`, `CAP-08_HieuChuan`.
 - Thư mục con được **đánh số thứ tự** `01_, 02_, …` để sắp xếp theo đúng logic/độ quan trọng (không bị xếp ABC).
 
 ## Bản đồ thư mục — ý nghĩa từng tầng
@@ -48,7 +48,7 @@
 | `1.ManLab_Cal/5.ManCheck/` | `05_MODULE_LIBRARY/M08_QuanTrac/` | ManCheck → module quản trắc |
 | `1.Vien ETV/0.Data_ManLab/1.Form BM/` | `06_SHARED_RESOURCES/01_Forms/` | Biểu mẫu gốc chưa điền |
 | `1.Vien ETV/0.Data_ManLab/2_BaoGia/` | `02_CAPABILITIES/CAP-01_BaoGia/` | Dữ liệu báo giá thực tế |
-| `1.Vien ETV/0.Data_ManLab/2_KQ_Hopdong/` | `02_CAPABILITIES/CAP-02_HopDong/` | Hợp đồng đã ký |
+| `1.Vien ETV/0.Data_ManLab/2_KQ_Hopdong/` | `02_CAPABILITIES/CAP-07_HopDong/` | Hợp đồng đã ký |
 | `1.Vien ETV/0.Data_ManLab/13_KQ_KPH/` | `11_COMPLIANCE/05_NC/` | Sự không phù hợp |
 | `1.Vien ETV/0.Data_ManLab/17_KQ_XemxetLanhdao/` | `11_COMPLIANCE/07_Management_Review/` | Xem xét lãnh đạo |
 | `1.Vien ETV/1.E_ISO17025/1.ETV.QM_STCL/` | `03_MANAGEMENT_SYSTEM/01_ETV.QM/` | Sổ tay chất lượng |

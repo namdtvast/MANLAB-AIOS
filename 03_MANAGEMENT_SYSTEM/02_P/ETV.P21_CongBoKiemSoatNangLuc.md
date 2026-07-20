@@ -6,7 +6,7 @@ type: Thu-tuc
 owner: "(cập nhật — chức danh LĐP phụ trách Năng lực)"
 department: "Toàn Viện"
 process: MP21_CongBoNangLuc
-capability: CAP-10_CongBoNangLuc
+capability: CAP-21_CongBoNangLuc
 module: M21_CongBoNangLuc
 effective_date: "26/06/2026"
 revision: "02"
@@ -102,7 +102,7 @@ Hệ thống ManLab chỉ cấp 3 vai trò nghiệp vụ cho module P21 — **Ng
 - Nghị quyết 66.18/2026/NQ-CP — công bố năng lực kiểm định/hiệu chuẩn/thử nghiệm
 - Nghị quyết 66.19/2026/NQ-CP — thông báo hoạt động dịch vụ quan trắc môi trường
 - ISO/IEC 17025:2017 §7.7 — yêu cầu công khai năng lực
-- ISO 17034:2016 §7.7 (áp dụng khi sản xuất chất chuẩn — CAP-09)
+- ISO 17034:2016 §7.7 (áp dụng khi sản xuất chất chuẩn — CAP-12)
 - Luật Giao dịch điện tử 20/2023/QH15 — chữ ký điện tử, giá trị pháp lý
 - ETV.P14 — Kiểm soát tài liệu
 - ETV.P15 — Quản lý hồ sơ
