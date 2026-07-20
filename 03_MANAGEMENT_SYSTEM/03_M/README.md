@@ -47,10 +47,11 @@ Ví dụ: `9. MC_Length`, `1. MC_Phy_Che_Air`.
 | 9 | `9. {DV}_Length` | Độ dài | `L` |
 | 10 | `10. {DV}_Hygro` | Độ ẩm | `H` |
 | 11 | `11. {DV}_KTTV` | Khí tượng, thuỷ văn | `HM` |
+| 12 | `12. {DV}_MetrologyFoundation` | Cơ sở đo lường học và năng lực nền tảng | `MC` |
 
-`{DV}` = mã dịch vụ cấp 1 (`MC`, `MT`, `MV`, `MP`, `MRA`, `MS`, `MH`, `MM`, `ME`). Mỗi thư mục Dịch vụ chỉ tạo những lĩnh vực thực sự có tài liệu — không cần tạo đủ 0–11 ngay từ đầu.
+`{DV}` = mã dịch vụ cấp 1 (`MC`, `MT`, `MV`, `MP`, `MRA`, `MS`, `MH`, `MM`, `ME`). Mỗi thư mục Dịch vụ chỉ tạo những lĩnh vực thực sự có tài liệu — không cần tạo đủ 0–12 ngay từ đầu.
 
-**Lĩnh vực chưa có số thứ tự chính thức** (theo `Danh_Muc_linh_vuc_do_luong` — bổ sung số khi phát sinh tài liệu đầu tiên thuộc lĩnh vực đó, lấy số tiếp theo sau 11): Lực (`Fo`), Y tế (`Md`), Cơ học (`Me`), Phóng xạ (`R`), Thiết bị phụ (`IS`), Dụng cụ (`ITo`), Thiết bị khác (`IO`), **Cơ sở đo lường học và năng lực nền tảng (`MC`)**, Thử nghiệm — với vai trò lĩnh vực riêng, không nhầm với mã dịch vụ `T` (`T` trùng ký hiệu Nhiệt độ, cần xem ngữ cảnh).
+**Lĩnh vực chưa có số thứ tự chính thức** (theo `Danh_Muc_linh_vuc_do_luong` — bổ sung số khi phát sinh tài liệu đầu tiên thuộc lĩnh vực đó, lấy số tiếp theo sau 12): Lực (`Fo`), Y tế (`Md`), Cơ học (`Me`), Phóng xạ (`R`), Thiết bị phụ (`IS`), Dụng cụ (`ITo`), Thiết bị khác (`IO`), Thử nghiệm — với vai trò lĩnh vực riêng, không nhầm với mã dịch vụ `T` (`T` trùng ký hiệu Nhiệt độ, cần xem ngữ cảnh).
 
 Ngoài các lĩnh vực đo lường/thử nghiệm kỹ thuật ở trên, danh mục chính thức còn có các lĩnh vực khác không thuộc phạm vi `03_M` (không tạo thư mục Cấp 2 tương ứng trong `03_M`, chỉ liệt kê để tránh nhầm ký hiệu khi tra cứu): Biến đổi khí hậu (`GHG`), Quan trắc đối chứng khí/nước (`Mo`), Nước mặt/thải/biển/dưới đất/mưa (`SW`/`WW`/`MW`/`GW`/`RW`), Khí thải (`EA`), Không khí xung quanh (`AA`), Đất (`SO`), Trầm tích (`SD`), Tiếng ồn — độ rung (`NV`), QA/QC (`QA-QC`), các lĩnh vực hành chính/kế toán/quản lý (`KT-*`, `QLC`, `VC`, `NCV`), Đề tài nghiên cứu (`KC`), và các mã dùng chung `Không lĩnh vực` (`KLV`)/`Không áp dụng` (`NA`).
 
@@ -107,6 +108,7 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 | [`ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP_DLVN76_ApKe/) | `ĐLVN 76:2001` — Áp kế, chân không kế kiểu lò xo và hiện số: `1. Quy trinh/` (quy trình hiệu chuẩn, chuyển đổi `.md` từ bản scan PDF), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.ĐLVN.76`) — không lưu bản `.pdf`/`.docx` gốc trong repo |
 | [`ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Air/MCA04_GasO3/) | `ETV.MCA 04` — Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh: `1. Quy trinh/` (quy trình hiệu chuẩn — tài liệu ETV tự soạn, tham khảo US EPA EPA-454/B-22-003, đang ở trạng thái **dự thảo** chờ soát xét/phê duyệt chính thức), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.MCA.F04.01`) |
 | [`ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/`](ETV.ME_DaoTao/9.%20ME_Length/MEL02_MaydinhviGPS/) | `ETV.MEL 02` — Giáo trình đào tạo phương tiện đo định vị bằng vệ tinh (GPS/GNSS): `1. Quy trinh/` (giáo trình đào tạo, lần ban hành 01 — 27/05/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang) |
+| [`ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/`](ETV.ME_DaoTao/12.%20ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/) | `ETV.MEMC 01` — Giáo trình đào tạo nhận thức chung về tổ chức và hội nhập nhân sự (lĩnh vực Cơ sở đo lường học và năng lực nền tảng, tài liệu đầu tiên của lĩnh vực): `1. Quy trinh/` (giáo trình đào tạo kiêm bài giảng chi tiết, lần ban hành 01 — 20/07/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang; triển khai nội dung §6.2(1)-(2) của `ETV.P03`) |
 
 Các thư mục Dịch vụ/Lĩnh vực khác chưa có nội dung — tạo theo đúng quy tắc ở trên khi bắt đầu chuyển đổi/soạn thảo tài liệu thuộc dịch vụ/lĩnh vực đó.
 
