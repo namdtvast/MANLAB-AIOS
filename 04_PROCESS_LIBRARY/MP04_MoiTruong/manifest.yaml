@@ -2,7 +2,7 @@ schema: manlab-aios/process@1.0
 code: MP04
 slug: MoiTruong
 name: Kiểm soát cơ sở vật chất và điều kiện môi trường
-owner: "(cập nhật)"
+owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']
 legal: []
