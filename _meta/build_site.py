@@ -258,8 +258,65 @@ def collect_dir_map(prefix):
     return m
 
 
+def read_md_frontmatter(abs_path):
+    """Đọc khối YAML frontmatter (giữa hai dòng `---`) của một file .md."""
+    try:
+        with open(abs_path, encoding="utf-8") as f:
+            content = f.read()
+    except Exception:
+        return {}
+    m = re.match(r"^---\s*\n(.*?\n)---", content, re.DOTALL)
+    if not m:
+        return {}
+    return parse_simple_yaml(m.group(1))
+
+
+def find_procedure_doc(code):
+    """Tìm file thủ tục .md thật cho một mã MPxx theo đúng quy ước đặt tên
+    `ETV.Pxx_*.md` — quét trực tiếp `03_MANAGEMENT_SYSTEM/02_P/` theo mã,
+    KHÔNG phụ thuộc `links.yaml` của Hub. Lý do: khảo sát cho thấy phần lớn
+    Hub vẫn còn `links.yaml.procedure` trỏ chung về `ETV.QM_QuanlyChatluong.md`
+    (giá trị mặc định lúc khởi tạo Hub, chưa được cập nhật khi thủ tục Pxx
+    riêng được ban hành) hoặc trỏ tới file không tồn tại — nếu dùng làm nguồn
+    chính sẽ báo sai "đã ban hành" cho các MP thực ra chưa có thủ tục riêng.
+    Quét trực tiếp theo quy ước tên file + đối chiếu `id` trong frontmatter
+    là cách đáng tin cậy hơn và tự động đúng ngay khi có thủ tục Pxx mới,
+    không cần sửa tay links.yaml của từng Hub.
+    """
+    num = re.sub(r"\D", "", code or "")
+    if not num:
+        return None
+    p_dir = os.path.join(ROOT, "03_MANAGEMENT_SYSTEM", "02_P")
+    if not os.path.isdir(p_dir):
+        return None
+    prefixes = (f"ETV.P{num}_", f"ETV.P {num}_", f"ETV.P{num}.")
+    expected_id = f"ETV.P{num}"
+    for entry in sorted(os.listdir(p_dir)):
+        if not entry.endswith(".md") or entry.startswith(("README", "_")):
+            continue
+        if not entry.startswith(prefixes):
+            continue
+        abs_path = os.path.join(p_dir, entry)
+        fm = read_md_frontmatter(abs_path)
+        doc_id = str(fm.get("id", "")).replace(" ", "")
+        if doc_id and doc_id != expected_id:
+            continue  # tên file trùng tiền tố nhưng id khai báo khác mã — bỏ qua
+        return abs_path, fm
+    return None
+
+
 def collect_processes(tree):
-    """Tổng hợp 38 quy trình MP từ cây + metadata để dựng ma trận/Digital Thread."""
+    """Tổng hợp 38 quy trình MP từ cây + metadata để dựng ma trận/Digital Thread.
+
+    Trạng thái ban hành (lần ban hành/ngày ban hành/trạng thái tài liệu) được
+    TỰ ĐỘNG suy ra từ chính file thủ tục thật tại `03_MANAGEMENT_SYSTEM/02_P/`
+    (xem `find_procedure_doc`, đọc frontmatter `revision`/`effective_date`/
+    `status`) — không đọc thủ công từ khối `document:` gán tay trong
+    `manifest.yaml`, để tránh trùng lặp dữ liệu và tự lệch theo thời gian
+    (nguyên tắc một nguồn sự thật — xem CLAUDE.md). Khối `document:` thủ công
+    trong manifest.yaml chỉ còn dùng làm phương án dự phòng cuối cùng khi
+    thủ tục chưa có bản `.md` (vd. chỉ tồn tại dạng .docx ngoài repo).
+    """
     procs = []
     pl = next((c for c in tree["children"] if c["name"] == "04_PROCESS_LIBRARY"), None)
     if not pl:
@@ -272,11 +329,30 @@ def collect_processes(tree):
         m = hub.get("meta")
         if not m or not str(m.get("code", "")).startswith("MP"):
             continue
-        doc = m.get("document") if isinstance(m.get("document"), dict) else {}
-        controlled = doc.get("controlled")
-        has_doc = bool(controlled) and any(
-            ch["name"] == controlled for ch in hub.get("children", [])
+
+        fm, proc_repo_path = {}, None
+        found = find_procedure_doc(m.get("code"))
+        if found:
+            proc_abs, fm = found
+            proc_repo_path = os.path.relpath(proc_abs, ROOT).replace(os.sep, "/")
+
+        doc_block = m.get("document") if isinstance(m.get("document"), dict) else {}
+        document = {
+            "controlled": (proc_repo_path.rsplit("/", 1)[-1] if proc_repo_path
+                           else doc_block.get("controlled")),
+            "path": proc_repo_path,
+            "edition": fm.get("revision") or doc_block.get("edition"),
+            "issued": fm.get("effective_date") or doc_block.get("issued"),
+            "doc_status": fm.get("status") or doc_block.get("doc_status"),
+        }
+        has_doc = bool(proc_repo_path) or bool(
+            doc_block.get("controlled")
+            and any(ch["name"] == doc_block.get("controlled") for ch in hub.get("children", []))
         )
+        # Ghi ngược vào meta của node trong cây để panel chi tiết Hub (renderDir
+        # phía docs/index.html) cũng đọc được đúng thông tin ban hành tự động này.
+        m["document"] = document
+
         caps = m.get("capabilities") or []
         procs.append({
             "code": m.get("code"),
@@ -290,10 +366,11 @@ def collect_processes(tree):
             "module": m.get("module"),
             "module_path": mod_map.get(m.get("module")),
             "path": hub["path"],
-            "doc_controlled": controlled,
-            "doc_edition": doc.get("edition"),
-            "doc_issued": doc.get("issued"),
-            "doc_status": doc.get("doc_status"),
+            "doc_controlled": document["controlled"],
+            "doc_path": document["path"],
+            "doc_edition": document["edition"],
+            "doc_issued": document["issued"],
+            "doc_status": document["doc_status"],
             "has_doc": has_doc,
             "forms": m.get("forms") or [],
         })

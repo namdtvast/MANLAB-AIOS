@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-20 00:10 UTC",
+ "generated_at": "2026-07-20 23:24 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "refactor/renumber-capabilities-theo-mp",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/refactor/renumber-capabilities-theo-mp",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/refactor/renumber-capabilities-theo-mp",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/refactor/renumber-capabilities-theo-mp"
+  "branch": "feat/portal-auto-doc-metadata",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/portal-auto-doc-metadata",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/portal-auto-doc-metadata",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/portal-auto-doc-metadata"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6903,
-  "dirs": 1581,
+  "files": 6907,
+  "dirs": 1560,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 681,
+   ".md": 685,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -326,11 +326,12 @@
    "module": "M01",
    "module_path": "05_MODULE_LIBRARY/M01_RuiRo",
    "path": "04_PROCESS_LIBRARY/MP01_RuiRo",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P01_RuiRoCoHoi.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P01_RuiRoCoHoi.md",
+   "doc_edition": "03",
+   "doc_issued": "19/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -352,11 +353,12 @@
    "module": "M02",
    "module_path": "05_MODULE_LIBRARY/M02_BaoMat",
    "path": "04_PROCESS_LIBRARY/MP02_BaoMat",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P02_BaoMat.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P02_BaoMat.md",
+   "doc_edition": "03",
+   "doc_issued": "18/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -381,6 +383,7 @@
    "module_path": "05_MODULE_LIBRARY/M03_NhanSu",
    "path": "04_PROCESS_LIBRARY/MP03_NhanSu",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -409,11 +412,12 @@
    "module": "M04",
    "module_path": "05_MODULE_LIBRARY/M04_MoiTruong",
    "path": "04_PROCESS_LIBRARY/MP04_MoiTruong",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P04_MoiTruong.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -435,6 +439,7 @@
    "module_path": "05_MODULE_LIBRARY/M05_ThietBi",
    "path": "04_PROCESS_LIBRARY/MP05_ThietBi",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -460,6 +465,7 @@
    "module_path": "05_MODULE_LIBRARY/M06_MuaSam",
    "path": "04_PROCESS_LIBRARY/MP06_MuaSam",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -489,6 +495,7 @@
    "module_path": "05_MODULE_LIBRARY/M07_HopDong",
    "path": "04_PROCESS_LIBRARY/MP07_HopDong",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -518,6 +525,7 @@
    "module_path": "05_MODULE_LIBRARY/M08_PhuongPhap",
    "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -545,6 +553,7 @@
    "module_path": "05_MODULE_LIBRARY/M09_LayMau",
    "path": "04_PROCESS_LIBRARY/MP09_LayMau",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -569,11 +578,12 @@
    "module": "M10",
    "module_path": "05_MODULE_LIBRARY/M10_DamBaoKQ",
    "path": "04_PROCESS_LIBRARY/MP10_DamBaoKQ",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P10_DamBaoHieuLucKetQua.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md",
+   "doc_edition": "04",
+   "doc_issued": "15/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -601,6 +611,7 @@
    "module_path": "05_MODULE_LIBRARY/M11_BaoCao",
    "path": "04_PROCESS_LIBRARY/MP11_BaoCao",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -626,6 +637,7 @@
    "module_path": "05_MODULE_LIBRARY/M12_KhieuNai",
    "path": "04_PROCESS_LIBRARY/MP12_KhieuNai",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -651,6 +663,7 @@
    "module_path": "05_MODULE_LIBRARY/M13_KhacPhuc",
    "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -682,11 +695,12 @@
    "module": "M14",
    "module_path": "05_MODULE_LIBRARY/M14_TaiLieu",
    "path": "04_PROCESS_LIBRARY/MP14_TaiLieu",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P14_KiemSoatTaiLieu.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md",
+   "doc_edition": "03",
+   "doc_issued": "01/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -707,11 +721,12 @@
    "module": "M15",
    "module_path": "05_MODULE_LIBRARY/M15_HoSo",
    "path": "04_PROCESS_LIBRARY/MP15_HoSo",
-   "doc_controlled": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P15_KiemSoatHoSo.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P15_KiemSoatHoSo.md",
+   "doc_edition": "01",
+   "doc_issued": "01/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -733,6 +748,7 @@
    "module_path": "05_MODULE_LIBRARY/M16_DanhGiaNoiBo",
    "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -758,6 +774,7 @@
    "module_path": "05_MODULE_LIBRARY/M17_XemXetLanhDao",
    "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -787,6 +804,7 @@
    "module_path": "05_MODULE_LIBRARY/M18_QuyTacQuyetDinh",
    "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -812,6 +830,7 @@
    "module_path": "05_MODULE_LIBRARY/M19_SanXuatCRM",
    "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -837,6 +856,7 @@
    "module_path": "05_MODULE_LIBRARY/M20_PhanPhoi",
    "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -866,11 +886,12 @@
    "module": "M21",
    "module_path": "05_MODULE_LIBRARY/M21_CongBoNangLuc",
    "path": "04_PROCESS_LIBRARY/MP21_CongBoNangLuc",
-   "doc_controlled": "ETV.MP21_Thu_tuc_Final_V5.docx",
+   "doc_controlled": "ETV.P21_CongBoKiemSoatNangLuc.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
    "doc_edition": "02",
-   "doc_issued": "2026-06-28",
-   "doc_status": "issued",
-   "has_doc": false,
+   "doc_issued": "26/06/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": [
     "F21.01",
     "F21.02",
@@ -907,6 +928,7 @@
    "module_path": "05_MODULE_LIBRARY/M22_DamBaoDoLuongDN",
    "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -932,6 +954,7 @@
    "module_path": "05_MODULE_LIBRARY/M23_CongBoCRM",
    "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -957,6 +980,7 @@
    "module_path": "05_MODULE_LIBRARY/M24_KPI",
    "path": "04_PROCESS_LIBRARY/MP24_KPI",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -982,6 +1006,7 @@
    "module_path": "05_MODULE_LIBRARY/M25_BoiCanh",
    "path": "04_PROCESS_LIBRARY/MP25_BoiCanh",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1007,6 +1032,7 @@
    "module_path": "05_MODULE_LIBRARY/M26_TriThuc",
    "path": "04_PROCESS_LIBRARY/MP26_TriThuc",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1032,6 +1058,7 @@
    "module_path": "05_MODULE_LIBRARY/M27_TaiSanTT",
    "path": "04_PROCESS_LIBRARY/MP27_TaiSanTT",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1057,6 +1084,7 @@
    "module_path": "05_MODULE_LIBRARY/M28_ATTT",
    "path": "04_PROCESS_LIBRARY/MP28_ATTT",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1082,6 +1110,7 @@
    "module_path": "05_MODULE_LIBRARY/M29_AI",
    "path": "04_PROCESS_LIBRARY/MP29_AI",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1107,6 +1136,7 @@
    "module_path": "05_MODULE_LIBRARY/M30_ThayDoi",
    "path": "04_PROCESS_LIBRARY/MP30_ThayDoi",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1132,6 +1162,7 @@
    "module_path": "05_MODULE_LIBRARY/M31_LienTuc",
    "path": "04_PROCESS_LIBRARY/MP31_LienTuc",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1157,6 +1188,7 @@
    "module_path": "05_MODULE_LIBRARY/M32_ChuyenDoiSo",
    "path": "04_PROCESS_LIBRARY/MP32_ChuyenDoiSo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1182,6 +1214,7 @@
    "module_path": "05_MODULE_LIBRARY/M33_HeThongTT",
    "path": "04_PROCESS_LIBRARY/MP33_HeThongTT",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1208,6 +1241,7 @@
    "module_path": "05_MODULE_LIBRARY/M34_DuLieuSo",
    "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1233,6 +1267,7 @@
    "module_path": "05_MODULE_LIBRARY/M35_NenTangSo",
    "path": "04_PROCESS_LIBRARY/MP35_NenTangSo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1258,6 +1293,7 @@
    "module_path": "05_MODULE_LIBRARY/M36_ChungChiSo",
    "path": "04_PROCESS_LIBRARY/MP36_ChungChiSo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1285,6 +1321,7 @@
    "module_path": "05_MODULE_LIBRARY/M37_TichHopDuLieu",
    "path": "04_PROCESS_LIBRARY/MP37_TichHopDuLieu",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -1310,6 +1347,7 @@
    "module_path": "05_MODULE_LIBRARY/M38_DichVuSo",
    "path": "04_PROCESS_LIBRARY/MP38_DichVuSo",
    "doc_controlled": null,
+   "doc_path": null,
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
@@ -2254,6 +2292,13 @@
         "size": 18427
        },
        {
+        "name": "ETV.P04_MoiTruong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 41104
+       },
+       {
         "name": "ETV.P10_DamBaoHieuLucKetQua.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md",
         "type": "file",
@@ -2292,7 +2337,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 7
+      "n_files": 8
      },
      {
       "name": "03_M",
@@ -2517,6 +2562,23 @@
         "type": "dir",
         "children": [
          {
+          "name": "12. ME_MetrologyFoundation",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MEMC01_NhanThucToChucHoiNhap",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap",
+            "type": "dir",
+            "children": [],
+            "n_dirs": 0,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "5. ME_Frequency",
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/5. ME_Frequency",
           "type": "dir",
@@ -2585,7 +2647,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 2,
+        "n_dirs": 3,
         "n_files": 0
        },
        {
@@ -3019,7 +3081,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M01"
+       "module": "M01",
+       "document": {
+        "controlled": "ETV.P01_RuiRoCoHoi.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P01_RuiRoCoHoi.md",
+        "edition": "03",
+        "issued": "19/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3068,7 +3137,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M02"
+       "module": "M02",
+       "document": {
+        "controlled": "ETV.P02_BaoMat.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P02_BaoMat.md",
+        "edition": "03",
+        "issued": "18/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3118,7 +3194,14 @@
         "CAP-13",
         "CAP-03"
        ],
-       "module": "M03"
+       "module": "M03",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3133,21 +3216,21 @@
         "path": "04_PROCESS_LIBRARY/MP04_MoiTruong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 526
+        "size": 552
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP04_MoiTruong/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 256
+        "size": 268
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP04_MoiTruong/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 431
+        "size": 443
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3157,7 +3240,7 @@
        "code": "MP04",
        "slug": "MoiTruong",
        "name": "Kiểm soát cơ sở vật chất và điều kiện môi trường",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3168,7 +3251,14 @@
         "CAP-09",
         "CAP-10"
        ],
-       "module": "M04"
+       "module": "M04",
+       "document": {
+        "controlled": "ETV.P04_MoiTruong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3216,7 +3306,14 @@
        "capabilities": [
         "CAP-05"
        ],
-       "module": "M05"
+       "module": "M05",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3264,7 +3361,14 @@
        "capabilities": [
         "CAP-06"
        ],
-       "module": "M06"
+       "module": "M06",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3314,7 +3418,14 @@
         "CAP-07",
         "CAP-02"
        ],
-       "module": "M07"
+       "module": "M07",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3364,7 +3475,14 @@
         "CAP-09",
         "CAP-10"
        ],
-       "module": "M08"
+       "module": "M08",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3413,7 +3531,14 @@
         "CAP-04",
         "CAP-11"
        ],
-       "module": "M09"
+       "module": "M09",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3461,7 +3586,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M10"
+       "module": "M10",
+       "document": {
+        "controlled": "ETV.P10_DamBaoHieuLucKetQua.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md",
+        "edition": "04",
+        "issued": "15/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3512,7 +3644,14 @@
         "CAP-10",
         "CAP-11"
        ],
-       "module": "M11"
+       "module": "M11",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3560,7 +3699,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M12"
+       "module": "M12",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3608,7 +3754,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M13"
+       "module": "M13",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3686,7 +3839,14 @@
        "capabilities": [
         "CAP-14"
        ],
-       "module": "M14"
+       "module": "M14",
+       "document": {
+        "controlled": "ETV.P14_KiemSoatTaiLieu.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md",
+        "edition": "03",
+        "issued": "01/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 1,
       "n_files": 3
@@ -3734,7 +3894,14 @@
        "capabilities": [
         "CAP-14"
        ],
-       "module": "M15"
+       "module": "M15",
+       "document": {
+        "controlled": "ETV.P15_KiemSoatHoSo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P15_KiemSoatHoSo.md",
+        "edition": "01",
+        "issued": "01/07/2026",
+        "doc_status": "Da-phe-duyet"
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3782,7 +3949,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M16"
+       "module": "M16",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3830,7 +4004,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M17"
+       "module": "M17",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3880,7 +4061,14 @@
         "CAP-09",
         "CAP-10"
        ],
-       "module": "M18"
+       "module": "M18",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3928,7 +4116,14 @@
        "capabilities": [
         "CAP-12"
        ],
-       "module": "M19"
+       "module": "M19",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -3976,7 +4171,14 @@
        "capabilities": [
         "CAP-12"
        ],
-       "module": "M20"
+       "module": "M20",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4031,10 +4233,11 @@
        ],
        "module": "M21",
        "document": {
-        "controlled": "ETV.MP21_Thu_tuc_Final_V5.docx",
+        "controlled": "ETV.P21_CongBoKiemSoatNangLuc.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
         "edition": "02",
-        "issued": "2026-06-28",
-        "doc_status": "issued"
+        "issued": "26/06/2026",
+        "doc_status": "Da-phe-duyet"
        },
        "forms": [
         "F21.01",
@@ -4099,7 +4302,14 @@
        "capabilities": [
         "CAP-22"
        ],
-       "module": "M22"
+       "module": "M22",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4147,7 +4357,14 @@
        "capabilities": [
         "CAP-12"
        ],
-       "module": "M23"
+       "module": "M23",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4195,7 +4412,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M24"
+       "module": "M24",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4243,7 +4467,14 @@
        "capabilities": [
         "CAP-25"
        ],
-       "module": "M25"
+       "module": "M25",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4291,7 +4522,14 @@
        "capabilities": [
         "CAP-25"
        ],
-       "module": "M26"
+       "module": "M26",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4339,7 +4577,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M27"
+       "module": "M27",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4387,7 +4632,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M28"
+       "module": "M28",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4435,7 +4687,14 @@
        "capabilities": [
         "CAP-29"
        ],
-       "module": "M29"
+       "module": "M29",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4483,7 +4742,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M30"
+       "module": "M30",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4531,7 +4797,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M31"
+       "module": "M31",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4579,7 +4852,14 @@
        "capabilities": [
         "CAP-16"
        ],
-       "module": "M32"
+       "module": "M32",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4627,7 +4907,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M33"
+       "module": "M33",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4676,7 +4963,14 @@
        "capabilities": [
         "CAP-28"
        ],
-       "module": "M34"
+       "module": "M34",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4724,7 +5018,14 @@
        "capabilities": [
         "CAP-29"
        ],
-       "module": "M35"
+       "module": "M35",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4772,7 +5073,14 @@
        "capabilities": [
         "CAP-36"
        ],
-       "module": "M36"
+       "module": "M36",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4821,7 +5129,14 @@
         "CAP-28",
         "CAP-29"
        ],
-       "module": "M37"
+       "module": "M37",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -4869,7 +5184,14 @@
        "capabilities": [
         "CAP-29"
        ],
-       "module": "M38"
+       "module": "M38",
+       "document": {
+        "controlled": null,
+        "path": null,
+        "edition": null,
+        "issued": null,
+        "doc_status": null
+       }
       },
       "n_dirs": 0,
       "n_files": 3
@@ -10134,6 +10456,34 @@
         "size": 3794
        },
        {
+        "name": "ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2239
+       },
+       {
+        "name": "ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1755
+       },
+       {
+        "name": "ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4722
+       },
+       {
+        "name": "ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2041
+       },
+       {
         "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
         "type": "file",
@@ -10249,7 +10599,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 26
+      "n_files": 30
      },
      {
       "name": "02_Templates",
@@ -12139,14 +12489,6 @@
           "type": "dir",
           "children": [
            {
-            "name": "document-types",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/templates/document-types",
-            "type": "dir",
-            "children": [],
-            "n_dirs": 0,
-            "n_files": 0
-           },
-           {
             "name": "00_DOCUMENT_TYPE_CONFIRMATION.md",
             "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/templates/00_DOCUMENT_TYPE_CONFIRMATION.md",
             "type": "file",
@@ -12287,7 +12629,7 @@
             "size": 113
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 0,
           "n_files": 20
          },
          {
@@ -12295,14 +12637,6 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/workflows",
           "type": "dir",
           "children": [
-           {
-            "name": "document-types",
-            "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/workflows/document-types",
-            "type": "dir",
-            "children": [],
-            "n_dirs": 0,
-            "n_files": 0
-           },
            {
             "name": "00-intake-and-onboarding.md",
             "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/workflows/00-intake-and-onboarding.md",
@@ -12423,7 +12757,7 @@
             "size": 705
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 0,
           "n_files": 17
          },
          {
@@ -12775,10 +13109,10 @@
         "path": "07_AI_OPERATING_SYSTEM/02_Harness/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 9459
+        "size": 406
        }
       ],
-      "desc": "**Ý nghĩa:** Khung điều phối tác vụ AI — nơi định nghĩa một yêu cầu (từ người hoặc từ lịch tự động) đi qua những bước nào để trở thành hành động thật: nhận yêu cầu → chọn Skill/Agent phù hợp → gọi công cụ (MCP) → dừng lại xin người xác nhận nếu chạm ranh giới rủi ro → trả kết quả. Thư mục này chỉ chứa **đặc tả điều phối**, không chứa định nghĩa kỹ năng (`01_Skills`), vai trò agent (`03_Agents`), hay cấu hình công cụ (`07_MCP`) — Harness dùng ba thứ đó, không thay thế chúng.",
+      "desc": "**Ý nghĩa:** Khung điều phối tác vụ AI",
       "readme": "07_AI_OPERATING_SYSTEM/02_Harness/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -27662,14 +27996,6 @@
             "type": "dir",
             "children": [
              {
-              "name": "PVTt",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/03_VatLy/LuuLuong_Khi/Calibration/PVTt",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
               "name": "191.Calibration flow.pdf",
               "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/03_VatLy/LuuLuong_Khi/Calibration/191.Calibration flow.pdf",
               "type": "file",
@@ -27775,7 +28101,7 @@
               "size": 248522
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 0,
             "n_files": 15
            },
            {
@@ -29103,14 +29429,6 @@
             "n_files": 34
            },
            {
-            "name": "Bai bao quoc te - VN",
-            "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/03_VatLy/TocDoGio/Bai bao quoc te - VN",
-            "type": "dir",
-            "children": [],
-            "n_dirs": 0,
-            "n_files": 0
-           },
-           {
             "name": "Dantec Dynamic",
             "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/03_VatLy/TocDoGio/Dantec Dynamic",
             "type": "dir",
@@ -29648,7 +29966,7 @@
             "size": 258530
            }
           ],
-          "n_dirs": 8,
+          "n_dirs": 7,
           "n_files": 20
          }
         ],
@@ -37283,54 +37601,6 @@
             "type": "dir",
             "children": [
              {
-              "name": "1ee8c8701ef5419391fc50db7f8d2525",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/1ee8c8701ef5419391fc50db7f8d2525",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
-              "name": "3e99359dd5c8445bbf9ee327c0e738f8",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/3e99359dd5c8445bbf9ee327c0e738f8",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
-              "name": "5ef60f40070e4fe0975218f19779e1dc",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/5ef60f40070e4fe0975218f19779e1dc",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
-              "name": "9f01450335664728b1bd71849099b464",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/9f01450335664728b1bd71849099b464",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
-              "name": "a7b05e7eede94561a6221eb81dbb666a",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/a7b05e7eede94561a6221eb81dbb666a",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
-              "name": "e99f7328137f4baeb48cfde8a39b2dd4",
-              "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/e99f7328137f4baeb48cfde8a39b2dd4",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
               "name": "F1.pdf",
               "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/1.10_Impactor Inlet/Impactor 2.5_Thiet ke/F1.pdf",
               "type": "file",
@@ -37541,7 +37811,7 @@
               "size": 15574
              }
             ],
-            "n_dirs": 6,
+            "n_dirs": 0,
             "n_files": 30
            },
            {
@@ -41073,14 +41343,6 @@
           "n_files": 41
          },
          {
-          "name": "MTLD_Dong Nai",
-          "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/MTLD_Dong Nai",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
           "name": "Navier Stocks",
           "path": "08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/Navier Stocks",
           "type": "dir",
@@ -42120,7 +42382,7 @@
           "size": 1214902
          }
         ],
-        "n_dirs": 40,
+        "n_dirs": 39,
         "n_files": 128
        },
        {
@@ -47770,14 +48032,6 @@
             "type": "dir",
             "children": [
              {
-              "name": "OneDrive_1_17-4-2024",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/3. Tram nuoc/21. Tram nuoc Scan/OneDrive_1_17-4-2024",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
               "name": "Thiet bi chinh",
               "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/3. Tram nuoc/21. Tram nuoc Scan/Thiet bi chinh",
               "type": "dir",
@@ -47857,7 +48111,7 @@
               "size": 34953830
              }
             ],
-            "n_dirs": 2,
+            "n_dirs": 1,
             "n_files": 1
            },
            {
@@ -49110,14 +49364,6 @@
               "n_files": 1
              },
              {
-              "name": "TOA-DKK WQC",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/4. PP phan tich chi tieu trong nước/3. Da chi tieu/TOA-DKK WQC",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
               "name": "YSI",
               "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/4. PP phan tich chi tieu trong nước/3. Da chi tieu/YSI",
               "type": "dir",
@@ -49234,7 +49480,7 @@
               "size": 542514
              }
             ],
-            "n_dirs": 3,
+            "n_dirs": 2,
             "n_files": 4
            },
            {
@@ -56859,14 +57105,6 @@
         "type": "dir",
         "children": [
          {
-          "name": "Beissbarth",
-          "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/23. TB khi thai/Beissbarth",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
           "name": "HORIBA",
           "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/23. TB khi thai/HORIBA",
           "type": "dir",
@@ -56987,7 +57225,7 @@
           "size": 58931
          }
         ],
-        "n_dirs": 5,
+        "n_dirs": 4,
         "n_files": 2
        },
        {
@@ -61884,14 +62122,6 @@
               "n_files": 13
              },
              {
-              "name": "Log",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/4. Bui/Thermo/ePort/Log",
-              "type": "dir",
-              "children": [],
-              "n_dirs": 0,
-              "n_files": 0
-             },
-             {
               "name": "VNC",
               "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/4. Bui/Thermo/ePort/VNC",
               "type": "dir",
@@ -62076,7 +62306,7 @@
               "size": 321752
              }
             ],
-            "n_dirs": 6,
+            "n_dirs": 5,
             "n_files": 22
            },
            {
@@ -64438,73 +64668,8 @@
         "type": "dir",
         "children": [
          {
-          "name": "analysis",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/analysis",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
-          "name": "archive",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/archive",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
           "name": "data",
           "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/data",
-          "type": "dir",
-          "children": [
-           {
-            "name": "processed",
-            "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/data/processed",
-            "type": "dir",
-            "children": [],
-            "n_dirs": 0,
-            "n_files": 0
-           },
-           {
-            "name": "raw",
-            "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/data/raw",
-            "type": "dir",
-            "children": [],
-            "n_dirs": 0,
-            "n_files": 0
-           }
-          ],
-          "n_dirs": 2,
-          "n_files": 0
-         },
-         {
-          "name": "figures",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/figures",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
-          "name": "outputs",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/outputs",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
-          "name": "reviews",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/reviews",
-          "type": "dir",
-          "children": [],
-          "n_dirs": 0,
-          "n_files": 0
-         },
-         {
-          "name": "sources",
-          "path": "12_RESEARCH/08_Proposal/2026_NAFOSTED_PM_LienKetChuan/sources",
           "type": "dir",
           "children": [],
           "n_dirs": 0,
@@ -64679,7 +64844,7 @@
           "size": 9687
          }
         ],
-        "n_dirs": 7,
+        "n_dirs": 1,
         "n_files": 24
        },
        {
@@ -64782,7 +64947,7 @@
       "path": "_meta/build_site.py",
       "type": "file",
       "ext": ".py",
-      "size": 15011
+      "size": 18856
      },
      {
       "name": "extract_documents_metadata.py",
@@ -64901,13 +65066,6 @@
     "type": "file",
     "ext": ".md",
     "size": 12778
-   },
-   {
-    "name": "context-window-full-notification.md",
-    "path": "context-window-full-notification.md",
-    "type": "file",
-    "ext": ".md",
-    "size": 350
    },
    {
     "name": "README.md",
