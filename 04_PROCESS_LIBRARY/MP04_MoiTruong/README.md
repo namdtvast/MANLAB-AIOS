@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO/IEC 17025 §6.3 |
 | Năng lực liên quan | CAP-08,CAP-09,CAP-10 |
 | Module số hóa | M04_MoiTruong |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
