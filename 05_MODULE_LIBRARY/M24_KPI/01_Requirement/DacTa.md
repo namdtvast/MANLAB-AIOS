@@ -20,4 +20,4 @@ Người lập · Người soát xét · Người phê duyệt · (Người côn
 - (cập nhật) — ví dụ: dữ liệu bắt buộc, điều kiện hợp lệ, lỗi cần chặn.
 
 ## 6. Liên kết
-Quy trình: MP24 · Năng lực: CAP-17 · Căn cứ: ISO 9001 §9.1
+Quy trình: MP24 · Năng lực: CAP-16 · Căn cứ: ISO 9001 §9.1

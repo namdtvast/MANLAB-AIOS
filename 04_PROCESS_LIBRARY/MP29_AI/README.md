@@ -5,7 +5,7 @@
 | Mã quy trình | MP29 |
 | Tên gọi ngắn | AI |
 | Điều khoản/căn cứ | ISO/IEC 42001 |
-| Năng lực liên quan | CAP-20 |
+| Năng lực liên quan | CAP-29 |
 | Module số hóa | M29_AI |
 | Chủ sở hữu | (cập nhật) |
 

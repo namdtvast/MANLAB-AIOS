@@ -7,6 +7,6 @@ skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
 law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
-  - ../../02_CAPABILITIES/CAP-05_HieuChuan
-  - ../../02_CAPABILITIES/CAP-06_KiemDinh
-  - ../../02_CAPABILITIES/CAP-07_ThuNghiem
+  - ../../02_CAPABILITIES/CAP-08_HieuChuan
+  - ../../02_CAPABILITIES/CAP-09_KiemDinh
+  - ../../02_CAPABILITIES/CAP-10_ThuNghiem

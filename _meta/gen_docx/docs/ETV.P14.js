@@ -54,7 +54,7 @@ B("Luật Giao dịch điện tử 20/2023/QH15 — chữ ký điện tử, giá
 B("Văn bản hướng dẫn thi hành hiện hành về chữ ký số/dịch vụ tin cậy (thay thế dần Nghị định 130/2018/NĐ-CP)");
 B("ISO 9000:2015, TCVN ISO 9001:2015 §7.5");
 B("ISO/IEC 17025:2017 §8.3");
-B("ISO 17034:2016 §8.3 (áp dụng khi vận hành năng lực sản xuất chất chuẩn — CAP-09)");
+B("ISO 17034:2016 §8.3 (áp dụng khi vận hành năng lực sản xuất chất chuẩn — CAP-12)");
 B("ISO/IEC 27001:2022 — kiểm soát A.5.9–A.5.18, A.5.37, A.8.13");
 B("ISO/IEC 42001:2023 §7.5");
 body.push(new Paragraph({ children: [t("Lưu ý phạm vi: ", { bold: true, italics: true }), t("Luật Ban hành văn bản quy phạm pháp luật điều chỉnh cơ quan nhà nước có thẩm quyền ban hành VBQPPL. ETV không ban hành VBQPPL, chỉ tiếp nhận và áp dụng (văn bản bên ngoài) — do đó luật này không phải căn cứ ban hành văn bản nội bộ của ETV.", { italics: true })], spacing: { before: 120, after: 0, line: 240 } }));

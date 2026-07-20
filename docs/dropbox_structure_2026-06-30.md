@@ -663,27 +663,27 @@ Dropbox/
         ├── 01_ENTERPRISE/
         ├── 02_CAPABILITIES/
             ├── CAP-01_BaoGia/
-            ├── CAP-02_HopDong/
-            ├── CAP-03_KeHoach/
+            ├── CAP-07_HopDong/
+            ├── CAP-02_KeHoach/
             ├── CAP-04_HienTruong/
-            ├── CAP-05_HieuChuan/
-            ├── CAP-06_KiemDinh/
-            ├── CAP-07_ThuNghiem/
-            ├── CAP-08_QuanTrac/
-            ├── CAP-09_CRM/
-            ├── CAP-10_CongBoNangLuc/
-            ├── CAP-11_DamBaoDoLuongDN/
-            ├── CAP-12_DaoTao/
-            ├── CAP-13_NhanSu/
-            ├── CAP-14_KeToan/
-            ├── CAP-15_MuaSam/
-            ├── CAP-16_ThietBi/
-            ├── CAP-17_ChatLuong/
-            ├── CAP-18_TaiLieuHoSo/
-            ├── CAP-19_ATTT/
-            ├── CAP-20_AIOffice/
-            ├── CAP-21_DMC/
-            ├── CAP-22_BoiCanhTriThuc/
+            ├── CAP-08_HieuChuan/
+            ├── CAP-09_KiemDinh/
+            ├── CAP-10_ThuNghiem/
+            ├── CAP-11_QuanTrac/
+            ├── CAP-12_CRM/
+            ├── CAP-21_CongBoNangLuc/
+            ├── CAP-22_DamBaoDoLuongDN/
+            ├── CAP-13_DaoTao/
+            ├── CAP-03_NhanSu/
+            ├── CAP-15_KeToan/
+            ├── CAP-06_MuaSam/
+            ├── CAP-05_ThietBi/
+            ├── CAP-16_ChatLuong/
+            ├── CAP-14_TaiLieuHoSo/
+            ├── CAP-28_ATTT/
+            ├── CAP-29_AIOffice/
+            ├── CAP-36_DMC/
+            ├── CAP-25_BoiCanhTriThuc/
         ├── 03_MANAGEMENT_SYSTEM/
             ├── 01_ETV.QM/
             ├── 02_ISO9001/

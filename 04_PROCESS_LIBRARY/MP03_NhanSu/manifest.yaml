@@ -6,5 +6,5 @@ owner: "(cập nhật)"
 status: active
 standards: ['ISO9001', 'ISO17025']
 legal: []
-capabilities: [CAP-12,CAP-13]
+capabilities: [CAP-13,CAP-03]
 module: M03

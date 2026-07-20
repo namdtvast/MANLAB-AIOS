@@ -1,0 +1,6 @@
+schema: manlab-aios/capability@1.0
+code: CAP-25
+name: Bối cảnh & Tri thức tổ chức
+processes:
+  - ../../04_PROCESS_LIBRARY/MP25_BoiCanh
+  - ../../04_PROCESS_LIBRARY/MP26_TriThuc

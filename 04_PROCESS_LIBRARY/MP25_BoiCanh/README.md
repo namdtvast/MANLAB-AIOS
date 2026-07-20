@@ -5,7 +5,7 @@
 | Mã quy trình | MP25 |
 | Tên gọi ngắn | BoiCanh |
 | Điều khoản/căn cứ | ISO 9001 §4.1, §4.2 |
-| Năng lực liên quan | CAP-22 |
+| Năng lực liên quan | CAP-25 |
 | Module số hóa | M25_BoiCanh |
 | Chủ sở hữu | (cập nhật) |
 

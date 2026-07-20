@@ -5,7 +5,7 @@
 | Mã quy trình | MP32 |
 | Tên gọi ngắn | ChuyenDoiSo |
 | Điều khoản/căn cứ | ISO 9001 §10 |
-| Năng lực liên quan | CAP-17 |
+| Năng lực liên quan | CAP-16 |
 | Module số hóa | M32_ChuyenDoiSo |
 | Chủ sở hữu | (cập nhật) |
 

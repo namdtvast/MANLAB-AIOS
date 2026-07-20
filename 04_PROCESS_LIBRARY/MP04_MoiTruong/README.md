@@ -5,7 +5,7 @@
 | Mã quy trình | MP04 |
 | Tên gọi ngắn | MoiTruong |
 | Điều khoản/căn cứ | ISO/IEC 17025 §6.3 |
-| Năng lực liên quan | CAP-05,CAP-06,CAP-07 |
+| Năng lực liên quan | CAP-08,CAP-09,CAP-10 |
 | Module số hóa | M04_MoiTruong |
 | Chủ sở hữu | (cập nhật) |
 

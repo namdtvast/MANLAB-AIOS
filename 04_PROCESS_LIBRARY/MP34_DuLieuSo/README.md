@@ -5,7 +5,7 @@
 | Mã quy trình | MP34 |
 | Tên gọi ngắn | DuLieuSo |
 | Điều khoản/căn cứ | ISO/IEC 27001; ISO/IEC 42001 |
-| Năng lực liên quan | CAP-19 |
+| Năng lực liên quan | CAP-28 |
 | Module số hóa | M34_DuLieuSo |
 | Chủ sở hữu | (cập nhật) |
 

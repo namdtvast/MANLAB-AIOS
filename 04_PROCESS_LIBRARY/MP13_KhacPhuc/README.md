@@ -5,7 +5,7 @@
 | Mã quy trình | MP13 |
 | Tên gọi ngắn | KhacPhuc |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.10, §8.7 |
-| Năng lực liên quan | CAP-17 |
+| Năng lực liên quan | CAP-16 |
 | Module số hóa | M13_KhacPhuc |
 | Chủ sở hữu | (cập nhật) |
 

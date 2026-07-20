@@ -5,7 +5,7 @@
 | Mã quy trình | MP18 |
 | Tên gọi ngắn | QuyTacQuyetDinh |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.8.6 |
-| Năng lực liên quan | CAP-05,CAP-06,CAP-07 |
+| Năng lực liên quan | CAP-08,CAP-09,CAP-10 |
 | Module số hóa | M18_QuyTacQuyetDinh |
 | Chủ sở hữu | (cập nhật) |
 

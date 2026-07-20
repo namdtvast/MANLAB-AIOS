@@ -20,4 +20,4 @@ Người lập · Người soát xét · Người phê duyệt · (Người côn
 - (cập nhật) — ví dụ: dữ liệu bắt buộc, điều kiện hợp lệ, lỗi cần chặn.
 
 ## 6. Liên kết
-Quy trình: MP02 · Năng lực: CAP-19 · Căn cứ: ISO/IEC 17025 §4.2; ISO/IEC 27001
+Quy trình: MP02 · Năng lực: CAP-28 · Căn cứ: ISO/IEC 17025 §4.2; ISO/IEC 27001

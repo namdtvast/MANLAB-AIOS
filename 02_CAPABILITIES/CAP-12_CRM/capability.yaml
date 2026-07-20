@@ -1,0 +1,7 @@
+schema: manlab-aios/capability@1.0
+code: CAP-12
+name: Sản xuất mẫu chuẩn (CRM)
+processes:
+  - ../../04_PROCESS_LIBRARY/MP19_SanXuatCRM
+  - ../../04_PROCESS_LIBRARY/MP20_PhanPhoi
+  - ../../04_PROCESS_LIBRARY/MP23_CongBoCRM
