@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP45
+slug: BaoCaoTaiChinh
+name: Báo cáo Tài chính & Kế toán
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Kế toán (cần xác nhận số hiệu/hiệu lực)', 'Chuẩn mực kế toán Việt Nam (VAS — cần xác nhận phạm vi áp dụng)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P45 (Nháp)

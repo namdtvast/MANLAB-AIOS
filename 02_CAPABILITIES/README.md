@@ -17,7 +17,7 @@
 | CAP-22_DamBaoDoLuongDN | Đảm bảo đo lường tại doanh nghiệp | MP22 |
 | CAP-13_DaoTao | Đào tạo chuyên môn | MP03 |
 | CAP-03_NhanSu | Quản lý nhân sự | MP03 |
-| CAP-15_KeToan | Kế toán & Tài chính | — |
+| CAP-40_KeToan | Kế toán & Tài chính | MP40, MP41, MP42, MP43, MP44, MP45, MP46, MP47 |
 | CAP-06_MuaSam | Mua sắm & Quản lý nhà cung cấp | MP06 |
 | CAP-05_ThietBi | Quản lý thiết bị & chuẩn | MP05 |
 | CAP-16_ChatLuong | Chất lượng & Cải tiến | MP01, MP10, MP12, MP13, MP16, MP17, MP24, MP30, MP32 |

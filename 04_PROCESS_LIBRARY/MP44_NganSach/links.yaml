@@ -1,0 +1,10 @@
+schema: manlab-aios/links@1.0
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P44_LapKiemSoatNganSach.md
+iso:        ../../03_MANAGEMENT_SYSTEM
+module:     (chưa có — dự kiến M44_NganSach)
+forms:      ../../06_SHARED_RESOURCES/01_Forms
+skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
+law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
+evidence:   ../../11_COMPLIANCE/03_Evidence
+capabilities:
+  - ../../02_CAPABILITIES/CAP-40_KeToan

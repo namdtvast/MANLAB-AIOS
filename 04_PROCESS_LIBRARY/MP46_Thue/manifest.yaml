@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP46
+slug: Thue
+name: Quản lý Thuế
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Quản lý thuế số 38/2019/QH14 (cần xác nhận hiệu lực/văn bản sửa đổi tại thời điểm ban hành)', 'Luật thuế Thu nhập doanh nghiệp, Luật thuế Giá trị gia tăng và văn bản hướng dẫn liên quan (cần xác nhận cụ thể)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P46 (Nháp)

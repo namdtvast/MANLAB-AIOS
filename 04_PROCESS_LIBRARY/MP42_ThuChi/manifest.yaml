@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP42
+slug: ThuChi
+name: Quản lý Thu–Chi, Quỹ tiền mặt & Ngân hàng
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Kế toán (cần xác nhận số hiệu/hiệu lực)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P42 (Nháp)

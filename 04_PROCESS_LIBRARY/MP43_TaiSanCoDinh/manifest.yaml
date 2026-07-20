@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP43
+slug: TaiSanCoDinh
+name: Quản lý Tài sản cố định & Khấu hao
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Kế toán (cần xác nhận số hiệu/hiệu lực)', 'Thông tư hướng dẫn chế độ quản lý, sử dụng và trích khấu hao TSCĐ (cần xác nhận số hiệu hiện hành)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P43 (Nháp)

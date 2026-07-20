@@ -1,25 +1,25 @@
 {
- "generated_at": "2026-07-20 00:10 UTC",
+ "generated_at": "2026-07-20 04:23 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "refactor/renumber-capabilities-theo-mp",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/refactor/renumber-capabilities-theo-mp",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/refactor/renumber-capabilities-theo-mp",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/refactor/renumber-capabilities-theo-mp"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6903,
-  "dirs": 1581,
+  "files": 6935,
+  "dirs": 1589,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 681,
-   ".yaml": 102,
+   ".md": 697,
+   ".yaml": 118,
    ".drawio": 3,
    ".jpg": 290,
    ".pdf": 3374,
@@ -218,7 +218,7 @@
   "CAP-22_DamBaoDoLuongDN": "Đảm bảo đo lường tại doanh nghiệp",
   "CAP-13_DaoTao": "Đào tạo chuyên môn",
   "CAP-03_NhanSu": "Quản lý nhân sự",
-  "CAP-15_KeToan": "Kế toán & Tài chính",
+  "CAP-40_KeToan": "Kế toán & Tài chính",
   "CAP-06_MuaSam": "Mua sắm & Quản lý nhà cung cấp",
   "CAP-05_ThietBi": "Quản lý thiết bị & chuẩn",
   "CAP-16_ChatLuong": "Chất lượng & Cải tiến",
@@ -1315,6 +1315,224 @@
    "doc_status": null,
    "has_doc": false,
    "forms": []
+  },
+  {
+   "code": "MP40",
+   "slug": "DoanhThu",
+   "name": "Quản lý Doanh thu & Hóa đơn",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+    "Luật Quản lý thuế (cần xác nhận số hiệu/hiệu lực)"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP40_DoanhThu",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP41",
+   "slug": "CongNo",
+   "name": "Quản lý Công nợ (Phải thu/Phải trả)",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP41_CongNo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP42",
+   "slug": "ThuChi",
+   "name": "Quản lý Thu–Chi, Quỹ tiền mặt & Ngân hàng",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP42_ThuChi",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP43",
+   "slug": "TaiSanCoDinh",
+   "name": "Quản lý Tài sản cố định & Khấu hao",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+    "'Thông tư hướng dẫn chế độ quản lý",
+    "sử dụng và trích khấu hao TSCĐ (cần xác nhận số hiệu hiện hành)'"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP44",
+   "slug": "NganSach",
+   "name": "Lập & Kiểm soát Ngân sách",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP44_NganSach",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP45",
+   "slug": "BaoCaoTaiChinh",
+   "name": "Báo cáo Tài chính & Kế toán",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+    "Chuẩn mực kế toán Việt Nam (VAS — cần xác nhận phạm vi áp dụng)"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP46",
+   "slug": "Thue",
+   "name": "Quản lý Thuế",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [
+    "Luật Quản lý thuế số 38/2019/QH14 (cần xác nhận hiệu lực/văn bản sửa đổi tại thời điểm ban hành)",
+    "'Luật thuế Thu nhập doanh nghiệp",
+    "Luật thuế Giá trị gia tăng và văn bản hướng dẫn liên quan (cần xác nhận cụ thể)'"
+   ],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP46_Thue",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
+  },
+  {
+   "code": "MP47",
+   "slug": "KiemSoatNoiBo",
+   "name": "Kiểm soát Nội bộ Tài chính",
+   "status": "draft",
+   "standards": [
+    "ISO9001"
+   ],
+   "legal": [],
+   "capabilities": [
+    "CAP-40"
+   ],
+   "cap_paths": {
+    "CAP-40": "02_CAPABILITIES/CAP-40_KeToan"
+   },
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo",
+   "doc_controlled": null,
+   "doc_edition": null,
+   "doc_issued": null,
+   "doc_status": null,
+   "has_doc": false,
+   "forms": []
   }
  ],
  "tree": {
@@ -1900,37 +2118,6 @@
       "n_files": 2
      },
      {
-      "name": "CAP-15_KeToan",
-      "path": "02_CAPABILITIES/CAP-15_KeToan",
-      "type": "dir",
-      "children": [
-       {
-        "name": "capability.yaml",
-        "path": "02_CAPABILITIES/CAP-15_KeToan/capability.yaml",
-        "type": "file",
-        "ext": ".yaml",
-        "size": 95
-       },
-       {
-        "name": "README.md",
-        "path": "02_CAPABILITIES/CAP-15_KeToan/README.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 104
-       }
-      ],
-      "desc": "Năng lực nghiệp vụ.",
-      "readme": "02_CAPABILITIES/CAP-15_KeToan/README.md",
-      "meta": {
-       "schema": "manlab-aios/capability@1.0",
-       "code": "CAP-15",
-       "name": "Kế toán & Tài chính",
-       "processes": []
-      },
-      "n_dirs": 0,
-      "n_files": 2
-     },
-     {
       "name": "CAP-16_ChatLuong",
       "path": "02_CAPABILITIES/CAP-16_ChatLuong",
       "type": "dir",
@@ -2178,11 +2365,51 @@
       "n_files": 2
      },
      {
+      "name": "CAP-40_KeToan",
+      "path": "02_CAPABILITIES/CAP-40_KeToan",
+      "type": "dir",
+      "children": [
+       {
+        "name": "capability.yaml",
+        "path": "02_CAPABILITIES/CAP-40_KeToan/capability.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 441
+       },
+       {
+        "name": "README.md",
+        "path": "02_CAPABILITIES/CAP-40_KeToan/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 226
+       }
+      ],
+      "desc": "Năng lực nghiệp vụ.",
+      "readme": "02_CAPABILITIES/CAP-40_KeToan/README.md",
+      "meta": {
+       "schema": "manlab-aios/capability@1.0",
+       "code": "CAP-40",
+       "name": "Kế toán & Tài chính",
+       "processes": [
+        "../../04_PROCESS_LIBRARY/MP40_DoanhThu",
+        "../../04_PROCESS_LIBRARY/MP41_CongNo",
+        "../../04_PROCESS_LIBRARY/MP42_ThuChi",
+        "../../04_PROCESS_LIBRARY/MP43_TaiSanCoDinh",
+        "../../04_PROCESS_LIBRARY/MP44_NganSach",
+        "../../04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh",
+        "../../04_PROCESS_LIBRARY/MP46_Thue",
+        "../../04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo"
+       ]
+      },
+      "n_dirs": 0,
+      "n_files": 2
+     },
+     {
       "name": "README.md",
       "path": "02_CAPABILITIES/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 2083
+      "size": 2126
      }
     ],
     "desc": "**Ý nghĩa:** Viện làm được GÌ. Mỗi năng lực được hiện thực bởi một/nhiều quy trình MP.",
@@ -2282,6 +2509,62 @@
         "size": 33883
        },
        {
+        "name": "ETV.P40_QuanLyDoanhThuHoaDon.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P40_QuanLyDoanhThuHoaDon.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 8662
+       },
+       {
+        "name": "ETV.P41_QuanLyCongNo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P41_QuanLyCongNo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6422
+       },
+       {
+        "name": "ETV.P42_QuanLyThuChiQuy.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_QuanLyThuChiQuy.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7067
+       },
+       {
+        "name": "ETV.P43_QuanLyTaiSanCoDinh.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P43_QuanLyTaiSanCoDinh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7169
+       },
+       {
+        "name": "ETV.P44_LapKiemSoatNganSach.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P44_LapKiemSoatNganSach.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6209
+       },
+       {
+        "name": "ETV.P45_BaoCaoTaiChinhKeToan.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P45_BaoCaoTaiChinhKeToan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6456
+       },
+       {
+        "name": "ETV.P46_QuanLyThue.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P46_QuanLyThue.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6321
+       },
+       {
+        "name": "ETV.P47_KiemSoatNoiBoTaiChinh.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P47_KiemSoatNoiBoTaiChinh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6823
+       },
+       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/README.md",
         "type": "file",
@@ -2292,7 +2575,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 7
+      "n_files": 15
      },
      {
       "name": "03_M",
@@ -4875,6 +5158,416 @@
       "n_files": 3
      },
      {
+      "name": "MP40_DoanhThu",
+      "path": "04_PROCESS_LIBRARY/MP40_DoanhThu",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP40_DoanhThu/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 446
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP40_DoanhThu/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 368
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP40_DoanhThu/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 629
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP40_DoanhThu/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP40",
+       "slug": "DoanhThu",
+       "name": "Quản lý Doanh thu & Hóa đơn",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "Luật Quản lý thuế (cần xác nhận số hiệu/hiệu lực)"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P40 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP41_CongNo",
+      "path": "04_PROCESS_LIBRARY/MP41_CongNo",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP41_CongNo/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 436
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP41_CongNo/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 307
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP41_CongNo/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 603
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP41_CongNo/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP41",
+       "slug": "CongNo",
+       "name": "Quản lý Công nợ (Phải thu/Phải trả)",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P41 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP42_ThuChi",
+      "path": "04_PROCESS_LIBRARY/MP42_ThuChi",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP42_ThuChi/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 439
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP42_ThuChi/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 314
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP42_ThuChi/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 613
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP42_ThuChi/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP42",
+       "slug": "ThuChi",
+       "name": "Quản lý Thu–Chi, Quỹ tiền mặt & Ngân hàng",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P42 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP43_TaiSanCoDinh",
+      "path": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 448
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 451
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 860
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP43_TaiSanCoDinh/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP43",
+       "slug": "TaiSanCoDinh",
+       "name": "Quản lý Tài sản cố định & Khấu hao",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "'Thông tư hướng dẫn chế độ quản lý",
+        "sử dụng và trích khấu hao TSCĐ (cần xác nhận số hiệu hiện hành)'"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P43 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP44_NganSach",
+      "path": "04_PROCESS_LIBRARY/MP44_NganSach",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP44_NganSach/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 445
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP44_NganSach/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 230
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP44_NganSach/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 572
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP44_NganSach/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP44",
+       "slug": "NganSach",
+       "name": "Lập & Kiểm soát Ngân sách",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P44 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP45_BaoCaoTaiChinh",
+      "path": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 452
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 390
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 650
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP45",
+       "slug": "BaoCaoTaiChinh",
+       "name": "Báo cáo Tài chính & Kế toán",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "Chuẩn mực kế toán Việt Nam (VAS — cần xác nhận phạm vi áp dụng)"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P45 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP46_Thue",
+      "path": "04_PROCESS_LIBRARY/MP46_Thue",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP46_Thue/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 432
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP46_Thue/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 494
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP46_Thue/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 591
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP46_Thue/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP46",
+       "slug": "Thue",
+       "name": "Quản lý Thuế",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [
+        "Luật Quản lý thuế số 38/2019/QH14 (cần xác nhận hiệu lực/văn bản sửa đổi tại thời điểm ban hành)",
+        "'Luật thuế Thu nhập doanh nghiệp",
+        "Luật thuế Giá trị gia tăng và văn bản hướng dẫn liên quan (cần xác nhận cụ thể)'"
+       ],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P46 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP47_KiemSoatNoiBo",
+      "path": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 452
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 238
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 822
+       }
+      ],
+      "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
+      "readme": "04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.0",
+       "code": "MP47",
+       "slug": "KiemSoatNoiBo",
+       "name": "Kiểm soát Nội bộ Tài chính",
+       "owner": "(cập nhật)",
+       "status": "draft",
+       "standards": [
+        "ISO9001"
+       ],
+       "legal": [],
+       "capabilities": [
+        "CAP-40"
+       ],
+       "module": "null",
+       "document": "ETV.P47 (Nháp)"
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
       "name": "README.md",
       "path": "04_PROCESS_LIBRARY/README.md",
       "type": "file",
@@ -4884,7 +5577,7 @@
     ],
     "desc": "**Ý nghĩa:** 38 quy trình MP01–MP38, mỗi MP là Hub điều hướng — không chứa nội dung, chỉ trỏ tới tầng khác.",
     "readme": "04_PROCESS_LIBRARY/README.md",
-    "n_dirs": 39,
+    "n_dirs": 47,
     "n_files": 1
    },
    {
@@ -64803,7 +65496,7 @@
       "path": "_meta/INDEX.md",
       "type": "file",
       "ext": ".md",
-      "size": 4399
+      "size": 5017
      },
      {
       "name": "SCHEMA.md",

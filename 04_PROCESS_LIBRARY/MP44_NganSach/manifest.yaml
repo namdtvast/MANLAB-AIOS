@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP44
+slug: NganSach
+name: Lập & Kiểm soát Ngân sách
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: []
+capabilities: [CAP-40]
+module: null
+document: ETV.P44 (Nháp)

@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP47
+slug: KiemSoatNoiBo
+name: Kiểm soát Nội bộ Tài chính
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: []
+capabilities: [CAP-40]
+module: null
+document: ETV.P47 (Nháp)

@@ -1,0 +1,12 @@
+schema: manlab-aios/capability@1.0
+code: CAP-40
+name: Kế toán & Tài chính
+processes:
+  - ../../04_PROCESS_LIBRARY/MP40_DoanhThu
+  - ../../04_PROCESS_LIBRARY/MP41_CongNo
+  - ../../04_PROCESS_LIBRARY/MP42_ThuChi
+  - ../../04_PROCESS_LIBRARY/MP43_TaiSanCoDinh
+  - ../../04_PROCESS_LIBRARY/MP44_NganSach
+  - ../../04_PROCESS_LIBRARY/MP45_BaoCaoTaiChinh
+  - ../../04_PROCESS_LIBRARY/MP46_Thue
+  - ../../04_PROCESS_LIBRARY/MP47_KiemSoatNoiBo

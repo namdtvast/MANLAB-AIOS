@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP41
+slug: CongNo
+name: Quản lý Công nợ (Phải thu/Phải trả)
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Kế toán (cần xác nhận số hiệu/hiệu lực)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P41 (Nháp)

@@ -16,7 +16,7 @@
 | CAP-22_DamBaoDoLuongDN | Đảm bảo đo lường tại doanh nghiệp |
 | CAP-13_DaoTao | Đào tạo chuyên môn |
 | CAP-03_NhanSu | Quản lý nhân sự |
-| CAP-15_KeToan | Kế toán & Tài chính |
+| CAP-40_KeToan | Kế toán & Tài chính |
 | CAP-06_MuaSam | Mua sắm & Quản lý nhà cung cấp |
 | CAP-05_ThietBi | Quản lý thiết bị & chuẩn |
 | CAP-16_ChatLuong | Chất lượng & Cải tiến |
@@ -67,3 +67,11 @@
 | MP36_ChungChiSo | M36_ChungChiSo | Quản lý chứng chỉ số và truy xuất nguồn gốc |
 | MP37_TichHopDuLieu | M37_TichHopDuLieu | Quản lý tích hợp dữ liệu |
 | MP38_DichVuSo | M38_DichVuSo | Quản lý dịch vụ số |
+| MP40_DoanhThu | — (chưa có) | Quản lý doanh thu & hóa đơn |
+| MP41_CongNo | — (chưa có) | Quản lý công nợ phải thu/phải trả |
+| MP42_ThuChi | — (chưa có) | Quản lý thu – chi, quỹ tiền mặt & ngân hàng |
+| MP43_TaiSanCoDinh | — (chưa có) | Quản lý tài sản cố định & khấu hao |
+| MP44_NganSach | — (chưa có) | Lập & kiểm soát ngân sách |
+| MP45_BaoCaoTaiChinh | — (chưa có) | Báo cáo tài chính & kế toán |
+| MP46_Thue | — (chưa có) | Quản lý thuế |
+| MP47_KiemSoatNoiBo | — (chưa có) | Kiểm soát nội bộ tài chính |

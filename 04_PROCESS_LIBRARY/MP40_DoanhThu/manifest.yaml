@@ -1,0 +1,11 @@
+schema: manlab-aios/process@1.0
+code: MP40
+slug: DoanhThu
+name: Quản lý Doanh thu & Hóa đơn
+owner: "(cập nhật)"
+status: draft
+standards: ['ISO9001']
+legal: ['Luật Kế toán (cần xác nhận số hiệu/hiệu lực)', 'Luật Quản lý thuế (cần xác nhận số hiệu/hiệu lực)']
+capabilities: [CAP-40]
+module: null
+document: ETV.P40 (Nháp)
