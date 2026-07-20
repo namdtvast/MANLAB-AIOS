@@ -933,7 +933,7 @@ function renderDir(node,path){
     if(cells)head+=`<div class="meta-grid">${cells}</div>`;
     // controlled document button
     if(doc.controlled){
-      const dpath=path+'/'+doc.controlled;
+      const dpath=doc.path||(path+'/'+doc.controlled);
       head+=`<div class="doc-cta"><button class="btn btn-primary" onclick="openPath('${esc(dpath)}')">
         ${SVG.doc} Mở tài liệu kiểm soát</button></div>`;
     }
@@ -1239,7 +1239,7 @@ function renderThreadFlow(code){
   const mod=p.module?node(p.module,p.name,'05_MODULE_LIBRARY · đặc tả số hóa',p.module_path)
                     :node('—','Chưa có module','');
   const last=p.has_doc
-    ? node('Thủ tục',p.doc_controlled,'Tài liệu kiểm soát · bản '+(p.doc_edition||''),p.path+'/'+p.doc_controlled,true)
+    ? node('Thủ tục',p.doc_controlled,'Tài liệu kiểm soát · bản '+(p.doc_edition||''),p.doc_path||(p.path+'/'+p.doc_controlled),true)
     : node('11','Tuân thủ & bằng chứng','Bằng chứng, đánh giá, CAPA','11_COMPLIANCE');
   $('#thread-flow').innerHTML=`<div class="flow">
     <div class="flow-col"><div class="ch">Năng lực · 02</div>${capNodes}</div>
