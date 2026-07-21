@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO/IEC 17025 §6.6 |
 | Năng lực liên quan | CAP-06 |
 | Module số hóa | M06_MuaSam |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
