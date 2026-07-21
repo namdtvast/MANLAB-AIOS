@@ -2,7 +2,7 @@ schema: manlab-aios/process@1.0
 code: MP24
 slug: KPI
 name: Quản lý và đánh giá hiệu suất công việc (KPI)
-owner: "(cập nhật)"
+owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO9001']
 legal: []
