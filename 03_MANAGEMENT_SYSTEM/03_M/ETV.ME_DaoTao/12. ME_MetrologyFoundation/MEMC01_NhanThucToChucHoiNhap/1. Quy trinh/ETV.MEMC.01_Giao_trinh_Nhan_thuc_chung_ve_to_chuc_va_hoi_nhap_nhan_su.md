@@ -5,8 +5,8 @@
 | Mục | Chi tiết |
 |---|---|
 | Mã số | **ETV.MEMC 01** *(lĩnh vực `MC` — Cơ sở đo lường học và năng lực nền tảng, tài liệu đầu tiên của lĩnh vực)* |
-| Lần ban hành | **01** |
-| Ngày ban hành | **20/07/2026** |
+| Lần ban hành | **02** |
+| Ngày ban hành | **22/07/2026** |
 | Biên soạn | **Dương Thành Nam** |
 | Soát xét | **Trần Thị Hoa** |
 | Phê duyệt | **Nguyễn Hoàng Giang** |
@@ -23,6 +23,7 @@
 |---|---|---|
 | 20/07/2026 | Ban hành lần đầu | 01 |
 | 20/07/2026 | Mở rộng cấu trúc thành 6 phần / 23 chương theo khung chương trình tham khảo (Mục tiêu chương – Nội dung cốt lõi – Chuẩn đầu ra – Câu hỏi ôn tập); bổ sung tiêu chí hoàn thành định lượng, ma trận chức danh–học phần, checklist hội nhập, danh mục thuật ngữ | 01 |
+| 22/07/2026 | Thêm sơ đồ PDCA, quy trình, workflow, cơ cấu tổ chức; mở rộng liên kết chi tiết đến ETV.QM, ETV.P01–P24 (24 thủ tục), ISO tiêu chuẩn; liên kết tới MP29; giữ nguyên các phần chưa có văn bản chính thức (Vision, Mission, Values), chờ Viện cập nhật | 02 |
 
 ---
 
@@ -498,6 +499,39 @@ Kết quả được ghi nhận theo từng hợp phần; không bù điểm lý
 | SDS | Phiếu dữ liệu an toàn hóa chất |
 
 *Các thuật ngữ chuyên ngành đo lường (CMC, CRM, PT, ILAC, BIPM, OIML, VIM, GUM...) sẽ được giải thích trong giáo trình chuyên môn tương ứng, không thuộc phạm vi giáo trình nền tảng này.*
+
+
+## PHỤ LỤC F1 — Danh sách 24 thủ tục quản lý ETV (ETV.P01–P24)
+
+| Số | Mã | Tên thủ tục | Phạm vi |
+|---:|---|---|---|
+| 1 | ETV.P01 | Giải quyết rủi ro và cơ hội | Xác định, đánh giá, kiểm soát rủi ro; nhận diện và khai thác cơ hội |
+| 2 | ETV.P02 | Bảo mật thông tin & quyền sở hữu khách hàng | Phân loại, kiểm soát truy cập, bảo vệ dữ liệu |
+| 3 | ETV.P03 | Quản lý nhân sự & đào tạo | Tuyển dụng, đào tạo, đánh giá năng lực, kỷ luật |
+| 4 | ETV.P04 | Quản lý tài chính | Ngân sách, chi phí, báo cáo tài chính |
+| 5 | ETV.P05 | Mua sắm | Đánh giá nhà cung cấp, mua hàng, kiểm nhận |
+| 6 | ETV.P06 | Kiểm soát nhà thầu phụ | Đánh giá, theo dõi, kiểm tra nhà thầu |
+| 7 | ETV.P07 | Xem xét yêu cầu & Hợp đồng | Tiếp nhận, xem xét, ký hợp đồng với khách hàng |
+| 8 | ETV.P08 | Thiết kế & Phát triển | Thiết kế phương pháp, xác thực, kiểm chứng |
+| 9 | ETV.P09 | Kiểm soát sản phẩm đầu vào | Kiểm tra mẫu, thiết bị, tài liệu tiếp nhận |
+| 10 | ETV.P10 | Đảm bảo hiệu lực kết quả | Hiệu chuẩn, kiểm định, độ không đảm bảo đo |
+| 11 | ETV.P11 | Báo cáo kết quả | Soạn, kiểm tra, phát hành báo cáo |
+| 12 | ETV.P12 | Xử lý khiếu nại & Phản hồi khách hàng | Ghi nhận, xử lý, phản hồi khiếu nại |
+| 13 | ETV.P13 | Quản lý sai lỗi & Hành động khắc phục | Báo cáo, điều tra nguyên nhân, khắc phục |
+| 14 | ETV.P14 | Kiểm soát tài liệu | Ban hành, phiên bản, phê duyệt, thay đổi tài liệu |
+| 15 | ETV.P15 | Kiểm soát hồ sơ | Tạo, lưu trữ, truy xuất, lưu giữ, hủy hồ sơ |
+| 16 | ETV.P16 | Quản lý tài sản | Mua, bàn giao, sử dụng, bảo dưỡng, thanh lý |
+| 17 | ETV.P17 | Quản lý ngoại miên/Phòng thí nghiệm | Sắp xếp không gian, điều kiện môi trường, an toàn |
+| 18 | ETV.P18 | Quản lý thiết bị & Chuẩn đo | Kiểm định, hiệu chuẩn, bảo quản thiết bị |
+| 19 | ETV.P19 | Phát triển & Xác thực phương pháp | Thiết kế, thử nghiệm, xác thực, validation |
+| 20 | ETV.P20 | Công bố, quảng bá năng lực | Danh mục dịch vụ, tuyên bố năng lực, quảng cáo |
+| 21 | ETV.P21 | Bảo đảm liên kết chuẩn | Theo dõi chuỗi chuẩn, độ không đảm bảo, truy xuất |
+| 22 | ETV.P22 | Quản lý dữ liệu & Kho tri thức | Lưu trữ, phân loại, truy cập, an toàn dữ liệu |
+| 23 | ETV.P23 | Quản lý số & Chuyển đổi số | ManLab, AIOS, workflow, tự động hóa |
+| 24 | ETV.P24 | Quản trị AI & Trách nhiệm AI | Đánh giá tác động (AIA), kiểm soát Agent, tuân thủ ISO/IEC 42001 |
+
+**Ghi chú**: Liên kết chi tiết tới từng thủ tục tại `03_MANAGEMENT_SYSTEM/02_P/`.
+
 
 ## PHỤ LỤC B — Danh mục quy trình tham chiếu
 
