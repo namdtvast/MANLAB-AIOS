@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | Luật Đo lường 2011 |
 | Năng lực liên quan | CAP-22 |
 | Module số hóa | M22_DamBaoDoLuongDN |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.

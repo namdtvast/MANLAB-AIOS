@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-21 03:36 UTC",
+ "generated_at": "2026-07-21 03:46 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "feat/cap09-11-12-13-thu-tuc-batch3",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap09-11-12-13-thu-tuc-batch3",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap09-11-12-13-thu-tuc-batch3",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap09-11-12-13-thu-tuc-batch3"
+  "branch": "feat/cap18-19-22-24-thu-tuc-batch4",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap18-19-22-24-thu-tuc-batch4",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap18-19-22-24-thu-tuc-batch4",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap18-19-22-24-thu-tuc-batch4"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6953,
+  "files": 6955,
   "dirs": 1561,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 731,
+   ".md": 733,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -803,12 +803,12 @@
    "module": "M18",
    "module_path": "05_MODULE_LIBRARY/M18_QuyTacQuyetDinh",
    "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P18_QuyTacQuyetDinh.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
+   "doc_edition": "02",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -927,12 +927,12 @@
    "module": "M22",
    "module_path": "05_MODULE_LIBRARY/M22_DamBaoDoLuongDN",
    "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P22_DamBaoDoLuongDN.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P22_DamBaoDoLuongDN.md",
+   "doc_edition": "02",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -2383,11 +2383,25 @@
         "size": 15374
        },
        {
+        "name": "ETV.P18_QuyTacQuyetDinh.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 24337
+       },
+       {
         "name": "ETV.P21_CongBoKiemSoatNangLuc.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
         "type": "file",
         "ext": ".md",
         "size": 33883
+       },
+       {
+        "name": "ETV.P22_DamBaoDoLuongDN.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P22_DamBaoDoLuongDN.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 29218
        },
        {
         "name": "README.md",
@@ -2400,7 +2414,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 17
+      "n_files": 19
      },
      {
       "name": "03_M",
@@ -4106,21 +4120,21 @@
         "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 532
+        "size": 564
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 251
+        "size": 263
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP18_QuyTacQuyetDinh/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 440
+        "size": 452
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4130,7 +4144,7 @@
        "code": "MP18",
        "slug": "QuyTacQuyetDinh",
        "name": "Quy tắc quyết định và tuyên bố sự phù hợp",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -4143,11 +4157,11 @@
        ],
        "module": "M18",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P18_QuyTacQuyetDinh.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
+        "edition": "02",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -4170,14 +4184,14 @@
         "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 222
+        "size": 234
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 389
+        "size": 1364
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4187,7 +4201,7 @@
        "code": "MP19",
        "slug": "SanXuatCRM",
        "name": "Hoạch định và sản xuất chất chuẩn",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17034"
@@ -4347,21 +4361,21 @@
         "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 453
+        "size": 485
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 263
+        "size": 275
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP22_DamBaoDoLuongDN/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 418
+        "size": 430
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4371,7 +4385,7 @@
        "code": "MP22",
        "slug": "DamBaoDoLuongDN",
        "name": "Đảm bảo đo lường tại doanh nghiệp",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "(none)"
@@ -4384,11 +4398,11 @@
        ],
        "module": "M22",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P22_DamBaoDoLuongDN.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P22_DamBaoDoLuongDN.md",
+        "edition": "02",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -4466,14 +4480,14 @@
         "path": "04_PROCESS_LIBRARY/MP24_KPI/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 226
+        "size": 238
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP24_KPI/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 385
+        "size": 1177
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4483,7 +4497,7 @@
        "code": "MP24",
        "slug": "KPI",
        "name": "Quản lý và đánh giá hiệu suất công việc (KPI)",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO9001"
