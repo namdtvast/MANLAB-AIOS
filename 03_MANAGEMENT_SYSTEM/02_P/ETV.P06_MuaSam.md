@@ -38,7 +38,7 @@ superseded_by: null
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
 > **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 10/11/2025 và 29/03/2026, file `ETV.P 06_TT San pham va dich vu_L4.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý quan trọng:
-> 1. **6/14 biểu mẫu áp dụng số hóa được** (`06.01`, `06.02`, `06.04`, `06.05`, `06.06`, `06.08`) sau khi nguồn Dropbox được đồng bộ lại; **8 biểu mẫu còn lại** (`06.03`, `06.07`, `06.09`–`06.14`) chưa số hóa vì không có/không đúng file nguồn — xem chi tiết từng mã tại mục VII, **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**. Riêng `06.01` có dữ liệu NCC thật trong bản gốc — chỉ số hóa cấu trúc cột, không sao chép dữ liệu NCC thật.
+> 1. **8/14 biểu mẫu áp dụng số hóa được** (`06.01`, `06.02`, `06.04`, `06.05`, `06.06`, `06.08`, `06.11`, `06.12`) sau khi nguồn Dropbox (bao gồm thư mục `1. Form BM` bổ sung sau) được đồng bộ; **6 biểu mẫu còn lại** (`06.03`, `06.07`, `06.09`, `06.10`, `06.13`, `06.14`) chưa số hóa vì không có/không đúng file nguồn — xem chi tiết từng mã tại mục VII, **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**. Riêng `06.01` có dữ liệu NCC thật trong bản gốc — chỉ số hóa cấu trúc cột, không sao chép dữ liệu NCC thật. `06.12` (hợp đồng mua sản phẩm/dịch vụ) đã được AI cập nhật căn cứ pháp luật (Luật GDĐT 20/2023/QH15 thay 51/2005/QH11) và ẩn dữ liệu cá nhân thật trong bản nguồn ManLab — cần Văn phòng xác nhận lại khi cập nhật bản gốc đang chạy.
 > 2. **Cập nhật căn cứ ISO** — bản gốc dẫn "ISO 9000:2005" (đã hết hiệu lực, hiện hành là ISO 9000:2015) và không nêu điều khoản cụ thể; AI thay bằng ISO 9001:2015 §8.4 và ISO/IEC 17025:2017 §6.6 (điều khoản đúng phạm vi kiểm soát mua sắm), cần LĐP xác nhận.
 > 3. **Tách Phụ lục I** (bảng tiêu chí đánh giá NCC chi tiết theo thang điểm) và **Phụ lục II** (quy trình tự động tạo Phiếu đề nghị mua sản phẩm — thuật toán dự báo nhu cầu trên ManLab) ra khỏi thân bài để thân thủ tục gọn theo khung Bước–Trách nhiệm–Biểu mẫu; nội dung giữ nguyên bản chất so với bản gốc.
 > 4. Toàn bộ nội dung quy trình mua sắm, đánh giá NCC, nghiệm thu được **giữ nguyên bản chất** so với lần 02.
@@ -177,12 +177,12 @@ Lãnh đạo Văn phòng tổng hợp danh sách NCC, trình LĐV phê duyệt d
 | `ETV.P.F 06.08` | Kiểm soát nhà thầu phụ (đo lường, quan trắc) | Số hóa từ bản gốc đang dùng thực tế (file nguồn `ETV.P.F 06.07_So theo doi nha thau phu_Hien.doc` có footer nội bộ ghi nhầm "06.07" — nội dung khớp đúng mã `06.08` theo danh mục hiện hành) |
 | `ETV.P.F 06.09` | Kiểm soát nhà thầu phụ (vận chuyển) | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
 | `ETV.P.F 06.10` | Kiểm soát Chi phí Quản lý chung | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
-| `ETV.P.F 06.11` | Kiểm soát Chi phí Công tác phí | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
-| `ETV.P.F 06.12` | Hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.11` | Kiểm soát Chi phí Công tác phí | Số hóa từ bản ManLab đang dùng thực tế (`0. Data_ManLab/1. Form BM/P06.../Template/P0611_DeNghiThanhToanCTP_V2.docx`) |
+| `ETV.P.F 06.12` | Hợp đồng mua sản phẩm và dịch vụ | Số hóa từ bản ManLab đang dùng thực tế (`P0611_HDM_Template_0603_V5.docx`) — đã cập nhật căn cứ pháp luật hiện hành và ẩn dữ liệu cá nhân thật; xem `note` trong file |
 | `ETV.P.F 06.13` | Thanh lý hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
 | `ETV.P.F 06.14` | Phiếu công tác số (thay thế giấy đi đường) | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
 
-> **6/14 biểu mẫu đã được soát xét, phê duyệt cùng lần ban hành 03 của thủ tục này (21/07/2026)** — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang (`status: Da-phe-duyet` trong từng file). 8 biểu mẫu còn lại (`06.03`, `06.07`, `06.09`–`06.14`) không có file nguồn tương ứng trong thư mục Dropbox đã đồng bộ — cần Văn phòng bổ sung file gốc hoặc xây dựng mới để số hóa ở lần cập nhật tiếp theo.
+> **8/14 biểu mẫu đã được soát xét, phê duyệt cùng lần ban hành 03 của thủ tục này (21/07/2026)** — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang (`status: Da-phe-duyet` trong từng file). 6 biểu mẫu còn lại (`06.03`, `06.07`, `06.09`, `06.10`, `06.13`, `06.14`) không có file nguồn tương ứng trong thư mục Dropbox đã đồng bộ — cần Văn phòng bổ sung file gốc hoặc xây dựng mới để số hóa ở lần cập nhật tiếp theo.
 
 ## VIII. LƯU HỒ SƠ
 
