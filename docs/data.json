@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-20 23:24 UTC",
+ "generated_at": "2026-07-21 02:09 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "feat/portal-auto-doc-metadata",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/portal-auto-doc-metadata",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/portal-auto-doc-metadata",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/portal-auto-doc-metadata"
+  "branch": "feat/cap05-08-thu-tuc-batch1",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap05-08-thu-tuc-batch1",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap05-08-thu-tuc-batch1",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap05-08-thu-tuc-batch1"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6907,
-  "dirs": 1560,
+  "files": 6932,
+  "dirs": 1561,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 685,
+   ".md": 710,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -382,12 +382,12 @@
    "module": "M03",
    "module_path": "05_MODULE_LIBRARY/M03_NhanSu",
    "path": "04_PROCESS_LIBRARY/MP03_NhanSu",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P03_NhanSu.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
+   "doc_edition": "03",
+   "doc_issued": "20/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -464,12 +464,12 @@
    "module": "M06",
    "module_path": "05_MODULE_LIBRARY/M06_MuaSam",
    "path": "04_PROCESS_LIBRARY/MP06_MuaSam",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P06_MuaSam.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -494,12 +494,12 @@
    "module": "M07",
    "module_path": "05_MODULE_LIBRARY/M07_HopDong",
    "path": "04_PROCESS_LIBRARY/MP07_HopDong",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P07_HopDong.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -524,12 +524,12 @@
    "module": "M08",
    "module_path": "05_MODULE_LIBRARY/M08_PhuongPhap",
    "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P08_PhuongPhap.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -2292,11 +2292,39 @@
         "size": 18427
        },
        {
+        "name": "ETV.P03_NhanSu.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 32142
+       },
+       {
         "name": "ETV.P04_MoiTruong.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
         "type": "file",
         "ext": ".md",
         "size": 41104
+       },
+       {
+        "name": "ETV.P06_MuaSam.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 21787
+       },
+       {
+        "name": "ETV.P07_HopDong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 17641
+       },
+       {
+        "name": "ETV.P08_PhuongPhap.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 17765
        },
        {
         "name": "ETV.P10_DamBaoHieuLucKetQua.md",
@@ -2337,7 +2365,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 8
+      "n_files": 12
      },
      {
       "name": "03_M",
@@ -2570,8 +2598,25 @@
             "name": "MEMC01_NhanThucToChucHoiNhap",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap",
             "type": "dir",
-            "children": [],
-            "n_dirs": 0,
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 45731
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
             "n_files": 0
            }
           ],
@@ -2796,7 +2841,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 11374
+        "size": 13059
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -3159,21 +3204,21 @@
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 475
+        "size": 498
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 219
+        "size": 231
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 393
+        "size": 405
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3183,7 +3228,7 @@
        "code": "MP03",
        "slug": "NhanSu",
        "name": "Tuyển dụng và đào tạo",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO9001",
@@ -3196,11 +3241,11 @@
        ],
        "module": "M03",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P03_NhanSu.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
+        "edition": "03",
+        "issued": "20/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3328,21 +3373,21 @@
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 435
+        "size": 458
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 229
+        "size": 241
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 398
+        "size": 410
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3352,7 +3397,7 @@
        "code": "MP06",
        "slug": "MuaSam",
        "name": "Mua sản phẩm và dịch vụ do bên ngoài cung cấp",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3363,11 +3408,11 @@
        ],
        "module": "M06",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P06_MuaSam.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3383,21 +3428,21 @@
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 518
+        "size": 542
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 237
+        "size": 249
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 408
+        "size": 420
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3407,7 +3452,7 @@
        "code": "MP07",
        "slug": "HopDong",
        "name": "Xem xét yêu cầu, đề nghị và hợp đồng",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3420,11 +3465,11 @@
        ],
        "module": "M07",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P07_HopDong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3440,21 +3485,21 @@
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 527
+        "size": 554
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 275
+        "size": 287
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 459
+        "size": 471
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3464,7 +3509,7 @@
        "code": "MP08",
        "slug": "PhuongPhap",
        "name": "Lựa chọn, xác nhận phương pháp và đánh giá độ không đảm bảo đo",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3477,11 +3522,11 @@
        ],
        "module": "M08",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P08_PhuongPhap.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -10456,6 +10501,132 @@
         "size": 3794
        },
        {
+        "name": "ETV.P.F03.01_SoYeuLyLich.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3433
+       },
+       {
+        "name": "ETV.P.F03.02_BanMoTaCongViec.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.02_BanMoTaCongViec.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2239
+       },
+       {
+        "name": "ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2024
+       },
+       {
+        "name": "ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2219
+       },
+       {
+        "name": "ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3680
+       },
+       {
+        "name": "ETV.P.F03.04_KeHoachDaoTao.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.04_KeHoachDaoTao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1952
+       },
+       {
+        "name": "ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1816
+       },
+       {
+        "name": "ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1314
+       },
+       {
+        "name": "ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1954
+       },
+       {
+        "name": "ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2469
+       },
+       {
+        "name": "ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1816
+       },
+       {
+        "name": "ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4058
+       },
+       {
+        "name": "ETV.P.F03.08_DanhSachNhanSu.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.08_DanhSachNhanSu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2504
+       },
+       {
+        "name": "ETV.P.F03.09_HopDongLaoDong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.09_HopDongLaoDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 17968
+       },
+       {
+        "name": "ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1698
+       },
+       {
+        "name": "ETV.P.F03.11_HopDongDichVuChuyenMon.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.11_HopDongDichVuChuyenMon.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 12187
+       },
+       {
+        "name": "ETV.P.F03.12_HopDongDichVuPhoThong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.12_HopDongDichVuPhoThong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5702
+       },
+       {
+        "name": "ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5469
+       },
+       {
         "name": "ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
         "type": "file",
@@ -10482,6 +10653,20 @@
         "type": "file",
         "ext": ".md",
         "size": 2041
+       },
+       {
+        "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2884
+       },
+       {
+        "name": "ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4921
        },
        {
         "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
@@ -10599,7 +10784,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 30
+      "n_files": 50
      },
      {
       "name": "02_Templates",
@@ -13109,10 +13294,10 @@
         "path": "07_AI_OPERATING_SYSTEM/02_Harness/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 406
+        "size": 9459
        }
       ],
-      "desc": "**Ý nghĩa:** Khung điều phối tác vụ AI",
+      "desc": "**Ý nghĩa:** Khung điều phối tác vụ AI — nơi định nghĩa một yêu cầu (từ người hoặc từ lịch tự động) đi qua những bước nào để trở thành hành động thật: nhận yêu cầu → chọn Skill/Agent phù hợp → gọi công cụ (MCP) → dừng lại xin người xác nhận nếu chạm ranh giới rủi ro → trả kết quả. Thư mục này chỉ chứa **đặc tả điều phối**, không chứa định nghĩa kỹ năng (`01_Skills`), vai trò agent (`03_Agents`), hay cấu hình công cụ (`07_MCP`) — Harness dùng ba thứ đó, không thay thế chúng.",
       "readme": "07_AI_OPERATING_SYSTEM/02_Harness/README.md",
       "n_dirs": 0,
       "n_files": 1
