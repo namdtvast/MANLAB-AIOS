@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-21 03:16 UTC",
+ "generated_at": "2026-07-21 03:36 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "main",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
+  "branch": "feat/cap09-11-12-13-thu-tuc-batch3",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap09-11-12-13-thu-tuc-batch3",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap09-11-12-13-thu-tuc-batch3",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap09-11-12-13-thu-tuc-batch3"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6949,
+  "files": 6953,
   "dirs": 1561,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 727,
+   ".md": 731,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -552,12 +552,12 @@
    "module": "M09",
    "module_path": "05_MODULE_LIBRARY/M09_LayMau",
    "path": "04_PROCESS_LIBRARY/MP09_LayMau",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P09_LayMau.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P09_LayMau.md",
+   "doc_edition": "02",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -610,12 +610,12 @@
    "module": "M11",
    "module_path": "05_MODULE_LIBRARY/M11_BaoCao",
    "path": "04_PROCESS_LIBRARY/MP11_BaoCao",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P11_BaoCao.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -636,12 +636,12 @@
    "module": "M12",
    "module_path": "05_MODULE_LIBRARY/M12_KhieuNai",
    "path": "04_PROCESS_LIBRARY/MP12_KhieuNai",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P12_KhieuNai.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -662,12 +662,12 @@
    "module": "M13",
    "module_path": "05_MODULE_LIBRARY/M13_KhacPhuc",
    "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P13_KhacPhuc.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -2334,11 +2334,39 @@
         "size": 17765
        },
        {
+        "name": "ETV.P09_LayMau.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P09_LayMau.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 17620
+       },
+       {
         "name": "ETV.P10_DamBaoHieuLucKetQua.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md",
         "type": "file",
         "ext": ".md",
         "size": 40607
+       },
+       {
+        "name": "ETV.P11_BaoCao.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 37105
+       },
+       {
+        "name": "ETV.P12_KhieuNai.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 21360
+       },
+       {
+        "name": "ETV.P13_KhacPhuc.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 9426
        },
        {
         "name": "ETV.P14_KiemSoatTaiLieu.md",
@@ -2372,7 +2400,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 13
+      "n_files": 17
      },
      {
       "name": "03_M",
@@ -3549,21 +3577,21 @@
         "path": "04_PROCESS_LIBRARY/MP09_LayMau/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 481
+        "size": 504
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP09_LayMau/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 222
+        "size": 234
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP09_LayMau/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 398
+        "size": 410
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3573,7 +3601,7 @@
        "code": "MP09",
        "slug": "LayMau",
        "name": "Lấy mẫu, xử lý và bảo quản mẫu",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3585,11 +3613,11 @@
        ],
        "module": "M09",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P09_LayMau.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P09_LayMau.md",
+        "edition": "02",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3660,21 +3688,21 @@
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 565
+        "size": 588
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 213
+        "size": 225
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 382
+        "size": 394
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3684,7 +3712,7 @@
        "code": "MP11",
        "slug": "BaoCao",
        "name": "Báo cáo kết quả",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3698,11 +3726,11 @@
        ],
        "module": "M11",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P11_BaoCao.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3718,21 +3746,21 @@
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 440
+        "size": 465
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 222
+        "size": 234
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 395
+        "size": 407
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3742,7 +3770,7 @@
        "code": "MP12",
        "slug": "KhieuNai",
        "name": "Giải quyết khiếu nại, phàn nàn, góp ý",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3753,11 +3781,11 @@
        ],
        "module": "M12",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P12_KhieuNai.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -3773,21 +3801,21 @@
         "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 440
+        "size": 465
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 248
+        "size": 260
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP13_KhacPhuc/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 429
+        "size": 441
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3797,7 +3825,7 @@
        "code": "MP13",
        "slug": "KhacPhuc",
        "name": "Hành động khắc phục và kiểm soát công việc không phù hợp",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3808,11 +3836,11 @@
        ],
        "module": "M13",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P13_KhacPhuc.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,

@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.3, §7.4 |
 | Năng lực liên quan | CAP-04,CAP-11 |
 | Module số hóa | M09_LayMau |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
