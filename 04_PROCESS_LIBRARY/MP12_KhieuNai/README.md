@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.9 |
 | Năng lực liên quan | CAP-16 |
 | Module số hóa | M12_KhieuNai |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
