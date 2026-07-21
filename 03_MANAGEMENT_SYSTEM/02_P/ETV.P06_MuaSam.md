@@ -38,7 +38,7 @@ superseded_by: null
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
 > **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 10/11/2025 và 29/03/2026, file `ETV.P 06_TT San pham va dich vu_L4.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý quan trọng:
-> 1. **14 biểu mẫu áp dụng (mục VII) hiện CHƯA số hóa được** — toàn bộ file biểu mẫu gốc (`ETV.P.F 06.01`–`06.14`) trên Dropbox nguồn đang ở dạng file rỗng 0 byte (placeholder online-only, chưa đồng bộ về máy). Thân thủ tục vẫn ban hành vì nội dung quy trình đọc được đầy đủ từ bản gốc; biểu mẫu sẽ được bổ sung ở lần cập nhật kế tiếp sau khi đồng bộ lại nguồn — **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**.
+> 1. **6/14 biểu mẫu áp dụng số hóa được** (`06.01`, `06.02`, `06.04`, `06.05`, `06.06`, `06.08`) sau khi nguồn Dropbox được đồng bộ lại; **8 biểu mẫu còn lại** (`06.03`, `06.07`, `06.09`–`06.14`) chưa số hóa vì không có/không đúng file nguồn — xem chi tiết từng mã tại mục VII, **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**. Riêng `06.01` có dữ liệu NCC thật trong bản gốc — chỉ số hóa cấu trúc cột, không sao chép dữ liệu NCC thật.
 > 2. **Cập nhật căn cứ ISO** — bản gốc dẫn "ISO 9000:2005" (đã hết hiệu lực, hiện hành là ISO 9000:2015) và không nêu điều khoản cụ thể; AI thay bằng ISO 9001:2015 §8.4 và ISO/IEC 17025:2017 §6.6 (điều khoản đúng phạm vi kiểm soát mua sắm), cần LĐP xác nhận.
 > 3. **Tách Phụ lục I** (bảng tiêu chí đánh giá NCC chi tiết theo thang điểm) và **Phụ lục II** (quy trình tự động tạo Phiếu đề nghị mua sản phẩm — thuật toán dự báo nhu cầu trên ManLab) ra khỏi thân bài để thân thủ tục gọn theo khung Bước–Trách nhiệm–Biểu mẫu; nội dung giữ nguyên bản chất so với bản gốc.
 > 4. Toàn bộ nội dung quy trình mua sắm, đánh giá NCC, nghiệm thu được **giữ nguyên bản chất** so với lần 02.
@@ -53,7 +53,7 @@ superseded_by: null
 | 22/4/2023 | Ban hành lần thứ hai | 02 |
 | 10/11/2025 | Bổ sung quy trình đánh giá nhà cung cấp | 02 |
 | 29/03/2026 | Cập nhật lại dạng bảng đánh giá nhà cung cấp sau mua | 02 |
-| 21/07/2026 | Rà soát toàn diện theo khung mẫu chuẩn ETV.P14: bổ sung RACI đầy đủ, cập nhật căn cứ ISO (ISO 9001:2015 §8.4, ISO/IEC 17025:2017 §6.6), tách Phụ lục I/II khỏi thân bài; 14 biểu mẫu áp dụng chờ số hóa do nguồn Dropbox chưa đồng bộ. | 03 |
+| 21/07/2026 | Rà soát toàn diện theo khung mẫu chuẩn ETV.P14: bổ sung RACI đầy đủ, cập nhật căn cứ ISO (ISO 9001:2015 §8.4, ISO/IEC 17025:2017 §6.6), tách Phụ lục I/II khỏi thân bài; số hóa 6/14 biểu mẫu áp dụng (`06.01`, `06.02`, `06.04`, `06.05`, `06.06`, `06.08`), 8 biểu mẫu còn lại chờ bổ sung nguồn. | 03 |
 
 ---
 
@@ -167,22 +167,22 @@ Lãnh đạo Văn phòng tổng hợp danh sách NCC, trình LĐV phê duyệt d
 
 | Mã | Tên biểu mẫu | Trạng thái số hóa |
 |---|---|---|
-| `ETV.P.F 06.01` | Theo dõi đánh giá nhà cung cấp được duyệt | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.02` | Đánh giá, thu thập thông tin nhà cung cấp | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.03` | Phiếu đề nghị mua Sản phẩm | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.04` | Phiếu đề nghị mua Dịch vụ | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.05` | Biên bản bàn giao, nghiệm thu Mẫu chuẩn | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.06` | Biên bản bàn giao, nghiệm thu Thiết bị | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.07` | Biên bản bàn giao, nghiệm thu Dịch vụ | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.08` | Kiểm soát nhà thầu phụ (đo lường, quan trắc) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.09` | Kiểm soát nhà thầu phụ (vận chuyển) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.10` | Kiểm soát Chi phí Quản lý chung | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.11` | Kiểm soát Chi phí Công tác phí | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.12` | Hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.13` | Thanh lý hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 06.14` | Phiếu công tác số (thay thế giấy đi đường) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 06.01` | Theo dõi đánh giá nhà cung cấp được duyệt | Số hóa cấu trúc (bản gốc có dữ liệu NCC thật — chỉ số hóa cột dữ liệu) |
+| `ETV.P.F 06.02` | Đánh giá, thu thập thông tin nhà cung cấp | Số hóa từ bản gốc đang dùng thực tế |
+| `ETV.P.F 06.03` | Phiếu đề nghị mua Sản phẩm | Chưa số hóa — file `.doc` gốc rỗng; file `.xlsx` tìm được là "Danh mục thiết bị đề xuất mua" (kế hoạch mua sắm nhiều năm, dữ liệu giá/NCC thật) chứ không phải mẫu phiếu đề nghị đơn lẻ — cần Văn phòng cung cấp đúng mẫu trống |
+| `ETV.P.F 06.04` | Phiếu đề nghị mua Dịch vụ | Số hóa từ bản gốc đang dùng thực tế |
+| `ETV.P.F 06.05` | Biên bản bàn giao, nghiệm thu Mẫu chuẩn | Số hóa từ bản gốc đang dùng thực tế |
+| `ETV.P.F 06.06` | Biên bản bàn giao, nghiệm thu Thiết bị | Số hóa từ bản gốc đang dùng thực tế |
+| `ETV.P.F 06.07` | Biên bản bàn giao, nghiệm thu Dịch vụ | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.08` | Kiểm soát nhà thầu phụ (đo lường, quan trắc) | Số hóa từ bản gốc đang dùng thực tế (file nguồn `ETV.P.F 06.07_So theo doi nha thau phu_Hien.doc` có footer nội bộ ghi nhầm "06.07" — nội dung khớp đúng mã `06.08` theo danh mục hiện hành) |
+| `ETV.P.F 06.09` | Kiểm soát nhà thầu phụ (vận chuyển) | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.10` | Kiểm soát Chi phí Quản lý chung | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.11` | Kiểm soát Chi phí Công tác phí | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.12` | Hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.13` | Thanh lý hợp đồng mua sản phẩm và dịch vụ | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
+| `ETV.P.F 06.14` | Phiếu công tác số (thay thế giấy đi đường) | Chưa số hóa — không tìm thấy file nguồn tương ứng trong thư mục Dropbox, cần Văn phòng bổ sung |
 
-> **Cần LĐP/Văn phòng đồng bộ lại toàn bộ file nguồn tại `2. ETV.P_Thu tuc/6. ETV.MP 06. Mua SP va DV Ben ngoai/` (Dropbox → chuột phải → "Always Keep on This Device")** để AI số hóa 14 biểu mẫu trên ở lần cập nhật tiếp theo — thân thủ tục này đã đầy đủ nội dung quy trình để hướng dẫn công việc trong lúc chờ.
+> **6/14 biểu mẫu đã được soát xét, phê duyệt cùng lần ban hành 03 của thủ tục này (21/07/2026)** — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang (`status: Da-phe-duyet` trong từng file). 8 biểu mẫu còn lại (`06.03`, `06.07`, `06.09`–`06.14`) không có file nguồn tương ứng trong thư mục Dropbox đã đồng bộ — cần Văn phòng bổ sung file gốc hoặc xây dựng mới để số hóa ở lần cập nhật tiếp theo.
 
 ## VIII. LƯU HỒ SƠ
 
