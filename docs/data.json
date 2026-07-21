@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-21 03:46 UTC",
+ "generated_at": "2026-07-21 05:10 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "feat/cap18-19-22-24-thu-tuc-batch4",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap18-19-22-24-thu-tuc-batch4",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap18-19-22-24-thu-tuc-batch4",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap18-19-22-24-thu-tuc-batch4"
+  "branch": "feat/cap16-17-20-23-thu-tuc-batch5",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap16-17-20-23-thu-tuc-batch5",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap16-17-20-23-thu-tuc-batch5",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap16-17-20-23-thu-tuc-batch5"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6955,
+  "files": 6960,
   "dirs": 1561,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 733,
+   ".md": 738,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -747,12 +747,12 @@
    "module": "M16",
    "module_path": "05_MODULE_LIBRARY/M16_DanhGiaNoiBo",
    "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P16_DanhGiaNoiBo.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P16_DanhGiaNoiBo.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -773,12 +773,12 @@
    "module": "M17",
    "module_path": "05_MODULE_LIBRARY/M17_XemXetLanhDao",
    "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P17_XemXetLanhDao.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P17_XemXetLanhDao.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -855,12 +855,12 @@
    "module": "M20",
    "module_path": "05_MODULE_LIBRARY/M20_PhanPhoi",
    "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P20_PhanPhoi.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
+   "doc_edition": "02",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -953,12 +953,12 @@
    "module": "M23",
    "module_path": "05_MODULE_LIBRARY/M23_CongBoCRM",
    "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P23_CongBoCRM.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P23_CongBoCRM.md",
+   "doc_edition": "02",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -2383,11 +2383,32 @@
         "size": 15374
        },
        {
+        "name": "ETV.P16_DanhGiaNoiBo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P16_DanhGiaNoiBo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 14168
+       },
+       {
+        "name": "ETV.P17_XemXetLanhDao.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P17_XemXetLanhDao.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 15126
+       },
+       {
         "name": "ETV.P18_QuyTacQuyetDinh.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
         "type": "file",
         "ext": ".md",
         "size": 24337
+       },
+       {
+        "name": "ETV.P20_PhanPhoi.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 11828
        },
        {
         "name": "ETV.P21_CongBoKiemSoatNangLuc.md",
@@ -2404,6 +2425,13 @@
         "size": 29218
        },
        {
+        "name": "ETV.P23_CongBoCRM.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P23_CongBoCRM.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 20174
+       },
+       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/README.md",
         "type": "file",
@@ -2414,7 +2442,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 19
+      "n_files": 23
      },
      {
       "name": "03_M",
@@ -4010,21 +4038,21 @@
         "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 444
+        "size": 473
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 227
+        "size": 239
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP16_DanhGiaNoiBo/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 408
+        "size": 420
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4034,7 +4062,7 @@
        "code": "MP16",
        "slug": "DanhGiaNoiBo",
        "name": "Đánh giá nội bộ và đánh giá bên ngoài",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -4045,11 +4073,11 @@
        ],
        "module": "M16",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P16_DanhGiaNoiBo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P16_DanhGiaNoiBo.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -4065,21 +4093,21 @@
         "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 445
+        "size": 475
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 205
+        "size": 217
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP17_XemXetLanhDao/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 388
+        "size": 400
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4089,7 +4117,7 @@
        "code": "MP17",
        "slug": "XemXetLanhDao",
        "name": "Xem xét của lãnh đạo",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -4100,11 +4128,11 @@
        ],
        "module": "M17",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P17_XemXetLanhDao.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P17_XemXetLanhDao.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -4232,21 +4260,21 @@
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 434
+        "size": 459
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 215
+        "size": 227
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 378
+        "size": 390
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4256,7 +4284,7 @@
        "code": "MP20",
        "slug": "PhanPhoi",
        "name": "Phân phối và truy xuất nguồn gốc",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17034"
@@ -4267,11 +4295,11 @@
        ],
        "module": "M20",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P20_PhanPhoi.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
+        "edition": "02",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -4418,21 +4446,21 @@
         "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 435
+        "size": 461
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 263
+        "size": 275
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP23_CongBoCRM/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 428
+        "size": 440
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -4442,7 +4470,7 @@
        "code": "MP23",
        "slug": "CongBoCRM",
        "name": "Công bố giá trị danh định và độ không đảm bảo đo của chất chuẩn",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17034"
@@ -4453,11 +4481,11 @@
        ],
        "module": "M23",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P23_CongBoCRM.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P23_CongBoCRM.md",
+        "edition": "02",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -10935,6 +10963,13 @@
         "size": 1644
        },
        {
+        "name": "ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1904
+       },
+       {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/01_Forms/README.md",
         "type": "file",
@@ -10945,7 +10980,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 66
+      "n_files": 67
      },
      {
       "name": "02_Templates",
