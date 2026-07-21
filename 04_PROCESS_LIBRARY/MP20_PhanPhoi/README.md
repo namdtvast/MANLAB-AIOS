@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO 17034 |
 | Năng lực liên quan | CAP-12 |
 | Module số hóa | M20_PhanPhoi |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Lãnh đạo Viện (LĐV) |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
