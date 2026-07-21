@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-07-21 02:09 UTC",
+ "generated_at": "2026-07-21 03:16 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "feat/cap05-08-thu-tuc-batch1",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap05-08-thu-tuc-batch1",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap05-08-thu-tuc-batch1",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap05-08-thu-tuc-batch1"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6932,
+  "files": 6949,
   "dirs": 1561,
   "docs": 4675,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 710,
+   ".md": 727,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 290,
@@ -438,12 +438,12 @@
    "module": "M05",
    "module_path": "05_MODULE_LIBRARY/M05_ThietBi",
    "path": "04_PROCESS_LIBRARY/MP05_ThietBi",
-   "doc_controlled": null,
-   "doc_path": null,
-   "doc_edition": null,
-   "doc_issued": null,
-   "doc_status": null,
-   "has_doc": false,
+   "doc_controlled": "ETV.P05_ThietBi.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md",
+   "doc_edition": "03",
+   "doc_issued": "21/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
    "forms": []
   },
   {
@@ -2306,11 +2306,18 @@
         "size": 41104
        },
        {
+        "name": "ETV.P05_ThietBi.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 37544
+       },
+       {
         "name": "ETV.P06_MuaSam.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
         "type": "file",
         "ext": ".md",
-        "size": 21787
+        "size": 22461
        },
        {
         "name": "ETV.P07_HopDong.md",
@@ -2365,7 +2372,7 @@
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 12
+      "n_files": 13
      },
      {
       "name": "03_M",
@@ -3318,21 +3325,21 @@
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 437
+        "size": 461
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 225
+        "size": 237
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 403
+        "size": 415
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -3342,7 +3349,7 @@
        "code": "MP05",
        "slug": "ThietBi",
        "name": "Kiểm soát thiết bị, chuẩn và chất chuẩn",
-       "owner": "(cập nhật)",
+       "owner": "Lãnh đạo Viện (LĐV)",
        "status": "active",
        "standards": [
         "ISO17025"
@@ -3353,11 +3360,11 @@
        ],
        "module": "M05",
        "document": {
-        "controlled": null,
-        "path": null,
-        "edition": null,
-        "issued": null,
-        "doc_status": null
+        "controlled": "ETV.P05_ThietBi.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md",
+        "edition": "03",
+        "issued": "21/07/2026",
+        "doc_status": "Da-phe-duyet"
        }
       },
       "n_dirs": 0,
@@ -10655,6 +10662,118 @@
         "size": 2041
        },
        {
+        "name": "ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2235
+       },
+       {
+        "name": "ETV.P.F05.02_PhieuTheoDoiThietBi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.02_PhieuTheoDoiThietBi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3371
+       },
+       {
+        "name": "ETV.P.F05.03_NhatKySuDungThietBi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.03_NhatKySuDungThietBi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1748
+       },
+       {
+        "name": "ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2489
+       },
+       {
+        "name": "ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2136
+       },
+       {
+        "name": "ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2137
+       },
+       {
+        "name": "ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1881
+       },
+       {
+        "name": "ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1751
+       },
+       {
+        "name": "ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2038
+       },
+       {
+        "name": "ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1872
+       },
+       {
+        "name": "ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2312
+       },
+       {
+        "name": "ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2610
+       },
+       {
+        "name": "ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1963
+       },
+       {
+        "name": "ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2017
+       },
+       {
+        "name": "ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2083
+       },
+       {
+        "name": "ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 2321
+       },
+       {
         "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "type": "file",
@@ -10784,7 +10903,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 50
+      "n_files": 66
      },
      {
       "name": "02_Templates",
