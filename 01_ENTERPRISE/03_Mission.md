@@ -69,3 +69,9 @@ Kết nối nghiên cứu với ứng dụng, thúc đẩy thương mại hóa k
 **Chính xác – Kịp thời – Thấu hiểu.**
 
 Mọi đơn vị và cá nhân thuộc ETV có trách nhiệm cụ thể hóa phương châm này trong chất lượng chuyên môn, tiến độ phục vụ, cách sử dụng nguồn lực và thái độ đối với khách hàng, đối tác và cộng đồng.
+
+---
+
+## Infographic tóm tắt
+
+![Infographic sứ mệnh ETV và 6 nhiệm vụ cốt lõi](01_Assets/infographics/03_mission.png)

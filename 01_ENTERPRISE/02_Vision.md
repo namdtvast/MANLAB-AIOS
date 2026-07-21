@@ -27,3 +27,9 @@ ETV phát triển trên nền Hệ thống quản lý tích hợp theo ISO 9001,
 Đến năm 2035, ETV hướng tới hình thành hệ sinh thái dịch vụ số gồm chứng chỉ đo lường số, dữ liệu đo lường, hiệu chuẩn và kiểm định số, quan trắc thông minh cùng các công cụ hỗ trợ bởi AI; đồng thời từng bước mở rộng khả năng kết nối với các nền tảng trong nước và khu vực.
 
 Tầm nhìn đó được hiện thực hóa thông qua sự phối hợp của **Ban lãnh đạo**, **Văn phòng**, **Phòng Đo lường Chất lượng**, **Trung tâm Quan trắc và Chứng nhận phù hợp** và **Phòng Chuyển giao Công nghệ**, cùng mạng lưới chuyên gia, khách hàng và đối tác của Viện.
+
+---
+
+## Infographic tóm tắt
+
+![Infographic tầm nhìn ETV trong tương lai](01_Assets/infographics/02_vision.png)

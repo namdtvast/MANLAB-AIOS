@@ -127,3 +127,9 @@ Một yêu cầu dịch vụ được phối hợp theo nguyên tắc:
 - Vận hành Hệ thống quản lý tích hợp theo ISO 9001, ISO/IEC 17025, ISO 17034, ISO/IEC 27001 và ISO/IEC 42001 trong phạm vi áp dụng.
 - Phối hợp liên phòng, lấy chất lượng kết quả và khách hàng làm trung tâm.
 - Đánh giá định kỳ và cải tiến liên tục dựa trên dữ liệu.
+
+---
+
+## Infographic tóm tắt
+
+![Infographic cơ cấu tổ chức ETV — 5 đơn vị chính](01_Assets/infographics/04_organization.png)

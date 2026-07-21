@@ -106,3 +106,9 @@ Chu trình phát triển xuyên suốt là: **nhu cầu thực tiễn → đầu
 - Lấy chất lượng kết quả và sự hài lòng của khách hàng làm trọng tâm.
 - Phát triển con người song hành với đầu tư công nghệ.
 - Cải tiến liên tục, sử dụng hiệu quả nguồn lực và hướng tới phát triển bền vững.
+
+---
+
+## Infographic tóm tắt
+
+![Infographic chiến lược phát triển ETV 2026–2035](01_Assets/infographics/01_strategy.png)
