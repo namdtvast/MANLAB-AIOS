@@ -79,4 +79,4 @@ Nguyên tắc áp dụng:
 
 ## Infographic tóm tắt
 
-![Infographic KPI cấp Viện ETV](01_Assets/infographics/06_kpi.png)
+![Infographic KPI cấp Viện ETV](infographics/06_kpi.png)

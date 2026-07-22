@@ -76,4 +76,4 @@ Mỗi trường hợp sử dụng AI phải được phân loại rủi ro, xác
 
 ## Infographic tóm tắt
 
-![Infographic chiến lược số ETV](01_Assets/infographics/07_digital_strategy.png)
+![Infographic chiến lược số ETV](infographics/07_digital_strategy.png)

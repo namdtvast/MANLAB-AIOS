@@ -34,6 +34,8 @@ ETV hướng tới trở thành tổ chức khoa học và công nghệ có uy t
 - Thực hiện kiểm soát chất lượng kết quả, so sánh liên phòng và đánh giá năng lực nhân sự định kỳ.
 - Ưu tiên phát triển chuyên gia trước khi mở rộng thiết bị; gắn kế hoạch tuyển dụng, đào tạo và kế thừa với lộ trình năng lực dài hạn.
 - Mở rộng công nhận và năng lực theo nhu cầu thực tế; xem ISO/IEC 17025 là nền tảng, đồng thời chuẩn bị có chọn lọc cho ISO 17034, ISO/IEC 17020, ISO/IEC 17043 và các chuẩn mực liên quan.
+- Phát triển Phòng Đo lường Chất lượng theo các bộ phận chuyên ngành, trước mắt gồm **Hóa lý, Khối lượng, Nhiệt ẩm, Quang học và Y tế**; cơ cấu chi tiết được điều chỉnh theo phạm vi năng lực và quyết định của Viện trưởng.
+- Ưu tiên năng lực đo lường và quan trắc phục vụ môi trường, gồm thiết bị đo khí thải ống khói, nước thải, khí xung quanh, nước mặt và hệ thống quan trắc tự động.
 
 ### 3.2. Phát triển dịch vụ tích hợp
 
@@ -107,8 +109,6 @@ Chu trình phát triển xuyên suốt là: **nhu cầu thực tiễn → đầu
 - Phát triển con người song hành với đầu tư công nghệ.
 - Cải tiến liên tục, sử dụng hiệu quả nguồn lực và hướng tới phát triển bền vững.
 
----
-
 ## Infographic tóm tắt
 
-![Infographic chiến lược phát triển ETV 2026–2035](01_Assets/infographics/01_strategy.png)
+![Infographic chiến lược phát triển ETV 2026–2035](infographics/01_strategy.png)

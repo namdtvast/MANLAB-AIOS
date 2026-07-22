@@ -13,6 +13,7 @@ ETV hướng tới một tổ chức:
 - **Đổi mới:** chủ động nghiên cứu, ứng dụng thành tựu khoa học và chuyển giao giải pháp phù hợp với thực tiễn.
 - **Số hóa:** vận hành dữ liệu tập trung, tự động hóa quy trình và kết nối các đơn vị trên ManLab-AIOS.
 - **Phát triển theo chiều sâu:** đầu tư lâu dài cho chuyên gia, năng lực được công nhận, dữ liệu và hạ tầng kỹ thuật thay vì chạy theo quy mô ngắn hạn.
+- **Chuyên môn hóa:** hình thành các bộ phận đo lường theo lĩnh vực Hóa lý, Khối lượng, Nhiệt ẩm, Quang học và Y tế, gắn với nhu cầu đo kiểm môi trường và sản xuất.
 - **Đồng hành cùng doanh nghiệp:** cung cấp giải pháp nâng cao năng suất và chất lượng, không chỉ cung cấp từng phép đo hoặc phép thử.
 - **An toàn và có trách nhiệm:** bảo vệ dữ liệu, quản trị rủi ro và kiểm soát ứng dụng AI, không thay thế trách nhiệm chuyên môn của con người.
 - **Hợp tác:** liên kết cơ quan quản lý, tổ chức khoa học, trường đại học, doanh nghiệp và chuyên gia để tạo giá trị chung.
@@ -26,10 +27,8 @@ ETV phát triển trên nền Hệ thống quản lý tích hợp theo ISO 9001,
 
 Đến năm 2035, ETV hướng tới hình thành hệ sinh thái dịch vụ số gồm chứng chỉ đo lường số, dữ liệu đo lường, hiệu chuẩn và kiểm định số, quan trắc thông minh cùng các công cụ hỗ trợ bởi AI; đồng thời từng bước mở rộng khả năng kết nối với các nền tảng trong nước và khu vực.
 
-Tầm nhìn đó được hiện thực hóa thông qua sự phối hợp của **Ban lãnh đạo**, **Văn phòng**, **Phòng Đo lường Chất lượng**, **Trung tâm Quan trắc và Chứng nhận phù hợp** và **Phòng Chuyển giao Công nghệ**, cùng mạng lưới chuyên gia, khách hàng và đối tác của Viện.
-
----
+Tầm nhìn đó được hiện thực hóa theo tuyến quản lý trực tiếp **Hội đồng Quản lý → Ban Lãnh đạo Viện → Văn phòng, các phòng, trung tâm và bộ phận chuyên môn**. **Hội đồng Khoa học** là nhánh tham mưu, tư vấn cho Ban Lãnh đạo Viện, không phải cấp quản lý trung gian.
 
 ## Infographic tóm tắt
 
-![Infographic tầm nhìn ETV trong tương lai](01_Assets/infographics/02_vision.png)
+![Infographic tầm nhìn ETV đến năm 2035](infographics/02_vision.png)

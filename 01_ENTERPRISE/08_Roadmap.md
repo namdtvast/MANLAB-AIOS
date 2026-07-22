@@ -71,4 +71,4 @@ Một sáng kiến chỉ được triển khai chính thức khi có:
 
 ## Infographic tóm tắt
 
-![Infographic lộ trình ETV 2026–2035](01_Assets/infographics/08_roadmap.png)
+![Infographic lộ trình ETV 2026–2035](infographics/08_roadmap.png)

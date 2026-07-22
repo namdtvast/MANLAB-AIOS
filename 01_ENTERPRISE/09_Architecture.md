@@ -219,7 +219,7 @@ Yêu cầu tiêu chuẩn được quản lý làm nguồn ở tầng 03/08, ánh
 ### 9.2. Dữ liệu
 
 - Dữ liệu chủ: khách hàng, thiết bị, nhân sự, đơn vị, phương pháp, dịch vụ, tiêu chuẩn.
-- Cơ cấu quản trị: Hội đồng Quản lý → Ban Lãnh đạo Viện → Hội đồng Khoa học → phòng/trung tâm → bộ phận chuyên ngành.
+- Tuyến quản lý trực tiếp: Hội đồng Quản lý → Ban Lãnh đạo Viện → Văn phòng/phòng/trung tâm → bộ phận chuyên ngành; Hội đồng Khoa học là nhánh tham mưu, tư vấn gián tiếp cho Ban Lãnh đạo Viện.
 - Đối tượng môi trường: nguồn khí thải ống khói, điểm xả nước thải, vị trí quan trắc, thiết bị lấy mẫu, trạm tự động và thông số môi trường.
 - Dữ liệu giao dịch: yêu cầu, hợp đồng, mẫu, phép đo, kết quả, chứng chỉ, đánh giá.
 - Dữ liệu thô và hồ sơ minh chứng: lưu trong kho phù hợp, có checksum và chính sách lưu giữ.
@@ -317,4 +317,4 @@ Nếu không trả lời đủ tám câu hỏi, thay đổi chưa sẵn sàng đ
 
 ## Infographic tóm tắt
 
-![Infographic kiến trúc ManLab-AIOS Enterprise Repository v4.0](01_Assets/infographics/09_architecture.png)
+![Infographic kiến trúc ManLab-AIOS Enterprise Repository v4.0](infographics/09_architecture.png)

@@ -11,6 +11,7 @@ Thông qua các hoạt động đó, ETV từng bước góp phần xây dựng 
 ### 1. Đo lường, kiểm định, hiệu chuẩn và thử nghiệm
 
 - Kiểm định, hiệu chuẩn và thử nghiệm phương tiện đo, chuẩn đo lường trong phạm vi năng lực.
+- Tổ chức năng lực theo các lĩnh vực Hóa lý, Khối lượng, Nhiệt ẩm, Quang học và Y tế; chú trọng thiết bị quan trắc khí thải ống khói, nước thải và các thành phần môi trường.
 - Thử nghiệm và đánh giá đặc tính kỹ thuật, chất lượng sản phẩm, hàng hóa.
 - Bảo đảm kết quả khách quan, có khả năng truy xuất và được kiểm soát chất lượng.
 
@@ -70,8 +71,6 @@ Kết nối nghiên cứu với ứng dụng, thúc đẩy thương mại hóa k
 
 Mọi đơn vị và cá nhân thuộc ETV có trách nhiệm cụ thể hóa phương châm này trong chất lượng chuyên môn, tiến độ phục vụ, cách sử dụng nguồn lực và thái độ đối với khách hàng, đối tác và cộng đồng.
 
----
-
 ## Infographic tóm tắt
 
-![Infographic sứ mệnh ETV và 6 nhiệm vụ cốt lõi](01_Assets/infographics/03_mission.png)
+![Infographic sứ mệnh ETV](infographics/03_mission.png)

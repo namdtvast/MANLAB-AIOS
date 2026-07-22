@@ -106,4 +106,4 @@ Việc đa dạng hóa nguồn thu phải tuân thủ phạm vi năng lực, duy
 
 ## Infographic tóm tắt
 
-![Infographic mô hình kinh doanh ETV](01_Assets/infographics/05_business_model.png)
+![Infographic mô hình kinh doanh ETV](infographics/05_business_model.png)

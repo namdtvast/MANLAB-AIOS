@@ -215,4 +215,4 @@ Thứ tự ưu tiên nguồn tham chiếu là: **văn bản pháp luật hiện 
 
 ## Infographic tóm tắt
 
-![Infographic từ điển thuật ngữ ETV và vòng cập nhật ManLab-AIOS](01_Assets/infographics/10_glossary.png)
+![Infographic từ điển thuật ngữ ETV và vòng cập nhật ManLab-AIOS](infographics/10_glossary.png)
