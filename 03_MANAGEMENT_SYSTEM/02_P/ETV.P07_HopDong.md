@@ -164,18 +164,20 @@ Tiếp nhận công việc hoặc từ chối tiếp nhận công việc (nêu r
 
 | Mã | Tên biểu mẫu | Trạng thái số hóa |
 |---|---|---|
-| `ETV.P.F 07.01` | Hồ sơ năng lực kiểm định, hiệu chuẩn, thử nghiệm | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.02` | Phiếu Yêu cầu & Nhận - trả (PTĐ, nhà thầu phụ, bàn giao sản phẩm) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.03` | Báo giá dịch vụ KHCN | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.04` | Phiếu khảo sát Trạm quan trắc khí thải tự động, liên tục | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.05` | Phiếu khảo sát Trạm quan trắc nước tự động, liên tục | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.06` | Hợp đồng đo lường (kiểm định, hiệu chuẩn, thử nghiệm, quan trắc) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.07` | Hợp đồng đánh giá chất lượng hệ thống trạm khí | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.08` | Hợp đồng đánh giá chất lượng hệ thống trạm nước | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.09` | Hợp đồng nguyên tắc | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 07.10` | Thông báo kế hoạch thực hiện | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 07.01` | Hồ sơ năng lực kiểm định, hiệu chuẩn, thử nghiệm | Chưa số hóa — nguồn chỉ có hồ sơ thật gửi khách hàng, không có bản mẫu trống, chờ bổ sung |
+| `ETV.P.F 07.02` | Biên bản bàn giao sản phẩm (Phiếu yêu cầu, nhận-trả) | Số hóa từ bản ManLab đang dùng thực tế |
+| `ETV.P.F 07.03` | Báo giá dịch vụ KHCN | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.04` | Phiếu khảo sát Trạm quan trắc khí thải tự động, liên tục | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.05` | Phiếu khảo sát Trạm quan trắc nước tự động, liên tục | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.06` | Hợp đồng dịch vụ khoa học và công nghệ (đo lường) | Số hóa từ bản ManLab đang dùng thực tế — ẩn số tài khoản ngân hàng thật (xem ghi chú AI trong file) |
+| `ETV.P.F 07.06.02` | Biên bản nghiệm thu và thanh lý hợp đồng | Số hóa từ bản ManLab đang dùng thực tế — mã 3 cấp, xem ghi chú AI |
+| `ETV.P.F 07.07` | Hợp đồng đánh giá chất lượng hệ thống trạm khí | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.08` | Hợp đồng đánh giá chất lượng hệ thống trạm nước | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.09` | Hợp đồng nguyên tắc | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.10` | Thông báo kế hoạch thực hiện | Chưa số hóa — chưa tìm được file nguồn đã đồng bộ, chờ bổ sung |
+| `ETV.P.F 07.11` | Quyết định cử nhân sự đi công tác | Số hóa từ bản ManLab đang dùng thực tế — biểu mẫu mới phát hiện, bổ sung vào danh mục (không có trong bản gốc lần 03) |
 
-> **Cần LĐP/Văn phòng đồng bộ lại toàn bộ file nguồn tại `2. ETV.P_Thu tuc/7. ETV.MP 07. Xem xet BG, HD, PNT/`** để AI số hóa 10 biểu mẫu trên ở lần cập nhật tiếp theo. **Lưu ý bảo mật:** thư mục nguồn còn chứa hồ sơ năng lực Viện gửi khách hàng (`1. ETV.P.F 07.01_HSNL_Gui KH/`) và hồ sơ đấu thầu/hợp đồng lớn thật (`Hop dong tuong tu/`) — đây là hồ sơ đã điền, **không đưa lên repo công khai**, chỉ số hóa cấu trúc biểu mẫu gốc trống.
+> **Nguồn bổ sung (2026-07-21):** Sau khi người dùng đồng bộ thư mục `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/`, số hóa được 4/11 biểu mẫu (`07.02`, `07.06`, `07.06.02`, `07.11`). Thư mục này còn hơn 80 file khác (đa số là hồ sơ hợp đồng/báo giá thật của khách hàng cụ thể — không số hóa) nhưng phần lớn vẫn ở dạng placeholder 0 byte chưa đồng bộ hết; 6 biểu mẫu còn lại (`07.01`, `07.03`–`07.05`, `07.07`–`07.10`) chưa tìm được bản mẫu trống tương ứng đã đồng bộ.
 
 ## VIII. LƯU HỒ SƠ
 

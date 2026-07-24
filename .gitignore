@@ -9,3 +9,6 @@ node_modules/
 # File > 100MB — vượt giới hạn cứng của GitHub, giữ tại chỗ, không đồng bộ lên repo
 08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/Aerosol Measurement_ Principles, Techniques, and Applications, Third Edition (2011)_Sach.pdf
 08_KNOWLEDGE_GRAPH/14_Technical_References/08_TaiLieuChung/Method of Air Sampling and Analysis.pdf
+
+# Infographics — lưu local, không push lên git (file lớn)
+01_ENTERPRISE/01_Assets/infographics/*.png

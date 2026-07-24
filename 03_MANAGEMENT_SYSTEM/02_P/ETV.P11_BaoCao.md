@@ -40,7 +40,7 @@ superseded_by: null
 > **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 01/01/2024, 14/01/2024, 16/05/2025 và 02/04/2026, file `ETV.P 11_Thu tuc Bao cao ket qua_L4.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý quan trọng:
 > 1. **File nguồn 7,3 MB bị lỗi khi chuyển đổi bằng công cụ chuẩn (`textutil`)** — do mã trang (code page) khai báo trong file không hợp lệ, `textutil` xuất ra văn bản rác. AI đã trích xuất lại trực tiếp từ luồng nhị phân `WordDocument` (định dạng OLE) bằng cách giải mã UTF-16LE và lọc ký tự hợp lệ (bảng chữ Latin/Việt), khôi phục được toàn bộ nội dung văn bản gốc — **không phục hồi được các hình ảnh minh họa mẫu tem/nhãn/GCN nhúng trong file** (mô tả bằng lời vẫn giữ nguyên đầy đủ). Đề nghị QLCL đối chiếu lại với bản gốc mở bằng Microsoft Word thật (không phải macOS TextEdit/Pages) nếu cần các hình ảnh minh họa.
 > 2. **Phát hiện chưa thống nhất số hiệu tiêu chuẩn ISO cho nhãn mẫu chuẩn** — mục 7.5 bản gốc ghi "ISO 33401:2024", trong khi `ETV.P07` (đã ban hành) dẫn "ISO 33405:2024" cho cùng chủ đề vật liệu tham chiếu. AI giữ nguyên số hiệu như bản gốc P11 nhưng **cần LĐP xác nhận số hiệu chính xác** và đồng bộ lại giữa hai thủ tục khi có dịp cập nhật (nguyên tắc một nguồn sự thật).
-> 3. **11/16 biểu mẫu áp dụng có thể số hóa được** dựa trên tên/mã đã dẫn chiếu rõ trong thân thủ tục; tuy nhiên **toàn bộ file biểu mẫu rời trên Dropbox nguồn vẫn ở dạng rỗng 0 byte** (trừ `ETV.P.F 11.09`, 3,6 MB, cũng gặp lỗi chuyển đổi tương tự mục 1) — do đó **chưa số hóa được biểu mẫu nào ở lần cập nhật này**, chỉ chuẩn hóa lại danh mục biểu mẫu áp dụng (bổ sung `ETV.P.F 11.01` được nhắc đến trong thân bài nhưng bị thiếu trong danh mục gốc).
+> 3. **5/16 biểu mẫu áp dụng đã số hóa được** (`11.02`, `11.03`, `11.07`, `11.08`, `11.10`) sau khi nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/` được đồng bộ; **11 biểu mẫu còn lại** (`11.01`, `11.04`–`11.06`, `11.09`, `11.11`–`11.16`) chưa số hóa vì thiếu file nguồn hoặc vướng mã hóa chưa rõ ràng (`11.13`/`11.14`) — xem chi tiết từng mã tại mục VII.
 > 4. Toàn bộ nội dung nghiệp vụ về chứng chỉ đo lường, tem, nhãn mẫu chuẩn, bàn giao sản phẩm, tiêu chí đánh giá được **giữ nguyên bản chất** so với bản gốc; tách "Tiêu chí đánh giá thủ tục và hồ sơ" thành Phụ lục I để thân bài gọn theo khung chuẩn.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
@@ -254,19 +254,19 @@ Sau khi khách hàng (Bên A) hoàn tất nghĩa vụ thanh toán, ETV bàn giao
 | Mã | Tên biểu mẫu | Trạng thái số hóa |
 |---|---|---|
 | `ETV.P.F 11.01` | Phân công công việc / Cập nhật tem hỏng | Chưa số hóa — không có file nguồn rời, chỉ được nhắc tên trong thân bài; bổ sung vào danh mục cho khớp thực tế sử dụng |
-| `ETV.P.F 11.02` | Mẫu GCN hiệu chuẩn | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.03` | Mẫu GCN kiểm định PTĐ nhóm 2 | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.04` | Mẫu GCN thử nghiệm | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 11.02` | Mẫu GCN hiệu chuẩn | Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.02_Mau GCN HC_template_V12.docx`) |
+| `ETV.P.F 11.03` | Mẫu GCN kiểm định PTĐ nhóm 2 | Số hóa từ bản ManLab đang dùng thực tế — phát hiện lỗi trùng token mail-merge mục 7/8 trong bản gốc, xem `note` trong file |
+| `ETV.P.F 11.04` | Mẫu GCN thử nghiệm | Chưa số hóa — nguồn Dropbox vẫn rỗng (0 byte), chờ bổ sung |
 | `ETV.P.F 11.05` | Mẫu Báo cáo đánh giá chất lượng hệ thống | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
 | `ETV.P.F 11.06` | Sổ quản lý và sử dụng tem và GCN | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.07` | Biên bản đánh giá đặc tính và độ chính xác tương đối hệ thống quan trắc nước thải tự động, liên tục | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.08` | Biên bản đánh giá đặc tính và độ chính xác tương đối hệ thống quan trắc khí thải tự động, liên tục | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 11.07` | Biên bản đánh giá đặc tính và độ chính xác tương đối hệ thống quan trắc nước thải tự động, liên tục | Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.07_Phuluc 13_SW_Truyenbien_V7.docx`) — chưa rà soát hiệu lực văn bản pháp luật viện dẫn, xem `note` trong file |
+| `ETV.P.F 11.08` | Biên bản đánh giá đặc tính và độ chính xác tương đối hệ thống quan trắc khí thải tự động, liên tục | Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.08_Phuluc 14_SA_Truyenbien_V7.docx`) — chưa rà soát hiệu lực văn bản pháp luật viện dẫn, xem `note` trong file |
 | `ETV.P.F 11.09` | Mẫu tem kiểm định (nhóm 1, nhóm 2), hiệu chuẩn và thử nghiệm | Chưa số hóa — file nguồn 3,6 MB cũng gặp lỗi chuyển đổi tương tự thân thủ tục, chờ xử lý riêng |
-| `ETV.P.F 11.10` | Mẫu GCN kiểm định PTĐ nhóm 1 | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 11.10` | Mẫu GCN kiểm định PTĐ nhóm 1 | Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.10_Mau GCN KDTN_template.docx`) |
 | `ETV.P.F 11.11` | Báo cáo bảo trì, bảo dưỡng | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
 | `ETV.P.F 11.12` | Biên bản lấy mẫu (3 bên) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.13` | Mẫu báo cáo đánh giá hệ thống trạm nước tự động | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 11.14` | Mẫu báo cáo đánh giá hệ thống trạm khí tự động | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 11.13` | Mẫu báo cáo đánh giá hệ thống trạm nước tự động | Chưa số hóa — nguồn tìm thấy (`P.F 11.13_BCHT_SW_Mo1/Mo3_Truyenbien_V7.docx`) nhưng mã 11.13 xuất hiện trên CẢ file trạm nước lẫn trạm khí (Mo1–Mo4) trong thư mục ManLab, mâu thuẫn với danh mục hiện hành (11.13=nước, 11.14=khí) — cần LĐP xác nhận cách gán mã trước khi số hóa để tránh sai lệch |
+| `ETV.P.F 11.14` | Mẫu báo cáo đánh giá hệ thống trạm khí tự động | Chưa số hóa — cùng vướng mắc mã hóa với `11.13`, xem ghi chú trên |
 | `ETV.P.F 11.15` | Mẫu GCN pha chế/chế tạo | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
 | `ETV.P.F 11.16` | Mẫu GCN kiểm định an toàn và tính năng kỹ thuật | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
 
