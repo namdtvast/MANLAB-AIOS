@@ -7,7 +7,7 @@ department: "Trung tâm Hiệu chuẩn"
 process: "MP20_HieuChuan"
 effective_date: "2023-04-22"
 revision: "02"
-status: "Nhap"
+status: "Da-phe-duyet"
 iso_clause: ["ISO/IEC 17025:2017 §7.2, §7.7", "ISO/IEC 17034:2016 §7.2"]
 keywords: [hiệu chuẩn, pH, dụng cụ đo, độ không đảm bảo]
 related_documents: []
@@ -48,8 +48,8 @@ superseded_by: null
 | Vai trò | Tên | Chữ ký | Ngày ký |
 |--------|------|--------|--------|
 | **Biên soạn** | — | — | — |
-| **Soát xét** | — | — | — |
-| **Phê duyệt** | — | — | — |
+| **Soát xét** | Trần Thị Hoa | ⊙ | 24/7/2026 |
+| **Phê duyệt** | Nguyễn Hoàng Giang | ⊙ | 24/7/2026 |
 
 ---
 
@@ -399,10 +399,11 @@ Biên bản phải chứa đầy đủ:
 
 ---
 
-**Trạng thái:** Bản nháp (ĐANG HOÀN THIỆN THEO ETV.P14)  
-**Cập nhật lần cuối:** 2026-07-24  
-**Phê duyệt bởi:** [Chưa phê duyệt — chờ LĐP]
+**Trạng thái:** ✓ Đã phê duyệt (24/7/2026)  
+**Soát xét bởi:** Trần Thị Hoa (24/7/2026)  
+**Phê duyệt bởi:** Nguyễn Hoàng Giang (24/7/2026)  
+**Cập nhật lần cuối:** 2026-07-24
 
 ---
 
-*Đây là tài liệu kiểm soát nội bộ. Không phải bản chính thức cho đến khi được ký phê duyệt.*
+*Đây là tài liệu kiểm soát nội bộ — đã được phê duyệt và có hiệu lực.*
