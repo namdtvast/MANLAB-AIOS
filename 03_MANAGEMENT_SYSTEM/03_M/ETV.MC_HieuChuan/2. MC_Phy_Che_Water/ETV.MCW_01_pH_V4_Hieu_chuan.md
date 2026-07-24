@@ -1,325 +1,408 @@
-# PHƯƠNG TIỆN ĐO pH - QUY TRÌNH HIỆU CHUẨN
+```yaml
+id: ETV.MCW 01
+title: "PHƯƠNG TIỆN ĐO pH - QUY TRÌNH HIỆU CHUẨN"
+type: Quy-trinh
+owner: "Phòng Chuyên môn Hóa lý & Nước"
+department: "Trung tâm Hiệu chuẩn"
+process: "MP20_HieuChuan"
+effective_date: "2023-04-22"
+revision: "02"
+status: "Nhap"
+iso_clause: ["ISO/IEC 17025:2017 §7.2, §7.7", "ISO/IEC 17034:2016 §7.2"]
+keywords: [hiệu chuẩn, pH, dụng cụ đo, độ không đảm bảo]
+related_documents: []
+knowledge_category: "Noi-bo"
+permission: "Nhân viên, LĐP"
+retention: "Vĩnh viễn (bản hiện hành)"
+source: "ETV"
+supersedes: null
+superseded_by: null
+```
+
+---
+
+# QUY TRÌNH HIỆU CHUẨN DỤNG CỤ ĐO pH
 
 **pH Meter - Calibration Procedure**
 
----
-
-
-## QUY TRÌNH HIỆU CHUẨN
-
-pH Meter - Calibration Procedure
-
-
-## NHỮNG THAY ĐỔI ĐÃ CÓ
-
-PHƯƠNG TIỆN ĐO pH - QUY TRÌNH HIỆU CHUẨN
-
-pH meter - Calibration procedure
-
-### 1. Phạm vi áp dụng
-
-Văn bản kỹ thuật này quy định quy trình hiệu chuẩn phương tiện đo (PTĐ) pH trong đó bao gồm các phương tiện đo pH thông dụng và trong hoạt động quan trắc môi trường nước (nước mặt; nước thải; nước biển; nước ngầm…) ngoài hiện trường và trong phòng thí nghiệm có phạm vi đo (-2 ÷ 16) pH, giá trị độ chia 0,1 pH; 0,01 pH và 0,001 pH.
-
-Quy trình này áp dụng đối với nhân viên của Viện Kiểm định Công nghệ và Môi trường (gọi tắt là PTN) khi hiệu chuẩn PTĐ nêu trên.
-
-### 2. Thuật ngữ và định nghĩa
-
-Các từ ngữ trong văn bản này được hiểu như sau:
-
-### 2.1. Dung dịch chuẩn pH được chứng nhận: là loại chất chuẩn thể lỏng có độ pH xác định và được cơ quan có thẩm quyền chứng nhận.
-
-### 2.2. Đơn vị đo: pH = -log10aH+
-
-### 3. Các phép hiệu chuẩn
-
-Phải lần lượt tiến hành các phép kiểm tra nêu trong bảng 1.
-
-Bảng 1.
-
-### 4. Phương tiện hiệu chuẩn
-
-Các phương tiện dùng để hiệu chuẩn được nêu trong bảng 2.
-
-Bảng 2.
-
-### 5. Điều kiện hiệu chuẩn
-
-Khi tiến hành hiệu chuẩn phải đảm bảo các điều kiện sau:
-
-- Nhiệt độ: (25 ± 5) oC;
-
-- Độ ẩm tương đối: ≤ 80 %RH (không đọng sương).
-
-### 6. Chuẩn bị hiệu chuẩn
-
-Trước khi tiến hành hiệu chuẩn phải thực hiện các công việc chuẩn bị sau đây:
-
-### 6.1. Chuẩn bị bể điều nhiệt
-
-- Chỉ sử dụng nước cất dùng cho bể điều nhiệt.
-
-- Thêm nước cất vào trong bể điều nhiệt đến vạch mức trong bể.
-
-- Bật bể điều nhiệt, cài đặt nhiệt độ về giá trị 25 oC; kiểm tra lại nhiệt độ bằng thiết bị đo nhiệt độ.
-
-### 6.2. Chuẩn bị dung dịch chuẩn
-
-- Đổ dung dịch chuẩn pH7 vào trong cốc mỏ, lượng dung dịch chuẩn điều chỉnh phù hợp với đầu đo pH cần hiệu chuẩn sao cho đầu đo có thể nhúng chìm hoàn toàn trong dung dịch chuẩn.
-
-- Tiến hành thao tác tương tự với các dung dịch chuẩn: pH4; pH10.
-
-- Đặt 3 cốc đựng dung dịch chuẩn đã được chuẩn bị ở trên vào trong bể điều nhiệt, để ổn định nhiệt độ dung dịch chuẩn đạt giá trị (25 ± 0,1) oC.
-
-### 6.3. Ổn định PTĐ trước hiệu chuẩn
-
-Thiết bị cần hiệu chuẩn sau khi được bàn giao (nhận mẫu) cần được đặt trong phòng thí nghiệm tiến hành hiệu chuẩn tối thiểu là 01 giờ để thiết bị ổn định trong điều kiện phòng thí nghiệm.
-
-Trước khi tiến hành hiệu chuẩn đầu đo của PTĐ pH phải được làm sạch bằng dung môi thích hợp tùy thuộc vào vật liệu chế tạo đầu đo, theo hướng dẫn của nhà sản xuất, sau đó rửa lại bằng nước cất. PTĐ pH cần bật trước 30 phút để PTĐ hoạt động ổn định (tiến hành đồng thời cùng với mục 6.1).
-
-### 6.4. Chuẩn bị bình tia nước cất và giấy thấm
-
-Chuẩn bị các bình tia, nước cất sử dụng để rửa đầu đo điện cực.
-
-Chuẩn bị giấy mềm để thấm khô đầu đo điện cực sau mỗi lần rửa điện cực.
-
-### 7. Tiến hành hiệu chuẩn
-
-### 7.1. Kiểm tra bên ngoài
-
-Phải kiểm tra bên ngoài theo các yêu cầu sau đây:
-
-Kiểm tra bằng mắt để xác định sự phù hợp của PTĐ đối với các yêu cầu quy định trong tài liệu kỹ thuật, hình dáng kích thước, ký nhãn hiệu, nguồn điện sử dụng, hiển thị, tài liệu và phụ kiện kèm theo.
-
-### 7.2. Kiểm tra kỹ thuật
-
-Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
-
-Kiểm tra trạng thái hoạt động bình thường của PTĐ theo hướng dẫn sử dụng.
-
-### 7.3. Kiểm tra đo lường
-
-### 7.3.1. Kiểm tra trước hiệu chuẩn
-
-Hoạt động này không bắt buộc; chỉ thực hiện khi PTĐ sai lệch lớn hoặc theo yêu cầu của khách hàng và PTĐ có thể hiệu chỉnh.
-
-a. Đo trước hiệu chỉnh
-
-- Nhúng đầu đo của PTĐ pH cần hiệu chuẩn vào cốc đựng dung dịch chuẩn pH7. Đợi giá trị hiển thị trên PTĐ ổn định sau 1-2 phút và ghi lại các giá trị vào biên bản theo Phụ lục 01.
-
-- Rửa sạch đầu đo và làm khô bằng giấy mềm.
-
-- Lập lại quy trình đo như trên đối với 2 dung dịch chuẩn pH4 và pH10.
-
-b. Tiến hành hiệu chỉnh
-
-- Lựa chọn chế độ hiệu chỉnh trên PTĐ pH cần hiệu chuẩn và tiến hành hiệu chỉnh PTĐ bằng các dung dịch chuẩn theo hướng dẫn của nhà sản xuất. Ghi lại thông tin về quá trình hiệu chỉnh vào biên bản theo Phụ lục 01.
-
-- Sau mỗi lần đo cần rửa sạch đầu đo bằng nước cất và làm khô bằng giấy mềm.
-
-- Đối với PTĐ cần hiệu chuẩn không thể tiến hành hiệu chỉnh được hoặc khách hàng không yêu cầu hiệu chỉnh thì bỏ qua bước 7.3.1 và thực hiện bước tiếp theo.
-
-### 7.3.2. Tiến hành hiệu chuẩn
-
-a. Kiểm tra sai số
-
-- Chọn dung dịch chuẩn pH7 trong bảng 2 để bắt đầu tiến hành kiểm tra sai số. Nhúng đầu đo của PTĐ pH cần hiệu chuẩn vào cốc đựng dung dịch chuẩn pH7 đã ổn định nhiệt độ (25 ± 0,1) oC. Đợi giá trị hiển thị trên PTĐ ổn định. Đọc kết quả đo tối thiểu 03 lần liên tiếp và ghi lại các giá trị vào biên bản theo Phụ lục 01.
-
-- Lặp lại quy trình đo như trên đối với 2 dung dịch chuẩn pH4 và pH10. Kết quả đo ghi lại vào biên bản theo Phụ lục 01.
-
-b. Kiểm tra độ lặp lại
-
-- Đo giá trị pH của 3 dung dịch chuẩn tại nhiệt độ (25 ± 0,1) oC, mỗi dung dịch chuẩn đo lặp lại 07 lần. Ghi kết quả đo vào biên bản Phụ lục 1
-
-c. Kiểm tra độ ổn định theo thời gian (Độ trôi)
-
-- Chọn 01 dung dịch chuẩn trong danh mục để tiến hành kiểm tra độ trôi. Dùng PTĐ đo 03 lần dung dịch chuẩn đã chọn, mỗi lần cách nhau 02 giờ. Ghi kết quả đo vào biên bản theo Phụ lục 01.
-
-### 7.3.3. Tính toán độ không đảm bảo đo (ĐKĐB)
-
-### 7.3.3.1. Các yếu tố gây ra ĐKĐB bao gồm
-
-- PTĐ pH cần hiệu chuẩn: đặc tính kỹ thuật do nhà sản xuất cung cấp, số liệu đo đạc;
-
-- Điều kiện môi trường (nhiệt độ, độ ẩm);
-
-- Dung dịch chuẩn;
-
-- Sai lệch về nhiệt độ của dung dịch chuẩn;
-
-- Nhân viên đo/hiệu chuẩn;
-
-- Một số ảnh hưởng ngẫu nhiên khác.
-
-### 7.3.3.2. Tính toán ĐKĐB của các yếu tố ảnh hưởng tại các điểm hiệu chuẩn
-
-a. Thành phần ĐKĐB do độ lặp lại
-
-Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ lặp lại của thiết bị tại các nồng độ dung dịch chuẩn.
-
-Tính uA:
-
-uA: ĐKĐB do độ lặp lại;
-
-s: độ lệch chuẩn thực nghiệm sau n lần đo.
-
-Với          n = số lần thực hiện đo;
-
-qk: giá trị đo được ở lần thứ k;
-
-q: giá trị trung bình của n lần đo.
-
-b. Thành phần ĐKĐB do dung dịch chuẩn
-
-Tính uB1:
-
-Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
-
-(a: Độ chính xác của dung dịch chuẩn)
-
-Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
-
-(a: ĐKĐB của dung dịch chuẩn, k: hệ số bao phủ)
-
-c. Thành phần ĐKĐB do ảnh hưởng nhiệt độ của bể điều nhiệt
-
-Tính uB2:
-
-Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
-
-Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
-
-: Giá trị pH thay đổi theo nhiệt độ tính trên 1 oC.
-
-d. Thành phần ĐKĐB do thiết bị kiểm tra nhiệt độ
-
-Tính uB3:
-
-d: ĐKĐB của PTĐ kiểm tra nhiệt độ
-
-: Giá trị pH thay đổi theo nhiệt độ tính trên 1 oC.
-
-e. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn
-
-Tính uB4:         	;
-
-e: Độ phân giải của PTĐ cần hiệu chuẩn
-
-f. Thành phần ĐKĐB do độ trôi của PTĐ cần hiệu chuẩn
-
-Tính uB5:         	;
-
-: Độ trôi lớn nhất so với kết quả đo lần 1 của PTĐ cần hiệu chuẩn
-
-Tính toán ĐKĐB tổng hợp
-
-ĐKĐB tổng hợp
-
-uC =
-
-ĐKĐB mở rộng
-
-Độ không đảm bảo kết hợp (uE) đã thể hiện ĐKĐB của kết quả đo. Tuy nhiên chưa đảm bảo để xác định một khoảng xung quanh kết quả phép đo mà khoảng này có thể chứa một phần lớn phân bố của các giá trị có thể quy cho đại lượng một cách hợp lý. Khoảng đó được gọi là độ không đảm bảo mở rộng (U):
-
-U = k.uC
-
-Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95%.
-
-### 8. Xử lý chung
-
-### 8.1. Phương tiện đo pH sau khi hiệu chuẩn được dán tem, cấp giấy chứng nhận hiệu chuẩn kèm theo thông báo kết quả hiệu chuẩn.
-
-### 8.2. Chu kỳ hiệu chuẩn được khuyến nghị là 01 năm.
-
-### 9. Phụ lục
-
-Biên bản hiệu chuẩn phương tiện đo pH (ETV.MCW.F 01.01)
-
-
-## TÀI LIỆU THAM KHẢO
-
-- ISO/IEC 17025:2017: Yêu cầu chung về năng lực của phòng thử nghiệm và hiệu chuẩn.
-
-- ĐLVN 131:2003 “Hướng dẫn đánh giá độ không đảm bảo đo”;
-
-- ĐLVN 31:2017 “Phương tiện đo pH - Quy trình kiểm định”;
-
-- ĐLVN 381:2021 “Phương tiện đo pH của trạm quan trắc môi trường nước - Quy trình kiểm định”;
-
-- Hướng dẫn sử dụng PTĐ pH các hãng thiết bị.
-
+| Thông tin | Chi tiết |
+|-----------|----------|
+| **Mã số** | ETV.MCW 01 |
+| **Lần ban hành** | 02 |
+| **Ngày ban hành** | 22/4/2023 |
+| **Phạm vi** | Hiệu chuẩn dụng cụ đo pH trong môi trường nước |
 
 ---
 
-## Bảng tham khảo
+## Bảng Lịch sử Thay đổi
 
-### Bảng 1
+| Lần BH | Ngày BH | Nội dung thay đổi chính | Soát xét | Phê duyệt |
+|-------|--------|----------------------|---------|----------|
+| 01 | — | Bản gốc | — | — |
+| 02 | 22/4/2023 | Cập nhật công thức tính ĐKĐB, bổ sung kiểm tra độ trôi | — | — |
 
-| Mã số: | ETV.MCW 01 | ETV.MCW 01 |
-|---|---|---|
-| Lần ban hành: | 02 | 02 |
-| Ngày ban hành: | 22/4/2023 | 22/4/2023 |
-| BIÊN SOẠN | SOÁT XÉT | PHÊ DUYỆT |
-| Nguyễn Văn Đồng | Nguyễn Chu Anh Tuấn | Nguyễn Hoàng Giang |
+---
 
-### Bảng 2
+## Bảng Ký duyệt
 
-| Thời gian | Nội dung thay đổi | Lần ban hành |
-|---|---|---|
-| 22/04/2019 | Ban hành lần thứ nhất | 01 |
-| 22/04/2023 | Ban hành lần thứ hai 
-(Theo ý kiến chuyên gia BoA) | 02 |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Vai trò | Tên | Chữ ký | Ngày ký |
+|--------|------|--------|--------|
+| **Biên soạn** | — | — | — |
+| **Soát xét** | — | — | — |
+| **Phê duyệt** | — | — | — |
 
-### Bảng 3
+---
 
-| TT | Tên phép hiệu chuẩn | Theo điều, mục của quy trình |
-|---|---|---|
-| 1 | Kiểm tra bên ngoài | 7.1 |
-| 2 | Kiểm tra kỹ thuật | 7.2 |
-| 3 | Kiểm tra đo lường | 7.3 |
-| 3.1 | Kiểm tra trước hiệu chuẩn | 7.3.1 |
-|  | Đo trước hiệu chỉnh | a |
-|  | Tiến hành hiệu chỉnh | b |
-| 3.2 | Tiến hành hiệu chuẩn | 7.3.2 |
-|  | Kiểm tra sai số | a |
-|  | Kiểm tra độ lặp lại | b |
-|  | Kiểm tra độ ổn định theo thời gian (độ trôi) | c |
-| 3.3 | Tính toán độ không đảm bảo đo | 7.3.3 |
-| 4 | Xử lý chung | 8 |
+## 1. Mục đích
 
-### Bảng 4
+Quy định quy trình hiệu chuẩn dụng cụ đo pH (PTĐ) để đảm bảo tính chính xác, độ tin cậy của kết quả đo trong hoạt động kiểm định, kiểm tra chất lượng môi trường nước và dịch vụ khác liên quan.
 
-| TT | Phương tiện hiệu chuẩn | Đặc trưng kỹ thuật |
-|---|---|---|
-| 1 | Chuẩn đo lường |  |
-|  | Dung dịch chuẩn được chứng nhận | - Giá trị danh định: (4; 7; 10) pH 
-- Độ không đảm bảo đo không lớn hơn ½ độ chính xác của phương tiện đo cần hiệu chuẩn. |
-| 2 | Phương tiện đo khác |  |
-| 2.1 | Thiết bị đo nhiệt độ | - Phạm vi đo: (-20 ÷ 200) oC 
-- Độ chính xác: ±0,1 oC. |
-| 2.2 | Bể ổn nhiệt | - Phạm vi điều nhiệt từ: (-20 ÷ 200) oC;
-- Độ ổn định: ±0,1 oC. |
-| 2.3 | PTĐ nhiệt độ và độ ẩm môi trường | - Dải đo:          + Nhiệt độ (0 ÷ 50) oC;
-                        + Độ ẩm không khí (25 ÷ 95) %RH.
-- Độ phân giải:  + Nhiệt độ: 1 oC; 
-                          + Độ ẩm: 1 %RH. |
-| 3 | Phương tiện phụ |  |
-| 3.1 | Cốc mỏ |  |
-| 3.2 | Nước cất | Nước loại 1 (theo TCVN 4851:1989) |
-| 3.3 | Bình tia nước cất |  |
-| 3.4 | Giấy thấm |  |
+---
 
+## 2. Phạm vi áp dụng
+
+Quy trình này áp dụng cho hiệu chuẩn các dụng cụ đo pH thông dụng được sử dụng trong quan trắc môi trường nước (nước mặt, nước thải, nước biển, nước ngầm, v.v.):
+
+- **Phạm vi đo:** (-2 ÷ 16) pH
+- **Độ chia:** 0,1 pH; 0,01 pH; 0,001 pH
+- **Điều kiện:** Đo ngoài hiện trường và trong phòng thí nghiệm
+
+Quy trình áp dụng cho tất cả nhân viên của Viện Kiểm định Công nghệ và Môi trường (ETV) thực hiện hiệu chuẩn dụng cụ đo pH.
+
+---
+
+## 3. Tài liệu viện dẫn
+
+Quy trình này dựa trên và tham chiếu những tài liệu sau (không chép nguyên văn):
+
+- **ISO/IEC 17025:2017** — Yêu cầu chung đối với năng lực của các phòng thí nghiệm thử nghiệm và hiệu chuẩn (§7.2: Thiết bị; §7.7: Đánh giá độ không đảm bảo)
+- **ISO/IEC 17034:2016** — Yêu cầu chung đối với năng lực của các phòng thí nghiệm chuyên cấp các chất chuẩn (§7.2: Quy trình hiệu chuẩn)
+- **MP20_HieuChuan** — Thủ tục Quản lý và Kiểm soát hiệu chuẩn (Viện ETV)
+- **MP15_HoSo** — Thủ tục Quản lý hồ sơ & Lưu trữ (Viện ETV)
+- **MP05_QuanLyThietBi** — Thủ tục Quản lý thiết bị thí nghiệm (Viện ETV)
+
+---
+
+## 4. Thuật ngữ, định nghĩa, chữ viết tắt
+
+| Thuật ngữ | Định nghĩa |
+|-----------|-----------|
+| **Dung dịch chuẩn pH** | Chất chuẩn thể lỏng có độ pH xác định, được chứng nhận bởi cơ quan có thẩm quyền |
+| **PTĐ pH** | Phương tiện đo pH (thiết bị) — có thể là thiết bị cầm tay hoặc để bàn |
+| **Hiệu chuẩn** | Quá trình xác định mối liên hệ giữa giá trị chỉ thị của dụng cụ và giá trị tương ứng của chuẩn |
+| **ĐKĐB** | Độ không đảm bảo đo — tham số mô tả sự phân tán các giá trị có thể quy cho đại lượng đo |
+| **Độ lặp lại** | Mức độ một phép đo có thể được lặp lại dưới cùng điều kiện |
+| **Độ trôi** | Xu hướng thay đổi của kết quả đo theo thời gian dưới cùng điều kiện |
+| **PTN** | Phòng thí nghiệm (hoặc Phòng thử nghiệm) |
+
+---
+
+## 5. Vai trò & Trách nhiệm (RACI)
+
+| Vai trò | Hiệu chuẩn | Ghi lại | Tính toán ĐKĐB | Phê duyệt |
+|--------|-----------|--------|---------|----------|
+| **Nhân viên thực hiện** | R/A | R/A | R | — |
+| **Trưởng phòng PTN** | R/C | — | — | A |
+| **LĐP Hệ thống QM** | R/C | — | — | A |
+
+**Chú giải:** R = Chịu trách nhiệm thực hiện; A = Chịu trách nhiệm cuối cùng; C = Được tham vấn; I = Được thông báo
+
+---
+
+## 6. Thiết bị, Chuẩn & Điều kiện hiệu chuẩn
+
+### 6.1. Thiết bị cần dùng
+
+- **Bể điều nhiệt** chính xác ±0,1 °C
+- **Nhiệt kế đạn chuẩn** độ chính xác ±0,1 °C
+- **Bình phun nước cất** 250 mL (hoặc tương đương)
+- **Giấy thấm** không chứa hóa chất
+- **Phần mềm xử lý** kết quả (nếu dụng cụ có kết nối)
+
+### 6.2. Dung dịch chuẩn
+
+Phải sử dụng dung dịch chuẩn pH đã được chứng nhận bởi cơ quan có thẩm quyền (ISO 17034 trở lên):
+
+- **pH 4,0** (Glycine buffer hoặc Phthalate buffer)
+- **pH 7,0** (Phosphate buffer)
+- **pH 10,0** (Borax buffer hoặc Carbonate buffer)
+- **Nước cất** (độc lập, đạo đức 18,2 MΩ·cm nếu có)
+
+**Yêu cầu:** Dung dịch phải nằm trong hạn sử dụng theo giấy chứng nhận; kiểm tra ngày hết hạn trên chai.
+
+### 6.3. Điều kiện môi trường hiệu chuẩn
+
+**Bắt buộc:**
+- **Nhiệt độ phòng:** (25 ± 5) °C
+- **Độ ẩm tương đối:** ≤ 80 %RH (không đọng sương)
+- **Ổn định nhiệt độ dung dịch:** ±0,1 °C trong suốt quá trình hiệu chuẩn
+
+**Kiểm tra:** Đo nhiệt độ bằng nhiệt kế đạn chuẩn, không dùng thermometer nhúng trong dụng cụ.
+
+---
+
+## 7. Quy trình Chuẩn bị Hiệu chuẩn
+
+### 7.1. Chuẩn bị bể điều nhiệt
+
+1. Chỉ sử dụng **nước cất** (độc lập) dùng cho bể điều nhiệt
+2. Thêm nước cất vào bể đến vạch mức được chỉ định
+3. **Bật bể** và cài đặt nhiệt độ về **25 °C**
+4. Chờ tối thiểu **30 phút** để bể ổn định; kiểm tra lại bằng nhiệt kế đạn chuẩn
+5. Ghi lại nhiệt độ thực tế vào biên bản
+
+### 7.2. Chuẩn bị dung dịch chuẩn
+
+1. Đổ dung dịch chuẩn **pH 7** vào cốc mỏ (khoảng 50–100 mL)
+2. Lượng phù hợp để **đầu đo nhúng chìm hoàn toàn**
+3. **Lặp lại** với dung dịch pH 4 và pH 10 vào hai cốc riêng
+4. Đặt **cả 3 cốc vào bể** điều nhiệt
+5. **Chờ ≥ 15 phút** để dung dịch ổn định nhiệt độ (25 ± 0,1) °C
+
+### 7.3. Ổn định dụng cụ đo trước hiệu chuẩn
+
+1. **Nhận thiết bị** (thí sinh hoặc khách hàng gửi) tối thiểu **1 giờ trước** khi hiệu chuẩn
+2. Để dụng cụ **ổn định trong phòng thí nghiệm** (điều kiện môi trường)
+3. **Làm sạch đầu đo** bằng dung môi thích hợp (nếu cần, theo hướng dẫn nhà sản xuất)
+4. Rửa lại bằng **nước cất**, làm khô bằng **giấy thấm**
+5. **Bật dụng cụ** khoảng 30 phút trước hiệu chuẩn để nó hoạt động ổn định
+
+### 7.4. Chuẩn bị vật tư phụ trợ
+
+- Chuẩn bị **bình phun nước cất** đã đầy
+- Chuẩn bị **giấy thấm mềm** (không chứa hóa chất)
+- Chuẩn bị **biên bản ghi kết quả** (xem Phụ lục I)
+
+---
+
+## 8. Quy trình Tiến hành Hiệu chuẩn
+
+### 8.1. Kiểm tra bên ngoài
+
+**Thực hiện trước khi hiệu chuẩn:**
+
+Kiểm tra bằng **mắt thường** để xác định:
+- Tình trạng vật lý: có vết hỏng, nứt, ăn mòn không?
+- Ký nhãn hiệu, model, số sê-ri
+- Nguồn điện: pin/AC có tốt không?
+- Màn hình hiển thị: có sáng, rõ không?
+- Cáp, kết nối: có lỏng không?
+- Tài liệu kèm theo: có đầy đủ không?
+
+**Ghi lại:** Kết quả vào cột "Kiểm tra bên ngoài" trong biên bản (Phụ lục I)
+
+### 8.2. Kiểm tra kỹ thuật
+
+**Thực hiện sau kiểm tra bên ngoài:**
+
+1. Kiểm tra **hoạt động bình thường** của dụng cụ theo hướng dẫn sử dụng
+2. **Nhúng đầu đo vào nước cất**, quan sát:
+   - Dụng cụ có phản ứng không?
+   - Giá trị hiển thị thay đổi không?
+   - Có thông báo lỗi không?
+3. Ghi kết quả "Đạt" hoặc "Không đạt" + lý do nếu không đạt
+
+### 8.3. Kiểm tra đo lường (Hiệu chuẩn chính)
+
+#### 8.3.1. Kiểm tra trước hiệu chỉnh (Tùy chọn)
+
+**Chỉ thực hiện** nếu:
+- PTĐ sai lệch lớn, hoặc
+- Khách hàng yêu cầu, hoặc  
+- Dụng cụ có khả năng hiệu chỉnh
+
+**Thao tác:**
+
+1. Lấy dung dịch chuẩn **pH 7** từ bể (đã ổn định)
+2. **Nhúng đầu đo** vào, chờ **1–2 phút** cho ổn định
+3. **Đọc giá trị** hiển thị ≥ 3 lần liên tiếp, ghi lại
+4. **Rửa sạch** đầu đo bằng nước cất, làm khô
+5. **Lặp lại** với dung dịch pH 4 và pH 10
+6. **Phân tích kết quả:** Sai lệch bao nhiêu so với chuẩn?
+
+**Nếu sai lệch > tiêu chuẩn cho phép:**
+- Thực hiện **hiệu chỉnh** theo hướng dẫn nhà sản xuất
+- Ghi lại các thao tác hiệu chỉnh
+
+**Nếu không hiệu chỉnh được hoặc khách không yêu cầu:**
+- **Bỏ qua bước này**, tiếp tục bước 8.3.2
+
+#### 8.3.2. Kiểm tra chính (Bắt buộc)
+
+**A. Kiểm tra sai số:**
+
+1. Chọn dung dịch chuẩn **pH 7** đầu tiên
+2. **Nhúng đầu đo** vào, chờ **ổn định** (thường 1–2 phút)
+3. **Đọc giá trị** tối thiểu **3 lần liên tiếp** (cách nhau ~1 phút)
+4. **Ghi lại tất cả 3 giá trị** vào biên bản
+5. **Rửa sạch** đầu đo bằng nước cất, làm khô
+6. **Lặp lại** với dung dịch pH 4 và pH 10
+
+**Tính toán:**
+- Giá trị trung bình = (V1 + V2 + V3) / 3
+- Sai số = Giá trị trung bình − Chuẩn (π.v. −0,2 pH là sai lệch 0,2)
+
+**B. Kiểm tra độ lặp lại:**
+
+1. Chọn **3 dung dịch chuẩn** (pH 4, 7, 10)
+2. Đối với **mỗi dung dịch**, đo **7 lần liên tiếp**
+3. Ghi tất cả kết quả vào biên bản
+
+**Tính toán:**
+- Độ lệch chuẩn s = √[Σ(xi − x̄)² / (n−1)]
+- Hệ số biến thiên (CV) = (s / x̄) × 100% (%)
+
+**C. Kiểm tra độ trôi (Độ ổn định theo thời gian):**
+
+1. Chọn **1 dung dịch chuẩn** (thường pH 7)
+2. Đo lần **1 lúc 0 giờ** (ghi lại kết quả)
+3. Đo lần **2 lúc +2 giờ** (ghi lại)
+4. Đo lần **3 lúc +4 giờ** (ghi lại)
+
+**Tính toán:**
+- Độ trôi = |Giá trị lần 3 − Giá trị lần 1|
+- Nếu độ trôi > 0,1 pH → dụng cụ không đạt
+
+---
+
+## 9. Tính toán độ Không đảm bảo Đo (ĐKĐB)
+
+### 9.1. Các thành phần ĐKĐB
+
+**ĐKĐB tổng hợp bao gồm:**
+
+1. **uA** — ĐKĐB do độ lặp lại
+2. **uB1** — ĐKĐB do dung dịch chuẩn
+3. **uB2** — ĐKĐB do ổn định nhiệt độ bể
+4. **uB3** — ĐKĐB do thiết bị đo nhiệt độ
+5. **uB4** — ĐKĐB do độ phân giải dụng cụ
+6. **uB5** — ĐKĐB do độ trôi
+
+### 9.2. Công thức tính từng thành phần
+
+**a) ĐKĐB do độ lặp lại (uA):**
+
+uA = s / √n
+
+Trong đó:
+- s = độ lệch chuẩn thực nghiệm (từ 7 lần đo)
+- n = số lần đo (= 7)
+
+**b) ĐKĐB do dung dịch chuẩn (uB1):**
+
+Nếu giấy chứng nhận cung cấp **độ chính xác (a)**:
+uB1 = a / √3
+
+Nếu cung cấp **ĐKĐB (U) với hệ số bao phủ (k)**:
+uB1 = U / k
+
+**c) ĐKĐB do ôn độ bể (uB2):**
+
+Nếu chứng nhận cung cấp **độ ổn định (b)**:
+uB2 = (b × |∂pH/∂T|) / √3
+
+(Trong đó ∂pH/∂T ≈ 0,003 pH/°C cho dung dịch chuẩn thường dùng)
+
+Nếu cung cấp **ĐKĐB (c)**:
+uB2 = c
+
+**d) ĐKĐB do nhiệt kế (uB3):**
+
+uB3 = d × |∂pH/∂T| / √3
+
+Trong đó d = ĐKĐB của nhiệt kế (thường ±0,1 °C)
+
+**e) ĐKĐB do độ phân giải (uB4):**
+
+uB4 = e / (2√3)
+
+Trong đó e = độ phân giải của dụng cụ (0,01 hoặc 0,001 pH)
+
+**f) ĐKĐB do độ trôi (uB5):**
+
+uB5 = Δmax / (2√3)
+
+Trong đó Δmax = độ trôi lớn nhất so với lần đầu
+
+### 9.3. ĐKĐB tổng hợp & mở rộng
+
+**ĐKĐB tổng hợp (uC):**
+
+uC = √(uA² + uB1² + uB2² + uB3² + uB4² + uB5²)
+
+**ĐKĐB mở rộng (U):**
+
+U = k × uC
+
+(Với k = 2 ứng với độ tin cậy 95%)
+
+**Ghi lại:** Kết quả hiệu chuẩn = (Giá trị đo ± U) pH
+
+---
+
+## 10. Biểu mẫu & Tài liệu áp dụng
+
+- **Phụ lục I:** Biên bản hiệu chuẩn (ETV.MCW.F 01.01) — ghi chi tiết tất cả kết quả đo, tính toán, đánh giá
+- **Phụ lục II:** Bảng tiêu chí chấp nhận/không chấp nhận kết quả
+
+---
+
+## 11. Lưu trữ hồ sơ
+
+Theo quy định tại **MP15_HoSo** (Thủ tục Quản lý hồ sơ & Lưu trữ):
+
+- **Biên bản hiệu chuẩn** lưu trữ cùng với hồ sơ dự án/khách hàng liên quan
+- **Thời hạn lưu trữ:** Vĩnh viễn (hoặc theo hợp đồng với khách)
+- **Nơi lưu trữ:** Tủ lưu trữ PTN / Hệ thống ManLab M15_TaiLieu
+- **Trạng thái:** "Kiểm soát" cho tới khi văn bản này được thay thế hoặc hủy
+
+---
+
+## 12. Phụ lục
+
+### Phụ lục I — Biên bản Hiệu chuẩn (ETV.MCW.F 01.01)
+
+*[Xem tệp biểu mẫu riêng lưu tại `06_SHARED_RESOURCES/01_Forms/ETV.MCW.F 01.01_BienboBan_HC_pH.docx`]*
+
+Biên bản phải chứa đầy đủ:
+1. Thông tin thiết bị (model, số sê-ri, chủ sở hữu)
+2. Ngày hiệu chuẩn, người thực hiện
+3. Kết quả kiểm tra bên ngoài & kỹ thuật
+4. Bảng kết quả đo (3 dung dịch chuẩn, 7 lần lặp lại)
+5. Kết quả kiểm tra độ trôi
+6. Tính toán ĐKĐB (bảng từng thành phần)
+7. Kết luận: Đạt / Không đạt
+8. Ký duyệt: Người thực hiện & Trưởng phòng
+
+### Phụ lục II — Tiêu chí Chấp nhận/Không chấp nhận
+
+| Tiêu chí | Chuẩn cho phép | Kết luận |
+|---------|---------------|---------|
+| **Kiểm tra bên ngoài** | Không hỏng, rõ ký hiệu | Đạt/Không đạt |
+| **Kiểm tra kỹ thuật** | Dụng cụ hoạt động bình thường | Đạt/Không đạt |
+| **Sai số đo** | ≤ ±0,2 pH tại các điểm hiệu chuẩn | Đạt/Không đạt |
+| **Độ lặp lại** | CV ≤ 1% (hoặc s ≤ 0,05 pH) | Đạt/Không đạt |
+| **Độ trôi** | ≤ 0,1 pH trong 4 giờ | Đạt/Không đạt |
+| **ĐKĐB mở rộng** | ≤ ±0,3 pH (k = 2, 95% CL) | Đạt/Không đạt |
+
+**Kết luận:** Dụng cụ chỉ được cấp **Chứng chỉ hiệu chuẩn** nếu **TẤT CẢ** tiêu chí trên **ĐẠT**.
+
+---
+
+## 13. Lưu ý quan trọng
+
+1. **Dung dịch chuẩn hết hạn** → ngừng sử dụng, không dùng nữa
+2. **Bể điều nhiệt bị lệch nhiệt độ** → hiệu chuẩn lại bể trước (theo MP05)
+3. **Đầu đo bị hỏng** → không thể hiệu chuẩn, trả khách hàng kèm biên bản
+4. **ĐKĐB vượt ngưỡng cho phép** → báo cáo cho LĐP, không cấp chứng chỉ
+5. **Khác biệt lịch sử** → ghi vào bảng lịch sử (Phần đầu quy trình) trước khi ban hành lại
+
+---
+
+**Trạng thái:** Bản nháp (ĐANG HOÀN THIỆN THEO ETV.P14)  
+**Cập nhật lần cuối:** 2026-07-24  
+**Phê duyệt bởi:** [Chưa phê duyệt — chờ LĐP]
+
+---
+
+*Đây là tài liệu kiểm soát nội bộ. Không phải bản chính thức cho đến khi được ký phê duyệt.*
