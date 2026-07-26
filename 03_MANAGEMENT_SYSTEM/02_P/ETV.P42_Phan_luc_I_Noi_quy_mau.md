@@ -3,7 +3,7 @@
 **Mã tài liệu:** ETV.P42_Phan_luc_I  
 **Liên kết với:** [ETV.P42 (Thủ tục)](./ETV.P42_NoiQuyLaoDong.md)  
 **Trạng thái:** Dự thảo — Chưa có hiệu lực  
-**Ngày:** 26/07/2026
+**Ngày:** 27/07/2026
 
 ---
 

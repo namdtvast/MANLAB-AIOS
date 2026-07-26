@@ -8,7 +8,7 @@ department: "Toàn Viện"
 process: MP42_NoiQuyLaoDong
 capability: null
 module: null
-effective_date: "26/07/2026"
+effective_date: "27/07/2026"
 revision: "01"
 status: Du-thao  # Chờ phê duyệt
 keywords: [nội quy lao động, quy tắc ứng xử, kỷ luật, lao động, governance]
@@ -31,9 +31,9 @@ superseded_by: null
 | ------------------------- | -------------------------------------- |
 | **Mã số**         | ETV.P 42                             |
 | **Lần ban hành**  | 01                                   |
-| **Ngày ban hành** | 26/07/2026                           |
+| **Ngày ban hành** | 27/07/2026                           |
 | **Biên soạn**     | Dương Thành Nam                      |
-| **Soát xét**      | Trần Thị Hoa                         |
+| **Soát xét**      | Nguyễn Văn Đồng                      |
 | **Phê duyệt**     | Nguyễn Hoàng Giang (chờ phê duyệt)   |
 
 > **Tình trạng bản này: DỰ THẢO — CHƯA CÓ HIỆU LỰC** — trình phê duyệt theo thể thức ETV.P14 (Kiểm soát tài liệu).
