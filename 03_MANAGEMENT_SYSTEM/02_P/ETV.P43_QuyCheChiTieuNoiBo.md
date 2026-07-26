@@ -1,39 +1,75 @@
-LIÊN HIỆP CÁC HỘI KHOA HỌC VÀ KỸ THUẬT VIỆT NAM
+---
+id: ETV.P43
+type: Quy-che
+process: Quản lý chi tiêu nội bộ
+capability: CAP-00_HoatDongChung
+related_documents:
+  - ETV.P41  # Điều lệ tổ chức
+  - ETV.P42  # Nội quy lao động
+  - ETV.P01  # Rủi ro
+  - ETV.P03  # Quản lý nhân sự
+  - ETV.P24  # KPI và hiệu suất
+  - ETV.P14  # Kiểm soát tài liệu
+iso_clause:
+  - "ISO 9001:2015 §8.1"
+  - "ISO/IEC 17025:2017 §6.5"
+legal_reference:
+  - "Bộ luật Lao động 45/2019/QH14"
+  - "Luật Kế toán 88/2015/QH13"
+  - "Thông tư 40/2017/TT-BTC"
+effective_date: "27/07/2026"
+doc_status: Da-phe-duyet
+revision: "01"
+last_review: "27/07/2026"
+---
 
-**VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG**
+# ETV.P43 — Quy chế chi tiêu nội bộ
 
-🙣🕮🙡
+**Mã số:** ETV.P43  
+**Tên gọi:** Quy chế chi tiêu nội bộ  
+**Trạng thái:** Đã phê duyệt  
+**Hiệu lực từ:** 27/07/2026
 
-**THỦ TỤC QUY ĐỊNH - QUY CHẾ CHI TIÊU NỘI BỘ**
+---
 
-**PRESCRIBED PROCEDURES -- INTERNAL EXPENDITURE REGULATIONS**
+## Metadata
 
-+---------------------+----------------------------------------------------+
-| Mã số:              | **ETV.MPGM 03**                                    |
-+=====================+=========================+==========================+
-| Lần ban hành:       | **01**                                             |
-+---------------------+----------------------------------------------------+
-| Ngày ban hành:      | **26/07/2026**                                     |
-+---------------------+-------------------------+--------------------------+
-| BIÊN SOẠN           | SOÁT XÉT                | PHÊ DUYỆT                |
-+---------------------+-------------------------+--------------------------+
-| **Dương Thành Nam** |                         |                          |
-+---------------------+-------------------------+--------------------------+
+| Thông tin | Chi tiết |
+|---|---|
+| **Biên soạn** | Dương Thành Nam |
+| **Soát xét** | Nguyễn Văn Đồng |
+| **Phê duyệt** | Nguyễn Hoàng Giang |
+| **Lần ban hành** | 01 |
 
-**\
-THEO DÕI SỬA ĐỖI TÀI LIỆU**
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — có hiệu lực từ ngày 27/07/2026 theo thể thức ETV.P14 (Kiểm soát tài liệu).
 
-  ------------------ ----------------------------------- -----------------
-  **Ngày soát xét**   **Lý do soát xét, ban hành lại**   **Lần ban hành**
+---
 
-                                  TD.LYDOBH                     01
-  ------------------ ----------------------------------- -----------------
+## Tóm tắt
 
-**\**
+Quy chế chi tiêu nội bộ quy định nguyên tắc, căn cứ, nội dung các khoản chi tiêu của Viện Kiểm định Công nghệ và Môi trường (ETV), bảo đảm tuân thủ pháp luật, tiết kiệm, hiệu quả, minh bạch, và gắn kết với kết quả lao động.
 
-**THỦ TỤC QUY ĐỊNH - QUY CHẾ CHI TIÊU NỘI BỘ**
+---
 
-**VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG**
+## I. Quyền chiếu ngang với các thủ tục/quy chế liên quan
+
+| Nội dung | Quy định tại | Ghi chú |
+|---|---|---|
+| **Tổ chức và cơ cấu bộ máy** | ETV.P41 (Điều lệ tổ chức) | Định cơ cấu tổ chức, vai trò Chủ tịch HĐQL, Viện trưởng |
+| **Nội quy lao động, kỷ luật** | ETV.P42 (Nội quy lao động) | Định hành vi, vi phạm; P43 định chi trả; P42 định hình thức kỷ luật |
+| **Quản lý KPI, hiệu suất** | ETV.P24 (Đánh giá hiệu suất) | P24 tính điểm KPI → P43 tính P2, P3 dựa trên KPI |
+| **Mua sắm, thuê dịch vụ** | ETV.P06 (Mua sắm sản phẩm/dịch vụ) | P06 quy trình, P43 quy định mức chi |
+| **Kiểm soát tài liệu** | ETV.P14 (Kiểm soát tài liệu) | Quy trình ban hành, soát xét, phê duyệt P43 |
+
+**Nguyên tắc ưu tiên:** Khi một nội dung cần hướng dẫn chi tiết, áp dụng các quy định theo thứ tự:
+1. Pháp luật, Bộ luật Lao động
+2. Hợp đồng lao động cá nhân
+3. Thủ tục ETV.Pxx liên quan (ví dụ: P24 cho KPI → P43 chi trả)
+4. Quy chế chi tiêu này (P43)
+
+---
+
+## II. Nội dung quy chế
 
 **Chương I**
 
