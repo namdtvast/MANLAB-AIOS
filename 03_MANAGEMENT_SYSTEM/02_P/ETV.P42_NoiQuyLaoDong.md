@@ -10,7 +10,7 @@ capability: null
 module: null
 effective_date: "27/07/2026"
 revision: "01"
-status: Du-thao  # Chờ phê duyệt
+status: Da-phe-duyet
 keywords: [nội quy lao động, quy tắc ứng xử, kỷ luật, lao động, governance]
 related_documents: [ETV.P41, ETV.P43, ETV.P01, ETV.P03, ETV.P24]
 iso_clause: ["ISO/IEC 17025:2017 §4.2", "ISO 9001:2015 §8.1", "ISO/IEC 42001:2023 §8.2"]
@@ -34,9 +34,9 @@ superseded_by: null
 | **Ngày ban hành** | 27/07/2026                           |
 | **Biên soạn**     | Dương Thành Nam                      |
 | **Soát xét**      | Nguyễn Văn Đồng                      |
-| **Phê duyệt**     | Nguyễn Hoàng Giang (chờ phê duyệt)   |
+| **Phê duyệt**     | Nguyễn Hoàng Giang                   |
 
-> **Tình trạng bản này: DỰ THẢO — CHƯA CÓ HIỆU LỰC** — trình phê duyệt theo thể thức ETV.P14 (Kiểm soát tài liệu).
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — có hiệu lực từ ngày 27/07/2026 theo thể thức ETV.P14 (Kiểm soát tài liệu).
 
 ---
 
