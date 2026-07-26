@@ -37,8 +37,8 @@ last_review: "27/07/2026"
 | Thông tin | Chi tiết |
 |---|---|
 | **Biên soạn** | Dương Thành Nam |
-| **Soát xét** | Nguyễn Văn Đồng |
-| **Phê duyệt** | Nguyễn Hoàng Giang |
+| **Soát xét** | Đỗ Văn Vinh |
+| **Phê duyệt** | Trần Sơn Tùng |
 | **Lần ban hành** | 01 |
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — có hiệu lực từ ngày 27/07/2026 theo thể thức ETV.P14 (Kiểm soát tài liệu).
@@ -71,13 +71,12 @@ Quy chế chi tiêu nội bộ quy định nguyên tắc, căn cứ, nội dung 
 
 ## II. Nội dung quy chế
 
-**Chương I**
+### Chương I. NHỮNG QUY ĐỊNH CHUNG
 
-**NHỮNG QUY ĐỊNH CHUNG**
 
 ** **
 
-**Điều 1. Phạm vi, đối tượng áp dụng**
+### Điều 1. Phạm vi, đối tượng áp dụng
 
           Quy chế này quy định nguyên tắc, căn cứ, nội dung các khoản
 chi tiêu trong Viện Kiểm định Công nghệ và Môi trường *(sau đây gọi tắt
@@ -88,146 +87,22 @@ xác định thời hạn hợp đồng *(sau đây gọi chung là người lao
 làm việc trong Viện và Chuyên gia/ Cộng tác viên thuộc đối tượng điều
 chỉnh của Quy chế này.
 
-**Điều 2. Căn cứ quy định mức chi**
+### Điều 2. Căn cứ quy định mức chi
 
-1.  **Nhóm căn cứ pháp luật chung**
+Quy chế chi tiêu nội bộ dựa trên các nhóm căn cứ pháp luật sau:
 
-<!-- -->
+| # | Nhóm căn cứ | Luật/Quy định chính | Áp dụng cho |
+|---|---|---|---|
+| 1 | Pháp luật chung | Bộ luật Lao động 45/2019/QH14; Luật BHXH 41/2024/QH15; Luật Kế toán 88/2015/QH13; Luật Thuế TNCN/TNDN; Luật An toàn lao động 84/2015/QH13; Luật Giá 16/2023/QH15; Luật Quản lý thuế 38/2019/QH14 | Tất cả khoản chi |
+| 2 | Lương, phụ cấp, thu nhập | Nghị định 293/2025 (lương tối thiểu); NĐ 145/2020 (hướng dẫn Bộ luật Lao động); NĐ 12/2022 (xử phạt vi phạm lao động); Quy định thuế TNCN | Tiền lương, phụ cấp, khoán chi, thưởng, phúc lợi |
+| 3 | Công tác phí, hội nghị, tiếp khách | Thông tư 40/2017/TT-BTC (chế độ công tác phí, chi hội nghị); Hướng dẫn Bộ Tài chính | Công tác phí, lưu trú, chi tiếp khách |
+| 4 | Tài sản, mua sắm, thuê dịch vụ | Luật Quản lý, sử dụng tài sản công 15/2017/QH14; Chế độ kế toán doanh nghiệp; Quy định khấu hao, thuê dịch vụ | Xe ô tô, thiết bị, công cụ, phần mềm, thuê ngoài |
+| 5 | Bồi dưỡng, tập huấn, phát triển nhân lực | Luật KHCN 93/2025/QH15; Luật Giáo dục nghề nghiệp 74/2014/QH13; Quy định về chi đào tạo, cam kết làm việc, quỹ KHCN | Chi đào tạo, tập huấn, phát triển nhân sự |
+| 6 | Căn cứ nội bộ và quản trị | Điều lệ tổ chức (P41); Nghị quyết, quyết định HĐQL; Các thủ tục ETV (P05, P06, P24); Phần mềm ManLab | Tất cả hoạt động của Viện |
 
-1.  Bộ luật Lao động số 45/2019/QH14 ngày 20/11/2019;
+**Nguyên tắc xây dựng mức chi:** Phù hợp pháp luật, tiết kiệm, minh bạch, không vượt trần, phù hợp với tài chính Viện, và có khả năng số hóa trên ManLab.
 
-2.  Luật bảo hiểm xã hội số 41/2024/QH15;
-
-3.  Luật Kế toán số 88/2015/QH13;
-
-4.  Luật Thuế thu nhập doanh nghiệp số 67/2025/QH15 ngày 14/6/2025;
-
-5.  Luật Thuế thu nhập cá nhân số 04/2007/QH12 và các văn bản sửa đổi,
-    bổ sung;
-
-6.  Luật An toàn, vệ sinh lao động số 84/2015/QH13;
-
-7.  Luật Giá số 16/2023/QH15 (áp dụng cho quản lý giá, định mức, khoán
-    chi, thuê dịch vụ);
-
-8.  Luật Quản lý thuế số 38/2019/QH14.
-
-<!-- -->
-
-2.  **Nhóm căn cứ về tiền lương -- phụ cấp -- thu nhập**
-
-<!-- -->
-
-9.  Nghị định 293/2025/NĐ-CP ngày 10/11/2025 quy định mức lương tối
-    thiểu đối với NLĐ làm việc theo hợp đồng lao động;
-
-10. Nghị định số 145/2020/NĐ-CP hướng dẫn Bộ luật Lao động về điều kiện
-    lao động và quan hệ lao động;
-
-11. Nghị định số 12/2022/NĐ-CP về xử phạt vi phạm hành chính trong lĩnh
-    vực lao động, bảo hiểm xã hội;
-
-12. Các quy định về thu nhập chịu thuế, thu nhập không chịu thuế, các
-    khoản được trừ khi xác định thuế TNCN theo pháp luật thuế hiện hành.
-
-*Dùng làm căn cứ xây dựng: lương, phụ cấp, khoán chi, thưởng, phúc lợi.*
-
-3.  **Nhóm căn cứ về công tác phí -- hội nghị -- tiếp khách**
-
-<!-- -->
-
-13. Thông tư số 40/2017/TT-BTC ngày 28/4/2017 của Bộ Tài chính quy định
-    chế độ công tác phí, chế độ chi hội nghị;
-
-14. Các văn bản hướng dẫn của Bộ Tài chính về khoán chi, thanh toán chi
-    phí đi lại, lưu trú;
-
-15. Quy định của pháp luật về chi tiếp khách, chi quảng cáo, tiếp thị
-    được tính vào chi phí được trừ khi xác định thu nhập chịu thuế TNDN.
-
-*Quy chế nội bộ được phép quy định mức chi cụ thể nhưng không vượt trần
-pháp luật.*
-
-4.  **Nhóm căn cứ về tài sản, mua sắm, thuê dịch vụ**
-
-<!-- -->
-
-16. Luật Quản lý, sử dụng tài sản công số 15/2017/QH14 (áp dụng theo
-    nguyên tắc quản lý);
-
-17. Chế độ kế toán doanh nghiệp hiện hành do Bộ Tài chính ban hành;
-
-18. Các quy định pháp luật về:
-
-- Trích khấu hao tài sản cố định;
-
-- Thuê dịch vụ ngoài;
-
-- Khoán chi sử dụng tài sản, phương tiện, thiết bị.
-
-*Làm căn cứ cho: xe ô tô, thiết bị, công cụ dụng cụ, phần mềm, thuê
-ngoài.*
-
-5.  **Nhóm căn cứ về bồi dưỡng, tập huấn -- phát triển nhân lực --
-    KHCN**
-
-<!-- -->
-
-19. Luật Khoa học, Công nghệ và Đổi mới sáng tạo số 93/2025/QH15;
-
-20. Luật Giáo dục nghề nghiệp số 74/2014/QH13;
-
-21. Các quy định của pháp luật về:
-
-- Chi đào tạo;
-
-- Cam kết làm việc sau đào tạo;
-
-- Quỹ phát triển khoa học và công nghệ (nếu có trích lập).
-
-6.  **Nhóm căn cứ nội bộ và căn cứ quản trị**
-
-<!-- -->
-
-22. Điều lệ tổ chức và hoạt động của Viện ETV;
-
-23. Nghị quyết, quyết định của Hội đồng Quản lý và Viện trưởng về chủ
-    trương, định mức chi tiêu trong từng giai đoạn;
-
-24. Biên bản họp hội đồng quản lý Viện (mục tiêu và mức thưởng kinh
-    doanh hàng năm);
-
-25. Các quy trình, thủ tục nội bộ đang áp dụng, bao gồm nhưng không giới
-    hạn:
-
-- Sổ tay chất lượng theo ISO/IEC 17025;
-
-- Thủ tục ETV.P05 - Thủ tục kiểm soát thiết bị, chuẩn và chất chuẩn;
-
-- Thủ tục ETV.P06 - Thủ tục mua sản phẩm và dịch vụ do bên ngoài cung
-  cấp;
-
-- Thủ tục ETV.P24 - Thủ tục đánh giá hiệu suất công việc, quản lý thời
-  gian và chi trả lương - thưởng theo mô hình 3P (KPI);
-
-- Phần mềm quản lý đo lường (ManLab);
-
-7.  **Nguyên tắc áp dụng khi xây dựng mức chi**
-
-Việc xây dựng mức chi trong Quy chế chi tiêu nội bộ được thực hiện theo
-các nguyên tắc sau:
-
-- Phù hợp với quy định của pháp luật hiện hành;
-
-- Bảo đảm tiết kiệm, hiệu quả, minh bạch và có chứng từ hợp lệ;
-
-- Không vượt trần, không trái quy định về thuế, kế toán;
-
-- Phù hợp với năng lực tài chính và đặc thù hoạt động của Viện;
-
-- Có khả năng chuẩn hóa, số hóa và kiểm soát trên phần mềm ManLab.
-
-**Điều 3. Mục đích, yêu cầu**
+### Điều 3. Mục đích, yêu cầu
 
 1.  **Mục đích**
 
@@ -254,7 +129,7 @@ các nguyên tắc sau:
   tổng hợp dữ liệu phục vụ quản lý tài chính, kế toán và triển khai trên
   hệ thống phần mềm ManLab.
 
-**Điều 4. Nguyên tắc xây dựng và áp dụng Quy chế chi tiêu nội bộ**
+### Điều 4. Nguyên tắc xây dựng và áp dụng Quy chế chi tiêu nội bộ
 
 1.  Quy chế chi tiêu nội bộ của Viện được xây dựng trên nguyên tắc dân
     chủ, công khai, minh bạch, có sự tham gia ý kiến của Ban Lãnh đạo
@@ -279,7 +154,7 @@ các nguyên tắc sau:
     tiết kiệm, hiệu quả; việc áp dụng phải được thể hiện bằng văn bản
     phê duyệt và làm căn cứ thanh toán.
 
-**Điều 5. Công nhật (Quản lý trạng thái lao động)**
+### Điều 5. Công nhật (Quản lý trạng thái lao động)
 
 Công nhật là việc ghi nhận trạng thái làm việc/nghỉ lễ mỗi ngày của
 Người lao động (NLĐ) trên hệ thống ManLab, bao gồm các ký hiệu: Làm việc
@@ -294,7 +169,7 @@ Người lao động (NLĐ) trên hệ thống ManLab, bao gồm các ký hiệu
 - Trách nhiệm: Mọi hình thức nghỉ hoặc làm thêm giờ phải được đăng ký và
   phê duyệt bởi cấp có thẩm quyền theo đúng quy định của Viện.
 
-**Điều 6. Chấm công (Xác nhận dữ liệu làm việc thực tế)**
+### Điều 6. Chấm công (Xác nhận dữ liệu làm việc thực tế)
 
 Chấm công là việc thực hiện thao tác Check-in và Check-out trên ManLab
 tại địa điểm làm việc được phân công (Trụ sở ETV, Hiện trường hoặc Tại
@@ -320,7 +195,7 @@ nhà).
   việc từ xa) theo sự phân công hoặc thỏa thuận nhằm tạo điều kiện thuận
   lợi cho việc thực hiện công việc và tiết kiệm chi phí:
 
-#### Điều 7. Phân loại Nhóm nhân sự và Chế độ đãi ngộ
+### Điều 7. Phân loại Nhóm nhân sự và Chế độ đãi ngộ
 
 Viện ETV quản lý nhân sự theo 3 nhóm chính với các đặc thù chi trả khác
 nhau:
@@ -339,9 +214,9 @@ nhau:
 
 - [Nhóm nghỉ việc: Đối với người lao động nghỉ đột xuất (không báo trước
   3 tháng) không hưởng lương hiệu quả công việc của tháng trước khi
-  nghỉ.]{.mark}
+  nghỉ.]
 
-#### Điều 8. Quy định về Thuế Thu nhập cá nhân (TNCN)
+### Điều 8. Quy định về Thuế Thu nhập cá nhân (TNCN)
 
 Căn cứ vào trạng thái cư trú và loại hình hợp đồng, hệ thống Manlab tự
 động áp dụng:
@@ -357,7 +232,7 @@ Căn cứ vào trạng thái cư trú và loại hình hợp đồng, hệ thố
 - Thuế vãng lai 20%: Áp dụng cho cá nhân không cư trú hoặc không có mã
   số thuế theo quy định.
 
-#### Điều 9. Quy định về Bảo hiểm xã hội (BHXH) bắt buộc
+### Điều 9. Quy định về Bảo hiểm xã hội (BHXH) bắt buộc
 
 - Có đóng (XH; YT; TN): Áp dụng cho nhân sự nhóm ETV. Tỷ lệ trích đóng:
   10,5% đối với cá nhân và 21,5% đối với tổ chức (tính trên mức lương ký
@@ -374,7 +249,7 @@ Căn cứ vào trạng thái cư trú và loại hình hợp đồng, hệ thố
 
 **LƯƠNG, THƯỞNG, HỖ TRỢ VÀ PHÚC LỢI**
 
-**Điều 10. Nguyên tắc chi trả tiền lương**
+### Điều 10. Nguyên tắc chi trả tiền lương
 
 1.  **Tiền lương của NLĐ được chi trả căn cứ vào:**
 
@@ -485,7 +360,7 @@ Tổng thu nhập tiền lương của NLĐ trong kỳ được xác định nh�
 Việc chi trả P2 và P3 được thực hiện trên cơ sở dữ liệu KPI và thời gian
 làm việc hợp lệ đã được ghi nhận, phê duyệt trên hệ thống ManLab.
 
-**Điều 12. Các khoản phụ cấp gắn với tiền lương**
+### Điều 12. Các khoản phụ cấp gắn với tiền lương
 
 1.  **Nguyên tắc chung**
 
@@ -514,7 +389,7 @@ làm việc hợp lệ**
   là khoản thu nhập mang tính tiền lương, được dùng làm căn cứ đóng bảo
   hiểm xã hội theo quy định của pháp luật.
 
-**Điều 13. Các khoản trợ cấp, hỗ trợ và phúc lợi**
+### Điều 13. Các khoản trợ cấp, hỗ trợ và phúc lợi
 
 1.  **Nguyên tắc chung**
 
@@ -596,8 +471,6 @@ làm việc hợp lệ**
 
 - Hỗ trợ khác theo quy định.
 
-<!-- -->
-
 - Cách xác định:
 
   - Theo khoán thời gian: Mức hỗ trợ tháng = Mức hỗ trợ khoán × Hệ số
@@ -674,7 +547,7 @@ làm việc hợp lệ**
 
   - Không có bằng chứng hợp lệ ⇒ không chi.
 
-**Điều 14. Thời hạn và hình thức trả lương/ thưởng**
+### Điều 14. Thời hạn và hình thức trả lương/ thưởng
 
 1.  **Hình thức trả lương/ thưởng**
 
@@ -719,7 +592,7 @@ làm việc hợp lệ**
 
 - Lưu trữ hồ sơ, chứng từ chi trả theo quy định của pháp luật.
 
-**Điều 15. Chế độ xét nâng lương và điều chỉnh thu nhập**
+### Điều 15. Chế độ xét nâng lương và điều chỉnh thu nhập
 
 1.  **Nguyên tắc chung**
 
@@ -777,7 +650,7 @@ làm việc hợp lệ**
 - Kết quả điều chỉnh được cập nhật vào Phụ lục hợp đồng điện tử và tính
   toán vào bảng lương của tháng kế tiếp.
 
-**Điều 16. Chế độ thưởng, hỗ trợ và phúc lợi**
+### Điều 16. Chế độ thưởng, hỗ trợ và phúc lợi
 
 1.  **Chế độ nghỉ lễ, tết và nghỉ việc riêng hưởng lương**
 
@@ -803,8 +676,6 @@ làm việc hợp lệ**
   - Con kết hôn: 01 ngày;
 
   - Bố, mẹ, vợ, chồng, con chết: 03 ngày.
-
-<!-- -->
 
 - Chế độ nghỉ phép:
 
@@ -861,8 +732,6 @@ làm việc hợp lệ**
   - Mức thưởng thâm niên tuỳ thuộc vào tình hình kinh doanh và mức chi
     không cố định và được chi trực tiếp vào trong bảng lương hàng tháng.
 
-<!-- -->
-
 - Thưởng sinh nhật NLĐ, các ngày lễ 8/3, Giỗ Tổ Hùng Vương 10/3, 30/4 và
   1/5, Quốc tế thiếu nhi 1/6, Ngày quốc khách 2/9, Tết trung thu, Tết
   Dương lịch
@@ -898,8 +767,6 @@ làm việc hợp lệ**
     tối thiểu 36 tháng tại Viện; trường hợp vi phạm phải hoàn trả chi
     phí bồi dưỡng, tập huấn theo quy định.
 
-<!-- -->
-
 - Phúc lợi Du lịch, nghỉ mát
 
   - Thực hiện theo kết quả hoạt động và Quyết định của Chủ tịch HĐQL
@@ -915,11 +782,9 @@ làm việc hợp lệ**
   Thuế TNCN: Các khoản phúc lợi chi cho NLĐ được thực hiện theo đúng quy
   định pháp luật và không tính vào thu nhập chịu thuế thu nhập cá nhân.
 
-**Mục 2**
+### Mục 2: CÔNG TÁC PHÍ
 
-**CÔNG TÁC PHÍ**
-
-**Điều 17. Khái niệm và nguyên tắc công tác phí**
+### Điều 17. Khái niệm và nguyên tắc công tác phí
 
 1.  Công tác phí là khoản chi do Viện chi trả cho NLĐ khi được cử đi
     công tác ngoài trụ sở hoặc ngoài địa điểm làm việc thường xuyên (bao
@@ -940,7 +805,7 @@ làm việc hợp lệ**
     cử nhân sự đi công tác. Toàn bộ dữ liệu công tác phải được khai báo
     -- theo dõi -- lưu vết trên ManLab.
 
-**Điều 18. Điều kiện xác lập Công tác phí (CTP)**
+### Điều 18. Điều kiện xác lập Công tác phí (CTP)
 
 1.  NLĐ chỉ được hưởng CTP khi hệ thống ManLab ghi nhận hội tụ đủ 03
     điều kiện:
@@ -962,7 +827,7 @@ làm việc hợp lệ**
     hoặc thiếu dữ liệu vào/ra sẽ dẫn đến việc hệ thống tự động từ chối
     (Reject) các khoản chi phí liên quan.
 
-**Điều 19. Định mức Phụ cấp Chi phí Sinh hoạt và Lưu trú (khoán)**
+### Điều 19. Định mức Phụ cấp Chi phí Sinh hoạt và Lưu trú (khoán)
 
 1.  Phụ cấp Chi phí Sinh hoạt:
 
@@ -983,7 +848,7 @@ làm việc hợp lệ**
 
 4.  ManLab tự động tính phụ cấp theo thời gian -- địa điểm -- hợp đồng.
 
-**Điều 20. Định mức Thanh toán tiền thuê chỗ nghỉ (có hoá đơn)**
+### Điều 20. Định mức Thanh toán tiền thuê chỗ nghỉ (có hoá đơn)
 
 1.  NLĐ được chọn thanh toán theo khoán hoặc hóa đơn.
 
@@ -998,7 +863,7 @@ làm việc hợp lệ**
 3.  Công tác nước ngoài: đặt phòng ≤ 4 sao, phù hợp nhiệm vụ và tài
     chính.
 
-**Điều 21. Chi phí Di chuyển và Phương tiện đi lại**
+### Điều 21. Chi phí Di chuyển và Phương tiện đi lại
 
 1.  Công tác nội thành Hà Nội: NLĐ tự túc phương tiện; Viện không thanh
     toán trừ nhiệm vụ đặc thù............ Chi phí đi lại nội thành vẫn
@@ -1022,7 +887,7 @@ làm việc hợp lệ**
 
 5.  Các chứng từ được tải lên ManLab làm căn cứ quyết toán.
 
-**Điều 22. Công tác liên ngành / liên cơ quan**
+### Điều 22. Công tác liên ngành / liên cơ quan
 
 1.  Viện chủ trì: thanh toán toàn bộ chi phí theo Quy chế.
 
@@ -1033,7 +898,7 @@ làm việc hợp lệ**
 
 4.  Hồ sơ công tác được lưu trên ManLab.
 
-**Điều 23. Hồ sơ, thời hạn và nguyên tắc thanh toán công tác phí**
+### Điều 23. Hồ sơ, thời hạn và nguyên tắc thanh toán công tác phí
 
 1.  Hồ sơ thanh toán công tác phí bao gồm:
 
@@ -1075,7 +940,7 @@ làm việc hợp lệ**
     mời tham gia thực hiện nhiệm vụ chuyên môn, được áp dụng chế độ công
     tác phí tương đương NLĐ của Viện.
 
-**Điều 24. Nguyên tắc loại trừ và chế tài**
+### Điều 24. Nguyên tắc loại trừ và chế tài
 
 > .
 
@@ -1084,9 +949,7 @@ làm việc hợp lệ**
     vòng 24h. Quá thời hạn trên, hệ thống sẽ mặc định không tính toán
     chi phí cho ngày làm việc đó.
 
-**Mục 3**
-
-**CHI PHÍ HỘI NGHỊ, HỘI THẢO VÀ TIẾP KHÁCH**
+### Mục 3: CHI PHÍ HỘI NGHỊ, HỘI THẢO VÀ TIẾP KHÁCH
 
 *(thuộc chi phí quản lý chung)*
 
@@ -1110,7 +973,7 @@ làm việc hợp lệ**
 3.  Thẩm quyền phê duyệt: Chủ tịch HĐQL hoặc Viện trưởng (hoặc người
     được ủy quyền).
 
-**Điều 26. Nội dung và mức chi hội nghị, hội thảo trong nước**
+### Điều 26. Nội dung và mức chi hội nghị, hội thảo trong nước
 
 1.  Chi hỗ trợ tiền ăn, nước uống trong hội nghị
 
@@ -1152,13 +1015,11 @@ làm việc hợp lệ**
 - Có bảng chấm công, xác nhận làm thêm giờ và phê duyệt của người có
   thẩm quyền.
 
-**Điều 27. Chi tiếp khách trong nước**
+### Điều 27. Chi tiếp khách trong nước
 
 1.  Chi tiếp khách làm việc, đối ngoại
 
 - Mức chi ăn uống tiếp khách: không quá 20.000.000 đồng/lần;
-
-<!-- -->
 
 - Điều kiện chi: phải có Quyết định/ý kiến chấp thuận chủ trương tiếp
   khách của Lãnh đạo Viện trước khi thực hiện.
@@ -1175,9 +1036,7 @@ làm việc hợp lệ**
 
   - Bậc 1: ≤ 1.000.000.000 đồng → tối đa 0,30%;
 
-  <!-- -->
-
-  - Bậc 2: \> 1.000.000.000 đến 10.000.000.000 đồng → tối đa 0,15%;
+    - Bậc 2: \> 1.000.000.000 đến 10.000.000.000 đồng → tối đa 0,15%;
 
   - Bậc 3: \> 10.000.000.000 đồng → tối đa 0,05%.
 
@@ -1228,8 +1087,6 @@ làm việc hợp lệ**
   khi chi trả từ 2 triệu đồng/lần trở lên; trường hợp đủ điều kiện có
   thể dùng Mẫu 08/CK-TNCN).
 
-<!-- -->
-
 - Hồ sơ thanh toán
 
   - Đề nghị chi/phiếu thanh toán + phê duyệt của người có thẩm quyền
@@ -1264,7 +1121,7 @@ Viện trưởng quyết định mức chi cụ thể trên cơ sở đề xuấ
 chuyên môn, bảo đảm không vượt định mức nội bộ và đáp ứng đầy đủ điều
 kiện pháp lý--thuế nêu trên.
 
-**Điều 28. Chi tiếp khách nước ngoài, hội nghị và hội thảo quốc tế**
+### Điều 28. Chi tiếp khách nước ngoài, hội nghị và hội thảo quốc tế
 
 1.  Nguyên tắc chung
 
@@ -1286,7 +1143,7 @@ kiện pháp lý--thuế nêu trên.
 
 - Quyết định phê duyệt của Chủ tịch HĐQL hoặc Viện trưởng.
 
-**Điều 29. Hồ sơ, chứng từ và trách nhiệm thực hiện**
+### Điều 29. Hồ sơ, chứng từ và trách nhiệm thực hiện
 
 1.  Hồ sơ thanh toán chi hội nghị, tiếp khách bao gồm
 
@@ -1306,11 +1163,9 @@ kiện pháp lý--thuế nêu trên.
 
  
 
-**Mục 4**
+### Mục 4: SỬ DỤNG PHƯƠNG TIỆN THÔNG TIN LIÊN LẠC
 
-**SỬ DỤNG PHƯƠNG TIỆN THÔNG TIN LIÊN LẠC**
-
-**Điều 30. Quản lý và Sử dụng Điện thoại, Viễn thông**
+### Điều 30. Quản lý và Sử dụng Điện thoại, Viễn thông
 
 **1. Nguyên tắc chung**
 
@@ -1351,8 +1206,6 @@ kiện pháp lý--thuế nêu trên.
 - Số ngày công thực tế: Được xác định qua dữ liệu Chấm công (GPS) và
   Trạng thái công nhật (F03.11) đã phê duyệt.
 
-<!-- -->
-
 - Hình thức chi trả: Kết chuyển trực tiếp vào Bảng lương hàng tháng,
   không cần hóa đơn cước cá nhân.
 
@@ -1367,9 +1220,7 @@ kiện pháp lý--thuế nêu trên.
 - Giám sát: Bộ phận Kế toán có quyền từ chối chi trả nếu dữ liệu công
   nhật không khớp với lịch trình công tác thực tế trên hệ thống.
 
-**Mục 5**
-
-**QUẢN LÝ VĂN PHÒNG PHẨM (VPP),**
+### Mục 5: QUẢN LÝ VĂN PHÒNG PHẨM (VPP),
 
 **CÔNG CỤ DỤNG CỤ (CCDC) VÀ ĐIỆN - NƯỚC**
 
@@ -1381,7 +1232,7 @@ kiện pháp lý--thuế nêu trên.
 2.  Định mức sử dụng được cấu hình trên ManLab theo từng đơn vị/cá nhân;
     hệ thống sẽ cảnh báo nếu chi phí thực tế vượt quá dự toán năm.
 
-**Điều 32. Cấp phát VPP và CCDC (Quy trình F06.10)**
+### Điều 32. Cấp phát VPP và CCDC (Quy trình F06.10)
 
 1.  Lập kế hoạch: Định kỳ (tháng/quý), các đơn vị lập nhu cầu trên phiếu
     Nhập mới ETV.P.F06.10.
@@ -1392,7 +1243,7 @@ kiện pháp lý--thuế nêu trên.
 3.  Cấp phát: Văn phòng thực hiện mua sắm/xuất kho căn cứ trên phiếu đã
     duyệt. Không cấp phát ngoài hệ thống.
 
-**Điều 33. Quản lý thiết bị văn phòng và vật tư tiêu hao**
+### Điều 33. Quản lý thiết bị văn phòng và vật tư tiêu hao
 
 1.  Mực in/Photocopy: Ưu tiên đổ mực tái sử dụng (tối thiểu 02 lần)
     trước khi thay mới hộp mực.
@@ -1404,7 +1255,7 @@ kiện pháp lý--thuế nêu trên.
 3.  Quản lý tài sản: CCDC sau khi cấp phát được định danh theo mã nhân
     sự để theo dõi trách nhiệm bảo quản.
 
-**Điều 34. Tiết kiệm Điện và Nước**
+### Điều 34. Tiết kiệm Điện và Nước
 
 1.  Trách nhiệm NLĐ:
 
@@ -1421,7 +1272,7 @@ kiện pháp lý--thuế nêu trên.
     - Quyết toán chi phí điện, nước qua phiếu QLC trên ManLab để theo
       dõi biến động chi phí theo thời gian.
 
-**Điều 35. Kiểm soát và Xử lý vi phạm**
+### Điều 35. Kiểm soát và Xử lý vi phạm
 
 1.  Giám sát: Văn phòng Viện định kỳ kiểm tra đột xuất việc sử dụng VPP
     và tiết kiệm điện nước tại các phòng ban.
@@ -1434,11 +1285,9 @@ kiện pháp lý--thuế nêu trên.
     - Chi phí vượt định mức không có lý do chính đáng sẽ không được hệ
       thống chấp nhận quyết toán.
 
-**Mục 6**
+### Mục 6: CHI PHÍ HOẠT ĐỘNG THƯỜNG XUYÊN
 
-**CHI PHÍ HOẠT ĐỘNG THƯỜNG XUYÊN**
-
-**Điều 36. Mua sắm Vật tư, Thiết bị và Dịch vụ kỹ thuật**
+### Điều 36. Mua sắm Vật tư, Thiết bị và Dịch vụ kỹ thuật
 
 1.  Phạm vi: Phần mềm, bản quyền dữ liệu, thiết bị, linh kiện thay thế,
     dịch vụ bảo trì/sửa chữa thiết bị (ISO/IEC 17025).
@@ -1449,7 +1298,7 @@ kiện pháp lý--thuế nêu trên.
 3.  Thanh toán: Căn cứ báo giá/hợp đồng đã duyệt và biên bản nghiệm thu
     đính kèm trên hệ thống.
 
-**Điều 37. Chế độ Bảo hộ lao động và Phúc lợi NLĐ**
+### Điều 37. Chế độ Bảo hộ lao động và Phúc lợi NLĐ
 
 1.  Bảo hộ lao động (BHLĐ):
 
@@ -1474,7 +1323,7 @@ kiện pháp lý--thuế nêu trên.
 
     - Thanh toán căn cứ vào hóa đơn thực tế nộp trong năm tài chính.
 
-**Điều 38. Bồi dưỡng, Tập huấn nâng cao năng lực**
+### Điều 38. Bồi dưỡng, Tập huấn nâng cao năng lực
 
 1.  Bồi dưỡng, tập huấn (bên ngoài): Viện hỗ trợ 100% học phí và lương.
     NLĐ cam kết làm việc tối thiểu 03 năm sau đào tạo; nếu nghỉ trước
@@ -1483,7 +1332,7 @@ kiện pháp lý--thuế nêu trên.
 2.  Bồi dưỡng, tập huấn (nội bộ): NLĐ tự túc thời gian và kinh phí,
     không làm ảnh hưởng nhiệm vụ chuyên môn.
 
-**Điều 39. Marketing, Truyền thông và Phát triển thương hiệu**
+### Điều 39. Marketing, Truyền thông và Phát triển thương hiệu
 
 1.  Nội dung: Duy trì website, nhận diện thương hiệu, quảng cáo và các
     nền tảng số.
@@ -1491,7 +1340,7 @@ kiện pháp lý--thuế nêu trên.
 2.  Thủ tục: Thực hiện theo kế hoạch marketing năm hoặc dự toán phát
     sinh được duyệt trên ManLab (Mã chi phí QLC.05).
 
-**Điều 40. Kiểm soát và Quyết toán**
+### Điều 40. Kiểm soát và Quyết toán
 
 1.  Mọi khoản chi phải gắn đúng mã dự án hoặc mã phòng ban để hệ thống
     tự động phân bổ chi phí quản lý.
@@ -1499,9 +1348,7 @@ kiện pháp lý--thuế nêu trên.
 - Bộ phận Kế toán từ chối thanh toán các chứng từ không hợp pháp hoặc
   nộp quá thời hạn khóa sổ năm tài chính
 
-**Mục 7**
-
-**HOẠT ĐỘNG SẢN XUẤT KINH DOANH, CUNG ỨNG DỊCH VỤ**
+### Mục 7: HOẠT ĐỘNG SẢN XUẤT KINH DOANH, CUNG ỨNG DỊCH VỤ
 
 ### Điều 41. Quản lý tài sản cố định (TSCĐ), thiết bị và chuẩn đo lường
 
@@ -1560,11 +1407,9 @@ kiện pháp lý--thuế nêu trên.
 - Hệ thống tự động lưu vết (Log) mọi hành động truy xuất, chỉnh sửa hoặc
   hủy bỏ hồ sơ chất lượng.
 
-**Mục 8**
+### Mục 8: QUẢN LÝ, SỬ DỤNG XE Ô TÔ PHỤC VỤ HOẠT ĐỘNG CỦA VIỆN
 
-**QUẢN LÝ, SỬ DỤNG XE Ô TÔ PHỤC VỤ HOẠT ĐỘNG CỦA VIỆN**
-
-**Điều 42. Nguyên tắc chung**
+### Điều 42. Nguyên tắc chung
 
 1.  Xe ô tô phục vụ hoạt động của Viện ETV chỉ sử dụng cho mục đích công
     vụ, không sử dụng cho mục đích cá nhân.
@@ -1581,7 +1426,7 @@ kiện pháp lý--thuế nêu trên.
     thuê xe.\
     Bộ phận Tài chính -- Kế toán quản lý, thanh toán chi phí liên quan.
 
-**Điều 43. Sử dụng xe ô tô thuộc sở hữu của Viện**
+### Điều 43. Sử dụng xe ô tô thuộc sở hữu của Viện
 
 1.  **Hình thức giao xe**
 
@@ -1631,7 +1476,7 @@ kiện pháp lý--thuế nêu trên.
   - Các hoạt động gián tiếp: Đối soát theo định mức khoán tháng và xác
     nhận của Lãnh đạo Viện trên phiếu quyết toán điện tử.
 
-**Điều 44. Thuê xe của NLĐ đang làm việc tại Viện ETV**
+### Điều 44. Thuê xe của NLĐ đang làm việc tại Viện ETV
 
 5.  **Điều kiện áp dụng**
 
@@ -1679,7 +1524,7 @@ kiện pháp lý--thuế nêu trên.
 - Viện khấu trừ và nộp thuế TNCN (nếu có) từ tiền thuê xe trước khi chi
   trả cho NLĐ qua hệ thống lương/thưởng.
 
-**Điều 45. Thuê xe ngoài (dịch vụ vận tải)**
+### Điều 45. Thuê xe ngoài (dịch vụ vận tải)
 
 1.  **Điều kiện áp dụng**
 
@@ -1721,11 +1566,9 @@ kiện pháp lý--thuế nêu trên.
 - Mọi giao dịch thanh toán cho nhà cung cấp thực hiện qua chuyển khoản
   ngân hàng theo quy định.
 
-**Mục 9**
+### Mục 9: TRÍCH LẬP VÀ SỬ DỤNG CÁC QUỸ; XỬ LÝ LỢI NHUẬN SAU THUẾ
 
-**TRÍCH LẬP VÀ SỬ DỤNG CÁC QUỸ; XỬ LÝ LỢI NHUẬN SAU THUẾ**
-
-**Điều 47. Nguyên tắc trích lập và phân phối lợi nhuận**
+### Điều 47. Nguyên tắc trích lập và phân phối lợi nhuận
 
 1.  Lợi nhuận của Viện Kiểm định Công nghệ và Môi trường (ETV) được xác
     định trên cơ sở:
@@ -1749,7 +1592,7 @@ kiện pháp lý--thuế nêu trên.
     - Được hạch toán, theo dõi và quản lý thống nhất trên hệ thống
       Manlab.
 
-**Điều 48. Thứ tự xử lý lợi nhuận sau thuế**
+### Điều 48. Thứ tự xử lý lợi nhuận sau thuế
 
 Lợi nhuận sau thuế thu nhập doanh nghiệp được phân phối theo thứ tự sau:
 
@@ -1763,7 +1606,7 @@ Lợi nhuận sau thuế thu nhập doanh nghiệp được phân phối theo th
 3.  Phần lợi nhuận còn lại được phân phối theo quy định tại Điều 37 của
     Quy chế này.
 
-**Điều 49. Xử lý rủi ro công nợ và dự phòng phải thu khó đòi**
+### Điều 49. Xử lý rủi ro công nợ và dự phòng phải thu khó đòi
 
 1.  Nguyên tắc kế toán nợ phải thu khó đòi: Dự phòng nợ phải thu khó
     đòi: Là khoản dự phòng phần giá trị các khoản nợ phải thu khi có
@@ -1804,7 +1647,7 @@ Lợi nhuận sau thuế thu nhập doanh nghiệp được phân phối theo th
     lý, chứng từ kế toán, tài liệu chứng minh tình trạng công nợ theo
     quy định và được lưu trữ, quản lý trên hệ thống Manlab.
 
-**Điều 50. Trích lập và sử dụng các quỹ từ lợi nhuận còn lại**
+### Điều 50. Trích lập và sử dụng các quỹ từ lợi nhuận còn lại
 
 Căn cứ kết quả hoạt động sản xuất, kinh doanh và quyết định của Chủ tịch
 HĐQL, phần lợi nhuận còn lại được phân phối như sau:
@@ -1901,7 +1744,7 @@ b) Quỹ phúc lợi**
     thuận, không khấu trừ thuế, trừ trường hợp pháp luật có quy định
     khác.
 
-**Điều 51. Nguyên tắc loại trừ**
+### Điều 51. Nguyên tắc loại trừ
 
 Các quỹ quy định tại Mục này không bao gồm:
 
@@ -1910,11 +1753,11 @@ Các quỹ quy định tại Mục này không bao gồm:
 - Các khoản chi phí đã được pháp luật cho phép hạch toán trực tiếp vào
   chi phí sản xuất, kinh doanh.
 
-**Chương III**
+### Chương III. ĐIỀU KHOẢN THI HÀNH
 
 **ĐIỀU KHOẢN THI HÀNH**
 
-**Điều 52. Thông qua và hiệu lực thi hành Quy chế**
+### Điều 52. Thông qua và hiệu lực thi hành Quy chế
 
 1.  Quy chế chi tiêu nội bộ của Viện ETV được xây dựng trên nguyên tắc
     dân chủ, công khai, minh bạch, có lấy ý kiến của tập thể NLĐ và được
@@ -1927,10 +1770,8 @@ Các quỹ quy định tại Mục này không bao gồm:
 3.  Quy chế chi tiêu nội bộ có hiệu lực thi hành kể từ ngày \... / \...
     /20\... và được áp dụng thống nhất trong toàn Viện.
 
-+----------------------------+-----------------------------------------+
 | ** **                      | **TM. HỘI ĐỒNG QUẢN LÝ**                |
 +:===========================+:=======================================:+
 |                            | **CHỦ TỊCH**                            |
 |                            |                                         |
 |                            | **Trần Sơn Tùng**                       |
-+----------------------------+-----------------------------------------+
