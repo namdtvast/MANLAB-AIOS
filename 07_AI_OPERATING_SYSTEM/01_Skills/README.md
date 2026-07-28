@@ -72,3 +72,189 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 | `03_S_NghienCuuHocThuat` | B | (không có) | `manlab-academic-research-os` |
 
 Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `04` (số `01` đã bỏ, không tái sử dụng).
+
+---
+
+## Chuẩn hóa & Portability — Skill chạy trên nhiều nền tảng
+
+Để skill trong MANLAB có thể dùng được trên Claude Code, Cursor, Codex, Gemini CLI, VS Code Copilot, v.v., cần tách biệt **định nghĩa skill (nội dung)** khỏi **cấu hình AI IDE (format riêng)**.
+
+### Cấu trúc SKILL.md chuẩn (khung sườn)
+
+Mỗi thư mục skill **bắt buộc** chứa `SKILL.md` với frontmatter tối thiểu + body markdown:
+
+```yaml
+---
+name: kebab-case-identifier
+title: Tiêu đề skill bằng tiếng Việt
+description: Mô tả ngắn (1-2 câu) ý nghĩa & khi dùng
+version: "1.0.0"
+scope: 
+  - claude-code
+  - cursor
+  - codex
+  - gemini-cli
+  - vscode-copilot
+procedure: "ETV.P14"  # (tuỳ mẫu A/B, có hoặc không)
+tags:
+  - document-governance
+  - quality-management
+  - vietnam-vietnamese
+---
+
+# Mô tả chi tiết
+
+## Ý nghĩa
+...
+
+## Khi nào dùng
+...
+
+## Hành vi bắt buộc
+...
+```
+
+| Trường | Yêu cầu | Ý nghĩa |
+|---|---|---|
+| **`name`** | ✓ Bắt buộc | kebab-case, định danh kích hoạt skill — phải duy nhất trong thư mục skill |
+| **`title`** | ✓ Bắt buộc | Tiêu đề đọc được cho con người (tiếng Việt) |
+| **`description`** | ✓ Bắt buộc | Dòng tóm tắt 1-2 câu — dùng trong dropdown/list skill |
+| **`version`** | ✓ Bắt buộc | Semantic versioning (`1.0.0`); tăng khi sửa prompt/hành vi |
+| **`scope`** | ✓ Bắt buộc | Mảng các IDE/CLI tool mà skill này được thiết kế cho |
+| **`procedure`** | Tùy Mẫu | Số thủ tục `ETV.Pxx` nếu skill thuộc Mẫu A; để trống nếu Mẫu B |
+| **`tags`** | ✓ Nên có | Từ khóa để tìm kiếm & phân loại |
+
+### Adapter — Chuyển đổi từ SKILL.md sang format IDE khác
+
+Khi skill cần cài trên IDE khác, **không copy-paste & chỉnh tay**, mà dùng adapter script để dịch từ `SKILL.md` chuẩn sang format của IDE đó:
+
+#### 1. Claude Code (`.claude/skills/`)
+**Format hiện tại:** SKILL.md + CLAUDE.md (nằm ở thư mục skill trong `07_AI_OPERATING_SYSTEM`)
+
+**Cách dùng:** Claude Code tự load từ `07_AI_OPERATING_SYSTEM/01_Skills/S{N}_*/SKILL.md` — không cần chuyển đổi, đã là format native.
+
+#### 2. Cursor (`.cursor/skills.json`)
+**Format Cursor:** JSON array, mỗi skill là object `{name, prompt, description, tags}`
+
+**Adapter script** (`_meta/export_skill_cursor.py`):
+```bash
+python3 _meta/export_skill_cursor.py S14_KiemSoatTaiLieu --output .cursor/skills.json
+```
+
+Adapter sẽ:
+1. Đọc `S14_KiemSoatTaiLieu/SKILL.md` + `S14_KiemSoatTaiLieu/CLAUDE.md`
+2. Kết hợp frontmatter + body thành single prompt JSON
+3. Ghi vào `.cursor/skills.json` theo format Cursor
+
+#### 3. Gemini CLI (`~/.config/gemini-cli/skills.yaml`)
+**Format Gemini:** YAML list, mỗi skill là `- name:`, `prompt:`, `description:`, `version:`
+
+**Adapter script** (`_meta/export_skill_gemini.py`):
+```bash
+python3 _meta/export_skill_gemini.py --all --output ~/.config/gemini-cli/skills.yaml
+```
+
+#### 4. VS Code Copilot (`.vscode/copilot-skills.json`)
+**Format VS Code:** JSON, mỗi skill là object với `id`, `title`, `prompt`, `scope` (editor/workspace/file)
+
+**Adapter script** (`_meta/export_skill_vscode.py`):
+```bash
+python3 _meta/export_skill_vscode.py S14_KiemSoatTaiLieu --output .vscode/copilot-skills.json
+```
+
+#### 5. Codex (OpenAI / GitHub Copilot API)
+**Format Codex:** OpenAI Function Calling schema (JSON Schema)
+
+**Adapter script** (`_meta/export_skill_openai.py`):
+```bash
+python3 _meta/export_skill_openai.py S14_KiemSoatTaiLieu --format function-schema
+```
+
+Sẽ sinh schema JSON để gửi tới Codex API.
+
+### Bộ adapter công cụ
+
+Tất cả adapter được đặt trong `_meta/` để quản lý tập trung:
+
+```
+_meta/
+├── export_skill_*.py         # Adapter cho từng IDE/CLI
+├── validate_skill_schema.py  # Kiểm tra SKILL.md tuân thủ schema
+├── build_site.py             # (hiện tại — cập nhật để export skill)
+└── skills_schema.json        # JSON Schema định nghĩa cấu trúc SKILL.md
+```
+
+**Chạy tất cả adapter cùng lúc:**
+```bash
+python3 _meta/export_all_skills.py
+```
+
+Kết quả:
+```
+.cursor/skills.json                 ← export cho Cursor
+~/.config/gemini-cli/skills.yaml   ← export cho Gemini CLI
+.vscode/copilot-skills.json        ← export cho VS Code Copilot
+```
+
+### Compatibility Matrix — Skill nào chạy trên nền tảng nào
+
+| Skill | Claude Code | Cursor | Gemini CLI | VS Code Copilot | Codex/Copilot API |
+|---|---|---|---|---|---|
+| `S14_KiemSoatTaiLieu` | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `02_S_XuLyVanPhong` | ✓ | ✓ | ✓ | ✓ | ◐ (prompt chưa dùng OpenAI schema) |
+| `03_S_NghienCuuHocThuat` | ✓ | ✓ | ◐ (chưa test) | ✓ | ✓ |
+
+**Chú giải:** ✓ = hỗ trợ đầy đủ, ◐ = hỗ trợ một phần (cần kiểm tra), ✗ = không hỗ trợ
+
+### Hướng dẫn dùng skill trên từng IDE
+
+#### Claude Code (mặc định, không cần setup thêm)
+```bash
+# Skill tự load từ 07_AI_OPERATING_SYSTEM/01_Skills
+# Kích hoạt bằng /s14-kiem-soat-tai-lieu hoặc tên trong SKILL.md
+```
+
+#### Cursor
+1. Chạy adapter: `python3 _meta/export_skill_cursor.py --all`
+2. Mở `.cursor/skills.json`, verify skill đã có trong list
+3. Restart Cursor
+4. Kích hoạt bằng tên `name:` từ frontmatter
+
+#### Gemini CLI
+1. Chạy adapter: `python3 _meta/export_skill_gemini.py --all`
+2. Cấu hình `~/.config/gemini-cli/config.yaml`:
+   ```yaml
+   skills:
+     enabled: true
+     path: ~/.config/gemini-cli/skills.yaml
+   ```
+3. Restart Gemini CLI
+4. Dùng: `gemini-cli invoke-skill s14-kiem-soat-tai-lieu`
+
+#### VS Code Copilot
+1. Chạy adapter: `python3 _meta/export_skill_vscode.py --all`
+2. Mở VS Code, kích hoạt Copilot (Cmd/Ctrl + Shift + A)
+3. Skills sẽ xuất hiện trong dropdown / gợi ý
+
+### Quy trình đồng bộ khi sửa skill
+
+```
+1. Sửa SKILL.md (hoặc CLAUDE.md) trong 07_AI_OPERATING_SYSTEM/01_Skills/Sxx_*
+   ↓
+2. Tăng version trong frontmatter (1.0.0 → 1.0.1 / 1.1.0 / 2.0.0)
+   ↓
+3. Chạy: python3 _meta/validate_skill_schema.py
+   ↓
+4. Nếu pass: chạy python3 _meta/export_all_skills.py
+   ↓
+5. Commit + push
+   ↓
+6. CI tự động chạy export lại nếu có thay đổi skill
+```
+
+### Lưu ý khi thiết kế skill "portable"
+
+- **Prompt phải IDE-agnostic** — không nhắc tới "VS Code", "Cursor", v.v., chỉ nói việc cần làm
+- **Output format**: luôn dùng markdown, không dùng format riêng của IDE (ví dụ không dùng `@editor.action.*` chỉ có VS Code)
+- **Test trên 2+ IDE**: nếu skill yêu cầu hỗ trợ đa nền tảng, phải test chạy trên ít nhất 2 IDE khác nhau
+- **Version bump khi có breaking change**: nếu đổi `scope` hoặc prompt logic thay đổi kết quả, bump major version (x.0.0)
