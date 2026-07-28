@@ -1,18 +1,18 @@
 # ETV.P41 — Điều lệ tổ chức và hoạt động
 
-**Mã số:** ETV.P41  
-**Lần ban hành:** 01  
-**Ngày ban hành:** 26/07/2026  
+**Mã số:** ETV.P41
+**Lần ban hành:** 01
+**Ngày ban hành:** 26/07/2026
 **Trạng thái:** Chính thức
 
 ---
 
 ## Metadata
 
-| Trách nhiệm | Biên soạn | Soát xét | Phê duyệt |
-|---|---|---|---|
-| Người | Trần Sơn Tùng | Nguyễn Văn Đồng | Phạm Quang Thao |
-| Ngày | | | 27/01/2022 |
+| Trách nhiệm | Biên soạn      | Soát xét          | Phê duyệt      |
+| ------------- | ---------------- | ------------------- | ---------------- |
+| Người       | Trần Sơn Tùng | Nguyễn Văn Đồng | Phạm Quang Thao |
+| Ngày         | 27/01/2022       | 27/01/2022          | 27/01/2022       |
 
 ---
 
@@ -48,12 +48,11 @@ Viện Kiểm định Công nghệ và Môi trường là tổ chức khoa học
 #### Điều 2. Tư cách pháp nhân
 
 1. **Tên Viện:**
+
    - Tên tiếng Việt: Viện Kiểm định Công nghệ và Môi trường
    - Tên tiếng Anh: Environment and Technology Verification Institute
    - Tên viết tắt: ETV
-
 2. Viện có tư cách pháp nhân độc lập, có con dấu riêng, có tài khoản tại ngân hàng.
-
 3. Viện có trụ sở chính tại Hà Nội; có thể mở chi nhánh hoặc văn phòng đại diện trong và ngoài nước theo pháp luật.
 
 #### Điều 3. Nguyên tắc hoạt động
@@ -67,6 +66,7 @@ Viện hoạt động theo nguyên tắc tự chủ, tự quản, tự trang tr�
 #### Điều 4. Chức năng và nhiệm vụ
 
 **Chức năng:** Tập hợp các nhà khoa học, chuyên gia có kinh nghiệm trong:
+
 - Tiêu chuẩn, thử nghiệm, đo lường
 - Giám định, chứng nhận chất lượng
 - Quan trắc môi trường
@@ -74,6 +74,7 @@ Viện hoạt động theo nguyên tắc tự chủ, tự quản, tự trang tr�
 - Công nghệ thông tin và truyền thông
 
 **Nhiệm vụ chính:**
+
 - Nghiên cứu khoa học và thực hiện các đề tài dự án
 - Cung cấp dịch vụ KH&CN (tiêu chuẩn, kiểm định, hiệu chuẩn, thử nghiệm, chứng nhận)
 - Quan trắc môi trường, phân tích mẫu
@@ -84,12 +85,14 @@ Viện hoạt động theo nguyên tắc tự chủ, tự quản, tự trang tr�
 #### Điều 5. Quyền hạn và nghĩa vụ
 
 **Quyền hạn:**
+
 - Tự chủ tổ chức bộ máy, nhân lực, tài chính
 - Ký kết hợp đồng kinh tế và hợp tác
 - Xây dựng kế hoạch hoạt động
 - Công bố, quảng cáo và chuyển giao kết quả
 
 **Nghĩa vụ:**
+
 - Tuân thủ pháp luật, Điều lệ và quy định
 - Thực hiện công tác tài chính, kế toán
 - Báo cáo với Liên hiệp Hội Việt Nam
@@ -138,6 +141,7 @@ Viện hoạt động theo nguyên tắc tự chủ, tự quản và tự hạch
 #### Điều 16. Các trường hợp đình chỉ hoặc giải thể
 
 Viện bị đình chỉ hoặc giải thể khi:
+
 - Hoạt động không có hiệu quả
 - Vi phạm Điều lệ và quy định
 - Bị hủy bỏ hiệu lực Giấy chứng nhận đăng ký
@@ -145,7 +149,7 @@ Viện bị đình chỉ hoặc giải thể khi:
 
 ---
 
-## Điều khoản thí hành
+## Điều khoản thi hành
 
 Điều lệ này gồm 06 chương, 19 điều và có hiệu lực kể từ ngày được Liên hiệp Hội Việt Nam ký quyết định ban hành.
 
@@ -153,17 +157,16 @@ Viện bị đình chỉ hoặc giải thể khi:
 
 ## Tài liệu liên kết
 
-| Loại tài liệu | Tên tài liệu | Đường dẫn |
-|---|---|---|
-| Quyết định | Quyết định thành lập | `../../../11_COMPLIANCE/` |
-| Pháp luật | Luật Khoa học và Công nghệ | `../../../08_KNOWLEDGE_GRAPH/` |
-| Quy chế | Quy chế chi tiêu nội bộ | `ETV.P43_QuyCheDauTuNoiBo.md` |
+| Loại tài liệu | Tên tài liệu                 | Đường dẫn                    |
+| ---------------- | ------------------------------- | -------------------------------- |
+| Quyết định    | Quyết định thành lập       | `../../../11_COMPLIANCE/`      |
+| Pháp luật      | Luật Khoa học và Công nghệ | `../../../08_KNOWLEDGE_GRAPH/` |
+| Quy chế         | Quy chế chi tiêu nội bộ     | `ETV.P43_QuyCheDauTuNoiBo.md`  |
 
 ---
 
 **Lịch sửa đổi:**
 
-| Ngày soát xét | Lý do soát xét | Lần ban hành |
-|---|---|---|
-| (chờ soát xét) | (chờ soát xét) | 01 |
-
+| Ngày soát xét  | Lý do soát xét | Lần ban hành |
+| ----------------- | ----------------- | -------------- |
+| (chờ soát xét) | (chờ soát xét) | 01             |

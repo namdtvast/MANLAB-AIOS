@@ -43,6 +43,12 @@ Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng c
 - `ETV.P.F24.02_TheoDoiLuongThuong.md` — Bảng theo dõi lương/thưởng (P1+P2+P3, khấu trừ, thuế) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md)
 - `ETV.P.F24.03_QuyetDinhLuongThuong.md` — Quyết định lương, thưởng (phê duyệt chính thức) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.03_QuyetDinhLuongThuong.md)
 
+## **Biểu mẫu P42 (Nội quy lao động và Quy tắc ứng xử)**
+
+- `ETV.P.F42.01_XacNhan_CamKetNoiQuy.md` — Phiếu xác nhận và cam kết tuân thủ Nội quy lao động | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md)
+- `ETV.P.F42.02_QuyetDinhBanHanh.md` — Quyết định ban hành Nội quy lao động và Quy tắc ứng xử | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.02_QuyetDinhBanHanh.md)
+- `ETV.P.F42.03_DeNghiDangKy.md` — Văn bản đề nghị đăng ký Nội quy lao động với cơ quan Nhà nước | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.03_DeNghiDangKy.md)
+
 ---
 
 **Ghi chú:** Mọi biểu mẫu được quản lý tập trung tại `06_SHARED_RESOURCES/01_Forms/`. Copy này chỉ để tham chiếu nhanh. 📍 Nguồn = đường dẫn tới file gốc.
