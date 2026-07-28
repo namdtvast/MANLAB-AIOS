@@ -11,7 +11,8 @@
 
 | Trách nhiệm | Biên soạn | Soát xét | Phê duyệt |
 |---|---|---|---|
-| Dương Thành Nam | | | |
+| Người | Trần Sơn Tùng | Nguyễn Văn Đồng | Phạm Quang Thao |
+| Ngày | | | 27/01/2022 |
 
 ---
 
