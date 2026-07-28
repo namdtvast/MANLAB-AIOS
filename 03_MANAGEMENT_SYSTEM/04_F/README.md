@@ -33,14 +33,12 @@ Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng c
 
 ## **Biểu mẫu P19 (Hoạch định Sản xuất Chất chuẩn)**
 
-- `ETV.P19_SanXuatCRM.md` — **Thủ tục:** Hoạch định sản xuất chất chuẩn (RM/CRM) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P19_SanXuatCRM.md)
 - `ETV.P.F19.01_LapKeHoach.md` — Lập kế hoạch sản xuất chất chuẩn (11 bảng) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.01_LapKeHoach.md)
 - `ETV.P.F19.02_DanhGiaKeHoach.md` — Đánh giá kế hoạch sản xuất chất chuẩn (8 bảng tiêu chí) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.02_DanhGiaKeHoach.md)
 - `ETV.P.F19.03_KetQuaSanXuat.md` — Kết quả sản xuất chất chuẩn (10 bảng) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.03_KetQuaSanXuat.md)
 
 ## **Biểu mẫu P24 (Quản lý Lương-Thưởng theo Mô hình 3P & KPI)**
 
-- `ETV.P24_QuanLyLuongThuong.md` — **Thủ tục:** Đánh giá hiệu suất, quản lý công nhật, chi trả lương-thưởng (3P: P1+P2+P3) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P24_QuanLyLuongThuong.md)
 - `ETV.P.F24.01_BangChamCong.md` — Bảng chấm công hàng tháng (LV/NN/CP/KP/LT/CT/NL) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.01_BangChamCong.md)
 - `ETV.P.F24.02_TheoDoiLuongThuong.md` — Bảng theo dõi lương/thưởng (P1+P2+P3, khấu trừ, thuế) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md)
 - `ETV.P.F24.03_QuyetDinhLuongThuong.md` — Quyết định lương, thưởng (phê duyệt chính thức) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.03_QuyetDinhLuongThuong.md)
