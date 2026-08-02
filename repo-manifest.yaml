@@ -1,6 +1,0 @@
-schema: manlab-aios/repo-manifest@4.1
-enterprise: Viện Kiểm định Công nghệ và Môi trường (ETV)
-architecture_version: "4.1"
-naming: "code + short-slug; numbered subfolders"
-counts: {capabilities: 22, processes: 38, modules: 38}
-standards: [ISO9001, ISO17025, ISO17034, ISO27001, ISO42001]

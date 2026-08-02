@@ -27,20 +27,31 @@ Vì vậy, “kiến trúc tổng thể” trước đây chỉ mô tả các l�
 
 ## 3. Kiến trúc Enterprise Repository 12 tầng
 
-| Tầng | Thư mục chuẩn | Vai trò | Nội dung chính | Chủ thể chính |
-|---:|---|---|---|---|
-| 01 | `01_ENTERPRISE` | Định hướng doanh nghiệp | Strategy, Vision, Mission, Organization, Governance, Business Model, KPI, Digital Strategy, Roadmap, Architecture, Glossary | Con người |
-| 02 | `02_CAPABILITIES` | Năng lực nghiệp vụ | Danh mục năng lực cấp Viện, đơn vị, vai trò và Capability Map | Con người |
-| 03 | `03_MANAGEMENT_SYSTEM` | Hệ thống quản lý tích hợp | ISO/IEC 17025, ISO 17034, ISO 9001, ISO/IEC 27001, ISO/IEC 42001; Sổ tay, chính sách, mục tiêu, ma trận áp dụng | Nguồn + con người |
-| 04 | `04_PROCESS_LIBRARY` | Thư viện quy trình | MP01-MP38; mỗi MP là Process Hub liên kết thủ tục, BPMN, biểu mẫu, mô-đun, AI, luật, bằng chứng và kiểm thử | Con người + AI hỗ trợ |
-| 05 | `05_MODULE_LIBRARY` | Thư viện mô-đun phần mềm | M01-M38; ứng dụng hiện thực hóa quy trình, ánh xạ 1:1 hoặc được phê duyệt với MP tương ứng | Mã nguồn + AI hỗ trợ |
-| 06 | `06_SHARED_RESOURCES` | Tài nguyên dùng chung | Forms, Templates, Reference Data, Master Data, khách hàng, thiết bị, nhân sự, đơn vị, tiêu chuẩn | Con người + AI hỗ trợ |
-| 07 | `07_AI_OPERATING_SYSTEM` | Hệ điều hành AI | Skills, Harness, Agents, Memory, Contexts, Prompts, MCP, RAG, Guardrails, Evaluation, AI Policies | AI + con người kiểm soát |
-| 08 | `08_KNOWLEDGE_GRAPH` | Lớp tri thức | Luật, ISO, ĐLVN, TCVN, QCVN, ILAC, FAQ, case study, ontology, embedding, vector database, lessons learned | Nguồn + AI hỗ trợ |
-| 09 | `09_ENGINEERING` | Phát triển sản phẩm | Backend, Frontend, Mobile, API, Database, Testing, DevOps, CI/CD, Code, Packages | Mã nguồn + AI hỗ trợ |
-| 10 | `10_DEPLOYMENT` | Triển khai và vận hành | Docker, Kubernetes, Cloud, Monitoring, Logging, Backup, Disaster Recovery, Environment Configuration | Mã nguồn + AI hỗ trợ |
-| 11 | `11_COMPLIANCE` | Tuân thủ và bằng chứng | ISO Mapping, Legal Mapping, Evidence, Audit, NC/CAPA, Management Review, Risk, Opportunity, KPI | Bằng chứng + con người |
-| 12 | `12_RESEARCH_INNOVATION` | Nghiên cứu và đổi mới | KC4.0, DMC, AI, IoT, GPS, Paper, Patent, Proposal, Pilot, Lab Reports, R&D, Innovation | AI hỗ trợ + con người |
+| Tầng | Thư mục chuẩn | Vai trò | Nội dung chính | Chủ thể chính | Trạng thái |
+|---:|---|---|---|---|---|
+| 01 | `01_ENTERPRISE` | Định hướng doanh nghiệp | Strategy, Vision, Mission, Organization, Governance, Business Model, KPI, Digital Strategy, Roadmap, Architecture, Glossary | Con người | ✅ Hoạt động |
+| 02 | `02_CAPABILITIES` | Năng lực nghiệp vụ | Danh mục năng lực cấp Viện, đơn vị, vai trò và Capability Map | Con người | ✅ Hoạt động |
+| 03 | `03_MANAGEMENT_SYSTEM` | Hệ thống quản lý tích hợp | ISO/IEC 17025, ISO 17034, ISO 9001, ISO/IEC 27001, ISO/IEC 42001; Sổ tay, chính sách, mục tiêu, ma trận áp dụng | Nguồn + con người | ✅ Hoạt động |
+| 04 | `04_PROCESS_LIBRARY` | Thư viện quy trình | MP01-MP38; mỗi MP là Process Hub liên kết thủ tục, BPMN, biểu mẫu, mô-đun, AI, luật, bằng chứng và kiểm thử | Con người + AI hỗ trợ | ✅ Hoạt động |
+| 05 | `05_MODULE_LIBRARY` | Thư viện mô-đun phần mềm | M01-M38; ứng dụng hiện thực hóa quy trình, ánh xạ 1:1 hoặc được phê duyệt với MP tương ứng | Mã nguồn + AI hỗ trợ | ✅ Hoạt động |
+| 06 | `06_SHARED_RESOURCES` | Tài nguyên dùng chung (Single Source of Truth) | Forms, Templates, Reference Data, Master Data, khách hàng, thiết bị, nhân sự, đơn vị, tiêu chuẩn, branding | Con người + AI hỗ trợ | ✅ Hoạt động |
+| 07 | `07_AI_OPERATING_SYSTEM` | Hệ điều hành AI | Skills, Harness, Agents, Memory, Contexts, Prompts, MCP, RAG, Guardrails, Evaluation, AI Policies | AI + con người kiểm soát | ✅ Hoạt động |
+| 08 | `08_KNOWLEDGE_GRAPH` | Lớp tri thức & Nguồn tham khảo | Regulations, ISO, DLVN, TCVN, ILAC, Glossary, Case Studies, Ontology, Embedding, Vector Database, Lessons Learned | Nguồn + AI hỗ trợ | ✅ Hoạt động |
+| 09 | `09_ENGINEERING` | Phát triển sản phẩm | Backend, Frontend, Mobile, API, Database, Testing, DevOps, CI/CD, Code, Packages | Mã nguồn + AI hỗ trợ | 🟡 Bổ sung dần |
+| 10 | `10_DEPLOYMENT` | Triển khai và vận hành | Docker, Kubernetes, Cloud, Monitoring, Logging, Backup, Disaster Recovery, Environment Configuration | Mã nguồn + AI hỗ trợ | 🟡 Bổ sung dần |
+| 11 | `11_COMPLIANCE` | Tuân thủ và bằng chứng | ISO Mapping, Legal Mapping, Evidence, Audit, NC/CAPA, Management Review, Risk, Opportunity, KPI | Bằng chứng + con người | 🟡 Bổ sung dần |
+| 12 | `12_RESEARCH_INNOVATION` | Nghiên cứu và đổi mới | KC4.0, DMC, AI, IoT, GPS, Paper, Patent, Proposal, Pilot, Lab Reports, R&D, Innovation | AI hỗ trợ + con người | 🟡 Bổ sung dần |
+
+### Ghi chú Trạng thái
+
+- **✅ Hoạt động (v4.0 hiện tại):** Tầng 01–08 đã được triển khai và hoạt động, có README định rõ vai trò, cấu trúc, nguyên tắc và liên kết
+- **🟡 Bổ sung dần (v4.1+):** Tầng 09–12 có cấu trúc placeholder (README) để sẵn sàng cho phát triển tương lai:
+  - **Tầng 09 (Engineering):** Bắt đầu khi Module M01–M38 cần triển khai code (backend, frontend, API, database)
+  - **Tầng 10 (Deployment):** Bắt đầu khi Tầng 09 tạo ra artifacts sẵn sàng deploy (Docker image, compiled code)
+  - **Tầng 11 (Compliance):** Bắt đầu khi Tầng 03–10 chạy và tạo ra evidence (test results, audit logs, deployment logs)
+  - **Tầng 12 (R&D):** Bắt đầu khi có các dự án R&D cụ thể (pilot projects, prototypes, patent filings)
+
+---
 
 ### 3.1. Quy tắc phụ thuộc giữa các tầng
 
