@@ -1,3 +1,32 @@
+---
+id: ETV.MEL 02
+title: "Giáo trình đào tạo phương tiện đo định vị bằng vệ tinh (GPS/GNSS)"
+type: Giao-trinh
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: "Dương Thành Nam"
+prepared_date: "27/05/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "27/05/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "27/05/2026"
+process: ""
+effective_date: "27/05/2026"
+revision: "01"
+status: Da-ban-hanh
+keywords: [giáo trình, đào tạo, GPS, GNSS, định vị vệ tinh, độ dài, năng lực kỹ thuật viên]
+related_documents: ["ETV.MCL 04"]
+iso_clause: ["ISO/IEC 17025:2017"]
+legal_basis: ["Luật Đo lường 2011"]
+ai_tags: [training-curriculum, gps-gnss, length-metrology]
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+retention: "Theo ETV.P.F 14.06"
+digital_signature: "Nguyễn Hoàng Giang"
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV) — giáo trình đào tạo nội bộ, chuyển đổi từ bản .docx"
+supersedes: null
+superseded_by: null
+---
 LIÊN HIỆP CÁC HỘI KHOA HỌC VÀ KỸ THUẬT VIỆT NAM
 
 **VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG**

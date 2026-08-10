@@ -1,3 +1,32 @@
+---
+id: ETV.MEMC 01
+title: "Giáo trình đào tạo nhận thức chung về tổ chức và hội nhập nhân sự"
+type: Giao-trinh
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: "Dương Thành Nam"
+prepared_date: "22/07/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "22/07/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "22/07/2026"
+process: ""
+effective_date: "22/07/2026"
+revision: "02"
+status: Da-ban-hanh
+keywords: [giáo trình, đào tạo, hội nhập nhân sự, nhận thức tổ chức, ManLab, năng lực nền tảng]
+related_documents: ["ETV.P03", "ETV.QM"]
+iso_clause: ["ISO 9001:2015", "ISO/IEC 17025:2017", "ISO/IEC 27001:2022"]
+legal_basis: ["Bộ luật Lao động 2019"]
+ai_tags: [training-curriculum, onboarding, organizational-awareness]
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+retention: "Theo ETV.P.F 14.06"
+digital_signature: "Nguyễn Hoàng Giang"
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV) — giáo trình đào tạo nội bộ, triển khai §6.2(1)-(2) của ETV.P03"
+supersedes: null
+superseded_by: null
+---
 # GIÁO TRÌNH ĐÀO TẠO NHẬN THỨC CHUNG VỀ TỔ CHỨC VÀ HỘI NHẬP NHÂN SỰ
 
 **GENERAL ORGANIZATIONAL AWARENESS AND EMPLOYEE ONBOARDING TRAINING CURRICULUM**

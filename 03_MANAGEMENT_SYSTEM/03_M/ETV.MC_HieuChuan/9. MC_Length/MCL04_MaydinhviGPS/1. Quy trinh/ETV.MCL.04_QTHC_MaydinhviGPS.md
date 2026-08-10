@@ -4,7 +4,7 @@ title: "Phương tiện đo định vị bằng vệ tinh (GNSS/GPS) cầm tay �
 type: Quy-trinh
 owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
-prepared_by: ""
+prepared_by: "Dương Thành Nam"
 prepared_date: "18/05/2026"
 reviewed_by: "Trần Thị Hoa"
 reviewed_date: "18/05/2026"
@@ -36,8 +36,8 @@ superseded_by: null
 | **Mã số**         | ETV.MCL 04             |
 | **Lần ban hành**  | 01                   |
 | **Ngày ban hành** | 18/05/2026           |
-| **Biên soạn**     | Trần Thị Hoa   |
-| **Soát xét**      | Nguyễn Ngọc Tuấn       |
+| **Biên soạn**     | Dương Thành Nam |
+| **Soát xét**      | Trần Thị Hoa |
 | **Phê duyệt**     | Nguyễn Hoàng Giang |
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — Bản dự thảo/gợi ý chuyển đổi định dạng do AI thực hiện từ file Word gốc; cần LĐP soát xét và LĐV phê duyệt trước khi coi là bản chính thức áp dụng thay thế file .docx gốc.

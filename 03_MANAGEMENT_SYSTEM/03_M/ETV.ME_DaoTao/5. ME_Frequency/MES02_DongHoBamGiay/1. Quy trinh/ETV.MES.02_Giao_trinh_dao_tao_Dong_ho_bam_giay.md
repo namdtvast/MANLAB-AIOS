@@ -1,3 +1,32 @@
+---
+id: ETV.MES 02
+title: "Giáo trình đào tạo phương tiện đo đồng hồ bấm giây"
+type: Giao-trinh
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: "Dương Thành Nam"
+prepared_date: "27/05/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "27/05/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "27/05/2026"
+process: ""
+effective_date: "27/05/2026"
+revision: "01"
+status: Da-ban-hanh
+keywords: [giáo trình, đào tạo, đồng hồ bấm giây, thời gian, tần số, năng lực kỹ thuật viên]
+related_documents: ["ETV.MCS 06"]
+iso_clause: ["ISO/IEC 17025:2017"]
+legal_basis: ["Luật Đo lường 2011"]
+ai_tags: [training-curriculum, stopwatch, time-frequency-metrology]
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+retention: "Theo ETV.P.F 14.06"
+digital_signature: "Nguyễn Hoàng Giang"
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV) — giáo trình đào tạo nội bộ"
+supersedes: null
+superseded_by: null
+---
 # GIÁO TRÌNH ĐÀO TẠO PHƯƠNG TIỆN ĐO ĐỒNG HỒ BẤM GIÂY
 
 **TRAINING MANUAL FOR STOPWATCH MEASURING INSTRUMENTS**
@@ -7,7 +36,8 @@
 | Mã số | **ETV.MES 02** |
 | Lần ban hành | **01** |
 | Ngày ban hành | **27/05/2026** |
-| Biên soạn | **Trần Thị Hoa** |
+| Biên soạn | **Dương Thành Nam** |
+| Soát xét | **Trần Thị Hoa** |
 | Phê duyệt | **Nguyễn Hoàng Giang** |
 
 ---

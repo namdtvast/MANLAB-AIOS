@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-10 05:18 UTC",
+ "generated_at": "2026-08-10 05:24 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -3236,7 +3236,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/1. Quy trinh/ETV.MCL.04_QTHC_MaydinhviGPS.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 25839
+                "size": 25845
                }
               ],
               "n_dirs": 0,
@@ -3252,21 +3252,21 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BienBan.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 6951
+                "size": 6969
                },
                {
                 "name": "ETV.MCL.F04.02_BangTinh.md",
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 7122
+                "size": 7140
                },
                {
                 "name": "ETV.MCL.F04.03_HosoDiemchuan.md",
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HosoDiemchuan.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 11947
+                "size": 11965
                }
               ],
               "n_dirs": 0,
@@ -3282,7 +3282,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 14284
+                "size": 14302
                }
               ],
               "n_dirs": 0,
@@ -3348,7 +3348,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 49730
+                "size": 50914
                }
               ],
               "n_dirs": 0,
@@ -3382,7 +3382,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/5. ME_Frequency/MES02_DongHoBamGiay/1. Quy trinh/ETV.MES.02_Giao_trinh_dao_tao_Dong_ho_bam_giay.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 5034
+                "size": 6142
                }
               ],
               "n_dirs": 0,
@@ -3416,7 +3416,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/1. Quy trinh/ETV.MEL.02_Giao_trinh_Ma_dinh_vi_GPS.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 128177
+                "size": 129282
                }
               ],
               "n_dirs": 0,
