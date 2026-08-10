@@ -2,8 +2,14 @@
 id: "ĐLVN 380:2021 — Phụ lục 01"
 title: "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm quan trắc khí thải"
 type: Bieu-mau
-owner: "(cập nhật — chức danh LĐP phụ trách)"
-department: "Viện Kiểm định Công nghệ và Môi trường"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: ""
+prepared_date: ""
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: ""
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: ""
 process: ""
 effective_date: ""
 revision: ""
@@ -16,7 +22,7 @@ ai_tags: [verification-form, gas-analyzer, emission-monitoring, blank-template]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Bản gốc — không lưu dữ liệu thật, xem 06_SHARED_RESOURCES quy định lưu hồ sơ đã điền"
-digital_signature: null
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Phụ lục 01 của văn bản ĐLVN 380:2021 (Tổng cục Tiêu chuẩn Đo lường Chất lượng ban hành)"
 supersedes: null
 superseded_by: null

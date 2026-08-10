@@ -2,8 +2,14 @@
 id: ETV.MCL 04
 title: "Phương tiện đo định vị bằng vệ tinh (GNSS/GPS) cầm tay — Quy trình hiệu chuẩn"
 type: Quy-trinh
-owner: "Trần Thị Hoa"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
+prepared_by: ""
+prepared_date: "18/05/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "18/05/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "18/05/2026"
 process: ""
 effective_date: "18/05/2026"
 revision: "01"
@@ -16,7 +22,7 @@ ai_tags: [calibration-procedure, gnss, gps, uncertainty-evaluation]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Theo ETV.P.F 14.06"
-digital_signature: "LĐV"
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 supersedes: null
 superseded_by: null

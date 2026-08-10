@@ -2,8 +2,14 @@
 id: ETV.MCW 05
 title: "Phương tiện đo tổng chất rắn hòa tan (TDS) — Quy trình hiệu chuẩn"
 type: Quy-trinh
-owner: "Nguyễn Văn Đồng"
-department: "Viện Kiểm định Công nghệ và Môi trường"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: "Nguyễn Văn Đồng"
+prepared_date: "22/04/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "22/04/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "22/04/2026"
 process: ""
 effective_date: "22/04/2026"
 revision: "03"
@@ -30,9 +36,9 @@ superseded_by: null
 | **Mã số**         | ETV.MCW 05          |
 | **Lần ban hành**  | 03                  |
 | **Ngày ban hành** | 22/04/2026          |
-| **Biên soạn**     | Nguyễn Văn Đồng     |
-| **Soát xét**      | Nguyễn Chu Anh Tuấn |
-| **Phê duyệt**     | Nguyễn Hoàng Giang  |
+| **Biên soạn**     | Nguyễn Văn Đồng |
+| **Soát xét**      | Trần Thị Hoa |
+| **Phê duyệt**     | Nguyễn Hoàng Giang |
 
 > **Tình trạng bản này:** Bản chuyển đổi định dạng (PDF → Markdown) từ file gốc `ETV.MCW 05_TDS_V5.pdf` do Viện ban hành, phục vụ tra cứu trên ManLab. Khi có khác biệt, bản PDF do Viện ban hành là bản có giá trị áp dụng.
 

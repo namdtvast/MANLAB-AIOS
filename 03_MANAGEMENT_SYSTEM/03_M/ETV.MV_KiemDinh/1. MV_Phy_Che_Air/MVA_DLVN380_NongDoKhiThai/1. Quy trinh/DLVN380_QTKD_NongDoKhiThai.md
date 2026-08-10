@@ -4,6 +4,8 @@ title: "Phương tiện đo nồng độ khí của trạm quan trắc khí th�
 type: Quy-trinh
 owner: "Trung tâm Quan trắc môi trường miền Bắc"
 department: "Tổng cục Môi trường (đề nghị) — Tổng cục Tiêu chuẩn Đo lường Chất lượng (ban hành)"
+issuing_body: "Trung tâm Quan trắc môi trường miền Bắc"
+applying_department: "Phòng Đo lường Chất lượng"
 process: ""
 effective_date: "2021"
 revision: ""

@@ -2,8 +2,14 @@
 id: ETV.MCA.F04.01
 title: "Biên bản hiệu chuẩn — Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh"
 type: Bieu-mau
-owner: "(cập nhật — chức danh LĐP phụ trách)"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
+prepared_by: "Nguyễn Văn Huy"
+prepared_date: "11/09/2023"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "11/09/2023"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "11/09/2023"
 process: ""
 effective_date: "11/09/2023"
 revision: "01"
@@ -16,7 +22,7 @@ ai_tags: [calibration-form, ozone, gas-analyzer, blank-template]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Bản gốc — không lưu dữ liệu thật, xem 06_SHARED_RESOURCES quy định lưu hồ sơ đã điền"
-digital_signature: "NTH/Người soát xét"
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 supersedes: null
 superseded_by: null
