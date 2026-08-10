@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-08-10 06:18 UTC",
+ "generated_at": "2026-08-10 23:30 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "docs/qthc-mca-markdown",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/docs/qthc-mca-markdown",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/docs/qthc-mca-markdown",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/docs/qthc-mca-markdown"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
   "files": 7126,
-  "dirs": 1595,
-  "docs": 4775,
+  "dirs": 1611,
+  "docs": 4768,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 799,
+   ".md": 806,
    ".png": 95,
-   ".pdf": 3474,
+   ".pdf": 3467,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 291,
@@ -3292,10 +3292,153 @@
           "n_files": 0
          },
          {
+          "name": "10. MC_Hygro",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCH01_DoAm",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCH.01_QTHC_DoAm.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/1. Quy trinh/ETV.MCH.01_QTHC_DoAm.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 20269
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
+          "name": "2. MC_Mass",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCM01_Can",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCM.01_QTHC_Can.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/1. Quy trinh/ETV.MCM.01_QTHC_Can.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 28173
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "7. MC_Pressure",
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure",
           "type": "dir",
           "children": [
+           {
+            "name": "MCP01_HuyetApKe",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCP.01_QTHC_HuyetApKe.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/1. Quy trinh/ETV.MCP.01_QTHC_HuyetApKe.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14618
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCP02_ChenhAp",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCP.02_QTHC_ChenhAp.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/1. Quy trinh/ETV.MCP.02_QTHC_ChenhAp.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15463
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCP03_ApSuatNoiHap",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCP.03_QTHC_ApSuatNoiHap.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/1. Quy trinh/ETV.MCP.03_QTHC_ApSuatNoiHap.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15494
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
            {
             "name": "MCP_DLVN76_ApKe",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe",
@@ -3338,7 +3481,7 @@
             "n_files": 0
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 4,
           "n_files": 0
          },
          {
@@ -3346,6 +3489,56 @@
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length",
           "type": "dir",
           "children": [
+           {
+            "name": "MCL01_ThuocPanme",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCL.01_QTHC_ThuocPanme.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/1. Quy trinh/ETV.MCL.01_QTHC_ThuocPanme.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15513
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCL02_ThuocCap",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCL.02_QTHC_ThuocCap.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/1. Quy trinh/ETV.MCL.02_QTHC_ThuocCap.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14276
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
            {
             "name": "MCL04_MaydinhviGPS",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS",
@@ -3441,11 +3634,11 @@
             "n_files": 0
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 3,
           "n_files": 0
          }
         ],
-        "n_dirs": 4,
+        "n_dirs": 6,
         "n_files": 0
        },
        {
@@ -3705,7 +3898,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 16792
+        "size": 18382
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -14900,34 +15093,6 @@
           "size": 351829
          },
          {
-          "name": "ETV.MCH.01_PTD Do Am_V3.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCH.01_PTD Do Am_V3.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 368778
-         },
-         {
-          "name": "ETV.MCL 01_QTHC_Thuoc Panme.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCL 01_QTHC_Thuoc Panme.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 334151
-         },
-         {
-          "name": "ETV.MCL 02_QTHC_Thuoc cap.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCL 02_QTHC_Thuoc cap.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 375195
-         },
-         {
-          "name": "ETV.MCM 01_Can_V9.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCM 01_Can_V9.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 476723
-         },
-         {
           "name": "ETV.MCO 01_UV_VIS_V3.pdf",
           "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 01_UV_VIS_V3.pdf",
           "type": "file",
@@ -14968,27 +15133,6 @@
           "type": "file",
           "ext": ".pdf",
           "size": 603389
-         },
-         {
-          "name": "ETV.MCP 01_Huyet ap ke_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP 01_Huyet ap ke_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 307213
-         },
-         {
-          "name": "ETV.MCP 02_Chenh ap_v3.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP 02_Chenh ap_v3.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 328655
-         },
-         {
-          "name": "ETV.MCP_03_Ap_suat_noi_hap_Quy_trinh_hieu_chuan_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP_03_Ap_suat_noi_hap_Quy_trinh_hieu_chuan_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 321575
          },
          {
           "name": "ETV.MCS 01_Do on_V7.pdf",
@@ -15125,7 +15269,7 @@
          }
         ],
         "n_dirs": 0,
-        "n_files": 51
+        "n_files": 44
        },
        {
         "name": "AI-Agents-in-Depth-vi.pdf",
