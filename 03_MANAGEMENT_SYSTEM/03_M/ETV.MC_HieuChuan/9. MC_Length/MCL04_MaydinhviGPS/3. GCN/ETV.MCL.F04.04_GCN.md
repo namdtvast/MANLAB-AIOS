@@ -4,7 +4,7 @@ title: "Giấy chứng nhận hiệu chuẩn (Calibration Certificate) — mẫu
 type: Bieu-mau
 owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
-prepared_by: ""
+prepared_by: "Dương Thành Nam"
 prepared_date: "18/05/2026"
 reviewed_by: "Trần Thị Hoa"
 reviewed_date: "18/05/2026"
