@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-10 05:31 UTC",
+ "generated_at": "2026-08-10 05:35 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -3348,7 +3348,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 50914
+                "size": 51049
                }
               ],
               "n_dirs": 0,
@@ -3580,7 +3580,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 14375
+        "size": 16792
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",

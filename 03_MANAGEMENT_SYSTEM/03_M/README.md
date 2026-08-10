@@ -97,6 +97,33 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 3. Số hiệu quy trình (vd. `04`) → tra/khớp với thư mục Cấp 3 có tiền tố `{Mã dịch vụ}{Mã lĩnh vực}{Số hiệu}_` trong thư mục Lĩnh vực đó (vd. `MCL04_MaydinhviGPS`); nếu quy trình mới, tạo thư mục Cấp 3 mới theo đúng quy tắc đặt tên ở trên.
 4. Theo loại tài liệu (quy trình/biểu mẫu/GCN/diagram) → xếp vào đúng thư mục Cấp 4 tương ứng trong bảng trên; nếu chưa có thì tạo mới.
 
+## **Properties (YAML frontmatter) của tài liệu**
+
+Mỗi file `.md` trong `03_M` mở đầu bằng khối frontmatter. Các trường về chủ sở hữu và người ký áp dụng thống nhất:
+
+| Trường | Quy tắc |
+|---|---|
+| `owner` | Luôn là `Viện Kiểm định Công nghệ và Môi trường` |
+| `department` | Luôn là `Phòng Đo lường Chất lượng` |
+| `prepared_by` | Người biên soạn — theo nhóm quy trình (xem bảng dưới) |
+| `reviewed_by` | Người soát xét — **Quản lý chất lượng**, hiện là Trần Thị Hoa |
+| `approved_by` | Người phê duyệt — **Viện trưởng**, hiện là Nguyễn Hoàng Giang |
+| `prepared_date` / `reviewed_date` / `approved_date` | Bằng `effective_date` của văn bản |
+| `effective_date` + `revision` | **Ngày và lần ban hành** — chỉ đổi khi văn bản được *ban hành lại* |
+| `last_modified` | Ngày chỉnh sửa nội dung gần nhất **khi không ban hành lại**; chỉ thêm trường này trong trường hợp đó |
+
+**Phân biệt quan trọng:** chỉnh sửa nội dung không đương nhiên là ban hành lại. Nếu văn bản được sửa nhưng vẫn giữ nguyên lần ban hành thì `revision`/`effective_date` **không đổi**, ghi ngày sửa vào `last_modified` và thêm một dòng trong bảng "Theo dõi sửa đổi tài liệu" với cột Lần ban hành giữ nguyên số cũ.
+
+| Nhóm | Người biên soạn |
+|---|---|
+| `ETV.MCW` — Hoá lý (nước) | Nguyễn Văn Đồng |
+| `ETV.MCA` — Hoá lý (khí) | Nguyễn Văn Huy |
+| `ETV.MCL`, `ETV.ME*` — Độ dài, Giáo trình đào tạo | Dương Thành Nam |
+
+**Ngoại lệ — văn bản ĐLVN quốc gia** (`ĐLVN 76`, `333`, `380`, `389`): đây là văn bản do Tổng cục TCĐLCL / Tổng cục Môi trường ban hành, ETV chỉ áp dụng. Không gán `prepared_by`/`reviewed_by`/`approved_by` của ETV; thay vào đó dùng `issuing_body` (cơ quan ban hành gốc) và `applying_department` (đơn vị áp dụng nội bộ). Các **biểu mẫu** đi kèm trong cùng thư mục là tài liệu của ETV nên vẫn theo quy tắc chung.
+
+Bảng chữ ký hiển thị ở đầu thân văn bản (`Biên soạn` / `Soát xét` / `Phê duyệt`) phải luôn khớp với frontmatter.
+
 ## **Danh mục phương pháp hiện có**
 
 | Đường dẫn | Nội dung |
@@ -110,7 +137,7 @@ Mã số văn bản = `ETV.M{Dịch vụ}{Lĩnh vực} {số}`, ví dụ `ETV.MC
 | [`ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Air/MCA04_GasO3/) | `ETV.MCA 04` — Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh: `1. Quy trinh/` (quy trình hiệu chuẩn — tài liệu ETV tự soạn, tham khảo US EPA EPA-454/B-22-003, đang ở trạng thái **dự thảo** chờ soát xét/phê duyệt chính thức), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.MCA.F04.01`) |
 | [`ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/`](ETV.ME_DaoTao/9.%20ME_Length/MEL02_MaydinhviGPS/) | `ETV.MEL 02` — Giáo trình đào tạo phương tiện đo định vị bằng vệ tinh (GPS/GNSS): `1. Quy trinh/` (giáo trình đào tạo, lần ban hành 01 — 27/05/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang) |
 | [`ETV.ME_DaoTao/5. ME_Frequency/MES02_DongHoBamGiay/`](ETV.ME_DaoTao/5.%20ME_Frequency/MES02_DongHoBamGiay/) | `ETV.MES 02` — Giáo trình đào tạo phương tiện đo đồng hồ bấm giây: `1. Quy trinh/` (giáo trình đào tạo, lần ban hành 01 — 27/05/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang) |
-| [`ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/`](ETV.ME_DaoTao/12.%20ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/) | `ETV.MEMC 01` — Giáo trình đào tạo nhận thức chung về tổ chức và hội nhập nhân sự (lĩnh vực Cơ sở đo lường học và năng lực nền tảng, tài liệu đầu tiên của lĩnh vực): `1. Quy trinh/` (giáo trình đào tạo kiêm bài giảng chi tiết, lần ban hành 02 — 22/07/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang; triển khai nội dung §6.2(1)-(2) của `ETV.P03`) |
+| [`ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/`](ETV.ME_DaoTao/12.%20ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/) | `ETV.MEMC 01` — Giáo trình đào tạo nhận thức chung về tổ chức và hội nhập nhân sự (lĩnh vực Cơ sở đo lường học và năng lực nền tảng, tài liệu đầu tiên của lĩnh vực): `1. Quy trinh/` (giáo trình đào tạo kiêm bài giảng chi tiết, lần ban hành 01 — 20/07/2026, chỉnh sửa nội dung gần nhất 22/07/2026 — không ban hành lại; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang; triển khai nội dung §6.2(1)-(2) của `ETV.P03`) |
 
 Các thư mục Dịch vụ/Lĩnh vực khác chưa có nội dung — tạo theo đúng quy tắc ở trên khi bắt đầu chuyển đổi/soạn thảo tài liệu thuộc dịch vụ/lĩnh vực đó.
 
