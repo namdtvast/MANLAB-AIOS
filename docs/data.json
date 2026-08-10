@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-10 05:24 UTC",
+ "generated_at": "2026-08-10 05:31 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -3580,7 +3580,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 13993
+        "size": 14375
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
