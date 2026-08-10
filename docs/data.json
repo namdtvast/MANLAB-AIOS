@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-08-10 05:35 UTC",
+ "generated_at": "2026-08-10 06:18 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "main",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
+  "branch": "docs/qthc-mca-markdown",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/docs/qthc-mca-markdown",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/docs/qthc-mca-markdown",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/docs/qthc-mca-markdown"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7127,
-  "dirs": 1585,
-  "docs": 4781,
+  "files": 7126,
+  "dirs": 1595,
+  "docs": 4775,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 794,
+   ".md": 799,
    ".png": 95,
-   ".pdf": 3480,
+   ".pdf": 3474,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 291,
@@ -2813,6 +2813,81 @@
           "type": "dir",
           "children": [
            {
+            "name": "MCA01_KhiTuDong",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.01_QTHC_KhiTuDong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/1. Quy trinh/ETV.MCA.01_QTHC_KhiTuDong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 29486
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCA02_NongDoKhi",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.02_QTHC_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/1. Quy trinh/ETV.MCA.02_QTHC_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 27855
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCA03_TaoKhiO3",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.03_QTHC_TaoKhiO3.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/1. Quy trinh/ETV.MCA.03_QTHC_TaoKhiO3.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15009
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
             "name": "MCA04_GasO3",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3",
             "type": "dir",
@@ -2827,7 +2902,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh/ETV.MCA.04_QTHC_GasO3.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18002
+                "size": 25753
                }
               ],
               "n_dirs": 0,
@@ -2852,9 +2927,59 @@
             ],
             "n_dirs": 2,
             "n_files": 0
+           },
+           {
+            "name": "MCA05_TramQTCLKKXQ",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.05_QTHC_TramQTCLKKXQ.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ/1. Quy trinh/ETV.MCA.05_QTHC_TramQTCLKKXQ.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 26893
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCA06_GC",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.06_QTHC_GC.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC/1. Quy trinh/ETV.MCA.06_QTHC_GC.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 36325
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 6,
           "n_files": 0
          },
          {
@@ -14677,48 +14802,6 @@
           "size": 134189
          },
          {
-          "name": "ETV.MCA 01_KK tu dong_V2.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 01_KK tu dong_V2.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 424190
-         },
-         {
-          "name": "ETV.MCA 02_Khi_V8.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 02_Khi_V8.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 565736
-         },
-         {
-          "name": "ETV.MCA 03_O3_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 03_O3_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 326260
-         },
-         {
-          "name": "ETV.MCA 04_TB O3 CL KK xung quanh_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 04_TB O3 CL KK xung quanh_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 537094
-         },
-         {
-          "name": "ETV.MCA 05_Tram QTCL KK xung quanh_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 05_Tram QTCL KK xung quanh_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 425353
-         },
-         {
-          "name": "ETV.MCA_06_GC_V8.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA_06_GC_V8.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 482833
-         },
-         {
           "name": "ETV.MCF 01_Luu luong khi_V7.pdf",
           "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 01_Luu luong khi_V7.pdf",
           "type": "file",
@@ -15042,7 +15125,7 @@
          }
         ],
         "n_dirs": 0,
-        "n_files": 57
+        "n_files": 51
        },
        {
         "name": "AI-Agents-in-Depth-vi.pdf",
