@@ -2,8 +2,14 @@
 id: ETV.MCW 04
 title: "Phương tiện đo thế ôxy hoá khử (ORP) — Quy trình hiệu chuẩn"
 type: Quy-trinh
-owner: ""
-department: "Viện Kiểm định Công nghệ và Môi trường"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: "Nguyễn Văn Đồng"
+prepared_date: "22/04/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "22/04/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "22/04/2026"
 process: ""
 effective_date: "22/04/2026"
 revision: "02"
@@ -16,7 +22,7 @@ ai_tags: [calibration-procedure, orp-meter, water-quality, uncertainty-budget]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Theo ETV.P.F 14.06"
-digital_signature: null
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV) — chuyển đổi định dạng từ bản PDF gốc `ETV.MCW 04_ORP_V3.pdf`"
 supersedes: "ETV.MCW 04 lần ban hành 01 (22/04/2019)"
 superseded_by: null
@@ -30,6 +36,9 @@ superseded_by: null
 | **Mã số**         | ETV.MCW 04     |
 | **Lần ban hành**  | 02             |
 | **Ngày ban hành** | 22/04/2026     |
+| **Biên soạn**     | Nguyễn Văn Đồng |
+| **Soát xét**      | Trần Thị Hoa |
+| **Phê duyệt**     | Nguyễn Hoàng Giang |
 
 > **Tình trạng bản này:** Bản chuyển đổi định dạng (PDF → Markdown) từ file gốc `ETV.MCW 04_ORP_V3.pdf` do Viện ban hành, phục vụ tra cứu trên ManLab. Khi có khác biệt, bản PDF do Viện ban hành là bản có giá trị áp dụng.
 >

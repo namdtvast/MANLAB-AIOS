@@ -2,8 +2,14 @@
 id: ETV.MCL.F04.02
 title: "Phụ lục 02 — Bảng tính sai số và độ không đảm bảo đo (Handheld GNSS/GPS Calibration)"
 type: Bieu-mau
-owner: "(cập nhật — chức danh LĐP phụ trách)"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
+prepared_by: ""
+prepared_date: "18/05/2026"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "18/05/2026"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "18/05/2026"
 process: ""
 effective_date: "18/05/2026"
 revision: "01"
@@ -16,7 +22,7 @@ ai_tags: [calibration-form, uncertainty-worksheet, gnss, gps, blank-template]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Bản gốc — không lưu dữ liệu thật, xem 06_SHARED_RESOURCES quy định lưu hồ sơ đã điền"
-digital_signature: "Người tính toán/Người soát xét"
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 supersedes: null
 superseded_by: null

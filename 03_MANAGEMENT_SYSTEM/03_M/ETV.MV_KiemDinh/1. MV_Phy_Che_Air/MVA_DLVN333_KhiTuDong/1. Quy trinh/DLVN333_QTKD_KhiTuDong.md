@@ -4,6 +4,8 @@ title: "Phương tiện đo nồng độ SO2, CO, NO, NO2 của trạm quan tr�
 type: Quy-trinh
 owner: "Trung tâm Quan trắc môi trường"
 department: "Tổng cục Môi trường (đề nghị) — Tổng cục Tiêu chuẩn Đo lường Chất lượng (ban hành)"
+issuing_body: "Trung tâm Quan trắc môi trường"
+applying_department: "Phòng Đo lường Chất lượng"
 process: ""
 effective_date: "2016"
 revision: ""

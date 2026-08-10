@@ -4,6 +4,8 @@ title: "Áp kế, chân không kế kiểu lò xo và hiện số — Quy trình
 type: Quy-trinh
 owner: ""
 department: "Tổng cục Tiêu chuẩn Đo lường Chất lượng"
+issuing_body: "Tổng cục Tiêu chuẩn Đo lường Chất lượng"
+applying_department: "Phòng Đo lường Chất lượng"
 process: ""
 effective_date: "2001"
 revision: ""

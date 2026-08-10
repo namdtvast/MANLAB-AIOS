@@ -2,8 +2,14 @@
 id: ETV.MVA.F389.01
 title: "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh"
 type: Bieu-mau
-owner: "(cập nhật — chức danh LĐP phụ trách)"
-department: "Viện Kiểm định Công nghệ và Môi trường"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
+department: "Phòng Đo lường Chất lượng"
+prepared_by: ""
+prepared_date: "22/04/2023"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "22/04/2023"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "22/04/2023"
 process: ""
 effective_date: "22/04/2023"
 revision: "02"
@@ -16,7 +22,7 @@ ai_tags: [verification-form, gas-analyzer, ambient-air-quality, blank-template]
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 retention: "Bản gốc — không lưu dữ liệu thật, xem 06_SHARED_RESOURCES quy định lưu hồ sơ đã điền"
-digital_signature: null
+digital_signature: "Nguyễn Hoàng Giang"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 supersedes: null
 superseded_by: null

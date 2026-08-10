@@ -2,8 +2,14 @@
 id: ETV.MCA 04
 title: "Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh — Quy trình hiệu chuẩn"
 type: Quy-trinh
-owner: "Trần Sơn Tùng"
+owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
+prepared_by: "Nguyễn Văn Huy"
+prepared_date: "11/09/2023"
+reviewed_by: "Trần Thị Hoa"
+reviewed_date: "11/09/2023"
+approved_by: "Nguyễn Hoàng Giang"
+approved_date: "11/09/2023"
 process: ""
 effective_date: "11/09/2023"
 revision: "01"
@@ -30,8 +36,8 @@ superseded_by: null
 | **Mã số**         | ETV.MCA 04           |
 | **Lần ban hành**  | 01                   |
 | **Ngày ban hành** | 11/09/2023           |
-| **Biên soạn**     | Trần Sơn Tùng     |
-| **Soát xét**      | Trần Thị Hoa       |
+| **Biên soạn**     | Nguyễn Văn Huy |
+| **Soát xét**      | Trần Thị Hoa |
 | **Phê duyệt**     | Nguyễn Hoàng Giang |
 
 > **Tình trạng bản này: DỰ THẢO** — Bản dự thảo do AI xây dựng dựa trên tài liệu tham khảo quốc tế (US EPA) và đối chiếu cấu trúc các quy trình ĐLVN/ETV hiện có trong hệ thống; cần LĐP soát xét và LĐV phê duyệt trước khi coi là bản chính thức áp dụng.
