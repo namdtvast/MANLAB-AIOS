@@ -118,7 +118,9 @@ Mỗi file `.md` trong `03_M` mở đầu bằng khối frontmatter. Các trư�
 |---|---|
 | `ETV.MCW` — Hoá lý (nước) | Nguyễn Văn Đồng |
 | `ETV.MCA` — Hoá lý (khí) | Nguyễn Văn Huy |
-| `ETV.MCL`, `ETV.ME*` — Độ dài, Giáo trình đào tạo | Dương Thành Nam |
+| `ETV.MCL`, `ETV.ME*` — Độ dài, Giáo trình đào tạo (trừ MCL 01/02, xem dưới) | Dương Thành Nam |
+| `ETV.MCP 02` — Chênh áp | Nguyễn Ngọc Tuấn (theo bản gốc) |
+| `ETV.MCP 01`, `MCP 03`, `MCL 01`, `MCL 02`, `MCM 01`, `MCH 01` | *(chưa xác nhận — khối chữ ký trong PDF gốc để trống, `prepared_by` để trống chờ điền)* |
 
 **Ngoại lệ — văn bản ĐLVN quốc gia** (`ĐLVN 76`, `333`, `380`, `389`): đây là văn bản do Tổng cục TCĐLCL / Tổng cục Môi trường ban hành, ETV chỉ áp dụng. Không gán `prepared_by`/`reviewed_by`/`approved_by` của ETV; thay vào đó dùng `issuing_body` (cơ quan ban hành gốc) và `applying_department` (đơn vị áp dụng nội bộ). Các **biểu mẫu** đi kèm trong cùng thư mục là tài liệu của ETV nên vẫn theo quy tắc chung.
 
@@ -128,6 +130,13 @@ Bảng chữ ký hiển thị ở đầu thân văn bản (`Biên soạn` / `So�
 
 | Đường dẫn | Nội dung |
 |---|---|
+| [`ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/`](ETV.MC_HieuChuan/2.%20MC_Mass/MCM01_Can/) | `ETV.MCM 01` — Cân phân tích và cân kỹ thuật: `1. Quy trinh/` (tải trọng lệch tâm, độ nhạy, quả cân chuẩn OIML R76; chuyển đổi `.md` từ PDF, không lưu bản gốc) |
+| [`ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP01_HuyetApKe/) | `ETV.MCP 01` — Huyết áp kế: `1. Quy trinh/` |
+| [`ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP02_ChenhAp/) | `ETV.MCP 02` — Áp kế kiểu chênh áp: `1. Quy trinh/` |
+| [`ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP03_ApSuatNoiHap/) | `ETV.MCP 03` — Nồi hấp tiệt trùng (áp suất): `1. Quy trinh/` |
+| [`ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL01_ThuocPanme/) | `ETV.MCL 01` — Thước Panme: `1. Quy trinh/` |
+| [`ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL02_ThuocCap/) | `ETV.MCL 02` — Thước cặp: `1. Quy trinh/` |
+| [`ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/`](ETV.MC_HieuChuan/10.%20MC_Hygro/MCH01_DoAm/) | `ETV.MCH 01` — Phương tiện đo độ ẩm không khí: `1. Quy trinh/` |
 | [`ETV.MC_HieuChuan/1. MC_Phy_Che_Water/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Water/) | **12 quy trình hiệu chuẩn lĩnh vực Hoá lý (nước)** — `ETV.MCW 01` … `ETV.MCW 13` (không có 11), mỗi quy trình một thư mục Cấp 3 với `1. Quy trinh/`; chuyển đổi `.md` từ bản PDF ban hành 22/04/2026, không lưu bản `.pdf` gốc trong repo: `MCW01_pH`, `MCW02_EC` (độ dẫn điện), `MCW03_DoDuc` (độ đục), `MCW04_ORP` (thế ôxy hoá khử), `MCW05_TDS` (tổng chất rắn hoà tan), `MCW06_DO` (oxy hoà tan), `MCW07_SALT` (độ mặn), `MCW08_NongDoChatTrongNuoc` (COD/BOD/TOC/TSS/kim loại… — 21 thông số), `MCW09_AAS` (quang phổ hấp thụ nguyên tử), `MCW10_DienTroSuat`, `MCW12_HPLC` (sắc ký lỏng), `MCW13_ICP` (plasma cảm ứng cao tần). Biểu mẫu đi kèm (`ETV.MCW.F xx.01`) chưa được số hoá — bổ sung vào `2. Bieu mau/` khi có bản gốc |
 | [`ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/`](ETV.MC_HieuChuan/9.%20MC_Length/MCL04_MaydinhviGPS/) | `ETV.MCL.04` — Phương tiện đo định vị vệ tinh GNSS/GPS cầm tay: `1. Quy trinh/` (quy trình hiệu chuẩn), `2. Bieu mau/` (biên bản, bảng tính, hồ sơ điểm chuẩn F04.01–F04.03), `3. GCN/` (mẫu GCN F04.04), `4. Diagrams/` (sơ đồ liên kết chuẩn) |
 | [`ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/`](ETV.MV_KiemDinh/1.%20MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/) | `ĐLVN 389:2021` — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh: `1. Quy trinh/` (quy trình kiểm định, chuyển đổi `.md` từ văn bản ĐLVN đã ban hành), `2. Bieu mau/` (biên bản kiểm định `ETV.MVA.F389.01`) — không lưu bản `.pdf`/`.doc` gốc trong repo |
