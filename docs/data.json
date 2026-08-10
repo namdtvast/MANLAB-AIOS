@@ -1,30 +1,31 @@
 {
- "generated_at": "2026-07-21 05:10 UTC",
+ "generated_at": "2026-08-10 04:57 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "feat/cap16-17-20-23-thu-tuc-batch5",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/feat/cap16-17-20-23-thu-tuc-batch5",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/feat/cap16-17-20-23-thu-tuc-batch5",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/feat/cap16-17-20-23-thu-tuc-batch5"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 6960,
-  "dirs": 1561,
-  "docs": 4675,
+  "files": 7127,
+  "dirs": 1585,
+  "docs": 4781,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 738,
+   ".md": 794,
+   ".png": 95,
+   ".pdf": 3480,
    ".yaml": 102,
    ".drawio": 3,
-   ".jpg": 290,
-   ".pdf": 3374,
+   ".jpg": 291,
    ".html": 5,
-   ".json": 16,
+   ".json": 17,
    ".mjs": 3,
    ".js": 17,
    ".css": 1,
@@ -33,7 +34,7 @@
    ".docx": 226,
    ".pptx": 28,
    ".xlsx": 182,
-   ".py": 23,
+   ".py": 26,
    ".xsd": 39,
    ".txt": 20,
    "": 43,
@@ -46,15 +47,13 @@
    ".ppt": 18,
    ".dot": 1,
    ".xlsm": 2,
-   ".png": 79,
-   ".zip": 17,
+   ".zip": 13,
    ".xdt": 10,
    ".svg": 1,
    ".mp4": 6,
-   ".exe": 74,
-   ".ico": 38,
-   ".dll": 53,
    ".bat": 2,
+   ".exe": 68,
+   ".ico": 35,
    ".com": 2,
    ".sys": 2,
    ".dat": 18,
@@ -72,6 +71,7 @@
    ".ad": 4,
    ".cfg": 9,
    ".ex_": 3,
+   ".dll": 50,
    ".cab": 91,
    ".wav": 1,
    ".tag": 1,
@@ -829,12 +829,12 @@
    "module": "M19",
    "module_path": "05_MODULE_LIBRARY/M19_SanXuatCRM",
    "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM",
-   "doc_controlled": null,
-   "doc_path": null,
+   "doc_controlled": "ETV.P19_SanXuatCRM.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
-   "has_doc": false,
+   "has_doc": true,
    "forms": []
   },
   {
@@ -979,12 +979,12 @@
    "module": "M24",
    "module_path": "05_MODULE_LIBRARY/M24_KPI",
    "path": "04_PROCESS_LIBRARY/MP24_KPI",
-   "doc_controlled": null,
-   "doc_path": null,
+   "doc_controlled": "ETV.P24_QuanLyLuongThuong.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
    "doc_edition": null,
    "doc_issued": null,
    "doc_status": null,
-   "has_doc": false,
+   "has_doc": true,
    "forms": []
   },
   {
@@ -1366,86 +1366,397 @@
     "type": "dir",
     "children": [
      {
+      "name": "11_Assets",
+      "path": "01_ENTERPRISE/11_Assets",
+      "type": "dir",
+      "children": [
+       {
+        "name": "infographics",
+        "path": "01_ENTERPRISE/11_Assets/infographics",
+        "type": "dir",
+        "children": [
+         {
+          "name": "01_strategy.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/01_strategy.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1730943
+         },
+         {
+          "name": "02_vision.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/02_vision.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1853072
+         },
+         {
+          "name": "03_mission.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/03_mission.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1576146
+         },
+         {
+          "name": "04_organization.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/04_organization.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1359497
+         },
+         {
+          "name": "05_business_model.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/05_business_model.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1598959
+         },
+         {
+          "name": "06_kpi.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/06_kpi.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1373385
+         },
+         {
+          "name": "07_digital_strategy.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/07_digital_strategy.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1442525
+         },
+         {
+          "name": "08_roadmap.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/08_roadmap.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1397605
+         },
+         {
+          "name": "09_architecture.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/09_architecture.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1589486
+         },
+         {
+          "name": "10_glossary.png",
+          "path": "01_ENTERPRISE/11_Assets/infographics/10_glossary.png",
+          "type": "file",
+          "ext": ".png",
+          "size": 1601468
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 10
+       },
+       {
+        "name": "README.md",
+        "path": "01_ENTERPRISE/11_Assets/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1619
+       }
+      ],
+      "desc": "Thư mục này chứa các tài nguyên hỗ trợ để trực quan hóa các tài liệu chiến lược và tổ chức.",
+      "readme": "01_ENTERPRISE/11_Assets/README.md",
+      "n_dirs": 1,
+      "n_files": 1
+     },
+     {
+      "name": "12_Legal",
+      "path": "01_ENTERPRISE/12_Legal",
+      "type": "dir",
+      "children": [
+       {
+        "name": "1. QD Thanh lap Vien ETV.pdf",
+        "path": "01_ENTERPRISE/12_Legal/1. QD Thanh lap Vien ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 560801
+       },
+       {
+        "name": "10. Mau 11_Thong bao MST.pdf",
+        "path": "01_ENTERPRISE/12_Legal/10. Mau 11_Thong bao MST.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 420882
+       },
+       {
+        "name": "11. ETV.P.F 11.02. Mau GCN Hieu chuan.pdf",
+        "path": "01_ENTERPRISE/12_Legal/11. ETV.P.F 11.02. Mau GCN Hieu chuan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 233820
+       },
+       {
+        "name": "12. ETV.P.F 11.03. Mau GCN Kiem dinh.pdf",
+        "path": "01_ENTERPRISE/12_Legal/12. ETV.P.F 11.03. Mau GCN Kiem dinh.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 130687
+       },
+       {
+        "name": "13. ETV.P.F 11.04. Mau GCN Thu nghiem.pdf",
+        "path": "01_ENTERPRISE/12_Legal/13. ETV.P.F 11.04. Mau GCN Thu nghiem.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 249247
+       },
+       {
+        "name": "14. 1298.TBDT.pdf",
+        "path": "01_ENTERPRISE/12_Legal/14. 1298.TBDT.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 693123
+       },
+       {
+        "name": "14. QD BoA.1298.pdf",
+        "path": "01_ENTERPRISE/12_Legal/14. QD BoA.1298.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 587837
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc.pdf",
+        "path": "01_ENTERPRISE/12_Legal/14. QD BoA.1298_Phu luc.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 641938
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc_2025.pdf",
+        "path": "01_ENTERPRISE/12_Legal/14. QD BoA.1298_Phu luc_2025.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 636919
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc_MR_2025.pdf",
+        "path": "01_ENTERPRISE/12_Legal/14. QD BoA.1298_Phu luc_MR_2025.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 6529763
+       },
+       {
+        "name": "15. Chung nhan_TB Y te.pdf",
+        "path": "01_ENTERPRISE/12_Legal/15. Chung nhan_TB Y te.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 437212
+       },
+       {
+        "name": "16. GCN_ISO 9001.pdf",
+        "path": "01_ENTERPRISE/12_Legal/16. GCN_ISO 9001.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 482871
+       },
+       {
+        "name": "17. 2024. T4_HSNL_ETV.pdf",
+        "path": "01_ENTERPRISE/12_Legal/17. 2024. T4_HSNL_ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 12236065
+       },
+       {
+        "name": "17. 2024. T4_HSNL_ETV_ doi trang.pdf",
+        "path": "01_ENTERPRISE/12_Legal/17. 2024. T4_HSNL_ETV_ doi trang.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 12217648
+       },
+       {
+        "name": "2. QD 399_Bo nhiem Vien truong ETV.pdf",
+        "path": "01_ENTERPRISE/12_Legal/2. QD 399_Bo nhiem Vien truong ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 651686
+       },
+       {
+        "name": "3. 2023. Giay DK KHCN_Lan 3_ETV.pdf",
+        "path": "01_ENTERPRISE/12_Legal/3. 2023. Giay DK KHCN_Lan 3_ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1191305
+       },
+       {
+        "name": "4. 2025. GCN dang ky KD HC_Vien ETV_Lan 9..pdf",
+        "path": "01_ENTERPRISE/12_Legal/4. 2025. GCN dang ky KD HC_Vien ETV_Lan 9..pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 13266583
+       },
+       {
+        "name": "5. 2023_Chung chi Vilas.1298.pdf",
+        "path": "01_ENTERPRISE/12_Legal/5. 2023_Chung chi Vilas.1298.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 410967
+       },
+       {
+        "name": "5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6.pdf",
+        "path": "01_ENTERPRISE/12_Legal/5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1241800
+       },
+       {
+        "name": "5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6_scan.pdf",
+        "path": "01_ENTERPRISE/12_Legal/5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6_scan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 3824358
+       },
+       {
+        "name": "6. 2025.7 QD 1565_The kiem dinh vien_Lan 13_scan.pdf",
+        "path": "01_ENTERPRISE/12_Legal/6. 2025.7 QD 1565_The kiem dinh vien_Lan 13_scan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 6037519
+       },
+       {
+        "name": "7. GCN_Dang ky Mau dau.pdf",
+        "path": "01_ENTERPRISE/12_Legal/7. GCN_Dang ky Mau dau.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 672958
+       },
+       {
+        "name": "8. Mau 08-TT95_Thong bao tai khoan.pdf",
+        "path": "01_ENTERPRISE/12_Legal/8. Mau 08-TT95_Thong bao tai khoan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 343965
+       },
+       {
+        "name": "9. Giay xac nhan_So tai khoan_TCB.pdf",
+        "path": "01_ENTERPRISE/12_Legal/9. Giay xac nhan_So tai khoan_TCB.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 472879
+       },
+       {
+        "name": "9. Thong bao tai khoan_ETV_MB.pdf",
+        "path": "01_ENTERPRISE/12_Legal/9. Thong bao tai khoan_ETV_MB.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 124409
+       },
+       {
+        "name": "9. Thong bao tai khoan_ETV_MB_Loi thoi.pdf",
+        "path": "01_ENTERPRISE/12_Legal/9. Thong bao tai khoan_ETV_MB_Loi thoi.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 65593
+       },
+       {
+        "name": "Profile_ETV_Eng_Vie.pdf",
+        "path": "01_ENTERPRISE/12_Legal/Profile_ETV_Eng_Vie.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 20540070
+       },
+       {
+        "name": "Profile_ETV_VN.pdf",
+        "path": "01_ENTERPRISE/12_Legal/Profile_ETV_VN.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 3861965
+       },
+       {
+        "name": "README.md",
+        "path": "01_ENTERPRISE/12_Legal/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7808
+       }
+      ],
+      "desc": "**Ý nghĩa:** Toàn bộ giấy tờ, quyết định, chứng chỉ, công nhận từ các cơ quan nhà nước, tổ chức quốc tế chứng minh Viện ETV có quyền pháp nhân hợp lệ, được công nhận về năng lực.",
+      "readme": "01_ENTERPRISE/12_Legal/README.md",
+      "n_dirs": 0,
+      "n_files": 29
+     },
+     {
       "name": "01_Strategy.md",
       "path": "01_ENTERPRISE/01_Strategy.md",
       "type": "file",
       "ext": ".md",
-      "size": 80
+      "size": 10661
      },
      {
       "name": "02_Vision.md",
       "path": "01_ENTERPRISE/02_Vision.md",
       "type": "file",
       "ext": ".md",
-      "size": 74
+      "size": 3788
      },
      {
       "name": "03_Mission.md",
       "path": "01_ENTERPRISE/03_Mission.md",
       "type": "file",
       "ext": ".md",
-      "size": 75
+      "size": 5338
      },
      {
       "name": "04_Organization.md",
       "path": "01_ENTERPRISE/04_Organization.md",
       "type": "file",
       "ext": ".md",
-      "size": 90
+      "size": 15858
      },
      {
       "name": "05_Business_Model.md",
       "path": "01_ENTERPRISE/05_Business_Model.md",
       "type": "file",
       "ext": ".md",
-      "size": 91
+      "size": 7044
      },
      {
       "name": "06_KPI.md",
       "path": "01_ENTERPRISE/06_KPI.md",
       "type": "file",
       "ext": ".md",
-      "size": 83
+      "size": 6238
      },
      {
       "name": "07_Digital_Strategy.md",
       "path": "01_ENTERPRISE/07_Digital_Strategy.md",
       "type": "file",
       "ext": ".md",
-      "size": 93
+      "size": 5254
      },
      {
       "name": "08_Roadmap.md",
       "path": "01_ENTERPRISE/08_Roadmap.md",
       "type": "file",
       "ext": ".md",
-      "size": 75
+      "size": 4707
      },
      {
       "name": "09_Architecture.md",
       "path": "01_ENTERPRISE/09_Architecture.md",
       "type": "file",
       "ext": ".md",
-      "size": 94
+      "size": 20014
      },
      {
       "name": "10_Glossary.md",
       "path": "01_ENTERPRISE/10_Glossary.md",
       "type": "file",
       "ext": ".md",
-      "size": 91
+      "size": 27969
      },
      {
       "name": "README.md",
       "path": "01_ENTERPRISE/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 3315
+      "size": 8809
      }
     ],
     "desc": "**Ý nghĩa:** Toàn bộ hồ sơ pháp lý, tài chính, sở hữu trí tuệ và truyền thông của Viện ETV với tư cách pháp nhân — tách biệt với hồ sơ nghiệp vụ hàng ngày.",
     "readme": "01_ENTERPRISE/README.md",
-    "n_dirs": 0,
+    "n_dirs": 2,
     "n_files": 11
    },
    {
@@ -2317,14 +2628,14 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
         "type": "file",
         "ext": ".md",
-        "size": 22461
+        "size": 22955
        },
        {
         "name": "ETV.P07_HopDong.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
         "type": "file",
         "ext": ".md",
-        "size": 17641
+        "size": 18090
        },
        {
         "name": "ETV.P08_PhuongPhap.md",
@@ -2352,7 +2663,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
         "type": "file",
         "ext": ".md",
-        "size": 37105
+        "size": 37512
        },
        {
         "name": "ETV.P12_KhieuNai.md",
@@ -2404,6 +2715,13 @@
         "size": 24337
        },
        {
+        "name": "ETV.P19_SanXuatCRM.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 24702
+       },
+       {
         "name": "ETV.P20_PhanPhoi.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
         "type": "file",
@@ -2432,17 +2750,52 @@
         "size": 20174
        },
        {
+        "name": "ETV.P24_QuanLyLuongThuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 12089
+       },
+       {
+        "name": "ETV.P41_DieuLeToChuc.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P41_DieuLeToChuc.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6284
+       },
+       {
+        "name": "ETV.P42_NoiQuyLaoDong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 13643
+       },
+       {
+        "name": "ETV.P42_Phan_luc_I_Noi_quy_mau.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_Phan_luc_I_Noi_quy_mau.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6330
+       },
+       {
+        "name": "ETV.P43_QuyCheChiTieuNoiBo.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P43_QuyCheChiTieuNoiBo.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 76829
+       },
+       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 208
+        "size": 589
        }
       ],
       "desc": "Thủ tục quản lý (ETV.P14, ETV.P21, ETV.P03, v.v.), thủ tục hệ thống quản lý.",
       "readme": "03_MANAGEMENT_SYSTEM/02_P/README.md",
       "n_dirs": 0,
-      "n_files": 23
+      "n_files": 29
      },
      {
       "name": "03_M",
@@ -2502,6 +2855,315 @@
            }
           ],
           "n_dirs": 1,
+          "n_files": 0
+         },
+         {
+          "name": "1. MC_Phy_Che_Water",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCW01_pH",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.01_QTHC_pH.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/1. Quy trinh/ETV.MCW.01_QTHC_pH.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 16347
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW02_EC",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.02_QTHC_EC.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/1. Quy trinh/ETV.MCW.02_QTHC_EC.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 16933
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW03_DoDuc",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.03_QTHC_DoDuc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/1. Quy trinh/ETV.MCW.03_QTHC_DoDuc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14985
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW04_ORP",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.04_QTHC_ORP.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/1. Quy trinh/ETV.MCW.04_QTHC_ORP.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 16750
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW05_TDS",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.05_QTHC_TDS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/1. Quy trinh/ETV.MCW.05_QTHC_TDS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 19265
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW06_DO",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.06_QTHC_DO.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/1. Quy trinh/ETV.MCW.06_QTHC_DO.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 23788
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW07_SALT",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.07_QTHC_DoMan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/1. Quy trinh/ETV.MCW.07_QTHC_DoMan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 18595
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW08_NongDoChatTrongNuoc",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.08_QTHC_NongDoChatTrongNuoc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/1. Quy trinh/ETV.MCW.08_QTHC_NongDoChatTrongNuoc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 23371
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW09_AAS",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.09_QTHC_AAS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/1. Quy trinh/ETV.MCW.09_QTHC_AAS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 24464
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW10_DienTroSuat",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.10_QTHC_DienTroSuat.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat/1. Quy trinh/ETV.MCW.10_QTHC_DienTroSuat.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15034
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW12_HPLC",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.12_QTHC_HPLC.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC/1. Quy trinh/ETV.MCW.12_QTHC_HPLC.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 34832
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCW13_ICP",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.13_QTHC_ICP.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP/1. Quy trinh/ETV.MCW.13_QTHC_ICP.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 30351
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 12,
           "n_files": 0
          },
          {
@@ -2658,7 +3320,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 3,
+        "n_dirs": 4,
         "n_files": 0
        },
        {
@@ -2686,7 +3348,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 45731
+                "size": 49730
                }
               ],
               "n_dirs": 0,
@@ -2918,7 +3580,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 13059
+        "size": 13993
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -3086,17 +3748,80 @@
         "size": 1644
        },
        {
+        "name": "ETV.P.F19.01_LapKeHoach.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.01_LapKeHoach.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 8224
+       },
+       {
+        "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.02_DanhGiaKeHoach.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 8755
+       },
+       {
+        "name": "ETV.P.F19.03_KetQuaSanXuat.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.03_KetQuaSanXuat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7957
+       },
+       {
+        "name": "ETV.P.F24.01_BangChamCong.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.01_BangChamCong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3293
+       },
+       {
+        "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.02_TheoDoiLuongThuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7801
+       },
+       {
+        "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.03_QuyetDinhLuongThuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6195
+       },
+       {
+        "name": "ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3285
+       },
+       {
+        "name": "ETV.P.F42.02_QuyetDinhBanHanh.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.02_QuyetDinhBanHanh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3275
+       },
+       {
+        "name": "ETV.P.F42.03_DeNghiDangKy.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.03_DeNghiDangKy.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3463
+       },
+       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/04_F/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 2443
+        "size": 6242
        }
       ],
       "desc": "Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.",
       "readme": "03_MANAGEMENT_SYSTEM/04_F/README.md",
       "n_dirs": 0,
-      "n_files": 23
+      "n_files": 32
      },
      {
       "name": "05_R",
@@ -4240,8 +4965,8 @@
        ],
        "module": "M19",
        "document": {
-        "controlled": null,
-        "path": null,
+        "controlled": "ETV.P19_SanXuatCRM.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
         "edition": null,
         "issued": null,
         "doc_status": null
@@ -4536,8 +5261,8 @@
        ],
        "module": "M24",
        "document": {
-        "controlled": null,
-        "path": null,
+        "controlled": "ETV.P24_QuanLyLuongThuong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
         "edition": null,
         "issued": null,
         "doc_status": null
@@ -10844,6 +11569,48 @@
         "size": 2321
        },
        {
+        "name": "ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3247
+       },
+       {
+        "name": "ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 9029
+       },
+       {
+        "name": "ETV.P.F07.02_BienBanBanGiaoSanPham.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.02_BienBanBanGiaoSanPham.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3684
+       },
+       {
+        "name": "ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6188
+       },
+       {
+        "name": "ETV.P.F07.06_HopDongDichVuKHCN.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06_HopDongDichVuKHCN.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 13143
+       },
+       {
+        "name": "ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3418
+       },
+       {
         "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "type": "file",
@@ -10921,6 +11688,41 @@
         "size": 2023
        },
        {
+        "name": "ETV.P.F11.02_GiayChungNhanHieuChuan.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.02_GiayChungNhanHieuChuan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6990
+       },
+       {
+        "name": "ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5299
+       },
+       {
+        "name": "ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 12600
+       },
+       {
+        "name": "ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 12640
+       },
+       {
+        "name": "ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4452
+       },
+       {
         "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
         "type": "file",
@@ -10963,11 +11765,74 @@
         "size": 1644
        },
        {
+        "name": "ETV.P.F19.01_LapKeHoach.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.01_LapKeHoach.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 8224
+       },
+       {
+        "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.02_DanhGiaKeHoach.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 8755
+       },
+       {
+        "name": "ETV.P.F19.03_KetQuaSanXuat.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.03_KetQuaSanXuat.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7957
+       },
+       {
         "name": "ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
         "type": "file",
         "ext": ".md",
         "size": 1904
+       },
+       {
+        "name": "ETV.P.F24.01_BangChamCong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.01_BangChamCong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 3293
+       },
+       {
+        "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 7801
+       },
+       {
+        "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.03_QuyetDinhLuongThuong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6195
+       },
+       {
+        "name": "ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 9350
+       },
+       {
+        "name": "ETV.P.F42.02_QuyetDinhBanHanh.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.02_QuyetDinhBanHanh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4881
+       },
+       {
+        "name": "ETV.P.F42.03_DeNghiDangKy.md",
+        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.03_DeNghiDangKy.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5001
        },
        {
         "name": "README.md",
@@ -10980,7 +11845,7 @@
       "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
       "n_dirs": 0,
-      "n_files": 67
+      "n_files": 87
      },
      {
       "name": "02_Templates",
@@ -11186,17 +12051,45 @@
       "type": "dir",
       "children": [
        {
+        "name": "Logo_Chu ETV_Regi 2.png",
+        "path": "06_SHARED_RESOURCES/13_Branding/Logo_Chu ETV_Regi 2.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 51673
+       },
+       {
+        "name": "Logo_Full ETV_Regi.png",
+        "path": "06_SHARED_RESOURCES/13_Branding/Logo_Full ETV_Regi.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 151566
+       },
+       {
+        "name": "Logo_Hinh tron_ETV.png",
+        "path": "06_SHARED_RESOURCES/13_Branding/Logo_Hinh tron_ETV.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 103178
+       },
+       {
+        "name": "Logo_Ma mau.jpg",
+        "path": "06_SHARED_RESOURCES/13_Branding/Logo_Ma mau.jpg",
+        "type": "file",
+        "ext": ".jpg",
+        "size": 524859
+       },
+       {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/13_Branding/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 378
+        "size": 1330
        }
       ],
       "desc": "**Ý nghĩa:** Logo, màu, font, nhận diện",
       "readme": "06_SHARED_RESOURCES/13_Branding/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 5
      },
      {
       "name": "README.md",
@@ -13468,17 +14361,59 @@
         "n_files": 2
        },
        {
+        "name": "00_SUMMARY.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/00_SUMMARY.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 9729
+       },
+       {
+        "name": "CHANGELOG_PORTABILITY.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/CHANGELOG_PORTABILITY.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6571
+       },
+       {
+        "name": "INDEX.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/INDEX.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5292
+       },
+       {
+        "name": "MIGRATION_GUIDE.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/MIGRATION_GUIDE.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6855
+       },
+       {
+        "name": "QUICK_START.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/QUICK_START.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5522
+       },
+       {
         "name": "README.md",
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 3871
+        "size": 10794
+       },
+       {
+        "name": "SKILL_TEMPLATE.md",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/SKILL_TEMPLATE.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1683
        }
       ],
       "desc": "**Ý nghĩa:** Định nghĩa kỹ năng AI",
       "readme": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
       "n_dirs": 3,
-      "n_files": 1
+      "n_files": 7
      },
      {
       "name": "02_Harness",
@@ -13702,6 +14637,428 @@
       "type": "dir",
       "children": [
        {
+        "name": "QTHC",
+        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC",
+        "type": "dir",
+        "children": [
+         {
+          "name": "DLVN 112_2002_QTHC_TB Chuyen doi ap suat.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 112_2002_QTHC_TB Chuyen doi ap suat.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 362308
+         },
+         {
+          "name": "DLVN 138_2004.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 138_2004.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 255097
+         },
+         {
+          "name": "DLVN 160 2005.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 160 2005.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 2320584
+         },
+         {
+          "name": "DLVN 76_Ap ke_Scan.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 76_Ap ke_Scan.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 5450900
+         },
+         {
+          "name": "DLVN_133_2004_Thiet bi dat muc ap suat.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN_133_2004_Thiet bi dat muc ap suat.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 134189
+         },
+         {
+          "name": "ETV.MCA 01_KK tu dong_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 01_KK tu dong_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 424190
+         },
+         {
+          "name": "ETV.MCA 02_Khi_V8.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 02_Khi_V8.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 565736
+         },
+         {
+          "name": "ETV.MCA 03_O3_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 03_O3_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 326260
+         },
+         {
+          "name": "ETV.MCA 04_TB O3 CL KK xung quanh_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 04_TB O3 CL KK xung quanh_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 537094
+         },
+         {
+          "name": "ETV.MCA 05_Tram QTCL KK xung quanh_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA 05_Tram QTCL KK xung quanh_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 425353
+         },
+         {
+          "name": "ETV.MCA_06_GC_V8.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCA_06_GC_V8.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 482833
+         },
+         {
+          "name": "ETV.MCF 01_Luu luong khi_V7.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 01_Luu luong khi_V7.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 400610
+         },
+         {
+          "name": "ETV.MCF 02_Dong ho do khi_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 02_Dong ho do khi_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 350156
+         },
+         {
+          "name": "ETV.MCF 03_Toc do gio_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 03_Toc do gio_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 418993
+         },
+         {
+          "name": "ETV.MCF 04_Luu luong khi thai_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 04_Luu luong khi thai_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 359861
+         },
+         {
+          "name": "ETV.MCF 05_Luu luong kenh ho_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 05_Luu luong kenh ho_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 1182694
+         },
+         {
+          "name": "ETV.MCF 06_Luu luong duong ong kin_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 06_Luu luong duong ong kin_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 363178
+         },
+         {
+          "name": "ETV.MCF 07_Micropipet_V4.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 07_Micropipet_V4.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 426728
+         },
+         {
+          "name": "ETV.MCF 08_Do muc tu dong.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 08_Do muc tu dong.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 588154
+         },
+         {
+          "name": "ETV.MCF 09_Dung cu thuy tinh_V4.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 09_Dung cu thuy tinh_V4.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 425791
+         },
+         {
+          "name": "ETV.MCF 10_Thiet bi pha loang khi chuan_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 10_Thiet bi pha loang khi chuan_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 442256
+         },
+         {
+          "name": "ETV.MCF 11_PTD luong mua_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 11_PTD luong mua_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 405778
+         },
+         {
+          "name": "ETV.MCF 12_do muc nuoc.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 12_do muc nuoc.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 326327
+         },
+         {
+          "name": "ETV.MCF 13_Van toc gio dai cao_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 13_Van toc gio dai cao_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 442141
+         },
+         {
+          "name": "ETV.MCF 14_Luu luong khi thai ong khoi - V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCF 14_Luu luong khi thai ong khoi - V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 351829
+         },
+         {
+          "name": "ETV.MCH.01_PTD Do Am_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCH.01_PTD Do Am_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 368778
+         },
+         {
+          "name": "ETV.MCL 01_QTHC_Thuoc Panme.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCL 01_QTHC_Thuoc Panme.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 334151
+         },
+         {
+          "name": "ETV.MCL 02_QTHC_Thuoc cap.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCL 02_QTHC_Thuoc cap.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 375195
+         },
+         {
+          "name": "ETV.MCM 01_Can_V9.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCM 01_Can_V9.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 476723
+         },
+         {
+          "name": "ETV.MCO 01_UV_VIS_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 01_UV_VIS_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 401969
+         },
+         {
+          "name": "ETV.MCO 02_Cuong do Anh sang_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 02_Cuong do Anh sang_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 711829
+         },
+         {
+          "name": "ETV.MCO 03_Bui -V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 03_Bui -V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 508195
+         },
+         {
+          "name": "ETV.MCO 03_Bui XQ_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 03_Bui XQ_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 435753
+         },
+         {
+          "name": "ETV.MCO 04_Bui trong khi thai_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 04_Bui trong khi thai_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 421979
+         },
+         {
+          "name": "ETV.MCO 05_Chuan Bui_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 05_Chuan Bui_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 603389
+         },
+         {
+          "name": "ETV.MCP 01_Huyet ap ke_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP 01_Huyet ap ke_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 307213
+         },
+         {
+          "name": "ETV.MCP 02_Chenh ap_v3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP 02_Chenh ap_v3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 328655
+         },
+         {
+          "name": "ETV.MCP_03_Ap_suat_noi_hap_Quy_trinh_hieu_chuan_V1.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCP_03_Ap_suat_noi_hap_Quy_trinh_hieu_chuan_V1.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 321575
+         },
+         {
+          "name": "ETV.MCS 01_Do on_V7.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 01_Do on_V7.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 703425
+         },
+         {
+          "name": "ETV.MCS 02_Toc do vong quay_V7.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 02_Toc do vong quay_V7.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 547867
+         },
+         {
+          "name": "ETV.MCS 03_May thu do hoa tan va vien nen_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 03_May thu do hoa tan va vien nen_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 974804
+         },
+         {
+          "name": "ETV.MCS 04_May thu do mai mon.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 04_May thu do mai mon.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 580751
+         },
+         {
+          "name": "ETV.MCS 05_May thu do tan ra.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 05_May thu do tan ra.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 596114
+         },
+         {
+          "name": "ETV.MCS_06_QTHC_Dong_ho_bam_giay_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS_06_QTHC_Dong_ho_bam_giay_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 339107
+         },
+         {
+          "name": "ETV.MCT 01_Tu nhiet_V3_4.23.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 01_Tu nhiet_V3_4.23.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 470462
+         },
+         {
+          "name": "ETV.MCT 02_Pha mau COD va tuong tu.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 02_Pha mau COD va tuong tu.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 425840
+         },
+         {
+          "name": "ETV.MCT 03_PTD Nhiet do trong khong khi_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 03_PTD Nhiet do trong khong khi_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 442072
+         },
+         {
+          "name": "ETV.MCT 04_Cap nhiet do K.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 04_Cap nhiet do K.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 447028
+         },
+         {
+          "name": "ETV.MCT 05_Lo nhiet_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 05_Lo nhiet_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 551708
+         },
+         {
+          "name": "ETV.MCT 06_TB hap tiet trung.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 06_TB hap tiet trung.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 362098
+         },
+         {
+          "name": "ETV.MCT 07_Be dieu nhiet.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 07_Be dieu nhiet.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 409020
+         },
+         {
+          "name": "ETV.MCT 08_Thiet bi chung cat dam.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 08_Thiet bi chung cat dam.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 508988
+         },
+         {
+          "name": "ETV.MCT 09_Nhiet ke thuy tinh chat long_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 09_Nhiet ke thuy tinh chat long_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 1333527
+         },
+         {
+          "name": "ETV.MCT 10_Nhiet ke TT-TN co cau cuc dai_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 10_Nhiet ke TT-TN co cau cuc dai_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 399463
+         },
+         {
+          "name": "ETV.MCT 11_NK y hoc TT-TN CCCD_V2.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 11_NK y hoc TT-TN CCCD_V2.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 385621
+         },
+         {
+          "name": "ETV.MCT 12_Lo nung_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 12_Lo nung_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 412041
+         },
+         {
+          "name": "ETV.MCT 13_Lo vi song_Quy trinh_V3.pdf",
+          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCT 13_Lo vi song_Quy trinh_V3.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 563242
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 57
+       },
+       {
+        "name": "AI-Agents-in-Depth-vi.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/AI-Agents-in-Depth-vi.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 12057840
+       },
+       {
+        "name": "Hướng dẫn xây dựng Agent thực tế - OpenAI (bản tiếng Việt) - Phan Đông Giang dịch.pdf",
+        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/Hướng dẫn xây dựng Agent thực tế - OpenAI (bản tiếng Việt) - Phan Đông Giang dịch.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 6458517
+       },
+       {
         "name": "README.md",
         "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/README.md",
         "type": "file",
@@ -13718,8 +15075,8 @@
       ],
       "desc": "**Mục đích:** Lưu trữ tạm thời tài liệu PDF, Word, ảnh liên quan đến ISO, pháp lý, tiêu chuẩn, quy trình trước khi phân loại vào các thư mục chính của `08_KNOWLEDGE_GRAPH`.",
       "readme": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/README.md",
-      "n_dirs": 0,
-      "n_files": 2
+      "n_dirs": 1,
+      "n_files": 4
      },
      {
       "name": "01_Regulations",
@@ -45144,237 +46501,6 @@
             "n_files": 10
            },
            {
-            "name": "Smart PC",
-            "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC",
-            "type": "dir",
-            "children": [
-             {
-              "name": "Calibration Software",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software",
-              "type": "dir",
-              "children": [
-               {
-                "name": "COD-BOD-TSS-1109",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109",
-                "type": "dir",
-                "children": [
-                 {
-                  "name": "COD-BOD-TSS.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109/COD-BOD-TSS.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 534016
-                 },
-                 {
-                  "name": "gCOD-BOD-TSS.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109/gCOD-BOD-TSS.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 115712
-                 },
-                 {
-                  "name": "gCOD-BOD-TSS.ico",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109/gCOD-BOD-TSS.ico",
-                  "type": "file",
-                  "ext": ".ico",
-                  "size": 0
-                 },
-                 {
-                  "name": "Modbus.dll",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109/Modbus.dll",
-                  "type": "file",
-                  "ext": ".dll",
-                  "size": 41472
-                 }
-                ],
-                "n_dirs": 0,
-                "n_files": 4
-               },
-               {
-                "name": "DO-Cal",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/DO-Cal",
-                "type": "dir",
-                "children": [
-                 {
-                  "name": "DO-Cal.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/DO-Cal/DO-Cal.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 534016
-                 },
-                 {
-                  "name": "gDO-Cal.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/DO-Cal/gDO-Cal.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 184320
-                 },
-                 {
-                  "name": "Modbus.dll",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/DO-Cal/Modbus.dll",
-                  "type": "file",
-                  "ext": ".dll",
-                  "size": 40448
-                 }
-                ],
-                "n_dirs": 0,
-                "n_files": 3
-               },
-               {
-                "name": "LZpHNh3N_Test-Cus",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/LZpHNh3N_Test-Cus",
-                "type": "dir",
-                "children": [
-                 {
-                  "name": "gpHNh3N_Test-Cus.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/LZpHNh3N_Test-Cus/gpHNh3N_Test-Cus.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 123392
-                 },
-                 {
-                  "name": "gpHNh3N_Test-Cus.ico",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/LZpHNh3N_Test-Cus/gpHNh3N_Test-Cus.ico",
-                  "type": "file",
-                  "ext": ".ico",
-                  "size": 0
-                 },
-                 {
-                  "name": "Modbus.dll",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/LZpHNh3N_Test-Cus/Modbus.dll",
-                  "type": "file",
-                  "ext": ".dll",
-                  "size": 40448
-                 },
-                 {
-                  "name": "pHNh3N_Test-Cus.exe",
-                  "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/LZpHNh3N_Test-Cus/pHNh3N_Test-Cus.exe",
-                  "type": "file",
-                  "ext": ".exe",
-                  "size": 534016
-                 }
-                ],
-                "n_dirs": 0,
-                "n_files": 4
-               },
-               {
-                "name": "COD-BOD-TSS-1109.zip",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/COD-BOD-TSS-1109.zip",
-                "type": "file",
-                "ext": ".zip",
-                "size": 45029
-               },
-               {
-                "name": "DO-Cal.zip",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Calibration Software/DO-Cal.zip",
-                "type": "file",
-                "ext": ".zip",
-                "size": 53262
-               }
-              ],
-              "n_dirs": 3,
-              "n_files": 2
-             },
-             {
-              "name": "Modbus RS485",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Modbus RS485",
-              "type": "dir",
-              "children": [
-               {
-                "name": "New Online Ammonia nitrogen modbus protocol.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Modbus RS485/New Online Ammonia nitrogen modbus protocol.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 85937
-               },
-               {
-                "name": "New Online COD Modbus.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Modbus RS485/New Online COD Modbus.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 116067
-               },
-               {
-                "name": "New Optical DO sensor Modbus Protocol.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Modbus RS485/New Optical DO sensor Modbus Protocol.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 90416
-               },
-               {
-                "name": "New pH sensor Modbus Protocol.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Modbus RS485/New pH sensor Modbus Protocol.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 118888
-               }
-              ],
-              "n_dirs": 0,
-              "n_files": 4
-             },
-             {
-              "name": "Product manual",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Product manual",
-              "type": "dir",
-              "children": [
-               {
-                "name": "COD  SENSOR  User  Manual.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Product manual/COD  SENSOR  User  Manual.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 461831
-               },
-               {
-                "name": "Dissolved Oxygen Sensor User Manual.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Product manual/Dissolved Oxygen Sensor User Manual.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 1129970
-               },
-               {
-                "name": "Online Ammonia Sensor User Manual.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Product manual/Online Ammonia Sensor User Manual.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 408251
-               },
-               {
-                "name": "Online Digital pH Sensor Manual.pdf",
-                "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/Product manual/Online Digital pH Sensor Manual.pdf",
-                "type": "file",
-                "ext": ".pdf",
-                "size": 357253
-               }
-              ],
-              "n_dirs": 0,
-              "n_files": 4
-             },
-             {
-              "name": "gSmartPC-pH-C.exe.ico",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/gSmartPC-pH-C.exe.ico",
-              "type": "file",
-              "ext": ".ico",
-              "size": 0
-             },
-             {
-              "name": "gSmartPC-pH-C.exe.zip",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/gSmartPC-pH-C.exe.zip",
-              "type": "file",
-              "ext": ".zip",
-              "size": 209554
-             },
-             {
-              "name": "SmartPC-pH-C.exe.zip",
-              "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/Smart PC/SmartPC-pH-C.exe.zip",
-              "type": "file",
-              "ext": ".zip",
-              "size": 534016
-             }
-            ],
-            "n_dirs": 3,
-            "n_files": 3
-           },
-           {
             "name": "SYSTEA",
             "path": "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/1. Nuoc/2. Huong dan su dung, van hanh/SYSTEA",
             "type": "dir",
@@ -47267,7 +48393,7 @@
             "size": 737037
            }
           ],
-          "n_dirs": 50,
+          "n_dirs": 49,
           "n_files": 1
          },
          {
@@ -64895,6 +66021,213 @@
       "n_files": 1
      },
      {
+      "name": "legal",
+      "path": "11_COMPLIANCE/legal",
+      "type": "dir",
+      "children": [
+       {
+        "name": "1. QD Thanh lap Vien ETV.pdf",
+        "path": "11_COMPLIANCE/legal/1. QD Thanh lap Vien ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 560801
+       },
+       {
+        "name": "10. Mau 11_Thong bao MST.pdf",
+        "path": "11_COMPLIANCE/legal/10. Mau 11_Thong bao MST.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 420882
+       },
+       {
+        "name": "11. ETV.P.F 11.02. Mau GCN Hieu chuan.pdf",
+        "path": "11_COMPLIANCE/legal/11. ETV.P.F 11.02. Mau GCN Hieu chuan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 233820
+       },
+       {
+        "name": "12. ETV.P.F 11.03. Mau GCN Kiem dinh.pdf",
+        "path": "11_COMPLIANCE/legal/12. ETV.P.F 11.03. Mau GCN Kiem dinh.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 130687
+       },
+       {
+        "name": "13. ETV.P.F 11.04. Mau GCN Thu nghiem.pdf",
+        "path": "11_COMPLIANCE/legal/13. ETV.P.F 11.04. Mau GCN Thu nghiem.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 249247
+       },
+       {
+        "name": "14. 1298.TBDT.pdf",
+        "path": "11_COMPLIANCE/legal/14. 1298.TBDT.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 693123
+       },
+       {
+        "name": "14. QD BoA.1298.pdf",
+        "path": "11_COMPLIANCE/legal/14. QD BoA.1298.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 587837
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc.pdf",
+        "path": "11_COMPLIANCE/legal/14. QD BoA.1298_Phu luc.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 641938
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc_2025.pdf",
+        "path": "11_COMPLIANCE/legal/14. QD BoA.1298_Phu luc_2025.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 636919
+       },
+       {
+        "name": "14. QD BoA.1298_Phu luc_MR_2025.pdf",
+        "path": "11_COMPLIANCE/legal/14. QD BoA.1298_Phu luc_MR_2025.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 6529763
+       },
+       {
+        "name": "15. Chung nhan_TB Y te.pdf",
+        "path": "11_COMPLIANCE/legal/15. Chung nhan_TB Y te.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 437212
+       },
+       {
+        "name": "16. GCN_ISO 9001.pdf",
+        "path": "11_COMPLIANCE/legal/16. GCN_ISO 9001.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 482871
+       },
+       {
+        "name": "17. 2024. T4_HSNL_ETV.pdf",
+        "path": "11_COMPLIANCE/legal/17. 2024. T4_HSNL_ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 12236065
+       },
+       {
+        "name": "17. 2024. T4_HSNL_ETV_ doi trang.pdf",
+        "path": "11_COMPLIANCE/legal/17. 2024. T4_HSNL_ETV_ doi trang.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 12217648
+       },
+       {
+        "name": "2. QD 399_Bo nhiem Vien truong ETV.pdf",
+        "path": "11_COMPLIANCE/legal/2. QD 399_Bo nhiem Vien truong ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 651686
+       },
+       {
+        "name": "3. 2023. Giay DK KHCN_Lan 3_ETV.pdf",
+        "path": "11_COMPLIANCE/legal/3. 2023. Giay DK KHCN_Lan 3_ETV.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1191305
+       },
+       {
+        "name": "4. 2025. GCN dang ky KD HC_Vien ETV_Lan 9..pdf",
+        "path": "11_COMPLIANCE/legal/4. 2025. GCN dang ky KD HC_Vien ETV_Lan 9..pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 13266583
+       },
+       {
+        "name": "5. 2023_Chung chi Vilas.1298.pdf",
+        "path": "11_COMPLIANCE/legal/5. 2023_Chung chi Vilas.1298.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 410967
+       },
+       {
+        "name": "5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6.pdf",
+        "path": "11_COMPLIANCE/legal/5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 1241800
+       },
+       {
+        "name": "5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6_scan.pdf",
+        "path": "11_COMPLIANCE/legal/5. 2025.7_QD 1564_Chi dinh Kiem dinh_Lan 6_scan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 3824358
+       },
+       {
+        "name": "6. 2025.7 QD 1565_The kiem dinh vien_Lan 13_scan.pdf",
+        "path": "11_COMPLIANCE/legal/6. 2025.7 QD 1565_The kiem dinh vien_Lan 13_scan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 6037519
+       },
+       {
+        "name": "7. GCN_Dang ky Mau dau.pdf",
+        "path": "11_COMPLIANCE/legal/7. GCN_Dang ky Mau dau.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 672958
+       },
+       {
+        "name": "8. Mau 08-TT95_Thong bao tai khoan.pdf",
+        "path": "11_COMPLIANCE/legal/8. Mau 08-TT95_Thong bao tai khoan.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 343965
+       },
+       {
+        "name": "9. Giay xac nhan_So tai khoan_TCB.pdf",
+        "path": "11_COMPLIANCE/legal/9. Giay xac nhan_So tai khoan_TCB.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 472879
+       },
+       {
+        "name": "9. Thong bao tai khoan_ETV_MB.pdf",
+        "path": "11_COMPLIANCE/legal/9. Thong bao tai khoan_ETV_MB.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 65593
+       },
+       {
+        "name": "Profile_ETV_Eng_Vie.pdf",
+        "path": "11_COMPLIANCE/legal/Profile_ETV_Eng_Vie.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 20540070
+       },
+       {
+        "name": "Profile_ETV_VN.pdf",
+        "path": "11_COMPLIANCE/legal/Profile_ETV_VN.pdf",
+        "type": "file",
+        "ext": ".pdf",
+        "size": 3861965
+       },
+       {
+        "name": "README.md",
+        "path": "11_COMPLIANCE/legal/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1871
+       }
+      ],
+      "desc": "Thư mục lưu trữ toàn bộ **bằng chứ pháp nhân hợp lệ** của Viện ETV được cấp bởi các cơ quan nhà nước và tổ chức quốc tế.",
+      "readme": "11_COMPLIANCE/legal/README.md",
+      "n_dirs": 0,
+      "n_files": 28
+     },
+     {
       "name": "README.md",
       "path": "11_COMPLIANCE/README.md",
       "type": "file",
@@ -64904,7 +66237,7 @@
     ],
     "desc": "**Ý nghĩa:** Lớp chứng minh tuân thủ — nơi đánh giá viên (BoA/VILAS, TDC, cơ quan QLNN) truy bằng chứng. Bao gồm toàn bộ hồ sơ đăng ký hoạt động với cơ quan nhà nước.",
     "readme": "11_COMPLIANCE/README.md",
-    "n_dirs": 9,
+    "n_dirs": 10,
     "n_files": 1
    },
    {
@@ -65331,6 +66664,20 @@
       "size": 18856
      },
      {
+      "name": "export_all_skills.py",
+      "path": "_meta/export_all_skills.py",
+      "type": "file",
+      "ext": ".py",
+      "size": 1668
+     },
+     {
+      "name": "export_skill_cursor.py",
+      "path": "_meta/export_skill_cursor.py",
+      "type": "file",
+      "ext": ".py",
+      "size": 4665
+     },
+     {
       "name": "extract_documents_metadata.py",
       "path": "_meta/extract_documents_metadata.py",
       "type": "file",
@@ -65359,21 +66706,65 @@
       "size": 259
      },
      {
+      "name": "skills_schema.json",
+      "path": "_meta/skills_schema.json",
+      "type": "file",
+      "ext": ".json",
+      "size": 3285
+     },
+     {
       "name": "validate_links.py",
       "path": "_meta/validate_links.py",
       "type": "file",
       "ext": ".py",
       "size": 1818
+     },
+     {
+      "name": "validate_skill_schema.py",
+      "path": "_meta/validate_skill_schema.py",
+      "type": "file",
+      "ext": ".py",
+      "size": 4555
      }
     ],
     "n_dirs": 1,
-    "n_files": 6
+    "n_files": 10
    },
    {
     "name": "ETV_Infographic",
     "path": "ETV_Infographic",
     "type": "dir",
     "children": [
+     {
+      "name": "Manlab",
+      "path": "ETV_Infographic/Manlab",
+      "type": "dir",
+      "children": [
+       {
+        "name": "Chuong trinh Dao tao_Chung.png",
+        "path": "ETV_Infographic/Manlab/Chuong trinh Dao tao_Chung.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 1830743
+       },
+       {
+        "name": "Huong dan tao BBDL.png",
+        "path": "ETV_Infographic/Manlab/Huong dan tao BBDL.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 1833715
+       },
+       {
+        "name": "Huong dan tao PNT.png",
+        "path": "ETV_Infographic/Manlab/Huong dan tao PNT.png",
+        "type": "file",
+        "ext": ".png",
+        "size": 1882319
+       }
+      ],
+      "n_dirs": 0,
+      "n_files": 3
+     },
      {
       "name": "ISO17025.png",
       "path": "ETV_Infographic/ISO17025.png",
@@ -65431,7 +66822,7 @@
       "size": 1860520
      }
     ],
-    "n_dirs": 0,
+    "n_dirs": 1,
     "n_files": 8
    },
    {
