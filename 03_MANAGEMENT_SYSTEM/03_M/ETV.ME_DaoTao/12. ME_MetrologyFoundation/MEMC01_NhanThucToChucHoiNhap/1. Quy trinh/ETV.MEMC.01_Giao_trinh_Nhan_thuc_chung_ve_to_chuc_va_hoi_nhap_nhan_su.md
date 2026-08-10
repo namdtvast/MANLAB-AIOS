@@ -5,14 +5,15 @@ type: Giao-trinh
 owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
 prepared_by: "Dương Thành Nam"
-prepared_date: "22/07/2026"
+prepared_date: "20/07/2026"
 reviewed_by: "Trần Thị Hoa"
-reviewed_date: "22/07/2026"
+reviewed_date: "20/07/2026"
 approved_by: "Nguyễn Hoàng Giang"
-approved_date: "22/07/2026"
+approved_date: "20/07/2026"
 process: ""
-effective_date: "22/07/2026"
-revision: "02"
+effective_date: "20/07/2026"
+last_modified: "22/07/2026"
+revision: "01"
 status: Da-ban-hanh
 keywords: [giáo trình, đào tạo, hội nhập nhân sự, nhận thức tổ chức, ManLab, năng lực nền tảng]
 related_documents: ["ETV.P03", "ETV.QM"]
@@ -34,8 +35,9 @@ superseded_by: null
 | Mục | Chi tiết |
 |---|---|
 | Mã số | **ETV.MEMC 01** *(lĩnh vực `MC` — Cơ sở đo lường học và năng lực nền tảng, tài liệu đầu tiên của lĩnh vực)* |
-| Lần ban hành | **02** |
-| Ngày ban hành | **22/07/2026** |
+| Lần ban hành | **01** |
+| Ngày ban hành | **20/07/2026** |
+| Ngày chỉnh sửa gần nhất | **22/07/2026** *(chỉnh sửa nội dung, không ban hành lại)* |
 | Biên soạn | **Dương Thành Nam** |
 | Soát xét | **Trần Thị Hoa** |
 | Phê duyệt | **Nguyễn Hoàng Giang** |
@@ -52,7 +54,7 @@ superseded_by: null
 |---|---|---|
 | 20/07/2026 | Ban hành lần đầu | 01 |
 | 20/07/2026 | Mở rộng cấu trúc thành 6 phần / 23 chương theo khung chương trình tham khảo (Mục tiêu chương – Nội dung cốt lõi – Chuẩn đầu ra – Câu hỏi ôn tập); bổ sung tiêu chí hoàn thành định lượng, ma trận chức danh–học phần, checklist hội nhập, danh mục thuật ngữ | 01 |
-| 22/07/2026 | Cập nhật chính thức Vision (02_Vision.md), Sứ mệnh (03_Mission.md), Chiến lược (01_Strategy.md), Cơ cấu tổ chức (04_Organization.md) từ 01_ENTERPRISE; thêm sơ đồ PDCA, quy trình, workflow; mở rộng liên kết chi tiết đến ETV.QM, ETV.P01–P24 (24 thủ tục), ISO tiêu chuẩn; liên kết tới MP29; giữ nguyên các phần chưa có văn bản chính thức (Giá trị cốt lõi), chờ Viện cập nhật | 02 |
+| 22/07/2026 | Cập nhật chính thức Vision (02_Vision.md), Sứ mệnh (03_Mission.md), Chiến lược (01_Strategy.md), Cơ cấu tổ chức (04_Organization.md) từ 01_ENTERPRISE; thêm sơ đồ PDCA, quy trình, workflow; mở rộng liên kết chi tiết đến ETV.QM, ETV.P01–P24 (24 thủ tục), ISO tiêu chuẩn; liên kết tới MP29; giữ nguyên các phần chưa có văn bản chính thức (Giá trị cốt lõi), chờ Viện cập nhật | 01 |
 
 ---
 
