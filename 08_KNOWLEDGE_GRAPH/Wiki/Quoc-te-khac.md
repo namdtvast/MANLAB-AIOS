@@ -4,8 +4,8 @@ type: Wiki-Topic
 status: Da-bien-soan
 source_raw: "08_KNOWLEDGE_GRAPH/00_RAW_DATA/2.x (đã di chuyển)"
 source_now: "08_KNOWLEDGE_GRAPH/12_International/{EPA,BS_EN,OIML,VIM_GUM,APHA,ASTM,SMEWW,mCERTs,IUPAC}/"
-file_count: 92
-last_updated: "08/07/2026"
+file_count: 93
+last_updated: "11/08/2026"
 ---
 
 # Tiêu chuẩn quốc tế khác
@@ -14,7 +14,7 @@ last_updated: "08/07/2026"
 
 ## Tóm tắt
 
-92 file từ 9 nhóm tiêu chuẩn/hướng dẫn quốc tế khác nhau, đã di chuyển sang `12_International/` (thư mục mới tạo — trước đó chỉ tồn tại trên giấy trong README, chưa có thư mục thật).
+93 file từ 9 nhóm tiêu chuẩn/hướng dẫn quốc tế khác nhau, đã di chuyển sang `12_International/` (thư mục mới tạo — trước đó chỉ tồn tại trên giấy trong README, chưa có thư mục thật).
 
 ## EPA (42 file, `EPA/`)
 
@@ -40,7 +40,7 @@ Tổ chức Đo lường pháp định Quốc tế — khuyến nghị (Recommen
 - D018 — tài liệu OIML khác (chưa xác định chủ đề)
 - ILAC_G24:2007 — chu kỳ hiệu chuẩn (trùng chủ đề ĐLVN 132 — xem [DLVN.md](DLVN.md))
 
-## VIM, GUM (7 file, `VIM_GUM/`)
+## VIM, GUM (8 file, `VIM_GUM/`)
 
 Bộ tài liệu JCGM (Joint Committee for Guides in Metrology) — nền tảng lý thuyết đo lường dùng chung toàn cầu:
 - JCGM 100:2008 (GUM) — đánh giá dữ liệu đo, độ không đảm bảo đo
@@ -48,6 +48,7 @@ Bộ tài liệu JCGM (Joint Committee for Guides in Metrology) — nền tảng
 - JCGM 200:2008 (VIM) — từ vựng quốc tế về đo lường
 - `MU for bacteria.pdf` — độ không đảm bảo đo trong vi sinh (ứng dụng cụ thể)
 - `GUM Workbench_User Manual.pdf` — hướng dẫn phần mềm tính độ không đảm bảo đo
+- `EURACHEM-CITAC_UfS_2019_2nd-ed.pdf` — EURACHEM/CITAC Guide "Measurement uncertainty arising from Sampling" (2nd ed., 2019, đồng xuất bản với Eurolab/Nordtest/RSC) — phương pháp đánh giá ĐKĐB phát sinh từ khâu lấy mẫu, bổ sung cho GUM (vốn tập trung vào ĐKĐB phép đo, ít đề cập lấy mẫu)
 
 ## APHA (1 file, `APHA/`)
 
