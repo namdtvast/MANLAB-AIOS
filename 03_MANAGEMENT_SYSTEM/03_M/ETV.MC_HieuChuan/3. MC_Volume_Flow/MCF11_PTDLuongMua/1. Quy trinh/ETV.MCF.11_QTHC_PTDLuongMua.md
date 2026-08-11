@@ -147,17 +147,17 @@ Phương tiện đo lượng mưa được kiểm tra đo lường theo trình t
 - Kết quả được ghi vào biên bản hiệu chuẩn theo mẫu Phụ lục;
 - Sai số tại mỗi điểm được tính theo công thức:
 
-  $$
-  \Delta H = H_{ptđ} - H_{ch} \tag{1}
-  $$
+$$
+\Delta H = H_{ptđ} - H_{ch} \tag{1}
+$$
 
   Trong đó: `ΔH`: sai số mức nước theo độ cao cột nước tính bằng mm; `H_ptđ`: số chỉ độ cao cột nước của phương tiện cần kiểm tính bằng mm; `H_ch`: giá trị độ cao cột nước tính được từ giá trị dung tích chuẩn ứng với diện tích miệng hứng đo được của PTĐ cần kiểm tính bằng mm.
 
   Trong đó `H_ch` được xác định theo công thức:
 
-  $$
-  H_{ch} = \frac{V}{A} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{1}{\pi \times (d/2)^2} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{4}{\pi \times d^2} \tag{2}
-  $$
+$$
+H_{ch} = \frac{V}{A} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{1}{\pi \times (d/2)^2} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{4}{\pi \times d^2} \tag{2}
+$$
 
   Trong đó:
 
@@ -189,15 +189,15 @@ Trong đó: `P`: áp suất khí quyển, hPa; `φ`: độ ẩm tương đối, 
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị thời gian cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-  $$
-  \Delta X = x_{cd} - x_{ch} \tag{5}
-  $$
+$$
+\Delta X = x_{cd} - x_{ch} \tag{5}
+$$
 
   Trong đó:
 
-  $$
-  x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
-  $$
+$$
+x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
+$$
 
   - `x_ch`: giá trị trung bình của chuẩn, phút;
   - `x_j`: giá trị của chuẩn tại lần thứ j, phút;

@@ -141,9 +141,9 @@ Panme được hiệu chuẩn đo lường theo trình tự nội dung, phương
 
 - Trường hợp các vân giao thoa là các vòng tròn khép kín thì độ không phẳng tính theo công thức:
 
-  $$
-  P = m \cdot \frac{\lambda}{2} \tag{1}
-  $$
+$$
+P = m \cdot \frac{\lambda}{2} \tag{1}
+$$
 
   - `P`: độ không phẳng của mặt đo;
   - `m`: số vân giao thoa đếm được;
@@ -151,9 +151,9 @@ Panme được hiệu chuẩn đo lường theo trình tự nội dung, phương
 
 - Trường hợp các vân giao thoa là những đường vòng cung, tính độ không phẳng theo công thức:
 
-  $$
-  P = \frac{b}{a} \cdot \frac{\lambda}{2} \tag{2}
-  $$
+$$
+P = \frac{b}{a} \cdot \frac{\lambda}{2} \tag{2}
+$$
 
   - `a`: khoảng cách giữa hai vân giao thoa liên tiếp;
   - `b`: độ cong của vân giao thoa.

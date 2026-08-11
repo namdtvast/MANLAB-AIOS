@@ -138,17 +138,17 @@ Trước khi tiến hành hiệu chuẩn, phải chuẩn bị các công việc 
 
   Sai lệch giữa hai lần cân phải đáp ứng yêu cầu sau:
 
-  $$
-  \Delta m_{bi} = |m_{bi,1} - m_{bi,2}| \leq 40\ \mu g \tag{1}
-  $$
+$$
+\Delta m_{bi} = |m_{bi,1} - m_{bi,2}| \leq 40\ \mu g \tag{1}
+$$
 
   Nếu điều kiện (1) không đáp ứng, cái lọc bụi sẽ bị loại bỏ hoặc được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ, cân lại: kết quả `m_bi,3`.
 
   Sai lệch giữa hai lần cân cuối cùng phải đáp ứng yêu cầu sau:
 
-  $$
-  |m_{bi,2} - m_{bi,3}| \leq 40\ \mu g \tag{2}
-  $$
+$$
+|m_{bi,2} - m_{bi,3}| \leq 40\ \mu g \tag{2}
+$$
 
   Nếu điều kiện (2) không đáp ứng, cái lọc bụi sẽ bị loại bỏ và sẽ thay thế bằng cái lọc bụi khác, phải thực hiện kiểm tra lại theo bước tuần tự như trên.
 
@@ -197,17 +197,17 @@ Phương pháp hiệu chuẩn hệ thống chuẩn nồng độ khối lượng 
 
   Sai lệch giữa hai kết quả phải đáp ứng yêu cầu:
 
-  $$
-  |m_{azi,1} - m_{azi,2}| \leq 60\ \mu g \tag{3}
-  $$
+$$
+|m_{azi,1} - m_{azi,2}| \leq 60\ \mu g \tag{3}
+$$
 
   Nếu điều kiện (3) không đáp ứng, kết quả sẽ là không hợp lệ hoặc cái lọc bụi sẽ được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ và được cân lại (gọi là kết quả `m_azi,3`).
 
   Sai lệch giữa hai kết quả cuối cùng sẽ đáp ứng yêu cầu:
 
-  $$
-  |m_{azi,2} - m_{azi,3}| \leq 60\ \mu g \tag{4}
-  $$
+$$
+|m_{azi,2} - m_{azi,3}| \leq 60\ \mu g \tag{4}
+$$
 
   Nếu điều kiện (4) không đáp ứng, kết quả sẽ bị hủy bỏ và coi là không hợp lệ.
 
@@ -234,17 +234,17 @@ Thực hiện tương tự các bước như tại vị trí đầu hút 01 (m�
 
   Sai lệch giữa hai kết quả phải đáp ứng yêu cầu:
 
-  $$
-  |m_{asi,1} - m_{asi,2}| \leq 60\ \mu g \tag{5}
-  $$
+$$
+|m_{asi,1} - m_{asi,2}| \leq 60\ \mu g \tag{5}
+$$
 
   Nếu điều kiện (5) không đáp ứng, kết quả sẽ là không hợp lệ hoặc cái lọc bụi sẽ được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ và được cân lại (gọi là kết quả `m_asi,3`).
 
   Sai lệch giữa hai kết quả cuối cùng sẽ đáp ứng yêu cầu:
 
-  $$
-  |m_{asi,2} - m_{asi,3}| \leq 60\ \mu g \tag{6}
-  $$
+$$
+|m_{asi,2} - m_{asi,3}| \leq 60\ \mu g \tag{6}
+$$
 
   Nếu điều kiện (6) không đáp ứng, kết quả sẽ bị hủy bỏ và coi là không hợp lệ.
 
@@ -265,9 +265,9 @@ $$
 - `C_m,ref`: nồng độ khối lượng hạt PM tham chiếu;
 - `η_hom`: là độ không đồng nhất nồng độ bụi vị trí đầu hút mẫu:
 
-  $$
-  \eta_{hom} = 1 - \frac{|C_i^{ref} - C_j^{ref}|}{\bar{C}} \tag{8}
-  $$
+$$
+\eta_{hom} = 1 - \frac{|C_i^{ref} - C_j^{ref}|}{\bar{C}} \tag{8}
+$$
 
   - `C_i^ref`: nồng độ hạt PM tại vị trí i trên cùng mặt phẳng tiết diện thu mẫu, µg/m³;
   - `C_j^ref`: nồng độ hạt PM tại vị trí j trên cùng mặt phẳng tiết diện thu mẫu, µg/m³;
@@ -275,18 +275,18 @@ $$
 
 - `m`: là khối lượng hạt PM thu được trên cái lọc bụi, µg:
 
-  $$
-  m = m_{ai} - m_{bi} \tag{9}
-  $$
+$$
+m = m_{ai} - m_{bi} \tag{9}
+$$
 
   - `m_ai`: khối lượng cái lọc bụi thứ i sau khi hút mẫu, µg;
   - `m_bi`: khối lượng cái lọc bụi thứ i trước khi hút mẫu, µg.
 
 - `V`: là thể tích được hút mẫu, m³:
 
-  $$
-  V = Q \times t \tag{10}
-  $$
+$$
+V = Q \times t \tag{10}
+$$
 
   - `Q`: lưu lượng thể tích qua cái lọc bụi, m³/h;
   - `t`: thời gian thu mẫu hạt PM (thời gian đo), h.
@@ -399,23 +399,23 @@ $$
 
 - Giá trị trung bình của n phép đo:
 
-  $$
-  \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \tag{13}
-  $$
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \tag{13}
+$$
 
 - Độ lệch chuẩn thực nghiệm của giá trị trung bình:
 
-  $$
-  s(\bar{x}) = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}} \tag{14}
-  $$
+$$
+s(\bar{x}) = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}} \tag{14}
+$$
 
   - `n`: số lần đo; `x_i`: giá trị đo thứ i; `x̄`: giá trị đo trung bình.
 
 - Độ không đảm bảo đo chuẩn loại A:
 
-  $$
-  u_A = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}
-  $$
+$$
+u_A = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}
+$$
 
 ##### 8.2.1.2. Độ không đảm bảo đo gây nên bởi độ phân giải của PTĐ (u_res)
 

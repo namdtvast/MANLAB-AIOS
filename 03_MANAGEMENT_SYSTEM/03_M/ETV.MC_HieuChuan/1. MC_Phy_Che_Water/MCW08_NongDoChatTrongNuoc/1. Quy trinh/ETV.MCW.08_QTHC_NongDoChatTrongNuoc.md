@@ -253,15 +253,15 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
-  $$
+$$
+u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
+$$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
-  $$
+$$
+u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
+$$
 
 Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thực tế thì bỏ qua phần tính toán thành phần ĐKĐB do dung dịch chuẩn.
 
@@ -297,18 +297,18 @@ $$
 
 - ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn:
 
-  $$
-  u_{calp} = \frac{d}{k}
-  $$
+$$
+u_{calp} = \frac{d}{k}
+$$
 
   - `d`: Độ không đảm bảo đo;
   - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 
 - ĐKĐB do giãn nở nhiệt:
 
-  $$
-  u_{temp} = \frac{V_{pipet} \times \gamma \times \Delta_i}{\sqrt{3}}
-  $$
+$$
+u_{temp} = \frac{V_{pipet} \times \gamma \times \Delta_i}{\sqrt{3}}
+$$
 
   - `γ`: Hệ số dãn nở/1 °C;
   - `Δ_i`: Sai lệch nhiệt độ so với 25 °C;
@@ -322,18 +322,18 @@ $$
 
 - ĐKĐB gây ra bởi bình định mức để pha loãng dung dịch chuẩn:
 
-  $$
-  u_{calf} = \frac{e}{k}
-  $$
+$$
+u_{calf} = \frac{e}{k}
+$$
 
   - `e`: Độ không đảm bảo đo;
   - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 
 - ĐKĐB do thao tác của nhân viên thực hiện:
 
-  $$
-  u_{per} = \frac{0,03}{\sqrt{3}}
-  $$
+$$
+u_{per} = \frac{0,03}{\sqrt{3}}
+$$
 
   Sai số do thao tác (sai số do dư hoặc thiếu ở giọt cuối cùng được tính xấp xỉ ± 0,03 mL).
 

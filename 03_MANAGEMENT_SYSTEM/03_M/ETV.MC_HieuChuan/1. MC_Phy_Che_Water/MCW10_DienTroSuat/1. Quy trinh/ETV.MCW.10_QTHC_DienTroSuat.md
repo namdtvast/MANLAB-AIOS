@@ -211,15 +211,15 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
-  $$
+$$
+u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
+$$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
-  $$
+$$
+u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
+$$
 
 Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thực tế thì bỏ qua phần tính toán thành phần ĐKĐB do dung dịch chuẩn.
 

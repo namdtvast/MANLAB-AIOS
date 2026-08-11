@@ -193,9 +193,9 @@ PTĐ lưu lượng khí được kiểm tra đo lường theo trình tự nội 
 - **Bước 2:** Thực hiện 5 lần đọc, mỗi lần cách nhau 15 s, kết quả hiệu chuẩn tại mỗi lưu lượng tính bằng trung bình cộng của 5 lần đọc. Ghi lại hiển thị lưu lượng, nhiệt độ, áp suất trên PTĐ cần hiệu chuẩn và trên chuẩn vào biên bản Phụ lục I;
 - **Bước 3:** Lưu lượng mỗi lần đo của chuẩn được tính toán theo công thức:
 
-  $$
-  Q_c = \frac{V_c}{t} \tag{1}
-  $$
+$$
+Q_c = \frac{V_c}{t} \tag{1}
+$$
 
   Trong đó: `Q_c`: lưu lượng tại chuẩn ở điều kiện đo, L/min; `V_c`: thể tích tại chuẩn ở điều kiện đo, L; `t`: thời gian hiệu chuẩn, min.
 

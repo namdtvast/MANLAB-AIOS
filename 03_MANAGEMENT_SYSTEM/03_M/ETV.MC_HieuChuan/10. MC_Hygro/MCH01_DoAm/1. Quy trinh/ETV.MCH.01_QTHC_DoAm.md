@@ -155,9 +155,9 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 - Độ hồi trễ của PTĐ độ ẩm không khí tại mỗi điểm kiểm tra sẽ bằng hiệu số của trung bình các giá trị đo được theo chiều tăng với trung bình các giá trị đo được theo chiều giảm.
 - Độ hồi trễ lớn nhất từ độ hồi trễ tại các điểm kiểm tra sẽ được coi là độ hồi trễ:
 
-  $$
-  A_{max} = \max\left(\overline{RH}_{tb,\ chiều\ tăng} - \overline{RH}_{tb,\ chiều\ giảm}\right)
-  $$
+$$
+A_{max} = \max\left(\overline{RH}_{tb,\ chiều\ tăng} - \overline{RH}_{tb,\ chiều\ giảm}\right)
+$$
 
 #### 7.3.4. Sai số đo và số hiệu chính cho giá trị đo của PTĐ cần hiệu chuẩn
 
@@ -182,9 +182,9 @@ $$
 - Thực hiện đo lặp 10 lần tại mỗi điểm nhiệt độ kiểm tra. Đọc các giá trị đo độ ẩm của PTĐ cần hiệu chuẩn khi chỉ thị ổn định và ghi tối thiểu 10 giá trị độ ẩm đo được vào biên bản Phụ lục 2, mỗi lần cách nhau 5 phút.
 - Sự phụ thuộc độ ẩm vào nhiệt độ được tính là giá trị độ lệch độ ẩm lớn nhất giữa ba điểm nhiệt độ (20, 30, 40) °C:
 
-  $$
-  B_{max} = \max\left(\left|\overline{RH}_{DUT1} - \overline{RH}_{DUT2}\right|;\ \left|\overline{RH}_{DUT1} - \overline{RH}_{DUT3}\right|;\ \left|\overline{RH}_{DUT2} - \overline{RH}_{DUT3}\right|\right)
-  $$
+$$
+B_{max} = \max\left(\left|\overline{RH}_{DUT1} - \overline{RH}_{DUT2}\right|;\ \left|\overline{RH}_{DUT1} - \overline{RH}_{DUT3}\right|;\ \left|\overline{RH}_{DUT2} - \overline{RH}_{DUT3}\right|\right)
+$$
 
   - `B_max`: sai lệch của độ ẩm theo nhiệt độ;
   - `RH̄_DUT1`, `RH̄_DUT2`, `RH̄_DUT3`: giá trị trung bình độ ẩm của PTĐ cần hiệu chuẩn tại điểm nhiệt độ thứ 1, 2, 3, %RH.
@@ -206,42 +206,42 @@ $$
 
 - **Độ không đảm bảo chuẩn kiểu B của độ ẩm chuẩn `u_ch1`:**
 
-  $$
-  u_{ch1} = \frac{U}{k}
-  $$
+$$
+u_{ch1} = \frac{U}{k}
+$$
 
   - `U`: ĐKĐB mở rộng của thiết bị chuẩn đo độ ẩm, lấy từ giấy chứng nhận hiệu chuẩn;
   - `k`: hệ số mở rộng của U (thông thường k = 2).
 
 - **Độ ổn định của phương tiện đo độ ẩm chuẩn `u_ch2`:**
 
-  $$
-  u_{ch2} = \frac{\delta_{od1}}{\sqrt{3}}
-  $$
+$$
+u_{ch2} = \frac{\delta_{od1}}{\sqrt{3}}
+$$
 
   với `δ_od1`: độ ổn định của phương tiện đo độ ẩm chuẩn, lấy từ đặc tính kỹ thuật của hãng công bố hoặc kết quả hiệu chuẩn định kỳ giữa năm trước và năm sau khi thực hiện bên ngoài, %RH.
 
 - **Độ ổn định của buồng tạo độ ẩm chuẩn `u_ch3`:**
 
-  $$
-  u_{ch3} = \frac{\delta_{od2}}{\sqrt{3}}
-  $$
+$$
+u_{ch3} = \frac{\delta_{od2}}{\sqrt{3}}
+$$
 
   với `δ_od2`: độ ổn định của buồng tạo ẩm chuẩn, lấy từ GCN hiệu chuẩn, %RH.
 
 - **Độ đồng đều của buồng tạo độ ẩm chuẩn `u_ch4`:**
 
-  $$
-  u_{ch4} = \frac{\delta_{dd}}{\sqrt{3}}
-  $$
+$$
+u_{ch4} = \frac{\delta_{dd}}{\sqrt{3}}
+$$
 
   với `δ_dd`: độ đồng đều của buồng tạo ẩm chuẩn, lấy từ GCN hiệu chuẩn, %RH.
 
 - **Độ không đảm bảo do độ lặp lại của chuẩn `u_ch5`:**
 
-  $$
-  u_{ch5} = \sqrt{\frac{S^2}{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{i=1}^{n}(RH_i - RH_{tb})^2}{n-1}}
-  $$
+$$
+u_{ch5} = \sqrt{\frac{S^2}{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{i=1}^{n}(RH_i - RH_{tb})^2}{n-1}}
+$$
 
   - `n`: số lần đọc tại mỗi điểm kiểm tra;
   - `RH_i`: lần đọc thứ i của độ ẩm;
@@ -259,9 +259,9 @@ $$
 
 - **Độ không đảm bảo chuẩn kiểu A của PTĐ cần hiệu chuẩn `u_bk1`:**
 
-  $$
-  u_{bk1} = \sqrt{\frac{S^2}{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{i=1}^{n}(t_i - t_{tb})^2}{n-1}}
-  $$
+$$
+u_{bk1} = \sqrt{\frac{S^2}{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{i=1}^{n}(t_i - t_{tb})^2}{n-1}}
+$$
 
   - `n`: số lần đọc tại mỗi điểm kiểm tra;
   - `t_i`: lần đọc thứ i của PTĐ cần hiệu chuẩn;
@@ -269,24 +269,24 @@ $$
 
 - **Độ không đảm bảo đo kiểu B theo độ phân giải của PTĐ cần hiệu chuẩn `u_bk2`:**
 
-  $$
-  u_{bk2} = \frac{\partial \cdot \Delta}{\sqrt{3}}
-  $$
+$$
+u_{bk2} = \frac{\partial \cdot \Delta}{\sqrt{3}}
+$$
 
   - `Δ = 1/2` với hiển thị hiện số, hoặc `Δ = 1/10` với chỉ thị tương tự;
   - `∂`: độ phân giải nhỏ nhất của chỉ thị PTĐ cần hiệu chuẩn.
 
 - **Độ không đảm bảo đo kiểu B theo độ hồi trễ của PTĐ cần hiệu chuẩn `u_bk3`:**
 
-  $$
-  u_{bk3} = \frac{A_{max}}{2\sqrt{3}}
-  $$
+$$
+u_{bk3} = \frac{A_{max}}{2\sqrt{3}}
+$$
 
 - **Độ không đảm bảo đo kiểu B theo sự phụ thuộc độ ẩm vào nhiệt độ của PTĐ cần hiệu chuẩn `u_bk4`:**
 
-  $$
-  u_{bk4} = \frac{B_{max}}{2\sqrt{3}}
-  $$
+$$
+u_{bk4} = \frac{B_{max}}{2\sqrt{3}}
+$$
 
 **Độ không đảm bảo đo chuẩn tổng hợp của PTĐ cần hiệu chuẩn `u_bk`:**
 

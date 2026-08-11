@@ -149,9 +149,9 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 - **7.3.2.2.** Các phép đo nhiệt độ được thực hiện khi nhiệt độ của thiết bị tạo nhiệt độ chuẩn và nhiệt độ của thiết bị đo đã ổn định trong 10 phút. Ghi kết quả đo không ít hơn 5 lần tại mỗi điểm nhiệt độ kiểm tra.
 - **7.3.2.3.** Hiệu chuẩn cho các cặp nhiệt điện không có đầu tự do nên hiệu chỉnh sức điện động theo công thức:
 
-  $$
-  E_{bk}(t, 0°C) = E_{bk}(t, t_0) + E_{bk}(t_0, 0°C)
-  $$
+$$
+E_{bk}(t, 0°C) = E_{bk}(t, t_0) + E_{bk}(t_0, 0°C)
+$$
 
   Trong đó: `E_bk(t, 0°C)`: sức điện động của cặp nhiệt điện ở nhiệt độ t °C và đầu tự do được giữ ở 0 °C; `E_bk(t, t0)`: sức điện động của cặp nhiệt điện ở t °C và đầu tự do được giữ ở t0 khác 0 °C; `E_bk(t0, 0°C)`: sức điện động của cặp nhiệt điện ở nhiệt độ t0 và đầu tự do được giữ ở nhiệt độ 0 °C.
 
@@ -170,9 +170,9 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 
 - **7.4.1.** Giá trị đo được của nhiệt kế chuẩn và sức điện động của cặp nhiệt điện cần hiệu chuẩn tại mỗi điểm kiểm tra là giá trị trung bình của các lần đo. Giá trị sức điện động trung bình của cặp nhiệt điện cần hiệu chuẩn được tính theo công thức:
 
-  $$
-  E_{bk}(t) = \frac{1}{n}\sum_{i=1}^{n} E_i
-  $$
+$$
+E_{bk}(t) = \frac{1}{n}\sum_{i=1}^{n} E_i
+$$
 
   Trong đó: `n`: số lần đo tại mỗi điểm; `E_i`: giá trị sức điện động của cặp nhiệt điện cần hiệu chuẩn đo được tại lần thứ i.
 
@@ -182,23 +182,23 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 
 - **7.4.4.** Tính độ lệch ΔE giữa giá trị trung bình sức nhiệt điện động của cặp nhiệt điện cần hiệu chuẩn với sức nhiệt điện động chuẩn tại mỗi điểm kiểm tra theo công thức:
 
-  $$
-  \Delta E = E_{bk}(t) - E_{bkTC}(t)
-  $$
+$$
+\Delta E = E_{bk}(t) - E_{bkTC}(t)
+$$
 
 - **7.4.5.** Từ bảng chia độ chuẩn của loại cặp nhiệt điện cần hiệu chuẩn và độ lệch ΔE để tính số hiệu chính của cặp nhiệt điện tại từng điểm kiểm tra.
 
 - **7.4.6.** Tính độ lệch chuẩn tại mỗi điểm kiểm tra của số đọc của nhiệt kế chuẩn và của cặp nhiệt điện cần hiệu chuẩn theo công thức:
 
-  $$
-  s_i = \sqrt{\frac{\sum_{\ell=1}^{n} (x_\ell - \bar{X})^2}{n-1}}
-  $$
+$$
+s_i = \sqrt{\frac{\sum_{\ell=1}^{n} (x_\ell - \bar{X})^2}{n-1}}
+$$
 
 - **7.4.7.** Tính độ lệch chuẩn trung bình của nhiệt kế chuẩn và của cặp nhiệt điện cần hiệu chuẩn trong cả dải nhiệt độ hiệu chuẩn:
 
-  $$
-  s_p = \sqrt{\frac{\sum_{i=1}^{N} s_i^2}{N}}
-  $$
+$$
+s_p = \sqrt{\frac{\sum_{i=1}^{N} s_i^2}{N}}
+$$
 
   Trong đó: `s_i`: độ lệch chuẩn tại điểm kiểm tra thứ i (i = 1, 2,…N); `N`: số điểm kiểm tra; `x_ℓ`: giá trị đo thứ ℓ của điểm kiểm tra (ℓ = 1,2,…n); `X̄`: giá trị trung bình của n lần đo; `n`: số lần đo tại mỗi điểm kiểm tra.
 

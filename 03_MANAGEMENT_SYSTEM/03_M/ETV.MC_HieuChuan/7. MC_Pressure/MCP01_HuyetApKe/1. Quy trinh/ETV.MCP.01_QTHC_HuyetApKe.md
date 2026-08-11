@@ -231,15 +231,15 @@ $$
 
 - Đối với thiết bị đo áp suất kiểu lò xo và thủy ngân:
 
-  $$
-  u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}
-  $$
+$$
+u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}
+$$
 
 - Đối với thiết bị đo áp suất kiểu hiện số:
 
-  $$
-  u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{3}}
-  $$
+$$
+u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{3}}
+$$
 
 **Tính `u_ch`** — xác định theo độ không đảm bảo đo `U(ch)` của chuẩn theo giấy chứng nhận hiệu chuẩn:
 

@@ -154,9 +154,9 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 - Độ hồi trễ của PTĐ cần hiệu chuẩn tại mỗi điểm kiểm tra sẽ bằng hiệu số của trung bình của các giá trị đo được theo chiều tăng với trung bình của các giá trị đo được theo chiều giảm;
 - Độ hồi trễ lớn nhất từ độ hồi trễ tại các điểm kiểm tra sẽ được coi là độ hồi trễ:
 
-  $$
-  A_{max} = \max\left| \left(\bar{t}_{tb,\ chiều\ tăng} - \bar{t}_{tb,\ chiều\ giảm}\right) \right|
-  $$
+$$
+A_{max} = \max\left| \left(\bar{t}_{tb,\ chiều\ tăng} - \bar{t}_{tb,\ chiều\ giảm}\right) \right|
+$$
 
 #### 7.3.4. Sai số đo và số hiệu chính cho giá trị đo của PTĐ cần hiệu chuẩn
 
@@ -184,9 +184,9 @@ Trong đó:
 - Thực hiện đo lặp 10 lần tại mỗi điểm độ ẩm kiểm tra. Đọc các giá trị đo nhiệt độ của PTĐ cần hiệu chuẩn khi chỉ thị ổn định và ghi tối thiểu 10 giá trị nhiệt độ đo được vào biên bản Phụ lục 2, mỗi lần cách nhau 5 phút;
 - Sự phụ thuộc nhiệt độ vào độ ẩm được tính là giá trị độ lệch nhiệt độ lớn nhất giữa ba điểm độ ẩm (30, 50, 80) %RH:
 
-  $$
-  B_{max} = \max\left(|\bar{t}_{DUT1} - \bar{t}_{DUT2}|;\ |\bar{t}_{DUT1} - \bar{t}_{DUT3}|;\ |\bar{t}_{DUT2} - \bar{t}_{DUT3}|\right)
-  $$
+$$
+B_{max} = \max\left(|\bar{t}_{DUT1} - \bar{t}_{DUT2}|;\ |\bar{t}_{DUT1} - \bar{t}_{DUT3}|;\ |\bar{t}_{DUT2} - \bar{t}_{DUT3}|\right)
+$$
 
   Trong đó: `B_max`: sai lệch của nhiệt độ theo độ ẩm; `t̄_DUT1`, `t̄_DUT2`, `t̄_DUT3`: giá trị trung bình nhiệt độ của PTĐ cần hiệu chuẩn phụ thuộc tại điểm nhiệt độ thứ 1, 2, 3 (°C).
 

@@ -191,9 +191,9 @@ Các thiết bị đo lưu lượng trong kênh hở được kiểm tra đo lư
   - Dùng thước đo chiều dài đo lặp lại tối thiểu 3 lần khoảng cách L giữa 2 tâm của 2 hình trụ;
   - Tính toán góc α theo công thức sau:
 
-    $$
-    \alpha = 2 \times \arcsin\left(\frac{R_2 - R_1}{L}\right) \tag{1}
-    $$
+$$
+\alpha = 2 \times \arcsin\left(\frac{R_2 - R_1}{L}\right) \tag{1}
+$$
 
 - Kiểm tra độ rộng của kênh đầu vào, B: dùng thước đo chiều dài đo lặp lại tối thiểu 3 lần chiều rộng của đoạn kênh phía trước đập tràn, cách đập tràn một khoảng tối thiểu bằng 4 lần mức nước lớn nhất của đập tràn. Giá trị của B là trung bình cộng của 3 lần đo trên;
 - Kiểm tra chiều cao đập so với mặt đáy kênh đầu vào, p: dùng thước đo chiều dài tiến hành đo lặp lại tối thiểu 3 lần chiều cao đập so với mặt đáy kênh đầu vào, p. Giá trị của p sẽ là trung bình cộng số học của 3 lần đo trên;
