@@ -197,15 +197,11 @@ Lặp lại quy trình với tốc độ 1,5 và 2,0 mL/min (có thể theo yêu
 
 Tốc độ dòng được tính theo công thức:
 
-$$
-f_{ch} = \frac{V_{bdm}}{t} \tag{1}
-$$
+`f_ch = (V_bdm/t)  (1)`
 
 Sai số giá trị tốc độ dòng được tính theo công thức:
 
-$$
-\Delta_1 = f_F - f_{ch}
-$$
+`Δ_1 = f_F - f_ch`
 
 - `f_F`: giá trị tốc độ dòng chỉ thị trên máy HPLC cần hiệu chuẩn, mL/min;
 - `f_ch`: giá trị tốc độ dòng trung bình đo được của chuẩn, mL/min.
@@ -219,9 +215,7 @@ Tiến hành kiểm tra nhiệt độ buồng cột (column):
 
 Tính toán sai số giữa nhiệt độ chỉ thị của máy HPLC cần hiệu chuẩn so với nhiệt độ của nhiệt kế chuẩn:
 
-$$
-\Delta_2 = T_{tb} - T_{ch}
-$$
+`Δ_2 = T_tb - T_ch`
 
 - `T_tb`: giá trị nhiệt độ chỉ thị của máy HPLC cần hiệu chuẩn, °C;
 - `T_ch`: giá trị nhiệt độ trung bình của nhiệt kế chuẩn, °C.
@@ -233,9 +227,7 @@ $$
 - Ghi kết quả vào biên bản hiệu chuẩn.
 - Độ lặp lại được tính toán bằng độ lệch chuẩn tương đối RSD theo công thức:
 
-$$
-RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
-$$
+`RSD = (s/x̄) × 100 với s = √((Σ(i=1→n)(x_i - x̄)²)/(n-1))`
 
 - `RSD`: độ lệch chuẩn tương đối của các kết quả đo lặp lại, %;
 - `s`: độ lệch chuẩn của các kết quả đo lặp lại;
@@ -255,9 +247,7 @@ $$
 
 Dựa vào phương trình tổng quát (1), độ không đảm bảo đo chuẩn tổng hợp được tính như sau:
 
-$$
-u_F = \sqrt{c_t^2 u^2(t) + c_{V_{bdm}}^2 u^2(V_{bdm})} = \sqrt{\left(\frac{\partial C_i}{\partial t}\right)^2 u^2(t) + \left(\frac{\partial C_i}{\partial V_{bdm}}\right)^2 u^2(V_{bdm})}
-$$
+`u_F = √(c_t² u²(t) + c_V_bdm² u²(V_bdm)) = √(((∂ C_i)/(∂ t))² u²(t) + ((∂ C_i)/(∂ V_bdm))² u²(V_bdm))`
 
 - `u(t)`, `u(V_bdm)`: các hệ số đóng góp vào độ không đảm bảo đo;
 - `∂C_i/∂t`, `∂C_i/∂V_bdm`: các hệ số nhạy.
@@ -266,17 +256,13 @@ $$
 
 - ĐKĐB của bình định mức lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{bdm1} = \frac{a}{2}
-$$
+`u_bdm1 = (a/2)`
 
   với `a` là ĐKĐB của bình định mức lấy từ giấy chứng nhận hiệu chuẩn.
 
 - ĐKĐB thành phần `u_bdm2` do độ tản mạn:
 
-$$
-u_{bdm2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(V_{bdm_i} - \bar{V}_{bdm})^2}{n-1}}
-$$
+`u_bdm2 = √(S_i²/n) = (S_i/√(n)) với S_i = √((Σ(1→n)(V_bdm_i - V̄_bdm)²)/(n-1))`
 
   - `S_i`: Độ lệch chuẩn, mL;
   - `n`: Số lần đo;
@@ -285,25 +271,19 @@ $$
 
 - Hệ số nhạy:
 
-$$
-c_{bdm} = \frac{\partial C_i}{\partial V_{bdm}} = \frac{1}{t}
-$$
+`c_bdm = ((∂ C_i)/(∂ V_bdm)) = (1/t)`
 
 **ĐKĐB gây ra bởi đồng hồ bấm giây `u(t) = √(u_t1² + u_t2²)` và hệ số nhạy `c_t`**
 
 - ĐKĐB của đồng hồ bấm giây lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{t1} = \frac{b}{2}
-$$
+`u_t1 = (b/2)`
 
   với `b` là ĐKĐB của đồng hồ bấm giây lấy từ giấy chứng nhận hiệu chuẩn.
 
 - ĐKĐB thành phần `u_t2` do độ tản mạn:
 
-$$
-u_{t2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-$$
+`u_t2 = √(S_i²/n) = (S_i/√(n)) với S_i = √((Σ(1→n)(t_i - t̄)²)/(n-1))`
 
   - `S_i`: Độ lệch chuẩn, s;
   - `n`: Số lần đo;
@@ -312,15 +292,11 @@ $$
 
 - Hệ số nhạy:
 
-$$
-c_t = \frac{\partial C_i}{\partial C_t} = \frac{-V}{t^2}
-$$
+`c_t = ((∂ C_i)/(∂ C_t)) = ((-V)/t²)`
 
 - ĐKĐB ảnh hưởng bởi độ phân tán của kết quả đo thời gian 06 lần lặp lại: `u_1`
 
-$$
-S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
-$$
+`S_f = √((Σ(x_i - x_tb)²)/(n-1)) u_1 = (S_f/√(n))`
 
   - `S_f`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị thời gian đo lần i (i = 1, 2, …, n);
@@ -329,15 +305,11 @@ $$
 
 - ĐKĐB tổng hợp:
 
-$$
-u_f = \sqrt{u_1^2 + u_t^2 + u_V^2}
-$$
+`u_f = √(u_1² + u_t² + u_V²)`
 
 - ĐKĐB mở rộng:
 
-$$
-U_f = k \times u_f
-$$
+`U_f = k × u_f`
 
   Độ KĐBĐ mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
@@ -347,23 +319,17 @@ $$
 
 **a) Độ không đảm bảo đo của nhiệt kế chuẩn**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2²)`
 
 - ĐKĐB `u_ch1` của nhiệt kế chuẩn (ĐKĐB kiểu B):
 
-$$
-u_{ch1} = \frac{U_{95}}{2}
-$$
+`u_ch1 = (U_95/2)`
 
   với `U₉₅`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ GCN hiệu chuẩn.
 
 - ĐKĐB do độ tản mạn `u_ch2` của các kết quả đo bởi nhiệt kế chuẩn (kiểu A):
 
-$$
-u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-$$
+`u_ch2 = √(S_ch2²/n) = (S_ch2/√(n)) = √((Σ(1→n)(t_i - t̄)²)/n(n-1)) với S_ch2 = √((Σ(1→n)(t_i - t̄)²)/(n-1))`
 
   - `S_ch2`: Độ lệch chuẩn nhiệt độ dung môi đo được bởi nhiệt kế chuẩn tại điểm hiệu chuẩn nhiệt độ buồng, °C;
   - `n`: Số lần đo lặp nhiệt độ buồng bởi nhiệt kế chuẩn tại mỗi điểm hiệu chuẩn nhiệt độ, n = 5;
@@ -372,15 +338,11 @@ $$
 
 **b) Độ không đảm bảo đo của thiết bị chỉ thị nhiệt của buồng HPLC**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2²)`
 
 - ĐKĐB do độ tản mạn `u_bk1` của các kết quả đo của bộ chỉ thị nhiệt buồng HPLC:
 
-$$
-u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{bk1} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-$$
+`u_bk1 = √(S_bk1²/n) = (S_bk1/√(n)) = √((Σ(1→n)(t_i - t̄)²)/n(n-1)) với S_bk1 = √((Σ(1→n)(t_i - t̄)²)/(n-1))`
 
   - `S_bk1`: Độ lệch chuẩn nhiệt độ buồng đo được trên HPLC tại điểm hiệu chuẩn nhiệt độ, °C;
   - `n`: Số lần đo lặp, n = 5;
@@ -389,9 +351,7 @@ $$
 
 - ĐKĐB do độ phân giải `u_bk2` của chỉ thị nhiệt độ của HPLC:
 
-$$
-u_{bk2} = \frac{d}{2\sqrt{3}}
-$$
+`u_bk2 = (d/2√(3))`
 
   - `d`: Độ phân giải chỉ thị nhiệt độ của HPLC (°C).
 
@@ -403,9 +363,7 @@ Vì không có thông tin về độ không đảm bảo đo được cung cấp
 
 Nồng độ dung dịch pha gốc được tính theo công thức:
 
-$$
-C = \frac{m}{V}
-$$
+`C = (m/V)`
 
 - `C`: nồng độ dung dịch pha gốc (mg/L);
 - `m`: khối lượng của hoá chất chuẩn (mg);
@@ -415,23 +373,17 @@ $$
 
 Theo giấy chứng nhận hiệu chuẩn — ví dụ: trong giấy chứng nhận hiệu chuẩn ghi ĐKĐB của cân phân tích là g (mg) với mức tin cậy 95 % thì:
 
-$$
-u_m = \frac{g}{2}
-$$
+`u_m = (g/2)`
 
 **b. Độ không đảm bảo gây nên bởi độ tinh khiết của các hóa chất chuẩn `u_p`**
 
 Độ tinh khiết của hóa chất được chỉ dẫn theo catalogue nhà sản xuất — ví dụ: trên nhãn lọ hoá chất ghi độ tinh khiết 99,997 % cho nên P = 1,00000 ± 0,00003:
 
-$$
-u_p = \frac{0{,}00003}{\sqrt{3}}
-$$
+`u_p = (0,00003/√(3))`
 
 **c. Độ không đảm bảo gây nên bởi bình định mức `u_flask`**
 
-$$
-u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}
-$$
+`u_flask = √(u_calf² + u_per² + u_temp²)`
 
 - `u_calf`: ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn;
 - `u_per`: ĐKĐB do thao tác của nhân viên thực hiện;
@@ -439,15 +391,11 @@ $$
 
 Độ không đảm bảo đo của dung dịch chuẩn gốc pha:
 
-$$
-u_C = C\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_m}{m}\right)^2 + u_p^2}
-$$
+`u_C = C√((u_flask/V_flask)² + (u_m/m)² + u_p²)`
 
 #### 8.3.2. Nồng độ dung dịch pha loãng
 
-$$
-C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}
-$$
+`C_i = ((V_i-1 · C_i-1)/V_i)`
 
 - `C_i`: Nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: Nồng độ chất chuẩn thứ i-1 (mg/L);
@@ -460,9 +408,7 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 - Độ KĐBĐ do độ phân tán kết quả đo của PTĐ n lần lặp lại: `u_A`
 
-$$
-S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
-$$
+`S_C = √((Σ(x_i - x_tb)²)/(n-1)) u_A = (s_C/√(n))`
 
   - `S_C`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị diện tích peak đo lần i (i = 1, 2, …, n);
@@ -473,42 +419,34 @@ $$
 
 | STT   | Tên yếu tố ảnh hưởng                                       | Ký hiệu   | Đơn vị | Công thức tính |
 | ----- | ---------------------------------------------------------- | --------- | ------ | -------------- |
-| 1     | Độ lặp lại của PTĐ                                         | `u_A`     | mg/L   | $u_A = s_C/\sqrt{n}$ |
+| 1     | Độ lặp lại của PTĐ                                         | `u_A`     | mg/L   | `u_A = s_C/√(n)` |
 | 2     | ĐKĐB của dung dịch chuẩn pha gốc                           | `u_C`     | mg/L   | (xem 8.3.1) |
 | 3     | ĐKĐB của dung dịch chuẩn thứ i                             | `u_Ci`    | mg/L   | (xem công thức `u_Ci` bên dưới) |
-| 3.1   | ĐKĐB gây ra bởi pipet                                      | `u_pipet` |        | $u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}$ |
-| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn   | `u_calp`  | mL     | $u_{calp} = d/k$ — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
-| 3.1.2 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  | mL     | $u_{temp} = (V_{pipet} \times \gamma \times \Delta_i)/\sqrt{3}$ — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
-| 3.2   | ĐKĐB gây ra bởi bình định mức pha loãng                    | `u_flask` |        | $u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$ |
-| 3.2.1 | ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn | `u_calf` | mL | $u_{calf} = e/k$ — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ theo GCN (k = 2) |
-| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                   | `u_per`   | mL     | $u_{per} = 0{,}03/\sqrt{3}$ — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, xấp xỉ ± 0,03 mL) |
-| 3.2.3 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  | mL     | $u_{temp} = (V_{flask} \times \gamma \times \Delta_i)/\sqrt{3}$ |
+| 3.1   | ĐKĐB gây ra bởi pipet                                      | `u_pipet` |        | `u_pipet = √(u_calp² + u_temp²)` |
+| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn   | `u_calp`  | mL     | `u_calp = d/k` — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
+| 3.1.2 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  | mL     | `u_temp = (V_pipet × γ × Δ_i)/√(3)` — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
+| 3.2   | ĐKĐB gây ra bởi bình định mức pha loãng                    | `u_flask` |        | `u_flask = √(u_calf² + u_per² + u_temp²)` |
+| 3.2.1 | ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn | `u_calf` | mL | `u_calf = e/k` — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ theo GCN (k = 2) |
+| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                   | `u_per`   | mL     | `u_per = 0,03/√(3)` — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, xấp xỉ ± 0,03 mL) |
+| 3.2.3 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  | mL     | `u_temp = (V_flask × γ × Δ_i)/√(3)` |
 
 Tính `u_Ci`:
 
-$$
-u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}
-$$
+`u_Ci = C_i²√((u_flask/V_flask)² + (u_pipet/V_pipet)² + ((u_C_i-1)/(C_i-1))²)`
 
 - Độ KĐBĐ tổng hợp:
 
-$$
-u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
-$$
+`u_Đ = √(u_A² + u_Ci²)`
 
 - Độ KĐBĐ mở rộng:
 
-$$
-U_{Đ} = k \times u_{Đ}
-$$
+`U_Đ = k × u_Đ`
 
   Độ không đảm bảo đo mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
 - Tính độ KĐBĐ tương đối:
 
-$$
-\text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
-$$
+`Độ KĐBĐ tương đối (%) = ((Độ KĐBĐ mở rộng)/(Giá trị đo)) × 100`
 
 ## 9. Xử lý chung
 

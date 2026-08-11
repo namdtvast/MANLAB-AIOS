@@ -92,9 +92,7 @@ Các từ ngữ trong văn bản này được hiểu như sau:
   - %V: phần trăm (thể tích); 1 %V = 10.000 ppmV; 1 ppmV = 1.000 ppbV;
   - mg/m³: đơn vị đo quy đổi tại nhiệt độ t °C, áp suất 101,325 kPa:
 
-$$
-Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
-$$
+`Y (mg/m³) = ((X(ppmV) × M × 273)/(22,4 × (t + 273)))`
 
     - `Y`: nồng độ khí quy đổi về điều kiện nhiệt độ t °C, mg/m³;
     - `X`: nồng độ khí theo ppmV;
@@ -234,9 +232,7 @@ PTĐ cần hiệu chuẩn sau khi hiệu chỉnh được kiểm tra đo lườn
 - Tiến hành đo liên tục trong vòng 6 phút và 1 phút/lần (tối thiểu 6 kết quả đo cho mỗi điểm).
 - Sai số của mỗi phép đo được tính theo công thức sau:
 
-$$
-\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100
-$$
+`δ = ((C_meas - C_ref)/C_ref) × 100`
 
 - `δ`: sai số phép đo, %;
 - `C_meas`: giá trị đo trung bình của PTĐ, %V (ppm);
@@ -246,9 +242,7 @@ $$
 
 Thực hiện kiểm tra độ lặp lại (tái lặp) của PTĐ cần hiệu chuẩn theo phương pháp tiến hành 3 phép đo liên tiếp và tuần tự bằng khí chuẩn với nồng độ đã chọn và khí "không". Độ chính xác được xác định theo công thức:
 
-$$
-s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-$$
+`s(q̄) = (s(q_k)/√(n)) = √((1/n(n-1))Σ(k=1→n)(q_k - q̄)²)`
 
 - `s(q̄)` là độ lệch chuẩn thực nghiệm trung bình;
 - `s(q_k)` là độ lệch chuẩn thực nghiệm được dùng để ước lượng độ rộng của phân bố các giá trị trung bình;
@@ -294,13 +288,13 @@ Ngoài ra, còn một số thiết bị cũng có ảnh hưởng đến kết qu
 
 | Nguồn gây nên ĐKĐB (Budget of Uncertainty) | Loại | Công thức tính |
 | --- | --- | --- |
-| Độ lặp lại của thiết bị *(Reproducibility of Object)* | A | $u_{A1} = s(\bar{q})$ |
-| Độ phân giải của thiết bị *(Resolution of Object)* | B | $u_{B1} = \dfrac{\text{độ phân giải}}{2\sqrt{3}}$ |
-| Độ chính xác của khí chuẩn *(Accuracy of Cylinder)* | B | $u_{B2} = \dfrac{u_{Ref}}{2}$ hoặc $u_{B2} = \dfrac{\text{độ chính xác}}{\sqrt{3}}$ |
-| ĐKĐB của thiết bị pha loãng *(Uncertainty of Multigas Calibrator)* | B | $u_{B3} = \dfrac{\text{độ chính xác}}{\sqrt{3}}$ hoặc $u_{B3} = \dfrac{u_{Ref}}{2}$ |
-| ĐKĐB do nguồn tuyến tính | B | $u_{B3} = 100 \cdot \dfrac{\sqrt{s^2/a^2}}{d}$ — `s`: độ lệch theo phương trình tuyến tính; `a`: hệ số lệch; `d`: phạm vi đo của thiết bị |
-| **ĐKĐB tổng hợp** *(Combined Uncertainty)* | | $u_c = \sqrt{u_{A1}^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2}$ |
-| **ĐKĐB mở rộng** *(Expanded Uncertainty)* | | $U = k \cdot u_c$ — k = 2 với mức tin cậy xấp xỉ 95 % |
+| Độ lặp lại của thiết bị *(Reproducibility of Object)* | A | `u_A1 = s(q̄)` |
+| Độ phân giải của thiết bị *(Resolution of Object)* | B | `u_B1 = ((độ phân giải)/2√(3))` |
+| Độ chính xác của khí chuẩn *(Accuracy of Cylinder)* | B | `u_B2 = (u_Ref/2)` hoặc `u_B2 = ((độ chính xác)/√(3))` |
+| ĐKĐB của thiết bị pha loãng *(Uncertainty of Multigas Calibrator)* | B | `u_B3 = ((độ chính xác)/√(3))` hoặc `u_B3 = (u_Ref/2)` |
+| ĐKĐB do nguồn tuyến tính | B | `u_B3 = 100 · (√(s²/a²)/d)` — `s`: độ lệch theo phương trình tuyến tính; `a`: hệ số lệch; `d`: phạm vi đo của thiết bị |
+| **ĐKĐB tổng hợp** *(Combined Uncertainty)* | | `u_c = √(u_A1² + u_B1² + u_B2² + u_B3²)` |
+| **ĐKĐB mở rộng** *(Expanded Uncertainty)* | | `U = k · u_c` — k = 2 với mức tin cậy xấp xỉ 95 % |
 
 ## 8. Xử lý chung
 

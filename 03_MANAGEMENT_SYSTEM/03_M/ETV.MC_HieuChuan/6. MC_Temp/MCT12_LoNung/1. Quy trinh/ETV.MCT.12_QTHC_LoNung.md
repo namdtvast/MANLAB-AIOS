@@ -183,29 +183,21 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 
 Số hiệu chính của lò nung tại mỗi điểm nhiệt độ kiểm tra được tính theo công thức:
 
-$$
-\Delta t = t_{ch} - t_{ln}
-$$
+`Δt = t_ch - t_ln`
 
 Trong đó `t_ch`: giá trị trung bình của tổ hợp chuẩn, được tính theo công thức:
 
-$$
-t_{ch} = \frac{1}{k}\sum_{j=1}^{k} t_j
-$$
+`t_ch = (1/k)Σ(j=1→k) t_j`
 
 `t_j`: giá trị trung bình của mỗi nhiệt kế chuẩn (chỉ thị chuẩn), tính theo công thức:
 
-$$
-t_j = \frac{1}{n}\sum_{i=1}^{n} (t_j \pm \partial t_j)_i
-$$
+`t_j = (1/n)Σ(i=1→n) (t_j ± ∂ t_j)_i`
 
 `∂t_j`: số hiệu chính của nhiệt kế chuẩn thứ j tại điểm nhiệt độ kiểm tra (xem trong giấy chứng nhận hiệu chuẩn); `n`: số lần đo của mỗi nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra.
 
 `t_ln`: giá trị trung bình của chỉ thị lò nung tại mỗi điểm nhiệt độ kiểm tra, tính theo công thức:
 
-$$
-t_{ln} = \frac{1}{n}\sum_{i=1}^{n} t_i
-$$
+`t_ln = (1/n)Σ(i=1→n) t_i`
 
 `t_i`: giá trị lò nung tại lần đo thứ i; `n`: số lần đo tại mỗi điểm nhiệt độ kiểm tra.
 
@@ -215,9 +207,7 @@ $$
 
 Độ ổn định của lò nung tại một điểm nhiệt độ được xác định như sau:
 
-$$
-\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,k
-$$
+`δt_od = ± (1/2) max(t_ch max,j - t_ch min,j) j: 1,2,…,k`
 
 Trong đó: `δt_od`: độ ổn định của lò nung tại nhiệt độ kiểm tra; `t_ch max,j`, `t_ch min,j`: nhiệt độ cao nhất và thấp nhất của nhiệt kế chuẩn thứ j tại điểm nhiệt độ kiểm tra.
 
@@ -225,9 +215,7 @@ Trong đó: `δt_od`: độ ổn định của lò nung tại nhiệt độ ki�
 
 Độ đồng đều của lò nung tại một điểm nhiệt độ được xác định như sau:
 
-$$
-\delta t_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,k
-$$
+`δt_dd = ± (1/2) max[max(t_ch j) - min(t_ch i)] j ≠ i; j,i: 1,2,…,k`
 
 Trong đó: `δt_dd`: độ đồng đều của lò nung; `max(t_ch j)`, `min(t_ch i)`: nhiệt độ trung bình lớn nhất và nhỏ nhất trong k nhiệt kế chuẩn tại các vị trí đo khác nhau.
 
@@ -245,35 +233,25 @@ Trong đó: `δt_dd`: độ đồng đều của lò nung; `max(t_ch j)`, `min(t
 
 **a) Độ không đảm bảo đo của tổ hợp chuẩn:**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2²)`
 
 **ĐKĐB của nhiệt kế chuẩn (u_ch1):**
 
-$$
-u_{ch1} = \frac{U_{95}}{2}
-$$
+`u_ch1 = (U_95/2)`
 
 Với `U_95`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB do độ tản mạn kết quả đo tại mỗi điểm HC của nhiệt kế chuẩn (u_ch2):**
 
-$$
-u_{ch2} = \sqrt{\sum_{j=1}^{k} u_{ch2,j}^2}\quad \text{k: số vị trí dây đo}
-$$
+`u_ch2 = √(Σ(j=1→k) u_ch2,j²) k: số vị trí dây đo`
 
 Với `u_ch2,j` là ĐKĐB chuẩn loại A của nhiệt kế chuẩn thứ j:
 
-$$
-u_{ch2,j} = \sqrt{\frac{S_j^2}{n}}
-$$
+`u_ch2,j = √(S_j²/n)`
 
 Trong đó `S_j` là độ lệch chuẩn của nhiệt kế chuẩn thứ j, tính cho n lần đọc:
 
-$$
-S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{i,j} - t_j)^2}{n-1}}
-$$
+`S_j = √((Σ(i=1→n) (t_i,j - t_j)²)/(n-1))`
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i,j`: lần đọc thứ i của nhiệt kế chuẩn thứ j;
@@ -281,21 +259,15 @@ $$
 
 **b) Độ không đảm bảo đo của thiết bị:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2² + u_bk3² + u_bk4²)`
 
 **ĐKĐB do độ tản mạn kết quả đo tại mỗi điểm HC của bộ chỉ thị nhiệt (u_bk1):**
 
-$$
-u_{bk1} = \sqrt{\frac{S_j^2}{n}}
-$$
+`u_bk1 = √(S_j²/n)`
 
 Trong đó `s_j` là độ lệch chuẩn tại điểm đo thứ j, `n` là số lần đọc tại mỗi điểm đo:
 
-$$
-s_j = \sqrt{\frac{\sum_1^n (t_i - t)^2}{n-1}}
-$$
+`s_j = √((Σ(1→n) (t_i - t)²)/(n-1))`
 
 - `n`: số lần đọc tại mỗi điểm kiểm tra;
 - `t_i`: lần đọc thứ i của lò nung;
@@ -303,17 +275,13 @@ $$
 
 **Độ không đảm bảo đo tính theo độ ổn định (u_bk2):**
 
-$$
-u_{bk2} = \frac{\delta t_{od}}{\sqrt{3}}
-$$
+`u_bk2 = (δt_od/√(3))`
 
 Trong đó: `δt_od`: độ ổn định của lò nung tại nhiệt độ kiểm tra.
 
 **Độ không đảm bảo đo tính theo độ đồng đều (u_bk3):**
 
-$$
-u_{bk3} = \frac{\delta t_{dd}}{\sqrt{3}}
-$$
+`u_bk3 = (δt_dd/√(3))`
 
 Trong đó: `δt_dd`: độ đồng đều của lò nung.
 
@@ -321,31 +289,23 @@ Trong đó: `δt_dd`: độ đồng đều của lò nung.
 
 Đối với chỉ thị tương tự:
 
-$$
-u_{bk4} = \frac{d}{3\sqrt{3}}
-$$
+`u_bk4 = (d/3√(3))`
 
 Trong đó `d` là giá trị độ chia của lò.
 
 Đối với chỉ thị hiện số:
 
-$$
-u_{bk4} = \frac{d}{2\sqrt{3}}
-$$
+`u_bk4 = (d/2√(3))`
 
 Trong đó `d` là độ phân giải của thiết bị gia nhiệt.
 
 **ĐKĐB tổng hợp:** Độ không đảm bảo đo liên hợp là đại lượng được xác định từ tổ hợp chuẩn và lò nung:
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 **ĐKĐB mở rộng:** Độ không đảm bảo đo mở rộng (U95) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$
-U_{95} = k \times u_c
-$$
+`U_95 = k × u_c`
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

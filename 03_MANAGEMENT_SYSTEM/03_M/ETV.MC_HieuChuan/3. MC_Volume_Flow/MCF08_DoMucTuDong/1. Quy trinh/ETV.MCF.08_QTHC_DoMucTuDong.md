@@ -202,17 +202,13 @@ Hệ số của thiết bị đo trung bình, `M̄F`, tại lưu lượng kiểm
 
 **Độ không đảm bảo đo tổng hợp:**
 
-$$
-u_c = \sqrt{u_{LLKH}^2 + u_A^2 + u_{std}^2}
-$$
+`u_c = √(u_LLKH² + u_A² + u_std²)`
 
 Trong đó: `u_c`: ĐKĐBĐ tổng hợp tương đối, %; `u_std`: ĐKĐBĐ khi xác định lưu lượng chất lỏng chuẩn, %; `u_LLKH`: ĐKĐBĐ khi xác định lưu lượng chất lỏng tại LLKH, %; `u_A`: ĐKĐBĐ loại A, %.
 
 **ĐKĐBĐ khi xác định lưu lượng tại LLKH:**
 
-$$
-u_{LLKH} = \frac{d}{2\sqrt{3} \times Q_{LLKH}} \times 100\ (\%)
-$$
+`u_LLKH = (d/(2√(3) × Q_LLKH)) × 100 (%)`
 
 Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung bình của n lần đo; `d`: độ phân giải của LLKH.
 
@@ -228,15 +224,11 @@ Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung b
 
 **Tính toán ĐKĐB kết hợp:**
 
-$$
-u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2}
-$$
+`u_C = √(u_A² + u_B1² + u_B2² + u_B3² + u_B4²)`
 
 **ĐKĐB mở rộng:**
 
-$$
-U = k \times u_C
-$$
+`U = k × u_C`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra độ KĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

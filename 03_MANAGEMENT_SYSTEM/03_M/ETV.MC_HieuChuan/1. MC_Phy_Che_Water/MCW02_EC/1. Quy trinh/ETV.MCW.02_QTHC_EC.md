@@ -196,13 +196,9 @@ Hoạt động này không bắt buộc; chỉ thực hiện khi PTĐ sai lệch
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ chính xác của thiết bị tại các nồng độ dung dịch chuẩn.
 
-$$
-u_A = \frac{s}{\sqrt{n}}
-$$
+`u_A = (s/√(n))`
 
-$$
-s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-$$
+`s = √((1/(n-1))Σ(k=1→n)(q_k - q̄)²)`
 
 - `u_A`: ĐKĐB do độ lặp lại;
 - `s`: độ lệch chuẩn thực nghiệm sau n lần đo;
@@ -214,68 +210,50 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-$$
-u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
-$$
+`u_B1 = (a/√(3)) (a: Độ chính xác của dung dịch chuẩn)`
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-$$
-u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
-$$
+`u_B1 = (a/k) (a: ĐKĐB của dung dịch chuẩn, k: hệ số bao phủ)`
 
 **c. Thành phần ĐKĐB do ảnh hưởng nhiệt độ của bể điều nhiệt**
 
 - Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
 
-$$
-u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{EC}}{\Delta_t}\right)
-$$
+`u_B2 = (b/√(3))(Δ_EC/Δ_t)`
 
 - Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
 
-$$
-u_{B2} = \frac{c}{2}\left(\frac{\Delta_{EC}}{\Delta_t}\right)
-$$
+`u_B2 = (c/2)(Δ_EC/Δ_t)`
 
 `(Δ_EC/Δ_t)`: Giá trị EC thay đổi theo nhiệt độ tính trên 1 °C.
 
 **d. Thành phần ĐKĐB do nhiệt kế kiểm tra nhiệt độ**
 
-$$
-u_{B3} = \frac{d}{2}\left(\frac{\Delta_{EC}}{\Delta_t}\right)
-$$
+`u_B3 = (d/2)(Δ_EC/Δ_t)`
 
 - `d`: ĐKĐB của PTĐ kiểm tra nhiệt độ dung dịch chuẩn;
 - `(Δ_EC/Δ_t)`: Giá trị EC thay đổi theo nhiệt độ tính trên 1 °C.
 
 **e. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
-$$
-u_{B4} = \frac{e}{2\sqrt{3}}
-$$
+`u_B4 = (e/2√(3))`
 
 - `e`: Độ phân giải của PTĐ cần hiệu chuẩn.
 
 **f. Thành phần ĐKĐB do độ trôi của PTĐ cần hiệu chuẩn**
 
-$$
-u_{B5} = \frac{\max \Delta_{EC}}{2\sqrt{3}}
-$$
+`u_B5 = ((max Δ_EC)/2√(3))`
 
 - `max Δ_EC`: Độ trôi lớn nhất so với kết quả đo lần 1 của PTĐ cần hiệu chuẩn.
 
 **Tính toán ĐKĐB tổng hợp**
 
-$$
-u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
-$$
+`u_C = √(u_A² + u_B1² + u_B2² + u_B3² + u_B4² + u_B5²)`
 
 **ĐKĐB mở rộng**
 
-$$
-U = k \cdot u_C
-$$
+`U = k · u_C`
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

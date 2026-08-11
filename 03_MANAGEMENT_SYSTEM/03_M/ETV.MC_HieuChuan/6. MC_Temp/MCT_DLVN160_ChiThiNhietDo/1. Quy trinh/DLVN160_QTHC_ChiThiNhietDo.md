@@ -163,25 +163,19 @@ Số lần đọc n tại mỗi điểm kiểm tra không ít hơn 3.
 
 **6.4.1.** Tính giá trị nhiệt độ trung bình đo được theo chiều tăng và giảm tại mỗi điểm kiểm tra của chuẩn và của thiết bị cần hiệu chuẩn theo công thức:
 
-$$
-\bar{t} = \frac{1}{n}\sum t_i
-$$
+`t̄ = (1/n)Σt_i`
 
 Với n là số lần đo tại mỗi điểm kiểm tra.
 
 **6.4.2.** Tính độ lệch chuẩn theo chiều tăng và chiều giảm tại mỗi điểm kiểm tra của thiết bị chuẩn và của thiết bị cần hiệu chuẩn theo công thức:
 
-$$
-s_j = \sqrt{\frac{\sum_{i=1}^{n} (t_i - \bar{t})^2}{n-1}}
-$$
+`s_j = √((Σ(i=1→n) (t_i - t̄)²)/(n-1))`
 
 Trong đó: `t_i`: giá trị mỗi lần đo tại điểm nhiệt độ kiểm tra (i = 1, 2,…, n); `t̄`: giá trị trung bình của n lần đo tại điểm kiểm tra; `n`: số lần đo tại mỗi điểm kiểm tra; `s_j`: độ lệch chuẩn tại điểm kiểm tra thứ j (j = 1, 2,…, N); `N`: số điểm kiểm tra.
 
 **6.4.3.** Tính số hiệu chính theo chiều tăng tại mỗi điểm kiểm tra của thiết bị cần hiệu chuẩn: bằng hiệu số giữa giá trị trung bình của nhiệt độ chuẩn đã được hiệu chính và giá trị trung bình của thiết bị cần hiệu chuẩn:
 
-$$
-\Delta t = (t_{ch} + \beta_t) - t_{DUT}
-$$
+`Δt = (t_ch + β_t) - t_DUT`
 
 Trong đó: `t_ch`: giá trị nhiệt độ trung bình của chuẩn theo chiều tăng; `t_DUT`: giá trị nhiệt độ trung bình của thiết bị cần hiệu chuẩn theo chiều tăng; `β_t`: hiệu chính nhiệt độ tại điểm kiểm tra của chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
@@ -207,15 +201,11 @@ Trong đó: `t_ch`: giá trị nhiệt độ trung bình của chuẩn theo chi�
 
 **6.5.3.** Độ không đảm bảo đo chuẩn liên hợp của phép hiệu chuẩn được tính theo công thức:
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}
-$$
+`u_c = √(u_ch² + u_DUT²)`
 
 **6.5.4.** Độ không đảm bảo đo mở rộng của phép hiệu chuẩn:
 
-$$
-U = k \cdot u_c = 2 \cdot u_c
-$$
+`U = k · u_c = 2 · u_c`
 
 Với mức tin cậy 95% và hệ số phủ k = 2.
 
@@ -235,15 +225,11 @@ Với mức tin cậy 95% và hệ số phủ k = 2.
 
 **1. Độ không đảm bảo đo của thiết bị tạo tín hiệu chuẩn** `u_ch1` (loại B) — lấy từ giấy chứng nhận hiệu chuẩn, tính từ độ không đảm bảo đo mở rộng U (theo mức tin cậy P% và hệ số phủ k):
 
-$$
-u_{ch1} = U/k
-$$
+`u_ch1 = U/k`
 
 **2. Độ không đảm bảo đo của dây bù hoặc dây điện trở** `u_ch2` (loại B) — lấy từ giấy chứng nhận hiệu chuẩn hoặc từ đặc trưng kỹ thuật của nhà sản xuất, tính từ độ không đảm bảo đo mở rộng U (theo mức tin cậy P% và hệ số phủ k):
 
-$$
-u_{ch2} = U/k
-$$
+`u_ch2 = U/k`
 
 **3. Độ không đảm bảo đo do độ tản mạn kết quả đo của tổ hợp thiết bị chuẩn theo chiều tăng nhiệt độ** `u_ch3` (loại A) — tính theo độ không đảm bảo chuẩn loại A, từ các thành phần sau:
 
@@ -253,25 +239,19 @@ $$
 
 **4. Độ không đảm bảo đo chuẩn liên hợp của tổ hợp chuẩn** được tính theo công thức:
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2² + u_ch3²)`
 
 ### II. Độ không đảm bảo đo của thiết bị cần hiệu chuẩn `u_DUT`
 
 **1. Độ không đảm bảo đo do độ hồi sai của thiết bị cần hiệu chuẩn** `u_DUT1` (loại B) — tính từ độ hồi sai lớn nhất `Δ_max`:
 
-$$
-u_{DUT1} = \Delta_{max}/\sqrt{3}
-$$
+`u_DUT1 = Δ_max/√(3)`
 
 Trong đó: `Δ_max = |t_DUT(chiều tăng) − t_DUT(chiều giảm)|`.
 
 **2. Độ không đảm bảo đo do độ phân giải của thiết bị cần hiệu chuẩn** `u_DUT2` (loại B) — tính từ độ phân giải hoặc giá trị độ chia của chỉ thị:
 
-$$
-u_{DUT2} = (d \cdot B)/\sqrt{3}
-$$
+`u_DUT2 = (d · B)/√(3)`
 
 Trong đó: `d`: giá trị độ phân giải hoặc giá trị độ chia của chỉ thị cần hiệu chuẩn; `B = 1/2` đối với loại chỉ thị hiện số; `B = 1/10` đối với loại chỉ thị tương tự.
 
@@ -283,21 +263,15 @@ Trong đó: `d`: giá trị độ phân giải hoặc giá trị độ chia củ
 
 **4. Độ không đảm bảo đo chuẩn liên hợp của thiết bị cần hiệu chuẩn** được tính theo công thức:
 
-$$
-u_{DUT} = \sqrt{u_{DUT1}^2 + u_{DUT2}^2 + u_{DUT3}^2}
-$$
+`u_DUT = √(u_DUT1² + u_DUT2² + u_DUT3²)`
 
 ### III. Độ không đảm bảo đo chuẩn liên hợp của phép hiệu chuẩn `u_c`
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}
-$$
+`u_c = √(u_ch² + u_DUT²)`
 
 ### IV. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \cdot u_c = 2 \cdot u_c
-$$
+`U = k · u_c = 2 · u_c`
 
 Với mức tin cậy 95%, hệ số phủ k = 2. Thành phần này chính là độ không đảm bảo đo của kết quả hiệu chuẩn thiết bị chỉ thị nhiệt độ hiện số hoặc tương tự và được đưa vào chứng nhận hiệu chuẩn cùng với kết quả hiệu chuẩn.
 

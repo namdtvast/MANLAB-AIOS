@@ -244,15 +244,11 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 **ĐKĐB của PTĐ độ ồn cần hiệu chuẩn (u1):** ĐKĐB của kết quả đo lặp lại 5 lần trên PTĐ độ ồn cần hiệu chuẩn.
 
-$$
-u_1 = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (q_i - \bar{q})}{\sqrt{n(n-1)}} \tag{1}
-$$
+`u_1 = √(S_j²/n) = (S_j/√(n)) = ((Σ(1→n) (q_i - q̄))/√(n(n-1)))  (1)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \frac{\sum_1^n (q_i - \bar{q})}{\sqrt{n-1}}
-$$
+`S_j = ((Σ(1→n) (q_i - q̄))/√(n-1))`
 
 Trong đó:
 
@@ -263,41 +259,31 @@ Trong đó:
 
 **ĐKĐB của thiết bị chuẩn âm đa chức năng (u2):** Dựa vào giấy chứng nhận hiệu chuẩn, ĐKĐB mở rộng của chuẩn là `U_cal`.
 
-$$
-u_2 = \frac{U_{cal}}{k} \tag{2}
-$$
+`u_2 = (U_cal/k)  (2)`
 
 `u2`: ĐKĐB của thiết bị chuẩn âm đa chức năng được xác định thông qua ĐKĐB đã được liên kết với cấp cao hơn.
 
 **ĐKĐB do độ phân giải của PTĐ độ ồn (u3), dB:**
 
-$$
-u_3 = \frac{a}{2\sqrt{3}} \tag{3}
-$$
+`u_3 = (a/2√(3))  (3)`
 
 `a`: độ phân giải của PTĐ cần hiệu chuẩn.
 
 **ĐKĐB do nhiệt độ môi trường (u4), dB:**
 
-$$
-u_4 = \frac{\delta_{qtc} \times \Delta t}{\sqrt{3}} \tag{4}
-$$
+`u_4 = ((δ_qtc × Δt)/√(3))  (4)`
 
 `Δt` (°C): giá trị tuyệt đối của hiệu nhiệt độ môi trường khi hiệu chuẩn PTĐ đo độ ồn và nhiệt độ khi hiệu chuẩn chuẩn (công bố trong giấy chứng nhận hiệu chuẩn của chuẩn). `δ_qtc`: hệ số nhiệt độ của chuẩn âm do thay đổi nhiệt độ môi trường, dB/°C (được lấy từ đặc trưng kỹ thuật của chuẩn 4226 = 0,002 dB/°C).
 
 **ĐKĐB do áp suất môi trường (u5), dB:**
 
-$$
-u_5 = \frac{\delta_{qtc} \times \Delta p}{\sqrt{3}} \tag{5}
-$$
+`u_5 = ((δ_qtc × Δp)/√(3))  (5)`
 
 `Δp`: giá trị tuyệt đối của hiệu áp suất môi trường lúc hiệu chuẩn PTĐ đo độ ồn và áp suất khi hiệu chuẩn chuẩn âm thanh (được lấy từ đặc trưng kỹ thuật của chuẩn 4226 = 0,00055 dB/hPa). `δ_qtc`: hệ số áp suất của chuẩn âm do thay đổi áp suất môi trường, dB/kPa.
 
 **ĐKĐB của giá trị Correction (u6), dB:**
 
-$$
-u_6 = \frac{U_{correct}}{k}
-$$
+`u_6 = (U_correct/k)`
 
 `U_correct`: lấy theo công bố của hãng tại tài liệu kỹ thuật hoặc xem trong Phụ lục 3 của quy trình kèm theo. Tuy nhiên đối với một số hãng không công bố đối với giá trị này sẽ không cần tính toán vào ĐKĐB tổng hợp và mở rộng.
 
@@ -305,15 +291,11 @@ $$
 
 **ĐKĐB tổng hợp:** Sau khi đã xác định được ĐKĐB từ PTĐ độ ồn cần hiệu chuẩn và từ thiết bị chuẩn âm đa chức năng thì độ không đảm bảo tổng hợp (uc) được tính theo công thức:
 
-$$
-u_c = \sqrt{u_1^2 + u_2^2 + u_3^2 + u_4^2 + u_5^2 + u_6^2} \tag{6}
-$$
+`u_c = √(u_1² + u_2² + u_3² + u_4² + u_5² + u_6²)  (6)`
 
 **ĐKĐB mở rộng:** Độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo. Độ không đảm bảo kết hợp (uc) đã thể hiện ĐKĐB của kết quả đo. Tuy nhiên chưa đảm bảo để xác định một khoảng xung quanh kết quả phép đo mà khoảng này có thể chứa một phần lớn phân bố của các giá trị có thể quy cho đại lượng một cách hợp lý. Khoảng đó được gọi là độ không đảm bảo mở rộng (U), dB:
 
-$$
-U = k \times u_c \tag{7}
-$$
+`U = k × u_c  (7)`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

@@ -165,15 +165,11 @@ Trong đó: `t_ch` là nhiệt độ đọc trên bộ chỉ thị chuẩn, °C;
 
 **7.3.2.5.** Số hiệu chính của chỉ thị lò nhiệt độ tại mỗi điểm kiểm tra được tính theo công thức:
 
-$$
-\beta_{DUT} = (\bar{t}_{ch} + \beta_{ch}) - \bar{t}_{lo} \tag{1}
-$$
+`β_DUT = (t̄_ch + β_ch) - t̄_lo  (1)`
 
 Trong đó: `t̄_ch`: nhiệt độ trung bình của nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra; `t̄_lo`: nhiệt độ trung bình của chỉ thị lò nhiệt độ tại mỗi điểm nhiệt độ kiểm tra; `β_ch`: số hiệu chính của nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra; `β_DUT`: số hiệu chính của lò nhiệt độ tại mỗi điểm nhiệt độ kiểm tra; ở đây:
 
-$$
-\bar{t} = \frac{1}{n}\sum_{i=1}^{n} t_i \tag{2}
-$$
+`t̄ = (1/n)Σ(i=1→n) t_i  (2)`
 
 `t̄`: giá trị trung bình của chỉ thị của nhiệt kế chuẩn hoặc chỉ thị lò nhiệt độ; `n`: số lần đo lặp tại mỗi điểm nhiệt độ kiểm tra.
 
@@ -185,9 +181,7 @@ Thiết lập nhiệt độ của lò nhiệt ứng với giá trị nhiệt đ�
 
 Độ hồi trễ lò nhiệt A sẽ được tính tại mỗi điểm nhiệt độ kiểm tra theo công thức:
 
-$$
-A = |\bar{A}_{ch\_tăng} - \bar{A}_{ch\_giảm}| \tag{3}
-$$
+`A = |Ā_ch_tăng - Ā_ch_giảm|  (3)`
 
 Trong đó: `Ā_ch_tăng` và `Ā_ch_giảm`: nhiệt độ trung bình của nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra theo chiều tăng và giảm nhiệt độ được tính theo công thức (1).
 
@@ -197,9 +191,7 @@ Cắm cảm biến nhiệt kế chuẩn vào lỗ cắm trung tâm (hoặc lỗ 
 
 Độ ổn định của lò nhiệt được xác định theo công thức:
 
-$$
-\delta t_{od} = \pm \left(\frac{\Delta t_{max}}{2}\right) \tag{4}
-$$
+`δt_od = ± (Δt_max/2)  (4)`
 
 Với `Δt_max = t_max - t_min`. Trong đó: `t_max`: nhiệt độ cực đại của nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra; `t_min`: nhiệt độ cực tiểu của nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra.
 
@@ -209,9 +201,7 @@ Cắm nhiệt kế chuẩn thứ nhất vào lỗ cắm trung tâm (hoặc lỗ 
 
 Xác định độ đồng đều theo chiều ngang theo công thức:
 
-$$
-\delta t_{ngang} = \pm \left(\frac{\Delta t_{ngang}}{2}\right) \tag{5}
-$$
+`δt_ngang = ± (Δt_ngang/2)  (5)`
 
 Với `Δt_ngang = max(t̄_1 - t̄_2)`. Trong đó: `t̄_1`: nhiệt độ trung bình của nhiệt kế chuẩn thứ 1; `t̄_2`: nhiệt độ trung bình của nhiệt kế chuẩn thứ 2.
 
@@ -219,9 +209,7 @@ Với `Δt_ngang = max(t̄_1 - t̄_2)`. Trong đó: `t̄_1`: nhiệt độ trung
 
 Độ đồng đều theo chiều dọc của lò nhiệt độ được xác định theo lỗ cắm trung tâm (hoặc lỗ cắm quy ước). Độ không đồng đều này được xác định theo sai lệch nhiệt độ của nhiệt kế chuẩn giữa vị trí nhúng đến đáy lỗ cắm nhiệt kế và vị trí cách đáy 40 mm (4 cm) tại các điểm kiểm tra. Tính theo công thức:
 
-$$
-\delta t_{doc} = \pm \left(\frac{\Delta t_{doc}}{2}\right) \tag{6}
-$$
+`δt_doc = ± (Δt_doc/2)  (6)`
 
 Với `Δt_doc = max(t̄_0cm - t̄_4cm)`. Trong đó: `t̄_0cm`: nhiệt độ trung bình của nhiệt kế chuẩn khi cắm đến đáy lỗ cắm; `t̄_4cm`: nhiệt độ trung bình của nhiệt kế chuẩn khi cắm cách đáy 40 mm.
 
@@ -237,65 +225,47 @@ Với `Δt_doc = max(t̄_0cm - t̄_4cm)`. Trong đó: `t̄_0cm`: nhiệt độ t
 
 Khi tổ hợp nhiệt kế chuẩn được hiệu chuẩn riêng biệt đối với cảm biến và bộ chỉ thị của nhiệt kế chuẩn thì ĐKĐB đo kiểu B của tổ hợp nhiệt kế chuẩn sẽ bao gồm 2 thành phần và được tính như sau:
 
-$$
-u_{chB} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2}
-$$
+`u_chB = √(u_ch1² + u_ch2² + u_ch3²)`
 
 Trong đó:
 
 **a) ĐKĐB đo của cảm biến nhiệt kế chuẩn, u_ch1 kiểu B:**
 
-$$
-u_{ch1} = \frac{U}{k}
-$$
+`u_ch1 = (U/k)`
 
 Với: `U`: ĐKĐB mở rộng của cảm biến nhiệt kế chuẩn được lấy từ giấy chứng nhận hiệu chuẩn, °C; `k`: hệ số mở rộng của U (thông thường k = 2, ứng với xác suất tin cậy 95 %).
 
 **b) ĐKĐB đo của bộ chỉ thị nhiệt kế chuẩn, u_ch2 kiểu B:**
 
-$$
-u_{ch2} = \frac{u_{ch2\ theo\ °C}}{k}
-$$
+`u_ch2 = ((u_ch2 theo °C)/k)`
 
 Ở đây, theo bảng tính hệ số nhiệt của Pt100 model AM1660 kiểu 385: hệ số nhiệt của Pt-100 kiểu 385 là 0,00385 Ω/Ω·°C, hệ số nhiệt đo được là 0,385 Ω/°C. `u_ch2 theo °C`: ĐKĐB mở rộng của bộ chỉ thị nhiệt kế chuẩn theo nhiệt độ (°C) được xác định như sau:
 
-$$
-u_{ch2\ theo\ °C} = \frac{U_{ch2\ theo\ \Omega}}{0,385}
-$$
+`u_ch2 theo °C = ((U_ch2 theo Ω)/0,385)`
 
 `k`: hệ số mở rộng của U (thông thường k = 2, ứng với xác suất tin cậy 95 %).
 
 **c) ĐKĐB do sai số của bộ chỉ thị nhiệt độ, u_ch3 kiểu B:**
 
-$$
-u_{ch3} = \frac{|\text{Số hiệu chính}_{ch3\ theo\ °C}|}{2\sqrt{3}}
-$$
+`u_ch3 = ((|Số hiệu chính_ch3 theo °C|)/2√(3))`
 
 Ở đây, theo bảng tính hệ số nhiệt của Pt100 model AM1660 kiểu 385 (0,00385 Ω/Ω·°C, hệ số nhiệt đo được 0,385 Ω/°C), số hiệu chính của bộ chỉ thị nhiệt kế chuẩn theo nhiệt độ (°C) được xác định như sau:
 
-$$
-\text{Số hiệu chính}_{ch3\ theo\ °C} = \frac{\text{Số hiệu chính}_{ch3\ theo\ \Omega}}{0,385}
-$$
+`Số hiệu chính_ch3 theo °C = ((Số hiệu chính_ch3 theo Ω)/0,385)`
 
 **7.4.1.2. ĐKĐB đo chuẩn kiểu A do độ tản mạn đo lặp của hệ thống chuẩn: u_chA**
 
-$$
-u_{chA} = \sqrt{\frac{S^2}{n}}
-$$
+`u_chA = √(S²/n)`
 
 Trong đó S là độ lệch chuẩn của nhiệt kế:
 
-$$
-S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}
-$$
+`S_i = √((Σ(i=1→n) (t_i - t_tb)²)/(n-1))`
 
 `n`: số lần đọc tại mỗi điểm kiểm tra; `t_i`: lần đọc thứ i của nhiệt kế chuẩn; `t_tb`: nhiệt độ trung bình tại điểm kiểm tra.
 
 **7.4.1.3. Độ không đảm bảo đo chuẩn liên hợp của tổ hợp chuẩn, u_ch:**
 
-$$
-u_{ch} = \sqrt{u_{chA}^2 + u_{chB}^2}
-$$
+`u_ch = √(u_chA² + u_chB²)`
 
 #### 7.4.2. ĐKĐB đo của lò nhiệt độ
 
@@ -305,69 +275,49 @@ $$
 
 ĐKĐB đo `u_bk1` kiểu A của lò nhiệt được xác định bằng phép đo lặp bởi nhiệt kế chuẩn:
 
-$$
-u_{bk1} = \sqrt{\frac{S^2}{n}}
-$$
+`u_bk1 = √(S²/n)`
 
 Trong đó S là độ lệch chuẩn của lò nhiệt được đo bởi nhiệt kế chuẩn:
 
-$$
-S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}
-$$
+`S_i = √((Σ(i=1→n) (t_i - t_tb)²)/(n-1))`
 
 `n`: số lần đọc tại mỗi điểm kiểm tra; `t_i`: lần đọc thứ i của nhiệt kế chuẩn; `t_tb`: nhiệt độ trung bình của lò nhiệt được đo bởi nhiệt kế chuẩn tại điểm kiểm tra.
 
 **7.4.2.2. ĐKĐB đo kiểu B của lò nhiệt độ do độ ổn định theo thời gian, u_bk2:**
 
-$$
-u_{bk2} = \frac{\delta t_{od}}{\sqrt{3}}
-$$
+`u_bk2 = (δt_od/√(3))`
 
 **7.4.2.3. ĐKĐB đo kiểu B của lò nhiệt độ do độ đồng đều theo chiều ngang, u_bk3:**
 
-$$
-u_{bk3} = \frac{\delta t_{ngang}}{\sqrt{3}}
-$$
+`u_bk3 = (δt_ngang/√(3))`
 
 **7.4.2.4. ĐKĐB đo kiểu B của lò nhiệt độ do độ đồng đều theo chiều dọc, u_bk4:**
 
-$$
-u_{bk4} = \frac{\delta t_{doc}}{\sqrt{3}}
-$$
+`u_bk4 = (δt_doc/√(3))`
 
 **7.4.2.5. ĐKĐB đo kiểu B theo độ phân giải của bộ chỉ thị thiết lập nhiệt độ lò, u_bk5:**
 
-$$
-u_{bk5} = \frac{\partial \times \Delta}{\sqrt{3}}
-$$
+`u_bk5 = ((∂ × Δ)/√(3))`
 
 Trong đó: Δ = 1/2 với hiển thị hiện số hoặc Δ = 1/10 với chỉ thị tương tự; `∂`: độ phân giải nhỏ nhất của chỉ thị lò chuẩn.
 
 **7.4.2.6. ĐKĐB đo kiểu B theo độ hồi trễ của chỉ thị lò nhiệt, u_bk6:**
 
-$$
-u_{bk6} = \frac{A_{max}}{2\sqrt{3}}
-$$
+`u_bk6 = (A_max/2√(3))`
 
 **ĐKĐB đo chuẩn liên hợp `u_bk` của lò nhiệt độ:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2 + u_{bk5}^2 + u_{bk6}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2² + u_bk3² + u_bk4² + u_bk5² + u_bk6²)`
 
 #### 7.4.3. Độ không đảm bảo liên hợp, u_c
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 #### 7.4.4. Độ không đảm bảo mở rộng, U95
 
 Được tính với mức độ tin cậy 95 % ứng với hệ số phủ k = 2:
 
-$$
-U = 2 \times u_C
-$$
+`U = 2 × u_C`
 
 Độ không đảm bảo mở rộng này sẽ được công bố trong giấy chứng nhận hiệu chuẩn lò nhiệt kèm với giá trị nhiệt độ thực tế đo được bằng nhiệt kế chuẩn tại lỗ cắm trung tâm của lò nhiệt.
 

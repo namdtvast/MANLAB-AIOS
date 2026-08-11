@@ -77,9 +77,7 @@ Các từ ngữ trong văn bản này được hiểu như sau:
 2. **Phép so sánh:** phép đo trên cơ sở so sánh giữa giá trị của đại lượng cần đo và giá trị của một đại lượng đã biết. Phép so sánh khối lượng là phép đo chênh lệch khối lượng giữa vật cân với khối lượng của quả cân chuẩn đã biết trước.
 3. **Khối lượng riêng (ρ) của quả cân:** tỉ số giữa khối lượng (m) của quả cân chia cho thể tích (V) của nó:
 
-$$
-\rho = \frac{m}{V}
-$$
+`ρ = (m/V)`
 
 4. **Khối lượng quy ước:** khối lượng quy ước của một vật là khối lượng của một vật quy ước có khối lượng riêng 8.000 kg/m³ cân bằng với vật đó trong không khí ở nhiệt độ 20 °C với khối lượng riêng của không khí là 1,2 kg/m³.
 5. **Quả cân chuẩn:** quả cân được dùng để tái tạo hoặc cung cấp một giá trị khối lượng đã biết.
@@ -206,15 +204,11 @@ Cân được kiểm tra đo lường theo trình tự nội dung, phương phá
 - Tính giá trị trung bình của 02 số chỉ tại 02 lần kiểm ở vị trí Giữa (`I_TB`).
 - Tính chênh lệch (C) số chỉ cân (I) ở các vị trí khác (2, 3, 4, 5) với giá trị trung bình đã tính ở trên theo công thức:
 
-$$
-C_{2-1} = I_2 - I_{TB} \qquad C_{3-1} = I_3 - I_{TB} \qquad C_{4-1} = I_4 - I_{TB} \qquad C_{5-1} = I_5 - I_{TB}
-$$
+`C_2-1 = I_2 - I_TB C_3-1 = I_3 - I_TB C_4-1 = I_4 - I_TB C_5-1 = I_5 - I_TB`
 
 - Sai số góc (`E_C`) của cân được tính theo công thức:
 
-$$
-E_C = \max\{|C_{2-1}|; |C_{3-1}|; |C_{4-1}|; |C_{5-1}|\}
-$$
+`E_C = max{|C_2-1|; |C_3-1|; |C_4-1|; |C_5-1|}`
 
   trong đó `I_2, I_3, I_4, I_5`: số chỉ của cân tại vị trí 2, 3, 4, 5.
 
@@ -229,27 +223,21 @@ Việc kiểm tra độ lặp lại của cân phân tích và cân kỹ thuật
 - Lần lượt tiến hành các phép cân liên tiếp nhau cho đến khi hoàn thành 6 lần cân. Ghi lại kết quả vào bảng ở Biên bản Phụ lục I.
 - Tính độ lệch chuẩn cho các giá trị cân trên với mỗi mức kiểm (j) theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_{i=1}^{n}(I_i - \bar{I})^2}{n-1}} \qquad \text{với } \bar{I} = \frac{\sum_{i=1}^{n} I_i}{n}
-$$
+`S_j = √((Σ(i=1→n)(I_i - Ī)²)/(n-1)) với Ī = ((Σ(i=1→n) I_i)/n)`
 
   - `I_i`: số chỉ của cân tại lần cân thứ i (g);
   - `n`: số lần cân có tải.
 
 - Số hiệu chính của cân tại các mức cân theo công thức sau:
 
-$$
-E_i = L_p - I_i
-$$
+`E_i = L_p - I_i`
 
   - `I_i`: số chỉ của cân tại lần cân thứ i (g);
   - `L_p`: khối lượng danh nghĩa của quả cân chuẩn dùng làm tải kiểm tra (g).
 
 - Số hiệu chính trung bình được xác định theo công thức:
 
-$$
-\bar{E} = \frac{\sum_{i=1}^{n} E_i}{n}
-$$
+`Ē = ((Σ(i=1→n) E_i)/n)`
 
   với `n` là số lần cân.
 
@@ -272,46 +260,34 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định như trên. T
 
 - **ĐKĐB của thành phần độ lặp lại:**
 
-$$
-u_W = \frac{S_j}{\sqrt{n}}
-$$
+`u_W = (S_j/√(n))`
 
 - **ĐKĐB do độ phân giải của cân tại mức 0:**
 
-$$
-u_{R0} = \frac{d_0}{2\sqrt{3}}
-$$
+`u_R0 = (d_0/2√(3))`
 
 - **ĐKĐB do độ phân giải của cân tại mức cân đang xét:**
 
-$$
-u_{Ri} = \frac{d_i}{2\sqrt{3}}
-$$
+`u_Ri = (d_i/2√(3))`
 
   với `d_i`: giá trị độ chia của cân tương ứng với mức cân đang xét.
 
 - **ĐKĐB của giá trị khối lượng quả cân được sử dụng:**
 
-$$
-u_m = \frac{\sum_{j=1}^{n} U_j}{2}
-$$
+`u_m = ((Σ(j=1→n) U_j)/2)`
 
   - `U_j`: độ không đảm bảo đo của quả cân (j) được dùng (lấy theo giấy chứng nhận hiệu chuẩn đi kèm quả cân);
   - `n`: số lượng các quả cân (j) được dùng trong bước kiểm tra độ đúng tương ứng với mức cân đang xét.
 
 - **ĐKĐB do tải trọng lệch tâm:**
 
-$$
-u_E = \frac{E_C}{\sqrt{3} \cdot L_{ecc}}
-$$
+`u_E = (E_C/(√(3) · L_ecc))`
 
   với `L_ecc` là mức tải kiểm tra tải trọng lệch tâm.
 
 - **ĐKĐB do tải trọng lệch tâm tại mức cân đang xét:**
 
-$$
-u_{Ei} = u_E \cdot m
-$$
+`u_Ei = u_E · m`
 
   với `m`: là mức cân đang xét (mg).
 
@@ -319,17 +295,13 @@ $$
 
   - Ở cân phân tích và cân kỹ thuật **không có** cơ cấu hiệu chuẩn (CAL MODE):
 
-$$
-u_N = \frac{5 \cdot N \cdot m}{\sqrt{3}}
-$$
+`u_N = ((5 · N · m)/√(3))`
 
     với `N`: độ trôi nhạy của cân (N = 4×10⁻⁶/°C); `m`: mức cân đang xét (mg).
 
   - Ở cân phân tích và cân kỹ thuật **có** cơ cấu hiệu chuẩn (CAL MODE):
 
-$$
-u_N = \frac{\Delta T \cdot N \cdot m}{\sqrt{3}}
-$$
+`u_N = ((ΔT · N · m)/√(3))`
 
     với `ΔT`: chênh lệch nhiệt độ thời điểm bắt đầu và kết thúc hiệu chuẩn (°C); `N`: độ trôi nhạy của cân (N = 4×10⁻⁶/°C); `m`: mức cân đang xét (mg).
 
@@ -337,15 +309,11 @@ $$
 
 **ĐKĐB tổng hợp:**
 
-$$
-u_c = \sqrt{u_W^2 + u_{R0}^2 + u_{Ri}^2 + u_m^2 + u_{Ei}^2 + u_N^2}
-$$
+`u_c = √(u_W² + u_R0² + u_Ri² + u_m² + u_Ei² + u_N²)`
 
 **ĐKĐB mở rộng** — độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$
-U = k \cdot u_c
-$$
+`U = k · u_c`
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

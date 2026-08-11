@@ -44,26 +44,18 @@ responsible_dept: Văn phòng & Kỹ thuật vụ
 ### Công thức tính toán
 
 **P1 (Lương vị trí):**
-$$
-P1 = \text{Mức lương HĐ} \times \text{Hệ số ngạch/bậc}
-$$
+`P1 = Mức lương HĐ × Hệ số ngạch/bậc`
 
 **P2 (Lương hiệu quả):**
-$$P2 = \begin{cases} 
-0 & \text{nếu HQ\% < 100\%} \\
-P1 \times (HQ\% - 100\%) \times 0.5 & \text{nếu HQ\% ≥ 100\%}
-\end{cases}$$
+- Nếu HQ% < 100%: `P2 = 0`
+- Nếu HQ% ≥ 100%: `P2 = P1 × (HQ% - 100%) × 0.5`
 
 **P3 (Lương năng lực):**
-$$P3 = \begin{cases} 
-0 & \text{nếu NL\% < 100\%} \\
-P1 \times (NL\% - 100\%) \times 0.3 & \text{nếu NL\% ≥ 100\%}
-\end{cases}$$
+- Nếu NL% < 100%: `P3 = 0`
+- Nếu NL% ≥ 100%: `P3 = P1 × (NL% - 100%) × 0.3`
 
 **Tổng lương (3P):**
-$$
-\text{Tổng} = P1 + P2 + P3 + \text{Phụ cấp} + \text{Thưởng}
-$$
+`Tổng = P1 + P2 + P3 + Phụ cấp + Thưởng`
 
 ---
 
