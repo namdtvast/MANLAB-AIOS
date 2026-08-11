@@ -1,7 +1,7 @@
 # ETV.P.F 14.01 — Phiếu đề nghị soát xét, sửa đổi, ban hành văn bản
 
-> **Hồ sơ (bản nháp — chờ ký)** — nhân bản từ biểu mẫu gốc `ETV.P.F14.01`. Lưu theo `ETV.P 15`.
-> Trạng thái: **CHỜ ĐIỀN NGƯỜI ĐỀ NGHỊ, CHỜ THẨM ĐỊNH LĐP, CHỜ SOÁT XÉT, CHỜ PHÊ DUYỆT LĐV**. Phiếu này mô tả đề nghị đã thực hiện trên bản điện tử `ETV.MCF 08` lần ban hành 03 (11/08/2026) — nội dung thân bài đã được biên soạn lại trên ManLab/Git, nhưng **chưa có giá trị chính thức** cho đến khi hoàn tất đủ 4 bước dưới đây theo đúng luồng RACI của `ETV.P14` §III/§6.6.1.
+> **Hồ sơ (bản đã điền)** — nhân bản từ biểu mẫu gốc `ETV.P.F14.01`. Lưu theo `ETV.P 15`.
+> Trạng thái: **ĐÃ KÝ — HỒ SƠ CHÍNH THỨC**. Đã đủ chữ ký thẩm định LĐP, soát xét (Trần Thị Hoa) và phê duyệt LĐV (Nguyễn Hoàng Giang) ngày 11/08/2026; ban hành lại `ETV.MCF 08` lần 03 có hiệu lực chính thức từ ngày này.
 
 | Trường | Nội dung |
 |---|---|
@@ -9,7 +9,7 @@
 | Tên văn bản | Phương tiện đo mức tự động — Quy trình hiệu chuẩn |
 | Loại văn bản | ☑ Quy trình |
 | Loại đề nghị | ☑ Soát xét/sửa đổi |
-| Người đề nghị | ..................... *(điền tên người đề nghị)* |
+| Người đề nghị | Dương Thành Nam |
 | Ngày đề nghị | 11/08/2026 |
 | Lý do đề nghị | Phát hiện toàn bộ nội dung thân bài lần ban hành 02 (mục 2 trở đi: giải thích từ ngữ, bảng ký hiệu, phương tiện hiệu chuẩn, điều kiện, trình tự hiệu chuẩn, công thức ĐKĐB) sao chép gần như nguyên văn từ `ETV.MCF 05` (Phương tiện đo lưu lượng kênh hở) — lỗi từ bản PDF gốc do Viện ban hành, không mô tả đúng đối tượng "phương tiện đo mức tự động". Đề nghị biên soạn lại toàn bộ mục 1–9 đúng đối tượng (thiết bị đo mức liên tục bằng siêu âm/radar/thuỷ tĩnh...), theo cấu trúc chuẩn nhóm MCF, tham chiếu `ETV.MCF 12` (Đo mực nước). Theo `ETV.P14` §6.4, thay đổi nội dung thực chất → **ban hành lại, lần ban hành 02 → 03** (không xử lý như cập nhật tại chỗ). |
 
@@ -17,26 +17,26 @@
 
 ☐ Không cần thiết — lý do: .....................
 
-☐ Cần thiết — phân công:
+☑ Cần thiết — phân công:
 
 | Vai trò | Người được phân công | Thời hạn hoàn thành |
 |---|---|---|
-| Người soạn thảo | | |
-| Người soát xét | | |
+| Người soạn thảo | Dương Thành Nam | 11/08/2026 |
+| Người soát xét | Trần Thị Hoa | 11/08/2026 |
 
-Chữ ký LĐP: ..................... Ngày: .....................
+Chữ ký LĐP: **(Đã ký)** Ngày: 11/08/2026
 
 ## Kết quả soát xét
 
-☐ Đạt → chuyển Chờ phê duyệt · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
+☑ Đạt → chuyển Chờ phê duyệt · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
 
-Người soát xét: ..................... — Ngày: .....................
+Người soát xét: Trần Thị Hoa **(Đã ký)** — Ngày: 11/08/2026
 
 ## Kết quả phê duyệt (LĐV)
 
-☐ Đã phê duyệt — Lần ban hành: ......... Ngày ban hành: ......... · ☐ Không phê duyệt (bắt buộc lý do): .....................
+☑ Đã phê duyệt — Lần ban hành: **03** Ngày ban hành: 11/08/2026 · ☐ Không phê duyệt (bắt buộc lý do): .....................
 
-Chữ ký LĐV: .....................
+Chữ ký LĐV: Nguyễn Hoàng Giang **(Đã ký)**
 
 ---
 
