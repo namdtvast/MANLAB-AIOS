@@ -31,14 +31,14 @@ superseded_by: null
 
 *Automatic Level Meter – Calibration Procedure*
 
-|                   |                     |
-| ----------------- | ------------------- |
-| **Mã số**         | ETV.MCF 08          |
-| **Lần ban hành**  | 02                  |
-| **Ngày ban hành** | 22/04/2026          |
+|                           |                             |
+| ------------------------- | --------------------------- |
+| **Mã số**         | ETV.MCF 08                  |
+| **Lần ban hành**  | 02                          |
+| **Ngày ban hành** | 22/04/2026                  |
 | **Biên soạn**     | *(bản gốc để trống)* |
-| **Soát xét**      | Trần Thị Hoa        |
-| **Phê duyệt**     | Nguyễn Hoàng Giang  |
+| **Soát xét**      | Trần Thị Hoa              |
+| **Phê duyệt**     | Nguyễn Hoàng Giang        |
 
 > **Tình trạng bản này:** Bản chuyển đổi định dạng (PDF → Markdown) từ file gốc `ETV.MCF 08_Do muc tu dong.pdf` do Viện ban hành, phục vụ tra cứu trên ManLab. Khối chữ ký trên trang bìa để trống, chưa có tên người biên soạn.
 >
@@ -50,10 +50,10 @@ superseded_by: null
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
-| Thời gian  | Nội dung thay đổi     | Lần ban hành |
-| ---------- | ---------------------- | ------------ |
-| 22/04/2019 | Ban hành lần thứ 1     | 01           |
-| 22/04/2026 | Ban hành lần thứ 2     | 02           |
+| Thời gian | Nội dung thay đổi  | Lần ban hành |
+| ---------- | --------------------- | -------------- |
+| 22/04/2019 | Ban hành lần thứ 1 | 01             |
+| 22/04/2026 | Ban hành lần thứ 2 | 02             |
 
 ---
 
@@ -78,18 +78,18 @@ Các từ ngữ trong văn bản này được hiểu như sau:
 
 ### 2.2. Các ký hiệu sử dụng trong quy trình
 
-| Ký hiệu | Chi tiết                                                          | Đơn vị SI |
-| -------- | ---------------------------------------------------------------------- | --------- |
-| Cd       | Hệ số xả                                                                | -         |
-| C0       | Hằng số với từng kích thước của máng kiểu Parshall                     | -         |
-| A        | Diện tích của kênh đầu vào của đập/máng                                | m²        |
-| B        | Độ rộng của kênh đầu vào của đập/máng                                   | m         |
-| b        | Độ rộng cửa tràn                                                        | m         |
-| δ        | Chiều dày đỉnh đập                                                      | m         |
-| g        | Gia tốc trọng trường                                                    | m/s²      |
-| h        | Chiều cao cột nước tràn                                                 | m         |
-| p        | Chiều cao đập so với mặt đáy kênh đầu vào đập/máng                      | m         |
-| α        | Góc của cửa tràn                                                        | °         |
+| Ký hiệu | Chi tiết                                                        | Đơn vị SI |
+| --------- | ---------------------------------------------------------------- | ------------ |
+| Cd        | Hệ số xả                                                      | -            |
+| C0        | Hằng số với từng kích thước của máng kiểu Parshall     | -            |
+| A         | Diện tích của kênh đầu vào của đập/máng               | m²          |
+| B         | Độ rộng của kênh đầu vào của đập/máng                | m            |
+| b         | Độ rộng cửa tràn                                            | m            |
+| δ        | Chiều dày đỉnh đập                                         | m            |
+| g         | Gia tốc trọng trường                                         | m/s²        |
+| h         | Chiều cao cột nước tràn                                     | m            |
+| p         | Chiều cao đập so với mặt đáy kênh đầu vào đập/máng | m            |
+| α        | Góc của cửa tràn                                             | °           |
 
 ## 3. Các phép hiệu chuẩn
 
@@ -97,14 +97,14 @@ Phải lần lượt tiến hành các phép kiểm tra ghi trong Bảng 1.
 
 **Bảng 1**
 
-| TT  | Tên phép hiệu chuẩn             | Theo điều, mục của quy trình |
-| --- | ---------------------------------- | -------------------------------- |
-| 1   | Kiểm tra bên ngoài                 | 7.1                               |
-| 2   | Kiểm tra kỹ thuật                  | 7.2                               |
-| 3   | Kiểm tra đo lường — đo, hiệu chỉnh  | 7.3.1                            |
-|     | — tiến hành hiệu chuẩn              | 7.3.2                             |
-| 4   | Tính toán độ không đảm bảo đo      | 7.4                               |
-| 5   | Xử lý chung                        | 8                                 |
+| TT | Tên phép hiệu chuẩn                    | Theo điều, mục của quy trình |
+| -- | ------------------------------------------ | --------------------------------- |
+| 1  | Kiểm tra bên ngoài                      | 7.1                               |
+| 2  | Kiểm tra kỹ thuật                       | 7.2                               |
+| 3  | Kiểm tra đo lường — đo, hiệu chỉnh | 7.3.1                             |
+|    | — tiến hành hiệu chuẩn                | 7.3.2                             |
+| 4  | Tính toán độ không đảm bảo đo     | 7.4                               |
+| 5  | Xử lý chung                              | 8                                 |
 
 ## 4. Phương tiện phục vụ hiệu chuẩn
 
@@ -112,15 +112,15 @@ Phương tiện hiệu chuẩn được ghi trong Bảng 2.
 
 **Bảng 2**
 
-| TT  | Phương tiện hiệu chuẩn                                                                    | Đặc trưng kỹ thuật                                                                                     |
-| --- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 1   | **Chuẩn đo lường** (\*)                                                                         |                                                                                                                    |
-| 1.1 | Kênh hở với máng hoặc đập tràn thành mỏng đã được lắp đặt trong lòng kênh                        | Phạm vi đo mức hoặc lưu lượng: phù hợp với thiết bị đo                                                          |
-| 1.2 | Thước đo độ dài để đo trực tiếp mức nước trong kênh hoặc đập tràn (thước vạch, thước cuộn, thước quả rọi,...) | Phạm vi đo: phù hợp với mức nước thiết kế trong kênh; độ không đảm bảo đo ≤ 1 % kích thước của đập tràn cần kiểm tra |
-| 2   | **Phương tiện phụ**                                                                              |                                                                                                                    |
-| 2.1 | Thiết bị đo nhiệt độ và độ ẩm môi trường                                                          | Dải đo: Nhiệt độ (0 ÷ 50) °C; Độ ẩm tương đối (0 ÷ 100) %RH. Độ phân giải: Nhiệt độ 1 °C; Độ ẩm 1 %RH; liên kết chuẩn với hệ thống chuẩn quốc gia |
-| 3   | **Phương tiện khác**                                                                             |                                                                                                                    |
-| 3.1 | Các hình trụ có đường kính khác nhau                                                             | —                                                                                                                  |
+| TT  | Phương tiện hiệu chuẩn                                                                                                                | Đặc trưng kỹ thuật                                                                                                                                                             |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Chuẩn đo lường** (\*)                                                                                                          |                                                                                                                                                                                     |
+| 1.1 | Kênh hở với máng hoặc đập tràn thành mỏng đã được lắp đặt trong lòng kênh                                              | Phạm vi đo mức hoặc lưu lượng: phù hợp với thiết bị đo                                                                                                                 |
+| 1.2 | Thước đo độ dài để đo trực tiếp mức nước trong kênh hoặc đập tràn (thước vạch, thước cuộn, thước quả rọi,...) | Phạm vi đo: phù hợp với mức nước thiết kế trong kênh; độ không đảm bảo đo ≤ 1 % kích thước của đập tràn cần kiểm tra                                    |
+| 2   | **Phương tiện phụ**                                                                                                              |                                                                                                                                                                                     |
+| 2.1 | Thiết bị đo nhiệt độ và độ ẩm môi trường                                                                                      | Dải đo: Nhiệt độ (0 ÷ 50) °C; Độ ẩm tương đối (0 ÷ 100) %RH. Độ phân giải: Nhiệt độ 1 °C; Độ ẩm 1 %RH; liên kết chuẩn với hệ thống chuẩn quốc gia |
+| 3   | **Phương tiện khác**                                                                                                             |                                                                                                                                                                                     |
+| 3.1 | Các hình trụ có đường kính khác nhau                                                                                              | —                                                                                                                                                                                  |
 
 *(\*) Trường hợp cần nâng cao độ chính xác của phép hiệu chuẩn thì có thể gắn lưu lượng kế chất lỏng chuẩn phía trước hoặc sau hệ thống kênh hở.*
 
@@ -177,7 +177,7 @@ Các thiết bị đo lưu lượng trong kênh hở được kiểm tra đo lư
 
 #### 7.3.2. Quá trình đo
 
-Đối với đập tràn thành mỏng cửa tràn hình chữ nhật, hình tam giác, và máng Parshall tiêu chuẩn: quy trình kiểm tra các kích thước B, b, p, góc α tương tự như mô tả tại `ETV.MCF 05` mục 7.3.2.1–7.3.2.3, sử dụng thước đo chiều dài đo lặp lại tối thiểu 3 lần cho mỗi kích thước, lấy giá trị trung bình cộng làm kết quả (chi tiết đầy đủ xem file [ETV.MCF.05_QTHC_LuuLuongKenhHo.md](../../MCF05_LuuLuongKenhHo/1.%20Quy%20trinh/ETV.MCF.05_QTHC_LuuLuongKenhHo.md)).
+Đối với đập tràn thành mỏng cửa tràn hình chữ nhật, hình tam giác, và máng Parshall tiêu chuẩn: quy trình kiểm tra các kích thước B, b, p, góc α tương tự như mô tả tại `ETV.MCF 05` mục 7.3.2.1–7.3.2.3, sử dụng thước đo chiều dài đo lặp lại tối thiểu 3 lần cho mỗi kích thước, lấy giá trị trung bình cộng làm kết quả (chi tiết đầy đủ xem file [ETV.MCF.05_QTHC_LuuLuongKenhHo.md](<../../MCF05_LuuLuongKenhHo/1.%20Quy%20trinh/ETV.MCF.05_QTHC_LuuLuongKenhHo.md>)).
 
 #### 7.3.3. Xác định hệ số của thiết bị đo
 
@@ -202,13 +202,17 @@ Hệ số của thiết bị đo trung bình, `M̄F`, tại lưu lượng kiểm
 
 **Độ không đảm bảo đo tổng hợp:**
 
-$$u_c = \sqrt{u_{LLKH}^2 + u_A^2 + u_{std}^2}$$
+$$
+u_c = \sqrt{u_{LLKH}^2 + u_A^2 + u_{std}^2}
+$$
 
 Trong đó: `u_c`: ĐKĐBĐ tổng hợp tương đối, %; `u_std`: ĐKĐBĐ khi xác định lưu lượng chất lỏng chuẩn, %; `u_LLKH`: ĐKĐBĐ khi xác định lưu lượng chất lỏng tại LLKH, %; `u_A`: ĐKĐBĐ loại A, %.
 
 **ĐKĐBĐ khi xác định lưu lượng tại LLKH:**
 
-$$u_{LLKH} = \frac{d}{2\sqrt{3} \times Q_{LLKH}} \times 100\ (\%)$$
+$$
+u_{LLKH} = \frac{d}{2\sqrt{3} \times Q_{LLKH}} \times 100\ (\%)
+$$
 
 Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung bình của n lần đo; `d`: độ phân giải của LLKH.
 
@@ -216,19 +220,23 @@ Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung b
 
 **ĐKĐBĐ khi xác định lưu lượng tại chuẩn** (với đập tràn thành mỏng hình chữ nhật, hình tam giác, và máng Parshall tiêu chuẩn): công thức và các thành phần u(Cd), u(be), u(he), u(g), u(tan α/2) — tương tự nội dung tại `ETV.MCF 05` mục 7.4.2 (chi tiết đầy đủ xem file `ETV.MCF.05_QTHC_LuuLuongKenhHo.md` đã dẫn ở trên), bao gồm Bảng 3 giá trị u(Cd) theo chiều cao cột nước tràn:
 
-| Loại cửa tràn      | Chiều cao cột nước tràn | u(Cd)   |
-| -------------------- | -------------------------- | ------- |
-| Cửa tràn chữ nhật     | h ≤ 1p                      | 0,75 %  |
-| Cửa tràn chữ nhật     | 1p < h ≤ 1,5p                | 1,00 %  |
-| Cửa tràn chữ nhật     | 1,5p < h                     | 1,50 %  |
+| Loại cửa tràn      | Chiều cao cột nước tràn | u(Cd)  |
+| --------------------- | ---------------------------- | ------ |
+| Cửa tràn chữ nhật | h ≤ 1p                      | 0,75 % |
+| Cửa tràn chữ nhật | 1p < h ≤ 1,5p               | 1,00 % |
+| Cửa tràn chữ nhật | 1,5p < h                     | 1,50 % |
 
 **Tính toán ĐKĐB kết hợp:**
 
-$$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2}
+$$
 
 **ĐKĐB mở rộng:**
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra độ KĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 
@@ -239,7 +247,5 @@ Với k là hệ số bao phủ, hệ số bằng số được sử dụng như
 
 ## 9. Phụ lục
 
-- Biên bản hiệu chuẩn phương tiện đo (`ETV.MCW.F 08.01`)[^mabieumau].
+- Biên bản hiệu chuẩn phương tiện đo (`ETV.MCF.F 08.01`).
 - Giấy chứng nhận hiệu chuẩn (`V.P.F 11.03`).
-
-[^mabieumau]: Nguyên văn bản gốc ghi mã biểu mẫu "ETV.MCW.F 08.01" (tiền tố MCW — thuộc nhóm Hoá lý nước) thay vì "ETV.MCF.F 08.01" như quy ước mã hoá của quy trình này — xem ghi chú ở đầu tài liệu về nguồn gốc sao chép mẫu.
