@@ -92,7 +92,9 @@ Các từ ngữ trong văn bản này được hiểu như sau:
   - %V: phần trăm (thể tích); 1 %V = 10.000 ppmV; 1 ppmV = 1.000 ppbV;
   - mg/m³: đơn vị đo quy đổi tại nhiệt độ t °C, áp suất 101,325 kPa:
 
-    $$Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}$$
+    $$
+    Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
+    $$
 
     - `Y`: nồng độ khí quy đổi về điều kiện nhiệt độ t °C, mg/m³;
     - `X`: nồng độ khí theo ppmV;
@@ -232,7 +234,9 @@ PTĐ cần hiệu chuẩn sau khi hiệu chỉnh được kiểm tra đo lườn
 - Tiến hành đo liên tục trong vòng 6 phút và 1 phút/lần (tối thiểu 6 kết quả đo cho mỗi điểm).
 - Sai số của mỗi phép đo được tính theo công thức sau:
 
-$$\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100$$
+$$
+\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100
+$$
 
 - `δ`: sai số phép đo, %;
 - `C_meas`: giá trị đo trung bình của PTĐ, %V (ppm);
@@ -242,7 +246,9 @@ $$\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100$$
 
 Thực hiện kiểm tra độ lặp lại (tái lặp) của PTĐ cần hiệu chuẩn theo phương pháp tiến hành 3 phép đo liên tiếp và tuần tự bằng khí chuẩn với nồng độ đã chọn và khí "không". Độ chính xác được xác định theo công thức:
 
-$$s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - `s(q̄)` là độ lệch chuẩn thực nghiệm trung bình;
 - `s(q_k)` là độ lệch chuẩn thực nghiệm được dùng để ước lượng độ rộng của phân bố các giá trị trung bình;

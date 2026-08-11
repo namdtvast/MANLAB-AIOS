@@ -138,13 +138,17 @@ Trước khi tiến hành hiệu chuẩn, phải chuẩn bị các công việc 
 
   Sai lệch giữa hai lần cân phải đáp ứng yêu cầu sau:
 
-  $$\Delta m_{bi} = |m_{bi,1} - m_{bi,2}| \leq 40\ \mu g \tag{1}$$
+  $$
+  \Delta m_{bi} = |m_{bi,1} - m_{bi,2}| \leq 40\ \mu g \tag{1}
+  $$
 
   Nếu điều kiện (1) không đáp ứng, cái lọc bụi sẽ bị loại bỏ hoặc được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ, cân lại: kết quả `m_bi,3`.
 
   Sai lệch giữa hai lần cân cuối cùng phải đáp ứng yêu cầu sau:
 
-  $$|m_{bi,2} - m_{bi,3}| \leq 40\ \mu g \tag{2}$$
+  $$
+  |m_{bi,2} - m_{bi,3}| \leq 40\ \mu g \tag{2}
+  $$
 
   Nếu điều kiện (2) không đáp ứng, cái lọc bụi sẽ bị loại bỏ và sẽ thay thế bằng cái lọc bụi khác, phải thực hiện kiểm tra lại theo bước tuần tự như trên.
 
@@ -193,13 +197,17 @@ Phương pháp hiệu chuẩn hệ thống chuẩn nồng độ khối lượng 
 
   Sai lệch giữa hai kết quả phải đáp ứng yêu cầu:
 
-  $$|m_{azi,1} - m_{azi,2}| \leq 60\ \mu g \tag{3}$$
+  $$
+  |m_{azi,1} - m_{azi,2}| \leq 60\ \mu g \tag{3}
+  $$
 
   Nếu điều kiện (3) không đáp ứng, kết quả sẽ là không hợp lệ hoặc cái lọc bụi sẽ được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ và được cân lại (gọi là kết quả `m_azi,3`).
 
   Sai lệch giữa hai kết quả cuối cùng sẽ đáp ứng yêu cầu:
 
-  $$|m_{azi,2} - m_{azi,3}| \leq 60\ \mu g \tag{4}$$
+  $$
+  |m_{azi,2} - m_{azi,3}| \leq 60\ \mu g \tag{4}
+  $$
 
   Nếu điều kiện (4) không đáp ứng, kết quả sẽ bị hủy bỏ và coi là không hợp lệ.
 
@@ -226,13 +234,17 @@ Thực hiện tương tự các bước như tại vị trí đầu hút 01 (m�
 
   Sai lệch giữa hai kết quả phải đáp ứng yêu cầu:
 
-  $$|m_{asi,1} - m_{asi,2}| \leq 60\ \mu g \tag{5}$$
+  $$
+  |m_{asi,1} - m_{asi,2}| \leq 60\ \mu g \tag{5}
+  $$
 
   Nếu điều kiện (5) không đáp ứng, kết quả sẽ là không hợp lệ hoặc cái lọc bụi sẽ được bảo quản trong phòng cân thêm khoảng thời gian ≥ 24 giờ và được cân lại (gọi là kết quả `m_asi,3`).
 
   Sai lệch giữa hai kết quả cuối cùng sẽ đáp ứng yêu cầu:
 
-  $$|m_{asi,2} - m_{asi,3}| \leq 60\ \mu g \tag{6}$$
+  $$
+  |m_{asi,2} - m_{asi,3}| \leq 60\ \mu g \tag{6}
+  $$
 
   Nếu điều kiện (6) không đáp ứng, kết quả sẽ bị hủy bỏ và coi là không hợp lệ.
 
@@ -246,12 +258,16 @@ Thực hiện tương tự các bước như tại vị trí đầu hút 01 (m�
 
 **Nồng độ khối lượng hạt PM tham chiếu [2]:**
 
-$$C_{m,ref} = \eta_{hom} \cdot \frac{m}{V} = \eta_{hom} \cdot \frac{(m_{ai} - m_{bi})}{Q \times t} \tag{7}$$
+$$
+C_{m,ref} = \eta_{hom} \cdot \frac{m}{V} = \eta_{hom} \cdot \frac{(m_{ai} - m_{bi})}{Q \times t} \tag{7}
+$$
 
 - `C_m,ref`: nồng độ khối lượng hạt PM tham chiếu;
 - `η_hom`: là độ không đồng nhất nồng độ bụi vị trí đầu hút mẫu:
 
-  $$\eta_{hom} = 1 - \frac{|C_i^{ref} - C_j^{ref}|}{\bar{C}} \tag{8}$$
+  $$
+  \eta_{hom} = 1 - \frac{|C_i^{ref} - C_j^{ref}|}{\bar{C}} \tag{8}
+  $$
 
   - `C_i^ref`: nồng độ hạt PM tại vị trí i trên cùng mặt phẳng tiết diện thu mẫu, µg/m³;
   - `C_j^ref`: nồng độ hạt PM tại vị trí j trên cùng mặt phẳng tiết diện thu mẫu, µg/m³;
@@ -259,14 +275,18 @@ $$C_{m,ref} = \eta_{hom} \cdot \frac{m}{V} = \eta_{hom} \cdot \frac{(m_{ai} - m_
 
 - `m`: là khối lượng hạt PM thu được trên cái lọc bụi, µg:
 
-  $$m = m_{ai} - m_{bi} \tag{9}$$
+  $$
+  m = m_{ai} - m_{bi} \tag{9}
+  $$
 
   - `m_ai`: khối lượng cái lọc bụi thứ i sau khi hút mẫu, µg;
   - `m_bi`: khối lượng cái lọc bụi thứ i trước khi hút mẫu, µg.
 
 - `V`: là thể tích được hút mẫu, m³:
 
-  $$V = Q \times t \tag{10}$$
+  $$
+  V = Q \times t \tag{10}
+  $$
 
   - `Q`: lưu lượng thể tích qua cái lọc bụi, m³/h;
   - `t`: thời gian thu mẫu hạt PM (thời gian đo), h.
@@ -353,15 +373,21 @@ Với các thiết bị đo thời gian hiện đại như hiện nay sẽ khôn
 
 Từ mô hình tổng quát (7), xác định ĐKĐB từ tổ hợp của nồng độ khối lượng bụi chuẩn:
 
-$$u_C = C \times \sqrt{\frac{u_{\eta hom}^2}{\eta_{hom}^2} + \frac{u_{(m_{ai}-m_{bi})}^2}{(m_{ai}-m_{bi})^2} + \frac{u_{(Q)}^2}{Q^2} + \frac{u_{(t)}^2}{t^2}} \tag{11}$$
+$$
+u_C = C \times \sqrt{\frac{u_{\eta hom}^2}{\eta_{hom}^2} + \frac{u_{(m_{ai}-m_{bi})}^2}{(m_{ai}-m_{bi})^2} + \frac{u_{(Q)}^2}{Q^2} + \frac{u_{(t)}^2}{t^2}} \tag{11}
+$$
 
 Trong đó `t` xác định rất lớn và `u(t)` xấp xỉ bằng không nên ảnh hưởng không đáng kể, `u²(t)/t² ~ 0`. Từ đó suy ra dạng rút gọn tương đương biểu diễn theo hai cách:
 
-$$u_C^2 = \frac{\eta_{hom}^2 \times (m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{\eta_{hom}^2 \times Q^2 \times t^2} + \frac{\eta_{hom}^2 \times (m_{ai}-m_{bi})^2 \times u_{(m_{ai}-m_{bi})}^2}{(m_{ai}-m_{bi})^2 \times Q^2 \times t^2} + \frac{C^2 \times Q^2 \times u_{(Q)}^2}{Q^2 \times 100^2} \tag{12}$$
+$$
+u_C^2 = \frac{\eta_{hom}^2 \times (m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{\eta_{hom}^2 \times Q^2 \times t^2} + \frac{\eta_{hom}^2 \times (m_{ai}-m_{bi})^2 \times u_{(m_{ai}-m_{bi})}^2}{(m_{ai}-m_{bi})^2 \times Q^2 \times t^2} + \frac{C^2 \times Q^2 \times u_{(Q)}^2}{Q^2 \times 100^2} \tag{12}
+$$
 
 hay:
 
-$$u_C^2 = \frac{(m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{Q^2 \times t^2} + \frac{\eta_{hom}^2 \times u_{(m_{ai}-m_{bi})}^2}{Q^2 \times t^2} + \frac{C^2 \times u_{(Q)}^2}{100^2}$$
+$$
+u_C^2 = \frac{(m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{Q^2 \times t^2} + \frac{\eta_{hom}^2 \times u_{(m_{ai}-m_{bi})}^2}{Q^2 \times t^2} + \frac{C^2 \times u_{(Q)}^2}{100^2}
+$$
 
 > *Ghi chú của bản chuyển đổi:* các bước biến đổi trung gian của công thức (12) trong bản gốc bị lặp/rối do lỗi trích xuất ký tự toán học từ PDF; hai dạng công thức được giữ lại ở trên phản ánh nội dung toán học của bản gốc theo khả năng đọc tốt nhất — tham khảo bản PDF gốc để đối chiếu khi cần độ chính xác tuyệt đối.
 
@@ -373,21 +399,29 @@ $$u_C^2 = \frac{(m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{Q^2 \times t^2} + \frac
 
 - Giá trị trung bình của n phép đo:
 
-  $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \tag{13}$$
+  $$
+  \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \tag{13}
+  $$
 
 - Độ lệch chuẩn thực nghiệm của giá trị trung bình:
 
-  $$s(\bar{x}) = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}} \tag{14}$$
+  $$
+  s(\bar{x}) = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}} \tag{14}
+  $$
 
   - `n`: số lần đo; `x_i`: giá trị đo thứ i; `x̄`: giá trị đo trung bình.
 
 - Độ không đảm bảo đo chuẩn loại A:
 
-  $$u_A = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}$$
+  $$
+  u_A = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}
+  $$
 
 ##### 8.2.1.2. Độ không đảm bảo đo gây nên bởi độ phân giải của PTĐ (u_res)
 
-$$u_{res} = \frac{d}{2\sqrt{3}} \tag{16}$$
+$$
+u_{res} = \frac{d}{2\sqrt{3}} \tag{16}
+$$
 
 với `d`: là độ phân giải của PTĐ cần hiệu chuẩn.
 
@@ -397,7 +431,9 @@ với `d`: là độ phân giải của PTĐ cần hiệu chuẩn.
 
 Theo giấy chứng nhận hiệu chuẩn:
 
-$$u_{mba} = \frac{U_{mba}}{k} \tag{17}$$
+$$
+u_{mba} = \frac{U_{mba}}{k} \tag{17}
+$$
 
 - `U_mba`: độ không đảm bảo từ giấy chứng nhận hiệu chuẩn của cân phân tích;
 - `k`: hệ số phủ với mức độ tin cậy theo đơn vị hiệu chuẩn cấp (k = 2).
@@ -408,84 +444,114 @@ $$u_{mba} = \frac{U_{mba}}{k} \tag{17}$$
 
 Độ không đảm bảo đo của khối lượng:
 
-$$u_m = \sqrt{\left(\frac{a}{2}\right)^2 + b^2} \tag{18}$$
+$$
+u_m = \sqrt{\left(\frac{a}{2}\right)^2 + b^2} \tag{18}
+$$
 
 ##### 8.2.2.3. Ảnh hưởng của độ ẩm đến cái lọc bụi
 
-$$u_{mlb} = \frac{|m_{c,1} - m_{c,2}|}{\sqrt{3}} \tag{19}$$
+$$
+u_{mlb} = \frac{|m_{c,1} - m_{c,2}|}{\sqrt{3}} \tag{19}
+$$
 
 - `m_c,1`: kết quả cân cái lọc bụi chưa hút mẫu lần 1;
 - `m_c,2`: kết quả cân cái lọc bụi chưa hút mẫu lần 2.
 
 ##### 8.2.2.4. Ảnh hưởng lực đẩy của hạt PM trên cái lọc bụi chưa được hút mẫu
 
-$$u_{mb1} = \frac{3}{\sqrt{3}}\ \mu g \tag{20}$$
+$$
+u_{mb1} = \frac{3}{\sqrt{3}}\ \mu g \tag{20}
+$$
 
 Giá trị 3: là giá trị được tính toán từ các nguyên tắc vật lý.
 
 ##### 8.2.2.5. Ảnh hưởng do độ trôi của cân từ cái lọc bụi chưa được hút mẫu
 
-$$u_{mzd1} = \frac{\text{độ phân giải cân}}{\sqrt{3}}\ \mu g \tag{22}$$
+$$
+u_{mzd1} = \frac{\text{độ phân giải cân}}{\sqrt{3}}\ \mu g \tag{22}
+$$
 
 > *Ghi chú:* bản gốc không có công thức số (21) trong dãy đánh số này — giữ nguyên văn.
 
 ##### 8.2.2.6. Ảnh hưởng của độ phơi sáng trên cái lọc bụi được hút mẫu
 
-$$u_{mfb} = \frac{|m_{s,1} - m_{s,2}|}{\sqrt{3}} \tag{23}$$
+$$
+u_{mfb} = \frac{|m_{s,1} - m_{s,2}|}{\sqrt{3}} \tag{23}
+$$
 
 - `m_s,1`: kết quả cân cái lọc bụi được hút mẫu lần 1;
 - `m_s,2`: kết quả cân cái lọc bụi được hút mẫu lần 2.
 
 ##### 8.2.2.7. Ảnh hưởng của độ ẩm lên cái lọc bụi được hút mẫu
 
-$$u_{mhp} = \frac{|m_{s,1} - m_{s,2}|}{\sqrt{12}} \tag{24}$$
+$$
+u_{mhp} = \frac{|m_{s,1} - m_{s,2}|}{\sqrt{12}} \tag{24}
+$$
 
 ##### 8.2.2.8. Ảnh hưởng lực đẩy của hạt PM trên cái lọc bụi được hút mẫu
 
-$$u_{mb2} = \frac{3}{\sqrt{3}}\ \mu g \tag{25}$$
+$$
+u_{mb2} = \frac{3}{\sqrt{3}}\ \mu g \tag{25}
+$$
 
 Giá trị 3: là giá trị được tính toán từ các nguyên tắc vật lý.
 
 ##### 8.2.2.9. Ảnh hưởng của cân không trôi của cái lọc bụi được hút mẫu
 
-$$u_{mzd2} = \frac{\text{độ phân giải cân}}{\sqrt{3}}\ \mu g \tag{26}$$
+$$
+u_{mzd2} = \frac{\text{độ phân giải cân}}{\sqrt{3}}\ \mu g \tag{26}
+$$
 
 ##### 8.2.2.10. Độ không đảm bảo gây ra bởi thiết bị thu mẫu chuẩn
 
 Theo giấy chứng nhận hiệu chuẩn:
 
-$$u_Q = \frac{U_c}{k} \tag{27}$$
+$$
+u_Q = \frac{U_c}{k} \tag{27}
+$$
 
 - `k`: hệ số phủ với mức độ tin cậy theo đơn vị hiệu chuẩn cấp (k = 2);
 - `U_c`: độ không đảm bảo đo từ giấy chứng nhận hiệu chuẩn của thiết bị thu mẫu chuẩn.
 
 ##### 8.2.2.11. Ảnh hưởng của độ không đồng nhất nồng độ bụi vị trí đầu hút mẫu
 
-$$u_{\eta hom} = \frac{|C_i^{ref} - C_j^{ref}|}{2\sqrt{3}}\ \mu g/m^3 \tag{28}$$
+$$
+u_{\eta hom} = \frac{|C_i^{ref} - C_j^{ref}|}{2\sqrt{3}}\ \mu g/m^3 \tag{28}
+$$
 
 ##### 8.2.2.12. Độ không đảm bảo đo chuẩn loại A của thiết bị thu mẫu chuẩn (u_Aref)
 
 Độ không đảm bảo đo do phép đo lặp lại [3], tính theo cùng nguyên tắc (13)–(14) ở mục 8.2.1.1:
 
-$$u_{Aref} = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}$$
+$$
+u_{Aref} = \frac{s(\bar{x})}{\sqrt{n}} \tag{15}
+$$
 
 ### 8.2 (tiếp). Độ không đảm bảo đo chuẩn tổng hợp (u_c)
 
-$$u_c = \sqrt{\frac{(m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{Q^2 \times t^2} + \frac{\eta_{hom}^2 \times u_{(m_{ai}-m_{bi})}^2}{Q^2 \times t^2} + \frac{C^2 \times u_{(Q)}^2}{100^2} + u_{Aref}^2 + u_A^2 + u_{res}^2}\ \ (\mu g/m^3) \tag{29}$$
+$$
+u_c = \sqrt{\frac{(m_{ai}-m_{bi})^2 \times u_{\eta hom}^2}{Q^2 \times t^2} + \frac{\eta_{hom}^2 \times u_{(m_{ai}-m_{bi})}^2}{Q^2 \times t^2} + \frac{C^2 \times u_{(Q)}^2}{100^2} + u_{Aref}^2 + u_A^2 + u_{res}^2}\ \ (\mu g/m^3) \tag{29}
+$$
 
 hoặc
 
-$$u_c = \frac{u_c \times 100}{\bar{C}}\ (\%) \tag{30}$$
+$$
+u_c = \frac{u_c \times 100}{\bar{C}}\ (\%) \tag{30}
+$$
 
 Trong đó:
 
-$$u_{(m_{ai}-m_{bi})}^2 = \sum u_{mi}^2$$
+$$
+u_{(m_{ai}-m_{bi})}^2 = \sum u_{mi}^2
+$$
 
 `C̄`: giá trị trung bình của chuẩn (µg/m³).
 
 ### 8.3. Độ không đảm bảo đo chuẩn mở rộng U
 
-$$U = k \times u_C \tag{31}$$
+$$
+U = k \times u_C \tag{31}
+$$
 
 Trong đó `k` là hệ số phủ, k = 2 ứng với xác suất tin cậy xấp xỉ 95 %.
 

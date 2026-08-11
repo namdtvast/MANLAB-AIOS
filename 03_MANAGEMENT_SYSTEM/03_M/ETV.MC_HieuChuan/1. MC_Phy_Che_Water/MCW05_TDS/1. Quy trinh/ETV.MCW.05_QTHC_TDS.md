@@ -201,9 +201,13 @@ Hoạt động này không bắt buộc; chỉ thực hiện khi PTĐ sai lệch
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ chính xác của thiết bị tại các nồng độ dung dịch chuẩn.
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
-$$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - `u_A`: ĐKĐB do độ lặp lại;
 - `s`: độ lệch chuẩn thực nghiệm sau n lần đo;
@@ -213,36 +217,48 @@ $$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
 
 **b. Thành phần ĐKĐB do dung dịch chuẩn**
 
-$$u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})$$
+$$
+u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
+$$
 
 **c. Thành phần ĐKĐB do ảnh hưởng nhiệt độ của bể điều nhiệt**
 
 - Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
 
-  $$u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)$$
+  $$
+  u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
+  $$
 
 - Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
 
-  $$u_{B2} = \frac{c}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)$$
+  $$
+  u_{B2} = \frac{c}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
+  $$
 
 `(Δ_TDS/Δ_t)`: Giá trị TDS thay đổi theo nhiệt độ tính trên 1 °C.
 
 **d. Thành phần ĐKĐB do nhiệt kế kiểm tra nhiệt độ dung dịch chuẩn**
 
-$$u_{B3} = \frac{d}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)$$
+$$
+u_{B3} = \frac{d}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
+$$
 
 - `d`: ĐKĐB của PTĐ kiểm tra nhiệt độ dung dịch chuẩn;
 - `(Δ_TDS/Δ_t)`: Giá trị TDS thay đổi theo nhiệt độ tính trên 1 °C.
 
 **e. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
-$$u_{B4} = \frac{e}{2\sqrt{3}}$$
+$$
+u_{B4} = \frac{e}{2\sqrt{3}}
+$$
 
 - `e`: Độ phân giải của PTĐ cần hiệu chuẩn.
 
 **f. Thành phần ĐKĐB do độ trôi của PTĐ cần hiệu chuẩn**
 
-$$u_{B5} = \frac{\max \Delta_{TDS}}{2\sqrt{3}}$$
+$$
+u_{B5} = \frac{\max \Delta_{TDS}}{2\sqrt{3}}
+$$
 
 - `max Δ_TDS`: Độ trôi lớn nhất so với kết quả đo lần 1 của PTĐ cần hiệu chuẩn.
 
@@ -250,35 +266,47 @@ $$u_{B5} = \frac{\max \Delta_{TDS}}{2\sqrt{3}}$$
 
 - Độ không đảm bảo gây nên bởi pipet dùng để pha loãng dung dịch chuẩn:
 
-  $$u_{pipet} = \frac{d}{k}$$
+  $$
+  u_{pipet} = \frac{d}{k}
+  $$
 
   - `d`: độ không đảm bảo đo từ pipet có thể tích là `V_pipet`;
   - `k`: hệ số phủ trên giấy chứng nhận.
 
 - Độ không đảm bảo gây nên bởi bình định mức sử dụng để pha loãng dung dịch chuẩn:
 
-  $$u_{flask} = \frac{e}{k}$$
+  $$
+  u_{flask} = \frac{e}{k}
+  $$
 
   - `e`: độ không đảm bảo đo từ bình định mức có thể tích là `V_flask`;
   - `k`: hệ số phủ trên giấy chứng nhận.
 
 - Tính `u_B1'`:
 
-  $$u_{B1}' = \frac{u_{solution}}{C_{solution}} = \sqrt{\left(\frac{u_{B1}}{c_{B1}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{flask}}{V_{flask}}\right)^2}$$
+  $$
+  u_{B1}' = \frac{u_{solution}}{C_{solution}} = \sqrt{\left(\frac{u_{B1}}{c_{B1}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{flask}}{V_{flask}}\right)^2}
+  $$
 
 **Tính toán ĐKĐB tổng hợp**
 
 - Đối với phương pháp trực tiếp:
 
-  $$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}$$
+  $$
+  u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
+  $$
 
 - Đối với phương pháp pha loãng:
 
-  $$u_C = \sqrt{u_A^2 + u_{B1}'^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}$$
+  $$
+  u_C = \sqrt{u_A^2 + u_{B1}'^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
+  $$
 
 **ĐKĐB mở rộng**
 
-$$U = k \cdot u_C$$
+$$
+U = k \cdot u_C
+$$
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

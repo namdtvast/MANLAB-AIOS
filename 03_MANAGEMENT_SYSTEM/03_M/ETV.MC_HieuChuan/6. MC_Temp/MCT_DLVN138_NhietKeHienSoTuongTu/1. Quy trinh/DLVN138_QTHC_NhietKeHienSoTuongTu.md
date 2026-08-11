@@ -167,7 +167,9 @@ Trong đó: N₁, N₂,…, Nₙ là các nhiệt kế cần hiệu chuẩn; qu�
 
 **6.4.2.** Tính số hiệu chính tại mỗi điểm kiểm tra của nhiệt kế cần hiệu chuẩn, số hiệu chính bằng hiệu số giữa giá trị trung bình của nhiệt độ "thực" và giá trị trung bình của nhiệt kế cần hiệu chuẩn, tính theo:
 
-$$\Delta t = (t_{ch} + \beta_i) - t_{DUT}$$
+$$
+\Delta t = (t_{ch} + \beta_i) - t_{DUT}
+$$
 
 Trong đó: `t_ch`: giá trị nhiệt độ trung bình của nhiệt kế chuẩn; `t_DUT`: giá trị nhiệt độ trung bình của nhiệt kế cần hiệu chuẩn; `β_i`: số hiệu chính nhiệt độ tại điểm kiểm tra của nhiệt kế chuẩn, tra từ giấy chứng nhận hiệu chuẩn.
 
@@ -175,7 +177,9 @@ Trong đó: `t_ch`: giá trị nhiệt độ trung bình của nhiệt kế chu�
 
 **6.4.3.** Tính độ lệch chuẩn tại mỗi điểm kiểm tra của số đọc giá trị nhiệt độ của nhiệt kế chuẩn và nhiệt kế cần hiệu chuẩn theo công thức:
 
-$$s_i = \sqrt{\frac{\sum (t_i - \bar{t})^2}{n-1}}$$
+$$
+s_i = \sqrt{\frac{\sum (t_i - \bar{t})^2}{n-1}}
+$$
 
 Trong đó: `t_i`: giá trị đo thứ i của điểm kiểm tra, i = 1, 2, …, n; `t̄`: giá trị trung bình của n lần đo; `s_i`: độ lệch chuẩn tại điểm kiểm tra thứ i.
 
@@ -191,11 +195,15 @@ Trong đó: `t_i`: giá trị đo thứ i của điểm kiểm tra, i = 1, 2, �
 
 **c) Độ không đảm bảo đo chuẩn liên hợp** của nhiệt kế đã hiệu chuẩn do các thành phần độ không đảm bảo đo trên, được tính theo công thức:
 
-$$u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}
+$$
 
 **d) Độ không đảm bảo đo mở rộng** của phép hiệu chuẩn:
 
-$$U = 2 \times u_c$$
+$$
+U = 2 \times u_c
+$$
 
 với mức độ tin cậy 95% và hệ số k = 2.
 
@@ -221,15 +229,21 @@ Tính toán độ không đảm bảo đo này phụ thuộc vào các độ kh�
 
 **1.1. Độ không đảm bảo đo của nhiệt kế chuẩn** `u_ch1` (loại B) — lấy từ giấy chứng nhận hiệu chuẩn, tính từ độ không đảm bảo đo mở rộng U (theo mức độ tin cậy P% và hệ số phủ k):
 
-$$u_{ch1} = U/k$$
+$$
+u_{ch1} = U/k
+$$
 
 **1.2. Độ không đảm bảo đo của thiết bị chỉ thị chuẩn** `u_ch2` (loại B) — lấy từ giấy chứng nhận hiệu chuẩn, tính từ độ không đảm bảo đo mở rộng U (theo mức độ tin cậy P% và hệ số phủ k):
 
-$$u_{ch2} = U/k$$
+$$
+u_{ch2} = U/k
+$$
 
 **1.3. Độ không đảm bảo đo của thiết bị tạo môi trường nhiệt độ** `u_ch3` (loại B) — tính từ tổ hợp hai thành phần độ không đảm bảo đo của thiết bị theo độ ổn định (`u_ôđ`) và độ đồng đều (`u_đđ`):
 
-$$u_{ch3} = \sqrt{u_{ôđ}^2 + u_{đđ}^2}$$
+$$
+u_{ch3} = \sqrt{u_{ôđ}^2 + u_{đđ}^2}
+$$
 
 **1.4. Độ không đảm bảo đo do độ tản mạn của các kết quả đo của tổ hợp thiết bị chuẩn** `u_ch4` (loại A) — tính theo độ không đảm bảo chuẩn loại A, từ các thành phần sau:
 
@@ -241,13 +255,17 @@ Thành phần này chính là độ không đảm bảo đo theo độ tản m�
 
 **1.5. Độ không đảm bảo đo chuẩn liên hợp của tổ hợp chuẩn**, do các thành phần độ không đảm bảo đo trên, tính theo công thức:
 
-$$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2}$$
+$$
+u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2}
+$$
 
 ### 2. Độ không đảm bảo đo `u_DUT`
 
 **2.1. Độ không đảm bảo đo do độ hồi trễ của nhiệt kế cần hiệu chuẩn** `u_DUT1` (loại B) — tính từ độ hồi trễ (hồi sai) lớn nhất `Δ_max` tại điểm hiệu chuẩn có sai lệch giá trị trung bình lớn nhất theo chiều hiệu chuẩn tăng và giảm nhiệt độ:
 
-$$u_{DUT1} = \Delta_{max}/\sqrt{3}$$
+$$
+u_{DUT1} = \Delta_{max}/\sqrt{3}
+$$
 
 Trong đó: `Δ_max = |t_DUT(chiều tăng) − t_DUT(chiều giảm)|`.
 
@@ -259,23 +277,31 @@ Trong đó: `Δ_max = |t_DUT(chiều tăng) − t_DUT(chiều giảm)|`.
 
 **2.3. Độ không đảm bảo đo theo độ phân giải của nhiệt kế cần hiệu chuẩn** `u_DUT3` (loại B) — tính từ khả năng phân giải nhỏ nhất của nhiệt kế, ký hiệu Δ:
 
-$$u_{DUT3} = (\Delta \cdot d)/\sqrt{3}$$
+$$
+u_{DUT3} = (\Delta \cdot d)/\sqrt{3}
+$$
 
 Trong đó: `Δ`: giá trị nhỏ nhất của chỉ thị của nhiệt kế cần hiệu chuẩn; `d = 1/2` (1/2 digit) đối với nhiệt kế chỉ thị hiện số; `d = 1/10` đối với nhiệt kế chỉ thị tương tự.
 
 **2.4. Độ không đảm bảo đo chuẩn liên hợp của nhiệt kế cần hiệu chuẩn**, do các thành phần độ không đảm bảo đo trên, tính theo công thức:
 
-$$u_{DUT} = \sqrt{u_{DUT1}^2 + u_{DUT2}^2 + u_{DUT3}^2}$$
+$$
+u_{DUT} = \sqrt{u_{DUT1}^2 + u_{DUT2}^2 + u_{DUT3}^2}
+$$
 
 ### 3. Độ không đảm bảo đo chuẩn liên hợp của phép hiệu chuẩn `u_c`
 
-$$u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{DUT}^2}
+$$
 
 ### 4. Độ không đảm bảo đo mở rộng
 
 Tính với mức độ tin cậy 95%, hệ số k = 2:
 
-$$U = 2 \times u_c$$
+$$
+U = 2 \times u_c
+$$
 
 Thành phần này chính là độ không đảm bảo đo của kết quả hiệu chuẩn nhiệt kế chỉ thị hiện số hoặc tương tự và được đưa vào chứng chỉ hiệu chuẩn cùng với kết quả hiệu chuẩn.
 

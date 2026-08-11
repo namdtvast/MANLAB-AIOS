@@ -235,9 +235,13 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ chính xác của thiết bị tại các nồng độ dung dịch chuẩn hoặc nước thải thực tế (trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải).
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
-$$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - `u_A`: ĐKĐB do độ lặp lại;
 - `s`: độ lệch chuẩn thực nghiệm sau n lần đo;
@@ -249,11 +253,15 @@ $$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-  $$u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})$$
+  $$
+  u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
+  $$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})$$
+  $$
+  u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của dung dịch chuẩn},\; k: \text{hệ số bao phủ})
+  $$
 
 Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thực tế thì bỏ qua phần tính toán thành phần ĐKĐB do dung dịch chuẩn.
 
@@ -261,34 +269,46 @@ Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thự
 
 *(Áp dụng trong trường hợp pha loãng dung dịch hoặc khách hàng yêu cầu hiệu chuẩn theo nước thải thực tế)*
 
-$$u_{B2} = \frac{b}{2}$$
+$$
+u_{B2} = \frac{b}{2}
+$$
 
 - `b`: ĐKĐB theo giấy chứng nhận hiệu chuẩn của thiết bị phân tích chuẩn.
 
 **d. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
-$$u_{B3} = \frac{c}{2\sqrt{3}}$$
+$$
+u_{B3} = \frac{c}{2\sqrt{3}}
+$$
 
 - `c`: Độ phân giải của PTĐ cần hiệu chuẩn.
 
 **e. Thành phần ĐKĐB do dung dịch chuẩn thứ i**
 
-$$u_{Bi} = 100 \cdot \sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{B_{i-1}}}{C_{i-1}}\right)^2}$$
+$$
+u_{Bi} = 100 \cdot \sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{B_{i-1}}}{C_{i-1}}\right)^2}
+$$
 
 ***e1. Thành phần ĐKĐB do pipet***
 
-$$u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}$$
+$$
+u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}
+$$
 
 - ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn:
 
-  $$u_{calp} = \frac{d}{k}$$
+  $$
+  u_{calp} = \frac{d}{k}
+  $$
 
   - `d`: Độ không đảm bảo đo;
   - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 
 - ĐKĐB do giãn nở nhiệt:
 
-  $$u_{temp} = \frac{V_{pipet} \times \gamma \times \Delta_i}{\sqrt{3}}$$
+  $$
+  u_{temp} = \frac{V_{pipet} \times \gamma \times \Delta_i}{\sqrt{3}}
+  $$
 
   - `γ`: Hệ số dãn nở/1 °C;
   - `Δ_i`: Sai lệch nhiệt độ so với 25 °C;
@@ -296,28 +316,38 @@ $$u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}$$
 
 ***e2. Thành phần ĐKĐB do bình định mức***
 
-$$u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$$
+$$
+u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}
+$$
 
 - ĐKĐB gây ra bởi bình định mức để pha loãng dung dịch chuẩn:
 
-  $$u_{calf} = \frac{e}{k}$$
+  $$
+  u_{calf} = \frac{e}{k}
+  $$
 
   - `e`: Độ không đảm bảo đo;
   - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 
 - ĐKĐB do thao tác của nhân viên thực hiện:
 
-  $$u_{per} = \frac{0,03}{\sqrt{3}}$$
+  $$
+  u_{per} = \frac{0,03}{\sqrt{3}}
+  $$
 
   Sai số do thao tác (sai số do dư hoặc thiếu ở giọt cuối cùng được tính xấp xỉ ± 0,03 mL).
 
 **Tính toán ĐKĐB tổng hợp**
 
-$$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{Bi}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{Bi}^2}
+$$
 
 **ĐKĐB mở rộng**
 
-$$U = k \cdot u_C$$
+$$
+U = k \cdot u_C
+$$
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

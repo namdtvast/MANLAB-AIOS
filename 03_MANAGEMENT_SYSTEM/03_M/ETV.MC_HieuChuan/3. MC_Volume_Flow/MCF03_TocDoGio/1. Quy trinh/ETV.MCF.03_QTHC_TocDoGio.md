@@ -150,7 +150,9 @@ Phương pháp hiệu chuẩn là so sánh trực tiếp giá trị đo của PT
 
 Số hiệu chính (Δz) của PTĐ tại mỗi điểm hiệu chuẩn được tính bằng:
 
-$$\Delta z = V_c - V_t$$
+$$
+\Delta z = V_c - V_t
+$$
 
 Trong đó: `V_c`: giá trị vận tốc gió thực tế chỉ thị bởi thiết bị chuẩn (đã sửa số hiệu chính theo giấy chứng nhận của chuẩn); `V_t`: giá trị vận tốc gió thực tế của PTĐ cần hiệu chuẩn, được quy đổi từ số chỉ hiển thị (Vđ) kết hợp các hệ số hiệu chỉnh môi trường (K1) và hình học (K2).
 
@@ -168,7 +170,9 @@ Trong đó: `V_c`: giá trị vận tốc gió thực tế chỉ thị bởi thi
 
 Xác định số hiệu chính của thiết bị đo vận tốc gió tại mỗi điểm kiểm tra được tính theo công thức:
 
-$$\Delta z = V_{ci} - V_{ti} = V_{ci} \times K_{2c} - V_{ti} \times K_{2t}$$
+$$
+\Delta z = V_{ci} - V_{ti} = V_{ci} \times K_{2c} - V_{ti} \times K_{2t}
+$$
 
 Trong đó: `Δz`: số hiệu chính của thiết bị đo vận tốc gió tại điểm kiểm tra thứ i; `V_ci`: giá trị vận tốc trung bình của thiết bị chuẩn tại điểm kiểm tra thứ i; `V_ti`: giá trị vận tốc trung bình của thiết bị cần hiệu chuẩn tại điểm kiểm tra thứ i; `K_2c`: hệ số phụ thuộc kích thước hình học của thiết bị chuẩn theo Phụ lục 2; `K_2t`: hệ số phụ thuộc kích thước hình học của thiết bị cần hiệu chuẩn theo Phụ lục 2.
 
@@ -184,33 +188,45 @@ Trong đó: `Δz`: số hiệu chính của thiết bị đo vận tốc gió t�
 
 Mô hình tính toán:
 
-$$\Delta z = V_c - V_t = V_c K_{2c} - V_đ \times K_{2đ} = V_c K_{2c} - (\bar{V}_đ + d) \times K_{2đ}$$
+$$
+\Delta z = V_c - V_t = V_c K_{2c} - V_đ \times K_{2đ} = V_c K_{2c} - (\bar{V}_đ + d) \times K_{2đ}
+$$
 
 ĐKĐB của phép hiệu chuẩn bao gồm các thành phần: thiết bị chuẩn; thiết bị cần hiệu chuẩn (độ phân giải; độ lặp lại…); hệ số kích thước hình học của thiết bị đo.
 
 Ta có ĐKĐB tổng hợp là đại lượng được xác định từ tổ hợp chuẩn:
 
-$$u_c = \sqrt{(V_c K_{2c})^2 \times \left(\frac{u_{Vc}^2}{V_c^2} + \frac{u_{K2c}^2}{K_{2c}^2}\right) + (\bar{V}_đ K_{2đ})^2 \times \left(\frac{u_{V\bar{đ}}^2}{\bar{V}_đ^2} + \frac{u_{K2đ}^2}{K_{2đ}^2}\right) + (dK_{2đ})^2 \times \left(\frac{u_d^2}{d^2} + \frac{u_{K2đ}^2}{K_{2đ}^2}\right)}$$
+$$
+u_c = \sqrt{(V_c K_{2c})^2 \times \left(\frac{u_{Vc}^2}{V_c^2} + \frac{u_{K2c}^2}{K_{2c}^2}\right) + (\bar{V}_đ K_{2đ})^2 \times \left(\frac{u_{V\bar{đ}}^2}{\bar{V}_đ^2} + \frac{u_{K2đ}^2}{K_{2đ}^2}\right) + (dK_{2đ})^2 \times \left(\frac{u_d^2}{d^2} + \frac{u_{K2đ}^2}{K_{2đ}^2}\right)}
+$$
 
 Trong đó:
 
 **a) Độ không đảm bảo đo của tổ hợp chuẩn:**
 
-$$u_{Vc} = \sqrt{u_{Vc1}^2 + u_{Vc2}^2 + u_{Vc3}^2}$$
+$$
+u_{Vc} = \sqrt{u_{Vc1}^2 + u_{Vc2}^2 + u_{Vc3}^2}
+$$
 
 `u_Vc1`: ĐKĐB của thiết bị đo vận tốc gió chuẩn:
 
-$$u_{Vc1} = \frac{A}{2}$$
+$$
+u_{Vc1} = \frac{A}{2}
+$$
 
 Với A: độ không đảm bảo đo của thiết bị chuẩn vận tốc gió lấy từ giấy chứng nhận hiệu chuẩn.
 
 `u_Vc2`: ĐKĐB của độ tản mạn của thiết bị đo vận tốc gió chuẩn:
 
-$$u_{Vc2} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (t_i - \bar{t})}{\sqrt{n(n-1)}}$$
+$$
+u_{Vc2} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (t_i - \bar{t})}{\sqrt{n(n-1)}}
+$$
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n` là số lần đọc tại mỗi điểm đo:
 
-$$S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}$$
+$$
+S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i`: lần đọc thứ i của thiết bị đo chuẩn;
@@ -218,21 +234,29 @@ $$S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}$$
 
 `u_Vc3`: ĐKĐB của độ ổn định và phân bố của trường vận tốc:
 
-$$u_{Vc3} = \frac{\max(V_{cj}) - \min(V_{ci})}{2\sqrt{3}}$$
+$$
+u_{Vc3} = \frac{\max(V_{cj}) - \min(V_{ci})}{2\sqrt{3}}
+$$
 
 Trong đó: j; i: các giá trị đo quá trình khảo sát trường tốc độ gió tại các vị trí đã chọn tại hầm gió (j ≠ i và i, j: 1, 2,…).
 
 **b) Độ không đảm bảo đo của thiết bị:**
 
-$$u_{V\bar{đ}} = \sqrt{u_{V\bar{đ}}^2 + u_d^2}$$
+$$
+u_{V\bar{đ}} = \sqrt{u_{V\bar{đ}}^2 + u_d^2}
+$$
 
 Với `u_bk1`: ĐKĐB do độ tản mạn của các kết quả đo từ bộ chỉ thị của thiết bị:
 
-$$u_{V\bar{đ}} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (t_i - \bar{t})}{\sqrt{n(n-1)}}$$
+$$
+u_{V\bar{đ}} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (t_i - \bar{t})}{\sqrt{n(n-1)}}
+$$
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n` là số lần đọc tại mỗi điểm đo:
 
-$$S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}$$
+$$
+S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i`: lần đọc thứ i của thiết bị cần hiệu chuẩn;
@@ -240,19 +264,25 @@ $$S_j = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}$$
 
 Độ không đảm bảo đo theo độ phân giải của chỉ thị thiết bị cần hiệu chuẩn:
 
-$$u_d = \frac{A \times d}{\sqrt{3}}$$
+$$
+u_d = \frac{A \times d}{\sqrt{3}}
+$$
 
 Trong đó: `u_bk2`: ĐKĐB do độ phân giải của bộ chỉ thị; `A`: giá trị nhỏ nhất của bộ chỉ thị của thiết bị cần hiệu chuẩn; d = 1/2 đối với bộ chỉ thị hiện số; d = 1/10 đối với bộ chỉ thị tương tự.
 
 **c) Độ không đảm bảo đo của kích thước thiết bị vận tốc gió:**
 
-$$u_{K2} = \frac{0,005}{\sqrt{3}}$$
+$$
+u_{K2} = \frac{0,005}{\sqrt{3}}
+$$
 
 Trong đó: 0,005 là nửa độ phân giải của hệ số kích thước thiết bị vận tốc gió tại bảng Phụ lục 2.
 
 **e) ĐKĐB mở rộng:**
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

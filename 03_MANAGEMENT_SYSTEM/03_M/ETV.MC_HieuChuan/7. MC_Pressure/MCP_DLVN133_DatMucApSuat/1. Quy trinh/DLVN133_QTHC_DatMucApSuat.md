@@ -196,11 +196,15 @@ Căn cứ vào chế độ làm việc của công tắc áp suất (công tắc
 
 Độ không đảm bảo đo kiểu A của giá trị áp suất mở:
 
-$$u_{A,m} = \sqrt{\frac{1}{n(n-1)} \sum (P_{i,m} - \bar{P}_m)^2}$$
+$$
+u_{A,m} = \sqrt{\frac{1}{n(n-1)} \sum (P_{i,m} - \bar{P}_m)^2}
+$$
 
 Độ không đảm bảo đo kiểu A của giá trị áp suất đóng:
 
-$$u_{A,d} = \sqrt{\frac{1}{n(n-1)} \sum (P_{i,d} - \bar{P}_d)^2}$$
+$$
+u_{A,d} = \sqrt{\frac{1}{n(n-1)} \sum (P_{i,d} - \bar{P}_d)^2}
+$$
 
 Trong đó: `n`: số lần đo; `P̄_m = (1/n)ΣP_{i,m}`; `P̄_d = (1/n)ΣP_{i,d}`.
 
@@ -220,19 +224,27 @@ Trong đó: `n`: số lần đo; `P̄_m = (1/n)ΣP_{i,m}`; `P̄_d = (1/n)ΣP_{i,
 
 Độ không đảm bảo đo tổng hợp của áp suất mở công tắc:
 
-$$u_{c,I,m} = \sqrt{u_{A,m}^2 + u_S^2 + u_R^2}$$
+$$
+u_{c,I,m} = \sqrt{u_{A,m}^2 + u_S^2 + u_R^2}
+$$
 
 Độ không đảm bảo đo tổng hợp của áp suất đóng công tắc:
 
-$$u_{c,I,d} = \sqrt{u_{A,d}^2 + u_S^2 + u_R^2}$$
+$$
+u_{c,I,d} = \sqrt{u_{A,d}^2 + u_S^2 + u_R^2}
+$$
 
 ### 8.4. Độ không đảm bảo đo mở rộng của áp suất mở công tắc
 
-$$U_m = k \times u_{c,I,m\,\max}$$
+$$
+U_m = k \times u_{c,I,m\,\max}
+$$
 
 ### 8.5. Độ không đảm bảo đo mở rộng của áp suất đóng công tắc
 
-$$U_d = k \times u_{c,I,d\,\max}$$
+$$
+U_d = k \times u_{c,I,d\,\max}
+$$
 
 Hệ số phủ k được lấy trong bảng phân bố Student.
 

@@ -200,9 +200,13 @@ Hoạt động này không bắt buộc; chỉ thực hiện khi PTĐ sai lệch
 
 **a. Thành phần ĐKĐB do độ lặp lại**
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
-$$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(C_k - \bar{C})^2}$$
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(C_k - \bar{C})^2}
+$$
 
 - `u_A`: ĐKĐB do độ lặp lại;
 - `s`: độ lệch chuẩn thực nghiệm sau n lần đo;
@@ -212,40 +216,54 @@ $$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(C_k - \bar{C})^2}$$
 
 **b. Thành phần ĐKĐB của thiết bị chuẩn**
 
-$$u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của thiết bị chuẩn},\; k: \text{hệ số bao phủ})$$
+$$
+u_{B1} = \frac{a}{k} \quad (a: \text{ĐKĐB của thiết bị chuẩn},\; k: \text{hệ số bao phủ})
+$$
 
 **c. Thành phần ĐKĐB do ảnh hưởng nhiệt độ của bể điều nhiệt**
 
 - Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
 
-  $$u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{DO}}{\Delta_t}\right)$$
+  $$
+  u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
+  $$
 
 - Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
 
-  $$u_{B2} = \frac{c}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)$$
+  $$
+  u_{B2} = \frac{c}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
+  $$
 
 `(Δ_DO/Δ_t)`: Giá trị DO thay đổi theo nhiệt độ tính trên 1 °C.
 
 **d. Thành phần ĐKĐB do thiết bị kiểm tra nhiệt độ dung dịch chuẩn**
 
-$$u_{B3} = \frac{d}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)$$
+$$
+u_{B3} = \frac{d}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
+$$
 
 - `d`: ĐKĐB của PTĐ kiểm tra nhiệt độ dung dịch chuẩn;
 - `(Δ_DO/Δ_t)`: Giá trị DO thay đổi theo nhiệt độ tính trên 1 °C.
 
 **e. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
-$$u_{B4} = \frac{e}{2\sqrt{3}}$$
+$$
+u_{B4} = \frac{e}{2\sqrt{3}}
+$$
 
 - `e`: Độ phân giải của PTĐ cần hiệu chuẩn.
 
 **Tính toán ĐKĐB tổng hợp**
 
-$$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2}
+$$
 
 **ĐKĐB mở rộng**
 
-$$U = k \cdot u_C$$
+$$
+U = k \cdot u_C
+$$
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

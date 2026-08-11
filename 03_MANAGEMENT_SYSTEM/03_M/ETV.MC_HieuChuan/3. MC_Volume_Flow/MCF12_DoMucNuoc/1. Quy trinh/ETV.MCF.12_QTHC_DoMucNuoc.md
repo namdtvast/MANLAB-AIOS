@@ -135,7 +135,9 @@ Phương tiện đo mực nước được kiểm tra đo lường theo trình t
 - Kiểm tra sai số ít nhất 05 điểm trên dải hiệu chuẩn, từ điểm thấp nhất đến cao nhất và ngược lại;
 - Sai số tại mỗi điểm được tính theo công thức:
 
-  $$\Delta H = H_{ptđ} - H_{ch}$$
+  $$
+  \Delta H = H_{ptđ} - H_{ch}
+  $$
 
   Trong đó: `ΔH`: sai số đo mực nước theo độ cao cột nước, mm; `H_ptđ`: độ cao mực nước của phương tiện cần kiểm, mm (độ cao mực nước là mức nước thay đổi được tính từ điểm "0"); `H_ch`: độ cao mực nước chuẩn, mm.
 
@@ -159,11 +161,15 @@ Phương tiện đo mực nước được kiểm tra đo lường theo trình t
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ lặp lại của thiết bị:
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
 `u_A`: ĐKĐB do độ lặp lại; `s`: độ lệch chuẩn thực nghiệm sau n lần đo:
 
-$$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (q_k - \bar{q})^2}$$
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (q_k - \bar{q})^2}
+$$
 
 Với `n` = số lần thực hiện đo; `q_k`: giá trị đo được ở lần thứ k; `q̄`: giá trị trung bình của n lần đo.
 
@@ -173,27 +179,37 @@ Tính `u_B1`:
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của thước chuẩn:
 
-  $$u_{B1} = \frac{a}{\sqrt{3}}\quad (a: \text{độ chính xác của thước chuẩn})$$
+  $$
+  u_{B1} = \frac{a}{\sqrt{3}}\quad (a: \text{độ chính xác của thước chuẩn})
+  $$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$u_{B1} = \frac{a}{k}\quad (a: \text{ĐKĐB của thước chuẩn}, k: \text{hệ số bao phủ})$$
+  $$
+  u_{B1} = \frac{a}{k}\quad (a: \text{ĐKĐB của thước chuẩn}, k: \text{hệ số bao phủ})
+  $$
 
 **c. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
 Tính `u_B2`:
 
-$$u_{B2} = \frac{e}{2\sqrt{3}}$$
+$$
+u_{B2} = \frac{e}{2\sqrt{3}}
+$$
 
 `e`: độ phân giải của PTĐ cần hiệu chuẩn.
 
 **Tính toán ĐKĐB tổng hợp**
 
-$$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2}
+$$
 
 **ĐKĐB mở rộng:**
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

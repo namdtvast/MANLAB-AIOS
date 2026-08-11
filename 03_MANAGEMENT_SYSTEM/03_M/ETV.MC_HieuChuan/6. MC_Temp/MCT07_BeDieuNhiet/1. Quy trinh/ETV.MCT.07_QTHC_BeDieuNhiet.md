@@ -177,27 +177,37 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 
 Số hiệu chính của bể tại mỗi điểm nhiệt độ kiểm tra được tính theo công thức:
 
-$$\Delta t = t_{ch} - t_{tn}$$
+$$
+\Delta t = t_{ch} - t_{tn}
+$$
 
 Trong đó:
 
-$$t_{ch} = \frac{1}{k}\sum_{j=1}^{k} t_j$$
+$$
+t_{ch} = \frac{1}{k}\sum_{j=1}^{k} t_j
+$$
 
 `t_j`: giá trị trung bình của mỗi nhiệt kế chuẩn (chỉ thị chuẩn), tính theo công thức:
 
-$$t_j = \frac{1}{n}\sum_{i=1}^{n} (t_j \pm \partial t_j)_i$$
+$$
+t_j = \frac{1}{n}\sum_{i=1}^{n} (t_j \pm \partial t_j)_i
+$$
 
 Với `∂t_j`: số hiệu chính của nhiệt kế chuẩn thứ j tại điểm nhiệt độ kiểm tra (xem trong giấy chứng nhận hiệu chuẩn); `n`: số lần đo của mỗi nhiệt kế chuẩn tại mỗi điểm nhiệt độ kiểm tra.
 
 `t_tn`: giá trị trung bình của chỉ thị bể điều nhiệt tại mỗi điểm nhiệt độ kiểm tra, tính theo công thức:
 
-$$t_{tn} = \frac{1}{n}\sum_{i=1}^{n} t_i$$
+$$
+t_{tn} = \frac{1}{n}\sum_{i=1}^{n} t_i
+$$
 
 ##### 7.3.4.2. Xác định độ ổn định của bể điều nhiệt
 
 Việc kiểm tra độ ổn định thiết bị cần kiểm tra tối thiểu trong thời gian 30 phút. Độ ổn định của bể điều nhiệt tại một điểm nhiệt độ được xác định như sau:
 
-$$\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,k$$
+$$
+\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,k
+$$
 
 Trong đó: `δt_od`: độ ổn định của bể điều nhiệt tại nhiệt độ kiểm tra; `t_ch max,j`, `t_ch min,j`: nhiệt độ cao nhất và thấp nhất của nhiệt kế chuẩn thứ j tại điểm nhiệt độ kiểm tra.
 
@@ -205,7 +215,9 @@ Trong đó: `δt_od`: độ ổn định của bể điều nhiệt tại nhiệ
 
 Độ đồng đều của bể điều nhiệt tại một điểm nhiệt độ được xác định như sau:
 
-$$\delta t_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,k$$
+$$
+\delta t_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,k
+$$
 
 Trong đó: `δt_dd`: độ đồng đều của bể điều nhiệt; `max(t_ch j)`, `min(t_ch i)`: nhiệt độ trung bình lớn nhất và nhỏ nhất trong k nhiệt kế chuẩn tại các vị trí đo khác nhau.
 
@@ -223,25 +235,35 @@ Trong đó: `δt_dd`: độ đồng đều của bể điều nhiệt; `max(t_ch
 
 **a) Độ không đảm bảo đo của tổ hợp chuẩn:**
 
-$$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}$$
+$$
+u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
+$$
 
 **ĐKĐB của nhiệt kế chuẩn (u_ch1):**
 
-$$u_{ch1} = \frac{U_{95}}{2}$$
+$$
+u_{ch1} = \frac{U_{95}}{2}
+$$
 
 Với `U_95`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ nhiệt kế chuẩn (u_ch2):**
 
-$$u_{ch2} = \sqrt{\sum_{j=1}^{k} u_{ch2,j}^2}\quad \text{k: số vị trí dây đo}$$
+$$
+u_{ch2} = \sqrt{\sum_{j=1}^{k} u_{ch2,j}^2}\quad \text{k: số vị trí dây đo}
+$$
 
 Với `u_ch2,j` là ĐKĐB chuẩn loại A của nhiệt kế chuẩn thứ j:
 
-$$u_{ch2,j} = \sqrt{\frac{S_j^2}{n}}$$
+$$
+u_{ch2,j} = \sqrt{\frac{S_j^2}{n}}
+$$
 
 Trong đó `S_j` là độ lệch chuẩn của nhiệt kế chuẩn thứ j, tính cho n lần đọc:
 
-$$S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{i,j} - t_j)^2}{n-1}}$$
+$$
+S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{i,j} - t_j)^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i,j`: lần đọc thứ i của nhiệt kế chuẩn thứ j;
@@ -249,15 +271,21 @@ $$S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{i,j} - t_j)^2}{n-1}}$$
 
 **b) Độ không đảm bảo đo của thiết bị:**
 
-$$u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}$$
+$$
+u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
+$$
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ bộ chỉ thị của thiết bị (u_bk1):**
 
-$$u_{bk1} = \sqrt{\frac{S_j^2}{n}}$$
+$$
+u_{bk1} = \sqrt{\frac{S_j^2}{n}}
+$$
 
 Trong đó `s_j` là độ lệch chuẩn tại điểm đo thứ j, `n` là số lần đọc tại mỗi điểm đo:
 
-$$s_j = \sqrt{\frac{\sum_1^n (t_i - t)^2}{n-1}}$$
+$$
+s_j = \sqrt{\frac{\sum_1^n (t_i - t)^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i`: lần đọc thứ i của bể điều nhiệt;
@@ -265,13 +293,17 @@ $$s_j = \sqrt{\frac{\sum_1^n (t_i - t)^2}{n-1}}$$
 
 **Độ không đảm bảo đo tính theo độ ổn định (u_bk2):**
 
-$$u_{bk2} = \frac{\delta t_{od}}{\sqrt{3}}$$
+$$
+u_{bk2} = \frac{\delta t_{od}}{\sqrt{3}}
+$$
 
 Trong đó: `δt_od`: độ ổn định của bể điều nhiệt tại nhiệt độ kiểm tra.
 
 **Độ không đảm bảo đo tính theo độ đồng đều (u_bk3):**
 
-$$u_{bk3} = \frac{\delta t_{dd}}{\sqrt{3}}$$
+$$
+u_{bk3} = \frac{\delta t_{dd}}{\sqrt{3}}
+$$
 
 Trong đó: `δt_dd`: độ đồng đều của bể điều nhiệt.
 
@@ -279,23 +311,31 @@ Trong đó: `δt_dd`: độ đồng đều của bể điều nhiệt.
 
 Đối với chỉ thị tương tự:
 
-$$u_{bk4} = \frac{d}{3\sqrt{3}}$$
+$$
+u_{bk4} = \frac{d}{3\sqrt{3}}
+$$
 
 Trong đó `d` là giá trị độ chia của bể.
 
 Đối với chỉ thị hiện số:
 
-$$u_{bk4} = \frac{d}{2\sqrt{3}}$$
+$$
+u_{bk4} = \frac{d}{2\sqrt{3}}
+$$
 
 Trong đó `d` là độ phân giải của thiết bị gia nhiệt.
 
 **ĐKĐB tổng hợp:** Độ không đảm bảo đo liên hợp là đại lượng được xác định từ tổ hợp chuẩn và bể điều nhiệt:
 
-$$u_c = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}$$
+$$
+u_c = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
+$$
 
 **ĐKĐB mở rộng:** Độ không đảm bảo đo mở rộng (U95) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U_{95} = k \times u_c$$
+$$
+U_{95} = k \times u_c
+$$
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

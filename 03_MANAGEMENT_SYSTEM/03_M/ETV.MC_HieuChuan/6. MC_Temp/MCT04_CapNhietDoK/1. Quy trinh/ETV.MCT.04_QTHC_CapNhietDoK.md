@@ -149,7 +149,9 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 - **7.3.2.2.** Các phép đo nhiệt độ được thực hiện khi nhiệt độ của thiết bị tạo nhiệt độ chuẩn và nhiệt độ của thiết bị đo đã ổn định trong 10 phút. Ghi kết quả đo không ít hơn 5 lần tại mỗi điểm nhiệt độ kiểm tra.
 - **7.3.2.3.** Hiệu chuẩn cho các cặp nhiệt điện không có đầu tự do nên hiệu chỉnh sức điện động theo công thức:
 
-  $$E_{bk}(t, 0°C) = E_{bk}(t, t_0) + E_{bk}(t_0, 0°C)$$
+  $$
+  E_{bk}(t, 0°C) = E_{bk}(t, t_0) + E_{bk}(t_0, 0°C)
+  $$
 
   Trong đó: `E_bk(t, 0°C)`: sức điện động của cặp nhiệt điện ở nhiệt độ t °C và đầu tự do được giữ ở 0 °C; `E_bk(t, t0)`: sức điện động của cặp nhiệt điện ở t °C và đầu tự do được giữ ở t0 khác 0 °C; `E_bk(t0, 0°C)`: sức điện động của cặp nhiệt điện ở nhiệt độ t0 và đầu tự do được giữ ở nhiệt độ 0 °C.
 
@@ -168,7 +170,9 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 
 - **7.4.1.** Giá trị đo được của nhiệt kế chuẩn và sức điện động của cặp nhiệt điện cần hiệu chuẩn tại mỗi điểm kiểm tra là giá trị trung bình của các lần đo. Giá trị sức điện động trung bình của cặp nhiệt điện cần hiệu chuẩn được tính theo công thức:
 
-  $$E_{bk}(t) = \frac{1}{n}\sum_{i=1}^{n} E_i$$
+  $$
+  E_{bk}(t) = \frac{1}{n}\sum_{i=1}^{n} E_i
+  $$
 
   Trong đó: `n`: số lần đo tại mỗi điểm; `E_i`: giá trị sức điện động của cặp nhiệt điện cần hiệu chuẩn đo được tại lần thứ i.
 
@@ -178,17 +182,23 @@ Kiểm tra đo lường được thực hiện bằng cách xác định giá tr
 
 - **7.4.4.** Tính độ lệch ΔE giữa giá trị trung bình sức nhiệt điện động của cặp nhiệt điện cần hiệu chuẩn với sức nhiệt điện động chuẩn tại mỗi điểm kiểm tra theo công thức:
 
-  $$\Delta E = E_{bk}(t) - E_{bkTC}(t)$$
+  $$
+  \Delta E = E_{bk}(t) - E_{bkTC}(t)
+  $$
 
 - **7.4.5.** Từ bảng chia độ chuẩn của loại cặp nhiệt điện cần hiệu chuẩn và độ lệch ΔE để tính số hiệu chính của cặp nhiệt điện tại từng điểm kiểm tra.
 
 - **7.4.6.** Tính độ lệch chuẩn tại mỗi điểm kiểm tra của số đọc của nhiệt kế chuẩn và của cặp nhiệt điện cần hiệu chuẩn theo công thức:
 
-  $$s_i = \sqrt{\frac{\sum_{\ell=1}^{n} (x_\ell - \bar{X})^2}{n-1}}$$
+  $$
+  s_i = \sqrt{\frac{\sum_{\ell=1}^{n} (x_\ell - \bar{X})^2}{n-1}}
+  $$
 
 - **7.4.7.** Tính độ lệch chuẩn trung bình của nhiệt kế chuẩn và của cặp nhiệt điện cần hiệu chuẩn trong cả dải nhiệt độ hiệu chuẩn:
 
-  $$s_p = \sqrt{\frac{\sum_{i=1}^{N} s_i^2}{N}}$$
+  $$
+  s_p = \sqrt{\frac{\sum_{i=1}^{N} s_i^2}{N}}
+  $$
 
   Trong đó: `s_i`: độ lệch chuẩn tại điểm kiểm tra thứ i (i = 1, 2,…N); `N`: số điểm kiểm tra; `x_ℓ`: giá trị đo thứ ℓ của điểm kiểm tra (ℓ = 1,2,…n); `X̄`: giá trị trung bình của n lần đo; `n`: số lần đo tại mỗi điểm kiểm tra.
 
@@ -212,29 +222,41 @@ Tính toán độ không đảm bảo đo này phụ thuộc vào các độ kh�
 
 **Độ không đảm bảo đo của nhiệt kế chuẩn (u_ch1):** Thành phần này lấy từ giấy chứng nhận hiệu chuẩn, tính từ độ không đảm bảo đo mở rộng U (theo mức độ tin cậy chất lượng P% và hệ số phủ k):
 
-$$u_{ch1} = \frac{U}{k}\ [°C]$$
+$$
+u_{ch1} = \frac{U}{k}\ [°C]
+$$
 
 **Độ không đảm bảo đo của thiết bị đo mV chuẩn (u_ch2):** Thành phần này lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$u_{ch2} = \frac{U \times A_{max}}{k \times S_e}\ [°C]$$
+$$
+u_{ch2} = \frac{U \times A_{max}}{k \times S_e}\ [°C]
+$$
 
 Trong đó: `A_max`: giá trị đo của thiết bị chỉ thị tại điểm kiểm tra lớn nhất; `S_e`: độ nhạy của cặp nhiệt điện chuẩn tại điểm kiểm tra lớn nhất (µV/°C).
 
 **Độ không đảm bảo đo của bình điều nhiệt hoặc lò hiệu chuẩn — loại B (u_ch3):** Thành phần này được tính từ tổ hợp hai thành phần độ không đảm bảo đo của thiết bị theo độ ổn định `δt1` và độ đồng đều `δt2`:
 
-$$u_{ch3} = \sqrt{u_{od}^2 + u_{dd}^2}\ [°C]$$
+$$
+u_{ch3} = \sqrt{u_{od}^2 + u_{dd}^2}\ [°C]
+$$
 
 Ước lượng theo phân bố chữ nhật của 2 thành phần trên:
 
-$$u_{od} = \frac{\delta t_1}{\sqrt{3}}\ ;\quad u_{dd} = \frac{\delta t_2}{\sqrt{3}}$$
+$$
+u_{od} = \frac{\delta t_1}{\sqrt{3}}\ ;\quad u_{dd} = \frac{\delta t_2}{\sqrt{3}}
+$$
 
 **Độ không đảm bảo đo theo độ tản mạn của kết quả đo tại các điểm kiểm tra — loại A (u_ch4):** Thành phần này tính theo độ lệch chuẩn trung bình `s_p`, tính toán theo công thức trong mục 7.4.6, từ đó ước lượng theo độ không đảm bảo chuẩn loại A:
 
-$$u_{ch4} = \frac{s_p}{\sqrt{n}}\ [°C]$$
+$$
+u_{ch4} = \frac{s_p}{\sqrt{n}}\ [°C]
+$$
 
 **Độ không đảm bảo đo thiết bị đo nhiệt độ quy đổi — loại B (u_ch5):** Thành phần này lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$u_{ch5} = \frac{U}{k}\ [°C]$$
+$$
+u_{ch5} = \frac{U}{k}\ [°C]
+$$
 
 **b) Độ không đảm bảo đo của thiết bị cần hiệu chuẩn (u_bk):**
 
@@ -242,15 +264,21 @@ $$u_{ch5} = \frac{U}{k}\ [°C]$$
 
 **Độ không đảm bảo đo theo độ tản mạn của kết quả đo tại các điểm kiểm tra — loại A (u_bk2):** Thành phần này tính theo độ lệch chuẩn trung bình `s_p`, tính toán theo công thức trong mục 7.4.7:
 
-$$u_{bk2} = \frac{s_p}{\sqrt{n}}\ [°C]$$
+$$
+u_{bk2} = \frac{s_p}{\sqrt{n}}\ [°C]
+$$
 
 **c) Độ không đảm bảo đo chuẩn kết hợp của phép hiệu chuẩn, u_c:**
 
-$$u_c = \sqrt{u_{ch}^2 + u_{bk}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
+$$
 
 **d) Độ không đảm bảo đo mở rộng** (tính với mức độ tin cậy 95 %; hệ số k = 2):
 
-$$U_{95} = k \times u_c$$
+$$
+U_{95} = k \times u_c
+$$
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

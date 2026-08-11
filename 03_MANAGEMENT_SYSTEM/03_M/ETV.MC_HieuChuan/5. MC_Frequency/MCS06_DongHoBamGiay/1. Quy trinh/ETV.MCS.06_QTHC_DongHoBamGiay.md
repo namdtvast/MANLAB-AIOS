@@ -150,7 +150,9 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 
 #### 7.4.1. Sai số thời gian của phép hiệu chuẩn
 
-$$y = \bar{y}_i + y_{cal} \tag{1}$$
+$$
+y = \bar{y}_i + y_{cal} \tag{1}
+$$
 
 Trong đó:
 
@@ -165,32 +167,44 @@ Trong đó:
 
 - Sai số trung bình:
 
-  $$\bar{y}_i = \frac{\sum_{i=1}^{n} y_i}{n} \tag{2}$$
+  $$
+  \bar{y}_i = \frac{\sum_{i=1}^{n} y_i}{n} \tag{2}
+  $$
 
   - `y_i`: sai số thời gian đo lần thứ i;
   - `n`: số phép đo.
 
 - Độ lệch chuẩn thời gian:
 
-  $$\sigma_y = \sqrt{\frac{\sum_{i=1}^{n}(y_i - \bar{y})^2}{n-1}} \tag{3}$$
+  $$
+  \sigma_y = \sqrt{\frac{\sum_{i=1}^{n}(y_i - \bar{y})^2}{n-1}} \tag{3}
+  $$
 
 - ĐKĐBĐ loại A được ước tính:
 
-  $$u_{Ay} = \frac{\sigma_y}{\sqrt{n}} \tag{4}$$
+  $$
+  u_{Ay} = \frac{\sigma_y}{\sqrt{n}} \tag{4}
+  $$
 
 **b) ĐKĐBĐ loại B**
 
-$$u_{By} = \frac{b}{2\sqrt{3}}\ \text{(phân bố hình chữ nhật)} \tag{5}$$
+$$
+u_{By} = \frac{b}{2\sqrt{3}}\ \text{(phân bố hình chữ nhật)} \tag{5}
+$$
 
 Trong đó: `b`: độ phân giải của chuẩn.
 
 **c) ĐKĐBĐ của đồng hồ bấm giây**
 
-$$u_{yi} = \sqrt{u_{Ay}^2 + u_{By}^2} \tag{6}$$
+$$
+u_{yi} = \sqrt{u_{Ay}^2 + u_{By}^2} \tag{6}
+$$
 
 ##### 7.4.2.2. ĐKĐB của chuẩn: u(y_cal)
 
-$$u(y_{cal}) = \frac{U_{cal}}{k} \tag{7}$$
+$$
+u(y_{cal}) = \frac{U_{cal}}{k} \tag{7}
+$$
 
 Trong đó:
 
@@ -199,11 +213,15 @@ Trong đó:
 
 #### 7.4.3. ĐKĐBĐ chuẩn tổng hợp
 
-$$u_C(y) = \sqrt{u_{yi}^2 + u_{ycal}^2} \tag{8}$$
+$$
+u_C(y) = \sqrt{u_{yi}^2 + u_{ycal}^2} \tag{8}
+$$
 
 #### 7.4.4. ĐKĐBĐ mở rộng
 
-$$U = k \times u_C(y) \tag{9}$$
+$$
+U = k \times u_C(y) \tag{9}
+$$
 
 Với k = 2 ứng với mức độ tin cậy 95 %.
 

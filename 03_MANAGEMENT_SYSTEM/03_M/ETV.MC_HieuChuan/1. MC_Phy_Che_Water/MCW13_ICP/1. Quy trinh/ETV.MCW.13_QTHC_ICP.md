@@ -180,7 +180,9 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 - Ghi kết quả vào biên bản hiệu chuẩn.
 - Độ lặp lại được tính toán bằng độ lệch chuẩn tương đối RSD theo công thức:
 
-$$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}$$
+$$
+RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
+$$
 
 - `RSD`: độ lệch chuẩn tương đối của các kết quả đo lặp lại, %;
 - `s`: độ lệch chuẩn của các kết quả đo lặp lại;
@@ -199,7 +201,9 @@ $$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{
 
 Nồng độ dung dịch pha loãng được tính theo công thức:
 
-$$C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}$$
+$$
+C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}
+$$
 
 - `C_i`: Nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: Nồng độ chất chuẩn thứ i-1 (mg/L);
@@ -212,7 +216,9 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 - Độ KĐBĐ do độ phân tán kết quả đo n lần lặp lại: `u_A`
 
-  $$S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}$$
+  $$
+  S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
+  $$
 
   - `S_C`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị diện tích peak đo lần i (i = 1, 2, …, n);
@@ -236,21 +242,29 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 Tính `u_Ci`:
 
-$$u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}$$
+$$
+u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}
+$$
 
 - Độ KĐBĐ tổng hợp:
 
-  $$u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}$$
+  $$
+  u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
+  $$
 
 - Độ KĐBĐ mở rộng:
 
-  $$U_{Đ} = k \times u_{Đ}$$
+  $$
+  U_{Đ} = k \times u_{Đ}
+  $$
 
   Độ không đảm bảo đo mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
 - Tính độ KĐBĐ tương đối:
 
-  $$\text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100$$
+  $$
+  \text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
+  $$
 
 ## 9. Xử lý chung
 

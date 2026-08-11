@@ -173,11 +173,15 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây: kiểm tra trạn
 
 Công thức quy đổi đối với thể tích tại chuẩn:
 
-$$V_{oc} = V_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z} \tag{2}$$
+$$
+V_{oc} = V_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z} \tag{2}
+$$
 
 Công thức quy đổi đối với thể tích tại PTĐ:
 
-$$V_{otb} = V_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z} \tag{3}$$
+$$
+V_{otb} = V_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z} \tag{3}
+$$
 
 Trong đó:
 
@@ -195,7 +199,9 @@ Trong đó:
 
 Số hiệu chính tại mỗi điểm thể tích hiệu chuẩn được xác định bằng hiệu số giữa giá trị trung bình của các kết quả đo trên phương tiện đo và chuẩn theo công thức:
 
-$$\Delta hc = V_{oc} - V_{otb} = \left(V_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z}\right) - \left(V_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z}\right) = 1013,25\left(\frac{1}{298,15}\right)\left(V_c \times \frac{P_c}{T_c} - V_{tb} \times \frac{P_{tb}}{T_{tb}}\right) \tag{4}$$
+$$
+\Delta hc = V_{oc} - V_{otb} = \left(V_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z}\right) - \left(V_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z}\right) = 1013,25\left(\frac{1}{298,15}\right)\left(V_c \times \frac{P_c}{T_c} - V_{tb} \times \frac{P_{tb}}{T_{tb}}\right) \tag{4}
+$$
 
 Trong trường hợp khách hàng yêu cầu PTN hiệu chuẩn tại các điểm cố định khác thì PTN tiến hành hiệu chuẩn PTĐ theo yêu cầu của khách hàng.
 
@@ -226,73 +232,103 @@ Từ mô hình tính toán Δhc theo công thức (4), các thành phần của 
 
 Ta có ĐKĐB tổng hợp là đại lượng được xác định từ tổ hợp chuẩn:
 
-$$u_{hc} = \sqrt{u_{Voc}^2 + u_{Votb}^2} \tag{5}$$
+$$
+u_{hc} = \sqrt{u_{Voc}^2 + u_{Votb}^2} \tag{5}
+$$
 
 Với:
 
-$$u_{Voc} = V_{oc} \times \sqrt{\frac{u_{ch}^2}{V_{oc}^2} + \frac{u_{pc}^2}{P_c^2} + \frac{u_{tc}^2}{(T_c + 273,15)^2}}$$
+$$
+u_{Voc} = V_{oc} \times \sqrt{\frac{u_{ch}^2}{V_{oc}^2} + \frac{u_{pc}^2}{P_c^2} + \frac{u_{tc}^2}{(T_c + 273,15)^2}}
+$$
 
-$$u_{Votb} = V_{otb} \times \sqrt{\frac{u_A^2 + u_{pg}^2}{V_{od}^2} + \frac{u_{ptb}^2}{P_{tb}^2} + \frac{u_{ttb}^2}{(T_{tb} + 273,15)^2}}$$
+$$
+u_{Votb} = V_{otb} \times \sqrt{\frac{u_A^2 + u_{pg}^2}{V_{od}^2} + \frac{u_{ptb}^2}{P_{tb}^2} + \frac{u_{ttb}^2}{(T_{tb} + 273,15)^2}}
+$$
 
 Tính `u_ch`:
 
-$$u_{ch} = \frac{U_{ch}}{2} \tag{6}$$
+$$
+u_{ch} = \frac{U_{ch}}{2} \tag{6}
+$$
 
 `U_ch`: ĐKĐB của chuẩn thể tích lấy từ giấy chứng nhận hiệu chuẩn, m³.
 
 Tính `u_pc`:
 
-$$u_{pc} = \frac{U_{pc}}{2} \tag{7}$$
+$$
+u_{pc} = \frac{U_{pc}}{2} \tag{7}
+$$
 
 `U_pc`: ĐKĐB của thiết bị đo áp suất tại chuẩn từ giấy chứng nhận hiệu chuẩn, hPa.
 
 Tính `u_tc`:
 
-$$u_{tc} = \frac{U_{tc}}{2} \tag{8}$$
+$$
+u_{tc} = \frac{U_{tc}}{2} \tag{8}
+$$
 
 `U_tc`: ĐKĐB của thiết bị đo nhiệt độ tại chuẩn từ giấy chứng nhận hiệu chuẩn, K.
 
 Tính `u_A`:
 
-$$u_A = s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} = \sqrt{\frac{\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2}{n(n-1) \times \overline{\Delta hc}^2}} \times 100\ (\%) \tag{9}$$
+$$
+u_A = s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} = \sqrt{\frac{\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2}{n(n-1) \times \overline{\Delta hc}^2}} \times 100\ (\%) \tag{9}
+$$
 
 Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của kết quả hiệu chính thể tích Δhc là trung bình số học `Δhc̄`, nó thay đổi một cách ngẫu nhiên. Trung bình số học của n kết quả đo độc lập:
 
-$$\overline{\Delta hc} = \frac{1}{n}\sum_{k=1}^{n} \Delta hc_k \tag{10}$$
+$$
+\overline{\Delta hc} = \frac{1}{n}\sum_{k=1}^{n} \Delta hc_k \tag{10}
+$$
 
 Độ lệch chuẩn thực nghiệm `s(Δhc_k)` được dùng để ước lượng phân bố của Δhc:
 
-$$s(\Delta hc_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2} \tag{11}$$
+$$
+s(\Delta hc_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2} \tag{11}
+$$
 
 Độ lệch chuẩn thực nghiệm `s(Δhc̄)` của giá trị trung bình được dùng để ước lượng độ rộng của phân bố các giá trị trung bình:
 
-$$s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} \tag{12}$$
+$$
+s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} \tag{12}
+$$
 
 Tính `u_pg`:
 
-$$u_{pg} = \frac{d}{2\sqrt{3}} \tag{13}$$
+$$
+u_{pg} = \frac{d}{2\sqrt{3}} \tag{13}
+$$
 
 `d`: giá trị độ phân giải, L.
 
 Tính `u_ptb`:
 
-$$u_{ptb} = \frac{U_{ptb}}{2} \tag{14}$$
+$$
+u_{ptb} = \frac{U_{ptb}}{2} \tag{14}
+$$
 
 `u_ptb`: ĐKĐB của thiết bị đo áp suất tại PTĐ lấy theo giấy chứng nhận hiệu chuẩn, hPa.
 
 Tính `u_ttb`:
 
-$$u_{ttb} = \frac{U_{ttb}}{2} \tag{15}$$
+$$
+u_{ttb} = \frac{U_{ttb}}{2} \tag{15}
+$$
 
 `U_ttb`: ĐKĐB của thiết bị đo nhiệt độ tại PTĐ lấy theo giấy chứng nhận hiệu chuẩn, K.
 
 **Tính toán ĐKĐB tổng hợp:** ĐKĐB tổng hợp (uc) tại mỗi điểm thể tích:
 
-$$u_c = \sqrt{u_{Voc}^2 + u_{Votb}^2}\ \text{(L)} \tag{16}$$
+$$
+u_c = \sqrt{u_{Voc}^2 + u_{Votb}^2}\ \text{(L)} \tag{16}
+$$
 
 ĐKĐB mở rộng được xác định cho mỗi điểm thể tích:
 
-$$U = k \times u_c\ \text{(L)} \tag{17}$$
+$$
+U = k \times u_c\ \text{(L)} \tag{17}
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

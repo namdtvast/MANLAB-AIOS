@@ -44,7 +44,9 @@ responsible_dept: Văn phòng & Kỹ thuật vụ
 ### Công thức tính toán
 
 **P1 (Lương vị trí):**
-$$P1 = \text{Mức lương HĐ} \times \text{Hệ số ngạch/bậc}$$
+$$
+P1 = \text{Mức lương HĐ} \times \text{Hệ số ngạch/bậc}
+$$
 
 **P2 (Lương hiệu quả):**
 $$P2 = \begin{cases} 
@@ -59,7 +61,9 @@ P1 \times (NL\% - 100\%) \times 0.3 & \text{nếu NL\% ≥ 100\%}
 \end{cases}$$
 
 **Tổng lương (3P):**
-$$\text{Tổng} = P1 + P2 + P3 + \text{Phụ cấp} + \text{Thưởng}$$
+$$
+\text{Tổng} = P1 + P2 + P3 + \text{Phụ cấp} + \text{Thưởng}
+$$
 
 ---
 

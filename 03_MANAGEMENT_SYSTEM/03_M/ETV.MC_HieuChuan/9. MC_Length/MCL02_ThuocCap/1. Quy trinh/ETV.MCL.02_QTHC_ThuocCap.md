@@ -164,7 +164,9 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 
 Độ lệch `d` trong phép hiệu chuẩn căn mẫu được xác định theo công thức:
 
-$$d = R_đ - S$$
+$$
+d = R_đ - S
+$$
 
 - `d`: độ lệch;
 - `R_đ`: kết quả đo;
@@ -172,17 +174,23 @@ $$d = R_đ - S$$
 
 Độ không đảm bảo đo tổng hợp `u_d` được xác định:
 
-$$u_d = \sqrt{u_s^2 + u_t^2 + u_R^2}$$
+$$
+u_d = \sqrt{u_s^2 + u_t^2 + u_R^2}
+$$
 
 **Thành phần độ không đảm bảo đo `u_s`** do sử dụng chuẩn là căn mẫu song phẳng — phụ thuộc vào độ không đảm bảo đo của căn mẫu song phẳng, xác định theo giấy chứng nhận hiệu chuẩn:
 
-$$u_s = \frac{U}{k}$$
+$$
+u_s = \frac{U}{k}
+$$
 
 với `U` là độ không đảm bảo đo của căn mẫu song phẳng, `k` là hệ số phủ.
 
 **Thành phần độ không đảm bảo đo `u_t`** do ảnh hưởng của nhiệt độ:
 
-$$u_t = (t_s - 20) \cdot \frac{\Delta\alpha}{\sqrt{3}} \cdot L$$
+$$
+u_t = (t_s - 20) \cdot \frac{\Delta\alpha}{\sqrt{3}} \cdot L
+$$
 
 - `t_s`: nhiệt độ tại thời điểm hiệu chuẩn thước cặp;
 - `Δα`: độ chính xác hệ số dãn nở nhiệt của vật liệu chế tạo căn mẫu.
@@ -191,7 +199,9 @@ Ví dụ: đối với căn mẫu bằng thép, hệ số dãn nở nhiệt α =
 
 **Thành phần độ không đảm bảo đo `u_R`** là thành phần độ không đảm bảo loại A, xác định theo công thức:
 
-$$u_R = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n(n-1)}}$$
+$$
+u_R = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n(n-1)}}
+$$
 
 - `n`: số lần đo tại một vị trí đo;
 - `x_i`: kết quả đo độc lập tại một vị trí đo;
@@ -199,7 +209,9 @@ $$u_R = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n(n-1)}}$$
 
 **ĐKĐB mở rộng** — độ không đảm bảo đo mở rộng (U₉₅) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U_{95} = k \cdot u_c$$
+$$
+U_{95} = k \cdot u_c
+$$
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

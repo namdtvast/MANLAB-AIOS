@@ -168,11 +168,15 @@ Trường hợp trên áp kế không ghi cấp chính xác để xác định s
 
 - Đối với áp kế kiểu chênh áp nước và lò xo:
 
-  $$\text{cấp chính xác} = \frac{\frac{1}{2}\ \text{giá trị độ chia nhỏ nhất}}{\text{phạm vi đo}} \times 100$$
+  $$
+  \text{cấp chính xác} = \frac{\frac{1}{2}\ \text{giá trị độ chia nhỏ nhất}}{\text{phạm vi đo}} \times 100
+  $$
 
 - Đối với áp kế chênh áp hiện số:
 
-  $$\text{cấp chính xác} = \frac{\text{độ phân giải}}{\text{phạm vi đo}} \times 100$$
+  $$
+  \text{cấp chính xác} = \frac{\text{độ phân giải}}{\text{phạm vi đo}} \times 100
+  $$
 
 #### 7.3.2. Tiến hành hiệu chuẩn
 
@@ -194,17 +198,27 @@ Xác định công thức hiệu chuẩn: **y = a + bx**
 
 Với `n` là số lần đo:
 
-$$\bar{x} = \frac{\sum x_i}{n} \qquad \bar{y} = \frac{\sum y_i}{n}$$
+$$
+\bar{x} = \frac{\sum x_i}{n} \qquad \bar{y} = \frac{\sum y_i}{n}
+$$
 
-$$b = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2} \qquad a = \bar{y} - b \cdot \bar{x}$$
+$$
+b = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2} \qquad a = \bar{y} - b \cdot \bar{x}
+$$
 
 Xác định các thành phần tính độ không đảm bảo đo loại A:
 
-$$Q_y = \sqrt{\frac{\sum\{y_i - (a + b \cdot x_i)\}^2}{n-2}}$$
+$$
+Q_y = \sqrt{\frac{\sum\{y_i - (a + b \cdot x_i)\}^2}{n-2}}
+$$
 
-$$Q_a = Q_y \cdot \sqrt{\frac{\sum x_i^2}{n \cdot \sum(x_i - \bar{x})^2}} \qquad Q_b = Q_y \cdot \sqrt{\frac{1}{\sum(x_i - \bar{x})^2}}$$
+$$
+Q_a = Q_y \cdot \sqrt{\frac{\sum x_i^2}{n \cdot \sum(x_i - \bar{x})^2}} \qquad Q_b = Q_y \cdot \sqrt{\frac{1}{\sum(x_i - \bar{x})^2}}
+$$
 
-$$r(a,b) = -\frac{\sum x_i}{\sqrt{n \cdot \sum x_i^2}}$$
+$$
+r(a,b) = -\frac{\sum x_i}{\sqrt{n \cdot \sum x_i^2}}
+$$
 
 - `Q_y`: độ lệch chuẩn của y;
 - `Q_a`: độ lệch chuẩn của a;
@@ -213,7 +227,9 @@ $$r(a,b) = -\frac{\sum x_i}{\sqrt{n \cdot \sum x_i^2}}$$
 
 Công thức tính độ không đảm bảo đo loại A:
 
-$$u_A = \sqrt{Q_a^2 + x_i^2 \cdot Q_b^2 + 2 x_i \cdot Q_a \cdot Q_b \cdot r(a,b)}$$
+$$
+u_A = \sqrt{Q_a^2 + x_i^2 \cdot Q_b^2 + 2 x_i \cdot Q_a \cdot Q_b \cdot r(a,b)}
+$$
 
 ### 8.2. Độ không đảm bảo đo loại B
 
@@ -223,15 +239,21 @@ $$u_A = \sqrt{Q_a^2 + x_i^2 \cdot Q_b^2 + 2 x_i \cdot Q_a \cdot Q_b \cdot r(a,b)
 
 - Đối với thiết bị đo áp suất kiểu lò xo và nước:
 
-  $$u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}$$
+  $$
+  u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}
+  $$
 
 - Đối với thiết bị đo áp suất kiểu hiện số:
 
-  $$u_{tb} = \frac{\text{Độ phân giải ở áp suất lớn nhất}}{\sqrt{3}}$$
+  $$
+  u_{tb} = \frac{\text{Độ phân giải ở áp suất lớn nhất}}{\sqrt{3}}
+  $$
 
 **Tính `u_ch`** — xác định theo độ không đảm bảo đo `U(ch)` của chuẩn theo giấy chứng nhận hiệu chuẩn:
 
-$$u_{ch} = \frac{U(ch)}{k} \tag{[^uch2]}$$
+$$
+u_{ch} = \frac{U(ch)}{k} \tag{[^uch2]}
+$$
 
 [^uch2]: Bản gốc in vế trái là `u_tb` lần thứ hai; theo nội dung ("Tính u_ch") thì ký hiệu đúng phải là `u_ch`.
 
@@ -239,18 +261,24 @@ Trong đó `k` là hệ số phủ được ghi trong giấy chứng nhận hi�
 
 ### 8.3. ĐKĐB tổng hợp
 
-$$u_c = \sqrt{u_A^2 + u_{tb}^2 + u_{ch}^2}$$
+$$
+u_c = \sqrt{u_A^2 + u_{tb}^2 + u_{ch}^2}
+$$
 
 ### 8.4. ĐKĐB mở rộng
 
-$$U = k \cdot u_c$$
+$$
+U = k \cdot u_c
+$$
 
 - `U`: ĐKĐB mở rộng;
 - `k`: hệ số phủ ứng với xác suất tin cậy xấp xỉ 95 %.
 
 ĐKĐB tương đối:
 
-$$\text{ĐKĐB tương đối (\%)} = \frac{\text{ĐKĐB mở rộng}}{\text{Phạm vi đo}} \times 100$$
+$$
+\text{ĐKĐB tương đối (\%)} = \frac{\text{ĐKĐB mở rộng}}{\text{Phạm vi đo}} \times 100
+$$
 
 ## 9. Xử lý chung
 
