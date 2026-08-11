@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11 15:44 UTC",
+ "generated_at": "2026-08-11 15:49 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -3554,7 +3554,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 16505
+                "size": 16575
                }
               ],
               "n_dirs": 0,
@@ -4984,7 +4984,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 26475
+        "size": 26535
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -5114,7 +5114,7 @@
         "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
         "type": "file",
         "ext": ".md",
-        "size": 4454
+        "size": 4249
        },
        {
         "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",

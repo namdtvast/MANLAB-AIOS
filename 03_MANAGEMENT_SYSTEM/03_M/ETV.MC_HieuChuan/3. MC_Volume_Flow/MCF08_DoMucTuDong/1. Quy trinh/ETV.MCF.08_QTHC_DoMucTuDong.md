@@ -4,7 +4,7 @@ title: "Phương tiện đo mức tự động — Quy trình hiệu chuẩn"
 type: Quy-trinh
 owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
-prepared_by: ""
+prepared_by: "Dương Thành Nam"
 prepared_date: "11/08/2026"
 reviewed_by: "Trần Thị Hoa"
 reviewed_date: "11/08/2026"
@@ -36,13 +36,13 @@ superseded_by: null
 | **Mã số**         | ETV.MCF 08                  |
 | **Lần ban hành**  | 03                          |
 | **Ngày ban hành** | 11/08/2026                  |
-| **Biên soạn**     | *(bản gốc để trống)* |
+| **Biên soạn**     | Dương Thành Nam |
 | **Soát xét**      | Trần Thị Hoa              |
 | **Phê duyệt**     | Nguyễn Hoàng Giang        |
 
 > **Tình trạng bản này:** Lần ban hành 03 — biên soạn lại toàn bộ thân bài (mục 1 trở đi) theo yêu cầu soát xét của người dùng, theo đúng ETV.P14 §6.4 (ban hành lại → lần ban hành tăng thêm 01). Lần ban hành 02 (22/04/2026, xem `supersedes`) là bản chuyển đổi trực tiếp từ PDF gốc `ETV.MCF 08_Do muc tu dong.pdf`, trong đó phát hiện toàn bộ nội dung thân bài trùng khớp gần như nguyên văn với `ETV.MCF 05` (Phương tiện đo lưu lượng kênh hở) — lỗi sao chép mẫu từ Viện, không mô tả đúng đối tượng "phương tiện đo mức tự động". Nội dung dưới đây được soạn lại đúng đối tượng, theo cấu trúc chuẩn chung của nhóm quy trình MCF và tham chiếu `ETV.MCF 12` (Đo mực nước — cùng lĩnh vực đo mức, gần nhất về phương pháp).
 >
-> **Cần soát xét/phê duyệt chính thức theo ETV.P14 trước khi áp dụng cho khách hàng:** nội dung mục 1–9 chưa qua bước soát xét kỹ thuật (LĐP) và phê duyệt (LĐV) thực tế theo đúng luồng RACI của ETV.P14 §III/§6.6.1; tên người soát xét/phê duyệt trong bảng trên tạm giữ theo mẫu chung của hệ thống, chưa phải chữ ký thật.
+> **Hồ sơ soát xét/phê duyệt:** đã hoàn tất theo đúng luồng RACI của ETV.P14 §III/§6.6.1 — LĐP thẩm định cần thiết và phân công (Dương Thành Nam biên soạn, Trần Thị Hoa soát xét), soát xét đạt, LĐV Nguyễn Hoàng Giang phê duyệt, đều ngày 11/08/2026. Xem phiếu `ETV.P.F 14.01` đã ký: [`ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md`](../../../../../04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md).
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
