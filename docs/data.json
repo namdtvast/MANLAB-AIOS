@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11 15:33 UTC",
+ "generated_at": "2026-08-11 15:44 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,14 +11,14 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7124,
+  "files": 7125,
   "dirs": 1698,
   "docs": 4724,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 848,
+   ".md": 849,
    ".png": 95,
    ".pdf": 3423,
    ".yaml": 102,
@@ -3554,7 +3554,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 16581
+                "size": 16505
                }
               ],
               "n_dirs": 0,
@@ -5110,6 +5110,13 @@
         "size": 287827
        },
        {
+        "name": "ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
+        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4454
+       },
+       {
         "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
         "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
         "type": "file",
@@ -5225,7 +5232,7 @@
       "desc": "Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.",
       "readme": "03_MANAGEMENT_SYSTEM/04_F/README.md",
       "n_dirs": 0,
-      "n_files": 32
+      "n_files": 33
      },
      {
       "name": "05_R",
