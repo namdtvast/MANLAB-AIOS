@@ -154,15 +154,21 @@ Kiểm tra đo lường được thực hiện bằng phương pháp so sánh tr
 - Độ hồi trễ của PTĐ cần hiệu chuẩn tại mỗi điểm kiểm tra sẽ bằng hiệu số của trung bình của các giá trị đo được theo chiều tăng với trung bình của các giá trị đo được theo chiều giảm;
 - Độ hồi trễ lớn nhất từ độ hồi trễ tại các điểm kiểm tra sẽ được coi là độ hồi trễ:
 
-  $$A_{max} = \max\left| \left(\bar{t}_{tb,\ chiều\ tăng} - \bar{t}_{tb,\ chiều\ giảm}\right) \right|$$
+  $$
+  A_{max} = \max\left| \left(\bar{t}_{tb,\ chiều\ tăng} - \bar{t}_{tb,\ chiều\ giảm}\right) \right|
+  $$
 
 #### 7.3.4. Sai số đo và số hiệu chính cho giá trị đo của PTĐ cần hiệu chuẩn
 
 Sai số đo `Δ_DUT` và số hiệu chính `β_DUT` tại mỗi điểm kiểm tra của PTĐ cần hiệu chuẩn được tính lần lượt theo công thức chung như sau:
 
-$$\Delta_{DUT} = \bar{x}_{DUT} - (\bar{x}_S + \beta_S) \tag{1}$$
+$$
+\Delta_{DUT} = \bar{x}_{DUT} - (\bar{x}_S + \beta_S) \tag{1}
+$$
 
-$$\beta_{DUT} = (\bar{x}_S + \beta_S) - \bar{x}_{DUT} \tag{2}$$
+$$
+\beta_{DUT} = (\bar{x}_S + \beta_S) - \bar{x}_{DUT} \tag{2}
+$$
 
 Trong đó:
 
@@ -178,7 +184,9 @@ Trong đó:
 - Thực hiện đo lặp 10 lần tại mỗi điểm độ ẩm kiểm tra. Đọc các giá trị đo nhiệt độ của PTĐ cần hiệu chuẩn khi chỉ thị ổn định và ghi tối thiểu 10 giá trị nhiệt độ đo được vào biên bản Phụ lục 2, mỗi lần cách nhau 5 phút;
 - Sự phụ thuộc nhiệt độ vào độ ẩm được tính là giá trị độ lệch nhiệt độ lớn nhất giữa ba điểm độ ẩm (30, 50, 80) %RH:
 
-  $$B_{max} = \max\left(|\bar{t}_{DUT1} - \bar{t}_{DUT2}|;\ |\bar{t}_{DUT1} - \bar{t}_{DUT3}|;\ |\bar{t}_{DUT2} - \bar{t}_{DUT3}|\right)$$
+  $$
+  B_{max} = \max\left(|\bar{t}_{DUT1} - \bar{t}_{DUT2}|;\ |\bar{t}_{DUT1} - \bar{t}_{DUT3}|;\ |\bar{t}_{DUT2} - \bar{t}_{DUT3}|\right)
+  $$
 
   Trong đó: `B_max`: sai lệch của nhiệt độ theo độ ẩm; `t̄_DUT1`, `t̄_DUT2`, `t̄_DUT3`: giá trị trung bình nhiệt độ của PTĐ cần hiệu chuẩn phụ thuộc tại điểm nhiệt độ thứ 1, 2, 3 (°C).
 
@@ -197,35 +205,47 @@ Trong đó:
 
 **Độ không đảm bảo chuẩn kiểu B của nhiệt độ chuẩn (u_ch1):**
 
-$$u_{ch1} = \frac{U}{k}$$
+$$
+u_{ch1} = \frac{U}{k}
+$$
 
 Trong đó: `U`: ĐKĐB mở rộng của thiết bị chuẩn đo nhiệt độ được lấy từ giấy chứng nhận hiệu chuẩn, °C; `k`: hệ số mở rộng của U (thông thường k = 2).
 
 **Độ ổn định của phương tiện đo nhiệt độ chuẩn (u_ch2):**
 
-$$u_{ch2} = \frac{\delta_{od1}}{\sqrt{3}}$$
+$$
+u_{ch2} = \frac{\delta_{od1}}{\sqrt{3}}
+$$
 
 Trong đó: `δ_od1`: độ ổn định của phương tiện đo nhiệt độ chuẩn được lấy từ đặc tính kỹ thuật của hãng công bố hoặc kết quả hiệu chuẩn định kỳ giữa năm trước và năm sau khi thực hiện bên ngoài, °C.
 
 **Độ ổn định của buồng tạo nhiệt độ chuẩn (u_ch3):**
 
-$$u_{ch3} = \frac{\delta_{od2}}{\sqrt{3}}$$
+$$
+u_{ch3} = \frac{\delta_{od2}}{\sqrt{3}}
+$$
 
 Trong đó: `δ_od2`: độ ổn định của buồng tạo nhiệt chuẩn được lấy từ GCN hiệu chuẩn, °C.
 
 **Độ đồng đều của buồng tạo nhiệt độ chuẩn (u_ch4):**
 
-$$u_{ch4} = \frac{\delta_{dd}}{\sqrt{3}}$$
+$$
+u_{ch4} = \frac{\delta_{dd}}{\sqrt{3}}
+$$
 
 Trong đó: `δ_dd`: độ đồng đều của buồng tạo nhiệt chuẩn được lấy từ GCN hiệu chuẩn, °C.
 
 **Độ không đảm bảo độ lặp lại của hệ thống chuẩn (u_ch5):**
 
-$$u_{ch5} = \sqrt{\frac{S^2}{n}}$$
+$$
+u_{ch5} = \sqrt{\frac{S^2}{n}}
+$$
 
 Trong đó S là độ lệch chuẩn của nhiệt kế:
 
-$$S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}$$
+$$
+S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm kiểm tra;
 - `t_i`: lần đọc thứ i của nhiệt kế;
@@ -233,7 +253,9 @@ $$S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}$$
 
 **Độ không đảm bảo đo chuẩn liên hợp của tổ hợp chuẩn:**
 
-$$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2 + u_{ch5}^2}$$
+$$
+u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2 + u_{ch5}^2}
+$$
 
 #### 7.4.2. Độ không đảm bảo đo của PTĐ cần hiệu chuẩn
 
@@ -241,11 +263,15 @@ $$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2 + u_{ch5}^2}$$
 
 **Độ không đảm bảo chuẩn kiểu A của PTĐ cần hiệu chuẩn (u_bk1):**
 
-$$u_{bk1} = \sqrt{\frac{S^2}{n}}$$
+$$
+u_{bk1} = \sqrt{\frac{S^2}{n}}
+$$
 
 Trong đó S là độ lệch chuẩn của PTĐ cần hiệu chuẩn:
 
-$$S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}$$
+$$
+S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}
+$$
 
 - `n`: số lần đọc tại mỗi điểm kiểm tra;
 - `t_i`: lần đọc thứ i của PTĐ cần hiệu chuẩn;
@@ -253,31 +279,43 @@ $$S_i = \sqrt{\frac{\sum_{i=1}^{n} (t_i - t_{tb})^2}{n-1}}$$
 
 **Độ không đảm bảo đo kiểu B theo độ phân giải của PTĐ cần hiệu chuẩn (u_bk2):**
 
-$$u_{bk2} = \frac{\partial \times \Delta}{\sqrt{3}}$$
+$$
+u_{bk2} = \frac{\partial \times \Delta}{\sqrt{3}}
+$$
 
 Trong đó: Δ = 1/2 với hiển thị hiện số hoặc Δ = 1/10 với chỉ thị tương tự; `∂`: độ phân giải nhỏ nhất của chỉ thị PTĐ cần hiệu chuẩn.
 
 **Độ không đảm bảo đo kiểu B theo độ hồi trễ của PTĐ cần hiệu chuẩn (u_bk3):**
 
-$$u_{bk3} = \frac{A_{max}}{2\sqrt{3}}$$
+$$
+u_{bk3} = \frac{A_{max}}{2\sqrt{3}}
+$$
 
 **Độ không đảm bảo đo kiểu B theo sự phụ thuộc nhiệt độ vào độ ẩm của PTĐ cần hiệu chuẩn (u_bk4):**
 
-$$u_{bk4} = \frac{B_{max}}{2\sqrt{3}}$$
+$$
+u_{bk4} = \frac{B_{max}}{2\sqrt{3}}
+$$
 
 **Độ không đảm bảo đo chuẩn liên hợp của PTĐ cần hiệu chuẩn (u_bk):**
 
-$$u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}$$
+$$
+u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
+$$
 
 #### 7.4.3. Độ không đảm bảo liên hợp, u_c
 
-$$u_c = \sqrt{u_{ch}^2 + u_{bk}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
+$$
 
 #### 7.4.4. Độ không đảm bảo mở rộng, U95
 
 Tính với mức độ tin cậy 95 % C.L.; hệ số phủ k = 2:
 
-$$U_{95} = 2u_c$$
+$$
+U_{95} = 2u_c
+$$
 
 Thành phần này sẽ được đưa vào chứng nhận hiệu chuẩn của PTĐ cần hiệu chuẩn.
 

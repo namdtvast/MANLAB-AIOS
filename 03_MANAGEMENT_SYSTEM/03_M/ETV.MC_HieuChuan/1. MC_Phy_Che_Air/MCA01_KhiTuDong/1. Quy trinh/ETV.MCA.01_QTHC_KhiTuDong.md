@@ -219,7 +219,9 @@ PTĐ khí (SO₂, NOₓ, O₃, CO và THC) sau khi hiệu chỉnh được kiể
 - Tiến hành đo liên tục trong vòng 6 phút và 1 phút/lần (tối thiểu 6 kết quả đo cho mỗi điểm), các giá trị được ghi lại trên thiết bị tự ghi và lưu lại trên datalogger hoặc có thể ghi lại các giá trị đo được vào biên bản.
 - Sai số của mỗi phép đo được tính theo công thức sau:
 
-$$\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100$$
+$$
+\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100
+$$
 
 - `δ`: sai số phép đo, %;
 - `C_meas`: giá trị đo trung bình của PTĐ, %V (ppm);
@@ -229,7 +231,9 @@ $$\delta = \frac{C_{meas} - C_{ref}}{C_{ref}} \times 100$$
 
 Thực hiện kiểm tra độ lặp lại (tái lặp) của PTĐ khí theo phương pháp tiến hành 2 phép đo liên tiếp và tuần tự bằng khí chuẩn với nồng độ đã chọn và khí "không". Độ chính xác được xác định theo công thức:
 
-$$s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - `s(q̄)` là độ lệch chuẩn thực nghiệm trung bình;
 - `s(q_k)` là độ lệch chuẩn thực nghiệm được dùng để ước lượng độ rộng của phân bố các giá trị trung bình;

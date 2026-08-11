@@ -159,7 +159,9 @@ Bộ chuyển đổi áp suất phải được hiệu chuẩn ở một số đ
 
 Chuẩn và bộ chuyển đổi áp suất cần hiệu chuẩn phải nằm trên cùng một mặt phẳng, nếu có chênh lệch chiều cao thì phải hiệu chỉnh giá trị áp suất do cột chất lỏng gây ra:
 
-$$\Delta P = \rho g h$$
+$$
+\Delta P = \rho g h
+$$
 
 Trong đó: `ρ`: khối lượng riêng của chất lỏng công tác (kg/m³); `g`: gia tốc trọng trường nơi hiệu chuẩn (m/s²); `h`: chênh lệch chiều cao giữa đầu vào của chuẩn và bộ chuyển đổi áp suất cần hiệu chuẩn (m); `ΔP`: áp suất cần hiệu chỉnh (Pa).
 
@@ -183,15 +185,21 @@ Khi giảm áp suất chú ý không được giảm quá giá trị áp suất 
 
 *5.3.5.1. Công thức hiệu chuẩn:*
 
-$$y = a + bx \tag{1}$$
+$$
+y = a + bx \tag{1}
+$$
 
 Trong đó: `y` là giá trị điện áp (hoặc dòng điện) đầu ra của bộ chuyển đổi áp suất cần hiệu chuẩn; `x` là giá trị áp suất chuẩn.
 
 Với n là số lần đo thì:
 
-$$\bar{x} = \frac{\sum x_i}{n} \tag{2} \qquad \bar{y} = \frac{\sum y_i}{n} \tag{3}$$
+$$
+\bar{x} = \frac{\sum x_i}{n} \tag{2} \qquad \bar{y} = \frac{\sum y_i}{n} \tag{3}
+$$
 
-$$b = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} \tag{4} \qquad a = \bar{y} - b\bar{x} \tag{5}$$
+$$
+b = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} \tag{4} \qquad a = \bar{y} - b\bar{x} \tag{5}
+$$
 
 *5.3.5.2. Tính độ không đảm bảo đo tương đối*
 
@@ -201,21 +209,33 @@ $$b = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} \tag{4}
 
 Độ không đảm bảo đo kiểu A (`u_A,i`):
 
-$$S_y = \sqrt{\frac{\sum \{y_i - (a+bx_i)\}^2}{n-2}} \tag{6}$$
+$$
+S_y = \sqrt{\frac{\sum \{y_i - (a+bx_i)\}^2}{n-2}} \tag{6}
+$$
 
-$$S_a = S_y \sqrt{\frac{\sum x_i^2}{n \sum (x_i-\bar{x})^2}} \tag{7}$$
+$$
+S_a = S_y \sqrt{\frac{\sum x_i^2}{n \sum (x_i-\bar{x})^2}} \tag{7}
+$$
 
-$$S_b = S_y \sqrt{\frac{1}{\sum (x_i-\bar{x})^2}} \tag{8}$$
+$$
+S_b = S_y \sqrt{\frac{1}{\sum (x_i-\bar{x})^2}} \tag{8}
+$$
 
-$$r(a,b) = \frac{-\bar{x}}{\sqrt{\frac{1}{n}\sum x_i^2}} \tag{9}$$
+$$
+r(a,b) = \frac{-\bar{x}}{\sqrt{\frac{1}{n}\sum x_i^2}} \tag{9}
+$$
 
-$$u_{A,i} = \sqrt{x_i^2 S_a^2 + x_i^2 S_b^2 + 2x_i S_a S_b\, r(a,b)} \tag{10}$$
+$$
+u_{A,i} = \sqrt{x_i^2 S_a^2 + x_i^2 S_b^2 + 2x_i S_a S_b\, r(a,b)} \tag{10}
+$$
 
 Trong đó: `S_y`: độ lệch chuẩn đối với đường thẳng thích hợp; `S_a`: độ lệch chuẩn của a; `S_b`: độ lệch chuẩn của hệ số góc b; `r(a,b)`: hệ số tương quan của a và b.
 
 Độ không đảm bảo đo tương đối kiểu A:
 
-$$u_A(\%) = \frac{u_{A,i}}{\text{Phạm vi đo mức tín hiệu điện}} \times 100$$
+$$
+u_A(\%) = \frac{u_{A,i}}{\text{Phạm vi đo mức tín hiệu điện}} \times 100
+$$
 
 [^ocr-ct]: Các công thức (6)–(10) và các công thức tương tự tại mục 5.3.5.2.2–5.3.5.2.4 được phục hồi từ bản OCR có nhiều ký hiệu toán học bị nhận dạng sai (chỉ số dưới, căn bậc hai, dấu tổng) — trình bày lại theo cấu trúc chuẩn GUM đã suy luận từ ngữ cảnh và đối chiếu với công thức tương tự tại `ĐLVN 76` (cùng phương pháp bình phương cực tiểu). Khuyến nghị đối chiếu bản PDF gốc khi cần độ chính xác ký hiệu tuyệt đối.
 
@@ -231,7 +251,9 @@ $$u_A(\%) = \frac{u_{A,i}}{\text{Phạm vi đo mức tín hiệu điện}} \time
 
 **5.3.5.2.3. Độ không đảm bảo đo tương đối tổng hợp**
 
-$$u_C(\%) = \sqrt{u_A(\%)^2 + u_S(\%)^2 + u_{VA}(\%)^2}$$
+$$
+u_C(\%) = \sqrt{u_A(\%)^2 + u_S(\%)^2 + u_{VA}(\%)^2}
+$$
 
 **5.3.5.2.4. Độ không đảm bảo đo tương đối mở rộng**
 

@@ -216,13 +216,17 @@ Từ phương trình tổng quát (nồng độ mol của khí pha loãng), sai 
 
 ĐKĐB thành phần `u_Vpl1` do độ tản mạn của kết quả đo lưu lượng khí pha loãng:
 
-$$u_{Vpl1} = \sqrt{\frac{S^2}{n}} = \frac{S}{\sqrt{n}} = \frac{\sum_1^n (V_i - \bar{V})}{\sqrt{n(n-1)}}$$
+$$
+u_{Vpl1} = \sqrt{\frac{S^2}{n}} = \frac{S}{\sqrt{n}} = \frac{\sum_1^n (V_i - \bar{V})}{\sqrt{n(n-1)}}
+$$
 
 Với `S` được tính theo công thức độ lệch chuẩn thực nghiệm chuẩn. Trong đó: `S`: độ lệch chuẩn lưu lượng khí pha loãng, L/min; `n`: số lần đo; `V_i`: lưu lượng khí pha loãng đo được tại lần cân lặp thứ i, L/min; `V̄`: giá trị trung bình lưu lượng khí pha loãng sau n lần, L/min.
 
 ĐKĐB thành phần `u_Vpl2` được lấy từ giấy chứng nhận hiệu chuẩn của PTĐ lưu lượng khí pha loãng:
 
-$$u_{Vpl2} = \frac{a}{2}$$
+$$
+u_{Vpl2} = \frac{a}{2}
+$$
 
 Trong đó: `u_Vpl2`: ĐKĐB của PTĐ lưu lượng khí pha loãng, L/min; `a`: ĐKĐB của PTĐ lưu lượng khí pha loãng được lấy từ giấy chứng nhận hiệu chuẩn, L/min.
 
@@ -232,19 +236,25 @@ Trong đó: `u_Vpl2`: ĐKĐB của PTĐ lưu lượng khí pha loãng, L/min; `a
 
 ĐKĐB thành phần `u_Vng2` được lấy từ giấy chứng nhận hiệu chuẩn của PTĐ lưu lượng khí nguồn:
 
-$$u_{Vng2} = \frac{b}{2}$$
+$$
+u_{Vng2} = \frac{b}{2}
+$$
 
 Trong đó: `u_Vng2`: ĐKĐB của PTĐ lưu lượng khí nguồn, L/min; `b`: ĐKĐB của PTĐ lưu lượng khí nguồn được lấy từ giấy chứng nhận hiệu chuẩn, L/min.
 
 **c) ĐKĐB đo nồng độ khí pha loãng "khí không" (u_C0) và hệ số nhạy**
 
-$$u_{C0} = \frac{d}{2}$$
+$$
+u_{C0} = \frac{d}{2}
+$$
 
 Trong đó: `d`: ĐKĐB của khí pha loãng "khí không" được lấy từ giấy chứng nhận hiệu chuẩn, mg/m³.
 
 **d) ĐKĐB đo nồng độ khí nguồn (u_Ce) và hệ số nhạy**
 
-$$u_{Ce} = \frac{e}{2}$$
+$$
+u_{Ce} = \frac{e}{2}
+$$
 
 Trong đó: `e`: ĐKĐB của khí nguồn được lấy từ giấy chứng nhận hiệu chuẩn, mg/m³.
 
@@ -254,7 +264,9 @@ Khí không có nồng độ ngưỡng phát hiện ≈ 0 nên `u_C0` và hệ s
 
 **ĐKĐB mở rộng:** ĐKĐBĐ mở rộng được xác định cho mỗi điểm lưu lượng hiệu chuẩn theo công thức:
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra độ KĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy 95 %.
 

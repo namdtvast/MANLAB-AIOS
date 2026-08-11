@@ -201,19 +201,25 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 **ĐKĐBĐ do sự lặp lại của chuẩn:**
 
-$$u_{A1} = \frac{s}{\sqrt{3}}$$
+$$
+u_{A1} = \frac{s}{\sqrt{3}}
+$$
 
 `s`: độ lệch chuẩn thực nghiệm sau 3 lần đo, với `n` = số lần thực hiện đo, `q_k`: giá trị đo được ở lần thứ k, `q̄`: giá trị trung bình của k lần đo.
 
 **ĐKĐB do lưu lượng chuẩn:**
 
-$$u_{B1} = \frac{U}{k}$$
+$$
+u_{B1} = \frac{U}{k}
+$$
 
 `U`: độ không đảm bảo đo của máy đo lưu lượng; `k`: hệ số phủ (k = 2).
 
 **ĐKĐB do độ phân giải của phương tiện đo:**
 
-$$u_{B2} = \frac{d}{2\sqrt{3}}$$
+$$
+u_{B2} = \frac{d}{2\sqrt{3}}
+$$
 
 `d`: giá trị độ chia nhỏ nhất của phương tiện đo.
 
@@ -221,11 +227,15 @@ $$u_{B2} = \frac{d}{2\sqrt{3}}$$
 
 **ĐKĐB kết hợp:**
 
-$$U_c = \sqrt{U_A^2 + U_{B1}^2 + U_{B2}^2}$$
+$$
+U_c = \sqrt{U_A^2 + U_{B1}^2 + U_{B2}^2}
+$$
 
 **ĐKĐB mở rộng:** Độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U = k \times U_c$$
+$$
+U = k \times U_c
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra độ KĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

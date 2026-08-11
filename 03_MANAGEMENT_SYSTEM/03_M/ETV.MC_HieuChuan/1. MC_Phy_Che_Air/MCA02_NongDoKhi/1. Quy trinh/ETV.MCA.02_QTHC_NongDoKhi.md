@@ -214,7 +214,9 @@ Phải dùng PTĐ nồng độ khí đo tối thiểu 03 lần liên tục bằn
 - Tại mỗi điểm hiệu chuẩn đo tối thiểu 03 lần liên tiếp bằng PTĐ. Đợi giá trị ổn định và ghi lại giá trị đo được vào biên bản.
 - Kết quả sai số xác định theo công thức:
 
-$$\Delta = C_d - C_{ch}$$
+$$
+\Delta = C_d - C_{ch}
+$$
 
 - `Δ`: sai số;
 - `C_d`: giá trị của phương tiện đo;
@@ -226,7 +228,9 @@ $$\Delta = C_d - C_{ch}$$
 - Phải dùng PTĐ cần hiệu chuẩn đo lặp 10 lần liên tiếp xác định nồng độ khí chuẩn đã chọn. Ghi giá trị đo được vào biên bản.
 - Độ lệch chuẩn thực nghiệm `s(q_k)` được xác định theo công thức:
 
-$$s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của đại lượng q là trung bình số học `q̄`, nó thay đổi một cách ngẫu nhiên.
 
@@ -236,7 +240,9 @@ Trong hầu hết các trường hợp, ước lượng tốt nhất có thể c
 - Phải dùng PTĐ đo tối thiểu 03 lần giá trị nồng độ khí chuẩn đã chọn, mỗi lần cách nhau 02 giờ. Ghi lại giá trị đo được vào biên bản.
 - Sai số của mỗi phép đo được xác định theo công thức:
 
-$$a_{od} = C_s - C_d$$
+$$
+a_{od} = C_s - C_d
+$$
 
 - `a_od`: sai số của lần đo thứ i so với lần đầu tiên của PTĐ;
 - `C_s`: giá trị của phương tiện đo với lần đo thứ i;
@@ -250,7 +256,9 @@ $$a_{od} = C_s - C_d$$
 - Tại mỗi điểm hiệu chuẩn ghi kết quả đo của thiết bị và kết quả phân tích khí theo cùng thời điểm. Xử lý kết quả và ghi lại giá trị đo được vào biên bản.
 - Kết quả sai số xác định theo công thức:
 
-$$\Delta = C_d - C_{ch}$$
+$$
+\Delta = C_d - C_{ch}
+$$
 
 **b) Kiểm tra lặp lại**
 
@@ -258,7 +266,9 @@ $$\Delta = C_d - C_{ch}$$
 - Phải dùng PTĐ cần hiệu chuẩn đo lặp từ (3 ÷ 6) lần liên tiếp xác định nồng độ khí đã chọn. Ghi giá trị đo được vào biên bản.
 - Độ lệch chuẩn thực nghiệm `s(q_k)` được xác định theo công thức:
 
-$$s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 > **Ghi chú:** Việc thực hiện hiệu chuẩn thực hiện theo yêu cầu thực tế của khách hàng. Viện ETV trao đổi và thống nhất với khách hàng về số lượng điểm và nội dung kiểm tra trong phiếu yêu cầu thực hiện.
 
@@ -295,57 +305,77 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 - ĐKĐB của độ chụm (độ lặp lại):
 
-  $$u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+  $$
+  u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+  $$
 
 - ĐKĐB độ ổn định theo thời gian của PTĐ:
 
-  $$u_{A2} = \frac{\max a_{od}}{\sqrt{3}}$$
+  $$
+  u_{A2} = \frac{\max a_{od}}{\sqrt{3}}
+  $$
 
   với `max a_od` là độ không ổn định lớn nhất của lần đo thứ i so với lần đầu tiên của PTĐ.
 
 - ĐKĐB thông qua độ phân giải của thiết bị (lấy từ thông số của nhà sản xuất):
 
-  $$u_{B1} = \frac{a_{pg}}{2\sqrt{3}}$$
+  $$
+  u_{B1} = \frac{a_{pg}}{2\sqrt{3}}
+  $$
 
   với `a_pg` là độ phân giải của PTĐ; cần phải quy đổi đơn vị ppm hoặc % phù hợp với cách tính ĐKĐB của các yếu tố trên.
 
 **ĐKĐB của mẫu chuẩn:**
 
-$$u_{B2} = \frac{u_k}{k}$$
+$$
+u_{B2} = \frac{u_k}{k}
+$$
 
 - `u_k`: ĐKĐB trích dẫn theo chứng nhận của nhà sản xuất khí chuẩn;
 - `k`: hệ số bao phủ được công bố theo giấy chứng nhận của nhà sản xuất.
 
 Với những khí chuẩn mà nhà sản xuất không công bố ĐKĐB, chỉ có độ chính xác của khí chuẩn:
 
-$$u_{B2} = \frac{a_k}{\sqrt{3}}$$
+$$
+u_{B2} = \frac{a_k}{\sqrt{3}}
+$$
 
 với `a_k` là độ chính xác của khí chuẩn theo chứng nhận của nhà sản xuất.
 
 **ĐKĐB của thiết bị pha loãng khí chuẩn** *(áp dụng đối với thiết bị phải sử dụng thiết bị pha loãng khí chuẩn)*:
 
-$$u_{B3} = \frac{u_{ref}}{k}$$
+$$
+u_{B3} = \frac{u_{ref}}{k}
+$$
 
 - `u_ref`: ĐKĐB trích dẫn theo chứng nhận hiệu chuẩn của thiết bị;
 - `k`: hệ số bao phủ được công bố theo giấy chứng nhận của nhà sản xuất.
 
 Với thiết bị có độ chính xác công bố của hãng sản xuất:
 
-$$u_{B3} = \frac{a_{ref}}{\sqrt{3}}$$
+$$
+u_{B3} = \frac{a_{ref}}{\sqrt{3}}
+$$
 
 Đối với trường hợp không sử dụng thiết bị pha loãng mà dùng phương tiện đo lưu lượng khí để kiểm soát lưu lượng thì:
 
-$$u_{B3} = \frac{u_{\%ll}}{2}$$
+$$
+u_{B3} = \frac{u_{\%ll}}{2}
+$$
 
 với `u_%ll` là ĐKĐB của thiết bị đo lưu lượng (cấp trong GCN hiệu chuẩn).
 
 **ĐKĐB tổng hợp:**
 
-$$u_c = \sqrt{u_{A1}^2 + u_{A2}^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2}$$
+$$
+u_c = \sqrt{u_{A1}^2 + u_{A2}^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2}
+$$
 
 **ĐKĐB mở rộng** — độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U = k \cdot u_c$$
+$$
+U = k \cdot u_c
+$$
 
 Với `k` là hệ số bao phủ, thường được chọn k = 2 với mức tin cậy 95 %. Thành phần này chính là độ không đảm bảo đo của kết quả hiệu chuẩn PTĐ nồng độ khí và được đưa vào giấy chứng nhận hiệu chuẩn cùng với kết quả hiệu chuẩn.
 

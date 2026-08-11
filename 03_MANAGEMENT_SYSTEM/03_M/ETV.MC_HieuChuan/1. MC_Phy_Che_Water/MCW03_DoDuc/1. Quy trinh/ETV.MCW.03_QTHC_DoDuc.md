@@ -212,9 +212,13 @@ Hoạt động này không bắt buộc; chỉ thực hiện khi PTĐ sai lệch
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ chính xác của PTĐ tại các nồng độ dung dịch chuẩn.
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
-$$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - `u_A`: ĐKĐB do độ lặp lại;
 - `s`: độ lệch chuẩn thực nghiệm sau n lần đo;
@@ -226,25 +230,35 @@ $$s = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}$$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-  $$u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})$$
+  $$
+  u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
+  $$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$u_{B1} = \frac{a}{2} \quad (a: \text{ĐKĐB của dung dịch chuẩn})$$
+  $$
+  u_{B1} = \frac{a}{2} \quad (a: \text{ĐKĐB của dung dịch chuẩn})
+  $$
 
 **c. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 
-$$u_{B2} = \frac{b}{2\sqrt{3}}$$
+$$
+u_{B2} = \frac{b}{2\sqrt{3}}
+$$
 
 - `b`: Độ phân giải của PTĐ cần hiệu chuẩn.
 
 **Tính toán ĐKĐB tổng hợp**
 
-$$u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2}
+$$
 
 **ĐKĐB mở rộng**
 
-$$U = k \cdot u_C$$
+$$
+U = k \cdot u_C
+$$
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

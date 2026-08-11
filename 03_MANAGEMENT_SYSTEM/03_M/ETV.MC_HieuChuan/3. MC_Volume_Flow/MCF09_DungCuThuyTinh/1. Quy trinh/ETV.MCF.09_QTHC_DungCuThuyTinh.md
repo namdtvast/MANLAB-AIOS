@@ -206,7 +206,9 @@ Việc xác định sai số được thực hiện đối với các vạch d�
 
 Dung tích kiểm tra của PTĐ DTTN quy về nhiệt độ tiêu chuẩn `V_t0i` (mL) được xác định cho mỗi lần đo theo công thức:
 
-$$V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times \left(1 - \frac{\rho_a}{\rho_s}\right) \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{1}$$
+$$
+V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times \left(1 - \frac{\rho_a}{\rho_s}\right) \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{1}
+$$
 
 Trong đó:
 
@@ -220,11 +222,15 @@ Trong đó:
 
 Sau vài biến đổi toán học ta có:
 
-$$V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{2}$$
+$$
+V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{2}
+$$
 
 Giá trị thực của dung tích kiểm tra quy về nhiệt độ tiêu chuẩn `V_t0` (mL) được xác định theo công thức:
 
-$$V_{t0} = \frac{\sum_{i=1}^{n} V_{t0i}}{n} \tag{3}$$
+$$
+V_{t0} = \frac{\sum_{i=1}^{n} V_{t0i}}{n} \tag{3}
+$$
 
 Trong đó: `n`: số lần thực hiện phép đo.
 
@@ -232,7 +238,9 @@ Trong đó: `n`: số lần thực hiện phép đo.
 
 Khối lượng riêng của nước cất `ρ_w` (kg/m³) được xác định theo công thức:
 
-$$\rho_w = \sum_{i=0}^{4} [a_i \times (t_w)^i] \tag{4}$$
+$$
+\rho_w = \sum_{i=0}^{4} [a_i \times (t_w)^i] \tag{4}
+$$
 
 Trong đó: a0 = 9,9985308 × 10² kg/m³; a1 = 6,326930 × 10⁻² (°C)⁻¹·kg/m³; a2 = -8,523829 × 10⁻³ (°C)⁻²·kg/m³; a3 = 6,943248 × 10⁻⁵ (°C)⁻³·kg/m³; a4 = -3,821216 × 10⁻⁷ (°C)⁻⁴·kg/m³.
 
@@ -240,7 +248,9 @@ Trong đó: a0 = 9,9985308 × 10² kg/m³; a1 = 6,326930 × 10⁻² (°C)⁻¹·
 
 Khối lượng riêng của không khí `ρ_a` (kg/m³) được xác định theo công thức:
 
-$$\rho_a = \frac{k_1 \times P + \varphi \times (k_2 \times t_a + k_3)}{t_a + 273,15} \tag{5}$$
+$$
+\rho_a = \frac{k_1 \times P + \varphi \times (k_2 \times t_a + k_3)}{t_a + 273,15} \tag{5}
+$$
 
 Trong đó: `P`: áp suất khí quyển, hPa; `φ`: độ ẩm tương đối, %RH; `t_a`: nhiệt độ không khí, °C; k1 = 0,34844 (kg/m³)·(°C/hPa); k2 = -0,00252 (kg/m³); k3 = 0,020582 (kg/m³)·°C.
 
@@ -248,7 +258,9 @@ Trong đó: `P`: áp suất khí quyển, hPa; `φ`: độ ẩm tương đối, 
 
 Sai số của PTĐ DTTN tại dung tích kiểm tra Δ (mL) được tính theo công thức:
 
-$$\Delta = V_n - V_{t0} \tag{6}$$
+$$
+\Delta = V_n - V_{t0} \tag{6}
+$$
 
 Trong đó: `V_n`: dung tích kiểm tra danh nghĩa, mL; `V_t0`: dung tích thực tương ứng quy về nhiệt độ tiêu chuẩn, mL.
 
@@ -256,7 +268,9 @@ Trong đó: `V_n`: dung tích kiểm tra danh nghĩa, mL; `V_t0`: dung tích th�
 
 Độ lệch lớn nhất giữa sai số của các dung tích kiểm tra (Δij, mL) được xác định như sau:
 
-$$\Delta_{ij} = \Delta_{max} - \Delta_{min} \tag{7}$$
+$$
+\Delta_{ij} = \Delta_{max} - \Delta_{min} \tag{7}
+$$
 
 Trong đó: `Δ_max, Δ_min`: lần lượt là sai số lớn nhất và nhỏ nhất trong các dung tích kiểm tra, mL.
 
@@ -277,11 +291,15 @@ Trong đó: `Δ_max, Δ_min`: lần lượt là sai số lớn nhất và nhỏ 
 
 Mô hình toán học của dung tích theo công thức:
 
-$$V_{t0} = f(\bar{V}; m; t_v; \rho_w; \rho_a; m_d; a_{read}; const) \tag{8}$$
+$$
+V_{t0} = f(\bar{V}; m; t_v; \rho_w; \rho_a; m_d; a_{read}; const) \tag{8}
+$$
 
 Độ không đảm bảo đo tổng hợp, `u_c`, của phép hiệu chuẩn dung tích được xác định theo công thức:
 
-$$u_c = \sqrt{\sum_i (u_i^2 \times c_i^2)} \tag{9}$$
+$$
+u_c = \sqrt{\sum_i (u_i^2 \times c_i^2)} \tag{9}
+$$
 
 Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_i`: hệ số nhạy tương ứng với ước lượng đầu vào `x_i`.
 
@@ -291,15 +309,21 @@ Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_
 
 Tính `u_A`:
 
-$$u_{\bar{V}} = \frac{s}{\sqrt{n}} \tag{10}$$
+$$
+u_{\bar{V}} = \frac{s}{\sqrt{n}} \tag{10}
+$$
 
 `u_V̄`: ĐKĐBĐ do độ lặp lại; `s`: độ lệch chuẩn thực nghiệm sau n lần đo:
 
-$$S_k^2 = \frac{1}{n-1}\sum_{1}^{n} (V_k - \bar{V})^2$$
+$$
+S_k^2 = \frac{1}{n-1}\sum_{1}^{n} (V_k - \bar{V})^2
+$$
 
 Suy ra:
 
-$$S_k = \frac{\sum_1^n (V_k - \bar{V})}{\sqrt{n-1}}$$
+$$
+S_k = \frac{\sum_1^n (V_k - \bar{V})}{\sqrt{n-1}}
+$$
 
 Với `n` = số lần thực hiện đo; `V_k`: giá trị đo được ở lần thứ k; `V̄`: giá trị trung bình của k lần đo.
 
@@ -307,51 +331,75 @@ Hệ số nhạy: `c_V̄ = 1`.
 
 ##### 7.4.3.2. ĐKĐBĐ của cân khi cân nước
 
-$$u_m = \frac{a}{2} \tag{11}$$
+$$
+u_m = \frac{a}{2} \tag{11}
+$$
 
 Trong đó: `u_m`: ĐKĐBĐ của cân khi cân nước (g); `a`: là ĐKĐBĐ của cân điện tử tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn.
 
 Hệ số nhạy:
 
-$$c_m = \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{12}$$
+$$
+c_m = \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{12}
+$$
 
 ##### 7.4.3.3. ĐKĐBĐ của khối lượng riêng nước
 
-$$u_{\rho w} = \sqrt{\left(u_{tw} \times \frac{\partial \rho_w}{\partial t_w}\right)^2 + \frac{\Delta_w^2}{3}} \tag{13}$$
+$$
+u_{\rho w} = \sqrt{\left(u_{tw} \times \frac{\partial \rho_w}{\partial t_w}\right)^2 + \frac{\Delta_w^2}{3}} \tag{13}
+$$
 
-$$\frac{\partial \rho_w}{\partial t_w} = 4a_4 t_w^3 + 3a_3 t_w^2 + 2a_2 t_w + a_1$$
+$$
+\frac{\partial \rho_w}{\partial t_w} = 4a_4 t_w^3 + 3a_3 t_w^2 + 2a_2 t_w + a_1
+$$
 
 Trong đó: `u_ρw`: ĐKĐBĐ của khối lượng riêng của nước, kg/m³; `u_tw`: ĐKĐBĐ của phép xác định nhiệt độ nước, °C; `Δ_w`: sai số của công thức, `Δ_w = 10⁻⁶ × ρ_w`.
 
 Hệ số nhạy:
 
-$$c_{\rho w} = -\frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{14}$$
+$$
+c_{\rho w} = -\frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{14}
+$$
 
 ##### 7.4.3.4. ĐKĐBĐ của khối lượng riêng không khí
 
-$$u_{\rho a} = \sqrt{u_P^2 c_P^2 + u_\varphi^2 c_\varphi^2 + u_{ta}^2 c_{ta}^2 + u_{method}^2} \tag{15}$$
+$$
+u_{\rho a} = \sqrt{u_P^2 c_P^2 + u_\varphi^2 c_\varphi^2 + u_{ta}^2 c_{ta}^2 + u_{method}^2} \tag{15}
+$$
 
-$$c_P = \frac{k_1}{t_a + 273,15} \tag{16}$$
+$$
+c_P = \frac{k_1}{t_a + 273,15} \tag{16}
+$$
 
-$$c_\varphi = \frac{k_2 \times t_a + k_3}{t_a + 273,15} \tag{17}$$
+$$
+c_\varphi = \frac{k_2 \times t_a + k_3}{t_a + 273,15} \tag{17}
+$$
 
-$$c_{ta} = \frac{\varphi \times (273,15 \times k_2 - k_3) - P \times k_1}{(t_a + 273,15)^2} \tag{18}$$
+$$
+c_{ta} = \frac{\varphi \times (273,15 \times k_2 - k_3) - P \times k_1}{(t_a + 273,15)^2} \tag{18}
+$$
 
 Trong đó: `u_P`: ĐKĐBĐ khi xác định áp suất khí quyển, hPa; `u_φ`: ĐKĐBĐ khi xác định độ ẩm không khí, %RH; `u_ta`: ĐKĐBĐ khi xác định nhiệt độ không khí, °C; `u_method`: ĐKĐBĐ của phương pháp, `u_method = 10⁻⁴ × ρ_a`.
 
 Hệ số nhạy:
 
-$$c_{\rho a} = \frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{19}$$
+$$
+c_{\rho a} = \frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^3 \tag{19}
+$$
 
 ##### 7.4.3.5. ĐKĐBĐ do hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo dụng cụ thí nghiệm
 
-$$u_\gamma = \frac{0,1 \times \gamma}{\sqrt{3}} \tag{20}$$
+$$
+u_\gamma = \frac{0,1 \times \gamma}{\sqrt{3}} \tag{20}
+$$
 
 `u_γ`: ĐKĐB do hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo dụng cụ thí nghiệm; `γ`: hệ số giãn nở theo khối nhiệt độ của vật liệu (tra bảng tại Phụ lục 1).
 
 Hệ số nhạy:
 
-$$c_\gamma = -\frac{m}{\rho_w - \rho_a} \times 0,99985 \times (t_w - t_0) \times 10^3 \tag{21}$$
+$$
+c_\gamma = -\frac{m}{\rho_w - \rho_a} \times 0,99985 \times (t_w - t_0) \times 10^3 \tag{21}
+$$
 
 ##### 7.4.3.6. ĐKĐBĐ do nhiệt độ Dụng cụ thí nghiệm
 
@@ -359,13 +407,17 @@ $$c_\gamma = -\frac{m}{\rho_w - \rho_a} \times 0,99985 \times (t_w - t_0) \times
 
 Hệ số nhạy:
 
-$$c_{tw} = \frac{m}{\rho_w - \rho_a} \times 0,99985 \times \gamma \times 10^3 \tag{22}$$
+$$
+c_{tw} = \frac{m}{\rho_w - \rho_a} \times 0,99985 \times \gamma \times 10^3 \tag{22}
+$$
 
 ##### 7.4.3.7. ĐKĐBĐ do sai số đọc
 
 ĐKĐBĐ do sai số đọc PTĐ DTTN được xác định theo công thức:
 
-$$u_{read} = \frac{a_{read} \times V_{1mm}}{2\sqrt{3}} \tag{23}$$
+$$
+u_{read} = \frac{a_{read} \times V_{1mm}}{2\sqrt{3}} \tag{23}
+$$
 
 Trong đó: `u_read`: ĐKĐBĐ do sai số đọc PTĐ cần hiệu chuẩn; `a_read`: khả năng phân biệt của thiết bị đọc, mm; `V_1mm`: thể tích chứa 1 mm ống hút của dụng cụ thí nghiệm có chia độ kiểu D, µL.
 
@@ -375,11 +427,15 @@ Hệ số nhạy: `c_read = 1` (24).
 
 ##### 7.4.3.8. ĐKĐBĐ tổng hợp
 
-$$u_C = \sqrt{u_{\bar{V}}^2 c_{\bar{V}}^2 + u_m^2 c_m^2 + u_{\rho w}^2 c_{\rho w}^2 + u_{\rho a}^2 c_{\rho a}^2 + u_\gamma^2 c_\gamma^2 + u_{tw}^2 c_{tw}^2 + u_{read}^2 c_{read}^2}$$
+$$
+u_C = \sqrt{u_{\bar{V}}^2 c_{\bar{V}}^2 + u_m^2 c_m^2 + u_{\rho w}^2 c_{\rho w}^2 + u_{\rho a}^2 c_{\rho a}^2 + u_\gamma^2 c_\gamma^2 + u_{tw}^2 c_{tw}^2 + u_{read}^2 c_{read}^2}
+$$
 
 **ĐKĐBĐ mở rộng:**
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐBĐ chuẩn kết hợp để đưa ra ĐKĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 
@@ -428,6 +484,8 @@ Biên bản hiệu chuẩn Phương tiện đo dung tích thí nghiệm (`ETV.MC
 
 Quy đổi thể tích từ nhiệt độ ban đầu t1 sang nhiệt độ t2:
 
-$$V_2 = V_1 \times [1 - \gamma \times (t_1 - t_2)]$$
+$$
+V_2 = V_1 \times [1 - \gamma \times (t_1 - t_2)]
+$$
 
 Trong đó: `V_1`: thể tích BCTT tại nhiệt độ ban đầu; `V_2`: thể tích BCTT tại nhiệt độ cần quy đổi; `t_1`: nhiệt độ ban đầu của PTĐ DTTN; `t_2`: nhiệt độ cần quy đổi; `γ`: hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo PTĐ DTTN.

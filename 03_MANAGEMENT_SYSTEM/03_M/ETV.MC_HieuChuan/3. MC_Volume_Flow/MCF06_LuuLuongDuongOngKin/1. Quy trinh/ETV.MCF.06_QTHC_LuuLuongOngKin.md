@@ -200,29 +200,41 @@ Các yếu tố ảnh hưởng đến ĐKĐBĐ được xác định từ mục 
 
 ĐKĐBĐ từ GCN chuẩn:
 
-$$u_{B1} = \frac{u_{Cal}}{2}$$
+$$
+u_{B1} = \frac{u_{Cal}}{2}
+$$
 
 với `u_Cal` là ĐKĐBĐ dẫn theo chứng nhận của nhà sản xuất PTĐ lưu lượng chuẩn.
 
 Với những PTĐ chuẩn lưu lượng ống kín mà nhà sản xuất không công bố ĐKĐBĐ, chỉ có độ chính xác của PTĐ thì ĐKĐBĐ của PTĐ được tính theo công thức:
 
-$$u_{B1} = \frac{\text{độ chính xác}}{\sqrt{3}}$$
+$$
+u_{B1} = \frac{\text{độ chính xác}}{\sqrt{3}}
+$$
 
 ĐKĐBĐ của độ chụm (độ lặp lại) của PTĐ chuẩn lưu lượng ống kín (`u_B2`):
 
-$$u_{B2} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n} (q_k - \bar{q})^2}$$
+$$
+u_{B2} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n} (q_k - \bar{q})^2}
+$$
 
 Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của đại lượng q là trung bình số học `q̄`, nó thay đổi một cách ngẫu nhiên. Trung bình số học của n kết quả đo độc lập:
 
-$$\bar{q} = \frac{1}{n}\sum_{k=1}^{n} q_k$$
+$$
+\bar{q} = \frac{1}{n}\sum_{k=1}^{n} q_k
+$$
 
 Độ lệch chuẩn thực nghiệm `s(q_k)` được dùng để ước lượng phân bố của q:
 
-$$s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (q_k - \bar{q})^2}$$
+$$
+s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (q_k - \bar{q})^2}
+$$
 
 Độ lệch chuẩn thực nghiệm `s(q̄)` của giá trị trung bình được dùng để ước lượng độ rộng của phân bố các giá trị trung bình:
 
-$$s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}$$
+$$
+s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}
+$$
 
 **ĐKĐBĐ của PTĐ lưu lượng ống kín cần hiệu chuẩn**
 
@@ -230,23 +242,31 @@ $$s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}$$
 
 ĐKĐBĐ của độ chụm (độ lặp lại) của PTĐ lưu lượng ống kín (`u_A1`):
 
-$$u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n} (q_k - \bar{q})^2}$$
+$$
+u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n} (q_k - \bar{q})^2}
+$$
 
 (tính tương tự như trên với công thức trung bình số học `q̄` và độ lệch chuẩn thực nghiệm `s(q_k)`, `s(q̄)`).
 
 ĐKĐBĐ thông qua độ phân giải của thiết bị được lấy từ thông số từ nhà sản xuất:
 
-$$u_{A2} = \frac{\text{độ phân giải}}{2\sqrt{3}}$$
+$$
+u_{A2} = \frac{\text{độ phân giải}}{2\sqrt{3}}
+$$
 
 #### 7.4.3. Tính toán ĐKĐBĐ tổng hợp và ĐKĐBĐ mở rộng
 
 **ĐKĐBĐ tổng hợp:**
 
-$$u_C = \sqrt{u_{A1}^2 + u_{A2}^2 + u_{B1}^2 + u_{B2}^2}$$
+$$
+u_C = \sqrt{u_{A1}^2 + u_{A2}^2 + u_{B1}^2 + u_{B2}^2}
+$$
 
 **ĐKĐBĐ mở rộng:** Độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U = k \times u_C$$
+$$
+U = k \times u_C
+$$
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐBĐ chuẩn kết hợp để đưa ra ĐKĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

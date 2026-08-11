@@ -141,7 +141,9 @@ Panme được hiệu chuẩn đo lường theo trình tự nội dung, phương
 
 - Trường hợp các vân giao thoa là các vòng tròn khép kín thì độ không phẳng tính theo công thức:
 
-  $$P = m \cdot \frac{\lambda}{2} \tag{1}$$
+  $$
+  P = m \cdot \frac{\lambda}{2} \tag{1}
+  $$
 
   - `P`: độ không phẳng của mặt đo;
   - `m`: số vân giao thoa đếm được;
@@ -149,7 +151,9 @@ Panme được hiệu chuẩn đo lường theo trình tự nội dung, phương
 
 - Trường hợp các vân giao thoa là những đường vòng cung, tính độ không phẳng theo công thức:
 
-  $$P = \frac{b}{a} \cdot \frac{\lambda}{2} \tag{2}$$
+  $$
+  P = \frac{b}{a} \cdot \frac{\lambda}{2} \tag{2}
+  $$
 
   - `a`: khoảng cách giữa hai vân giao thoa liên tiếp;
   - `b`: độ cong của vân giao thoa.
@@ -168,7 +172,9 @@ Lần lượt đặt các tấm kính phẳng tiếp xúc vào hai mặt đo c�
 
 Tính độ không song song giữa hai mặt đo theo công thức sau:
 
-$$S = (m_1 + m_2) \cdot \frac{\lambda}{2} \tag{3}$$
+$$
+S = (m_1 + m_2) \cdot \frac{\lambda}{2} \tag{3}
+$$
 
 - `S`: độ không song song;
 - `m_1`, `m_2`: số vân giao thoa trên hai mặt đo.
@@ -197,7 +203,9 @@ Tiếp theo, đặt căn mẫu tại 4 góc đối nhau theo đường kính c�
 - Kích thước của thanh điều chỉnh được đo so sánh với căn mẫu có kích thước tương ứng trên máy đo độ dài hoặc optimet nằm ngang.
 - Sai số của thanh điều chỉnh được tính theo công thức sau:
 
-$$d_m = \pm\left(1 + \frac{L}{50}\right) \tag{4}$$
+$$
+d_m = \pm\left(1 + \frac{L}{50}\right) \tag{4}
+$$
 
 - `d_m`: sai số của thanh điều chỉnh (µm);
 - `L`: kích thước danh định của thanh điều chỉnh (mm).
@@ -217,7 +225,9 @@ $$d_m = \pm\left(1 + \frac{L}{50}\right) \tag{4}$$
 
 **ĐKĐB loại A do sai số ngẫu nhiên:**
 
-$$U_A = \frac{S_{X\ max}}{\sqrt{n}}$$
+$$
+U_A = \frac{S_{X\ max}}{\sqrt{n}}
+$$
 
 - `U_A`: ĐKĐB loại A;
 - `S_X max`: độ lệch chuẩn lớn nhất;
@@ -225,7 +235,9 @@ $$U_A = \frac{S_{X\ max}}{\sqrt{n}}$$
 
 **ĐKĐB do bộ căn mẫu:**
 
-$$U_{A1} = \frac{U_{cm}}{k} \cdot \sqrt{n}$$
+$$
+U_{A1} = \frac{U_{cm}}{k} \cdot \sqrt{n}
+$$
 
 - `U_A1`: ĐKĐB đo của bộ căn mẫu;
 - `U_cm`, `k`: ĐKĐB, hệ số phủ được công bố của bộ căn mẫu;
@@ -233,13 +245,17 @@ $$U_{A1} = \frac{U_{cm}}{k} \cdot \sqrt{n}$$
 
 **ĐKĐB do độ phân giải của thước:**
 
-$$U_{b2} = \frac{a}{2\sqrt{3}}$$
+$$
+U_{b2} = \frac{a}{2\sqrt{3}}
+$$
 
 với `a` là độ phân giải được công bố của PTĐ.
 
 **ĐKĐB do độ phẳng của bề mặt mỏ đo:**
 
-$$U_{b3} = \frac{F}{2\sqrt{3}} \qquad F = n \cdot \frac{\lambda}{2}$$
+$$
+U_{b3} = \frac{F}{2\sqrt{3}} \qquad F = n \cdot \frac{\lambda}{2}
+$$
 
 - `U_b3`: ĐKĐB do độ phẳng của bề mặt mỏ đo;
 - `F`: tổng độ không phẳng của 2 mặt mỏ đo;
@@ -248,7 +264,9 @@ $$U_{b3} = \frac{F}{2\sqrt{3}} \qquad F = n \cdot \frac{\lambda}{2}$$
 
 **ĐKĐB do độ không song song của 2 bề mặt mỏ đo:**
 
-$$U_{b4} = \frac{P}{2\sqrt{3}} \qquad P = m \cdot \frac{\lambda}{2}$$
+$$
+U_{b4} = \frac{P}{2\sqrt{3}} \qquad P = m \cdot \frac{\lambda}{2}
+$$
 
 - `U_b4`: ĐKĐB do độ không song song của bề mặt mỏ đo;
 - `P`: độ không song song của 2 mỏ đo;
@@ -257,11 +275,15 @@ $$U_{b4} = \frac{P}{2\sqrt{3}} \qquad P = m \cdot \frac{\lambda}{2}$$
 
 **ĐKĐB tổng hợp** — độ không đảm bảo đo tổng hợp được xác định bằng công thức:
 
-$$u_c = \sqrt{U_A^2 + U_{A1}^2 + U_{b2}^2 + U_{b3}^2 + U_{b4}^2}$$
+$$
+u_c = \sqrt{U_A^2 + U_{A1}^2 + U_{b2}^2 + U_{b3}^2 + U_{b4}^2}
+$$
 
 **ĐKĐB mở rộng** — độ không đảm bảo đo mở rộng (U₉₅) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$U_{95} = k \cdot u_c$$
+$$
+U_{95} = k \cdot u_c
+$$
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

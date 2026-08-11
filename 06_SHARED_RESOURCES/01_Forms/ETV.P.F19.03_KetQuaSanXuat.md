@@ -175,23 +175,33 @@ responsible_dept: Phòng Đo lường Chất lượng
 
 ### Giá trị danh định (x̄)
 
-$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+$$
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
 
 ### Độ lệch chuẩn (s)
 
-$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
+$$
+s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}
+$$
 
 ### Độ không đảm bảo loại A (uA)
 
-$$u_A = \frac{s}{\sqrt{n}}$$
+$$
+u_A = \frac{s}{\sqrt{n}}
+$$
 
 ### Độ không đảm bảo chuẩn kết hợp (uc)
 
-$$u_c = \sqrt{u_A^2 + u_B^2}$$
+$$
+u_c = \sqrt{u_A^2 + u_B^2}
+$$
 
 ### Độ không đảm bảo mở rộng (U)
 
-$$U = k \times u_c$$
+$$
+U = k \times u_c
+$$
 (với k = 2 cho độ tin cậy 95%, k = 3 cho 99%)
 
 ---

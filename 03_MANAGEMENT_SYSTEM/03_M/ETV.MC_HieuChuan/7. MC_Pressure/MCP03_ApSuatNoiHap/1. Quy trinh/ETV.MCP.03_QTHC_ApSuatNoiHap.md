@@ -168,13 +168,17 @@ Tính toán ĐKĐB này phụ thuộc vào các ĐKĐB thành phần của tổ 
 
 - **ĐKĐB của thiết bị tạo chuẩn `u_ch1`** — lấy từ giấy chứng nhận hiệu chuẩn, tính từ ĐKĐB mở rộng U (theo mức độ tin cậy P % và hệ số phủ k):
 
-  $$u_{ch1} = \frac{U}{k}$$
+  $$
+  u_{ch1} = \frac{U}{k}
+  $$
 
 - **ĐKĐB do độ tản mạn của các kết quả đo của tổ hợp thiết bị chuẩn `u_ch2`:**
 
   - Tính độ lệch chuẩn `s_i`:
 
-    $$s_i = \sqrt{\frac{\sum(t_i - t_{tb})^2}{n-1}}$$
+    $$
+    s_i = \sqrt{\frac{\sum(t_i - t_{tb})^2}{n-1}}
+    $$
 
     - `t_i`: giá trị đo thứ i của điểm kiểm tra, i = 1, 2, …, n;
     - `t_tb`: giá trị trung bình của n lần đo;
@@ -182,31 +186,41 @@ Tính toán ĐKĐB này phụ thuộc vào các ĐKĐB thành phần của tổ 
 
   - Tính độ lệch chuẩn luỹ tích `u`:
 
-    $$u = \left(\frac{\sum s_i^2}{N}\right)^{1/2}$$
+    $$
+    u = \left(\frac{\sum s_i^2}{N}\right)^{1/2}
+    $$
 
     với `N`: số vị trí tại điểm kiểm tra.
 
   - Tính độ không đảm bảo chuẩn loại A:
 
-    $$u_{ch2} = u_A = \frac{u}{\sqrt{n}}$$
+    $$
+    u_{ch2} = u_A = \frac{u}{\sqrt{n}}
+    $$
 
     với `n`: số lần đo tại mỗi điểm kiểm tra.
 
 - **ĐKĐB liên hợp `u_ch` của tổ hợp chuẩn:**
 
-  $$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}$$
+  $$
+  u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
+  $$
 
 **b) Độ không đảm bảo đo của thiết bị cần hiệu chuẩn `u_bk`**
 
 - **ĐKĐB do độ tản mạn của các kết quả đo từ chỉ thị của thiết bị hấp cần hiệu chuẩn `u_bk1`** — tính theo độ không đảm bảo chuẩn loại A:
 
-  $$s_i = \sqrt{\frac{\sum(t_i - t_{tb})^2}{n-1}} \qquad u = \left(\frac{\sum s_i^2}{N}\right)^{1/2} \qquad u_{bk1} = u_A = \frac{u}{\sqrt{n}}$$
+  $$
+  s_i = \sqrt{\frac{\sum(t_i - t_{tb})^2}{n-1}} \qquad u = \left(\frac{\sum s_i^2}{N}\right)^{1/2} \qquad u_{bk1} = u_A = \frac{u}{\sqrt{n}}
+  $$
 
   với `N`: số vị trí điểm kiểm tra; `n`: số lần đo tại mỗi điểm kiểm tra.
 
 - **ĐKĐB theo độ phân giải của thiết bị hấp cần hiệu chuẩn `u_bk2`** — tính từ khả năng phân giải nhỏ nhất của thiết bị hấp, ký hiệu `d`:
 
-  $$u_{bk2} = \frac{A \cdot d}{\sqrt{3}}$$
+  $$
+  u_{bk2} = \frac{A \cdot d}{\sqrt{3}}
+  $$
 
   - `A`: giá trị nhỏ nhất của chỉ thị của thiết bị hấp cần hiệu chuẩn;
   - `d = 1/2` (½ digit) đối với thiết bị hấp chỉ thị hiện số;
@@ -214,15 +228,21 @@ Tính toán ĐKĐB này phụ thuộc vào các ĐKĐB thành phần của tổ 
 
 - **ĐKĐB liên hợp `u_bk` của thiết bị hấp tiệt trùng:**
 
-  $$u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}$$
+  $$
+  u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}
+  $$
 
 **c) Độ không đảm bảo đo chuẩn liên hợp của phép hiệu chuẩn `u_c`**
 
-$$u_c = \sqrt{u_{ch}^2 + u_{bk}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
+$$
 
 **d) Độ không đảm bảo đo mở rộng** *(tính với mức độ tin cậy 95 %; hệ số k = 2)* [^dmuc]
 
-$$U = k \cdot u_c$$
+$$
+U = k \cdot u_c
+$$
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 %.
 

@@ -184,15 +184,21 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 
 Tính kết quả độ hấp thụ trung bình và giá trị độ lệch chuẩn (%):
 
-$$u_A = \frac{s_{\bar{C}}}{\sqrt{n}} \tag{1}$$
+$$
+u_A = \frac{s_{\bar{C}}}{\sqrt{n}} \tag{1}
+$$
 
 Giá trị trung bình được tính theo công thức:
 
-$$\bar{C} = \frac{1}{n}\sum_{i=1}^{n} C_i \tag{2}$$
+$$
+\bar{C} = \frac{1}{n}\sum_{i=1}^{n} C_i \tag{2}
+$$
 
 Độ lệch chuẩn SD tính theo công thức:
 
-$$s_{\bar{C}} = \sqrt{\frac{\sum_{i=1}^{n}(C_i - \bar{C})^2}{n-1}} \tag{3}$$
+$$
+s_{\bar{C}} = \sqrt{\frac{\sum_{i=1}^{n}(C_i - \bar{C})^2}{n-1}} \tag{3}
+$$
 
 - `n`: số lần đo;
 - `C_i`: giá trị đo thứ i;
@@ -202,7 +208,9 @@ $$s_{\bar{C}} = \sqrt{\frac{\sum_{i=1}^{n}(C_i - \bar{C})^2}{n-1}} \tag{3}$$
 
 Nồng độ dung dịch pha loãng được tính theo công thức:
 
-$$C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i} \tag{4}$$
+$$
+C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i} \tag{4}
+$$
 
 - `C_i`: Nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: Nồng độ của chất chuẩn thứ i-1 (mg/L);
@@ -233,7 +241,9 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 - ĐKĐB của dung dịch chuẩn (theo giấy chứng nhận);
 - ĐKĐB của dung dịch chuẩn thứ i (do bình định mức, pipet, người thực hiện).
 
-$$u_C = \sqrt{u_A^2 + u_{Ci}^2}$$
+$$
+u_C = \sqrt{u_A^2 + u_{Ci}^2}
+$$
 
 | Ký hiệu   | Đơn vị | Định nghĩa                                                                    |
 | --------- | ------ | ----------------------------------------------------------------------------- |
@@ -265,22 +275,30 @@ $$u_C = \sqrt{u_A^2 + u_{Ci}^2}$$
 
 Từ công thức tổng quát (4) xác định ĐKĐB từ tổ hợp của nồng độ dung dịch chuẩn cần pha loãng:
 
-$$u_{Ci}^2 = C_i^2 \cdot \left[\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2\right]$$
+$$
+u_{Ci}^2 = C_i^2 \cdot \left[\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2\right]
+$$
 
 Độ không đảm bảo đo của dung dịch thứ i (pha loãng lần thứ i):
 
-$$u_{Ci} = C_i \cdot \sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2} \quad \text{(mg/L)}$$
+$$
+u_{Ci} = C_i \cdot \sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2} \quad \text{(mg/L)}
+$$
 
 - `C_{i-1}`: nồng độ của chất chuẩn i-1 (mg/L), i = 1, …, i;
 - `C_i`: nồng độ chất chuẩn C_i (mg/L).
 
 Độ không đảm bảo đo tổng hợp:
 
-$$u_C = \sqrt{u_A^2 + u_{Ci}^2} \quad \text{(mg/L)}$$
+$$
+u_C = \sqrt{u_A^2 + u_{Ci}^2} \quad \text{(mg/L)}
+$$
 
 Độ không đảm bảo mở rộng (với hệ số phủ k = 2; độ tin cậy 95 %):
 
-$$U = 2 \cdot u_C$$
+$$
+U = 2 \cdot u_C
+$$
 
 ## 8. Xử lý chung
 
@@ -369,7 +387,9 @@ Người kiểm tra — Người thực hiện
 
 Pha V₂ mL dung dịch A có nồng độ C₂ (mg/L) từ dung dịch A có nồng độ C₁ (mg/L). Thể tích cần hút V được tính theo công thức:
 
-$$V = \frac{V_2 \cdot C_2}{C_1} \tag{4}$$
+$$
+V = \frac{V_2 \cdot C_2}{C_1} \tag{4}
+$$
 
 - `C₂`: Nồng độ của dung dịch cần pha loãng (mg/L);
 - `C₁`: Nồng độ của chất chuẩn gốc (mg/L);

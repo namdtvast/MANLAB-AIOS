@@ -167,7 +167,9 @@ Số điểm nhiệt độ kiểm tra phải chia đều trong dải nhiệt đ�
 
 Số hiệu chính tại một lỗ của bộ phá mẫu tại điểm nhiệt độ kiểm tra được tính theo công thức:
 
-$$t = (\bar{t}_{ch} + \partial t) - \bar{t}_{bk}$$
+$$
+t = (\bar{t}_{ch} + \partial t) - \bar{t}_{bk}
+$$
 
 Trong đó: `t̄_ch`: giá trị chỉ thị trung bình của nhiệt kế chuẩn; `t̄_bk`: giá trị chỉ thị trung bình của thiết bị chưng cất đạm; `∂t`: số hiệu chính của nhiệt kế chuẩn tại điểm nhiệt độ kiểm tra (xem trong giấy chứng nhận hiệu chuẩn).
 
@@ -177,7 +179,9 @@ Số hiệu chính các lỗ còn lại tính tương tự như trên.
 
 Độ đồng đều của thiết bị chưng cất đạm tại một điểm nhiệt độ được xác định như sau:
 
-$$\delta_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,k$$
+$$
+\delta_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,k
+$$
 
 Trong đó: `δ_dd`: độ đồng đều của thiết bị chưng cất đạm; `max(t_ch j)`, `min(t_ch i)`: nhiệt độ trung bình lớn nhất và nhỏ nhất trong k nhiệt kế chuẩn tại các vị trí đo khác nhau.
 
@@ -185,7 +189,9 @@ Trong đó: `δ_dd`: độ đồng đều của thiết bị chưng cất đạm
 
 Độ ổn định của thiết bị chưng cất đạm tại một điểm kiểm tra nhiệt độ được tính bằng công thức:
 
-$$\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,k$$
+$$
+\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,k
+$$
 
 Trong đó: `δ_od`: là độ ổn định của thiết bị chưng cất đạm; `t_ch max,j`, `t_ch min,j`: nhiệt độ lớn nhất và nhỏ nhất của nhiệt kế chuẩn thứ k tại điểm kiểm tra nhiệt độ.
 
@@ -210,41 +216,55 @@ Trong đó: `δ_od`: là độ ổn định của thiết bị chưng cất đ�
 
 **a. Độ không đảm bảo đo chuẩn loại A của chỉ thị các nhiệt kế chuẩn (u_ch1):**
 
-$$u_{ch1} = \sqrt{\sum_{j=1}^{k} u_{ch1,j}^2}$$
+$$
+u_{ch1} = \sqrt{\sum_{j=1}^{k} u_{ch1,j}^2}
+$$
 
 Trong đó `u_ch1,j` là độ không đảm bảo đo loại A của nhiệt kế thứ j:
 
-$$u_{ch1,j} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{ij} - \bar{t}_j)^2}{n-1}}$$
+$$
+u_{ch1,j} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{ij} - \bar{t}_j)^2}{n-1}}
+$$
 
 Với `S_j`: là độ lệch chuẩn của nhiệt kế chuẩn thứ j; `n`: số lần đọc tại mỗi điểm; `t_ij`: lần đọc thứ i của nhiệt kế thứ j; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của nhiệt kế chuẩn thứ j.
 
 **b. Độ không đảm bảo đo của tổ hợp chuẩn, gồm các thiết bị chỉ thị đo với các nhiệt kế chuẩn (u_ch2):**
 
-$$u_{ch2} = \frac{U_{95}}{2}$$
+$$
+u_{ch2} = \frac{U_{95}}{2}
+$$
 
 Trong đó `U_95` là độ không đảm bảo đo mở rộng của tổ hợp đo với nhiệt kế chuẩn (lấy giá trị của tổ hợp chuẩn có giá trị lớn nhất).
 
 **Độ không đảm bảo đo liên hợp của tổ hợp chuẩn:**
 
-$$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}$$
+$$
+u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
+$$
 
 #### 7.4.2. Độ không đảm bảo thiết bị chưng cất đạm (u_bk)
 
 **a. Độ không đảm bảo đo chuẩn loại A của thiết bị chưng cất đạm (u_bk1):**
 
-$$u_{bk1} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_i - \bar{t}_j)^2}{n-1}}$$
+$$
+u_{bk1} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_i - \bar{t}_j)^2}{n-1}}
+$$
 
 Với: `S_j`: là độ lệch chuẩn tại điểm đo thứ N; `n`: số lần đọc tại mỗi điểm; `t_i`: lần đọc thứ i của thiết bị chưng cất đạm; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của thiết bị chưng cất đạm.
 
 **b. Độ không đảm bảo đo tính theo độ đồng đều (u_bk2):**
 
-$$u_{bk2} = \frac{\delta_{dd}}{\sqrt{3}}$$
+$$
+u_{bk2} = \frac{\delta_{dd}}{\sqrt{3}}
+$$
 
 Trong đó: `δ_dd`: là độ đồng đều của thiết bị chưng cất đạm.
 
 **c. Độ không đảm bảo đo tính theo độ ổn định (u_bk3):**
 
-$$u_{bk3} = \frac{\delta_{od}}{\sqrt{3}}$$
+$$
+u_{bk3} = \frac{\delta_{od}}{\sqrt{3}}
+$$
 
 Trong đó: `δ_od`: là độ ổn định của thiết bị chưng cất đạm.
 
@@ -252,27 +272,37 @@ Trong đó: `δ_od`: là độ ổn định của thiết bị chưng cất đ�
 
 Đối với chỉ thị tương tự:
 
-$$u_{bk4} = \frac{d}{3\sqrt{3}}$$
+$$
+u_{bk4} = \frac{d}{3\sqrt{3}}
+$$
 
 Trong đó: d là giá trị độ chia của thiết bị.
 
 Đối với chỉ thị hiện số:
 
-$$u_{bk4} = \frac{d}{2\sqrt{3}}$$
+$$
+u_{bk4} = \frac{d}{2\sqrt{3}}
+$$
 
 Trong đó: d là độ phân giải của thiết bị.
 
 **Độ không đảm bảo đo tổng hợp của thiết bị chưng cất đạm:**
 
-$$u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}$$
+$$
+u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
+$$
 
 #### 7.4.3. Độ không đảm bảo đo chuẩn tổng hợp của phép hiệu chuẩn, u_c
 
-$$u_c = \sqrt{u_{ch}^2 + u_{bk}^2}$$
+$$
+u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
+$$
 
 #### 7.4.4. Độ không đảm bảo đo mở rộng
 
-$$U = k \times u_c$$
+$$
+U = k \times u_c
+$$
 
 Tính với mức độ tin cậy 95 % và hệ số phủ k = 2.
 

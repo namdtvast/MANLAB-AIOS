@@ -208,7 +208,9 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 - Dùng PTĐ chuẩn đo tối thiểu 05 lần các giá trị đã cài đặt, mỗi lần cách nhau 05 phút. Ghi kết quả đo vào biên bản hiệu chuẩn.
 - Sai số giá trị tốc độ dòng được tính theo công thức:
 
-$$\Delta_1 = f_F - f_{ch}$$
+$$
+\Delta_1 = f_F - f_{ch}
+$$
 
 - `f_F`: giá trị tốc độ dòng chỉ thị trên máy GC cần hiệu chuẩn, mL/min;
 - `f_ch`: giá trị tốc độ dòng trung bình đo được của chuẩn, mL/min.
@@ -222,15 +224,21 @@ Tiến hành kiểm tra nhiệt độ lò cột (column):
 
 Số hiệu chính tại mỗi điểm nhiệt độ hiệu chuẩn được tính theo công thức:
 
-$$\Delta t = t_{ch} - t_{bk}$$
+$$
+\Delta t = t_{ch} - t_{bk}
+$$
 
 - `t_ch`: giá trị trung bình của k nhiệt kế chuẩn tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-  $$t_{ch} = \frac{1}{k}\sum_{1}^{k} t$$
+  $$
+  t_{ch} = \frac{1}{k}\sum_{1}^{k} t
+  $$
 
   trong đó giá trị trung bình của nhiệt kế chuẩn được tính theo:
 
-  $$t = \frac{1}{n}\sum_{i=1}^{n}(t + \partial t)$$
+  $$
+  t = \frac{1}{n}\sum_{i=1}^{n}(t + \partial t)
+  $$
 
   - `t`: giá trị chỉ thị trung bình của nhiệt kế chuẩn, °C;
   - `∂t`: số hiệu chính của nhiệt kế chuẩn tại điểm nhiệt độ hiệu chuẩn (lấy từ giấy chứng nhận hiệu chuẩn của nhiệt kế chuẩn), °C;
@@ -238,7 +246,9 @@ $$\Delta t = t_{ch} - t_{bk}$$
 
 - `t_bk`: giá trị trung bình của chỉ thị nhiệt của lò cột tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-  $$t_{bk} = \frac{1}{n}\sum_{i=1}^{n} t \tag{4}$$
+  $$
+  t_{bk} = \frac{1}{n}\sum_{i=1}^{n} t \tag{4}
+  $$
 
   - `n`: số lần đọc chỉ thị nhiệt độ trên máy GC tại mỗi điểm nhiệt độ hiệu chuẩn.
 
@@ -256,7 +266,9 @@ $$\Delta t = t_{ch} - t_{bk}$$
 - Ghi kết quả vào biên bản hiệu chuẩn.
 - Độ lặp lại được tính toán bằng độ lệch chuẩn tương đối RSD:
 
-$$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}$$
+$$
+RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
+$$
 
 - `RSD`: độ lệch chuẩn tương đối của các kết quả đo lặp lại, %;
 - `s`: độ lệch chuẩn của các kết quả đo lặp lại;
@@ -270,7 +282,9 @@ $$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{
 
 - ĐKĐB ảnh hưởng bởi độ phân tán của kết quả đo thời gian 06 lần lặp lại:
 
-  $$S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}$$
+  $$
+  S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
+  $$
 
   - `S_f`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị thời gian đo lần i;
@@ -279,19 +293,25 @@ $$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{
 
 - ĐKĐB của máy đo tốc độ dòng khí:
 
-  $$u_2 = \frac{U_{ch}}{2}$$
+  $$
+  u_2 = \frac{U_{ch}}{2}
+  $$
 
   với `U_ch` là ĐKĐB của máy đo tốc độ dòng khí lấy từ GCN hiệu chuẩn.
 
 - ĐKĐB do độ phân giải của chỉ thị tốc độ dòng:
 
-  $$u_3 = \frac{d}{2\sqrt{3}}$$
+  $$
+  u_3 = \frac{d}{2\sqrt{3}}
+  $$
 
   với `d` là độ phân giải tốc độ dòng khí của máy GC cần hiệu chuẩn.
 
 - ĐKĐB tổng hợp:
 
-  $$u_f = \sqrt{u_1^2 + u_2^2 + u_3^2}$$
+  $$
+  u_f = \sqrt{u_1^2 + u_2^2 + u_3^2}
+  $$
 
 - ĐKĐB mở rộng: $U_f = k \times u_f$ — với hệ số phủ k = 2, mức tin cậy 95 %.
 
@@ -301,12 +321,16 @@ $$RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{
 
 **a) Độ không đảm bảo đo của nhiệt kế chuẩn**
 
-$$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}$$
+$$
+u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
+$$
 
 - ĐKĐB `u_ch1` của nhiệt kế chuẩn (kiểu B): $u_{ch1} = \dfrac{U_{95}}{2}$ — với `U₉₅` là ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ GCN hiệu chuẩn.
 - ĐKĐB do độ tản mạn `u_ch2` (kiểu A):
 
-  $$u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}$$
+  $$
+  u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
+  $$
 
   - `S_ch2`: độ lệch chuẩn nhiệt độ đo được bởi nhiệt kế chuẩn tại điểm hiệu chuẩn nhiệt độ buồng, °C;
   - `n`: số lần đo lặp, n = 5;
@@ -315,18 +339,24 @@ $$u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}$$
 
 **b) Độ không đảm bảo đo của thiết bị chỉ thị nhiệt của buồng GC**
 
-$$u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}$$
+$$
+u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}
+$$
 
 - ĐKĐB do độ tản mạn `u_bk1`:
 
-  $$u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}}$$
+  $$
+  u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}}
+  $$
 
   - `S_bk1`: độ lệch chuẩn nhiệt độ buồng đo được trên GC tại điểm hiệu chuẩn nhiệt độ, °C;
   - `n`: số lần đo lặp, n = 5.
 
 - ĐKĐB do độ phân giải `u_bk2` của chỉ thị nhiệt độ của GC:
 
-  $$u_{bk2} = \frac{d}{2\sqrt{3}}$$
+  $$
+  u_{bk2} = \frac{d}{2\sqrt{3}}
+  $$
 
   với `d` là độ phân giải chỉ thị nhiệt độ của GC (°C).
 
@@ -338,7 +368,9 @@ Vì không có thông tin về độ không đảm bảo đo được cung cấp
 
 Nồng độ dung dịch pha gốc:
 
-$$C = \frac{m}{V}$$
+$$
+C = \frac{m}{V}
+$$
 
 - `C`: nồng độ dung dịch pha gốc (mg/L);
 - `m`: khối lượng của hoá chất chuẩn (mg);
@@ -346,15 +378,21 @@ $$C = \frac{m}{V}$$
 
 **a. ĐKĐB gây nên bởi cân phân tích** *(theo giấy chứng nhận hiệu chuẩn)*:
 
-$$u_m = \frac{g}{2}$$
+$$
+u_m = \frac{g}{2}
+$$
 
 **b. ĐKĐB gây nên bởi độ tinh khiết của các hóa chất chuẩn `u_p`** — độ tinh khiết của hóa chất được chỉ dẫn theo catalogue nhà sản xuất. Ví dụ: nhãn lọ hoá chất ghi độ tinh khiết 99,997 % nên P = 1,00000 ± 0,00003:
 
-$$u_p = \frac{0{,}00003}{\sqrt{3}}$$
+$$
+u_p = \frac{0{,}00003}{\sqrt{3}}
+$$
 
 **c. ĐKĐB gây nên bởi bình định mức `u_flask`:**
 
-$$u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$$
+$$
+u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}
+$$
 
 - `u_calf`: ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn;
 - `u_per`: ĐKĐB do thao tác của nhân viên thực hiện;
@@ -362,11 +400,15 @@ $$u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$$
 
 Độ không đảm bảo đo của dung dịch chuẩn gốc pha:
 
-$$u_C = C\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_m}{m}\right)^2 + u_p^2}$$
+$$
+u_C = C\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_m}{m}\right)^2 + u_p^2}
+$$
 
 #### 8.3.2. Nồng độ dung dịch pha loãng
 
-$$C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}$$
+$$
+C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}
+$$
 
 - `C_i`: nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: nồng độ chất chuẩn thứ i-1 (mg/L);
@@ -377,7 +419,9 @@ $$C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}$$
 
 - ĐKĐB do độ phân tán kết quả đo của PTĐ n lần lặp lại:
 
-  $$S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}$$
+  $$
+  S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
+  $$
 
   - `x_i`: giá trị diện tích peak đo lần i;
   - `n`: số lần đo (n = 3).
@@ -399,7 +443,9 @@ $$C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}$$
 
 Tính `u_Ci`:
 
-$$u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}$$
+$$
+u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}
+$$
 
 - ĐKĐB tổng hợp: $u_Đ = \sqrt{u_A^2 + u_{Ci}^2}$
 - ĐKĐB mở rộng: $U_Đ = k \times u_Đ$ — với hệ số phủ k = 2, mức tin cậy 95 %.
