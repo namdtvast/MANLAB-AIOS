@@ -31,13 +31,13 @@ superseded_by: null
 
 *Equipment for measuring concentration of substances in water – Calibration Procedure*
 
-|                   |                |
-| ----------------- | -------------- |
-| **Mã số**         | ETV.MCW 08     |
-| **Lần ban hành**  | 03             |
-| **Ngày ban hành** | 22/04/2026     |
-| **Biên soạn**     | Nguyễn Văn Đồng |
-| **Soát xét**      | Trần Thị Hoa |
+|                           |                      |
+| ------------------------- | -------------------- |
+| **Mã số**         | ETV.MCW 08           |
+| **Lần ban hành**  | 03                   |
+| **Ngày ban hành** | 22/04/2026           |
+| **Biên soạn**     | Nguyễn Văn Đồng  |
+| **Soát xét**      | Trần Thị Hoa       |
 | **Phê duyệt**     | Nguyễn Hoàng Giang |
 
 > **Tình trạng bản này:** Bản chuyển đổi định dạng (PDF → Markdown) từ file gốc `ETV.MCW 08_Nong do cac chat trong nuoc_v3.pdf` do Viện ban hành, phục vụ tra cứu trên ManLab. Khi có khác biệt, bản PDF do Viện ban hành là bản có giá trị áp dụng.
@@ -46,14 +46,12 @@ superseded_by: null
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
-| Thời gian  | Nội dung thay đổi                                       | Lần ban hành |
-| ---------- | ------------------------------------------------------- | ------------ |
-| 22/04/2019 | Ban hành lần thứ nhất                                   | 01           |
-| 19/05/2021 | Soát xét, bổ sung PTĐ NH₄⁺, PO₄³⁻                       | 01           |
-| 22/04/2023 | Ban hành lần thứ hai (cập nhật theo ý kiến của chuyên gia BoA) | 02     |
-| 22/04/2026 | Ban hành lần thứ hai [^lanbh]                           | 03           |
-
-[^lanbh]: Nguyên văn bản gốc ghi "Ban hành lần thứ hai" ở dòng lần ban hành 03 — nhiều khả năng là lỗi sao chép, phải là "Ban hành lần thứ ba". Giữ nguyên văn, cần đính chính khi ban hành lại.
+| Thời gian | Nội dung thay đổi                                                    | Lần ban hành |
+| ---------- | ----------------------------------------------------------------------- | -------------- |
+| 22/04/2019 | Ban hành lần thứ nhất                                               | 01             |
+| 19/05/2021 | Soát xét, bổ sung PTĐ NH₄⁺, PO₄³⁻                              | 01             |
+| 22/04/2023 | Ban hành lần thứ hai (cập nhật theo ý kiến của chuyên gia BoA) | 02             |
+| 22/04/2026 | Ban hành lần thứ ba                                                  | 03             |
 
 ---
 
@@ -61,29 +59,29 @@ superseded_by: null
 
 Văn bản này quy định quy trình kỹ thuật hiệu chuẩn các phương tiện đo thông dụng và trong hoạt động quan trắc môi trường nước (nước mặt; nước thải; nước biển; nước ngầm…) tại hiện trường hoặc trong phòng thí nghiệm, cụ thể những thông số như sau:
 
-| TT  | Phương tiện đo các thông số      | Phạm vi đo          | Độ chính xác |
-| --- | -------------------------------- | ------------------- | ------------ |
-| 1   | Tổng chất rắn lơ lửng (TSS)      | (0 ÷ 1.000) mg/L    | đến ± 1,0 %  |
-| 2   | Nhu cầu oxy hoá học (COD)        | (0 ÷ 1.000) mg/L    | đến ± 1,0 %  |
-| 3   | Nitrat (NO₃)                     | (0 ÷ 1.000) mg/L    | đến ± 1,0 %  |
-| 4   | Amoni (NH₄⁺)                     | (0 ÷ 1.500) mg/L    | đến ± 1,0 %  |
-| 5   | Tổng Nitơ                        | (0 ÷ 1.000) mg/L    | đến ± 1,0 %  |
-| 6   | Tổng Photpho (PO₄³⁻)             | (0 ÷ 1.500) mg/L    | đến ± 1,5 %  |
-| 7   | Nhu cầu oxy sinh học (BOD)       | (0 ÷ 1.500) mg/L    | đến ± 5 %    |
-| 8   | Tổng cacbon hữu cơ (TOC)         | (0 ÷ 500) mg/L      | đến ± 1,0 %  |
-| 9   | Crom (Cr)                        | (0 ÷ 1.000) mg/L    | đến ± 2,0 %  |
-| 10  | Sắt (Fe)                         | (0 ÷ 100) mg/L      | đến ± 2,0 %  |
-| 11  | Cadimi (Cd)                      | (0 ÷ 5) mg/L        | đến ± 2,0 %  |
-| 12  | Mangan (Mn)                      | (0 ÷ 100) mg/L      | đến ± 2,0 %  |
-| 13  | Phenol                           | (0 ÷ 10) mg/L       | đến ± 2,0 %  |
-| 14  | Cyanua (CN⁻)                     | (0 ÷ 10) mg/L       | đến ± 2,0 %  |
-| 15  | Clo                              | (0 ÷ 20) mg/L       | đến ± 2,0 %  |
-| 16  | Flo                              | (0 ÷ 2) g/L         | đến ± 2,0 %  |
-| 17  | Sulfite                          | (0 ÷ 20) mg/L       | đến ± 2,0 %  |
-| 18  | Dầu mỡ                           | (0 ÷ 15) g/L        | đến ± 2,0 %  |
-| 19  | Độ màu (tính theo Pt)            | (0 ÷ 1.000) Pt/Co   | đến ± 0,8 %  |
-| 20  | Điện cực chọn lọc Ion, cực phổ   | (0 ÷ 20) mg/L       | đến ± 2,0 %  |
-| 21  | Niken                            | (0 ÷ 1.000) mg/L    | đến ± 2,0 %  |
+| TT | Phương tiện đo các thông số    | Phạm vi đo       | Độ chính xác |
+| -- | ------------------------------------- | ------------------ | ---------------- |
+| 1  | Tổng chất rắn lơ lửng (TSS)      | (0 ÷ 1.000) mg/L  | đến ± 1,0 %   |
+| 2  | Nhu cầu oxy hoá học (COD)          | (0 ÷ 1.000) mg/L  | đến ± 1,0 %   |
+| 3  | Nitrat (NO₃)                         | (0 ÷ 1.000) mg/L  | đến ± 1,0 %   |
+| 4  | Amoni (NH₄⁺)                        | (0 ÷ 1.500) mg/L  | đến ± 1,0 %   |
+| 5  | Tổng Nitơ                           | (0 ÷ 1.000) mg/L  | đến ± 1,0 %   |
+| 6  | Tổng Photpho (PO₄³⁻)              | (0 ÷ 1.500) mg/L  | đến ± 1,5 %   |
+| 7  | Nhu cầu oxy sinh học (BOD)          | (0 ÷ 1.500) mg/L  | đến ± 5 %     |
+| 8  | Tổng cacbon hữu cơ (TOC)           | (0 ÷ 500) mg/L    | đến ± 1,0 %   |
+| 9  | Crom (Cr)                             | (0 ÷ 1.000) mg/L  | đến ± 2,0 %   |
+| 10 | Sắt (Fe)                             | (0 ÷ 100) mg/L    | đến ± 2,0 %   |
+| 11 | Cadimi (Cd)                           | (0 ÷ 5) mg/L      | đến ± 2,0 %   |
+| 12 | Mangan (Mn)                           | (0 ÷ 100) mg/L    | đến ± 2,0 %   |
+| 13 | Phenol                                | (0 ÷ 10) mg/L     | đến ± 2,0 %   |
+| 14 | Cyanua (CN⁻)                         | (0 ÷ 10) mg/L     | đến ± 2,0 %   |
+| 15 | Clo                                   | (0 ÷ 20) mg/L     | đến ± 2,0 %   |
+| 16 | Flo                                   | (0 ÷ 2) g/L       | đến ± 2,0 %   |
+| 17 | Sulfite                               | (0 ÷ 20) mg/L     | đến ± 2,0 %   |
+| 18 | Dầu mỡ                              | (0 ÷ 15) g/L      | đến ± 2,0 %   |
+| 19 | Độ màu (tính theo Pt)             | (0 ÷ 1.000) Pt/Co | đến ± 0,8 %   |
+| 20 | Điện cực chọn lọc Ion, cực phổ | (0 ÷ 20) mg/L     | đến ± 2,0 %   |
+| 21 | Niken                                 | (0 ÷ 1.000) mg/L  | đến ± 2,0 %   |
 
 Quy trình này áp dụng đối với nhân viên của Viện Kiểm định Công nghệ và Môi trường (sau đây gọi tắt là PTN) khi hiệu chuẩn PTĐ nói trên.
 
@@ -102,15 +100,15 @@ Phải lần lượt tiến hành các phép kiểm tra nêu trong Bảng 1.
 
 **Bảng 1.**
 
-| TT  | Tên phép hiệu chuẩn           | Theo điều, mục của quy trình |
-| --- | ----------------------------- | ---------------------------- |
-| 1   | Kiểm tra bên ngoài            | 7.1                          |
-| 2   | Kiểm tra kỹ thuật             | 7.2                          |
-| 3   | Kiểm tra đo lường             | 7.3                          |
-| 3.1 | Kiểm tra trước hiệu chuẩn     | 7.3.1                        |
-| 3.2 | Tiến hành hiệu chuẩn          | 7.3.2                        |
-| 3.3 | Tính toán độ không đảm bảo đo | 7.3.3                        |
-| 4   | Xử lý chung                   | 8                            |
+| TT  | Tên phép hiệu chuẩn                | Theo điều, mục của quy trình |
+| --- | -------------------------------------- | --------------------------------- |
+| 1   | Kiểm tra bên ngoài                  | 7.1                               |
+| 2   | Kiểm tra kỹ thuật                   | 7.2                               |
+| 3   | Kiểm tra đo lường                  | 7.3                               |
+| 3.1 | Kiểm tra trước hiệu chuẩn         | 7.3.1                             |
+| 3.2 | Tiến hành hiệu chuẩn               | 7.3.2                             |
+| 3.3 | Tính toán độ không đảm bảo đo | 7.3.3                             |
+| 4   | Xử lý chung                          | 8                                 |
 
 ## 4. Phương tiện phục vụ hiệu chuẩn
 
@@ -118,26 +116,24 @@ Các phương tiện dùng để hiệu chuẩn được nêu trong Bảng 2.
 
 **Bảng 2.**
 
-| TT  | Phương tiện hiệu chuẩn                                                                                     | Đặc trưng kỹ thuật                                                                                             |
-| --- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| 1   | **Chuẩn đo lường**                                                                                         |                                                                                                                  |
-| 1.1 | Dung dịch chuẩn                                                                                            | - Các dung dịch chuẩn trong phạm vi đo của phương tiện đo cần hiệu chuẩn<br>- Độ không đảm bảo đo không lớn hơn ½ độ chính xác của thiết bị, hoặc độ chính xác của dung dịch chuẩn xấp xỉ hoặc bằng độ chính xác của phương tiện đo cần hiệu chuẩn |
-| 1.2 | Thiết bị phân tích chuẩn (thiết bị đo quang phổ tử ngoại khả kiến) dùng trong trường hợp pha loãng dung dịch chuẩn hoặc phân tích mẫu nước thải | - Bước sóng: (340 ÷ 800) nm, độ chính xác ± 2 nm<br>- Độ hấp thụ: (0 ÷ 2) Abs, độ chính xác 0,5 %<br>- Độ không đảm bảo đo phù hợp và liên kết chuẩn với hệ thống chuẩn cấp cao hơn |
-| 2   | **Phương tiện khác**                                                                                       |                                                                                                                  |
-| 2.1 | Bể ổn nhiệt (tùy theo từng loại dung dịch chuẩn)                                                           | - Phạm vi điều nhiệt từ (0 ÷ 50) °C<br>- Độ ổn định: ± 0,2 °C                                                    |
-| 2.2 | Thiết bị đo nhiệt độ                                                                                       | - Phạm vi đo: (0 ÷ 50) °C<br>- Độ chính xác: ± 0,2 °C                                                            |
-| 2.3 | PTĐ nhiệt độ và độ ẩm môi trường                                                                           | - Dải đo: Nhiệt độ (0 ÷ 50) °C; Độ ẩm tương đối (10 ÷ 95) %RH<br>- Độ phân giải: Nhiệt độ 1 °C; Độ ẩm 1 %RH      |
-| 2.4 | Bếp phá mẫu                                                                                                | - Dải nhiệt tối thiểu: (105 ÷ 150) °C                                                                            |
-| 2.5 | Bình định mức dùng trong trường hợp pha loãng dung dịch chuẩn                                              | - Dung tích: (50, 100, 200, 250, 500, 1000) mL                                                                   |
-| 2.6 | Pipet dùng trong trường hợp pha loãng dung dịch chuẩn                                                      | - Dung tích: (1, 2, 3, 5, 10, 20, 25) mL                                                                         |
-| 3   | **Phương tiện khác**                                                                                       |                                                                                                                  |
-| 3.1 | Thiết bị đồng nhất mẫu                                                                                     | - Công suất 400 W                                                                                                |
-| 3.2 | Cốc mỏ                                                                                                     |                                                                                                                  |
-| 3.3 | Nước cất                                                                                                   |                                                                                                                  |
-| 3.4 | Bình tia nước cất                                                                                          |                                                                                                                  |
-| 3.5 | Giấy thấm [^stt]                                                                                           |                                                                                                                  |
-
-[^stt]: Bản gốc đánh số hai dòng cuối đều là "3.4"; bản chuyển đổi đánh lại thành 3.4 và 3.5 cho đúng thứ tự.
+| TT  | Phương tiện hiệu chuẩn                                                                                                                                                | Đặc trưng kỹ thuật                                                                                                                                                                                                                                                                               |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Chuẩn đo lường**                                                                                                                                               |                                                                                                                                                                                                                                                                                                       |
+| 1.1 | Dung dịch chuẩn                                                                                                                                                          | - Các dung dịch chuẩn trong phạm vi đo của phương tiện đo cần hiệu chuẩn- Độ không đảm bảo đo không lớn hơn ½ độ chính xác của thiết bị, hoặc độ chính xác của dung dịch chuẩn xấp xỉ hoặc bằng độ chính xác của phương tiện đo cần hiệu chuẩn |
+| 1.2 | Thiết bị phân tích chuẩn (thiết bị đo quang phổ tử ngoại khả kiến) dùng trong trường hợp pha loãng dung dịch chuẩn hoặc phân tích mẫu nước thải | - Bước sóng: (340 ÷ 800) nm, độ chính xác ± 2 nm- Độ hấp thụ: (0 ÷ 2) Abs, độ chính xác 0,5 %- Độ không đảm bảo đo phù hợp và liên kết chuẩn với hệ thống chuẩn cấp cao hơn                                                                                      |
+| 2   | **Phương tiện khác**                                                                                                                                             |                                                                                                                                                                                                                                                                                                       |
+| 2.1 | Bể ổn nhiệt (tùy theo từng loại dung dịch chuẩn)                                                                                                                   | - Phạm vi điều nhiệt từ (0 ÷ 50) °C- Độ ổn định: ± 0,2 °C                                                                                                                                                                                                                               |
+| 2.2 | Thiết bị đo nhiệt độ                                                                                                                                                 | - Phạm vi đo: (0 ÷ 50) °C- Độ chính xác: ± 0,2 °C                                                                                                                                                                                                                                           |
+| 2.3 | PTĐ nhiệt độ và độ ẩm môi trường                                                                                                                                | - Dải đo: Nhiệt độ (0 ÷ 50) °C; Độ ẩm tương đối (10 ÷ 95) %RH- Độ phân giải: Nhiệt độ 1 °C; Độ ẩm 1 %RH                                                                                                                                                                     |
+| 2.4 | Bếp phá mẫu                                                                                                                                                             | - Dải nhiệt tối thiểu: (105 ÷ 150) °C                                                                                                                                                                                                                                                           |
+| 2.5 | Bình định mức dùng trong trường hợp pha loãng dung dịch chuẩn                                                                                                   | - Dung tích: (50, 100, 200, 250, 500, 1000) mL                                                                                                                                                                                                                                                       |
+| 2.6 | Pipet dùng trong trường hợp pha loãng dung dịch chuẩn                                                                                                               | - Dung tích: (1, 2, 3, 5, 10, 20, 25) mL                                                                                                                                                                                                                                                             |
+| 3   | **Phương tiện khác**                                                                                                                                             |                                                                                                                                                                                                                                                                                                       |
+| 3.1 | Thiết bị đồng nhất mẫu                                                                                                                                               | - Công suất 400 W                                                                                                                                                                                                                                                                                   |
+| 3.2 | Cốc mỏ                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                       |
+| 3.3 | Nước cất                                                                                                                                                                |                                                                                                                                                                                                                                                                                                       |
+| 3.4 | Bình tia nước cất                                                                                                                                                      |                                                                                                                                                                                                                                                                                                       |
+| 3.5 | Giấy thấm                                                                                                                                                                |                                                                                                                                                                                                                                                                                                       |
 
 > *Lưu ý:* Tuỳ thuộc vào từng PTĐ các thông số để lựa chọn chuẩn đo lường và phương tiện phụ phù hợp và đáp ứng yêu cầu.
 
@@ -219,17 +215,17 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 ĐKĐB được tính như sau:
 
-| Ký hiệu | Ý nghĩa |
-| --- | --- |
-| `u_A` | Độ lặp lại của kết quả đo lặp lại 07 lần trên thiết bị đo/hiệu chuẩn |
-| `u_B1` | Độ chính xác (hoặc độ không đảm bảo đo) của dung dịch chuẩn |
-| `u_Bi` | Độ không đảm bảo đo của dung dịch chuẩn thứ i |
-| `u_B2` | Độ không đảm bảo đo của thiết bị phân tích chuẩn |
-| `u_B3` | Độ phân giải của PTĐ cần hiệu chuẩn |
-| `u_pipet` | Độ không đảm bảo đo do pipet |
-| `u_temp` | Độ không đảm bảo đo do giãn nở nhiệt |
-| `u_calf` | ĐKĐB gây ra bởi bình định mức |
-| `u_per` | ĐKĐB do thao tác của nhân viên thực hiện |
+| Ký hiệu   | Ý nghĩa                                                                             |
+| ----------- | ------------------------------------------------------------------------------------- |
+| `u_A`     | Độ lặp lại của kết quả đo lặp lại 07 lần trên thiết bị đo/hiệu chuẩn |
+| `u_B1`    | Độ chính xác (hoặc độ không đảm bảo đo) của dung dịch chuẩn            |
+| `u_Bi`    | Độ không đảm bảo đo của dung dịch chuẩn thứ i                              |
+| `u_B2`    | Độ không đảm bảo đo của thiết bị phân tích chuẩn                         |
+| `u_B3`    | Độ phân giải của PTĐ cần hiệu chuẩn                                          |
+| `u_pipet` | Độ không đảm bảo đo do pipet                                                   |
+| `u_temp`  | Độ không đảm bảo đo do giãn nở nhiệt                                        |
+| `u_calf`  | ĐKĐB gây ra bởi bình định mức                                                 |
+| `u_per`   | ĐKĐB do thao tác của nhân viên thực hiện                                      |
 
 **a. Thành phần ĐKĐB do độ lặp lại**
 
@@ -283,16 +279,15 @@ Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thự
 
 `u_calp = (d/k)`
 
-  - `d`: Độ không đảm bảo đo;
-  - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
-
+- `d`: Độ không đảm bảo đo;
+- `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 - ĐKĐB do giãn nở nhiệt:
 
 `u_temp = ((V_pipet × γ × Δ_i)/√(3))`
 
-  - `γ`: Hệ số dãn nở/1 °C;
-  - `Δ_i`: Sai lệch nhiệt độ so với 25 °C;
-  - `T`: Nhiệt độ môi trường thí nghiệm.
+- `γ`: Hệ số dãn nở/1 °C;
+- `Δ_i`: Sai lệch nhiệt độ so với 25 °C;
+- `T`: Nhiệt độ môi trường thí nghiệm.
 
 ***e2. Thành phần ĐKĐB do bình định mức***
 
@@ -302,9 +297,8 @@ Trường hợp khách hàng yêu cầu hiệu chuẩn theo nước thải thự
 
 `u_calf = (e/k)`
 
-  - `e`: Độ không đảm bảo đo;
-  - `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
-
+- `e`: Độ không đảm bảo đo;
+- `k`: Hệ số phủ theo giấy chứng nhận (k = 2).
 - ĐKĐB do thao tác của nhân viên thực hiện:
 
 `u_per = (0,03/√(3))`
