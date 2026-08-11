@@ -210,21 +210,15 @@ Trong đó: T là điểm nhiệt độ cận trên của dải đo thiết bị
 
 Số hiệu chính tại mỗi điểm nhiệt độ hiệu chuẩn được tính theo công thức:
 
-$$
-\Delta t = t_{ch} - t_{vs} \tag{1}
-$$
+`Δt = t_ch - t_vs  (1)`
 
 Trong đó `t_ch`: giá trị trung bình của k nhiệt kế chuẩn tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-$$
-t_{ch} = \frac{1}{k}\sum_{1}^{k} \bar{t} \tag{2}
-$$
+`t_ch = (1/k)Σ(1→k) t̄  (2)`
 
 Ở đây, giá trị trung bình của nhiệt kế chuẩn được tính theo công thức:
 
-$$
-\bar{t} = \frac{1}{n}\sum_{i=1}^{n} (t + \partial t)_i \tag{3}
-$$
+`t̄ = (1/n)Σ(i=1→n) (t + ∂ t)_i  (3)`
 
 - `t`: giá trị chỉ thị trung bình của nhiệt kế chuẩn, °C;
 - `∂t`: số hiệu chính của nhiệt kế chuẩn tại điểm nhiệt độ hiệu chuẩn (lấy từ giấy chứng nhận hiệu chuẩn của nhiệt kế chuẩn), °C;
@@ -232,9 +226,7 @@ $$
 
 `t_vs`: giá trị trung bình của chỉ thị nhiệt lò vi sóng tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-$$
-t_{vs} = \frac{1}{n}\sum_{i=1}^{n} t_i \tag{4}
-$$
+`t_vs = (1/n)Σ(i=1→n) t_i  (4)`
 
 `n`: số lần đọc chỉ thị nhiệt độ trên lò vi sóng tại mỗi điểm nhiệt độ hiệu chuẩn.
 
@@ -242,17 +234,13 @@ $$
 
 Công thức tính nhiệt lượng:
 
-$$
-Q = P \times t \tag{5}
-$$
+`Q = P × t  (5)`
 
 Trong đó: `P`: công suất hấp thụ, W; `Q`: nhiệt lượng, W·s; `t`: thời gian hấp thụ công suất vi sóng, s.
 
 Công thức (5) sẽ được biến đổi thành công thức tính công suất sau đây:
 
-$$
-P = \frac{Q}{t} = \frac{C_w \times m_w \times (T_2 - T_1) + C_b \times m_b \times (T_2 - T_0)}{t} \tag{6}
-$$
+`P = (Q/t) = ((C_w × m_w × (T_2 - T_1) + C_b × m_b × (T_2 - T_0))/t)  (6)`
 
 Trong đó:
 
@@ -281,49 +269,35 @@ Các yếu tố gây ra ĐKĐB bao gồm: thiết bị chuẩn nhiệt độ; th
 
 **a) Độ không đảm bảo đo của nhiệt kế chuẩn:**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2} \tag{7}
-$$
+`u_ch = √(u_ch1² + u_ch2²)  (7)`
 
 ĐKĐB `u_ch1` của nhiệt kế chuẩn (ĐKĐB kiểu B):
 
-$$
-u_{ch1} = \frac{U_{95}}{2} \tag{8}
-$$
+`u_ch1 = (U_95/2)  (8)`
 
 Với `U_95`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
 ĐKĐB do độ tản mạn `u_ch2` của các kết quả đo bởi nhiệt kế chuẩn (ĐKĐB kiểu A):
 
-$$
-u_{ch2} = \sqrt{\frac{S_{ch}^2}{n}} = \frac{S_{ch}}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n(n-1)}} \tag{9}
-$$
+`u_ch2 = √(S_ch²/n) = (S_ch/√(n)) = √((Σ(1→n) (t_i - t̄)²)/n(n-1))  (9)`
 
 Với `S_ch` được tính theo công thức:
 
-$$
-S_{ch} = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}
-$$
+`S_ch = √((Σ(1→n) (t_i - t̄)²)/(n-1))`
 
 Trong đó: `S_ch`: độ lệch chuẩn nhiệt độ dung môi đo được bởi nhiệt kế chuẩn tại điểm hiệu chuẩn nhiệt độ lò vi sóng, °C; `n`: số lần đo lặp nhiệt độ dung môi bởi nhiệt kế chuẩn tại mỗi điểm hiệu chuẩn nhiệt độ (n = 5); `t_i`: nhiệt độ dung môi đo được bởi nhiệt kế chuẩn tại lần đo lặp thứ i; `t̄`: giá trị trung bình nhiệt độ dung môi đo được bởi nhiệt kế chuẩn sau n lần đo lặp.
 
 **b) Độ không đảm bảo đo của thiết bị chỉ thị nhiệt của lò vi sóng:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2} \tag{10}
-$$
+`u_bk = √(u_bk1² + u_bk2²)  (10)`
 
 ĐKĐB do độ tản mạn `u_bk1` của các kết quả đo của bộ chỉ thị nhiệt lò vi sóng:
 
-$$
-u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n(n-1)}} \tag{11}
-$$
+`u_bk1 = √(S_bk1²/n) = (S_bk1/√(n)) = √((Σ(1→n) (t_i - t̄)²)/n(n-1))  (11)`
 
 Với `S_bk1` được tính theo công thức:
 
-$$
-S_{bk1} = \sqrt{\frac{\sum_1^n (t_i - \bar{t})^2}{n-1}}
-$$
+`S_bk1 = √((Σ(1→n) (t_i - t̄)²)/(n-1))`
 
 Trong đó: `S_bk1`: độ lệch chuẩn nhiệt độ dung môi đo được trên lò vi sóng tại điểm hiệu chuẩn nhiệt độ lò vi sóng, °C; `n`: số lần đo lặp nhiệt độ dung môi trên lò vi sóng tại mỗi điểm hiệu chuẩn nhiệt độ (n = 5); `t_i`: nhiệt độ dung môi đo được trên lò vi sóng tại lần đo lặp thứ i; `t̄`: giá trị trung bình nhiệt độ dung môi đo được trên lò vi sóng sau n lần đo lặp.
 
@@ -331,17 +305,13 @@ Trong đó: `S_bk1`: độ lệch chuẩn nhiệt độ dung môi đo được t
 
 Đối với lò vi sóng chỉ thị nhiệt độ kiểu tương tự:
 
-$$
-u_{bk2} = \frac{d}{3\sqrt{3}} \tag{12}
-$$
+`u_bk2 = (d/3√(3))  (12)`
 
 Trong đó: `d`: giá trị độ chia nhiệt độ của lò vi sóng, °C.
 
 Đối với chỉ thị hiện số:
 
-$$
-u_{bk2} = \frac{d}{2\sqrt{3}} \tag{12'}
-$$
+`u_bk2 = (d/2√(3))  (12')`
 
 Trong đó: `d`: độ phân giải chỉ thị nhiệt độ của lò vi sóng, °C.
 
@@ -349,23 +319,17 @@ Trong đó: `d`: độ phân giải chỉ thị nhiệt độ của lò vi sóng
 
 ĐKĐB đo tổng hợp được xác định từ tổ hợp các ĐKĐB của nhiệt kế chuẩn và của thiết bị đo nhiệt của lò vi sóng:
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 Thay công thức (7) và (10) vào công thức trên sẽ nhận được công thức (13):
 
-$$
-u_c = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{bk1}^2 + u_{bk2}^2} \tag{13}
-$$
+`u_c = √(u_ch1² + u_ch2² + u_bk1² + u_bk2²)  (13)`
 
 ##### 7.4.1.4. ĐKĐB mở rộng
 
 ĐKĐB mở rộng U là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$
-U = k \times u_c
-$$
+`U = k × u_c`
 
 Trong đó: k là hệ số phủ, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 
@@ -383,157 +347,115 @@ Mô hình toán học theo công thức (6) cho thấy có 06 tham số đầu v
 
 ĐKĐB thành phần `u_w1` do độ tản mạn của kết quả cân khối lượng nước:
 
-$$
-u_{w1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (m_{wi} - \bar{m}_w)^2}{n(n-1)}} \tag{14}
-$$
+`u_w1 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (m_wi - m̄_w)²)/n(n-1))  (14)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (m_{wi} - \bar{m}_w)^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (m_wi - m̄_w)²)/(n-1))`
 
 Trong đó: `s_j`: độ lệch chuẩn cân khối lượng nước tại điểm kiểm tra công suất thứ j, g; `n`: số lần cân lặp khối lượng nước tại mỗi điểm kiểm tra công suất thứ j; `m_wi`: khối lượng nước cân được tại lần cân lặp thứ i, g; `m̄_w`: giá trị trung bình khối lượng nước sau n lần cân, g.
 
 ĐKĐB thành phần `u_w2` được lấy từ giấy chứng nhận hiệu chuẩn của cân chuẩn:
 
-$$
-u_{w2} = \frac{A}{2} \tag{15}
-$$
+`u_w2 = (A/2)  (15)`
 
 Trong đó: `u_w2`: ĐKĐB của cân chuẩn khi cân nước, g; `A`: ĐKĐB của cân chuẩn tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn, g.
 
 Hệ số nhạy:
 
-$$
-c_w = \frac{\partial P}{\partial m_w} = \frac{C_w \times (T_2 - T_1)}{t} \tag{16}
-$$
+`c_w = ((∂ P)/(∂ m_w)) = ((C_w × (T_2 - T_1))/t)  (16)`
 
 **b) ĐKĐB khi sử dụng cân chuẩn để cân khối lượng cốc thủy tinh** `u_b = √(u_b1² + u_b2²)` và hệ số nhạy `c_b`, được xác định như sau:
 
 ĐKĐB thành phần `u_b1` do độ tản mạn của kết quả cân khối lượng cốc thủy tinh:
 
-$$
-u_{b1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (m_{bi} - \bar{m}_b)^2}{n(n-1)}} \tag{17}
-$$
+`u_b1 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (m_bi - m̄_b)²)/n(n-1))  (17)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (m_{bi} - \bar{m}_b)^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (m_bi - m̄_b)²)/(n-1))`
 
 Trong đó: `S_j`: độ lệch chuẩn của khối lượng cốc thủy tinh cân được tại điểm kiểm tra công suất thứ j, g; `n`: số lần cân lặp khối lượng cốc thủy tinh; `m_bi`: khối lượng cốc cân được tại lần cân lặp thứ i, g; `m̄_b`: giá trị trung bình khối lượng cốc sau n lần cân, g.
 
 ĐKĐB của cân chuẩn `u_b2` khi cân cốc thủy tinh, lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{b2} = \frac{A}{2} \tag{18}
-$$
+`u_b2 = (A/2)  (18)`
 
 Trong đó: `u_b2`: ĐKĐB của cân chuẩn khi cân cốc thủy tinh, g; `A`: ĐKĐB của cân chuẩn tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn, g.
 
 Hệ số nhạy:
 
-$$
-c_b = \frac{\partial P}{\partial m_b} = \frac{C_b \times (T_2 - T_0)}{t} \tag{19}
-$$
+`c_b = ((∂ P)/(∂ m_b)) = ((C_b × (T_2 - T_0))/t)  (19)`
 
 **c) ĐKĐB đo nhiệt độ môi trường** `u_T0 = √(u_T01² + u_T02²)` và hệ số nhạy `c_T0`, được xác định như sau:
 
 ĐKĐB thành phần `u_T01` do độ tản mạn của kết quả đo nhiệt độ môi trường thực tế:
 
-$$
-u_{T01} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (T_{0i} - \bar{T}_0)^2}{n(n-1)}} \tag{20}
-$$
+`u_T01 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (T_0i - T̄_0)²)/n(n-1))  (20)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (T_{0i} - \bar{T}_0)^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (T_0i - T̄_0)²)/(n-1))`
 
 Trong đó: `S_j`: độ lệch chuẩn nhiệt độ môi trường đo được tại điểm kiểm tra công suất thứ j, °C; `n`: số lần đo lặp; `T_0i`: nhiệt độ môi trường đo được tại lần đo thứ i, °C; `T̄_0`: giá trị trung bình đo nhiệt độ môi trường sau n lần đo, °C.
 
 ĐKĐB thành phần `u_T02` lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ:
 
-$$
-u_{T02} = \frac{B}{2} \tag{21}
-$$
+`u_T02 = (B/2)  (21)`
 
 Với `B`: ĐKĐB của nhiệt độ lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ, °C.
 
 Hệ số nhạy:
 
-$$
-c_{T0} = \frac{\partial P}{\partial T_0} = -\frac{C_b \times m_b}{t} \tag{22}
-$$
+`c_T0 = ((∂ P)/(∂ T_0)) = -((C_b × m_b)/t)  (22)`
 
 **d) ĐKĐB của nhiệt độ ban đầu của nước** `u_T1 = √(u_T11² + u_T12²)` và hệ số nhạy `c_T1`, được xác định như sau:
 
 `u_T11` là ĐKĐB thành phần do độ tản mạn của kết quả nhiệt độ ban đầu của nước:
 
-$$
-u_{T11} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (T_{1i} - \bar{T}_1)^2}{n(n-1)}} \tag{23}
-$$
+`u_T11 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (T_1i - T̄_1)²)/n(n-1))  (23)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (T_{1i} - \bar{T}_1)^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (T_1i - T̄_1)²)/(n-1))`
 
 Trong đó: `S_j`: độ lệch chuẩn nhiệt độ ban đầu của nước đo được tại điểm kiểm tra công suất thứ j, °C; `n`: số lần đo lặp; `T_1i`: nhiệt độ ban đầu của nước đo được tại lần đo thứ i, °C; `T̄_1`: giá trị trung bình đo nhiệt độ ban đầu của nước sau n lần đo, °C.
 
 ĐKĐB thành phần `u_T12` lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ:
 
-$$
-u_{T12} = \frac{C}{2} \tag{24}
-$$
+`u_T12 = (C/2)  (24)`
 
 Với `C`: ĐKĐB của nhiệt độ lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ.
 
 Hệ số nhạy:
 
-$$
-c_{T1} = \frac{\partial P}{\partial T_1} = -\frac{C_w \times m_w}{t} \tag{25}
-$$
+`c_T1 = ((∂ P)/(∂ T_1)) = -((C_w × m_w)/t)  (25)`
 
 **e) ĐKĐB đo nhiệt độ của nước sau khi hấp thụ công suất vi sóng** `u_T2 = √(u_T21² + u_T22²)` và hệ số nhạy `c_T2`, được xác định như sau:
 
 ĐKĐB thành phần `u_T21` do độ tản mạn của kết quả đo nhiệt độ của nước sau khi hấp thụ công suất vi sóng:
 
-$$
-u_{T21} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (T_{2i} - \bar{T}_2)^2}{n(n-1)}} \tag{26}
-$$
+`u_T21 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (T_2i - T̄_2)²)/n(n-1))  (26)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (T_{2i} - \bar{T}_2)^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (T_2i - T̄_2)²)/(n-1))`
 
 Trong đó: `S_j`: độ lệch chuẩn nhiệt độ nước sau khi hấp thụ công suất vi sóng đo được tại điểm kiểm tra công suất thứ j, °C; `n`: số lần đo lặp; `T_2i`: nhiệt độ của nước sau khi hấp thụ công suất vi sóng đo được tại lần đo thứ i, °C; `T̄_2`: giá trị trung bình đo nhiệt độ của nước sau khi hấp thụ công suất vi sóng sau n lần đo, °C.
 
 ĐKĐB thành phần `u_T22` được lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ:
 
-$$
-u_{T22} = \frac{C}{2} \tag{27}
-$$
+`u_T22 = (C/2)  (27)`
 
 Với `C`: ĐKĐB đo nhiệt độ được lấy từ giấy chứng nhận hiệu chuẩn PTĐ nhiệt độ.
 
 Hệ số nhạy:
 
-$$
-c_{T2} = \frac{\partial P}{\partial T_2} = \frac{C_b \times m_b + C_w \times m_w}{t} \tag{28}
-$$
+`c_T2 = ((∂ P)/(∂ T_2)) = ((C_b × m_b + C_w × m_w)/t)  (28)`
 
 **f) ĐKĐB của thời gian hấp thụ công suất vi sóng** `u_t`, hệ số nhạy `c_t`, được xác định như sau:
 
-$$
-u_t = \frac{D}{2} \tag{27'}
-$$
+`u_t = (D/2)  (27')`
 
 > *Ghi chú:* bản gốc lặp lại số thứ tự công thức (27) cho công thức này (khác với công thức (27) ở mục e); đánh dấu (27') để phân biệt trong bản chuyển đổi, giữ nguyên nội dung công thức gốc.
 
@@ -541,63 +463,45 @@ Với `D`: ĐKĐB đo thời gian được lấy từ giấy chứng nhận hi�
 
 Hệ số nhạy:
 
-$$
-c_t = \frac{\partial P}{\partial t} = -\frac{C_w \times m_w \times (T_2 - T_1) + C_b \times m_b \times (T_2 - T_0)}{t^2} \tag{28'}
-$$
+`c_t = ((∂ P)/(∂ t)) = -((C_w × m_w × (T_2 - T_1) + C_b × m_b × (T_2 - T_0))/t²)  (28')`
 
 **g) Tính ĐKĐB thành phần `u_DUT` đo công suất của lò vi sóng cần hiệu chuẩn:**
 
-$$
-u_{DUT} = \sqrt{u_{DUT1}^2 + u_{DUT2}^2} \tag{29}
-$$
+`u_DUT = √(u_DUT1² + u_DUT2²)  (29)`
 
 ĐKĐB do độ tản mạn `u_DUT1` của các kết quả đo công suất trên lò vi sóng:
 
-$$
-u_{DUT1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \sqrt{\frac{\sum_1^n (P_{DUTi} - \bar{P}_{DUT})^2}{n(n-1)}} \tag{30}
-$$
+`u_DUT1 = √(S_j²/n) = (S_j/√(n)) = √((Σ(1→n) (P_DUTi - P̄_DUT)²)/n(n-1))  (30)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (P_{DUTi} - \bar{P}_{DUT})^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (P_DUTi - P̄_DUT)²)/(n-1))`
 
 Trong đó: `S_j`: độ lệch chuẩn công suất vi sóng đo được trên lò vi sóng tại điểm kiểm tra công suất thứ j, W; `n`: số lần đo lặp; `P_DUTi`: công suất vi sóng đo được trên lò vi sóng tại lần đo thứ i, W; `P̄_DUT`: giá trị trung bình đo công suất trên lò vi sóng sau n lần đo, W.
 
 ĐKĐB do độ phân giải `u_DUT2` của chỉ thị công suất trên lò vi sóng:
 
-$$
-u_{DUT2} = \frac{R \times d}{\sqrt{3}} \tag{31}
-$$
+`u_DUT2 = ((R × d)/√(3))  (31)`
 
 Trong đó: `u_DUT2`: ĐKĐB do độ phân giải công suất của lò vi sóng, W; `R`: giá trị nhỏ nhất của PTĐ cần hiệu chuẩn; d = 1/2 đối với bộ chỉ thị hiện số; d = 1/10 đối với bộ chỉ thị tương tự.
 
 Hệ số nhạy:
 
-$$
-c_{DUT} = 1 \tag{32}
-$$
+`c_DUT = 1  (32)`
 
 ##### 7.4.2.3. ĐKĐB tổng hợp
 
 Từ công thức tổng quát (6) ta có ĐKĐB tổng hợp như sau:
 
-$$
-u_c = \sqrt{c_w^2 u_w^2 + c_b^2 u_b^2 + c_{T0}^2 u_{T0}^2 + c_{T1}^2 u_{T1}^2 + c_{T2}^2 u_{T2}^2 + c_t^2 u_t^2 + c_{DUT}^2 u_{DUT}^2} \tag{33}
-$$
+`u_c = √(c_w² u_w² + c_b² u_b² + c_T0² u_T0² + c_T1² u_T1² + c_T2² u_T2² + c_t² u_t² + c_DUT² u_DUT²)  (33)`
 
 Thay các công thức từ (14) đến công thức (32) vào công thức (33) ta có:
 
-$$
-u_c = \sqrt{c_w^2(u_{w1}^2 + u_{w2}^2) + c_b^2(u_{b1}^2 + u_{b2}^2) + c_{T0}^2(u_{T01}^2 + u_{T02}^2) + c_{T1}^2(u_{T11}^2 + u_{T12}^2) + c_{T2}^2(u_{T21}^2 + u_{T22}^2) + c_t^2 u_t^2 + c_{DUT}^2(u_{DUT1}^2 + u_{DUT2}^2)} \tag{34}
-$$
+`u_c = √(c_w²(u_w1² + u_w2²) + c_b²(u_b1² + u_b2²) + c_T0²(u_T01² + u_T02²) + c_T1²(u_T11² + u_T12²) + c_T2²(u_T21² + u_T22²) + c_t² u_t² + c_DUT²(u_DUT1² + u_DUT2²))  (34)`
 
 ##### 7.4.2.4. ĐKĐB mở rộng
 
-$$
-U = k \times u_C
-$$
+`U = k × u_C`
 
 Với k là hệ số bao phủ, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

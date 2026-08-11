@@ -162,9 +162,7 @@ Nhiệt kế y học thủy tinh – thủy ngân có cơ cấu cực đại đ�
 
 Sai số của nhiệt kế cần hiệu chuẩn:
 
-$$
-\Delta t = \bar{t}_{bk} - (\bar{t}_{ch} + \delta_{ch})
-$$
+`Δt = t̄_bk - (t̄_ch + δ_ch)`
 
 Trong đó: `t̄_bk`: giá trị trung bình của nhiệt kế cần hiệu chuẩn tại điểm kiểm tra; `t̄_ch`: giá trị trung bình của nhiệt kế chuẩn tại điểm kiểm tra; `δ_ch`: số hiệu chính của nhiệt kế chuẩn (lấy trong GCN hiệu chuẩn).
 
@@ -187,83 +185,61 @@ Trong đó: `t̄_bk`: giá trị trung bình của nhiệt kế cần hiệu chu
 
 **a. Độ không đảm bảo đo chuẩn loại A của chỉ thị các nhiệt kế chuẩn (u_ch1):**
 
-$$
-u_{ch1} = \sqrt{\sum_{j=1}^{k} u_{ch1,j}^2}
-$$
+`u_ch1 = √(Σ(j=1→k) u_ch1,j²)`
 
 Trong đó `u_ch1,j` là độ không đảm bảo đo loại A của nhiệt kế thứ j:
 
-$$
-u_{ch1,j} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{ij} - \bar{t}_j)^2}{n-1}}
-$$
+`u_ch1,j = √(S_j²/n) ; S_j = √((Σ(i=1→n) (t_ij - t̄_j)²)/(n-1))`
 
 Với `S_j`: là độ lệch chuẩn của nhiệt kế chuẩn thứ j; `n`: số lần đọc tại mỗi điểm; `t_ij`: lần đọc thứ i của nhiệt kế thứ j; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của nhiệt kế chuẩn thứ j.
 
 **b. Độ không đảm bảo đo của tổ hợp chuẩn, gồm các thiết bị chỉ thị đo với các nhiệt kế chuẩn (u_ch2):**
 
-$$
-u_{ch2} = \frac{U_{95}}{2}
-$$
+`u_ch2 = (U_95/2)`
 
 Trong đó `U_95` là độ không đảm bảo đo mở rộng của tổ hợp đo với nhiệt kế chuẩn (lấy giá trị của tổ hợp chuẩn có giá trị lớn nhất).
 
 **c. Độ không đảm bảo đo do độ đồng đều của bình điều nhiệt chất lỏng (u_ch3):**
 
-$$
-u_{ch3} = \frac{\partial_{dd}}{\sqrt{3}}
-$$
+`u_ch3 = (∂_dd/√(3))`
 
 Trong đó: `∂_dd` là độ đồng đều của bình điều nhiệt chất lỏng (lấy trong giấy chứng nhận của chuẩn).
 
 **d. Độ không đảm bảo đo do độ ổn định của bình điều nhiệt chất lỏng (u_ch4):**
 
-$$
-u_{ch4} = \frac{\partial_{od}}{\sqrt{3}}
-$$
+`u_ch4 = (∂_od/√(3))`
 
 Trong đó: `∂_od` là độ ổn định của bình điều nhiệt chất lỏng (lấy trong giấy chứng nhận của chuẩn).
 
 **Độ không đảm bảo đo liên hợp của tổ hợp chuẩn:**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2² + u_ch3² + u_ch4²)`
 
 #### 7.4.2. Độ không đảm bảo nhiệt kế y học thủy tinh - thủy ngân có cơ cấu cực đại (u_bk)
 
 **a. Độ không đảm bảo đo chuẩn loại A của Nhiệt kế y học thủy tinh - thủy ngân có cơ cấu cực đại (u_bk1):**
 
-$$
-u_{bk1} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_i - \bar{t}_j)^2}{n-1}}
-$$
+`u_bk1 = √(S_j²/n) ; S_j = √((Σ(i=1→n) (t_i - t̄_j)²)/(n-1))`
 
 Với: `S_j`: là độ lệch chuẩn tại điểm đo thứ N; `n`: số lần đọc tại mỗi điểm; `t_i`: lần đọc thứ i của Nhiệt kế y học thủy tinh - thủy ngân có cơ cấu cực đại; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của Nhiệt kế y học thủy tinh - thủy ngân có cơ cấu cực đại.
 
 **b. Độ không đảm bảo đo tính theo độ phân giải của thiết bị (u_bk2):**
 
-$$
-u_{bk2} = \frac{A \times d}{\sqrt{3}}
-$$
+`u_bk2 = ((A × d)/√(3))`
 
 Trong đó: `d`: là giá trị độ chia của thiết bị; `A`: khả năng phân biệt giá trị độ chia nhỏ nhất.
 
 **Độ không đảm bảo đo tổng hợp của Nhiệt kế y học thủy tinh - thủy ngân có cơ cấu cực đại:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2²)`
 
 #### 7.4.3. Độ không đảm bảo đo chuẩn tổng hợp của phép hiệu chuẩn, u_c
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 #### 7.4.4. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \times u_c
-$$
+`U = k × u_c`
 
 Tính với mức độ tin cậy 95 % và hệ số phủ k = 2.
 

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11 13:07 UTC",
+ "generated_at": "2026-08-11 13:45 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -2827,7 +2827,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/1. Quy trinh/ETV.MCA.01_QTHC_KhiTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 29490
+                "size": 29345
                }
               ],
               "n_dirs": 0,
@@ -2852,7 +2852,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/1. Quy trinh/ETV.MCA.02_QTHC_NongDoKhi.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 27879
+                "size": 27661
                }
               ],
               "n_dirs": 0,
@@ -2877,7 +2877,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/1. Quy trinh/ETV.MCA.03_QTHC_TaoKhiO3.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15017
+                "size": 14869
                }
               ],
               "n_dirs": 0,
@@ -2902,7 +2902,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh/ETV.MCA.04_QTHC_GasO3.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 25755
+                "size": 25590
                }
               ],
               "n_dirs": 0,
@@ -2943,7 +2943,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ/1. Quy trinh/ETV.MCA.05_QTHC_TramQTCLKKXQ.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 26895
+                "size": 26711
                }
               ],
               "n_dirs": 0,
@@ -2968,7 +2968,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC/1. Quy trinh/ETV.MCA.06_QTHC_GC.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 36349
+                "size": 35675
                }
               ],
               "n_dirs": 0,
@@ -3002,7 +3002,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/1. Quy trinh/ETV.MCW.01_QTHC_pH.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 16746
+                "size": 16475
                }
               ],
               "n_dirs": 0,
@@ -3027,7 +3027,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/1. Quy trinh/ETV.MCW.02_QTHC_EC.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 17332
+                "size": 17061
                }
               ],
               "n_dirs": 0,
@@ -3052,7 +3052,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/1. Quy trinh/ETV.MCW.03_QTHC_DoDuc.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15192
+                "size": 15080
                }
               ],
               "n_dirs": 0,
@@ -3077,7 +3077,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/1. Quy trinh/ETV.MCW.04_QTHC_ORP.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 17147
+                "size": 16897
                }
               ],
               "n_dirs": 0,
@@ -3102,7 +3102,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/1. Quy trinh/ETV.MCW.05_QTHC_TDS.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 19471
+                "size": 19100
                }
               ],
               "n_dirs": 0,
@@ -3127,7 +3127,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/1. Quy trinh/ETV.MCW.06_QTHC_DO.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 24187
+                "size": 23964
                }
               ],
               "n_dirs": 0,
@@ -3152,7 +3152,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/1. Quy trinh/ETV.MCW.07_QTHC_DoMan.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18992
+                "size": 18594
                }
               ],
               "n_dirs": 0,
@@ -3177,7 +3177,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/1. Quy trinh/ETV.MCW.08_QTHC_NongDoChatTrongNuoc.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 23774
+                "size": 23465
                }
               ],
               "n_dirs": 0,
@@ -3202,7 +3202,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/1. Quy trinh/ETV.MCW.09_QTHC_AAS.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 24869
+                "size": 24480
                }
               ],
               "n_dirs": 0,
@@ -3227,7 +3227,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat/1. Quy trinh/ETV.MCW.10_QTHC_DienTroSuat.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15431
+                "size": 15296
                }
               ],
               "n_dirs": 0,
@@ -3252,7 +3252,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC/1. Quy trinh/ETV.MCW.12_QTHC_HPLC.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 35245
+                "size": 34330
                }
               ],
               "n_dirs": 0,
@@ -3277,7 +3277,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP/1. Quy trinh/ETV.MCW.13_QTHC_ICP.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 30742
+                "size": 30447
                }
               ],
               "n_dirs": 0,
@@ -3311,7 +3311,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/1. Quy trinh/ETV.MCH.01_QTHC_DoAm.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20281
+                "size": 19829
                }
               ],
               "n_dirs": 0,
@@ -3345,7 +3345,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/1. Quy trinh/ETV.MCM.01_QTHC_Can.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 28172
+                "size": 27911
                }
               ],
               "n_dirs": 0,
@@ -3379,7 +3379,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/1. Quy trinh/ETV.MCF.01_QTHC_LuuLuongKhi.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 30233
+                "size": 29426
                }
               ],
               "n_dirs": 0,
@@ -3404,7 +3404,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/1. Quy trinh/ETV.MCF.02_QTHC_DongHoDoKhi.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 21686
+                "size": 21043
                }
               ],
               "n_dirs": 0,
@@ -3429,7 +3429,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/1. Quy trinh/ETV.MCF.03_QTHC_TocDoGio.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20863
+                "size": 20481
                }
               ],
               "n_dirs": 0,
@@ -3454,7 +3454,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/1. Quy trinh/ETV.MCF.04_QTHC_LuuLuongKhiThai.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18719
+                "size": 18661
                }
               ],
               "n_dirs": 0,
@@ -3479,7 +3479,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/1. Quy trinh/ETV.MCF.05_QTHC_LuuLuongKenhHo.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 37544
+                "size": 37396
                }
               ],
               "n_dirs": 0,
@@ -3504,7 +3504,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/1. Quy trinh/ETV.MCF.06_QTHC_LuuLuongOngKin.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 21628
+                "size": 21438
                }
               ],
               "n_dirs": 0,
@@ -3529,7 +3529,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/1. Quy trinh/ETV.MCF.07_QTHC_Micropipet.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 25896
+                "size": 25084
                }
               ],
               "n_dirs": 0,
@@ -3554,7 +3554,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20446
+                "size": 20390
                }
               ],
               "n_dirs": 0,
@@ -3579,7 +3579,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/1. Quy trinh/ETV.MCF.09_QTHC_DungCuThuyTinh.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 28073
+                "size": 27309
                }
               ],
               "n_dirs": 0,
@@ -3604,7 +3604,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/1. Quy trinh/ETV.MCF.10_QTHC_PhaLoangKhiChuan.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 21576
+                "size": 21487
                }
               ],
               "n_dirs": 0,
@@ -3629,7 +3629,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/1. Quy trinh/ETV.MCF.11_QTHC_PTDLuongMua.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 22482
+                "size": 21793
                }
               ],
               "n_dirs": 0,
@@ -3654,7 +3654,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/1. Quy trinh/ETV.MCF.12_QTHC_DoMucNuoc.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 13438
+                "size": 13307
                }
               ],
               "n_dirs": 0,
@@ -3679,7 +3679,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF13_VanTocGioDaiCao/1. Quy trinh/ETV.MCF.13_QTHC_VanTocGioDaiCao.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 28222
+                "size": 27119
                }
               ],
               "n_dirs": 0,
@@ -3704,7 +3704,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF14_LuuLuongKhiThaiOngKhoi/1. Quy trinh/ETV.MCF.14_QTHC_LuuLuongKhiThaiOngKhoi.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18638
+                "size": 18576
                }
               ],
               "n_dirs": 0,
@@ -3738,7 +3738,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/1. Quy trinh/ETV.MCO.01_QTHC_UVVIS.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18521
+                "size": 18143
                }
               ],
               "n_dirs": 0,
@@ -3788,7 +3788,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/1. Quy trinh/ETV.MCO.03_QTHC_BuiXQ.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 28955
+                "size": 28770
                }
               ],
               "n_dirs": 0,
@@ -3813,7 +3813,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/1. Quy trinh/ETV.MCO.04_QTHC_BuiKhiThai.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 25977
+                "size": 25906
                }
               ],
               "n_dirs": 0,
@@ -3838,7 +3838,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui/1. Quy trinh/ETV.MCO.05_QTHC_ChuanBui.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 41832
+                "size": 41020
                }
               ],
               "n_dirs": 0,
@@ -3872,7 +3872,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/1. Quy trinh/ETV.MCS.01_QTHC_DoOn.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 30522
+                "size": 30357
                }
               ],
               "n_dirs": 0,
@@ -3897,7 +3897,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/1. Quy trinh/ETV.MCS.02_QTHC_TocDoVongQuay.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 25923
+                "size": 25604
                }
               ],
               "n_dirs": 0,
@@ -3922,7 +3922,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen/1. Quy trinh/ETV.MCS.03_QTHC_HoaTanVienNen.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 44595
+                "size": 43471
                }
               ],
               "n_dirs": 0,
@@ -3947,7 +3947,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon/1. Quy trinh/ETV.MCS.04_QTHC_MaiMon.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 27583
+                "size": 26807
                }
               ],
               "n_dirs": 0,
@@ -3972,7 +3972,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa/1. Quy trinh/ETV.MCS.05_QTHC_TanRa.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 28759
+                "size": 27983
                }
               ],
               "n_dirs": 0,
@@ -3997,7 +3997,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay/1. Quy trinh/ETV.MCS.06_QTHC_DongHoBamGiay.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 12026
+                "size": 11869
                }
               ],
               "n_dirs": 0,
@@ -4031,7 +4031,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/1. Quy trinh/ETV.MCT.01_QTHC_TuNhiet.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20850
+                "size": 20505
                }
               ],
               "n_dirs": 0,
@@ -4056,7 +4056,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/1. Quy trinh/ETV.MCT.02_QTHC_PhaMauCOD.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 19685
+                "size": 19367
                }
               ],
               "n_dirs": 0,
@@ -4081,7 +4081,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/1. Quy trinh/ETV.MCT.03_QTHC_NhietDoKhongKhi.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20158
+                "size": 19765
                }
               ],
               "n_dirs": 0,
@@ -4106,7 +4106,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/1. Quy trinh/ETV.MCT.04_QTHC_CapNhietDoK.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 21244
+                "size": 21024
                }
               ],
               "n_dirs": 0,
@@ -4131,7 +4131,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/1. Quy trinh/ETV.MCT.05_QTHC_LoNhiet.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 23801
+                "size": 23275
                }
               ],
               "n_dirs": 0,
@@ -4156,7 +4156,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/1. Quy trinh/ETV.MCT.06_QTHC_HapTietTrung.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 18491
+                "size": 18236
                }
               ],
               "n_dirs": 0,
@@ -4181,7 +4181,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/1. Quy trinh/ETV.MCT.07_QTHC_BeDieuNhiet.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20607
+                "size": 20254
                }
               ],
               "n_dirs": 0,
@@ -4206,7 +4206,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/1. Quy trinh/ETV.MCT.08_QTHC_ChungCatDam.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 19252
+                "size": 18949
                }
               ],
               "n_dirs": 0,
@@ -4231,7 +4231,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/1. Quy trinh/ETV.MCT.09_QTHC_NhietKeThuyTinh.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 24454
+                "size": 24086
                }
               ],
               "n_dirs": 0,
@@ -4256,7 +4256,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT10_NhietKeTTTNCucDai/1. Quy trinh/ETV.MCT.10_QTHC_NhietKeCucDai.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20299
+                "size": 20059
                }
               ],
               "n_dirs": 0,
@@ -4281,7 +4281,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT11_NhietKeYHoc/1. Quy trinh/ETV.MCT.11_QTHC_NhietKeYHoc.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 17329
+                "size": 17099
                }
               ],
               "n_dirs": 0,
@@ -4306,7 +4306,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/1. Quy trinh/ETV.MCT.12_QTHC_LoNung.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 21008
+                "size": 20663
                }
               ],
               "n_dirs": 0,
@@ -4331,7 +4331,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/1. Quy trinh/ETV.MCT.13_QTHC_LoViSong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 35307
+                "size": 34229
                }
               ],
               "n_dirs": 0,
@@ -4356,7 +4356,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/1. Quy trinh/DLVN138_QTHC_NhietKeHienSoTuongTu.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 22064
+                "size": 21912
                }
               ],
               "n_dirs": 0,
@@ -4381,7 +4381,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20722
+                "size": 20567
                }
               ],
               "n_dirs": 0,
@@ -4415,7 +4415,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/1. Quy trinh/ETV.MCP.01_QTHC_HuyetApKe.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 14638
+                "size": 14377
                }
               ],
               "n_dirs": 0,
@@ -4440,7 +4440,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/1. Quy trinh/ETV.MCP.02_QTHC_ChenhAp.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15483
+                "size": 15126
                }
               ],
               "n_dirs": 0,
@@ -4465,7 +4465,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/1. Quy trinh/ETV.MCP.03_QTHC_ApSuatNoiHap.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15492
+                "size": 15310
                }
               ],
               "n_dirs": 0,
@@ -4490,7 +4490,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/1. Quy trinh/DLVN112_QTHC_ChuyenDoiApSuat.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 19571
+                "size": 19324
                }
               ],
               "n_dirs": 0,
@@ -4515,7 +4515,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/1. Quy trinh/DLVN133_QTHC_DatMucApSuat.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 17718
+                "size": 17628
                }
               ],
               "n_dirs": 0,
@@ -4590,7 +4590,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/1. Quy trinh/ETV.MCL.01_QTHC_ThuocPanme.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 15531
+                "size": 15298
                }
               ],
               "n_dirs": 0,
@@ -4615,7 +4615,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/1. Quy trinh/ETV.MCL.02_QTHC_ThuocCap.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 14288
+                "size": 14214
                }
               ],
               "n_dirs": 0,
@@ -5170,7 +5170,7 @@
         "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.03_KetQuaSanXuat.md",
         "type": "file",
         "ext": ".md",
-        "size": 7967
+        "size": 7909
        },
        {
         "name": "ETV.P.F24.01_BangChamCong.md",
@@ -5184,7 +5184,7 @@
         "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.02_TheoDoiLuongThuong.md",
         "type": "file",
         "ext": ".md",
-        "size": 7805
+        "size": 7656
        },
        {
         "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
@@ -13187,7 +13187,7 @@
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.03_KetQuaSanXuat.md",
         "type": "file",
         "ext": ".md",
-        "size": 7967
+        "size": 7909
        },
        {
         "name": "ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
@@ -13208,7 +13208,7 @@
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md",
         "type": "file",
         "ext": ".md",
-        "size": 7805
+        "size": 7656
        },
        {
         "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",

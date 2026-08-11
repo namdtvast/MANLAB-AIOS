@@ -177,9 +177,7 @@ DUT phải được kiểm tra độ chính xác tần số dao động tại 1 
 - Đo lặp tối thiểu 5 lần. Ghi các kết quả đo vào biên bản hiệu chuẩn ở Phụ lục 1.
 - Sai số giữa giá trị tần số dao động cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-$$
-\Delta V = v_{tb} - v_{ch} \tag{1}
-$$
+`ΔV = v_tb - v_ch  (1)`
 
   Trong đó: `v_ch`: giá trị trung bình của chuẩn, lần/phút; `v_tb`: giá trị trung bình tốc độ cài đặt trên máy, lần/phút.
 
@@ -193,15 +191,11 @@ $$
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị nhiệt độ hiển thị trên máy với PTĐ chuẩn được tính theo công thức:
 
-$$
-\Delta t = t_{cd} - t_{ch} \tag{2}
-$$
+`Δt = t_cd - t_ch  (2)`
 
   Trong đó:
 
-$$
-t_{ch} = \frac{1}{k}\sum_{j=1}^{k} (t_{chj} \pm \partial t_{chj}) \tag{3}
-$$
+`t_ch = (1/k)Σ(j=1→k) (t_chj ± ∂ t_chj)  (3)`
 
   - `t_ch`: giá trị trung bình của mỗi nhiệt kế chuẩn (chỉ thị chuẩn), °C;
   - `t_chj`: giá trị nhiệt độ chuẩn tại lần thứ j, °C;
@@ -209,9 +203,7 @@ $$
   - `k`: tổng số lần đo của mỗi nhiệt kế chuẩn tại một điểm nhiệt độ;
   - `t_cd`: giá trị trung bình của chỉ thị nhiệt độ tại mỗi điểm nhiệt độ cài đặt, °C:
 
-$$
-t_{cd} = \frac{1}{n}\sum_{i=1}^{n} t_{cdi}
-$$
+`t_cd = (1/n)Σ(i=1→n) t_cdi`
 
   - `t_cdi`: giá trị nhiệt độ của máy tại lần thứ i, °C;
   - `n`: tổng số lần đo nhiệt độ của máy tại mỗi điểm cài đặt nhiệt.
@@ -226,15 +218,11 @@ $$
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị thời gian cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-$$
-\Delta X = x_{cd} - x_{ch} \tag{4}
-$$
+`ΔX = x_cd - x_ch  (4)`
 
   Trong đó:
 
-$$
-x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
-$$
+`x_ch = (1/n)Σ(j=1→n) x_j`
 
   - `x_ch`: giá trị trung bình của chuẩn, phút;
   - `x_j`: giá trị của chuẩn tại lần thứ j, phút;
@@ -262,37 +250,27 @@ $$
 
 - Tính giá trị tần số dao động trung bình `v̄_ch` đo được tại điểm kiểm tra:
 
-$$
-v_{ch} = \frac{1}{n}\sum_{j=1}^{n} v_j \tag{5}
-$$
+`v_ch = (1/n)Σ(j=1→n) v_j  (5)`
 
   Trong đó: `v_ch`: giá trị trung bình của chuẩn, lần/phút; `v_j`: giá trị của chuẩn tại lần thứ j, lần/phút; `n`: tổng số lần đo.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-$$
-s(V_{ch}) = \sqrt{\frac{\sum_1^n (V_{chj} - \bar{V}_{ch})^2}{n-1}}\ \text{, lần/phút} \tag{6}
-$$
+`s(V_ch) = √((Σ(1→n) (V_chj - V̄_ch)²)/(n-1)) , lần/phút  (6)`
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-$$
-u_{A1} = \sqrt{\frac{\sum_1^n (V_{cj} - \bar{V}_c)^2}{n(n-1)}}\ \text{, lần/phút} \tag{7}
-$$
+`u_A1 = √((Σ(1→n) (V_cj - V̄_c)²)/n(n-1)) , lần/phút  (7)`
 
 **b) ĐKĐB kiểu B của PTĐ chuẩn**
 
-$$
-u_{B1} = \frac{U_r}{k}\ \text{, lần/phút} \tag{8}
-$$
+`u_B1 = (U_r/k) , lần/phút  (8)`
 
 Trong đó: `u_B1`: ĐKĐB chuẩn tuyệt đối của máy đo tốc độ vòng quay chuẩn, lần/phút; `U_r`: ĐKĐB mở rộng tuyệt đối của máy đo tốc độ vòng quay chuẩn được lấy từ giấy chứng nhận hiệu chuẩn, lần/phút; `k`: hệ số phủ của ĐKĐB mở rộng tuyệt đối của máy đo tốc độ vòng quay chuẩn được lấy từ giấy chứng nhận hiệu chuẩn.
 
 **c) ĐKĐB do độ phân giải của chuẩn**
 
-$$
-u_{B2} = \frac{A \times d}{\sqrt{3}}\ \text{, lần/phút} \tag{9}
-$$
+`u_B2 = ((A × d)/√(3)) , lần/phút  (9)`
 
 Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân giải thiết lập tốc độ vòng quay của chuẩn, lần/phút; `A`: độ phân giải thiết lập tốc độ vòng quay trên chuẩn, lần/phút; `d`: hệ số có giá trị d = 1/2 đối với bộ chỉ thị hiện số, 1/10 đối với bộ chỉ thị tương tự.
 
@@ -302,45 +280,33 @@ Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân 
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄_tb` đo được tại điểm kiểm tra:
 
-$$
-\bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, lần/phút} \tag{10}
-$$
+`V̄_tb = ((Σ(1→n) V_tbi)/n) , lần/phút  (10)`
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_tbi`: tốc độ vòng quay của DUT đo được ở lần đo thứ i, lần/phút; `V̄_tb`: tốc độ vòng quay trung bình của DUT đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-$$
-s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n-1}}\ \text{, lần/phút} \tag{11}
-$$
+`s(V_tb) = √((Σ(1→n) (V_tbj - V̄_tb)²)/(n-1)) , lần/phút  (11)`
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần:
 
-$$
-u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, lần/phút} \tag{12}
-$$
+`u_A2 = √((Σ(1→n) (V_tbj - V̄_tb)²)/n(n-1)) , lần/phút  (12)`
 
 **b) ĐKĐB do độ phân giải của DUT**
 
-$$
-u_{B3} = \frac{A \times d}{\sqrt{3}}\ \text{, lần/phút} \tag{13}
-$$
+`u_B3 = ((A × d)/√(3)) , lần/phút  (13)`
 
 Trong đó: `u_B3`: độ không đảm bảo đo tuyệt đối do độ phân giải thiết lập tốc độ vòng quay của DUT, lần/phút; `A`: độ phân giải thiết lập tốc độ vòng quay trên DUT, lần/phút; `d`: hệ số có giá trị d = 1/2 đối với bộ chỉ thị hiện số, 1/10 đối với bộ chỉ thị tương tự.
 
 ##### 7.4.1.3. Độ không đảm bảo đo tổng hợp
 
-$$
-u_c = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2} \tag{14}
-$$
+`u_c = √(u_ch1² + u_ch2² + u_bk1² + u_bk2² + u_bk3² + u_bk4²)  (14)`
 
 > *Ghi chú:* cùng nhận xét như tại `ETV.MCS 04` — ký hiệu trong công thức (14) không khớp trực tiếp với `u_A1, u_A2, u_B1, u_B2, u_B3` vừa định nghĩa; giữ nguyên văn bản gốc.
 
 ##### 7.4.1.4. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \times u_c(V_{DUT})\ \text{, lần/phút} \tag{15}
-$$
+`U = k × u_c(V_DUT) , lần/phút  (15)`
 
 Trong đó: `u_c(V_DUT)`: ĐKĐB tổng hợp của tốc độ vòng quay của DUT, lần/phút; `k`: hệ số phủ, có giá trị bằng 2, ứng với xác suất tin cậy 95 %.
 
@@ -348,35 +314,25 @@ Trong đó: `u_c(V_DUT)`: ĐKĐB tổng hợp của tốc độ vòng quay của
 
 ##### 7.4.2.1. ĐKĐB từ PTĐ tổ hợp chuẩn
 
-$$
-u_{tch} = \sqrt{u_{tch1}^2 + u_{tch2}^2} \tag{16}
-$$
+`u_tch = √(u_tch1² + u_tch2²)  (16)`
 
 **ĐKĐB của nhiệt kế chuẩn (u_tch1):**
 
-$$
-u_{tch1} = \frac{U_{95}}{2} \tag{17}
-$$
+`u_tch1 = (U_95/2)  (17)`
 
 Với `U_95`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ nhiệt kế chuẩn (u_tch2):**
 
-$$
-u_{tch2} = \sqrt{\sum_{j=1}^{k} u_{tch2,j}^2} \tag{18}
-$$
+`u_tch2 = √(Σ(j=1→k) u_tch2,j²)  (18)`
 
 Với `u_tch2,j` là ĐKĐB chuẩn loại A của nhiệt kế chuẩn thứ j:
 
-$$
-u_{tch2j} = \sqrt{\frac{S_j^2}{n}} \tag{19}
-$$
+`u_tch2j = √(S_j²/n)  (19)`
 
 Trong đó `S_j` là độ lệch chuẩn của nhiệt kế chuẩn thứ j, tính cho n lần đọc:
 
-$$
-S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{i,j} - t_j)^2}{n-1}} \tag{20}
-$$
+`S_j = √((Σ(i=1→n) (t_i,j - t_j)²)/(n-1))  (20)`
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i,j`: lần đọc thứ i của nhiệt kế chuẩn thứ j;
@@ -384,21 +340,15 @@ $$
 
 ##### 7.4.2.2. ĐKĐB từ DUT
 
-$$
-u_{tbk} = \sqrt{u_{tbk1}^2 + u_{tbk2}^2} \tag{21}
-$$
+`u_tbk = √(u_tbk1² + u_tbk2²)  (21)`
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ bộ chỉ thị của thiết bị (u_bk1):**
 
-$$
-u_{tbk1j} = \sqrt{\frac{S_j^2}{n}} \tag{22}
-$$
+`u_tbk1j = √(S_j²/n)  (22)`
 
 Trong đó `s_j` là độ lệch chuẩn tại điểm đo thứ j, `n` là số lần đọc tại mỗi điểm đo:
 
-$$
-s_j = \sqrt{\frac{\sum_1^n (t_i - t)^2}{n-1}} \tag{23}
-$$
+`s_j = √((Σ(1→n) (t_i - t)²)/(n-1))  (23)`
 
 - `n`: số lần đọc tại mỗi điểm;
 - `t_i`: lần đọc thứ i của thiết bị nhiệt;
@@ -408,17 +358,13 @@ $$
 
 Đối với chỉ thị tương tự:
 
-$$
-u_{tbk2} = \frac{d}{3\sqrt{3}} \tag{24}
-$$
+`u_tbk2 = (d/3√(3))  (24)`
 
 Trong đó `d` là giá trị độ chia của thiết bị nhiệt.
 
 Đối với chỉ thị hiện số:
 
-$$
-u_{tbk2} = \frac{d}{2\sqrt{3}} \tag{25}
-$$
+`u_tbk2 = (d/2√(3))  (25)`
 
 Trong đó `d` là độ phân giải của thiết bị nhiệt.
 
@@ -426,15 +372,11 @@ Trong đó `d` là độ phân giải của thiết bị nhiệt.
 
 Độ không đảm bảo đo liên hợp là đại lượng được xác định từ tổ hợp chuẩn và tủ nhiệt:
 
-$$
-u_{tc} = \sqrt{u_{tch1}^2 + u_{tch2}^2 + u_{tbk1}^2 + u_{tbk2}^2} \tag{26}
-$$
+`u_tc = √(u_tch1² + u_tch2² + u_tbk1² + u_tbk2²)  (26)`
 
 ##### 7.4.2.4. Độ không đảm bảo đo mở rộng
 
-$$
-U_{95} = k \times u_c \tag{27}
-$$
+`U_95 = k × u_c  (27)`
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 
@@ -442,35 +384,25 @@ Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95
 
 ##### 7.4.3.1. ĐKĐB từ PTĐ chuẩn
 
-$$
-u_{xch} = \sqrt{u_{xch1}^2 + u_{xch2}^2} \tag{28}
-$$
+`u_xch = √(u_xch1² + u_xch2²)  (28)`
 
 **ĐKĐB kiểu B từ PTĐ chuẩn (u_ch1):**
 
-$$
-u_{xch1} = \frac{U_{95}}{2} \tag{29}
-$$
+`u_xch1 = (U_95/2)  (29)`
 
 Với `U_95`: ĐKĐB mở rộng của đồng hồ bấm thời gian chuẩn, lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ đồng hồ bấm thời gian chuẩn (u_ch2):**
 
-$$
-u_{xch2} = \sqrt{\frac{1}{k}\sum_{j=1}^{k} u_{xch2,j}^2} \tag{30}
-$$
+`u_xch2 = √((1/k)Σ(j=1→k) u_xch2,j²)  (30)`
 
 Với `u_xch2,j` là ĐKĐB chuẩn loại A của đồng hồ bấm thời gian chuẩn thứ j:
 
-$$
-u_{xch2j} = \sqrt{\frac{S_j^2}{n}} \tag{31}
-$$
+`u_xch2j = √(S_j²/n)  (31)`
 
 Trong đó `S_j` là độ lệch chuẩn của đồng hồ bấm thời gian chuẩn, tính cho n lần đọc:
 
-$$
-S_j = \sqrt{\frac{\sum_{i=1}^{n} (x_{i,j} - x_j)^2}{n-1}} \tag{32}
-$$
+`S_j = √((Σ(i=1→n) (x_i,j - x_j)²)/(n-1))  (32)`
 
 - `n`: số lần đọc tại mỗi điểm;
 - `x_i,j`: lần đọc thứ i của đồng hồ bấm thời gian chuẩn thứ j;
@@ -480,21 +412,15 @@ $$
 
 ##### 7.4.3.2. ĐKĐB từ DUT
 
-$$
-u_{xbk} = \sqrt{u_{xbk1}^2 + u_{xbk2}^2} \tag{33}
-$$
+`u_xbk = √(u_xbk1² + u_xbk2²)  (33)`
 
 **ĐKĐB do độ tản mạn của các kết quả đo từ bộ chỉ thị của thiết bị (u_bk1):**
 
-$$
-u_{xbk1j} = \sqrt{\frac{S_j^2}{n}} \tag{34}
-$$
+`u_xbk1j = √(S_j²/n)  (34)`
 
 Trong đó `s_j` là độ lệch chuẩn tại điểm đo thứ j, `n` là số lần đọc tại mỗi điểm đo:
 
-$$
-s_j = \sqrt{\frac{\sum_1^n (x_i - x)^2}{n-1}} \tag{35}
-$$
+`s_j = √((Σ(1→n) (x_i - x)²)/(n-1))  (35)`
 
 - `n`: số lần đọc tại mỗi điểm;
 - `x_i`: lần đọc thứ i của DUT;
@@ -502,23 +428,17 @@ $$
 
 **Độ không đảm bảo đo theo độ phân giải của chỉ thị DUT (u_bk4):**
 
-$$
-u_{xbk2} = \frac{d}{2\sqrt{3}} \tag{36}
-$$
+`u_xbk2 = (d/2√(3))  (36)`
 
 Trong đó `d` là độ phân giải của DUT.
 
 ##### 7.4.3.3. Độ không đảm bảo đo tổng hợp
 
-$$
-u_{xc} = \sqrt{u_{xch1}^2 + u_{xch2}^2 + u_{xbk1}^2 + u_{xbk2}^2} \tag{37}
-$$
+`u_xc = √(u_xch1² + u_xch2² + u_xbk1² + u_xbk2²)  (37)`
 
 ##### 7.4.3.4. Độ không đảm bảo đo mở rộng
 
-$$
-U_{95} = k \times u_c \tag{38}
-$$
+`U_95 = k × u_c  (38)`
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 % C.L.
 

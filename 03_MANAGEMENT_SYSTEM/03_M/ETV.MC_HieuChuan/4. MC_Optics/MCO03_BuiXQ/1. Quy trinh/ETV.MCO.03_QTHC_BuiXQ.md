@@ -219,9 +219,7 @@ Hai phương tiện đo được tiến hành đo đồng thời, tối thiểu 
 - Tại mỗi điểm hiệu chuẩn, đo tối thiểu 5 lần liên tiếp bằng PTĐ. Ghi kết quả đo được vào biên bản ở Phụ lục.
 - Sai số của PTĐ tại mỗi lần đo được tính theo công thức sau:
 
-$$
-\delta = \frac{C_Đ - C_{ref}}{C_{ref}} \times 100\% \tag{1}
-$$
+`δ = ((C_Đ - C_ref)/C_ref) × 100%  (1)`
 
 - `δ`: sai số tương đối, %;
 - `C_Đ`: giá trị đo của PTĐ cần hiệu chuẩn tại mỗi lần đo, µg/m³;
@@ -286,9 +284,7 @@ PTĐ cần hiệu chuẩn được đo lặp n lần (5 lần) và ĐKĐB kiểu
 
 `η_hom`: là độ không đồng nhất nồng độ bụi vị trí đầu hút mẫu (chỉ áp dụng khi PTĐ chuẩn bụi có nhiều vị trí đầu ra):
 
-$$
-\eta_{hom} = 1 - \frac{|C_{i}^{ref} - C_{j}^{ref}|}{\bar{C}} \tag{2}
-$$
+`η_hom = 1 - ((|C_i^(ref) - C_j^(ref)|)/C̄)  (2)`
 
 - `C_i^ref`: nồng độ hạt PM tại vị trí đầu hút mẫu i trên cùng mặt phẳng tiết diện thu mẫu, µg/m³;
 - `C_j^ref`: nồng độ hạt PM tại vị trí đầu hút mẫu j trên cùng mặt phẳng tiết diện thu mẫu, µg/m³.
@@ -303,32 +299,26 @@ Chuẩn bụi cũng sẽ được đo lặp n lần (5 lần) và ĐKĐB kiểu 
 
 | TT  | Thành phần                                              | Ký hiệu     | Sự đóng góp |
 | --- | ---------------------------------------------------------- | ----------- | ------------- |
-| 1   | Độ không đồng nhất nồng độ vị trí đầu hút mẫu, µg/m³        | `u_ηhom`    | $u_{\eta hom} = \dfrac{|C_i^{ref} - C_j^{ref}|}{2\sqrt{3}}$ |
-| 2   | Độ không đảm bảo của chuẩn bụi, µg/m³                       | `u_ref`     | $u_{ref} = \dfrac{U_{cer}}{2}$ |
-| 3   | Độ không đảm bảo đo do độ trôi điểm "0" (u_drift), µg/m³    | `u_drift`   | $u_{drift} = \dfrac{drift}{\sqrt{3}}$ |
-| 4   | Độ lặp lại của chuẩn bụi, µg/m³                             | `u_Aref`    | $u_{Aref} = \dfrac{s(\bar{y})}{\sqrt{n}}$ |
-| 5   | Độ lặp lại của PTĐ cần hiệu chuẩn, µg/m³                    | `u_A`       | $u_A = \dfrac{s(\bar{x})}{\sqrt{n}}$ |
-| 6   | Độ phân giải của PTĐ cần hiệu chuẩn, µg/m³                  | `u_res`     | $u_{res} = \dfrac{d}{2\sqrt{3}}$ |
+| 1   | Độ không đồng nhất nồng độ vị trí đầu hút mẫu, µg/m³        | `u_ηhom`    | `u_η hom = ((|C_i^(ref) - C_j^(ref)|)/2√(3))` |
+| 2   | Độ không đảm bảo của chuẩn bụi, µg/m³                       | `u_ref`     | `u_ref = (U_cer/2)` |
+| 3   | Độ không đảm bảo đo do độ trôi điểm "0" (u_drift), µg/m³    | `u_drift`   | `u_drift = (drift/√(3))` |
+| 4   | Độ lặp lại của chuẩn bụi, µg/m³                             | `u_Aref`    | `u_Aref = (s(ȳ)/√(n))` |
+| 5   | Độ lặp lại của PTĐ cần hiệu chuẩn, µg/m³                    | `u_A`       | `u_A = (s(x̄)/√(n))` |
+| 6   | Độ phân giải của PTĐ cần hiệu chuẩn, µg/m³                  | `u_res`     | `u_res = (d/2√(3))` |
 
 ### 8.3. Độ không đảm bảo đo chuẩn tổng hợp (u_c)
 
-$$
-u_c = \sqrt{u_{\eta hom}^2 + u_{ref}^2 + u_{drift}^2 + u_{Aref}^2 + u_A^2 + u_{res}^2} \quad (\mu g/m^3) \tag{3}
-$$
+`u_c = √(u_η hom² + u_ref² + u_drift² + u_Aref² + u_A² + u_res²) (μg/m³)  (3)`
 
 hoặc
 
-$$
-u_c = \frac{u_c \times 100}{\bar{C}} \quad (\%) \tag{4}
-$$
+`u_c = ((u_c × 100)/C̄) (%)  (4)`
 
 với `C̄`: giá trị trung bình của PTĐ cần hiệu chuẩn (µg/m³).
 
 ### 8.4. Độ không đảm bảo đo chuẩn mở rộng U
 
-$$
-U = k \times u_C \tag{5}
-$$
+`U = k × u_C  (5)`
 
 ## 9. Xử lý chung
 

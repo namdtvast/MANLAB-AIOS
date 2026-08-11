@@ -151,9 +151,7 @@ Phương tiện đo vận tốc gió cần hiệu chuẩn được kiểm tra đ
 
 Kiểm tra đo lường được thực hiện bằng phương pháp so sánh trực tiếp giá trị đọc vận tốc gió của phương tiện đo cần hiệu chuẩn với giá trị vận tốc gió chuẩn được thiết lập từ hầm tạo gió chuẩn. Công thức tổng quát như sau:
 
-$$
-\Delta V_E = \bar{V}_{DUT} - \bar{V}_R \tag{1}
-$$
+`ΔV_E = V̄_DUT - V̄_R  (1)`
 
 Trong đó: `ΔV_E`: sai số vận tốc gió của PTĐ cần hiệu chuẩn, m/s; `V̄_DUT`: vận tốc gió trung bình đọc được trên PTĐ cần hiệu chuẩn tại hầm tạo gió chuẩn trong điều kiện áp suất và nhiệt độ môi trường thực tế thí nghiệm, m/s; `V̄_R`: vận tốc gió chuẩn thực tế trung bình được tạo ra trong hầm tạo gió chuẩn trong điều kiện áp suất và nhiệt độ môi trường thực tế thí nghiệm, m/s.
 
@@ -169,9 +167,7 @@ Trong đó: `ΔV_E`: sai số vận tốc gió của PTĐ cần hiệu chuẩn, 
 
 Xác định số hiệu chính của PTĐ vận tốc gió tại mỗi điểm kiểm tra được tính theo công thức:
 
-$$
-\Delta V_C = \bar{V}_R - \bar{V}_{DUT} = \bar{V}_{R2} \times K - \bar{V}_{DUT} \tag{2}
-$$
+`ΔV_C = V̄_R - V̄_DUT = V̄_R2 × K - V̄_DUT  (2)`
 
 Trong đó:
 
@@ -183,25 +179,19 @@ Trong đó:
 
 Đối với vận tốc gió `V_R2` được tạo ra trong hầm tạo gió chuẩn được tính theo độ chênh áp suất, vận tốc gió trong giấy chứng nhận hiệu chuẩn của hầm tạo gió chuẩn và độ chênh áp suất thực tế đo được theo công thức:
 
-$$
-V_{R2} = V_{R1} \times \sqrt{\frac{\Delta P_{R2}}{\Delta P_{R1}}} \tag{3}
-$$
+`V_R2 = V_R1 × √(ΔP_R2/ΔP_R1)  (3)`
 
 Trong đó: `V_R2`: vận tốc gió chuẩn được xác định trong hầm tạo gió chuẩn tại điều kiện chuẩn về áp suất và nhiệt độ môi trường, m/s; `V_R1`: vận tốc gió được lấy ra từ giấy chứng nhận hiệu chuẩn của hầm tạo gió chuẩn trong điều kiện chuẩn về áp suất và nhiệt độ môi trường, m/s; `ΔP_R2`: độ chênh áp suất đo được trong hầm tạo gió chuẩn trong điều kiện về áp suất và nhiệt độ môi trường thực tế thí nghiệm; `ΔP_R1`: độ chênh áp suất được lấy ra từ giấy chứng nhận hiệu chuẩn của hầm tạo gió chuẩn trong điều kiện chuẩn về áp suất và nhiệt độ môi trường.
 
 Hệ số K phụ thuộc vào nhiệt độ và áp suất môi trường được tính theo công thức:
 
-$$
-K = \frac{P_0}{P} \times \frac{273,15 + T}{294,25} \tag{4}
-$$
+`K = (P_0/P) × ((273,15 + T)/294,25)  (4)`
 
 Trong đó: `P_0`: áp suất khí quyển ở điều kiện tiêu chuẩn 1 atm; `P`: áp suất khí quyển thực tế thí nghiệm; `T`: nhiệt độ môi trường thực tế thí nghiệm, °C.
 
 Thay công thức (3), (4) vào công thức (2) ta có:
 
-$$
-\Delta V_C = V_{R1} \times \sqrt{\frac{\Delta P_{R2}}{\Delta P_{R1}}} \times K - \bar{V}_{DUT} = V_{R1} \times \sqrt{\frac{\Delta P_{R2}}{\Delta P_{R1}} \times \frac{P_0}{P} \times \frac{273,15+T}{294,25}} - \bar{V}_{DUT} \tag{5}
-$$
+`ΔV_C = V_R1 × √(ΔP_R2/ΔP_R1) × K - V̄_DUT = V_R1 × √((ΔP_R2/ΔP_R1) × (P_0/P) × ((273,15+T)/294,25)) - V̄_DUT  (5)`
 
 Trong đó: `V_R1`, `ΔP_R1`, `P_0` là các giá trị cố định lấy theo giấy chứng nhận và giá trị chuẩn quy ước.
 
@@ -217,9 +207,7 @@ Trong đó: `V_R1`, `ΔP_R1`, `P_0` là các giá trị cố định lấy theo 
 
 Từ mô hình tổng quát (2) và (5) tính số hiệu chính số chỉ vận tốc của PTĐ cần hiệu chuẩn ta có ĐKĐB tổng hợp được tính theo công thức:
 
-$$
-u_c = \sqrt{c_R^2 u_R^2 + c_{DUT}^2 u_{DUT}^2} = \sqrt{u_R^2 + u_{DUT}^2} \tag{6}
-$$
+`u_c = √(c_R² u_R² + c_DUT² u_DUT²) = √(u_R² + u_DUT²)  (6)`
 
 Trong đó: `u_c`: ĐKĐB của PTĐ vận tốc gió, m/s; `u_R`: ĐKĐB thành phần của hầm tạo gió chuẩn, m/s; `u_DUT`: ĐKĐB thành phần của PTĐ cần hiệu chuẩn, m/s; `c_R`, `c_DUT`: lần lượt là hệ số nhạy của hầm tạo gió chuẩn và PTĐ cần hiệu chuẩn và có hệ số bằng 1.
 
@@ -227,109 +215,79 @@ Trong đó: `u_c`: ĐKĐB của PTĐ vận tốc gió, m/s; `u_R`: ĐKĐB thành
 
 Từ mô hình tính vận tốc gió chuẩn thực tế từ công thức (3), (4):
 
-$$
-V_R = V_{R2} \times K = V_{R1} \times \sqrt{\frac{\Delta P_{R2}}{\Delta P_{R1}}} \times \frac{P_0}{P} \times \frac{273,15+T}{294,25} \tag{7}
-$$
+`V_R = V_R2 × K = V_R1 × √(ΔP_R2/ΔP_R1) × (P_0/P) × ((273,15+T)/294,25)  (7)`
 
 Trong đó: `ΔP_R1`, `P_0` là các giá trị cố định lấy theo giấy chứng nhận và giá trị chuẩn quy ước. Do đó, các thành phần này không ảnh hưởng lớn đến ĐKĐB của vận tốc gió chuẩn tại công thức (7). Do vậy, các nguồn ĐKĐB thành phần được xác định cụ thể như sau:
 
 **ĐKĐB thành phần từ độ chính xác vận tốc của hầm gió theo công bố của hãng `u_VR1` và hệ số nhạy `c_VR1`:**
 
-$$
-u_{VR1} = \frac{ACC}{\sqrt{3}} \tag{8}
-$$
+`u_VR1 = (ACC/√(3))  (8)`
 
 Trong đó: `ACC`: độ chính xác vận tốc của hầm gió theo công bố của hãng — nếu `V_R1` ≤ 6,5 m/s thì ACC: 2 % giá trị đọc với Restrictive plate (A; B); nếu 6,5 m/s ≤ `V_R1` ≤ 45 m/s thì ACC: 1 % giá trị đọc với No Restrictive plate.
 
 **ĐKĐB thành phần từ độ chênh áp suất (chênh áp) đo được trong hầm tạo gió chuẩn** có `u_ΔPR2 = √(u_ΔPR2.1² + u_ΔPR2.2²)` và hệ số nhạy `c_ΔPR2`:
 
-$$
-c_{\Delta PR2} = \frac{\partial V_R}{\partial \Delta P_{R2}} = V_{R1} \times \frac{1}{\sqrt{\Delta P_{R1}}} \times \frac{P_0}{P} \times \frac{273,15+T}{294,25} \times \frac{1}{2\sqrt{\Delta P_{R2}}} = \frac{V_{R1} \times P_0 \times (273,15+T)}{2P \times \sqrt{\Delta P_{R1} \times \Delta P_{R2}} \times 294,25} \tag{9}
-$$
+`c_Δ PR2 = ((∂ V_R)/(∂ ΔP_R2)) = V_R1 × (1/√(ΔP_R1)) × (P_0/P) × ((273,15+T)/294,25) × (1/2√(ΔP_R2)) = ((V_R1 × P_0 × (273,15+T))/(2P × √(ΔP_R1 × ΔP_R2) × 294,25))  (9)`
 
 `u_ΔPR2.1` là ĐKĐB thành phần từ độ tản mạn của kết quả chênh áp:
 
-$$
-u_{\Delta PR2.1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (P_{R2.i} - \bar{P}_{R2})}{\sqrt{n(n-1)}} \tag{10}
-$$
+`u_Δ PR2.1 = √(S_j²/n) = (S_j/√(n)) = ((Σ(1→n) (P_R2.i - P̄_R2))/√(n(n-1)))  (10)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (P_{R2.i} - \bar{P}_{R2})^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (P_R2.i - P̄_R2)²)/(n-1))`
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n`: số lần đọc tại mỗi điểm; `P_R2.i`: giá trị kết quả chênh áp tại lần đọc thứ i; `P̄_R2`: giá trị trung bình đo chênh áp tại n điểm.
 
 `u_ΔPR2.2` là ĐKĐB thành phần từ kết quả chênh áp lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{\Delta PR2.2} = \frac{A}{2} \tag{11}
-$$
+`u_Δ PR2.2 = (A/2)  (11)`
 
 Với A: độ không đảm bảo đo của chênh áp lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB thành phần từ nhiệt độ môi trường thực tế thí nghiệm** có `u_T = √(u_T1² + u_T2²)` và hệ số nhạy `c_T`:
 
-$$
-c_T = \frac{\partial V_R}{\partial T} = V_{R1} \times \sqrt{\frac{\Delta P_{R2}}{\Delta P_{R1}}} \times \frac{P_0}{P} \times \frac{1}{294,25} = \frac{V_{R1} \times P_0 \times \sqrt{\Delta P_{R2}}}{P \times \sqrt{\Delta P_{R1}} \times 294,25} \tag{12}
-$$
+`c_T = ((∂ V_R)/(∂ T)) = V_R1 × √(ΔP_R2/ΔP_R1) × (P_0/P) × (1/294,25) = ((V_R1 × P_0 × √(ΔP_R2))/(P × √(ΔP_R1) × 294,25))  (12)`
 
 `u_T1` là ĐKĐB thành phần từ độ tản mạn của kết quả nhiệt độ thực tế:
 
-$$
-u_{T1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (T_i - \bar{T})}{\sqrt{n(n-1)}} \tag{13}
-$$
+`u_T1 = √(S_j²/n) = (S_j/√(n)) = ((Σ(1→n) (T_i - T̄))/√(n(n-1)))  (13)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (T_i - \bar{T})^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (T_i - T̄)²)/(n-1))`
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n`: số lần đọc tại mỗi điểm; `T_i`: giá trị kết quả nhiệt độ tại lần đọc thứ i; `T̄`: giá trị trung bình đo nhiệt độ tại n điểm.
 
 `u_T2` là ĐKĐB thành phần từ kết quả nhiệt độ thực tế lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{T2} = \frac{B}{2} \tag{14}
-$$
+`u_T2 = (B/2)  (14)`
 
 Với B: độ không đảm bảo đo của nhiệt độ lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB thành phần từ áp suất khí quyển thực tế thí nghiệm** có `u_P = √(u_P1² + u_P2²)` và hệ số nhạy `c_P`:
 
-$$
-c_P = \frac{\partial V_R}{\partial P} = \frac{V_{R1} \times P_0 \times (273,15+T)}{\sqrt{\Delta P_{R1}} \times 294,25} \times \left(-\frac{1}{P^2}\right) = -\frac{V_{R1} \times P_0 \times (273,15+T)}{P^2 \times \sqrt{\Delta P_{R1}} \times 294,25} \tag{15}
-$$
+`c_P = ((∂ V_R)/(∂ P)) = ((V_R1 × P_0 × (273,15+T))/(√(ΔP_R1) × 294,25)) × (-(1/P²)) = -((V_R1 × P_0 × (273,15+T))/(P² × √(ΔP_R1) × 294,25))  (15)`
 
 `u_P1` là ĐKĐB thành phần từ độ tản mạn của kết quả áp suất khí quyển:
 
-$$
-u_{P1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (P_i - \bar{P})}{\sqrt{n(n-1)}} \tag{16}
-$$
+`u_P1 = √(S_j²/n) = (S_j/√(n)) = ((Σ(1→n) (P_i - P̄))/√(n(n-1)))  (16)`
 
 Với `S_j` được tính theo công thức:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (P_i - \bar{P})^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (P_i - P̄)²)/(n-1))`
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n`: số lần đọc tại mỗi điểm; `P_i`: giá trị kết quả áp suất khí quyển tại lần đọc thứ i; `P̄`: giá trị trung bình đo áp suất khí quyển tại n điểm.
 
 `u_P2` là ĐKĐB thành phần từ kết quả áp suất khí quyển thực tế lấy từ giấy chứng nhận hiệu chuẩn:
 
-$$
-u_{P2} = \frac{C}{2} \tag{17}
-$$
+`u_P2 = (C/2)  (17)`
 
 Với C: độ không đảm bảo đo của áp suất khí quyển lấy từ giấy chứng nhận hiệu chuẩn.
 
 **ĐKĐB đo do ảnh hưởng từ phân bố của trường vận tốc tại tiết diện đo của hầm gió (SF: Speed Field):**
 
-$$
-u_{SF} = \frac{\max(V_{ch\ j}) - \min(V_{ch\ i})}{2\sqrt{3}} \tag{18}
-$$
+`u_SF = ((max(V_ch j) - min(V_ch i))/2√(3))  (18)`
 
 Trong đó: `u_SF`: ĐKĐB do trường tốc độ gió của hầm chuẩn; j, i là các giá trị đo quá trình khảo sát trường tốc độ gió tại các vị trí đã chọn tại hầm gió (j ≠ i và i, j: 1, 2,…, 5).
 
@@ -337,38 +295,26 @@ Hệ số nhạy: `c_SF = 1` (19).
 
 Thay công thức từ (8) đến (19) vào công thức (7) ta có ĐKĐB tổng hợp tính từ vận tốc gió chuẩn thực tế như sau:
 
-$$
-u_{VR}^2 = c_{VR1}^2 u_{VR1}^2 + c_{\Delta PR2}^2 u_{\Delta PR2}^2 + c_T^2 u_T^2 + c_P^2 u_P^2 + c_{SF}^2 u_{SF}^2
-$$
-$$
-= c_{VR1}^2 u_{VR1}^2 + c_{\Delta PR2}^2 (u_{\Delta PR2.1}^2 + u_{\Delta PR2.2}^2) + c_T^2 (u_{T1}^2 + u_{T2}^2) + c_P^2 (u_{P1}^2 + u_{P2}^2) + c_{SF}^2 u_{SF}^2 \tag{20}
-$$
+`u_VR² = c_VR1² u_VR1² + c_Δ PR2² u_Δ PR2² + c_T² u_T² + c_P² u_P² + c_SF² u_SF²`
+`= c_VR1² u_VR1² + c_Δ PR2² (u_Δ PR2.1² + u_Δ PR2.2²) + c_T² (u_T1² + u_T2²) + c_P² (u_P1² + u_P2²) + c_SF² u_SF²  (20)`
 
 ##### 7.4.2.2. Tính ĐKĐB thành phần từ PTĐ cần hiệu chuẩn
 
-$$
-u_{DUT} = \sqrt{u_{DUT1}^2 + u_{DUT2}^2} \tag{21}
-$$
+`u_DUT = √(u_DUT1² + u_DUT2²)  (21)`
 
 `u_DUT1` ĐKĐB do độ tản mạn của các kết quả đo từ PTĐ cần hiệu chuẩn:
 
-$$
-u_{DUT1} = \sqrt{\frac{S_j^2}{n}} = \frac{S_j}{\sqrt{n}} = \frac{\sum_1^n (V_{DUTi} - \bar{V}_{DUT})}{\sqrt{n(n-1)}} \tag{22}
-$$
+`u_DUT1 = √(S_j²/n) = (S_j/√(n)) = ((Σ(1→n) (V_DUTi - V̄_DUT))/√(n(n-1)))  (22)`
 
 Trong đó: `s_j` là độ lệch chuẩn tại điểm đo thứ j; `n` là số lần đọc tại mỗi điểm đo:
 
-$$
-S_j = \sqrt{\frac{\sum_1^n (V_{DUTi} - \bar{V}_{DUT})^2}{n-1}}
-$$
+`S_j = √((Σ(1→n) (V_DUTi - V̄_DUT)²)/(n-1))`
 
 Trong đó: `n`: số lần đọc tại mỗi điểm; `V_DUTi`: lần đọc thứ i của PTĐ cần hiệu chuẩn; `V̄_DUT`: vận tốc gió trung bình tại điểm kiểm tra của PTĐ cần hiệu chuẩn.
 
 `u_DUT2` ĐKĐB theo độ phân giải của chỉ thị của PTĐ cần hiệu chuẩn:
 
-$$
-u_{DUT2} = \frac{R \times d}{\sqrt{3}} \tag{23}
-$$
+`u_DUT2 = ((R × d)/√(3))  (23)`
 
 Trong đó: `u_DUT2`: ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn; `R`: giá trị nhỏ nhất của PTĐ cần hiệu chuẩn; d = 1/2 đối với bộ chỉ thị hiện số; d = 1/10 đối với bộ chỉ thị tương tự.
 
@@ -378,15 +324,11 @@ Hệ số nhạy: `c_DUT = 1` (24).
 
 Thay công thức (20) và (21) vào công thức (6) ta có:
 
-$$
-u_c = \sqrt{u_R^2 + u_{DUT}^2} = \sqrt{c_{VR1}^2 u_{VR1}^2 + c_{\Delta PR2}^2 (u_{\Delta PR2.1}^2 + u_{\Delta PR2.2}^2) + c_T^2 (u_{T1}^2 + u_{T2}^2) + c_P^2 (u_{P1}^2 + u_{P2}^2) + c_{SF}^2 u_{SF}^2 + c_{DUT}^2 (u_{DUT1}^2 + u_{DUT2}^2)} \tag{25}
-$$
+`u_c = √(u_R² + u_DUT²) = √(c_VR1² u_VR1² + c_Δ PR2² (u_Δ PR2.1² + u_Δ PR2.2²) + c_T² (u_T1² + u_T2²) + c_P² (u_P1² + u_P2²) + c_SF² u_SF² + c_DUT² (u_DUT1² + u_DUT2²))  (25)`
 
 ##### 7.4.2.4. ĐKĐB mở rộng được tính
 
-$$
-U = k \times u_c \tag{26}
-$$
+`U = k × u_c  (26)`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

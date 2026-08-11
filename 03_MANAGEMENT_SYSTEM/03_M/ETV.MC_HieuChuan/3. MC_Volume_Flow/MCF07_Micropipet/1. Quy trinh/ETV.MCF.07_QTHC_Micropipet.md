@@ -151,9 +151,7 @@ Trình tự đo với mỗi dung tích cần kiểm tra như sau:
 
 Dung tích kiểm tra của micropipet quy về nhiệt độ tiêu chuẩn `V_t0i` (µL) được xác định cho mỗi lần đo theo công thức:
 
-$$
-V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times \left(1 - \frac{\rho_a}{\rho_s}\right) \times [1 - \gamma \times (t_w - t_0)] \times 10^6 \tag{1}
-$$
+`V_t0i = m × (1/(ρ_w - ρ_a)) × (1 - (ρ_a/ρ_s)) × [1 - γ × (t_w - t_0)] × 10⁶  (1)`
 
 Trong đó:
 
@@ -167,15 +165,11 @@ Trong đó:
 
 Sau vài biến đổi toán học ta có:
 
-$$
-V_{t0i} = m \times \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^6 \tag{2}
-$$
+`V_t0i = m × (1/(ρ_w - ρ_a)) × 0,99985 × [1 - γ × (t_w - t_0)] × 10⁶  (2)`
 
 Giá trị thực của dung tích kiểm tra quy về nhiệt độ tiêu chuẩn `V_t0` (µL) được xác định theo công thức:
 
-$$
-V_{t0} = \frac{\sum_{i=1}^{n} V_{t0i}}{n} \tag{3}
-$$
+`V_t0 = ((Σ(i=1→n) V_t0i)/n)  (3)`
 
 Trong đó: `n`: số lần thực hiện phép đo.
 
@@ -185,9 +179,7 @@ Trong đó: `n`: số lần thực hiện phép đo.
 
 Khối lượng riêng của nước cất `ρ_w` (kg/m³) được xác định theo công thức:
 
-$$
-\rho_w = \sum_{i=0}^{4} [a_i \times (t_w)^i] \tag{4}
-$$
+`ρ_w = Σ(i=0→4) [a_i × (t_w)^i]  (4)`
 
 Trong đó:
 
@@ -201,9 +193,7 @@ Trong đó:
 
 Khối lượng riêng của không khí `ρ_a` (kg/m³) được xác định theo công thức:
 
-$$
-\rho_a = \frac{k_1 \times P + \varphi \times (k_2 \times t_a + k_3)}{t_a + 273,15} \tag{5}
-$$
+`ρ_a = ((k_1 × P + φ × (k_2 × t_a + k_3))/(t_a + 273,15))  (5)`
 
 Trong đó:
 
@@ -218,9 +208,7 @@ Trong đó:
 
 Sai số của micropipet tại dung tích kiểm tra Δ (µL) được tính theo công thức:
 
-$$
-\Delta = V_n - V_{t0} \tag{6}
-$$
+`Δ = V_n - V_t0  (6)`
 
 Trong đó: `V_n`: dung tích kiểm tra danh nghĩa, µL; `V_t0`: dung tích thực tương ứng quy về nhiệt độ tiêu chuẩn, µL.
 
@@ -228,9 +216,7 @@ Trong đó: `V_n`: dung tích kiểm tra danh nghĩa, µL; `V_t0`: dung tích th
 
 Độ lệch lớn nhất giữa sai số của các dung tích kiểm tra (Δij, µL) được xác định như sau:
 
-$$
-\Delta_{ij} = \Delta_{max} - \Delta_{min} \tag{7}
-$$
+`Δ_ij = Δ_max - Δ_min  (7)`
 
 Trong đó: `Δ_max, Δ_min`: lần lượt là sai số lớn nhất và nhỏ nhất trong các dung tích kiểm tra, µL.
 
@@ -255,15 +241,11 @@ Trong đó: `Δ_max, Δ_min`: lần lượt là sai số lớn nhất và nhỏ 
 
 Mô hình toán học của dung tích micropipet theo công thức:
 
-$$
-V_{t0} = f(\bar{V}; m; t_v; \rho_w; \rho_a; m_d; a_{read}; m_e; const) \tag{8}
-$$
+`V_t0 = f(V̄; m; t_v; ρ_w; ρ_a; m_d; a_read; m_e; const)  (8)`
 
 Độ không đảm bảo đo tổng hợp, `u_c`, của phép hiệu chuẩn dung tích micropipet được xác định theo công thức:
 
-$$
-u_c = \sqrt{\sum_i (u_i^2 \times c_i^2)} \tag{9}
-$$
+`u_c = √(Σ(i)(u_i² × c_i²))  (9)`
 
 Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_i`: hệ số nhạy tương ứng với ước lượng đầu vào `x_i`.
 
@@ -273,21 +255,15 @@ Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_
 
 Tính `u_A`:
 
-$$
-u_{\bar{V}} = \frac{s}{\sqrt{n}}
-$$
+`u_V̄ = (s/√(n))`
 
 `u_V̄`: ĐKĐBĐ do độ lặp lại; `s`: độ lệch chuẩn thực nghiệm sau n lần đo:
 
-$$
-S_k^2 = \frac{1}{n-1}\sum_{1}^{n} (V_k - \bar{V})^2
-$$
+`S_k² = (1/(n-1))Σ(1→n) (V_k - V̄)²`
 
 Suy ra:
 
-$$
-S_k = \frac{\sum_1^n (V_k - \bar{V})}{\sqrt{n-1}} \tag{10}
-$$
+`S_k = ((Σ(1→n) (V_k - V̄))/√(n-1))  (10)`
 
 Với `n` = số lần thực hiện đo; `V_k`: giá trị đo được ở lần thứ k; `V̄`: giá trị trung bình của k lần đo.
 
@@ -297,79 +273,55 @@ Hệ số nhạy: `c_V̄ = 1`.
 
 ĐKĐBĐ của số chỉ cân khi cân nước được xác định theo công thức:
 
-$$
-u_m = \frac{a}{2} \tag{11}
-$$
+`u_m = (a/2)  (11)`
 
 Trong đó: `u_m`: ĐKĐBĐ của cân khi cân nước (g); `a`: là ĐKĐBĐ của cân điện tử tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn.
 
 Hệ số nhạy:
 
-$$
-c_m = \frac{1}{\rho_w - \rho_a} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^6 \tag{12}
-$$
+`c_m = (1/(ρ_w - ρ_a)) × 0,99985 × [1 - γ × (t_w - t_0)] × 10⁶  (12)`
 
 ##### 7.4.3.3. ĐKĐBĐ của khối lượng riêng nước
 
 ĐKĐBĐ do khối lượng riêng của nước được xác định theo công thức:
 
-$$
-u_{\rho w} = \sqrt{\left(u_{tw} \times \frac{\partial \rho_w}{\partial t_w}\right)^2 + \frac{\Delta_w^2}{3}} \tag{13}
-$$
+`u_ρw = √((u_tw × ((∂ ρ_w)/(∂ t_w)))² + (Δ_w²/3))  (13)`
 
-$$
-\frac{\partial \rho_w}{\partial t_w} = 4a_4 t_w^3 + 3a_3 t_w^2 + 2a_2 t_w + a_1
-$$
+`((∂ ρ_w)/(∂ t_w)) = 4a_4 t_w³ + 3a_3 t_w² + 2a_2 t_w + a_1`
 
 Trong đó: `u_ρw`: ĐKĐBĐ của khối lượng riêng của nước, kg/m³; `u_tw`: ĐKĐBĐ của phép xác định nhiệt độ nước, °C; `Δ_w`: sai số của công thức, `Δ_w = 10⁻⁶ × ρ_w`.
 
 Hệ số nhạy:
 
-$$
-c_{\rho w} = -\frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^6 \tag{14}
-$$
+`c_ρw = -(m/((ρ_w - ρ_a)²)) × 0,99985 × [1 - γ × (t_w - t_0)] × 10⁶  (14)`
 
 ##### 7.4.3.4. ĐKĐBĐ của khối lượng riêng không khí
 
 ĐKĐBĐ do khối lượng riêng của không khí được xác định theo công thức:
 
-$$
-u_{\rho a} = \sqrt{u_P^2 c_P^2 + u_\varphi^2 c_\varphi^2 + u_{ta}^2 c_{ta}^2 + u_{method}^2} \tag{15}
-$$
+`u_ρa = √(u_P² c_P² + u_φ² c_φ² + u_ta² c_ta² + u_method²)  (15)`
 
-$$
-c_P = \frac{k_1}{t_a + 273,15} \tag{16}
-$$
+`c_P = (k_1/(t_a + 273,15))  (16)`
 
-$$
-c_\varphi = \frac{k_2 \times t_a + k_3}{t_a + 273,15} \tag{17}
-$$
+`c_φ = ((k_2 × t_a + k_3)/(t_a + 273,15))  (17)`
 
-$$
-c_{ta} = \frac{\varphi \times (273,15 \times k_2 - k_3) - P \times k_1}{(t_a + 273,15)^2} \tag{18}
-$$
+`c_ta = ((φ × (273,15 × k_2 - k_3) - P × k_1)/((t_a + 273,15)²))  (18)`
 
 Trong đó: `u_P`: ĐKĐBĐ khi xác định áp suất khí quyển, hPa; `u_φ`: ĐKĐBĐ khi xác định độ ẩm không khí, %RH; `u_ta`: ĐKĐBĐ khi xác định nhiệt độ không khí, °C; `u_method`: ĐKĐBĐ của phương pháp, `u_method = 10⁻⁴ × ρ_a`.
 
 Hệ số nhạy:
 
-$$
-c_{\rho a} = \frac{m}{(\rho_w - \rho_a)^2} \times 0,99985 \times [1 - \gamma \times (t_w - t_0)] \times 10^6 \tag{19}
-$$
+`c_ρa = (m/((ρ_w - ρ_a)²)) × 0,99985 × [1 - γ × (t_w - t_0)] × 10⁶  (19)`
 
 ##### 7.4.3.5. ĐKĐBĐ do hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo micropipet
 
-$$
-u_\gamma = \frac{0,1 \times \gamma}{\sqrt{3}} \tag{20}
-$$
+`u_γ = ((0,1 × γ)/√(3))  (20)`
 
 Trong đó: `u_γ`: ĐKĐB do hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo micropipet; `γ`: hệ số giãn nở theo khối nhiệt độ của vật liệu (tra bảng tại Phụ lục 1).
 
 Hệ số nhạy:
 
-$$
-c_\gamma = -\frac{m}{\rho_w - \rho_a} \times 0,99985 \times (t_w - t_0) \times 10^6 \tag{21}
-$$
+`c_γ = -(m/(ρ_w - ρ_a)) × 0,99985 × (t_w - t_0) × 10⁶  (21)`
 
 ##### 7.4.3.6. ĐKĐBĐ do nhiệt độ micropipet
 
@@ -377,17 +329,13 @@ $$
 
 Hệ số nhạy:
 
-$$
-c_{tw} = \frac{m}{\rho_w - \rho_a} \times 0,99985 \times \gamma \times 10^6 \tag{22}
-$$
+`c_tw = (m/(ρ_w - ρ_a)) × 0,99985 × γ × 10⁶  (22)`
 
 ##### 7.4.3.7. ĐKĐBĐ do độ phân giải của cân
 
 ĐKĐBĐ do độ phân giải của cân được xác định theo công thức:
 
-$$
-u_{read} = \frac{a_{read}}{2\sqrt{3}} \tag{23}
-$$
+`u_read = (a_read/2√(3))  (23)`
 
 Trong đó: `u_read`: ĐKĐBĐ do độ phân giải của cân; `a_read`: độ phân giải của cân, mg.
 
@@ -397,9 +345,7 @@ Hệ số nhạy: `c_read = 1` (24).
 
 Lượng hơi nước thất thoát phụ thuộc tiết diện bề mặt và thời gian được xác định theo công thức:
 
-$$
-m_e = \frac{(25 + 19 \times V) \times S \times (X_s - X)}{t} \tag{25}
-$$
+`m_e = (((25 + 19 × V) × S × (X_s - X))/t)  (25)`
 
 Trong đó:
 
@@ -412,9 +358,7 @@ Trong đó:
 
 Theo tiêu chuẩn ISO/TR 20461 ước lượng ĐKĐB từ bay hơi nước bề mặt ảnh hưởng đến hoạt động hiệu chuẩn micropipet khoảng ± 20 µg với kiểu phân bố chuẩn hình chữ nhật và được xác định theo công thức:
 
-$$
-u_{me} = \frac{20}{\sqrt{3}} \tag{26}
-$$
+`u_me = (20/√(3))  (26)`
 
 Trong đó: `u_me`: ĐKĐBĐ do bay hơi nước bề mặt.
 
@@ -422,15 +366,11 @@ Hệ số nhạy: `c_me = 1` (27).
 
 ##### 7.4.3.9. ĐKĐBĐ tổng hợp
 
-$$
-u_C = \sqrt{u_{\bar{V}}^2 c_{\bar{V}}^2 + u_m^2 c_m^2 + u_{\rho w}^2 c_{\rho w}^2 + u_{\rho a}^2 c_{\rho a}^2 + u_\gamma^2 c_\gamma^2 + u_{tw}^2 c_{tw}^2 + u_{read}^2 c_{read}^2 + u_{me}^2 c_{me}^2}
-$$
+`u_C = √(u_V̄² c_V̄² + u_m² c_m² + u_ρw² c_ρw² + u_ρa² c_ρa² + u_γ² c_γ² + u_tw² c_tw² + u_read² c_read² + u_me² c_me²)`
 
 ##### 7.4.3.10. ĐKĐBĐ mở rộng
 
-$$
-U = k \times u_C
-$$
+`U = k × u_C`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐBĐ chuẩn kết hợp để đưa ra ĐKĐBĐ mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 
@@ -458,9 +398,7 @@ Biên bản hiệu chuẩn Micropipet (`ETV.MCF 07.01`).
 
 Quy đổi thể tích micropipet từ nhiệt độ ban đầu t1 sang nhiệt độ t2:
 
-$$
-V_2 = V_1 \times [1 - \gamma \times (t_1 - t_2)]
-$$
+`V_2 = V_1 × [1 - γ × (t_1 - t_2)]`
 
 Trong đó: `V_1`: thể tích BCTT tại nhiệt độ ban đầu; `V_2`: thể tích BCTT tại nhiệt độ cần quy đổi; `t_1`: nhiệt độ ban đầu của micropipet; `t_2`: nhiệt độ cần quy đổi; `γ`: hệ số giãn nở khối theo nhiệt độ của vật liệu chế tạo micropipet.
 
@@ -478,9 +416,7 @@ Trong đó: `V_1`: thể tích BCTT tại nhiệt độ ban đầu; `V_2`: thể
 
 Quy đổi thể tích chất lỏng từ nhiệt độ ban đầu t1 sang nhiệt độ t2:
 
-$$
-V_2 = V_1 \times [1 + \beta \times (t_2 - t_1)]
-$$
+`V_2 = V_1 × [1 + β × (t_2 - t_1)]`
 
 Trong đó: `V_1`: thể tích chất lỏng tại nhiệt độ ban đầu; `V_2`: thể tích chất lỏng tại nhiệt độ cần quy đổi; `t_1`: nhiệt độ ban đầu của chất lỏng; `t_2`: nhiệt độ cần quy đổi; `β`: hệ số giãn nở khối theo nhiệt độ của chất lỏng.
 

@@ -191,9 +191,7 @@ Các thiết bị đo lưu lượng trong kênh hở được kiểm tra đo lư
   - Dùng thước đo chiều dài đo lặp lại tối thiểu 3 lần khoảng cách L giữa 2 tâm của 2 hình trụ;
   - Tính toán góc α theo công thức sau:
 
-$$
-\alpha = 2 \times \arcsin\left(\frac{R_2 - R_1}{L}\right) \tag{1}
-$$
+`α = 2 × arcsin((R_2 - R_1)/L)  (1)`
 
 - Kiểm tra độ rộng của kênh đầu vào, B: dùng thước đo chiều dài đo lặp lại tối thiểu 3 lần chiều rộng của đoạn kênh phía trước đập tràn, cách đập tràn một khoảng tối thiểu bằng 4 lần mức nước lớn nhất của đập tràn. Giá trị của B là trung bình cộng của 3 lần đo trên;
 - Kiểm tra chiều cao đập so với mặt đáy kênh đầu vào, p: dùng thước đo chiều dài tiến hành đo lặp lại tối thiểu 3 lần chiều cao đập so với mặt đáy kênh đầu vào, p. Giá trị của p sẽ là trung bình cộng số học của 3 lần đo trên;
@@ -209,9 +207,7 @@ Tại mỗi điểm lưu lượng tiến hành ghi nhận lưu lượng LLKH và
 
 Hệ số của thiết bị đo lưu lượng dòng chảy trong kênh hở tại lần đo thứ i (`MF_i`) được xác định theo công thức:
 
-$$
-MF_i = \frac{Q_{stdi}}{Q_{LLKHi}} \tag{2}
-$$
+`MF_i = (Q_stdi/Q_LLKHi)  (2)`
 
 Trong đó: `Q_stdi`: lưu lượng của chuẩn tại lần đo thứ i, m³/h; `Q_LLKHi`: lưu lượng tại LLKH tại lần đo thứ i, m³/h.
 
@@ -232,17 +228,13 @@ Hệ số của thiết bị đo trung bình, `M̄F`, tại lưu lượng kiểm
 
 **Độ không đảm bảo đo tổng hợp:**
 
-$$
-u_c = \sqrt{u_{LLKH}^2 + u_A^2 + u_{std}^2}
-$$
+`u_c = √(u_LLKH² + u_A² + u_std²)`
 
 Trong đó: `u_c`: ĐKĐBĐ tổng hợp tương đối, %; `u_std`: ĐKĐBĐ khi xác định lưu lượng chất lỏng chuẩn, %; `u_LLKH`: ĐKĐBĐ khi xác định lưu lượng chất lỏng tại LLKH, %; `u_A`: ĐKĐBĐ loại A, %.
 
 **ĐKĐBĐ khi xác định lưu lượng tại LLKH:**
 
-$$
-u_{LLKH} = \frac{d}{2\sqrt{3} \times Q_{LLKH}} \times 100\ (\%) \tag{5}
-$$
+`u_LLKH = (d/(2√(3) × Q_LLKH)) × 100 (%)  (5)`
 
 Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung bình của n lần đo; `d`: độ phân giải của LLKH.
 
@@ -254,9 +246,7 @@ Trong đó: `Q_LLKH`: lưu lượng chất lỏng chỉ thị trên LLKH trung b
 
 Công thức tính toán lưu lượng tại chuẩn qua đập tràn thành mỏng, cửa tràn hình chữ nhật:
 
-$$
-Q_{std} = \frac{2}{3} \times C_d \times \sqrt{2g} \times b_e \times h_e^{3/2} \tag{7}
-$$
+`Q_std = (2/3) × C_d × √(2g) × b_e × h_e^(3/2)  (7)`
 
 Trong đó:
 
@@ -305,15 +295,11 @@ Xuất phát từ công thức (22), độ không đảm bảo đo trong việc 
 
 **Tính toán ĐKĐBĐ tổng hợp:** ĐKĐBĐ tổng hợp được xác định cho mỗi lưu lượng kiểm tra theo công thức:
 
-$$
-u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2} \tag{24}
-$$
+`u_C = √(u_A² + u_B1² + u_B2² + u_B3² + u_B4²)  (24)`
 
 **ĐKĐBĐ mở rộng:** ĐKĐBĐ mở rộng được xác định cho mỗi lưu lượng kiểm tra theo công thức (25):
 
-$$
-U = k \times u_C \tag{25}
-$$
+`U = k × u_C  (25)`
 
 Trong đó: `U`: ĐKĐBĐ mở rộng, %; `k`: hệ số phủ, k = 2 ứng với xác suất tin cậy xấp xỉ 95 %.
 

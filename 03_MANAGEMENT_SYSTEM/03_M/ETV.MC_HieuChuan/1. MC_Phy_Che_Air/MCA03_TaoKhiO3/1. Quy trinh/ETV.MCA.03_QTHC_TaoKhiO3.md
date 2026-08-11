@@ -172,17 +172,13 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 8.
 
 **ĐKĐB của PTĐ khí O3 chuẩn**
 
-$$
-u_B = \frac{u_{Cal}}{2}
-$$
+`u_B = (u_Cal/2)`
 
 với `u_Cal` là ĐKĐB trích dẫn theo chứng nhận của nhà sản xuất PTĐ khí O3 chuẩn.
 
 Với những khí chuẩn mà nhà sản xuất không công bố ĐKĐB, chỉ có độ chính xác của khí chuẩn thì ĐKĐB của khí chuẩn được tính theo công thức:
 
-$$
-u_B = \frac{\text{độ chính xác}}{\sqrt{3}}
-$$
+`u_B = ((độ chính xác)/√(3))`
 
 **ĐKĐB của thiết bị tạo khí O3 cần hiệu chuẩn**
 
@@ -190,33 +186,23 @@ $$
 
 - ĐKĐB của độ chụm (độ lặp lại):
 
-$$
-u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-$$
+`u_A1 = s(q̄) = (s(q_k)/√(n)) = √((1/n(n-1))Σ(k=1→n)(q_k - q̄)²)`
 
 - Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của đại lượng q là trung bình số học `q̄`, nó thay đổi một cách ngẫu nhiên. Trung bình số học của n kết quả đo độc lập:
 
-$$
-\bar{q} = \frac{1}{n}\sum_{k=1}^{n} q_k
-$$
+`q̄ = (1/n)Σ(k=1→n) q_k`
 
 - Độ lệch chuẩn thực nghiệm `s(q_k)` được dùng để ước lượng phân bố của q:
 
-$$
-s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-$$
+`s(q_k) = √((1/(n-1))Σ(k=1→n)(q_k - q̄)²)`
 
 - Độ lệch chuẩn thực nghiệm `s(q̄)` của giá trị trung bình được dùng để ước lượng độ rộng của phân bố các giá trị trung bình:
 
-$$
-s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}
-$$
+`s(q̄) = (s(q_k)/√(n))`
 
 - ĐKĐB thông qua độ phân giải của thiết bị được lấy từ thông số của nhà sản xuất:
 
-$$
-u_{A2} = \frac{\text{độ phân giải}}{2\sqrt{3}}
-$$
+`u_A2 = ((độ phân giải)/2√(3))`
 
   Độ phân giải của thiết bị có thể được tính theo đơn vị ppm hoặc %, cần phải quy đổi phù hợp với cách tính ĐKĐB của các yếu tố trên.
 
@@ -224,15 +210,11 @@ $$
 
 **ĐKĐB kết hợp** — sau khi đã xác định được `u_A` từ thiết bị tạo khí O3 cần hiệu chuẩn và `u_B` từ PTĐ khí O3 chuẩn:
 
-$$
-u_C = \sqrt{u_{A1}^2 + u_{A2}^2 + u_B^2}
-$$
+`u_C = √(u_A1² + u_A2² + u_B²)`
 
 **ĐKĐB mở rộng** — độ không đảm bảo đo mở rộng (U) là đại lượng xác định miền giá trị phân bố bao quanh kết quả đo:
 
-$$
-U = k \cdot u_C
-$$
+`U = k · u_C`
 
 Với `k` là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

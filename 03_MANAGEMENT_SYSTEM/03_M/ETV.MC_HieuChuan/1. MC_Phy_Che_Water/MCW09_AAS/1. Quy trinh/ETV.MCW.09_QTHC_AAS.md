@@ -184,21 +184,15 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 
 Tính kết quả độ hấp thụ trung bình và giá trị độ lệch chuẩn (%):
 
-$$
-u_A = \frac{s_{\bar{C}}}{\sqrt{n}} \tag{1}
-$$
+`u_A = (s_C̄/√(n))  (1)`
 
 Giá trị trung bình được tính theo công thức:
 
-$$
-\bar{C} = \frac{1}{n}\sum_{i=1}^{n} C_i \tag{2}
-$$
+`C̄ = (1/n)Σ(i=1→n) C_i  (2)`
 
 Độ lệch chuẩn SD tính theo công thức:
 
-$$
-s_{\bar{C}} = \sqrt{\frac{\sum_{i=1}^{n}(C_i - \bar{C})^2}{n-1}} \tag{3}
-$$
+`s_C̄ = √((Σ(i=1→n)(C_i - C̄)²)/(n-1))  (3)`
 
 - `n`: số lần đo;
 - `C_i`: giá trị đo thứ i;
@@ -208,9 +202,7 @@ $$
 
 Nồng độ dung dịch pha loãng được tính theo công thức:
 
-$$
-C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i} \tag{4}
-$$
+`C_i = ((V_i-1 · C_i-1)/V_i)  (4)`
 
 - `C_i`: Nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: Nồng độ của chất chuẩn thứ i-1 (mg/L);
@@ -241,9 +233,7 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 - ĐKĐB của dung dịch chuẩn (theo giấy chứng nhận);
 - ĐKĐB của dung dịch chuẩn thứ i (do bình định mức, pipet, người thực hiện).
 
-$$
-u_C = \sqrt{u_A^2 + u_{Ci}^2}
-$$
+`u_C = √(u_A² + u_Ci²)`
 
 | Ký hiệu   | Đơn vị | Định nghĩa                                                                    |
 | --------- | ------ | ----------------------------------------------------------------------------- |
@@ -260,45 +250,37 @@ $$
 
 | TT    | Tên yếu tố ảnh hưởng                                       | Ký hiệu   | Đơn vị | Công thức tính |
 | ----- | ---------------------------------------------------------- | --------- | ------ | -------------- |
-| 1     | Độ lặp lại của PTĐ                                         | `u_A`     | mg/L   | $u_A = s(C)/\sqrt{n}$ |
-| 2     | ĐKĐB của dung dịch chuẩn gốc 1000 mg/L (theo GCN)          | `u_C0`    | mg/L   | $u_{C0} = a/k$ |
+| 1     | Độ lặp lại của PTĐ                                         | `u_A`     | mg/L   | `u_A = s(C)/√(n)` |
+| 2     | ĐKĐB của dung dịch chuẩn gốc 1000 mg/L (theo GCN)          | `u_C0`    | mg/L   | `u_C0 = a/k` |
 | 3     | ĐKĐB của dung dịch chuẩn thứ i                             | `u_Ci`    | mg/L   | (xem 7.4.3) |
-| 3.1   | ĐKĐB gây nên bởi pipet                                     | `u_pipet` |        | $u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}$ |
-| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn   | `u_calp`  | mL     | $u_{calp} = d/k$ — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
-| 3.1.2 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  |        | $u_{temp} = (V_{pipet} \times \gamma \times \Delta_i)/\sqrt{3}$ — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C; `T`: nhiệt độ môi trường thí nghiệm |
-| 3.2   | ĐKĐB gây ra bởi bình định mức để pha loãng dung dịch chuẩn | `u_flask` |        | $u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$ |
-| 3.2.1 | ĐKĐB gây ra bởi bình định mức                              | `u_calf`  | mL     | $u_{calf} = e/k$ — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ k theo GCN (k = 2) |
-| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                   | `u_per`   | mL     | $u_{per} = 0{,}03/\sqrt{3}$ — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, tính xấp xỉ ± 0,03 mL) |
-| 3.2.3 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  |        | $u_{temp} = (V_{flask} \times \gamma \times \Delta_i)/\sqrt{3}$ — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
+| 3.1   | ĐKĐB gây nên bởi pipet                                     | `u_pipet` |        | `u_pipet = √(u_calp² + u_temp²)` |
+| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn   | `u_calp`  | mL     | `u_calp = d/k` — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
+| 3.1.2 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  |        | `u_temp = (V_pipet × γ × Δ_i)/√(3)` — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C; `T`: nhiệt độ môi trường thí nghiệm |
+| 3.2   | ĐKĐB gây ra bởi bình định mức để pha loãng dung dịch chuẩn | `u_flask` |        | `u_flask = √(u_calf² + u_per² + u_temp²)` |
+| 3.2.1 | ĐKĐB gây ra bởi bình định mức                              | `u_calf`  | mL     | `u_calf = e/k` — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ k theo GCN (k = 2) |
+| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                   | `u_per`   | mL     | `u_per = 0,03/√(3)` — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, tính xấp xỉ ± 0,03 mL) |
+| 3.2.3 | ĐKĐB do giãn nở nhiệt                                      | `u_temp`  |        | `u_temp = (V_flask × γ × Δ_i)/√(3)` — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
 
 #### 7.4.3. Độ không đảm bảo đo chuẩn tổng hợp (u_C)
 
 Từ công thức tổng quát (4) xác định ĐKĐB từ tổ hợp của nồng độ dung dịch chuẩn cần pha loãng:
 
-$$
-u_{Ci}^2 = C_i^2 \cdot \left[\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2\right]
-$$
+`u_Ci² = C_i² · [(u_flask/V_flask)² + (u_pipet/V_pipet)² + ((u_C_i-1)/(C_i-1))²]`
 
 Độ không đảm bảo đo của dung dịch thứ i (pha loãng lần thứ i):
 
-$$
-u_{Ci} = C_i \cdot \sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2} \quad \text{(mg/L)}
-$$
+`u_Ci = C_i · √((u_flask/V_flask)² + (u_pipet/V_pipet)² + ((u_C_i-1)/(C_i-1))²) (mg/L)`
 
 - `C_{i-1}`: nồng độ của chất chuẩn i-1 (mg/L), i = 1, …, i;
 - `C_i`: nồng độ chất chuẩn C_i (mg/L).
 
 Độ không đảm bảo đo tổng hợp:
 
-$$
-u_C = \sqrt{u_A^2 + u_{Ci}^2} \quad \text{(mg/L)}
-$$
+`u_C = √(u_A² + u_Ci²) (mg/L)`
 
 Độ không đảm bảo mở rộng (với hệ số phủ k = 2; độ tin cậy 95 %):
 
-$$
-U = 2 \cdot u_C
-$$
+`U = 2 · u_C`
 
 ## 8. Xử lý chung
 
@@ -387,9 +369,7 @@ Người kiểm tra — Người thực hiện
 
 Pha V₂ mL dung dịch A có nồng độ C₂ (mg/L) từ dung dịch A có nồng độ C₁ (mg/L). Thể tích cần hút V được tính theo công thức:
 
-$$
-V = \frac{V_2 \cdot C_2}{C_1} \tag{4}
-$$
+`V = ((V_2 · C_2)/C_1)  (4)`
 
 - `C₂`: Nồng độ của dung dịch cần pha loãng (mg/L);
 - `C₁`: Nồng độ của chất chuẩn gốc (mg/L);

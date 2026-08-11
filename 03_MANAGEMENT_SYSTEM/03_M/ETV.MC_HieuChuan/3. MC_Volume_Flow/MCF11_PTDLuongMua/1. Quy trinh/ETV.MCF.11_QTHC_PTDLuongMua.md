@@ -147,17 +147,13 @@ Phương tiện đo lượng mưa được kiểm tra đo lường theo trình t
 - Kết quả được ghi vào biên bản hiệu chuẩn theo mẫu Phụ lục;
 - Sai số tại mỗi điểm được tính theo công thức:
 
-$$
-\Delta H = H_{ptđ} - H_{ch} \tag{1}
-$$
+`ΔH = H_ptđ - H_ch  (1)`
 
   Trong đó: `ΔH`: sai số mức nước theo độ cao cột nước tính bằng mm; `H_ptđ`: số chỉ độ cao cột nước của phương tiện cần kiểm tính bằng mm; `H_ch`: giá trị độ cao cột nước tính được từ giá trị dung tích chuẩn ứng với diện tích miệng hứng đo được của PTĐ cần kiểm tính bằng mm.
 
   Trong đó `H_ch` được xác định theo công thức:
 
-$$
-H_{ch} = \frac{V}{A} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{1}{\pi \times (d/2)^2} = \left(\frac{m}{\rho_w - \rho_a}\right) \times \frac{4}{\pi \times d^2} \tag{2}
-$$
+`H_ch = (V/A) = (m/(ρ_w - ρ_a)) × (1/(π × (d/2)²)) = (m/(ρ_w - ρ_a)) × (4/(π × d²))  (2)`
 
   Trong đó:
 
@@ -168,17 +164,13 @@ $$
 
 **a) Khối lượng riêng của nước cất**
 
-$$
-\rho_w = \sum_{i=0}^{4} [a_i \times (t_w)^i] \tag{3}
-$$
+`ρ_w = Σ(i=0→4) [a_i × (t_w)^i]  (3)`
 
 Trong đó: a0 = 9,9985308 × 10² kg/m³; a1 = 6,326930 × 10⁻² (°C)⁻¹·kg/m³; a2 = -8,523829 × 10⁻³ (°C)⁻²·kg/m³; a3 = 6,943248 × 10⁻⁵ (°C)⁻³·kg/m³; a4 = -3,821216 × 10⁻⁷ (°C)⁻⁴·kg/m³.
 
 **b) Khối lượng riêng của không khí**
 
-$$
-\rho_a = \frac{k_1 \times P + \varphi \times (k_2 \times t_a + k_3)}{t_a + 273,15} \tag{4}
-$$
+`ρ_a = ((k_1 × P + φ × (k_2 × t_a + k_3))/(t_a + 273,15))  (4)`
 
 Trong đó: `P`: áp suất khí quyển, hPa; `φ`: độ ẩm tương đối, %RH; `t_a`: nhiệt độ không khí, °C; k1 = 0,34844 (kg/m³)·(°C/hPa); k2 = -0,00252 (kg/m³); k3 = 0,020582 (kg/m³)·°C.
 
@@ -189,15 +181,11 @@ Trong đó: `P`: áp suất khí quyển, hPa; `φ`: độ ẩm tương đối, 
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị thời gian cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-$$
-\Delta X = x_{cd} - x_{ch} \tag{5}
-$$
+`ΔX = x_cd - x_ch  (5)`
 
   Trong đó:
 
-$$
-x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
-$$
+`x_ch = (1/n)Σ(j=1→n) x_j`
 
   - `x_ch`: giá trị trung bình của chuẩn, phút;
   - `x_j`: giá trị của chuẩn tại lần thứ j, phút;
@@ -223,15 +211,11 @@ $$
 
 Mô hình toán học của dung tích DCTT theo công thức:
 
-$$
-H_{t0} = f(\bar{H}; m; \rho_w; \rho_a; a_{read}; const) \tag{6}
-$$
+`H_t0 = f(H̄; m; ρ_w; ρ_a; a_read; const)  (6)`
 
 Độ không đảm bảo đo tổng hợp, `u_c`, của phép hiệu chuẩn dung tích DCTT được xác định theo công thức:
 
-$$
-u_c = \sqrt{\sum_i (u_i^2 \times c_i^2)} \tag{7}
-$$
+`u_c = √(Σ(i)(u_i² × c_i²))  (7)`
 
 Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_i`: hệ số nhạy tương ứng với ước lượng đầu vào `x_i`.
 
@@ -241,21 +225,15 @@ Trong đó: `u_i`: ĐKĐBĐ chuẩn của ước lượng đầu vào `x_i`; `c_
 
 Tính `u_A`:
 
-$$
-u_{\bar{H}} = \frac{s}{\sqrt{n}} \tag{8}
-$$
+`u_H̄ = (s/√(n))  (8)`
 
 `u_H̄`: ĐKĐBĐ do độ lặp lại; `s`: độ lệch chuẩn thực nghiệm sau n lần đo:
 
-$$
-S_k^2 = \frac{1}{n-1}\sum_{1}^{n} (H_k - \bar{H})^2
-$$
+`S_k² = (1/(n-1))Σ(1→n) (H_k - H̄)²`
 
 Suy ra:
 
-$$
-S_k = \frac{\sum_1^n (H_k - \bar{H})}{\sqrt{n-1}} \tag{9}
-$$
+`S_k = ((Σ(1→n) (H_k - H̄))/√(n-1))  (9)`
 
 Với `n` = số lần thực hiện đo; `H_k`: giá trị đo được ở lần thứ k; `H̄`: giá trị trung bình của k lần đo.
 
@@ -265,9 +243,7 @@ Hệ số nhạy: `c_H̄ = 1` (10).
 
 **a) TH1: Xác định khối lượng nước từ cân khi cân nước**
 
-$$
-u_m = \frac{a}{2} \tag{11}
-$$
+`u_m = (a/2)  (11)`
 
 Trong đó: `u_m`: ĐKĐBĐ của cân khi cân nước (g); `a`: là ĐKĐBĐ của cân điện tử tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn.
 
@@ -275,75 +251,51 @@ Trong đó: `u_m`: ĐKĐBĐ của cân khi cân nước (g); `a`: là ĐKĐBĐ c
 
 ĐKĐBĐ của khối lượng nước khi dùng bình định mức (BĐM) được xác định theo công thức:
 
-$$
-u_m = \frac{a}{2}
-$$
+`u_m = (a/2)`
 
 Trong đó: `u_m`: ĐKĐBĐ của BĐM khi đong nước cất (g); `a`: là ĐKĐBĐ của BĐM tại mức tải m được lấy từ giấy chứng nhận hiệu chuẩn.
 
 Hệ số nhạy:
 
-$$
-c_m = \frac{m}{\rho_w - \rho_a} \times \frac{4}{\pi \times d^2} \tag{12}
-$$
+`c_m = (m/(ρ_w - ρ_a)) × (4/(π × d²))  (12)`
 
 ##### 7.4.3.3. ĐKĐBĐ của khối lượng riêng nước
 
-$$
-u_{\rho w} = \sqrt{\left(u_{tw} \times \frac{\partial \rho_w}{\partial t_w}\right)^2 + \frac{\Delta_w^2}{3}} \tag{13}
-$$
+`u_ρw = √((u_tw × ((∂ ρ_w)/(∂ t_w)))² + (Δ_w²/3))  (13)`
 
-$$
-\frac{\partial \rho_w}{\partial t_w} = 4a_4 t_w^3 + 3a_3 t_w^2 + 2a_2 t_w + a_1
-$$
+`((∂ ρ_w)/(∂ t_w)) = 4a_4 t_w³ + 3a_3 t_w² + 2a_2 t_w + a_1`
 
 Trong đó: `u_ρw`: ĐKĐBĐ của khối lượng riêng của nước, kg/m³; `u_tw`: ĐKĐBĐ của phép xác định nhiệt độ nước, °C; `Δ_w`: sai số của công thức, `Δ_w = 10⁻⁶ × ρ_w`.
 
 Hệ số nhạy:
 
-$$
-c_{\rho w} = -\frac{m}{(\rho_w - \rho_a)^2} \times \frac{4}{\pi \times d^2} \tag{14}
-$$
+`c_ρw = -(m/((ρ_w - ρ_a)²)) × (4/(π × d²))  (14)`
 
 ##### 7.4.3.4. ĐKĐBĐ của khối lượng riêng không khí
 
-$$
-u_{\rho a} = \sqrt{u_P^2 c_P^2 + u_\varphi^2 c_\varphi^2 + u_{ta}^2 c_{ta}^2 + u_{method}^2} \tag{15}
-$$
+`u_ρa = √(u_P² c_P² + u_φ² c_φ² + u_ta² c_ta² + u_method²)  (15)`
 
-$$
-c_P = \frac{k_1}{t_a + 273,15} \tag{16}
-$$
+`c_P = (k_1/(t_a + 273,15))  (16)`
 
-$$
-c_\varphi = \frac{k_2 \times t_a + k_3}{t_a + 273,15} \tag{17}
-$$
+`c_φ = ((k_2 × t_a + k_3)/(t_a + 273,15))  (17)`
 
-$$
-c_{ta} = \frac{\varphi \times (273,15 \times k_2 - k_3) - P \times k_1}{(t_a + 273,15)^2} \tag{18}
-$$
+`c_ta = ((φ × (273,15 × k_2 - k_3) - P × k_1)/((t_a + 273,15)²))  (18)`
 
 Trong đó: `u_P`: ĐKĐBĐ khi xác định áp suất khí quyển, hPa; `u_φ`: ĐKĐBĐ khi xác định độ ẩm không khí, %RH; `u_ta`: ĐKĐBĐ khi xác định nhiệt độ không khí, °C; `u_method`: ĐKĐBĐ của phương pháp, `u_method = 10⁻⁴ × ρ_a`.
 
 Hệ số nhạy:
 
-$$
-c_{\rho a} = \frac{m}{(\rho_w - \rho_a)^2} \times \frac{4}{\pi \times d^2} \tag{19}
-$$
+`c_ρa = (m/((ρ_w - ρ_a)²)) × (4/(π × d²))  (19)`
 
 ##### 7.4.3.4 (bis). ĐKĐBĐ từ sai số của đo đường kính thiết bị[^trung743]
 
-$$
-u_d = \frac{D}{2} \tag{20}
-$$
+`u_d = (D/2)  (20)`
 
 Trong đó: `u_d`: ĐKĐBĐ do đường kính thiết bị (mm); `D`: là ĐKĐBĐ từ thiết bị đo độ dài đường kính PTĐ được lấy từ giấy chứng nhận hiệu chuẩn.
 
 Hệ số nhạy:
 
-$$
-c_{\rho a} = -\frac{m}{\rho_w - \rho_a} \times \frac{8}{\pi \times d^3} \tag{21}
-$$
+`c_ρa = -(m/(ρ_w - ρ_a)) × (8/(π × d³))  (21)`
 
 [^trung743]: Bản gốc đánh trùng số mục "7.4.3.4" cho cả hai mục "ĐKĐBĐ của khối lượng riêng không khí" và "ĐKĐBĐ từ sai số của đo đường kính thiết bị". Giữ nguyên văn, đánh dấu (bis) tại đây để phân biệt. Ngoài ra công thức (21) trong bản gốc ghi hệ số nhạy là `c_ρa` — trùng ký hiệu với hệ số nhạy của khối lượng riêng không khí ở công thức (19), nhiều khả năng là lỗi đánh máy (nên là `c_d`, hệ số nhạy theo đường kính).
 
@@ -351,9 +303,7 @@ $$
 
 Tính ĐKĐB do độ lặp lại trong bước kiểm tra độ lặp lại của thiết bị. Tính `u_A`:
 
-$$
-u_{\bar{H}_{ptđ1}} = \frac{s}{\sqrt{n}} \tag{22}
-$$
+`u_H̄_ptđ1 = (s/√(n))  (22)`
 
 `u_H̄ptđ1`: ĐKĐBĐ do độ lặp lại; `s`: độ lệch chuẩn thực nghiệm sau n lần đo (tính tương tự công thức (8)-(9) ở mục 7.4.3.1, với H thay bằng H_ptđ1).
 
@@ -363,9 +313,7 @@ Hệ số nhạy: `c_H̄ptđ1 = 1` (24).
 
 Tính `u_B2`:
 
-$$
-u_{Hptđ2} = \frac{e}{2\sqrt{3}}
-$$
+`u_Hptđ2 = (e/2√(3))`
 
 `e`: độ phân giải của PTĐ cần hiệu chuẩn.
 
@@ -375,17 +323,13 @@ Hệ số nhạy: `c_Hptđ2 = 1` (25).
 
 ##### 7.4.3.8[^sothutu]. ĐKĐBĐ tổng hợp
 
-$$
-u_C = \sqrt{u_{\bar{H}}^2 c_{\bar{H}}^2 + u_m^2 c_m^2 + u_{\rho w}^2 c_{\rho w}^2 + u_{\rho a}^2 c_{\rho a}^2 + u_{\bar{H}_{ptđ1}}^2 c_{\bar{H}_{ptđ1}}^2 + u_{Hptđ2}^2 c_{Hptđ2}^2} \tag{26}
-$$
+`u_C = √(u_H̄² c_H̄² + u_m² c_m² + u_ρw² c_ρw² + u_ρa² c_ρa² + u_H̄_ptđ1² c_H̄_ptđ1² + u_Hptđ2² c_Hptđ2²)  (26)`
 
 [^sothutu]: Bản gốc đánh số mục con "7.4.3.7" (ĐKĐBĐ do độ phân giải) và "7.4.3.8" (ĐKĐBĐ tổng hợp) liền sau "7.4.3.6" — số thứ tự có phần không liên tục với các mục con trước đó do lỗi đánh máy trùng số 7.4.3.4. Giữ nguyên văn.
 
 **ĐKĐBĐ mở rộng:**
 
-$$
-U = k \times u_C
-$$
+`U = k × u_C`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB tổng hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

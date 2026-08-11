@@ -180,9 +180,7 @@ Phải kiểm tra kỹ thuật theo các yêu cầu sau đây:
 - Ghi kết quả vào biên bản hiệu chuẩn.
 - Độ lặp lại được tính toán bằng độ lệch chuẩn tương đối RSD theo công thức:
 
-$$
-RSD = \frac{s}{\bar{x}} \times 100 \qquad \text{với } s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
-$$
+`RSD = (s/x̄) × 100 với s = √((Σ(i=1→n)(x_i - x̄)²)/(n-1))`
 
 - `RSD`: độ lệch chuẩn tương đối của các kết quả đo lặp lại, %;
 - `s`: độ lệch chuẩn của các kết quả đo lặp lại;
@@ -201,9 +199,7 @@ $$
 
 Nồng độ dung dịch pha loãng được tính theo công thức:
 
-$$
-C_i = \frac{V_{i-1} \cdot C_{i-1}}{V_i}
-$$
+`C_i = ((V_i-1 · C_i-1)/V_i)`
 
 - `C_i`: Nồng độ của dung dịch cần pha loãng thứ i (mg/L);
 - `C_{i-1}`: Nồng độ chất chuẩn thứ i-1 (mg/L);
@@ -216,9 +212,7 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 - Độ KĐBĐ do độ phân tán kết quả đo n lần lặp lại: `u_A`
 
-$$
-S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
-$$
+`S_C = √((Σ(x_i - x_tb)²)/(n-1)) u_A = (s_C/√(n))`
 
   - `S_C`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị diện tích peak đo lần i (i = 1, 2, …, n);
@@ -229,42 +223,34 @@ $$
 
 | STT   | Tên yếu tố ảnh hưởng                                        | Ký hiệu   | Đơn vị | Công thức tính |
 | ----- | ----------------------------------------------------------- | --------- | ------ | -------------- |
-| 1     | Độ lặp lại của PTĐ                                          | `u_A`     | mg/L   | $u_A = s_C/\sqrt{n}$ |
-| 2     | ĐKĐB của dung dịch chuẩn gốc 100 mg/L (theo giấy chứng nhận) | `u_C0`   | mg/L   | $u_{C0} = a/k$ |
+| 1     | Độ lặp lại của PTĐ                                          | `u_A`     | mg/L   | `u_A = s_C/√(n)` |
+| 2     | ĐKĐB của dung dịch chuẩn gốc 100 mg/L (theo giấy chứng nhận) | `u_C0`   | mg/L   | `u_C0 = a/k` |
 | 3     | ĐKĐB của dung dịch chuẩn thứ i                              | `u_Ci`    | mg/L   | (xem công thức `u_Ci` bên dưới) |
-| 3.1   | ĐKĐB gây ra bởi pipet                                       | `u_pipet` |        | $u_{pipet} = \sqrt{u_{calp}^2 + u_{temp}^2}$ |
-| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn    | `u_calp`  | mL     | $u_{calp} = d/k$ — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
-| 3.1.2 | ĐKĐB do giãn nở nhiệt                                       | `u_temp`  | mL     | $u_{temp} = (V_{pipet} \times \gamma \times \Delta_i)/\sqrt{3}$ — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
-| 3.2   | ĐKĐB gây ra bởi bình định mức pha loãng                     | `u_flask` |        | $u_{flask} = \sqrt{u_{calf}^2 + u_{per}^2 + u_{temp}^2}$ |
-| 3.2.1 | ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn | `u_calf` | mL | $u_{calf} = e/k$ — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ theo GCN (k = 2) |
-| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                    | `u_per`   | mL     | $u_{per} = 0{,}03/\sqrt{3}$ — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, xấp xỉ ± 0,03 mL) |
-| 3.2.3 | ĐKĐB do giãn nở nhiệt                                       | `u_temp`  | mL     | $u_{temp} = (V_{flask} \times \gamma \times \Delta_i)/\sqrt{3}$ |
+| 3.1   | ĐKĐB gây ra bởi pipet                                       | `u_pipet` |        | `u_pipet = √(u_calp² + u_temp²)` |
+| 3.1.1 | ĐKĐB gây nên bởi pipet dùng để pha loãng dung dịch chuẩn    | `u_calp`  | mL     | `u_calp = d/k` — pipet có thể tích `V_pipet` và ĐKĐB là `d` với hệ số phủ theo GCN (k = 2) |
+| 3.1.2 | ĐKĐB do giãn nở nhiệt                                       | `u_temp`  | mL     | `u_temp = (V_pipet × γ × Δ_i)/√(3)` — `γ`: hệ số dãn nở/1 °C; `Δ_i`: sai lệch nhiệt độ so với 20 °C |
+| 3.2   | ĐKĐB gây ra bởi bình định mức pha loãng                     | `u_flask` |        | `u_flask = √(u_calf² + u_per² + u_temp²)` |
+| 3.2.1 | ĐKĐB gây nên bởi bình định mức dùng để pha loãng dung dịch chuẩn | `u_calf` | mL | `u_calf = e/k` — bình định mức có thể tích `V_flask` và ĐKĐB là `e` với hệ số phủ theo GCN (k = 2) |
+| 3.2.2 | ĐKĐB do thao tác của nhân viên thực hiện                    | `u_per`   | mL     | `u_per = 0,03/√(3)` — sai số do thao tác (dư hoặc thiếu ở giọt cuối cùng, xấp xỉ ± 0,03 mL) |
+| 3.2.3 | ĐKĐB do giãn nở nhiệt                                       | `u_temp`  | mL     | `u_temp = (V_flask × γ × Δ_i)/√(3)` |
 
 Tính `u_Ci`:
 
-$$
-u_{Ci} = C_i^2\sqrt{\left(\frac{u_{flask}}{V_{flask}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{C_{i-1}}}{C_{i-1}}\right)^2}
-$$
+`u_Ci = C_i²√((u_flask/V_flask)² + (u_pipet/V_pipet)² + ((u_C_i-1)/(C_i-1))²)`
 
 - Độ KĐBĐ tổng hợp:
 
-$$
-u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
-$$
+`u_Đ = √(u_A² + u_Ci²)`
 
 - Độ KĐBĐ mở rộng:
 
-$$
-U_{Đ} = k \times u_{Đ}
-$$
+`U_Đ = k × u_Đ`
 
   Độ không đảm bảo đo mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
 - Tính độ KĐBĐ tương đối:
 
-$$
-\text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
-$$
+`Độ KĐBĐ tương đối (%) = ((Độ KĐBĐ mở rộng)/(Giá trị đo)) × 100`
 
 ## 9. Xử lý chung
 

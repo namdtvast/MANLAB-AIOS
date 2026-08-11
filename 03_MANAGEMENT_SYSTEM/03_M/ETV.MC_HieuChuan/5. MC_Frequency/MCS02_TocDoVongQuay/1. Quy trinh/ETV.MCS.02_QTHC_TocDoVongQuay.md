@@ -199,37 +199,27 @@ Các nguồn gây ra độ không đảm bảo đo:
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄c` đo được tại điểm kiểm tra:
 
-$$
-\bar{V}_c = \frac{\sum_1^n V_{ci}}{n}\ \text{, rpm} \tag{1}
-$$
+`V̄_c = ((Σ(1→n) V_ci)/n) , rpm  (1)`
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_ci`: tốc độ vòng quay của chuẩn đo được ở lần đo thứ i, rpm; `V̄c`: tốc độ vòng quay trung bình của chuẩn đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-$$
-s(V_c) = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n-1}}\ \text{, rpm} \tag{2}
-$$
+`s(V_c) = √((Σ(1→n) (V_ci - V̄_c)²)/(n-1)) , rpm  (2)`
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-$$
-u_{A1} = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n(n-1)}}\ \text{, rpm} \tag{3}
-$$
+`u_A1 = √((Σ(1→n) (V_ci - V̄_c)²)/n(n-1)) , rpm  (3)`
 
 **b) ĐKĐB của phương tiện đo tốc độ vòng quay chuẩn**
 
-$$
-u_{B1} = \frac{U_r}{k}\ \text{, rpm} \tag{4}
-$$
+`u_B1 = (U_r/k) , rpm  (4)`
 
 Trong đó: `u_B1`: ĐKĐB chuẩn tuyệt đối của máy đo tốc độ vòng quay chuẩn, rpm; `U_r`: ĐKĐB mở rộng tuyệt đối của máy đo tốc độ vòng quay chuẩn được lấy từ giấy chứng nhận hiệu chuẩn, rpm; `k`: hệ số phủ của ĐKĐB mở rộng tuyệt đối của máy đo tốc độ vòng quay chuẩn được lấy từ giấy chứng nhận hiệu chuẩn.
 
 **c) ĐKĐB do độ phân giải của chuẩn**
 
-$$
-u_{B2} = \frac{A \times d}{\sqrt{3}}\ \text{, rpm} \tag{5}
-$$
+`u_B2 = ((A × d)/√(3)) , rpm  (5)`
 
 Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân giải thiết lập tốc độ vòng quay của chuẩn, rpm; `A`: độ phân giải thiết lập tốc độ vòng quay trên chuẩn, rpm; `d`: hệ số có giá trị d = 1/2 đối với bộ chỉ thị hiện số, 1/10 đối với bộ chỉ thị tương tự.
 
@@ -239,43 +229,31 @@ Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân 
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄_tb` đo được tại điểm kiểm tra:
 
-$$
-\bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, rpm} \tag{6}
-$$
+`V̄_tb = ((Σ(1→n) V_tbi)/n) , rpm  (6)`
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_tbi`: tốc độ vòng quay của DUT đo được ở lần đo thứ i, rpm; `V̄_tb`: tốc độ vòng quay trung bình của DUT đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-$$
-s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n-1}}\ \text{, rpm} \tag{7}
-$$
+`s(V_tb) = √((Σ(1→n) (V_tbi - V̄_tb)²)/(n-1)) , rpm  (7)`
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-$$
-u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, rpm} \tag{8}
-$$
+`u_A2 = √((Σ(1→n) (V_tbi - V̄_tb)²)/n(n-1)) , rpm  (8)`
 
 **b) ĐKĐB do độ phân giải của DUT**
 
-$$
-u_{B3} = \frac{A \times d}{\sqrt{3}}\ \text{, rpm} \tag{9}
-$$
+`u_B3 = ((A × d)/√(3)) , rpm  (9)`
 
 Trong đó: `u_B3`: độ không đảm bảo đo tuyệt đối do độ phân giải thiết lập tốc độ vòng quay của DUT, rpm; `A`: độ phân giải thiết lập tốc độ vòng quay trên DUT, rpm; `d`: hệ số có giá trị d = 1/2 đối với bộ chỉ thị hiện số, 1/10 đối với bộ chỉ thị tương tự.
 
 #### 7.5.3. Độ không đảm bảo đo tổng hợp
 
-$$
-u_c(V_{DUT}) = \sqrt{u_{A1}^2 + u_{A2}^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2}\ \text{, rpm} \tag{10}
-$$
+`u_c(V_DUT) = √(u_A1² + u_A2² + u_B1² + u_B2² + u_B3²) , rpm  (10)`
 
 #### 7.5.4. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \times u_c(V_{DUT})\ \text{, rpm} \tag{11}
-$$
+`U = k × u_c(V_DUT) , rpm  (11)`
 
 Trong đó: `u_c(V_DUT)`: ĐKĐB tổng hợp của tốc độ vòng quay của DUT, rpm; `k`: hệ số phủ, có giá trị bằng 2, ứng với xác suất tin cậy 95 %.
 
@@ -283,9 +261,7 @@ Trong đó: `u_c(V_DUT)`: ĐKĐB tổng hợp của tốc độ vòng quay của
 
 Kết quả hiệu chuẩn vận tốc vòng quay của DUT được công bố như sau:
 
-$$
-V_{DUT} = \bar{V}_{DUT} \pm U\ \text{, rpm} \tag{12}
-$$
+`V_DUT = V̄_DUT ± U , rpm  (12)`
 
 Trong đó: `U`: ĐKĐB mở rộng được tính với hệ số phủ k = 2 ứng với xác suất tin cậy P = 95 %; `k`: hệ số phủ, có giá trị bằng 2, ứng với xác suất tin cậy 95 %.
 

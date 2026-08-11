@@ -156,9 +156,7 @@ Kiểm tra đo lường được thực hiện bằng cách so sánh: số chỉ
 
 Số hiệu chính của thiết bị tại mỗi điểm nhiệt độ kiểm tra được tính theo công thức:
 
-$$
-\Delta t = (\bar{t}_{ch} + \partial t) - \bar{t}_{bk}
-$$
+`Δt = (t̄_ch + ∂ t) - t̄_bk`
 
 Trong đó: `t̄_ch`: giá trị nhiệt độ trung bình của tổ hợp chuẩn; `t̄_bk`: giá trị nhiệt độ trung bình của thiết bị cần hiệu chuẩn; `∂t`: số hiệu chính nhiệt độ tại điểm kiểm tra của chuẩn, tra từ giấy chứng nhận hiệu chuẩn.
 
@@ -168,9 +166,7 @@ Trong đó: `t̄_ch`: giá trị nhiệt độ trung bình của tổ hợp chu�
 
 Độ lệch chuẩn tại mỗi điểm kiểm tra của số đọc giá trị nhiệt độ của tổ hợp chuẩn và thiết bị hấp cần hiệu chuẩn được tính theo công thức:
 
-$$
-s_i = \sqrt{\frac{\sum (t_i - t_{tb})^2}{n-1}}
-$$
+`s_i = √((Σ(t_i - t_tb)²)/(n-1))`
 
 Trong đó: `t_i`: giá trị đo thứ i của điểm kiểm tra (i = 1,2,…n); `t_tb`: giá trị trung bình của n lần đo; `s_i`: độ lệch chuẩn tại điểm kiểm tra thứ i.
 
@@ -178,9 +174,7 @@ Trong đó: `t_i`: giá trị đo thứ i của điểm kiểm tra (i = 1,2,…n
 
 Việc kiểm tra độ ổn định thiết bị cần kiểm tra tối thiểu trong thời gian 30 phút. Độ ổn định của thiết bị hấp tiệt trùng tại một điểm nhiệt độ được xác định như sau:
 
-$$
-\delta t_{od} = \pm \frac{1}{2} \max(t_{ch\ max,j} - t_{ch\ min,j})\quad j: 1,2,\ldots,N
-$$
+`δt_od = ± (1/2) max(t_ch max,j - t_ch min,j) j: 1,2,…,N`
 
 Trong đó: `δt_od`: độ ổn định của thiết bị hấp tiệt trùng tại nhiệt độ kiểm tra; `t_ch max,j`, `t_ch min,j`: nhiệt độ cao nhất và thấp nhất của nhiệt kế chuẩn thứ j tại điểm nhiệt độ kiểm tra.
 
@@ -188,9 +182,7 @@ Trong đó: `δt_od`: độ ổn định của thiết bị hấp tiệt trùng 
 
 Độ đồng đều của thiết bị hấp tiệt trùng tại một điểm nhiệt độ được xác định như sau:
 
-$$
-\delta t_{dd} = \pm \frac{1}{2} \max[\max(t_{ch\ j}) - \min(t_{ch\ i})]\quad j \neq i;\ j,i: 1,2,\ldots,N
-$$
+`δt_dd = ± (1/2) max[max(t_ch j) - min(t_ch i)] j ≠ i; j,i: 1,2,…,N`
 
 Trong đó: `δt_dd`: độ đồng đều của thiết bị hấp tiệt trùng; `max(t_ch j)`, `min(t_ch i)`: nhiệt độ trung bình lớn nhất và nhỏ nhất trong N nhiệt kế chuẩn tại các vị trí đo khác nhau.
 
@@ -208,9 +200,7 @@ Các yếu tố gây ra ĐKĐBĐ bao gồm: tổ hợp chuẩn; thiết bị c�
 
 **Độ không đảm bảo đo của thiết bị tạo chuẩn (u_ch1):** Thành phần này lấy từ giấy chứng nhận hiệu chuẩn, tính từ độ không đảm bảo đo mở rộng U (theo mức độ tin cậy chất lượng P% và hệ số phủ k):
 
-$$
-u_{ch1} = \frac{U}{k}
-$$
+`u_ch1 = (U/k)`
 
 **Độ không đảm bảo đo do độ tản mạn của các kết quả đo của tổ hợp thiết bị chuẩn (u_ch2):**
 
@@ -218,17 +208,13 @@ $$
 - Tính độ lệch chuẩn luỹ tích u: `u = (Σs_i² / N)^(1/2)`, với N: số vị trí tại điểm kiểm tra;
 - Tính độ không đảm bảo chuẩn loại A:
 
-$$
-u_{ch2} = u_A = \frac{u}{\sqrt{n}}
-$$
+`u_ch2 = u_A = (u/√(n))`
 
   với n: số lần đo tại mỗi điểm kiểm tra.
 
 **ĐKĐB đo liên hợp `u_ch` của tổ hợp chuẩn:**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2²)`
 
 **b) Độ không đảm bảo đo của thiết bị cần hiệu chuẩn, u_bk:**
 
@@ -238,53 +224,39 @@ $$
 - Tính độ lệch chuẩn luỹ tích u: `u = (Σs_i² / N)^(1/2)`, với N: số vị trí điểm kiểm tra;
 - Tính độ không đảm bảo chuẩn loại A:
 
-$$
-u_{bk1} = u_A = \frac{u}{\sqrt{n}}
-$$
+`u_bk1 = u_A = (u/√(n))`
 
   với n: số lần đo tại mỗi điểm kiểm tra. Thành phần này chính là độ không đảm bảo đo theo độ tản mạn kết quả đo.
 
 **Độ không đảm bảo đo theo độ phân giải của thiết bị hấp cần hiệu chuẩn (u_bk2):** Thành phần này tính từ khả năng phân giải nhỏ nhất của thiết bị hấp, ký hiệu là d:
 
-$$
-u_{bk2} = \frac{A \times d}{\sqrt{3}}
-$$
+`u_bk2 = ((A × d)/√(3))`
 
 Trong đó: `A`: giá trị nhỏ nhất của chỉ thị của thiết bị hấp cần hiệu chuẩn; d = 1/2 (1/2 digit) đối với thiết bị hấp chỉ thị hiện số; d = 1/10 đối với thiết bị hấp chỉ thị tương tự.
 
 **Độ không đảm bảo đo tính theo độ ổn định (u_bk3):**
 
-$$
-u_{bk3} = \frac{\delta t_{od}}{\sqrt{3}}
-$$
+`u_bk3 = (δt_od/√(3))`
 
 Trong đó: `δt_od`: độ ổn định của PTĐ cần hiệu chuẩn tại nhiệt độ kiểm tra.
 
 **Độ không đảm bảo đo tính theo độ đồng đều (u_bk4):**
 
-$$
-u_{bk4} = \frac{\delta t_{dd}}{\sqrt{3}}
-$$
+`u_bk4 = (δt_dd/√(3))`
 
 Trong đó: `δt_dd`: độ đồng đều của PTĐ cần hiệu chuẩn.
 
 **ĐKĐB đo liên hợp `u_bk` của thiết bị hấp tiệt trùng:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2² + u_bk3² + u_bk4²)`
 
 **c) Độ không đảm bảo đo chuẩn liên hợp của phép hiệu chuẩn, u_c:**
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 **Độ không đảm bảo đo mở rộng** (tính với mức độ tin cậy 95 %; hệ số k = 2):
 
-$$
-U = k \times u_c
-$$
+`U = k × u_c`
 
 Với k = 2 là hệ số bao phủ tương ứng với mức độ tin cậy 95 %.
 

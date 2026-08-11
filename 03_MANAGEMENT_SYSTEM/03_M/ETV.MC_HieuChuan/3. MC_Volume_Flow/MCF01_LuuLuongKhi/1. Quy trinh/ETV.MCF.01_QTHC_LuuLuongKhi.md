@@ -193,9 +193,7 @@ PTĐ lưu lượng khí được kiểm tra đo lường theo trình tự nội 
 - **Bước 2:** Thực hiện 5 lần đọc, mỗi lần cách nhau 15 s, kết quả hiệu chuẩn tại mỗi lưu lượng tính bằng trung bình cộng của 5 lần đọc. Ghi lại hiển thị lưu lượng, nhiệt độ, áp suất trên PTĐ cần hiệu chuẩn và trên chuẩn vào biên bản Phụ lục I;
 - **Bước 3:** Lưu lượng mỗi lần đo của chuẩn được tính toán theo công thức:
 
-$$
-Q_c = \frac{V_c}{t} \tag{1}
-$$
+`Q_c = (V_c/t)  (1)`
 
   Trong đó: `Q_c`: lưu lượng tại chuẩn ở điều kiện đo, L/min; `V_c`: thể tích tại chuẩn ở điều kiện đo, L; `t`: thời gian hiệu chuẩn, min.
 
@@ -223,15 +221,11 @@ Quy đổi kết quả đo lưu lượng tại chuẩn và tại PTĐ lưu lư�
 
 Công thức quy đổi đối với lưu lượng tại chuẩn:
 
-$$
-Q_{oc} = Q_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z} \tag{2}
-$$
+`Q_oc = Q_c × (P_c/P_0) × (T_0/T_c) × (Z_0/Z)  (2)`
 
 Công thức quy đổi đối với lưu lượng tại PTĐ:
 
-$$
-Q_{otb} = Q_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z} \tag{3}
-$$
+`Q_otb = Q_tb × (P_tb/P_0) × (T_0/T_tb) × (Z_0/Z)  (3)`
 
 Trong đó:
 
@@ -249,9 +243,7 @@ Trong đó:
 
 Số hiệu chính tại mỗi điểm lưu lượng hiệu chuẩn được xác định bằng hiệu số giữa giá trị trung bình của các kết quả đo trên phương tiện đo và chuẩn theo công thức:
 
-$$
-\Delta hc = Q_{oc} - Q_{otb} = \left(Q_c \times \frac{P_c}{P_0} \times \frac{T_0}{T_c} \times \frac{Z_0}{Z}\right) - \left(Q_{tb} \times \frac{P_{tb}}{P_0} \times \frac{T_0}{T_{tb}} \times \frac{Z_0}{Z}\right) = \frac{1013,25}{298,15}\left(Q_c \times \frac{P_c}{T_c} - Q_{tb} \times \frac{P_{tb}}{T_{tb}}\right) \tag{4}
-$$
+`Δ hc = Q_oc - Q_otb = (Q_c × (P_c/P_0) × (T_0/T_c) × (Z_0/Z)) - (Q_tb × (P_tb/P_0) × (T_0/T_tb) × (Z_0/Z)) = (1013,25/298,15)(Q_c × (P_c/T_c) - Q_tb × (P_tb/T_tb))  (4)`
 
 ### 7.4. Tính toán độ không đảm bảo đo
 
@@ -283,117 +275,83 @@ Từ mô hình tính toán Δhc theo công thức (4), các thành phần của 
 
 Ta có ĐKĐB tổng hợp là đại lượng được xác định từ tổ hợp chuẩn:
 
-$$
-u_{hc} = \sqrt{u_{Qoc}^2 + u_{Qotb}^2} \tag{5}
-$$
+`u_hc = √(u_Qoc² + u_Qotb²)  (5)`
 
 Với:
 
-$$
-u_{Qoc} = Q_{oc} \times \sqrt{\frac{u_{ch}^2}{Q_{oc}^2} + \frac{u_{pc}^2}{P_c^2} + \frac{u_{tc}^2}{(T_c + 273,15)^2}} \tag{6}
-$$
+`u_Qoc = Q_oc × √((u_ch²/Q_oc²) + (u_pc²/P_c²) + (u_tc²/((T_c + 273,15)²)))  (6)`
 
-$$
-u_{Qotb} = Q_{otb} \times \sqrt{\frac{u_A^2 + u_{pg}^2}{Q_{od}^2} + \frac{u_{ptb}^2}{P_{tb}^2} + \frac{u_{ttb}^2}{(T_{tb} + 273,15)^2}} \tag{7}
-$$
+`u_Qotb = Q_otb × √(((u_A² + u_pg²)/Q_od²) + (u_ptb²/P_tb²) + (u_ttb²/((T_tb + 273,15)²)))  (7)`
 
 Trường hợp PTĐ hiệu chuẩn trong dải (30 ÷ 70) L/min, sử dụng chuẩn lưu lượng dạng thể tích kèm đồng hồ bấm giờ để hiệu chuẩn, khi đó `u_Qoc` được tính như sau:
 
-$$
-u_{Qoc} = \frac{V_{oc}}{t} \times \sqrt{\frac{u_{ch}^2}{V_{oc}^2} + \frac{u_{dh}^2}{t_{dh}^2} + \frac{u_{pc}^2}{P_c^2} + \frac{u_{tc}^2}{(T_c + 273,15)^2}} \tag{8}
-$$
+`u_Qoc = (V_oc/t) × √((u_ch²/V_oc²) + (u_dh²/t_dh²) + (u_pc²/P_c²) + (u_tc²/((T_c + 273,15)²)))  (8)`
 
 Tính `u_ch`:
 
-$$
-u_{ch} = \frac{U_{ch}}{2} \tag{9}
-$$
+`u_ch = (U_ch/2)  (9)`
 
 `U_ch`: ĐKĐB của chuẩn lưu lượng lấy từ giấy chứng nhận hiệu chuẩn, L/min (hoặc L khi sử dụng chuẩn đồng hồ thể tích để hiệu chuẩn PTĐ trong dải (30 ÷ 70) L/min).
 
 Tính `u_pc`:
 
-$$
-u_{pc} = \frac{U_{pc}}{2} \tag{10}
-$$
+`u_pc = (U_pc/2)  (10)`
 
 `U_pc`: ĐKĐB của thiết bị đo áp suất tại chuẩn từ giấy chứng nhận hiệu chuẩn, hPa.
 
 Tính `u_tc`:
 
-$$
-u_{tc} = \frac{U_{tc}}{2} \tag{11}
-$$
+`u_tc = (U_tc/2)  (11)`
 
 `U_tc`: ĐKĐB của thiết bị đo nhiệt độ tại chuẩn từ giấy chứng nhận hiệu chuẩn, K.
 
 Tính `u_A`:
 
-$$
-u_A = s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} = \sqrt{\frac{\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2}{n(n-1) \times \overline{\Delta hc}^2}} \times 100 \tag{12}
-$$
+`u_A = s(‾(Δ hc)) = (s(Δ hc_k)/√(n)) = √((Σ(k=1→n) (Δ hc_k - ‾(Δ hc))²)/(n(n-1) × ‾(Δ hc)²)) × 100  (12)`
 
 Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của kết quả hiệu chính lưu lượng Δhc là trung bình số học `Δhc̄`, nó thay đổi một cách ngẫu nhiên. Trung bình số học của n kết quả đo độc lập:
 
-$$
-\overline{\Delta hc} = \frac{1}{n}\sum_{k=1}^{n} \Delta hc_k \tag{13}
-$$
+`‾(Δ hc) = (1/n)Σ(k=1→n) Δ hc_k  (13)`
 
 Độ lệch chuẩn thực nghiệm `s(Δhc_k)` được dùng để ước lượng phân bố của Δhc:
 
-$$
-s(\Delta hc_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n} (\Delta hc_k - \overline{\Delta hc})^2} \tag{14}
-$$
+`s(Δ hc_k) = √((1/(n-1))Σ(k=1→n) (Δ hc_k - ‾(Δ hc))²)  (14)`
 
 Độ lệch chuẩn thực nghiệm `s(Δhc̄)` của giá trị trung bình được dùng để ước lượng độ rộng của phân bố các giá trị trung bình:
 
-$$
-s(\overline{\Delta hc}) = \frac{s(\Delta hc_k)}{\sqrt{n}} \tag{15}
-$$
+`s(‾(Δ hc)) = (s(Δ hc_k)/√(n))  (15)`
 
 Tính `u_pg`: đối với PTĐ dạng lưu lượng kế có bộ phận chỉ thị kiểu thang đo, độ phân giải được xác định theo công thức:
 
-$$
-a_{pg} = \frac{a_d \times d}{l_d} \tag{16}
-$$
+`a_pg = ((a_d × d)/l_d)  (16)`
 
 Trong đó: `a_pg`: độ phân giải của PTĐ lưu lượng cần hiệu chuẩn, L/min; `a_d`: khả năng phân biệt của mắt người, a_d = 1 mm; `d`: giá trị độ chia của thang đo, L/min; `l_d`: chiều dài độ chia của thang đo, mm.
 
 Khi đó ĐKĐB do độ phân giải của PTĐ:
 
-$$
-u_{pg} = a_d \times \frac{d}{l_d} \times \sqrt{\frac{u_d^2}{d^2} + \frac{u_{dd}^2}{l_d^2}} = \frac{d}{l_d} \times \sqrt{\frac{(d/2\sqrt{3})^2}{d^2} + \frac{(U_{dd}/2)^2}{l_d^2}} \tag{17}
-$$
+`u_pg = a_d × (d/l_d) × √((u_d²/d²) + (u_dd²/l_d²)) = (d/l_d) × √((((d/2√(3))²)/d²) + (((U_dd/2)²)/l_d²))  (17)`
 
 Với `U_dd` là ĐKĐB của thước đo độ dài từ giấy chứng nhận hiệu chuẩn, mm.
 
 Đối với PTĐ lưu lượng kiểu điện tử thì `a_pg = d`. Khi đó ĐKĐB do độ phân giải của PTĐ:
 
-$$
-u_{pg} = \frac{d}{2\sqrt{3}} \tag{18}
-$$
+`u_pg = (d/2√(3))  (18)`
 
 Tính `u_ptb`:
 
-$$
-u_{ptb} = \frac{U_{ptb}}{2} \tag{19}
-$$
+`u_ptb = (U_ptb/2)  (19)`
 
 `u_ptb`: ĐKĐB của thiết bị đo áp suất tại PTĐ lấy theo giấy chứng nhận hiệu chuẩn, hPa.
 
 Tính `u_ttb`:
 
-$$
-u_{ttb} = \frac{U_{ttb}}{2} \tag{20}
-$$
+`u_ttb = (U_ttb/2)  (20)`
 
 `U_ttb`: ĐKĐB của thiết bị đo nhiệt độ tại PTĐ lấy theo giấy chứng nhận hiệu chuẩn, K.
 
 Tính `u_dh`:
 
-$$
-u_{dh} = \frac{U_{dh} \times 24 \times 60}{2} \tag{21}
-$$
+`u_dh = ((U_dh × 24 × 60)/2)  (21)`
 
 `U_dh`: ĐKĐB của chuẩn đồng hồ bấm giờ lấy từ giấy chứng nhận hiệu chuẩn, phút.
 
@@ -401,15 +359,11 @@ $$
 
 **Tính toán ĐKĐB tổng hợp:** ĐKĐB tổng hợp (uc) tại mỗi điểm lưu lượng:
 
-$$
-u_c = \sqrt{u_{Qoc}^2 + u_{Qotb}^2}\ \text{(L/min)} \tag{22}
-$$
+`u_c = √(u_Qoc² + u_Qotb²) (L/min)  (22)`
 
 ĐKĐB mở rộng được xác định cho mỗi điểm lưu lượng:
 
-$$
-U = k \times u_c\ \text{(L/min)} \tag{23}
-$$
+`U = k × u_c (L/min)  (23)`
 
 Với k là hệ số bao phủ, hệ số bằng số được sử dụng như là bội của ĐKĐB chuẩn kết hợp để đưa ra ĐKĐB mở rộng, thường được chọn k = 2 với mức tin cậy xấp xỉ 95 %.
 

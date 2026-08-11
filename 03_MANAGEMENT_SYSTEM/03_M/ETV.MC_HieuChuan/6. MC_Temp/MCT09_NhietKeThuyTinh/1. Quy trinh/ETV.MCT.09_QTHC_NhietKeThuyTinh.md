@@ -208,23 +208,17 @@ Trong đó: N1, N2, N3…NN là nhiệt kế cần hiệu chuẩn. Quá trình �
 
 **a1. Đối với nhiệt kế nhúng một phần:**
 
-$$
-\Delta t = (\bar{t}_{ch} + \delta_{ch}) - (\bar{t}_{bk} + \delta_{bk})
-$$
+`Δt = (t̄_ch + δ_ch) - (t̄_bk + δ_bk)`
 
 Trong đó: `t̄_bk`: giá trị trung bình của nhiệt kế cần hiệu chuẩn tại điểm kiểm tra; `t̄_ch`: giá trị trung bình của nhiệt kế chuẩn tại điểm kiểm tra; `δ_ch`: số hiệu chính của nhiệt kế chuẩn (lấy trong GCN hiệu chuẩn); `δ_bk`: số hiệu chính phần cột chất lỏng lộ ra ngoài theo công thức:
 
-$$
-\delta_{bk} = k_{bk} \times n \times (t_1 - t_2)
-$$
+`δ_bk = k_bk × n × (t_1 - t_2)`
 
 Trong đó: `k_bk`: hệ số nở biểu kiến của chất lỏng so với thuỷ tinh (Phụ lục); `n`: số độ chia tương ứng với chiều dài cột chất lỏng lộ ra ngoài bao gồm cả phần ước tính nằm trên mức quy định; `t_1`: nhiệt độ trung bình của cột chất lỏng lộ ra ngoài ghi trên thân nhiệt kế hoặc cho trong giấy chứng nhận hiệu chuẩn đối với nhiệt kế nhúng một phần hoặc số đọc của nhiệt kế nhúng toàn phần; `t_2`: nhiệt độ trung bình của cột chất lỏng lộ ra ngoài đo được bằng nhiệt kế phụ trong quá trình hiệu chuẩn.
 
 **a2. Đối với nhiệt kế nhúng toàn phần:**
 
-$$
-\Delta t = (\bar{t}_{ch} + \delta_{ch}) - \bar{t}_{bk}
-$$
+`Δt = (t̄_ch + δ_ch) - t̄_bk`
 
 Trong đó: `t̄_bk`: giá trị trung bình của nhiệt kế cần hiệu chuẩn tại điểm kiểm tra; `t̄_ch`: giá trị trung bình của nhiệt kế chuẩn tại điểm kiểm tra; `δ_ch`: số hiệu chính của nhiệt kế chuẩn (lấy trong GCN hiệu chuẩn).
 
@@ -234,9 +228,7 @@ Trong đó: `t̄_bk`: giá trị trung bình của nhiệt kế cần hiệu chu
 
 Độ hồi trễ (A) của nhiệt kế là hiệu số giữa số đọc sau và trước của nhiệt kế tại điểm 0 °C hoặc điểm giữa thang chia của hai lần đo:
 
-$$
-A = \bar{\Delta t}_S - \bar{\Delta t}_t
-$$
+`A = ‾(Δt)_S - ‾(Δt)_t`
 
 Trong đó: `Δt̄_S`: số hiệu chính trung bình (điểm 0 °C hoặc điểm giữa thang) ở lần đọc sau; `Δt̄_t`: số hiệu chính trung bình (điểm 0 °C hoặc điểm giữa thang) ở lần đọc trước.
 
@@ -263,55 +255,41 @@ Trong đó: `Δt̄_S`: số hiệu chính trung bình (điểm 0 °C hoặc đi�
 
 Tính độ lệch chuẩn:
 
-$$
-S_c = \sqrt{\frac{\sum_{i=1}^{k} (t_{chi} - \bar{t}_{ch})^2}{n-1}}
-$$
+`S_c = √((Σ(i=1→k) (t_chi - t̄_ch)²)/(n-1))`
 
 Trong đó: `t_chi`: giá trị của chuẩn lần đo thứ i tại điểm hiệu chuẩn; `t̄_ch`: giá trị trung bình của chuẩn tại điểm hiệu chuẩn; `n`: số lần đo tại điểm hiệu chuẩn.
 
 Tính độ lệch chuẩn luỹ tích `S_cm`:
 
-$$
-S_{cm} = \sqrt{\frac{1}{m}\sum_{j=1}^{m} S_{cj}^2}
-$$
+`S_cm = √((1/m)Σ(j=1→m) S_cj²)`
 
 Trong đó: `S_cj`: độ lệch chuẩn tại điểm hiệu chuẩn thứ j; `m`: số điểm hiệu chuẩn.
 
 Tính độ không đảm bảo đo do độ tản mạn của kết quả đo (u_ch1):
 
-$$
-u_{ch1} = \frac{S_{cm}}{\sqrt{n}}
-$$
+`u_ch1 = (S_cm/√(n))`
 
 **b. Chuẩn nhiệt độ chỉ thị hiện số (u_ch2):**
 
-$$
-u_{ch2} = \frac{U_{ch2}}{2}
-$$
+`u_ch2 = (U_ch2/2)`
 
 Trong đó: `U_ch2`: độ không đảm bảo đo của chuẩn (lấy trong GCN HC).
 
 **c. Độ ổn định của bình điều nhiệt (u_ch3):**
 
-$$
-u_{ch3} = \frac{\delta_{od}}{\sqrt{3}}
-$$
+`u_ch3 = (δ_od/√(3))`
 
 Trong đó: `δ_od`: độ ổn định của bình điều nhiệt (lấy trong GCN HC).
 
 **d. Độ đồng đều của bình điều nhiệt (u_ch4):**
 
-$$
-u_{ch4} = \frac{\delta_{dd}}{\sqrt{3}}
-$$
+`u_ch4 = (δ_dd/√(3))`
 
 Trong đó: `δ_dd`: độ đồng đều của bình điều nhiệt (lấy trong GCN HC).
 
 **Độ không đảm bảo đo tổng hợp chuẩn (u_ch):**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2 + u_{ch3}^2 + u_{ch4}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2² + u_ch3² + u_ch4²)`
 
 #### 7.4.2. Độ không đảm bảo đo của nhiệt kế (u_bk) gồm các thành phần sau
 
@@ -319,39 +297,29 @@ $$
 
 Tính độ lệch chuẩn:
 
-$$
-S_b = \sqrt{\frac{\sum_{i=1}^{k} (t_{bki} - \bar{t}_{bk})^2}{n-1}}
-$$
+`S_b = √((Σ(i=1→k) (t_bki - t̄_bk)²)/(n-1))`
 
 Trong đó: `t_bki`: giá trị của nhiệt kế lần đo thứ i tại điểm hiệu chuẩn; `t̄_bk`: giá trị trung bình của nhiệt kế tại điểm hiệu chuẩn; `n`: số lần đo tại điểm hiệu chuẩn.
 
 Tính độ lệch chuẩn luỹ tích `S_bm`:
 
-$$
-S_{bm} = \sqrt{\frac{1}{m}\sum_{j=1}^{m} S_{bj}^2}
-$$
+`S_bm = √((1/m)Σ(j=1→m) S_bj²)`
 
 Trong đó: `S_bj`: độ lệch chuẩn tại điểm hiệu chuẩn thứ j; `m`: số điểm hiệu chuẩn.
 
 Tính độ không đảm bảo đo do độ tản mạn của kết quả đo (u_bk1):
 
-$$
-u_{bk1} = \frac{S_{bm}}{\sqrt{n}}
-$$
+`u_bk1 = (S_bm/√(n))`
 
 **b. Độ hồi trễ của nhiệt kế (u_bk2):**
 
 Thành phần này được ước tính dựa trên độ hồi trễ A của nhiệt kế cần hiệu chuẩn:
 
-$$
-u_{bk2} = \frac{A}{2\sqrt{3}}
-$$
+`u_bk2 = (A/2√(3))`
 
 **c. Số hiệu chính cột chất lỏng thân lộ (u_bk3):**
 
-$$
-u_{bk3} = k_{bk} \times n \times u_p
-$$
+`u_bk3 = k_bk × n × u_p`
 
 Trong đó: `k_bk`: hệ số dãn nở nhiệt biểu kiến của nhiệt kế thuỷ tinh; `n`: số độ chia tương ứng với chiều dài cột chất lỏng lộ ra ngoài bao gồm cả phần ước tính nằm trên mức quy định (nhúng); `u_p`: là độ không đảm bảo đo chuẩn nhiệt kế phụ đo nhiệt độ phần cột chất lỏng lộ ra ngoài.
 
@@ -359,27 +327,19 @@ Trong đó: `k_bk`: hệ số dãn nở nhiệt biểu kiến của nhiệt kế
 
 Thành phần này được ước tính với độ phân giải đọc được là 10 % giá trị độ chia d và được đánh giá theo phân bố xác suất dạng hình chữ nhật:
 
-$$
-u_{bk4} = \frac{10 \times d}{100 \times \sqrt{3}} = \frac{d}{10\sqrt{3}}
-$$
+`u_bk4 = ((10 × d)/(100 × √(3))) = (d/10√(3))`
 
 **Độ không đảm bảo đo tổng hợp của nhiệt kế:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2² + u_bk3² + u_bk4²)`
 
 #### 7.4.3. Độ không đảm bảo đo chuẩn tổng hợp của phép hiệu chuẩn, u_c
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 #### 7.4.4. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \times u_c
-$$
+`U = k × u_c`
 
 Tính với mức độ tin cậy 95 % và hệ số phủ k = 2.
 

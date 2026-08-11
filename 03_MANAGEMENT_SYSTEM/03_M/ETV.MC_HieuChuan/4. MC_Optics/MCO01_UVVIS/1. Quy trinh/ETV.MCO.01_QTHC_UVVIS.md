@@ -178,9 +178,7 @@ Ngoài ra, còn một số thiết bị cũng có ảnh hưởng đến kết qu
 
 Sai số tại mỗi điểm hiệu chuẩn được xác định bằng hiệu số giữa giá trị của chuẩn và giá trị trung bình của các kết quả đo trên PTĐ theo công thức:
 
-$$
-h_c = x_{tb} - x_{ch}
-$$
+`h_c = x_tb - x_ch`
 
 - `h_c`: sai số tại mỗi điểm hiệu chuẩn;
 - `x_tb`: kết quả đo trên PTĐ;
@@ -212,33 +210,23 @@ Các thành phần của độ không đảm bảo đo cho trong bảng sau:
 
   Giá trị trung bình của phép đo lặp lại n lần từ giá trị quan sát được `x_i` (i = 1, 2, …, n):
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+`x̄ = (1/n)Σ(i=1→n) x_i`
 
   Độ lệch chuẩn:
 
-$$
-s(x) = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
-$$
+`s(x) = √((Σ(i=1→n)(x_i - x̄)²)/(n-1))`
 
-$$
-u_{A1} = \frac{s(x)}{\sqrt{n} \cdot x_{tb}} \times 100
-$$
+`u_A1 = (s(x)/(√(n) · x_tb)) × 100`
 
 - **`u_pg1`** (%, loại B, chữ nhật) — độ phân giải:
 
-$$
-u_{pg1} = \frac{a_{pg1}}{2\sqrt{3} \cdot x_{tb}} \times 100
-$$
+`u_pg1 = (a_pg1/(2√(3) · x_tb)) × 100`
 
   với `a_pg1` là độ phân giải của máy UV-Vis.
 
 - **`u_ch1`** (%, loại B, chuẩn):
 
-$$
-u_{ch1} = \frac{U_{ch1}}{2 \cdot x_{ch}} \times 100
-$$
+`u_ch1 = (U_ch1/(2 · x_ch)) × 100`
 
   với `U_ch1` (nm) là ĐKĐB lấy theo giấy chứng nhận hiệu chuẩn của kính lọc chuẩn.
 
@@ -246,27 +234,19 @@ $$
 
   Độ không đảm bảo đo tổng hợp của máy UV-Vis:
 
-$$
-u_{ctb1} = \sqrt{x_{tb} \cdot u_{A1}^2 + u_{pg}^2} / 100
-$$
+`u_ctb1 = √(x_tb · u_A1² + u_pg²) / 100`
 
   Độ không đảm bảo đo tổng hợp của chuẩn:
 
-$$
-u_{cc1} = (x_c \cdot u_{ch1}) / 100
-$$
+`u_cc1 = (x_c · u_ch1) / 100`
 
   Độ không đảm bảo đo tổng hợp tại mỗi điểm hiệu chuẩn:
 
-$$
-u_{c1} = \sqrt{u_{cc1}^2 + u_{ctb1}^2}
-$$
+`u_c1 = √(u_cc1² + u_ctb1²)`
 
   Độ không đảm bảo đo mở rộng:
 
-$$
-U_{bs} = k \cdot u_{c1}
-$$
+`U_bs = k · u_c1`
 
   với `k` là hệ số phủ (k = 2 tương ứng với xác suất tin cậy P = 0,95).
 
@@ -280,47 +260,33 @@ $$
 
   Giá trị trung bình của phép đo lặp lại n lần từ giá trị quan sát được `A_i` (i = 1, 2, …, n):
 
-$$
-\bar{A} = \frac{1}{n}\sum_{i=1}^{n} A_i
-$$
+`Ā = (1/n)Σ(i=1→n) A_i`
 
   Độ lệch chuẩn:
 
-$$
-s(A) = \sqrt{\frac{\sum_{i=1}^{n}(A_i - \bar{A})^2}{n-1}}
-$$
+`s(A) = √((Σ(i=1→n)(A_i - Ā)²)/(n-1))`
 
-$$
-u_{A2} = \frac{s(A)}{\sqrt{n} \cdot A_{tb}} \times 100
-$$
+`u_A2 = (s(A)/(√(n) · A_tb)) × 100`
 
 - **`u_pg2`** (%, loại B, chữ nhật) — độ phân giải:
 
-$$
-u_{pg2} = \frac{a_{pg2}}{2\sqrt{3} \cdot A_{tb}} \times 100
-$$
+`u_pg2 = (a_pg2/(2√(3) · A_tb)) × 100`
 
   với `a_pg2` là độ phân giải của máy UV-Vis.
 
 - **`u_ch2`** (%, loại B, chuẩn):
 
-$$
-u_{ch2} = \frac{U_{ch2}}{2 \cdot A_{ch}} \times 100
-$$
+`u_ch2 = (U_ch2/(2 · A_ch)) × 100`
 
   với `U_ch2` (nm) là ĐKĐB lấy theo giấy chứng nhận hiệu chuẩn của kính lọc chuẩn hoặc lọ dung dịch chuẩn.
 
 - **`u_bs`** (%, loại B, chuẩn):
 
-$$
-u_{bs} = \frac{U_{bs}}{2 \cdot x_{tb}} \times 100
-$$
+`u_bs = (U_bs/(2 · x_tb)) × 100`
 
   `U_bs` (Abs) là ĐKĐB được ước lượng theo công thức (12), trang 24 trong tài liệu hướng dẫn tính ĐKĐB của NIST — "Regular Spectral Transmittance". Theo đó:
 
-$$
-U_{bs} = \frac{u(\lambda)}{d\lambda} = \frac{dA}{d\lambda} \cdot \frac{u_i(\lambda)}{A}
-$$
+`U_bs = (u(λ)/dλ) = (dA/dλ) · (u_i(λ)/A)`
 
   Giá trị `U_bs` sẽ được ước lượng theo kết quả tính toán của NIST tương ứng với ĐKĐB của phép đo sai lệch bước sóng ở trên.
 
@@ -328,27 +294,19 @@ $$
 
   Độ không đảm bảo đo tổng hợp của máy UV-Vis:
 
-$$
-u_{ctb2} = \sqrt{A_{tb} \cdot u_{A2}^2 + u_{pg2}^2 + u_{bs}^2} / 100
-$$
+`u_ctb2 = √(A_tb · u_A2² + u_pg2² + u_bs²) / 100`
 
   Độ không đảm bảo đo tổng hợp của chuẩn:
 
-$$
-u_{cc2} = (A_c \cdot u_{ch2}) / 100
-$$
+`u_cc2 = (A_c · u_ch2) / 100`
 
   Độ không đảm bảo đo tổng hợp tại mỗi điểm hiệu chuẩn:
 
-$$
-u_{c2} = \sqrt{u_{cc2}^2 + u_{ctb2}^2}
-$$
+`u_c2 = √(u_cc2² + u_ctb2²)`
 
   Độ không đảm bảo đo mở rộng:
 
-$$
-U_{ht} = k \cdot u_{c2}
-$$
+`U_ht = k · u_c2`
 
   với `k` là hệ số phủ (k = 2 tương ứng với xác suất tin cậy P = 0,95).
 

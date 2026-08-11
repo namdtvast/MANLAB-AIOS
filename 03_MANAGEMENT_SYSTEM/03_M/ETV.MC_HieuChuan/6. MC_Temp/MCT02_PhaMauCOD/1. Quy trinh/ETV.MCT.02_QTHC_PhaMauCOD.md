@@ -169,9 +169,7 @@ Số điểm nhiệt độ kiểm tra phải chia đều trong dải nhiệt đ�
 
 Số hiệu chính tại một lỗ của bộ phá mẫu tại điểm nhiệt độ kiểm tra được tính theo công thức:
 
-$$
-t = (\bar{t}_{ch} + \partial t) - \bar{t}_{bk}
-$$
+`t = (t̄_ch + ∂ t) - t̄_bk`
 
 Trong đó: `t̄_ch`: giá trị chỉ thị trung bình của nhiệt kế chuẩn; `t̄_bk`: giá trị chỉ thị trung bình của thiết bị phá mẫu; `∂t`: số hiệu chính của nhiệt kế chuẩn tại điểm nhiệt độ kiểm tra (xem trong giấy chứng nhận hiệu chuẩn).
 
@@ -181,9 +179,7 @@ Số hiệu chính các lỗ còn lại tính tương tự như trên.
 
 Độ đồng đều của thiết bị phá mẫu tại một điểm kiểm tra nhiệt độ được tính bằng công thức:
 
-$$
-\delta_{dd} = \pm \frac{1}{2} \max[\max\ t_{i.j} - \min\ t_{i.j}]\quad \text{với } i=1,2\ldots n;\ j=1,2\ldots m
-$$
+`δ_dd = ± (1/2) max[max t_i.j - min t_i.j] với i=1,2… n; j=1,2… m`
 
 Trong đó: `δ_dd`: là độ đồng đều của thiết bị phá mẫu; `max t_i.j`, `min t_i.j`: nhiệt độ lớn nhất và nhỏ nhất trong k nhiệt kế.
 
@@ -191,9 +187,7 @@ Trong đó: `δ_dd`: là độ đồng đều của thiết bị phá mẫu; `ma
 
 Độ ổn định của thiết bị phá mẫu tại một điểm kiểm tra nhiệt độ được tính bằng công thức:
 
-$$
-\delta_{od} = \pm \frac{1}{2} \max(\max\ t_i - \min\ t_i)\quad \text{với } i=1,2\ldots n
-$$
+`δ_od = ± (1/2) max(max t_i - min t_i) với i=1,2… n`
 
 Trong đó: `δ_od`: là độ ổn định của thiết bị phá mẫu; `t_max,i`, `t_min,i`: nhiệt độ lớn nhất và nhỏ nhất của nhiệt kế chuẩn thứ k tại điểm kiểm tra nhiệt độ.
 
@@ -218,55 +212,41 @@ Trong đó: `δ_od`: là độ ổn định của thiết bị phá mẫu; `t_ma
 
 **a. Độ không đảm bảo đo chuẩn loại A của chỉ thị các nhiệt kế chuẩn (u_ch1):**
 
-$$
-u_{ch1} = \sqrt{\sum_{j=1}^{k} u_{ch1,j}^2}
-$$
+`u_ch1 = √(Σ(j=1→k) u_ch1,j²)`
 
 Trong đó `u_ch1,j` là độ không đảm bảo đo loại A của nhiệt kế thứ j:
 
-$$
-u_{ch1,j} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_{ij} - \bar{t}_j)^2}{n-1}}
-$$
+`u_ch1,j = √(S_j²/n) ; S_j = √((Σ(i=1→n) (t_ij - t̄_j)²)/(n-1))`
 
 Với `S_j`: là độ lệch chuẩn của nhiệt kế chuẩn thứ j; `n`: số lần đọc tại mỗi điểm; `t_ij`: lần đọc thứ i của nhiệt kế thứ j; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của nhiệt kế chuẩn thứ j.
 
 **b. Độ không đảm bảo đo của tổ hợp chuẩn, gồm các thiết bị chỉ thị đo với các nhiệt kế chuẩn (u_ch2):**
 
-$$
-u_{ch2} = \frac{U_{95}}{2}
-$$
+`u_ch2 = (U_95/2)`
 
 Trong đó `U_95` là độ không đảm bảo đo mở rộng của tổ hợp đo với nhiệt kế chuẩn (lấy giá trị của tổ hợp chuẩn có giá trị lớn nhất).
 
 **Độ không đảm bảo đo liên hợp của tổ hợp chuẩn:**
 
-$$
-u_{ch} = \sqrt{u_{ch1}^2 + u_{ch2}^2}
-$$
+`u_ch = √(u_ch1² + u_ch2²)`
 
 #### 7.4.2. Độ không đảm bảo thiết bị phá mẫu (u_bk)
 
 **a. Độ không đảm bảo đo chuẩn loại A của thiết bị phá mẫu (u_bk1):**
 
-$$
-u_{bk1} = \sqrt{\frac{S_j^2}{n}}\ ;\quad S_j = \sqrt{\frac{\sum_{i=1}^{n} (t_i - \bar{t}_j)^2}{n-1}}
-$$
+`u_bk1 = √(S_j²/n) ; S_j = √((Σ(i=1→n) (t_i - t̄_j)²)/(n-1))`
 
 Với: `S_j`: là độ lệch chuẩn tại điểm đo thứ N; `n`: số lần đọc tại mỗi điểm; `t_i`: lần đọc thứ i của thiết bị phá mẫu; `t̄_j`: nhiệt độ trung bình tại điểm kiểm tra của thiết bị phá mẫu.
 
 **b. Độ không đảm bảo đo tính theo độ đồng đều (u_bk2):**
 
-$$
-u_{bk2} = \frac{\delta_{dd}}{\sqrt{3}}
-$$
+`u_bk2 = (δ_dd/√(3))`
 
 Trong đó: `δ_dd`: là độ đồng đều của thiết bị phá mẫu.
 
 **c. Độ không đảm bảo đo tính theo độ ổn định (u_bk3):**
 
-$$
-u_{bk3} = \frac{\delta_{od}}{\sqrt{3}}
-$$
+`u_bk3 = (δ_od/√(3))`
 
 Trong đó: `δ_od`: là độ ổn định của thiết bị phá mẫu.
 
@@ -274,37 +254,27 @@ Trong đó: `δ_od`: là độ ổn định của thiết bị phá mẫu.
 
 Đối với chỉ thị tương tự:
 
-$$
-u_{bk4} = \frac{d}{3\sqrt{3}}
-$$
+`u_bk4 = (d/3√(3))`
 
 Trong đó: d là giá trị độ chia của thiết bị.
 
 Đối với chỉ thị hiện số:
 
-$$
-u_{bk4} = \frac{d}{2\sqrt{3}}
-$$
+`u_bk4 = (d/2√(3))`
 
 Trong đó: d là độ phân giải của thiết bị.
 
 **Độ không đảm bảo đo tổng hợp của thiết bị phá mẫu:**
 
-$$
-u_{bk} = \sqrt{u_{bk1}^2 + u_{bk2}^2 + u_{bk3}^2 + u_{bk4}^2}
-$$
+`u_bk = √(u_bk1² + u_bk2² + u_bk3² + u_bk4²)`
 
 #### 7.4.3. Độ không đảm bảo đo chuẩn tổng hợp của phép hiệu chuẩn, u_c
 
-$$
-u_c = \sqrt{u_{ch}^2 + u_{bk}^2}
-$$
+`u_c = √(u_ch² + u_bk²)`
 
 #### 7.4.4. Độ không đảm bảo đo mở rộng
 
-$$
-U = k \times u_c
-$$
+`U = k × u_c`
 
 Tính với mức độ tin cậy 95 % và hệ số phủ k = 2.
 
