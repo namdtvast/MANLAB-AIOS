@@ -42,7 +42,7 @@ superseded_by: null
 
 > **Tình trạng bản này:** Lần ban hành 03 — biên soạn lại toàn bộ thân bài (mục 1 trở đi) theo yêu cầu soát xét của người dùng, theo đúng ETV.P14 §6.4 (ban hành lại → lần ban hành tăng thêm 01). Lần ban hành 02 (22/04/2026, xem `supersedes`) là bản chuyển đổi trực tiếp từ PDF gốc `ETV.MCF 08_Do muc tu dong.pdf`, trong đó phát hiện toàn bộ nội dung thân bài trùng khớp gần như nguyên văn với `ETV.MCF 05` (Phương tiện đo lưu lượng kênh hở) — lỗi sao chép mẫu từ Viện, không mô tả đúng đối tượng "phương tiện đo mức tự động". Nội dung dưới đây được soạn lại đúng đối tượng, theo cấu trúc chuẩn chung của nhóm quy trình MCF và tham chiếu `ETV.MCF 12` (Đo mực nước — cùng lĩnh vực đo mức, gần nhất về phương pháp).
 >
-> **Cần soát xét/phê duyệt chính thức theo ETV.P14 trước khi áp dụng cho khách hàng:** bản này do AI soạn thảo theo yêu cầu và nội dung do AI đề xuất (mục 1–9) — chưa qua bước soát xét kỹ thuật (LĐP) và phê duyệt (LĐV) thực tế theo đúng luồng RACI của ETV.P14 §III/§6.6.1; tên người soát xét/phê duyệt trong bảng trên tạm giữ theo mẫu chung của hệ thống, chưa phải chữ ký thật.
+> **Cần soát xét/phê duyệt chính thức theo ETV.P14 trước khi áp dụng cho khách hàng:** nội dung mục 1–9 chưa qua bước soát xét kỹ thuật (LĐP) và phê duyệt (LĐV) thực tế theo đúng luồng RACI của ETV.P14 §III/§6.6.1; tên người soát xét/phê duyệt trong bảng trên tạm giữ theo mẫu chung của hệ thống, chưa phải chữ ký thật.
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
