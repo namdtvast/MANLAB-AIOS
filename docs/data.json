@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11 07:07 UTC",
+ "generated_at": "2026-08-11 11:56 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,16 +11,16 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7125,
-  "dirs": 1691,
-  "docs": 4729,
+  "files": 7124,
+  "dirs": 1698,
+  "docs": 4724,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 844,
+   ".md": 848,
    ".png": 95,
-   ".pdf": 3428,
+   ".pdf": 3423,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 291,
@@ -3554,7 +3554,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 20012
+                "size": 20446
                }
               ],
               "n_dirs": 0,
@@ -4340,9 +4340,59 @@
             ],
             "n_dirs": 1,
             "n_files": 0
+           },
+           {
+            "name": "MCT_DLVN138_NhietKeHienSoTuongTu",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN138_QTHC_NhietKeHienSoTuongTu.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/1. Quy trinh/DLVN138_QTHC_NhietKeHienSoTuongTu.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 22038
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCT_DLVN160_ChiThiNhietDo",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN160_QTHC_ChiThiNhietDo.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 20696
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
            }
           ],
-          "n_dirs": 13,
+          "n_dirs": 15,
           "n_files": 0
          },
          {
@@ -4426,6 +4476,56 @@
             "n_files": 0
            },
            {
+            "name": "MCP_DLVN112_ChuyenDoiApSuat",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN112_QTHC_ChuyenDoiApSuat.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/1. Quy trinh/DLVN112_QTHC_ChuyenDoiApSuat.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 19549
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCP_DLVN133_DatMucApSuat",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN133_QTHC_DatMucApSuat.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/1. Quy trinh/DLVN133_QTHC_DatMucApSuat.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 17706
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
             "name": "MCP_DLVN76_ApKe",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe",
             "type": "dir",
@@ -4467,7 +4567,7 @@
             "n_files": 0
            }
           ],
-          "n_dirs": 4,
+          "n_dirs": 6,
           "n_files": 0
          },
          {
@@ -4884,7 +4984,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 24374
+        "size": 26366
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -15941,50 +16041,6 @@
       "type": "dir",
       "children": [
        {
-        "name": "QTHC",
-        "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC",
-        "type": "dir",
-        "children": [
-         {
-          "name": "DLVN 112_2002_QTHC_TB Chuyen doi ap suat.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 112_2002_QTHC_TB Chuyen doi ap suat.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 362308
-         },
-         {
-          "name": "DLVN 138_2004.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 138_2004.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 255097
-         },
-         {
-          "name": "DLVN 160 2005.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 160 2005.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 2320584
-         },
-         {
-          "name": "DLVN 76_Ap ke_Scan.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN 76_Ap ke_Scan.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 5450900
-         },
-         {
-          "name": "DLVN_133_2004_Thiet bi dat muc ap suat.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/DLVN_133_2004_Thiet bi dat muc ap suat.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 134189
-         }
-        ],
-        "n_dirs": 0,
-        "n_files": 5
-       },
-       {
         "name": "AI-Agents-in-Depth-vi.pdf",
         "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/AI-Agents-in-Depth-vi.pdf",
         "type": "file",
@@ -16015,7 +16071,7 @@
       ],
       "desc": "**Mục đích:** Lưu trữ tạm thời tài liệu PDF, Word, ảnh liên quan đến ISO, pháp lý, tiêu chuẩn, quy trình trước khi phân loại vào các thư mục chính của `08_KNOWLEDGE_GRAPH`.",
       "readme": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/README.md",
-      "n_dirs": 1,
+      "n_dirs": 0,
       "n_files": 4
      },
      {
