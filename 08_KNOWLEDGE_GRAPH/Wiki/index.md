@@ -27,7 +27,7 @@ Mục lục trung tâm của Wiki tri thức, tổng hợp từ dữ liệu thô
 | TCVN | 231 | `04_TCVN/` | [TCVN.md](TCVN.md) |
 | ISO mua/áp dụng | 40 | `02_ISO/` | [ISO-MuaApDung.md](ISO-MuaApDung.md) |
 | Công nhận PTN (BoA, A2LA, ANAB, ILAC, EA) | 226 | `05_ILAC/` | [ILAC-CongNhan.md](ILAC-CongNhan.md) |
-| Quốc tế khác (EPA, BS EN, OIML, VIM/GUM, APHA, ASTM, SMEWW, mCERTs, IUPAC) | 92 | `12_International/` | [Quoc-te-khac.md](Quoc-te-khac.md) |
+| Quốc tế khác (EPA, BS EN, OIML, VIM/GUM, APHA, ASTM, SMEWW, mCERTs, IUPAC) | 93 | `12_International/` | [Quoc-te-khac.md](Quoc-te-khac.md) |
 | Chất chuẩn (RM/CRM), RMP, thử nghiệm thành thạo | 71 | `14_Technical_References/02_ChatChuan/` | [ChatChuan-PT.md](ChatChuan-PT.md) |
 | Đo lường vật lý (pha loãng, thể tích, lưu lượng, gió, nhiệt, ồn, khối lượng, Hg) | 310 | `14_Technical_References/03_VatLy/` | [Do-luong-vat-ly.md](Do-luong-vat-ly.md) |
 | Đo lường nước | 197 | `14_Technical_References/04_Nuoc/` | [Do-luong-nuoc.md](Do-luong-nuoc.md) |
@@ -36,7 +36,7 @@ Mục lục trung tâm của Wiki tri thức, tổng hợp từ dữ liệu thô
 | TLTK Chuẩn Bụi (R&D chuẩn bụi) | 788 | `14_Technical_References/07_TLTK_ChuanBui/` | [TLTK-ChuanBui.md](TLTK-ChuanBui.md) |
 | Tài liệu chung (hiệu chuẩn tổng quát + 1 QĐ pháp lý) | 17 | `14_Technical_References/08_TaiLieuChung/`, `01_Regulations/` | [TaiLieuChung.md](TaiLieuChung.md) |
 | HDSD thiết bị (đã xoá ~2.982 file phần mềm/log lẫn vào, giữ lại 2.328) | 2.328 | `15_HDSD_ThietBi/` | [HDSD-ThietBi.md](HDSD-ThietBi.md) |
-| **Tổng (sau khi xoá phần mềm/log rác)** | **~6.028** | | |
+| **Tổng (sau khi xoá phần mềm/log rác)** | **~6.029** | | |
 
 ---
 

@@ -89,6 +89,19 @@ Tổng cộng ~420MB / 2.982 file đã xoá khỏi ổ đĩa, trong đó **~242 
 
 ---
 
+## 2026-08-11 — Dọn tiếp `00_RAW_DATA` (file mới phát sinh sau đợt xử lý gốc)
+
+**Phạm vi:** 4 file còn sót lại trực tiếp trong `00_RAW_DATA/` (không phải thuộc ~9.011 file đợt gốc — đã thêm vào sau ngày 08/07/2026), sau khi thư mục `QTHC/` (52 file quy trình hiệu chuẩn nội bộ ETV.MCx + ĐLVN) đã được xử lý xong ở đợt trước bằng chuyển đổi Markdown trực tiếp vào `03_MANAGEMENT_SYSTEM/03_M/` (không qua Wiki, vì đó là tài liệu quy trình nội bộ đã ban hành, không phải tri thức tham chiếu).
+
+**Đã xử lý:**
+1. `UfS_2019_EN_P2.pdf` (EURACHEM/CITAC Guide "Measurement uncertainty arising from Sampling", 2nd ed. 2019) — xác định nội dung qua `pdftotext` trang bìa, di chuyển vào `12_International/VIM_GUM/` (đổi tên `EURACHEM-CITAC_UfS_2019_2nd-ed.pdf` cho rõ nguồn), cập nhật [Wiki/Quoc-te-khac.md](Wiki/Quoc-te-khac.md) (mục VIM, GUM: 7→8 file) và [Wiki/index.md](Wiki/index.md) (92→93 file nhóm Quốc tế khác, tổng ~6.028→~6.029).
+
+**Ngoại lệ đã xác nhận với người dùng:** 2 file về xây dựng AI Agent (`AI-Agents-in-Depth-vi.pdf`, `Hướng dẫn xây dựng Agent thực tế - OpenAI (bản tiếng Việt) - Phan Đông Giang dịch.pdf`) không thuộc phạm vi tài liệu ISO/pháp lý/tiêu chuẩn/quy trình đo lường mà `00_RAW_DATA` được định nghĩa để chứa (xem [README.md](README.md) mục đích), và không có thư mục đích phù hợp sẵn có trong cấu trúc hiện tại. Đã hỏi người dùng — quyết định: **để nguyên tại `00_RAW_DATA/`** như một ngoại lệ có chủ đích, không di chuyển/xoá.
+
+**Trạng thái sau đợt này:** `00_RAW_DATA` còn 3 file (2 file AI Agent nêu trên, giữ lại theo quyết định của người dùng + `README.md` của chính thư mục) — không còn PDF/tài liệu thuộc phạm vi tri thức đo lường/pháp lý/tiêu chuẩn.
+
+---
+
 ## Quy ước ghi log
 
 Mỗi đợt xử lý ghi: ngày, phạm vi (thư mục/số file), các bước đã làm, vấn đề phát hiện nhưng chưa xử lý, và số liệu còn lại trong `00_RAW_DATA`.
