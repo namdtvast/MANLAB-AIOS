@@ -199,23 +199,23 @@ Các nguồn gây ra độ không đảm bảo đo:
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄c` đo được tại điểm kiểm tra:
 
-  $$
-  \bar{V}_c = \frac{\sum_1^n V_{ci}}{n}\ \text{, rpm} \tag{1}
-  $$
+$$
+\bar{V}_c = \frac{\sum_1^n V_{ci}}{n}\ \text{, rpm} \tag{1}
+$$
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_ci`: tốc độ vòng quay của chuẩn đo được ở lần đo thứ i, rpm; `V̄c`: tốc độ vòng quay trung bình của chuẩn đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-  $$
-  s(V_c) = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n-1}}\ \text{, rpm} \tag{2}
-  $$
+$$
+s(V_c) = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n-1}}\ \text{, rpm} \tag{2}
+$$
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-  $$
-  u_{A1} = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n(n-1)}}\ \text{, rpm} \tag{3}
-  $$
+$$
+u_{A1} = \sqrt{\frac{\sum_1^n (V_{ci} - \bar{V}_c)^2}{n(n-1)}}\ \text{, rpm} \tag{3}
+$$
 
 **b) ĐKĐB của phương tiện đo tốc độ vòng quay chuẩn**
 
@@ -239,23 +239,23 @@ Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân 
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄_tb` đo được tại điểm kiểm tra:
 
-  $$
-  \bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, rpm} \tag{6}
-  $$
+$$
+\bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, rpm} \tag{6}
+$$
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_tbi`: tốc độ vòng quay của DUT đo được ở lần đo thứ i, rpm; `V̄_tb`: tốc độ vòng quay trung bình của DUT đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-  $$
-  s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n-1}}\ \text{, rpm} \tag{7}
-  $$
+$$
+s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n-1}}\ \text{, rpm} \tag{7}
+$$
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-  $$
-  u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, rpm} \tag{8}
-  $$
+$$
+u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbi} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, rpm} \tag{8}
+$$
 
 **b) ĐKĐB do độ phân giải của DUT**
 

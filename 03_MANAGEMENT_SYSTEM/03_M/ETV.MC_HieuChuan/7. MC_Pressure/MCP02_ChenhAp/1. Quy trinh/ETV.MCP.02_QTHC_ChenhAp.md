@@ -168,15 +168,15 @@ Trường hợp trên áp kế không ghi cấp chính xác để xác định s
 
 - Đối với áp kế kiểu chênh áp nước và lò xo:
 
-  $$
-  \text{cấp chính xác} = \frac{\frac{1}{2}\ \text{giá trị độ chia nhỏ nhất}}{\text{phạm vi đo}} \times 100
-  $$
+$$
+\text{cấp chính xác} = \frac{\frac{1}{2}\ \text{giá trị độ chia nhỏ nhất}}{\text{phạm vi đo}} \times 100
+$$
 
 - Đối với áp kế chênh áp hiện số:
 
-  $$
-  \text{cấp chính xác} = \frac{\text{độ phân giải}}{\text{phạm vi đo}} \times 100
-  $$
+$$
+\text{cấp chính xác} = \frac{\text{độ phân giải}}{\text{phạm vi đo}} \times 100
+$$
 
 #### 7.3.2. Tiến hành hiệu chuẩn
 
@@ -239,15 +239,15 @@ $$
 
 - Đối với thiết bị đo áp suất kiểu lò xo và nước:
 
-  $$
-  u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}
-  $$
+$$
+u_{tb} = \frac{\text{Độ chia vạch}}{\sqrt{6}}
+$$
 
 - Đối với thiết bị đo áp suất kiểu hiện số:
 
-  $$
-  u_{tb} = \frac{\text{Độ phân giải ở áp suất lớn nhất}}{\sqrt{3}}
-  $$
+$$
+u_{tb} = \frac{\text{Độ phân giải ở áp suất lớn nhất}}{\sqrt{3}}
+$$
 
 **Tính `u_ch`** — xác định theo độ không đảm bảo đo `U(ch)` của chuẩn theo giấy chứng nhận hiệu chuẩn:
 

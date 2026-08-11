@@ -225,15 +225,15 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
 
-  $$
-  u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
-  $$
+$$
+u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
+$$
 
 - Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
 
-  $$
-  u_{B2} = \frac{c}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
-  $$
+$$
+u_{B2} = \frac{c}{2}\left(\frac{\Delta_{TDS}}{\Delta_t}\right)
+$$
 
 `(Δ_TDS/Δ_t)`: Giá trị TDS thay đổi theo nhiệt độ tính trên 1 °C.
 
@@ -266,41 +266,41 @@ $$
 
 - Độ không đảm bảo gây nên bởi pipet dùng để pha loãng dung dịch chuẩn:
 
-  $$
-  u_{pipet} = \frac{d}{k}
-  $$
+$$
+u_{pipet} = \frac{d}{k}
+$$
 
   - `d`: độ không đảm bảo đo từ pipet có thể tích là `V_pipet`;
   - `k`: hệ số phủ trên giấy chứng nhận.
 
 - Độ không đảm bảo gây nên bởi bình định mức sử dụng để pha loãng dung dịch chuẩn:
 
-  $$
-  u_{flask} = \frac{e}{k}
-  $$
+$$
+u_{flask} = \frac{e}{k}
+$$
 
   - `e`: độ không đảm bảo đo từ bình định mức có thể tích là `V_flask`;
   - `k`: hệ số phủ trên giấy chứng nhận.
 
 - Tính `u_B1'`:
 
-  $$
-  u_{B1}' = \frac{u_{solution}}{C_{solution}} = \sqrt{\left(\frac{u_{B1}}{c_{B1}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{flask}}{V_{flask}}\right)^2}
-  $$
+$$
+u_{B1}' = \frac{u_{solution}}{C_{solution}} = \sqrt{\left(\frac{u_{B1}}{c_{B1}}\right)^2 + \left(\frac{u_{pipet}}{V_{pipet}}\right)^2 + \left(\frac{u_{flask}}{V_{flask}}\right)^2}
+$$
 
 **Tính toán ĐKĐB tổng hợp**
 
 - Đối với phương pháp trực tiếp:
 
-  $$
-  u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
-  $$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
+$$
 
 - Đối với phương pháp pha loãng:
 
-  $$
-  u_C = \sqrt{u_A^2 + u_{B1}'^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
-  $$
+$$
+u_C = \sqrt{u_A^2 + u_{B1}'^2 + u_{B2}^2 + u_{B3}^2 + u_{B4}^2 + u_{B5}^2}
+$$
 
 **ĐKĐB mở rộng**
 

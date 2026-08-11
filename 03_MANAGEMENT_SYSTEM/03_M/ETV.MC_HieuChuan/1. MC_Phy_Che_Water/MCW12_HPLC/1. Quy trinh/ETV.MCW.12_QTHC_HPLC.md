@@ -266,17 +266,17 @@ $$
 
 - ĐKĐB của bình định mức lấy từ giấy chứng nhận hiệu chuẩn:
 
-  $$
-  u_{bdm1} = \frac{a}{2}
-  $$
+$$
+u_{bdm1} = \frac{a}{2}
+$$
 
   với `a` là ĐKĐB của bình định mức lấy từ giấy chứng nhận hiệu chuẩn.
 
 - ĐKĐB thành phần `u_bdm2` do độ tản mạn:
 
-  $$
-  u_{bdm2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(V_{bdm_i} - \bar{V}_{bdm})^2}{n-1}}
-  $$
+$$
+u_{bdm2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(V_{bdm_i} - \bar{V}_{bdm})^2}{n-1}}
+$$
 
   - `S_i`: Độ lệch chuẩn, mL;
   - `n`: Số lần đo;
@@ -285,25 +285,25 @@ $$
 
 - Hệ số nhạy:
 
-  $$
-  c_{bdm} = \frac{\partial C_i}{\partial V_{bdm}} = \frac{1}{t}
-  $$
+$$
+c_{bdm} = \frac{\partial C_i}{\partial V_{bdm}} = \frac{1}{t}
+$$
 
 **ĐKĐB gây ra bởi đồng hồ bấm giây `u(t) = √(u_t1² + u_t2²)` và hệ số nhạy `c_t`**
 
 - ĐKĐB của đồng hồ bấm giây lấy từ giấy chứng nhận hiệu chuẩn:
 
-  $$
-  u_{t1} = \frac{b}{2}
-  $$
+$$
+u_{t1} = \frac{b}{2}
+$$
 
   với `b` là ĐKĐB của đồng hồ bấm giây lấy từ giấy chứng nhận hiệu chuẩn.
 
 - ĐKĐB thành phần `u_t2` do độ tản mạn:
 
-  $$
-  u_{t2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-  $$
+$$
+u_{t2} = \sqrt{\frac{S_i^2}{n}} = \frac{S_i}{\sqrt{n}} \qquad \text{với } S_i = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
+$$
 
   - `S_i`: Độ lệch chuẩn, s;
   - `n`: Số lần đo;
@@ -312,15 +312,15 @@ $$
 
 - Hệ số nhạy:
 
-  $$
-  c_t = \frac{\partial C_i}{\partial C_t} = \frac{-V}{t^2}
-  $$
+$$
+c_t = \frac{\partial C_i}{\partial C_t} = \frac{-V}{t^2}
+$$
 
 - ĐKĐB ảnh hưởng bởi độ phân tán của kết quả đo thời gian 06 lần lặp lại: `u_1`
 
-  $$
-  S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
-  $$
+$$
+S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
+$$
 
   - `S_f`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị thời gian đo lần i (i = 1, 2, …, n);
@@ -329,15 +329,15 @@ $$
 
 - ĐKĐB tổng hợp:
 
-  $$
-  u_f = \sqrt{u_1^2 + u_t^2 + u_V^2}
-  $$
+$$
+u_f = \sqrt{u_1^2 + u_t^2 + u_V^2}
+$$
 
 - ĐKĐB mở rộng:
 
-  $$
-  U_f = k \times u_f
-  $$
+$$
+U_f = k \times u_f
+$$
 
   Độ KĐBĐ mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
@@ -353,17 +353,17 @@ $$
 
 - ĐKĐB `u_ch1` của nhiệt kế chuẩn (ĐKĐB kiểu B):
 
-  $$
-  u_{ch1} = \frac{U_{95}}{2}
-  $$
+$$
+u_{ch1} = \frac{U_{95}}{2}
+$$
 
   với `U₉₅`: ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ GCN hiệu chuẩn.
 
 - ĐKĐB do độ tản mạn `u_ch2` của các kết quả đo bởi nhiệt kế chuẩn (kiểu A):
 
-  $$
-  u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-  $$
+$$
+u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
+$$
 
   - `S_ch2`: Độ lệch chuẩn nhiệt độ dung môi đo được bởi nhiệt kế chuẩn tại điểm hiệu chuẩn nhiệt độ buồng, °C;
   - `n`: Số lần đo lặp nhiệt độ buồng bởi nhiệt kế chuẩn tại mỗi điểm hiệu chuẩn nhiệt độ, n = 5;
@@ -378,9 +378,9 @@ $$
 
 - ĐKĐB do độ tản mạn `u_bk1` của các kết quả đo của bộ chỉ thị nhiệt buồng HPLC:
 
-  $$
-  u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{bk1} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-  $$
+$$
+u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{bk1} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
+$$
 
   - `S_bk1`: Độ lệch chuẩn nhiệt độ buồng đo được trên HPLC tại điểm hiệu chuẩn nhiệt độ, °C;
   - `n`: Số lần đo lặp, n = 5;
@@ -389,9 +389,9 @@ $$
 
 - ĐKĐB do độ phân giải `u_bk2` của chỉ thị nhiệt độ của HPLC:
 
-  $$
-  u_{bk2} = \frac{d}{2\sqrt{3}}
-  $$
+$$
+u_{bk2} = \frac{d}{2\sqrt{3}}
+$$
 
   - `d`: Độ phân giải chỉ thị nhiệt độ của HPLC (°C).
 
@@ -460,9 +460,9 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 - Độ KĐBĐ do độ phân tán kết quả đo của PTĐ n lần lặp lại: `u_A`
 
-  $$
-  S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
-  $$
+$$
+S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
+$$
 
   - `S_C`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị diện tích peak đo lần i (i = 1, 2, …, n);
@@ -492,23 +492,23 @@ $$
 
 - Độ KĐBĐ tổng hợp:
 
-  $$
-  u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
-  $$
+$$
+u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
+$$
 
 - Độ KĐBĐ mở rộng:
 
-  $$
-  U_{Đ} = k \times u_{Đ}
-  $$
+$$
+U_{Đ} = k \times u_{Đ}
+$$
 
   Độ không đảm bảo đo mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
 - Tính độ KĐBĐ tương đối:
 
-  $$
-  \text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
-  $$
+$$
+\text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
+$$
 
 ## 9. Xử lý chung
 

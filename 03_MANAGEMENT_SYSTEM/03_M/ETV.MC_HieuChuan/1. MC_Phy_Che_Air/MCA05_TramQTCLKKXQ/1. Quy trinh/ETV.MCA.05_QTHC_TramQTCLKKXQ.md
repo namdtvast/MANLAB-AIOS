@@ -92,9 +92,9 @@ Các từ ngữ trong văn bản này được hiểu như sau:
   - %V: phần trăm (thể tích); 1 %V = 10.000 ppmV; 1 ppmV = 1.000 ppbV;
   - mg/m³: đơn vị đo quy đổi tại nhiệt độ t °C, áp suất 101,325 kPa:
 
-    $$
-    Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
-    $$
+$$
+Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
+$$
 
     - `Y`: nồng độ khí quy đổi về điều kiện nhiệt độ t °C, mg/m³;
     - `X`: nồng độ khí theo ppmV;

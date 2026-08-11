@@ -224,15 +224,15 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ ổn định (b) của bể điều nhiệt:
 
-  $$
-  u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
-  $$
+$$
+u_{B2} = \frac{b}{\sqrt{3}}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
+$$
 
 - Nếu giấy chứng nhận chỉ cung cấp ĐKĐB (c) của bể điều nhiệt:
 
-  $$
-  u_{B2} = \frac{c}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
-  $$
+$$
+u_{B2} = \frac{c}{2}\left(\frac{\Delta_{DO}}{\Delta_t}\right)
+$$
 
 `(Δ_DO/Δ_t)`: Giá trị DO thay đổi theo nhiệt độ tính trên 1 °C.
 

@@ -230,15 +230,15 @@ $$
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
-  $$
+$$
+u_{B1} = \frac{a}{\sqrt{3}} \quad (a: \text{Độ chính xác của dung dịch chuẩn})
+$$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{2} \quad (a: \text{ĐKĐB của dung dịch chuẩn})
-  $$
+$$
+u_{B1} = \frac{a}{2} \quad (a: \text{ĐKĐB của dung dịch chuẩn})
+$$
 
 **c. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 

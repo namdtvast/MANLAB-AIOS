@@ -305,23 +305,23 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 - ĐKĐB của độ chụm (độ lặp lại):
 
-  $$
-  u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-  $$
+$$
+u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - ĐKĐB độ ổn định theo thời gian của PTĐ:
 
-  $$
-  u_{A2} = \frac{\max a_{od}}{\sqrt{3}}
-  $$
+$$
+u_{A2} = \frac{\max a_{od}}{\sqrt{3}}
+$$
 
   với `max a_od` là độ không ổn định lớn nhất của lần đo thứ i so với lần đầu tiên của PTĐ.
 
 - ĐKĐB thông qua độ phân giải của thiết bị (lấy từ thông số của nhà sản xuất):
 
-  $$
-  u_{B1} = \frac{a_{pg}}{2\sqrt{3}}
-  $$
+$$
+u_{B1} = \frac{a_{pg}}{2\sqrt{3}}
+$$
 
   với `a_pg` là độ phân giải của PTĐ; cần phải quy đổi đơn vị ppm hoặc % phù hợp với cách tính ĐKĐB của các yếu tố trên.
 

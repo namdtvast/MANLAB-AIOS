@@ -280,33 +280,33 @@ Các yếu tố ảnh hưởng đến ĐKĐB được xác định từ mục 7.
 
 - **ĐKĐB do sự lặp lại:**
 
-  $$
-  u_A = \frac{s}{\sqrt{3}}
-  $$
+$$
+u_A = \frac{s}{\sqrt{3}}
+$$
 
   `s`: độ lệch chuẩn thực nghiệm sau 3 lần đo, với `n`: số lần thực hiện đo; `q_k`: giá trị đo được ở lần thứ k; `q̄`: giá trị trung bình của k lần đo.
 
 - **ĐKĐB do lưu lượng của máy đo độ bụi cần hiệu chuẩn:**
 
-  $$
-  U_{B1} = \frac{s}{\sqrt{3}}
-  $$
+$$
+U_{B1} = \frac{s}{\sqrt{3}}
+$$
 
   `s`: độ lệch chuẩn thực nghiệm sau 3 lần đo, với `n`: số lần thực hiện đo; `q_k`: giá trị đo được ở lần thứ k; `q̄`: giá trị trung bình của k lần đo.
 
 - **ĐKĐB do lưu lượng chuẩn:**
 
-  $$
-  U_{B2} = \frac{U_M}{k}
-  $$
+$$
+U_{B2} = \frac{U_M}{k}
+$$
 
   `k` là hệ số phủ (k = 2); `U_M`: độ không đảm bảo đo của máy đo lưu lượng.
 
 - **ĐKĐB do độ phân giải của phương tiện đo bụi:**
 
-  $$
-  U_{B3} = \frac{d}{2\sqrt{3}}
-  $$
+$$
+U_{B3} = \frac{d}{2\sqrt{3}}
+$$
 
   `d`: giá trị độ chia nhỏ nhất của phương tiện đo độ bụi.
 

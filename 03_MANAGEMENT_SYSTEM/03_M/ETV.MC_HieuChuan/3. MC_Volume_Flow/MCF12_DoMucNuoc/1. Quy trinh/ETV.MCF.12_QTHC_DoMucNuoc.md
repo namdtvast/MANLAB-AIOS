@@ -135,9 +135,9 @@ Phương tiện đo mực nước được kiểm tra đo lường theo trình t
 - Kiểm tra sai số ít nhất 05 điểm trên dải hiệu chuẩn, từ điểm thấp nhất đến cao nhất và ngược lại;
 - Sai số tại mỗi điểm được tính theo công thức:
 
-  $$
-  \Delta H = H_{ptđ} - H_{ch}
-  $$
+$$
+\Delta H = H_{ptđ} - H_{ch}
+$$
 
   Trong đó: `ΔH`: sai số đo mực nước theo độ cao cột nước, mm; `H_ptđ`: độ cao mực nước của phương tiện cần kiểm, mm (độ cao mực nước là mức nước thay đổi được tính từ điểm "0"); `H_ch`: độ cao mực nước chuẩn, mm.
 
@@ -179,15 +179,15 @@ Tính `u_B1`:
 
 - Nếu giấy chứng nhận cung cấp độ chính xác của thước chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{\sqrt{3}}\quad (a: \text{độ chính xác của thước chuẩn})
-  $$
+$$
+u_{B1} = \frac{a}{\sqrt{3}}\quad (a: \text{độ chính xác của thước chuẩn})
+$$
 
 - Nếu giấy chứng nhận cung cấp ĐKĐB của dung dịch chuẩn:
 
-  $$
-  u_{B1} = \frac{a}{k}\quad (a: \text{ĐKĐB của thước chuẩn}, k: \text{hệ số bao phủ})
-  $$
+$$
+u_{B1} = \frac{a}{k}\quad (a: \text{ĐKĐB của thước chuẩn}, k: \text{hệ số bao phủ})
+$$
 
 **c. Thành phần ĐKĐB do độ phân giải của PTĐ cần hiệu chuẩn**
 

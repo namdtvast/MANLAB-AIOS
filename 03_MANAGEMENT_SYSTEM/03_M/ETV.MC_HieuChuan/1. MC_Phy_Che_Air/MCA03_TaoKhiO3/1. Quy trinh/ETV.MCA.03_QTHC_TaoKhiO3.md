@@ -190,33 +190,33 @@ $$
 
 - ĐKĐB của độ chụm (độ lặp lại):
 
-  $$
-  u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-  $$
+$$
+u_{A1} = s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - Trong hầu hết các trường hợp, ước lượng tốt nhất có thể có của các giá trị kỳ vọng của đại lượng q là trung bình số học `q̄`, nó thay đổi một cách ngẫu nhiên. Trung bình số học của n kết quả đo độc lập:
 
-  $$
-  \bar{q} = \frac{1}{n}\sum_{k=1}^{n} q_k
-  $$
+$$
+\bar{q} = \frac{1}{n}\sum_{k=1}^{n} q_k
+$$
 
 - Độ lệch chuẩn thực nghiệm `s(q_k)` được dùng để ước lượng phân bố của q:
 
-  $$
-  s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
-  $$
+$$
+s(q_k) = \sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(q_k - \bar{q})^2}
+$$
 
 - Độ lệch chuẩn thực nghiệm `s(q̄)` của giá trị trung bình được dùng để ước lượng độ rộng của phân bố các giá trị trung bình:
 
-  $$
-  s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}
-  $$
+$$
+s(\bar{q}) = \frac{s(q_k)}{\sqrt{n}}
+$$
 
 - ĐKĐB thông qua độ phân giải của thiết bị được lấy từ thông số của nhà sản xuất:
 
-  $$
-  u_{A2} = \frac{\text{độ phân giải}}{2\sqrt{3}}
-  $$
+$$
+u_{A2} = \frac{\text{độ phân giải}}{2\sqrt{3}}
+$$
 
   Độ phân giải của thiết bị có thể được tính theo đơn vị ppm hoặc %, cần phải quy đổi phù hợp với cách tính ĐKĐB của các yếu tố trên.
 

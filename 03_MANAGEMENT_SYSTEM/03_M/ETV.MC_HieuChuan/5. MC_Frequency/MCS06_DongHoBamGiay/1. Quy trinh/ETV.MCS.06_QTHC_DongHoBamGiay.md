@@ -167,24 +167,24 @@ Trong đó:
 
 - Sai số trung bình:
 
-  $$
-  \bar{y}_i = \frac{\sum_{i=1}^{n} y_i}{n} \tag{2}
-  $$
+$$
+\bar{y}_i = \frac{\sum_{i=1}^{n} y_i}{n} \tag{2}
+$$
 
   - `y_i`: sai số thời gian đo lần thứ i;
   - `n`: số phép đo.
 
 - Độ lệch chuẩn thời gian:
 
-  $$
-  \sigma_y = \sqrt{\frac{\sum_{i=1}^{n}(y_i - \bar{y})^2}{n-1}} \tag{3}
-  $$
+$$
+\sigma_y = \sqrt{\frac{\sum_{i=1}^{n}(y_i - \bar{y})^2}{n-1}} \tag{3}
+$$
 
 - ĐKĐBĐ loại A được ước tính:
 
-  $$
-  u_{Ay} = \frac{\sigma_y}{\sqrt{n}} \tag{4}
-  $$
+$$
+u_{Ay} = \frac{\sigma_y}{\sqrt{n}} \tag{4}
+$$
 
 **b) ĐKĐBĐ loại B**
 

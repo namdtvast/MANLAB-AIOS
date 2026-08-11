@@ -218,9 +218,9 @@ $$
 - Tính độ lệch chuẩn luỹ tích u: `u = (Σs_i² / N)^(1/2)`, với N: số vị trí tại điểm kiểm tra;
 - Tính độ không đảm bảo chuẩn loại A:
 
-  $$
-  u_{ch2} = u_A = \frac{u}{\sqrt{n}}
-  $$
+$$
+u_{ch2} = u_A = \frac{u}{\sqrt{n}}
+$$
 
   với n: số lần đo tại mỗi điểm kiểm tra.
 
@@ -238,9 +238,9 @@ $$
 - Tính độ lệch chuẩn luỹ tích u: `u = (Σs_i² / N)^(1/2)`, với N: số vị trí điểm kiểm tra;
 - Tính độ không đảm bảo chuẩn loại A:
 
-  $$
-  u_{bk1} = u_A = \frac{u}{\sqrt{n}}
-  $$
+$$
+u_{bk1} = u_A = \frac{u}{\sqrt{n}}
+$$
 
   với n: số lần đo tại mỗi điểm kiểm tra. Thành phần này chính là độ không đảm bảo đo theo độ tản mạn kết quả đo.
 

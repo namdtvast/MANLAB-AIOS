@@ -217,9 +217,9 @@ DUT phải được kiểm tra độ chính xác tốc độ vòng quay tại í
 - Ghi các kết quả đo tốc độ vòng quay vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị tốc độ vòng quay cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-  $$
-  \Delta V = v_{tb} - v_{ch} \tag{1}
-  $$
+$$
+\Delta V = v_{tb} - v_{ch} \tag{1}
+$$
 
   Trong đó: `v_ch`: giá trị trung bình của chuẩn, vòng/phút (rpm); `v_tb`: giá trị trung bình tốc độ cài đặt trên máy, vòng/phút (rpm).
 
@@ -235,15 +235,15 @@ DUT phải được kiểm tra độ chính xác tốc độ vòng quay tại í
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị nhiệt độ hiển thị trên máy với PTĐ chuẩn được tính theo công thức:
 
-  $$
-  \Delta t = t_{cd} - t_{ch} \tag{2}
-  $$
+$$
+\Delta t = t_{cd} - t_{ch} \tag{2}
+$$
 
   Trong đó:
 
-  $$
-  t_{ch} = \frac{1}{k}\sum_{j=1}^{k} (t_{chj} \pm \partial t_{chj}) \tag{3}
-  $$
+$$
+t_{ch} = \frac{1}{k}\sum_{j=1}^{k} (t_{chj} \pm \partial t_{chj}) \tag{3}
+$$
 
   - `t_ch`: giá trị trung bình của mỗi nhiệt kế chuẩn (chỉ thị chuẩn), °C;
   - `t_chj`: giá trị nhiệt độ chuẩn tại lần thứ j, °C;
@@ -251,9 +251,9 @@ DUT phải được kiểm tra độ chính xác tốc độ vòng quay tại í
   - `k`: tổng số lần đo của mỗi nhiệt kế chuẩn tại một điểm nhiệt độ;
   - `t_cd`: giá trị trung bình của chỉ thị nhiệt độ tại mỗi điểm nhiệt độ cài đặt, °C:
 
-  $$
-  t_{cd} = \frac{1}{n}\sum_{i=1}^{n} t_{cdi}
-  $$
+$$
+t_{cd} = \frac{1}{n}\sum_{i=1}^{n} t_{cdi}
+$$
 
   - `t_cdi`: giá trị nhiệt độ của máy tại lần thứ i, °C;
   - `n`: tổng số lần đo nhiệt độ của máy tại mỗi điểm cài đặt nhiệt.
@@ -268,15 +268,15 @@ DUT phải được kiểm tra độ chính xác tốc độ vòng quay tại í
 - Ghi các kết quả vào biên bản hiệu chuẩn ở Phụ lục 1;
 - Sai số giữa giá trị thời gian cài đặt trên máy với PTĐ chuẩn được tính theo công thức:
 
-  $$
-  \Delta X = x_{cd} - x_{ch} \tag{4}
-  $$
+$$
+\Delta X = x_{cd} - x_{ch} \tag{4}
+$$
 
   Trong đó:
 
-  $$
-  x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
-  $$
+$$
+x_{ch} = \frac{1}{n}\sum_{j=1}^{n} x_j
+$$
 
   - `x_ch`: giá trị trung bình của chuẩn, phút;
   - `x_j`: giá trị của chuẩn tại lần thứ j, phút;
@@ -321,23 +321,23 @@ DUT phải được kiểm tra độ chính xác tốc độ vòng quay tại í
 
 - Tính giá trị tốc độ vòng quay trung bình `v̄_ch` đo được tại điểm kiểm tra:
 
-  $$
-  v_{ch} = \frac{1}{n}\sum_{j=1}^{n} v_j \tag{5}
-  $$
+$$
+v_{ch} = \frac{1}{n}\sum_{j=1}^{n} v_j \tag{5}
+$$
 
   Trong đó: `v_ch`: giá trị trung bình của chuẩn, vòng/phút (rpm); `v_j`: giá trị của chuẩn tại lần thứ j, vòng/phút (rpm); `n`: tổng số lần đo.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-  $$
-  s(V_{ch}) = \sqrt{\frac{\sum_1^n (V_{chj} - \bar{V}_{ch})^2}{n-1}}\ \text{, rpm} \tag{6}
-  $$
+$$
+s(V_{ch}) = \sqrt{\frac{\sum_1^n (V_{chj} - \bar{V}_{ch})^2}{n-1}}\ \text{, rpm} \tag{6}
+$$
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần (độ lệch chuẩn thực nghiệm của trung bình):
 
-  $$
-  u_{A1} = \sqrt{\frac{\sum_1^n (V_{cj} - \bar{V}_c)^2}{n(n-1)}}\ \text{, rpm} \tag{7}
-  $$
+$$
+u_{A1} = \sqrt{\frac{\sum_1^n (V_{cj} - \bar{V}_c)^2}{n(n-1)}}\ \text{, rpm} \tag{7}
+$$
 
 **b) ĐKĐB kiểu B của PTĐ chuẩn**
 
@@ -361,23 +361,23 @@ Trong đó: `u_B2`: độ không đảm bảo đo tuyệt đối do độ phân 
 
 - Tính giá trị tốc độ vòng quay trung bình `V̄_tb` đo được tại điểm kiểm tra:
 
-  $$
-  \bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, rpm} \tag{10}
-  $$
+$$
+\bar{V}_{tb} = \frac{\sum_1^n V_{tbi}}{n}\ \text{, rpm} \tag{10}
+$$
 
   Trong đó: `n`: số lần đo lặp tại 1 điểm tốc độ vòng quay kiểm tra; `V_tbi`: tốc độ vòng quay của DUT đo được ở lần đo thứ i, rpm; `V̄_tb`: tốc độ vòng quay trung bình của DUT đo được tại điểm kiểm tra.
 
 - Tính độ lệch chuẩn thực nghiệm (độ phân tán kết quả đo):
 
-  $$
-  s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n-1}}\ \text{, rpm} \tag{11}
-  $$
+$$
+s(V_{tb}) = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n-1}}\ \text{, rpm} \tag{11}
+$$
 
 - Tính độ không đảm bảo `u_A` do đo lặp n lần:
 
-  $$
-  u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, rpm} \tag{12}
-  $$
+$$
+u_{A2} = \sqrt{\frac{\sum_1^n (V_{tbj} - \bar{V}_{tb})^2}{n(n-1)}}\ \text{, rpm} \tag{12}
+$$
 
 **b) ĐKĐB do độ phân giải của DUT**
 

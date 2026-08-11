@@ -230,15 +230,15 @@ $$
 
 - `t_ch`: giá trị trung bình của k nhiệt kế chuẩn tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-  $$
-  t_{ch} = \frac{1}{k}\sum_{1}^{k} t
-  $$
+$$
+t_{ch} = \frac{1}{k}\sum_{1}^{k} t
+$$
 
   trong đó giá trị trung bình của nhiệt kế chuẩn được tính theo:
 
-  $$
-  t = \frac{1}{n}\sum_{i=1}^{n}(t + \partial t)
-  $$
+$$
+t = \frac{1}{n}\sum_{i=1}^{n}(t + \partial t)
+$$
 
   - `t`: giá trị chỉ thị trung bình của nhiệt kế chuẩn, °C;
   - `∂t`: số hiệu chính của nhiệt kế chuẩn tại điểm nhiệt độ hiệu chuẩn (lấy từ giấy chứng nhận hiệu chuẩn của nhiệt kế chuẩn), °C;
@@ -246,9 +246,9 @@ $$
 
 - `t_bk`: giá trị trung bình của chỉ thị nhiệt của lò cột tại mỗi điểm nhiệt độ hiệu chuẩn, °C:
 
-  $$
-  t_{bk} = \frac{1}{n}\sum_{i=1}^{n} t \tag{4}
-  $$
+$$
+t_{bk} = \frac{1}{n}\sum_{i=1}^{n} t \tag{4}
+$$
 
   - `n`: số lần đọc chỉ thị nhiệt độ trên máy GC tại mỗi điểm nhiệt độ hiệu chuẩn.
 
@@ -282,9 +282,9 @@ $$
 
 - ĐKĐB ảnh hưởng bởi độ phân tán của kết quả đo thời gian 06 lần lặp lại:
 
-  $$
-  S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
-  $$
+$$
+S_f = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_1 = \frac{S_f}{\sqrt{n}}
+$$
 
   - `S_f`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị thời gian đo lần i;
@@ -293,25 +293,25 @@ $$
 
 - ĐKĐB của máy đo tốc độ dòng khí:
 
-  $$
-  u_2 = \frac{U_{ch}}{2}
-  $$
+$$
+u_2 = \frac{U_{ch}}{2}
+$$
 
   với `U_ch` là ĐKĐB của máy đo tốc độ dòng khí lấy từ GCN hiệu chuẩn.
 
 - ĐKĐB do độ phân giải của chỉ thị tốc độ dòng:
 
-  $$
-  u_3 = \frac{d}{2\sqrt{3}}
-  $$
+$$
+u_3 = \frac{d}{2\sqrt{3}}
+$$
 
   với `d` là độ phân giải tốc độ dòng khí của máy GC cần hiệu chuẩn.
 
 - ĐKĐB tổng hợp:
 
-  $$
-  u_f = \sqrt{u_1^2 + u_2^2 + u_3^2}
-  $$
+$$
+u_f = \sqrt{u_1^2 + u_2^2 + u_3^2}
+$$
 
 - ĐKĐB mở rộng: $U_f = k \times u_f$ — với hệ số phủ k = 2, mức tin cậy 95 %.
 
@@ -328,9 +328,9 @@ $$
 - ĐKĐB `u_ch1` của nhiệt kế chuẩn (kiểu B): $u_{ch1} = \dfrac{U_{95}}{2}$ — với `U₉₅` là ĐKĐB mở rộng của nhiệt kế chuẩn, lấy từ GCN hiệu chuẩn.
 - ĐKĐB do độ tản mạn `u_ch2` (kiểu A):
 
-  $$
-  u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
-  $$
+$$
+u_{ch2} = \sqrt{\frac{S_{ch2}^2}{n}} = \frac{S_{ch2}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}} \qquad \text{với } S_{ch2} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n-1}}
+$$
 
   - `S_ch2`: độ lệch chuẩn nhiệt độ đo được bởi nhiệt kế chuẩn tại điểm hiệu chuẩn nhiệt độ buồng, °C;
   - `n`: số lần đo lặp, n = 5;
@@ -345,18 +345,18 @@ $$
 
 - ĐKĐB do độ tản mạn `u_bk1`:
 
-  $$
-  u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}}
-  $$
+$$
+u_{bk1} = \sqrt{\frac{S_{bk1}^2}{n}} = \frac{S_{bk1}}{\sqrt{n}} = \sqrt{\frac{\sum_{1}^{n}(t_i - \bar{t})^2}{n(n-1)}}
+$$
 
   - `S_bk1`: độ lệch chuẩn nhiệt độ buồng đo được trên GC tại điểm hiệu chuẩn nhiệt độ, °C;
   - `n`: số lần đo lặp, n = 5.
 
 - ĐKĐB do độ phân giải `u_bk2` của chỉ thị nhiệt độ của GC:
 
-  $$
-  u_{bk2} = \frac{d}{2\sqrt{3}}
-  $$
+$$
+u_{bk2} = \frac{d}{2\sqrt{3}}
+$$
 
   với `d` là độ phân giải chỉ thị nhiệt độ của GC (°C).
 
@@ -419,9 +419,9 @@ $$
 
 - ĐKĐB do độ phân tán kết quả đo của PTĐ n lần lặp lại:
 
-  $$
-  S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
-  $$
+$$
+S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
+$$
 
   - `x_i`: giá trị diện tích peak đo lần i;
   - `n`: số lần đo (n = 3).

@@ -80,9 +80,9 @@ Các từ ngữ trong văn bản này được hiểu như sau:
   - %V: phần trăm (thể tích); 1 %V = 10.000 ppmV; 1 ppmV = 1.000 ppbV;
   - mg/m³: đơn vị đo quy đổi tại nhiệt độ t °C, áp suất 101,325 kPa:
 
-    $$
-    Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
-    $$
+$$
+Y\ (\text{mg/m}^3) = \frac{X(ppmV) \times M \times 273}{22{,}4 \times (t + 273)}
+$$
 
     - `Y`: nồng độ khí quy đổi về điều kiện nhiệt độ t °C, mg/m³;
     - `X`: nồng độ khí theo ppmV;
@@ -268,9 +268,9 @@ Bắt đầu → Bước 1: Xác định đại lượng đo
 - Đại lượng đo trong quy trình này là giá trị nồng độ khí chuẩn do PTĐ cần hiệu chuẩn chỉ thị.
 - Phép đo được thực hiện theo phương pháp đo gián tiếp với công thức tổng quát:
 
-  $$
-  \Delta = C_đ - C_c
-  $$
+$$
+\Delta = C_đ - C_c
+$$
 
 - Do bản chất phép đo là gián tiếp, kết quả hiệu chuẩn phụ thuộc vào độ chính xác của giá trị nồng độ khí chuẩn tham chiếu, vốn chịu ảnh hưởng bởi ĐKĐB của chính phương tiện tạo khí chuẩn. Ngoài ra, kết quả đo còn chịu tác động gián tiếp từ một số thiết bị phụ trợ trong hệ thống hiệu chuẩn, cụ thể:
   - **Thiết bị tạo khí "không":** ảnh hưởng đến độ tinh khiết và độ ổn định của điểm chuẩn gốc;

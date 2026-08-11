@@ -216,9 +216,9 @@ Các thành phần gây ra độ không đảm bảo đo tính toán cho mỗi d
 
 - Độ KĐBĐ do độ phân tán kết quả đo n lần lặp lại: `u_A`
 
-  $$
-  S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
-  $$
+$$
+S_C = \sqrt{\frac{\sum(x_i - x_{tb})^2}{n-1}} \qquad u_A = \frac{s_C}{\sqrt{n}}
+$$
 
   - `S_C`: độ lệch chuẩn giữa n lần đo;
   - `x_i`: giá trị diện tích peak đo lần i (i = 1, 2, …, n);
@@ -248,23 +248,23 @@ $$
 
 - Độ KĐBĐ tổng hợp:
 
-  $$
-  u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
-  $$
+$$
+u_{Đ} = \sqrt{u_A^2 + u_{Ci}^2}
+$$
 
 - Độ KĐBĐ mở rộng:
 
-  $$
-  U_{Đ} = k \times u_{Đ}
-  $$
+$$
+U_{Đ} = k \times u_{Đ}
+$$
 
   Độ không đảm bảo đo mở rộng với hệ số phủ k = 2, ở mức tin cậy 95 %.
 
 - Tính độ KĐBĐ tương đối:
 
-  $$
-  \text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
-  $$
+$$
+\text{Độ KĐBĐ tương đối (\%)} = \frac{\text{Độ KĐBĐ mở rộng}}{\text{Giá trị đo}} \times 100
+$$
 
 ## 9. Xử lý chung
 
