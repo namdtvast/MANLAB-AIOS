@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-08-11 05:59 UTC",
+ "generated_at": "2026-08-11 06:15 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "docs/qthc-mco-markdown",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/docs/qthc-mco-markdown",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/docs/qthc-mco-markdown",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/docs/qthc-mco-markdown"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7125,
-  "dirs": 1622,
+  "files": 7131,
+  "dirs": 1635,
   "docs": 4762,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 811,
+   ".md": 817,
    ".png": 95,
    ".pdf": 3461,
    ".yaml": 102,
@@ -3494,6 +3494,165 @@
           "n_files": 0
          },
          {
+          "name": "5. MC_Frequency",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCS01_DoOn",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.01_QTHC_DoOn.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/1. Quy trinh/ETV.MCS.01_QTHC_DoOn.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 30504
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCS02_TocDoVongQuay",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.02_QTHC_TocDoVongQuay.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/1. Quy trinh/ETV.MCS.02_QTHC_TocDoVongQuay.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 25911
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCS03_HoaTanVienNen",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.03_QTHC_HoaTanVienNen.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen/1. Quy trinh/ETV.MCS.03_QTHC_HoaTanVienNen.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 44515
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCS04_MaiMon",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.04_QTHC_MaiMon.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon/1. Quy trinh/ETV.MCS.04_QTHC_MaiMon.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 27527
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCS05_TanRa",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.05_QTHC_TanRa.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa/1. Quy trinh/ETV.MCS.05_QTHC_TanRa.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 28703
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCS06_DongHoBamGiay",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.06_QTHC_DongHoBamGiay.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay/1. Quy trinh/ETV.MCS.06_QTHC_DongHoBamGiay.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 12014
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 6,
+          "n_files": 0
+         },
+         {
           "name": "7. MC_Pressure",
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure",
           "type": "dir",
@@ -3772,7 +3931,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 7,
+        "n_dirs": 8,
         "n_files": 0
        },
        {
@@ -4032,7 +4191,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 19442
+        "size": 20602
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
