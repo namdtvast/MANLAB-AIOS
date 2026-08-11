@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-08-10 23:30 UTC",
+ "generated_at": "2026-08-11 05:59 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "main",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
+  "branch": "docs/qthc-mco-markdown",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/docs/qthc-mco-markdown",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/docs/qthc-mco-markdown",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/docs/qthc-mco-markdown"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7126,
-  "dirs": 1611,
-  "docs": 4768,
+  "files": 7125,
+  "dirs": 1622,
+  "docs": 4762,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 806,
+   ".md": 811,
    ".png": 95,
-   ".pdf": 3467,
+   ".pdf": 3461,
    ".yaml": 102,
    ".drawio": 3,
    ".jpg": 291,
@@ -3360,6 +3360,140 @@
           "n_files": 0
          },
          {
+          "name": "4. MC_Optics",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCO01_UVVIS",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.01_QTHC_UVVIS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/1. Quy trinh/ETV.MCO.01_QTHC_UVVIS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 18519
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCO02_CuongDoAnhSang",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO02_CuongDoAnhSang",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO02_CuongDoAnhSang/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.02_QTHC_CuongDoAnhSang.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO02_CuongDoAnhSang/1. Quy trinh/ETV.MCO.02_QTHC_CuongDoAnhSang.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 13293
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCO03_BuiXQ",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.03_QTHC_BuiXQ.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/1. Quy trinh/ETV.MCO.03_QTHC_BuiXQ.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 28945
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCO04_BuiKhiThai",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.04_QTHC_BuiKhiThai.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/1. Quy trinh/ETV.MCO.04_QTHC_BuiKhiThai.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 25973
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MCO05_ChuanBui",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.05_QTHC_ChuanBui.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui/1. Quy trinh/ETV.MCO.05_QTHC_ChuanBui.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 41790
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 5,
+          "n_files": 0
+         },
+         {
           "name": "7. MC_Pressure",
           "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure",
           "type": "dir",
@@ -3638,7 +3772,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 6,
+        "n_dirs": 7,
         "n_files": 0
        },
        {
@@ -3898,7 +4032,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 18382
+        "size": 19442
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -15093,48 +15227,6 @@
           "size": 351829
          },
          {
-          "name": "ETV.MCO 01_UV_VIS_V3.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 01_UV_VIS_V3.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 401969
-         },
-         {
-          "name": "ETV.MCO 02_Cuong do Anh sang_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 02_Cuong do Anh sang_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 711829
-         },
-         {
-          "name": "ETV.MCO 03_Bui -V2.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 03_Bui -V2.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 508195
-         },
-         {
-          "name": "ETV.MCO 03_Bui XQ_V3.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 03_Bui XQ_V3.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 435753
-         },
-         {
-          "name": "ETV.MCO 04_Bui trong khi thai_V1.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 04_Bui trong khi thai_V1.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 421979
-         },
-         {
-          "name": "ETV.MCO 05_Chuan Bui_V3.pdf",
-          "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCO 05_Chuan Bui_V3.pdf",
-          "type": "file",
-          "ext": ".pdf",
-          "size": 603389
-         },
-         {
           "name": "ETV.MCS 01_Do on_V7.pdf",
           "path": "08_KNOWLEDGE_GRAPH/00_RAW_DATA/QTHC/ETV.MCS 01_Do on_V7.pdf",
           "type": "file",
@@ -15269,7 +15361,7 @@
          }
         ],
         "n_dirs": 0,
-        "n_files": 44
+        "n_files": 38
        },
        {
         "name": "AI-Agents-in-Depth-vi.pdf",
