@@ -1,0 +1,1 @@
+Luồng: KH → Báo giá → Phê duyệt → Hợp đồng.

@@ -1,0 +1,1 @@
+Macro: Convert architecture description -> DrawIO.

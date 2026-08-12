@@ -1,0 +1,1 @@
+Flowchart, BPMN, C4, ERD, Sequence, Dashboard, Timeline.

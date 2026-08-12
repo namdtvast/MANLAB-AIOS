@@ -1,0 +1,5 @@
+Blue=#1565C0
+Green=#2E7D32
+Orange=#EF6C00
+Red=#C62828
+Gray=#616161

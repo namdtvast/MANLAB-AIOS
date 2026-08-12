@@ -1,0 +1,1 @@
+Profile mặc định: màu sắc, font, icon và quy tắc ManLab.

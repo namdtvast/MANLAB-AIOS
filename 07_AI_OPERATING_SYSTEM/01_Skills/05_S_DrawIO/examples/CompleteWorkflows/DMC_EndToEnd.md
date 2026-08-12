@@ -1,0 +1,1 @@
+Ví dụ quy trình DMC từ yêu cầu đến cấp chứng chỉ số.

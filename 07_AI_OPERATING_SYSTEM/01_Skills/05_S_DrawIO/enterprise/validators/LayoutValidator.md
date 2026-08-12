@@ -1,0 +1,1 @@
+Validate alignment, spacing, overlaps and connector crossings.

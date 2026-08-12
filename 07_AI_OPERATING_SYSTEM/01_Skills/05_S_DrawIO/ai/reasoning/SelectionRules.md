@@ -1,0 +1,1 @@
+Flowchart->process, BPMN->roles, C4->software, ERD->database.

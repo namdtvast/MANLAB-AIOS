@@ -1,0 +1,1 @@
+Receiving→Production→Homogeneity→Stability→Certification.

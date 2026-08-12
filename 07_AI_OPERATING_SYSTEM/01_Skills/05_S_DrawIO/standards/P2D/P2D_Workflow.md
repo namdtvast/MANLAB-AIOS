@@ -1,0 +1,1 @@
+Sensor→Gateway→AI→Database→Dashboard.

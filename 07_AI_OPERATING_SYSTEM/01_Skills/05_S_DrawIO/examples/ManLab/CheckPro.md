@@ -1,0 +1,1 @@
+Check-in, OCR, GPS, Ảnh hiện trường.
