@@ -71,8 +71,9 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 | `02_S_XuLyVanPhong` | B | (không có) | `xu-ly-van-phong` |
 | `03_S_NghienCuuHocThuat` | B | (không có) | `manlab-academic-research-os` |
 | `04_S_ThietKeAI` | B | (không có) | `thiet-ke-ai` |
+| `05_S_DrawIO` | B | (không có) | `manlab-drawio` |
 
-Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `05` (số `01` đã bỏ, không tái sử dụng).
+Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `06` (số `01` đã bỏ, không tái sử dụng).
 
 ---
 

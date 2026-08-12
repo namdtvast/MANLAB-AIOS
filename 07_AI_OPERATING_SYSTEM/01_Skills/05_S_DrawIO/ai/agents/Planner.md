@@ -1,0 +1,1 @@
+Analyze request and choose diagram type.

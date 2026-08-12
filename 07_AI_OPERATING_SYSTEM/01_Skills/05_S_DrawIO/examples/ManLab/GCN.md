@@ -1,0 +1,1 @@
+Luồng: Soát xét → Ký số → Phát hành.

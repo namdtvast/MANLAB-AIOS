@@ -1,0 +1,1 @@
+Default preset for ETV: colors, fonts, spacing, export profile.

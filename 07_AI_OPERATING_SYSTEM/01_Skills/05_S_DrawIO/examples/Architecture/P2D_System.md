@@ -1,0 +1,1 @@
+Kiến trúc Physical → IoT → AI → DMC → Dashboard.

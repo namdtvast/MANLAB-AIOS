@@ -1,0 +1,1 @@
+Verify alignment, labels, connectors, legend, colors.

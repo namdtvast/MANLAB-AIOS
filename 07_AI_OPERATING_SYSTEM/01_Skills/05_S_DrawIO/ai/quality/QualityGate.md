@@ -1,0 +1,1 @@
+Check naming, alignment, colors, connectors, legends.
