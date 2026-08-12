@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "name",
+    "artifactType",
+    "purpose",
+    "audience",
+    "designSystem",
+    "outputFormat"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "artifactType": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "mandatoryContent": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "designSystem": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "outputFormat": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

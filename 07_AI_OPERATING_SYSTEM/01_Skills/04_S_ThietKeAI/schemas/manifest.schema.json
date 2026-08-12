@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ManLab Design Artifact Manifest",
+  "type": "object",
+  "required": [
+    "name",
+    "artifactType",
+    "version",
+    "designSystem",
+    "createdAt",
+    "files",
+    "qualityGates"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "artifactType": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "designSystem": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "sourceNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qualityGates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
