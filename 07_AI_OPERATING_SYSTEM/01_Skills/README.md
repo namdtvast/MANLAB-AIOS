@@ -68,12 +68,14 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 | Thư mục | Mẫu | Thủ tục nguồn | `name:` trong SKILL.md |
 |---|---|---|---|
 | `S14_KiemSoatTaiLieu` | A | `ETV.P14` — Kiểm soát tài liệu | `etv-document-governance` |
+| `01_S_Governance` | B | (không có) | `manlab-governance` |
 | `02_S_XuLyVanPhong` | B | (không có) | `xu-ly-van-phong` |
 | `03_S_NghienCuuHocThuat` | B | (không có) | `manlab-academic-research-os` |
 | `04_S_ThietKeAI` | B | (không có) | `thiet-ke-ai` |
 | `05_S_DrawIO` | B | (không có) | `manlab-drawio` |
+| `06_S_LapTrinhTheoDacTa` | B | (không có) | `spec-driven-coding` |
 
-Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `06` (số `01` đã bỏ, không tái sử dụng).
+Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `07`.
 
 ---
 
@@ -205,6 +207,7 @@ Kết quả:
 | `S14_KiemSoatTaiLieu` | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `02_S_XuLyVanPhong` | ✓ | ✓ | ✓ | ✓ | ◐ (prompt chưa dùng OpenAI schema) |
 | `03_S_NghienCuuHocThuat` | ✓ | ✓ | ◐ (chưa test) | ✓ | ✓ |
+| `06_S_LapTrinhTheoDacTa` | ✓ | ◐ (chưa test) | ◐ (chưa test) | ◐ (chưa test) | ✓ |
 
 **Chú giải:** ✓ = hỗ trợ đầy đủ, ◐ = hỗ trợ một phần (cần kiểm tra), ✗ = không hỗ trợ
 
