@@ -2,7 +2,7 @@ schema: manlab-aios/process@1.0
 code: MP29
 slug: AI
 name: Quản lý hệ thống trí tuệ nhân tạo
-owner: "(cập nhật)"
+owner: "Dương Thành Nam"
 status: active
 standards: ['ISO42001']
 legal: []

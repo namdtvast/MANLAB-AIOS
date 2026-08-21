@@ -7,6 +7,6 @@
 | Điều khoản/căn cứ | ISO/IEC 42001 |
 | Năng lực liên quan | CAP-29 |
 | Module số hóa | M29_AI |
-| Chủ sở hữu | (cập nhật) |
+| Chủ sở hữu | Dương Thành Nam |
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.
