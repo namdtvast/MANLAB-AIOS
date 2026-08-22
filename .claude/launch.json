@@ -21,6 +21,13 @@
       "runtimeArgs": ["-c", "cd '05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api' && PORT=$PORT node server.js"],
       "port": 8011,
       "autoPort": true
+    },
+    {
+      "name": "aios-api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '05_MODULE_LIBRARY/M29_AI/08_Source/api' && PORT=$PORT node server.js"],
+      "port": 8029,
+      "autoPort": true
     }
   ]
 }

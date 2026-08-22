@@ -1,6 +1,7 @@
-# M35_NenTangSo — Bảng trạng thái (mặc định)
+# M35_NenTangSo — Bảng trạng thái
 
-> Khung mẫu (template) — cập nhật nội dung cụ thể cho module. Xem M36_ChungChiSo làm ví dụ đã hoàn chỉnh.
+Áp dụng cho vòng đời **đăng ký** một `AIPlatform` (định danh nền tảng) — dùng đúng khuôn trạng
+thái chuẩn của repo, không tùy biến riêng.
 
 | STT | Trạng thái | Ý nghĩa | Người thao tác | Điều kiện chuyển | Bắt buộc lý do |
 |---|---|---|---|---|---|
@@ -13,3 +14,7 @@
 | 7 | Hết hiệu lực / Hủy | Kết thúc vòng đời | người có thẩm quyền | (kết thúc) | **Có** khi Hủy |
 
 > Nguyên tắc: ít trạng thái nhưng đủ kiểm soát; hồ sơ chưa phê duyệt không dùng làm căn cứ tiếp theo.
+
+Sau khi vào **Đã phê duyệt/Đã công bố (Hiệu lực)**, `status` health
+(`HEALTHY`/`DEGRADED`/`DOWN`/`UNKNOWN`) do tiến trình health check tự động cập nhật — tách biệt
+khỏi vòng đời phê duyệt ở trên, không quay lại quy trình soát xét/phê duyệt khi health đổi.
