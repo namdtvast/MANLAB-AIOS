@@ -1,12 +1,10 @@
 ---
 name: 02-s-xu-ly-van-phong
-description: "TẠO, SỬA, CHUYỂN ĐỔI FILE VĂN PHÒNG (WORD, EXCEL, POWERPOINT, PDF) THEO KIẾN TRÚC 2 CHIỀU. Chiều Đọc bóc tách Brand Kit (màu sắc, font, logo) và Data từ file mẫu; Chiều Ghi tái tạo file mới bằng Node.js mang Brand DNA. Hỗ trợ 2 luồng xuất bản - Chuẩn Hành chính NĐ 30 (đen trắng, nghiêm ngặt) và Chuẩn Thẩm mỹ Hiện đại (Brand Kit linh hoạt). Kích hoạt khi user đề cập 'soạn công văn', 'tạo file word', 'làm slide', 'tạo bảng tính', 'cắt file pdf'; yêu cầu 'tạo báo cáo', 'làm đề xuất', 'bóc tách format file này', 'bắt chước format file này', 'xuất bản sách', 'chuyển sang word'; nói 'gộp file', 'tách trang', 'đổi sang pdf', 'format cho đẹp', 'chuyển file md này thành word/excel/slide'; trong tình huống user gửi file Word/Excel/PDF/Slide kèm yêu cầu chỉnh sửa, gửi file MD/text thô cần chuyển thành tài liệu chuyên nghiệp, hoặc cần tạo tài liệu từ đầu. KHÔNG dùng cho viết nội dung bài viết (skill này chỉ chuyên thiết kế và cấu trúc file), lập trình phần mềm, đăng bài mạng xã hội. Đây là lớp KỸ THUẬT sinh file — nội dung/pháp lý của 5 loại văn bản hành chính chuẩn ETV (Công văn, Quyết định, Báo cáo, Thông báo, Biên bản) do skill s14-kiem-soat-tai-lieu quyết định. Dùng cho MỌI nghiệp vụ tạo và xử lý file văn phòng — kể cả khi user chỉ gửi 1 file và nói 'xử lý giúp tôi'."
-argument-hint: "[loại file: docx|pptx|xlsx|pdf] [hành động: tạo|sửa|chuyển đổi|bóc tách]"
-license: Internal-ETV
-metadata:
-  author: Dương Thành Nam
-  version: "2.0.0"
-  maintainer: ETV-AIOS
+title: Xử Lý Văn Phòng & Tài Liệu (Bi-directional Pipeline)
+description: Tạo, sửa, chuyển đổi file văn phòng (DOCX/XLSX/PPTX/PDF) theo kiến trúc 2 chiều Extractor/Generator — bóc tách Brand Kit, sinh file Node.js theo chuẩn NĐ 30 hoặc Brand Kit doanh nghiệp.
+version: "2.0.0"
+scope: [claude-code]
+tags: [office-processing, document-generation, forms-handling, etv-workflow]
 ---
 
 # Xử lý Văn phòng 2.0 (Bi-directional Pipeline)

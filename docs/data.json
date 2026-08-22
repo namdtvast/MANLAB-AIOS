@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-22 04:05 UTC",
+ "generated_at": "2026-08-22 04:34 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "chore/skill-name-kebab-sync",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/chore/skill-name-kebab-sync",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/chore/skill-name-kebab-sync",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/chore/skill-name-kebab-sync"
+  "branch": "main",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
@@ -13692,7 +13692,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 1813
+          "size": 1959
          },
          {
           "name": "WORKFLOW.md",
@@ -14733,7 +14733,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 11030
+          "size": 9640
          }
         ],
         "n_dirs": 5,
@@ -15672,7 +15672,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 2587
+          "size": 2721
          },
          {
           "name": "TREE.md",
@@ -16458,7 +16458,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 2946
+          "size": 3066
          }
         ],
         "desc": "**Tên thư mục skill chuẩn:** `04_S_ThietKeAI`",
@@ -18489,7 +18489,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 2903
+          "size": 3033
          }
         ],
         "desc": "Professional Claude Skill for Draw.io generation.",
@@ -18940,7 +18940,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 5109
+          "size": 4347
          }
         ],
         "n_dirs": 5,
