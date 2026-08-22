@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-22 04:34 UTC",
+ "generated_at": "2026-08-22 09:15 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,24 +11,24 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7416,
-  "dirs": 1822,
+  "files": 7435,
+  "dirs": 1826,
   "docs": 4727,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1063,
+   ".md": 1064,
    ".png": 96,
    ".pdf": 3424,
    ".yaml": 102,
    ".drawio": 31,
    ".jpg": 291,
-   ".html": 6,
-   ".json": 20,
-   ".mjs": 3,
-   ".js": 17,
-   ".css": 2,
+   ".html": 8,
+   ".mjs": 14,
+   ".json": 21,
+   ".js": 20,
+   ".css": 3,
    ".ps1": 1,
    ".sh": 10,
    ".docx": 228,
@@ -8822,22 +8822,6 @@
           "type": "dir",
           "children": [
            {
-            "name": "data",
-            "path": "05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/data",
-            "type": "dir",
-            "children": [
-             {
-              "name": "data.json",
-              "path": "05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/data/data.json",
-              "type": "file",
-              "ext": ".json",
-              "size": 3761
-             }
-            ],
-            "n_dirs": 0,
-            "n_files": 1
-           },
-           {
             "name": "model.mjs",
             "path": "05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs",
             "type": "file",
@@ -8873,7 +8857,7 @@
             "size": 3740
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 0,
           "n_files": 5
          },
          {
@@ -11391,7 +11375,7 @@
           "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 802
+          "size": 7416
          }
         ],
         "n_dirs": 1,
@@ -11407,7 +11391,7 @@
           "path": "05_MODULE_LIBRARY/M29_AI/02_API/API.md",
           "type": "file",
           "ext": ".md",
-          "size": 708
+          "size": 3380
          }
         ],
         "n_dirs": 0,
@@ -11423,7 +11407,7 @@
           "path": "05_MODULE_LIBRARY/M29_AI/03_Database/DataModel.md",
           "type": "file",
           "ext": ".md",
-          "size": 490
+          "size": 4492
          }
         ],
         "n_dirs": 0,
@@ -11471,7 +11455,7 @@
           "path": "05_MODULE_LIBRARY/M29_AI/07_Workflow/StateMachine.md",
           "type": "file",
           "ext": ".md",
-          "size": 1296
+          "size": 3050
          }
         ],
         "n_dirs": 0,
@@ -11481,8 +11465,155 @@
         "name": "08_Source",
         "path": "05_MODULE_LIBRARY/M29_AI/08_Source",
         "type": "dir",
-        "children": [],
-        "n_dirs": 0,
+        "children": [
+         {
+          "name": "api",
+          "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api",
+          "type": "dir",
+          "children": [
+           {
+            "name": "adapters.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/adapters.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 2214
+           },
+           {
+            "name": "audit.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/audit.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 570
+           },
+           {
+            "name": "db.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/db.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 1101
+           },
+           {
+            "name": "evaluation.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/evaluation.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 999
+           },
+           {
+            "name": "gateway.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/gateway.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 3618
+           },
+           {
+            "name": "health.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/health.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 1851
+           },
+           {
+            "name": "model.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/model.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 2315
+           },
+           {
+            "name": "package.json",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/package.json",
+            "type": "file",
+            "ext": ".json",
+            "size": 267
+           },
+           {
+            "name": "rules.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/rules.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 5751
+           },
+           {
+            "name": "secrets.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/secrets.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 2056
+           },
+           {
+            "name": "seed.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/seed.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 5434
+           },
+           {
+            "name": "server.js",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/server.js",
+            "type": "file",
+            "ext": ".js",
+            "size": 22713
+           },
+           {
+            "name": "usage.mjs",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/api/usage.mjs",
+            "type": "file",
+            "ext": ".mjs",
+            "size": 1298
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 13
+         },
+         {
+          "name": "webapp",
+          "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp",
+          "type": "dir",
+          "children": [
+           {
+            "name": "src",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp/src",
+            "type": "dir",
+            "children": [
+             {
+              "name": "apiClient.js",
+              "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp/src/apiClient.js",
+              "type": "file",
+              "ext": ".js",
+              "size": 3790
+             },
+             {
+              "name": "app.js",
+              "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp/src/app.js",
+              "type": "file",
+              "ext": ".js",
+              "size": 38606
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "index.html",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp/index.html",
+            "type": "file",
+            "ext": ".html",
+            "size": 5730
+           },
+           {
+            "name": "styles.css",
+            "path": "05_MODULE_LIBRARY/M29_AI/08_Source/webapp/styles.css",
+            "type": "file",
+            "ext": ".css",
+            "size": 11817
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 2
+         }
+        ],
+        "n_dirs": 2,
         "n_files": 0
        },
        {
@@ -12192,7 +12323,7 @@
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 776
+          "size": 4040
          }
         ],
         "n_dirs": 1,
@@ -12208,7 +12339,7 @@
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/02_API/API.md",
           "type": "file",
           "ext": ".md",
-          "size": 757
+          "size": 1519
          }
         ],
         "n_dirs": 0,
@@ -12224,7 +12355,7 @@
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/03_Database/DataModel.md",
           "type": "file",
           "ext": ".md",
-          "size": 506
+          "size": 1187
          }
         ],
         "n_dirs": 0,
@@ -12272,7 +12403,7 @@
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/07_Workflow/StateMachine.md",
           "type": "file",
           "ext": ".md",
-          "size": 1303
+          "size": 1646
          }
         ],
         "n_dirs": 0,
@@ -15869,8 +16000,48 @@
           "name": "outputs",
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs",
           "type": "dir",
-          "children": [],
-          "n_dirs": 0,
+          "children": [
+           {
+            "name": "2026-08-22",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs/2026-08-22",
+            "type": "dir",
+            "children": [
+             {
+              "name": "aios-control-plane-dashboard",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs/2026-08-22/aios-control-plane-dashboard",
+              "type": "dir",
+              "children": [
+               {
+                "name": "design-brief.md",
+                "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs/2026-08-22/aios-control-plane-dashboard/design-brief.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 3946
+               },
+               {
+                "name": "index.html",
+                "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs/2026-08-22/aios-control-plane-dashboard/index.html",
+                "type": "file",
+                "ext": ".html",
+                "size": 77444
+               },
+               {
+                "name": "manifest.json",
+                "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs/2026-08-22/aios-control-plane-dashboard/manifest.json",
+                "type": "file",
+                "ext": ".json",
+                "size": 2700
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 3
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
           "n_files": 0
          },
          {
