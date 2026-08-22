@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-08-22 00:36 UTC",
+ "generated_at": "2026-08-22 04:05 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "main",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/main",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/main",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/main"
+  "branch": "chore/skill-name-kebab-sync",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/chore/skill-name-kebab-sync",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/chore/skill-name-kebab-sync",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/chore/skill-name-kebab-sync"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7412,
-  "dirs": 1818,
+  "files": 7416,
+  "dirs": 1822,
   "docs": 4727,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1059,
+   ".md": 1063,
    ".png": 96,
    ".pdf": 3424,
    ".yaml": 102,
@@ -2601,56 +2601,56 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P02_BaoMat.md",
         "type": "file",
         "ext": ".md",
-        "size": 18427
+        "size": 18762
        },
        {
         "name": "ETV.P03_NhanSu.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
         "type": "file",
         "ext": ".md",
-        "size": 32142
+        "size": 32477
        },
        {
         "name": "ETV.P04_MoiTruong.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
         "type": "file",
         "ext": ".md",
-        "size": 41104
+        "size": 41439
        },
        {
         "name": "ETV.P05_ThietBi.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md",
         "type": "file",
         "ext": ".md",
-        "size": 37544
+        "size": 37879
        },
        {
         "name": "ETV.P06_MuaSam.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
         "type": "file",
         "ext": ".md",
-        "size": 22955
+        "size": 23290
        },
        {
         "name": "ETV.P07_HopDong.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
         "type": "file",
         "ext": ".md",
-        "size": 18090
+        "size": 18425
        },
        {
         "name": "ETV.P08_PhuongPhap.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md",
         "type": "file",
         "ext": ".md",
-        "size": 17765
+        "size": 18100
        },
        {
         "name": "ETV.P09_LayMau.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P09_LayMau.md",
         "type": "file",
         "ext": ".md",
-        "size": 17620
+        "size": 17955
        },
        {
         "name": "ETV.P10_DamBaoHieuLucKetQua.md",
@@ -2664,21 +2664,21 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
         "type": "file",
         "ext": ".md",
-        "size": 37512
+        "size": 37847
        },
        {
         "name": "ETV.P12_KhieuNai.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
         "type": "file",
         "ext": ".md",
-        "size": 21360
+        "size": 21695
        },
        {
         "name": "ETV.P13_KhacPhuc.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md",
         "type": "file",
         "ext": ".md",
-        "size": 9426
+        "size": 9761
        },
        {
         "name": "ETV.P14_KiemSoatTaiLieu.md",
@@ -2699,21 +2699,21 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P16_DanhGiaNoiBo.md",
         "type": "file",
         "ext": ".md",
-        "size": 14168
+        "size": 14503
        },
        {
         "name": "ETV.P17_XemXetLanhDao.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P17_XemXetLanhDao.md",
         "type": "file",
         "ext": ".md",
-        "size": 15126
+        "size": 15461
        },
        {
         "name": "ETV.P18_QuyTacQuyetDinh.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
         "type": "file",
         "ext": ".md",
-        "size": 24337
+        "size": 24672
        },
        {
         "name": "ETV.P19_SanXuatCRM.md",
@@ -2727,7 +2727,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
         "type": "file",
         "ext": ".md",
-        "size": 11828
+        "size": 12163
        },
        {
         "name": "ETV.P21_CongBoKiemSoatNangLuc.md",
@@ -2741,14 +2741,14 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P22_DamBaoDoLuongDN.md",
         "type": "file",
         "ext": ".md",
-        "size": 29218
+        "size": 29553
        },
        {
         "name": "ETV.P23_CongBoCRM.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P23_CongBoCRM.md",
         "type": "file",
         "ext": ".md",
-        "size": 20174
+        "size": 20509
        },
        {
         "name": "ETV.P24_QuanLyLuongThuong.md",
@@ -11348,6 +11348,45 @@
         "type": "dir",
         "children": [
          {
+          "name": "_work",
+          "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work",
+          "type": "dir",
+          "children": [
+           {
+            "name": "20260822-aios-control-plane",
+            "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260822-aios-control-plane",
+            "type": "dir",
+            "children": [
+             {
+              "name": "outcome.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260822-aios-control-plane/outcome.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 7945
+             },
+             {
+              "name": "plan.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260822-aios-control-plane/plan.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 12352
+             },
+             {
+              "name": "spec.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260822-aios-control-plane/spec.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 16381
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "DacTa.md",
           "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/DacTa.md",
           "type": "file",
@@ -11355,7 +11394,7 @@
           "size": 802
          }
         ],
-        "n_dirs": 0,
+        "n_dirs": 1,
         "n_files": 1
        },
        {
@@ -12122,6 +12161,33 @@
         "type": "dir",
         "children": [
          {
+          "name": "_work",
+          "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/_work",
+          "type": "dir",
+          "children": [
+           {
+            "name": "20260822-aios-control-plane",
+            "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/_work/20260822-aios-control-plane",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/_work/20260822-aios-control-plane/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 528
+             }
+            ],
+            "desc": "Đặc tả đầy đủ (RECON/OUTCOME/SPEC/PLAN) cho sáng kiến AIOS Control Plane nằm ở module chủ:",
+            "readme": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/_work/20260822-aios-control-plane/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "DacTa.md",
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/DacTa.md",
           "type": "file",
@@ -12129,7 +12195,7 @@
           "size": 776
          }
         ],
-        "n_dirs": 0,
+        "n_dirs": 1,
         "n_files": 1
        },
        {
@@ -12852,196 +12918,196 @@
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
         "type": "file",
         "ext": ".md",
-        "size": 2239
+        "size": 2573
        },
        {
         "name": "ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 1755
+        "size": 2089
        },
        {
         "name": "ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
         "type": "file",
         "ext": ".md",
-        "size": 4722
+        "size": 5056
        },
        {
         "name": "ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
         "type": "file",
         "ext": ".md",
-        "size": 2041
+        "size": 2375
        },
        {
         "name": "ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
         "type": "file",
         "ext": ".md",
-        "size": 2235
+        "size": 2569
        },
        {
         "name": "ETV.P.F05.02_PhieuTheoDoiThietBi.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.02_PhieuTheoDoiThietBi.md",
         "type": "file",
         "ext": ".md",
-        "size": 3371
+        "size": 3705
        },
        {
         "name": "ETV.P.F05.03_NhatKySuDungThietBi.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.03_NhatKySuDungThietBi.md",
         "type": "file",
         "ext": ".md",
-        "size": 1748
+        "size": 2082
        },
        {
         "name": "ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
         "type": "file",
         "ext": ".md",
-        "size": 2489
+        "size": 2823
        },
        {
         "name": "ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
         "type": "file",
         "ext": ".md",
-        "size": 2136
+        "size": 2470
        },
        {
         "name": "ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 2137
+        "size": 2471
        },
        {
         "name": "ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 1881
+        "size": 2215
        },
        {
         "name": "ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 1751
+        "size": 2085
        },
        {
         "name": "ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 2038
+        "size": 2372
        },
        {
         "name": "ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 1872
+        "size": 2206
        },
        {
         "name": "ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
         "type": "file",
         "ext": ".md",
-        "size": 2312
+        "size": 2646
        },
        {
         "name": "ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
         "type": "file",
         "ext": ".md",
-        "size": 2610
+        "size": 2944
        },
        {
         "name": "ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
         "type": "file",
         "ext": ".md",
-        "size": 1963
+        "size": 2297
        },
        {
         "name": "ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
         "type": "file",
         "ext": ".md",
-        "size": 2017
+        "size": 2351
        },
        {
         "name": "ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
         "type": "file",
         "ext": ".md",
-        "size": 2083
+        "size": 2417
        },
        {
         "name": "ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
         "type": "file",
         "ext": ".md",
-        "size": 2321
+        "size": 2655
        },
        {
         "name": "ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
         "type": "file",
         "ext": ".md",
-        "size": 3247
+        "size": 3581
        },
        {
         "name": "ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
         "type": "file",
         "ext": ".md",
-        "size": 9029
+        "size": 9363
        },
        {
         "name": "ETV.P.F07.02_BienBanBanGiaoSanPham.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.02_BienBanBanGiaoSanPham.md",
         "type": "file",
         "ext": ".md",
-        "size": 3684
+        "size": 4018
        },
        {
         "name": "ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
         "type": "file",
         "ext": ".md",
-        "size": 6188
+        "size": 6522
        },
        {
         "name": "ETV.P.F07.06_HopDongDichVuKHCN.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06_HopDongDichVuKHCN.md",
         "type": "file",
         "ext": ".md",
-        "size": 13143
+        "size": 13477
        },
        {
         "name": "ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
         "type": "file",
         "ext": ".md",
-        "size": 3418
+        "size": 3752
        },
        {
         "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
         "type": "file",
         "ext": ".md",
-        "size": 2884
+        "size": 3218
        },
        {
         "name": "ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
         "type": "file",
         "ext": ".md",
-        "size": 4921
+        "size": 5255
        },
        {
         "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
@@ -13111,35 +13177,35 @@
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.02_GiayChungNhanHieuChuan.md",
         "type": "file",
         "ext": ".md",
-        "size": 6990
+        "size": 7324
        },
        {
         "name": "ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
         "type": "file",
         "ext": ".md",
-        "size": 5299
+        "size": 5633
        },
        {
         "name": "ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
         "type": "file",
         "ext": ".md",
-        "size": 12600
+        "size": 12934
        },
        {
         "name": "ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
         "type": "file",
         "ext": ".md",
-        "size": 12640
+        "size": 12974
        },
        {
         "name": "ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
         "type": "file",
         "ext": ".md",
-        "size": 4452
+        "size": 4786
        },
        {
         "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
@@ -13209,7 +13275,7 @@
         "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
         "type": "file",
         "ext": ".md",
-        "size": 1904
+        "size": 2238
        },
        {
         "name": "ETV.P.F24.01_BangChamCong.md",
@@ -15919,7 +15985,7 @@
             "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/validate_repo.py",
             "type": "file",
             "ext": ".py",
-            "size": 2478
+            "size": 2881
            },
            {
             "name": "verify-install.sh",
@@ -18920,7 +18986,7 @@
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 11102
+        "size": 11350
        },
        {
         "name": "SKILL_TEMPLATE.md",
@@ -70850,7 +70916,7 @@
       "path": "_meta/validate_skill_schema.py",
       "type": "file",
       "ext": ".py",
-      "size": 4555
+      "size": 5545
      }
     ],
     "n_dirs": 1,
@@ -70971,7 +71037,7 @@
     "path": "CLAUDE.md",
     "type": "file",
     "ext": ".md",
-    "size": 12778
+    "size": 13078
    },
    {
     "name": "README.md",
