@@ -63,6 +63,18 @@ def parse_yaml_frontmatter(text: str) -> dict:
     return data
 
 
+def folder_name_to_kebab(folder_name: str) -> str:
+    """Mechanical kebab-case transliteration of a skill folder name.
+
+    Mirrors the rule in root CLAUDE.md: hạ chữ thường + đổi `_` thành `-`,
+    tách theo ranh giới chữ hoa của PascalCase (vd. 06_S_LapTrinhTheoDacTa ->
+    06-s-lap-trinh-theo-dac-ta, S14_KiemSoatTaiLieu -> s14-kiem-soat-tai-lieu).
+    """
+    parts = folder_name.split("_")
+    spaced = [re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "-", part).lower() for part in parts]
+    return "-".join(spaced)
+
+
 def validate_skill(skill_dir: Path, schema: dict) -> bool:
     """Validate a single skill directory. Returns True if valid."""
     skill_file = skill_dir / "SKILL.md"
@@ -77,6 +89,16 @@ def validate_skill(skill_dir: Path, schema: dict) -> bool:
 
         # Validate against schema
         validate(instance=frontmatter, schema=schema)
+
+        # Validate name: matches the mechanical kebab-case của tên thư mục
+        expected_name = folder_name_to_kebab(skill_dir.name)
+        actual_name = frontmatter.get("name")
+        if actual_name != expected_name:
+            print(f"  ✗ {skill_dir.name}: name không khớp tên thư mục")
+            print(f"    Field: name")
+            print(f"    Error: cần '{expected_name}', đang là '{actual_name}'")
+            return False
+
         print(f"  ✓ {skill_dir.name}: valid")
         return True
 
