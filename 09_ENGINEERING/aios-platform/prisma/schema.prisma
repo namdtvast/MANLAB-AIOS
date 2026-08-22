@@ -40,6 +40,8 @@ model User {
 
   m21Created      M21Record[]     @relation("M21Created")
   m21AuditEntries M21AuditEntry[]
+
+  m29AuditEntries AIAuditLog[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -319,4 +321,357 @@ model M21AuditEntry {
 
   record M21Record @relation(fields: [recordId], references: [id], onDelete: Cascade)
   actor  User      @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M29_AI — di trú từ 05_MODULE_LIBRARY/M29_AI/08_Source/api ----------
+// Port 1:1 từ model.mjs (enum/hằng số) + rules.mjs (RBAC/vòng đời phê duyệt) sang
+// src/lib/m29/{model,rules}.ts, KHÔNG lặp lại logic ở đây — xem
+// 01_Requirement/_work/20260823-di-tru-m29/spec.md để đối chiếu nguyên văn.
+// AIAgent.skillIds/toolIds là String[] (không phải bảng N-N riêng) — đúng cấu trúc gốc
+// (JSON mảng id thô trong seed.mjs), không tự "chuẩn hoá" thêm bảng trung gian.
+
+enum AIApprovalStatus {
+  DRAFT
+  PENDING_REVIEW
+  RETURNED
+  PENDING_APPROVAL
+  REJECTED
+  APPROVED
+  ARCHIVED
+}
+
+enum AIPromptStatus {
+  DRAFT
+  REVIEW
+  APPROVED
+  ACTIVE
+  ARCHIVED
+}
+
+enum AIOpStatus {
+  ACTIVE
+  DISABLED
+  DEPRECATED
+}
+
+enum AIHealth {
+  HEALTHY
+  DEGRADED
+  DOWN
+  UNKNOWN
+}
+
+enum AIPermissionLevel {
+  READ
+  COMPUTE
+  PROPOSE
+  EXECUTE
+}
+
+enum AIGuardrailAction {
+  BLOCK
+  WARN
+  REQUIRE_CONFIRMATION
+  REQUIRE_APPROVAL
+}
+
+enum AIAStatus {
+  NOT_ASSESSED
+  DRAFT
+  REVIEWED
+  APPROVED
+  REVIEW_REQUIRED
+}
+
+model AIPlatform {
+  id                String           @id @default(cuid())
+  code              String           @unique
+  name              String
+  baseUrl           String?
+  apiBaseUrl        String?
+  environment       String           @default("INTERNAL")
+  health            AIHealth         @default(UNKNOWN)
+  lastError         String?
+  lastHealthCheckAt DateTime?
+  owner             String           @default("")
+  adapterType       String // "ManlabPlatformAdapter" | "PlaceholderPlatformAdapter"
+  approvalStatus    AIApprovalStatus @default(DRAFT)
+  approvedBy        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tools  AITool[]
+  agents AIAgent[]
+}
+
+model AIProvider {
+  id     String     @id @default(cuid())
+  code   String     @unique
+  name   String
+  status AIOpStatus @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  models AIModel[]
+}
+
+model AIModel {
+  id              String     @id @default(cuid())
+  providerId      String
+  modelId         String // vd "gemini-2.5-flash" — id thật của model tại provider, khác PK
+  displayName     String
+  purpose         String     @default("")
+  status          AIOpStatus @default(ACTIVE)
+  temperature     Float?
+  maxTokens       Int?
+  costPer1kTokens Float      @default(0)
+  version         Int        @default(1)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider AIProvider  @relation(fields: [providerId], references: [id])
+  agents   AIAgent[]
+  requests AIRequest[]
+}
+
+model AISkill {
+  id            String     @id @default(cuid())
+  code          String     @unique
+  name          String
+  platformScope String     @default("")
+  version       Int        @default(1)
+  status        AIOpStatus @default(ACTIVE)
+  riskLevel     String     @default("LOW")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AITool {
+  id                  String            @id @default(cuid())
+  platformId          String
+  code                String            @unique
+  name                String
+  endpoint            String
+  httpMethod          String            @default("GET")
+  inputSchema         Json              @default("{}")
+  outputSchema        Json              @default("{}")
+  permissionLevel     AIPermissionLevel
+  riskLevel           String            @default("LOW")
+  requireConfirmation Boolean           @default(false)
+  requireApproval     Boolean           @default(false)
+  status              AIOpStatus        @default(ACTIVE)
+  version             Int               @default(1)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  platform  AIPlatform   @relation(fields: [platformId], references: [id])
+  toolCalls AIToolCall[]
+}
+
+model AIAgent {
+  id                    String     @id @default(cuid())
+  platformId            String
+  code                  String     @unique
+  name                  String
+  purpose               String     @default("")
+  modelId               String?
+  activePromptVersionId String?
+  status                AIOpStatus @default(ACTIVE)
+  riskLevel             String     @default("MEDIUM")
+  owner                 String     @default("")
+  version               Int        @default(1)
+  skillIds              String[]   @default([])
+  toolIds               String[]   @default([])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  platform         AIPlatform           @relation(fields: [platformId], references: [id])
+  model            AIModel?             @relation(fields: [modelId], references: [id])
+  prompts          AIPrompt[]
+  aia              AIImpactAssessment[]
+  evaluationSuites AIEvaluationSuite[]
+  requests         AIRequest[]
+}
+
+model AIPrompt {
+  id      String @id @default(cuid())
+  code    String @unique
+  agentId String
+
+  createdAt DateTime @default(now())
+
+  agent    AIAgent           @relation(fields: [agentId], references: [id])
+  versions AIPromptVersion[]
+}
+
+model AIPromptVersion {
+  id            String         @id @default(cuid())
+  promptId      String
+  content       String
+  status        AIPromptStatus @default(DRAFT)
+  createdBy     String?
+  approvedBy    String?
+  effectiveFrom DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  prompt   AIPrompt    @relation(fields: [promptId], references: [id])
+  requests AIRequest[]
+}
+
+// scope/scopeRef đa hình (SYSTEM/PLATFORM/AGENT/SKILL/TOOL/WORKFLOW) — giữ String tự do như bản
+// gốc, KHÔNG FK (một trường không thể trỏ nhiều bảng khác nhau trong Prisma).
+model AIGuardrail {
+  id             String            @id @default(cuid())
+  code           String            @unique
+  description    String
+  scope          String
+  scopeRef       String?
+  severity       String            @default("MEDIUM")
+  action         AIGuardrailAction
+  approvalStatus AIApprovalStatus  @default(DRAFT)
+  approvedBy     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AIPolicy {
+  id             String           @id @default(cuid())
+  name           String
+  version        Int              @default(1)
+  owner          String           @default("")
+  approver       String           @default("")
+  effectiveDate  DateTime?
+  approvalStatus AIApprovalStatus @default(DRAFT)
+  approvedBy     String?
+  reference      String           @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AIImpactAssessment {
+  id             String    @id @default(cuid())
+  code           String    @unique // vd "AIA-2026-001"
+  agentId        String
+  purpose        String
+  dataUsed       String    @default("")
+  affectedUsers  String    @default("")
+  risk           String    @default("LOW")
+  humanOversight String    @default("")
+  controls       String    @default("")
+  residualRisk   String    @default("LOW")
+  status         AIAStatus @default(NOT_ASSESSED)
+  reviewDate     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  agent AIAgent @relation(fields: [agentId], references: [id])
+}
+
+model AIEvaluationSuite {
+  id      String @id @default(cuid())
+  name    String
+  agentId String
+
+  createdAt DateTime @default(now())
+
+  agent AIAgent            @relation(fields: [agentId], references: [id])
+  cases AIEvaluationCase[]
+  runs  AIEvaluationRun[]
+}
+
+model AIEvaluationCase {
+  id       String @id @default(cuid())
+  suiteId  String
+  input    Json
+  expected String
+
+  suite AIEvaluationSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+}
+
+model AIEvaluationRun {
+  id           String @id @default(cuid())
+  suiteId      String
+  agentVersion Int    @default(1)
+  passCount    Int    @default(0)
+  failCount    Int    @default(0)
+  status       String // PASS/FAIL/NO_CASES
+
+  createdAt DateTime @default(now())
+
+  suite AIEvaluationSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+}
+
+model AIRequest {
+  id               String  @id @default(cuid()) // = traceId
+  platformId       String?
+  agentId          String?
+  modelId          String?
+  promptVersionId  String?
+  userRef          String
+  inputTokens      Int     @default(0)
+  outputTokens     Int     @default(0)
+  latencyMs        Int     @default(0)
+  guardrailResult  String  @default("PASS")
+  evaluationResult String?
+
+  createdAt DateTime @default(now())
+
+  agent         AIAgent?         @relation(fields: [agentId], references: [id])
+  model         AIModel?         @relation(fields: [modelId], references: [id])
+  promptVersion AIPromptVersion? @relation(fields: [promptVersionId], references: [id])
+  toolCalls     AIToolCall[]
+}
+
+model AIToolCall {
+  id        String  @id @default(cuid())
+  requestId String
+  toolId    String
+  input     Json
+  output    Json?
+  status    String // OK/ERROR
+  latencyMs Int     @default(0)
+  errorCode String?
+
+  request AIRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  tool    AITool    @relation(fields: [toolId], references: [id])
+}
+
+// Chỉ lưu maskedValue — KHÔNG lưu giá trị thật trong Postgres dev dùng chung (spec.md Quyết
+// định phạm vi #3). Khác bản gốc (lưu thật ở file tách riêng secrets.local.json).
+model AISecret {
+  id          String    @id @default(cuid())
+  platformId  String
+  name        String
+  maskedValue String
+  status      String    @default("ACTIVE")
+  lastRotated DateTime  @default(now())
+  lastUsed    DateTime?
+
+  createdAt DateTime @default(now())
+}
+
+model AIAuditLog {
+  id         String   @id @default(cuid())
+  actorId    String
+  role       String // vai trò M29 (AI_VIEWER/.../SUPER_ADMIN) của actor TẠI thời điểm hành động
+  entityType String
+  entityId   String
+  field      String?
+  before     Json?
+  after      Json?
+  reason     String?
+  at         DateTime @default(now())
+
+  actor User @relation(fields: [actorId], references: [id])
 }

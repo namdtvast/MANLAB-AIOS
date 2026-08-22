@@ -100,3 +100,21 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
 > Criteria đầy đủ, kiến trúc Tool Gateway, ví dụ AC-01..AC-09) tại
 > [`_work/20260822-aios-control-plane/`](_work/20260822-aios-control-plane/) — giữ lại làm
 > hồ sơ digital thread, không lặp lại toàn văn ở đây.
+
+## 7. Trạng thái triển khai (aios-platform)
+
+- ✅ **Increment 3** (2026-08-23, di trú từ `08_Source/api/*.mjs` sang
+  `09_ENGINEERING/aios-platform/src/lib/m29/`): state machine/RBAC/AIA Gate/Tool Gateway/
+  Deployment Gate port 1:1, có DB Postgres thật, gate vai trò thật qua `ModuleRoleAssignment`,
+  verify qua Browser thật (AIA Gate chặn/mở thật, disable Tool chặn thật, Prompt lifecycle đủ
+  4 bước, audit log, health check thủ công) — xem
+  [`_work/20260823-di-tru-m29/verify.md`](_work/20260823-di-tru-m29/verify.md).
+- ✅ Không cần di trú M35_NenTangSo trước — Platform là 1 bảng nội bộ của M29
+  (`AIPlatform`), không phụ thuộc M35 thật (RECON xác nhận từ `seed.mjs` gốc).
+- ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
+  Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
+  `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
+  công), tích hợp Platform Registry M35/VI-CONNECT thật.
+- ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa deprecate. Tool Gateway
+  của Agent mẫu gọi thật ra `http://localhost:8010` (server M10 standalone cũ) — cần server đó
+  chạy để demo Tool Gateway/health check thành công.
