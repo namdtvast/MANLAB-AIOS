@@ -78,6 +78,16 @@ Chi tiết trường từng thực thể: [DataModel.md](../03_Database/DataMode
    bao giờ xuất hiện ngoài tầng lưu trữ secret.
 7. Mọi API ghi (POST/PUT) phải sinh một `AIAuditLog` (actor/entity/before/after/at).
 8. Không đăng ký Agent/Tool cho một `platform_id` chưa tồn tại trong Platform Registry (M35).
+9. **AIA Gate** (Phase 2, bắt buộc theo ISO/IEC 42001): Tool Gateway từ chối mọi lời gọi thay
+   mặt một `AIAgent` chưa có `AIImpactAssessment` ở trạng thái `APPROVED` — kể cả khi Tool và
+   quyền của user đều hợp lệ. Lời gọi Tool Gateway luôn phải có `agent_id` (không cho gọi Tool
+   "trần" không gắn với Agent nào, tránh lách whitelist).
+10. **Deployment Gate** (Phase 2): không cho `activate` một `AIPromptVersion` mới nếu
+    `AIEvaluationRun` gần nhất của Agent đó có `status=FAIL` — chặn tự động, không có cơ chế
+    override thủ công ở Phase 2.
+11. `AIImpactAssessment.status=APPROVED` tự động chuyển sang `REVIEW_REQUIRED` khi quá hạn
+    `review_date` — do hệ thống phát hiện theo lịch (không phải AI tự kết luận nội dung đánh
+    giá), ghi `AIAuditLog` với `actor=SYSTEM`.
 
 ## 6. Liên kết
 

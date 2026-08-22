@@ -10,6 +10,7 @@ import * as gateway from './gateway.mjs';
 import * as usageMod from './usage.mjs';
 import * as secrets from './secrets.mjs';
 import { checkHealth, startHealthPolling } from './health.mjs';
+import { runCases } from './evaluation.mjs';
 import { USERS, ROLE_USER, nowISO, genId, OP_STATUS, PROMPT_STATUS, AIA_STATUS } from './model.mjs';
 import { can, approvalTransitions, aiaTransitions, promptTransitions, validateTool } from './rules.mjs';
 
@@ -22,7 +23,7 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=u
 const json = (res, code, data) => { res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(data)); };
 const readBody = (req) => new Promise((resolve) => { let b = ''; req.on('data', (c) => (b += c)); req.on('end', () => { try { resolve(b ? JSON.parse(b) : {}); } catch { resolve({}); } }); });
 
-const RULE_CODES = new Set(['NOT_DRAFT', 'BAD_STATE', 'REASON_REQUIRED', 'EXECUTE_REQUIRES_GUARD', 'TOOL_DISABLED']);
+const RULE_CODES = new Set(['NOT_DRAFT', 'BAD_STATE', 'REASON_REQUIRED', 'EXECUTE_REQUIRES_GUARD', 'TOOL_DISABLED', 'DEPLOYMENT_BLOCKED_BY_EVALUATION', 'AIA_NOT_APPROVED', 'AGENT_REQUIRED']);
 function fail(res, r) {
   const code = RULE_CODES.has(r.code) ? 409 : r.code === 'NOT_FOUND' ? 404 : r.code === 'FORBIDDEN' || r.code === 'TOOL_NOT_WHITELISTED' ? 403 : 400;
   return json(res, code, { traceId: genId('ERR'), errorCode: r.code, component: 'aios-control-plane', timestamp: nowISO(), message: r.message });
@@ -56,6 +57,22 @@ const skills = simpleCrud('skills', 'SKILL');
 const agentsCrud = simpleCrud('agents', 'AGENT');
 const toolsCrud = simpleCrud('tools', 'TOOL');
 
+function latestEvaluationRun(agentId) {
+  const suiteIds = col('evaluationSuites').filter((s) => s.agent_id === agentId).map((s) => s.id);
+  const runs = col('evaluationRuns').filter((r) => suiteIds.includes(r.suite_id));
+  return runs.slice(-1)[0] || null;
+}
+
+// Deployment Gate (Phase 2) — không cho kích hoạt Prompt mới nếu Evaluation gần nhất của
+// Agent KHÔNG ĐẠT; chặn tự động, không có cơ chế override thủ công ở Phase 2 (đúng đặc tả
+// "Deployment Gate tự động chặn theo Evaluation" trong outcome.md).
+function deploymentGate(agentId) {
+  const run = latestEvaluationRun(agentId);
+  if (run && run.status === 'FAIL')
+    return { ok: false, code: 'DEPLOYMENT_BLOCKED_BY_EVALUATION', message: `Evaluation gần nhất (${run.id}) KHÔNG ĐẠT (${run.fail_count} case lỗi) — không thể kích hoạt cấu hình mới cho tới khi Evaluation PASS.` };
+  return { ok: true };
+}
+
 function agentDetail(id) {
   const agent = findById('agents', id); if (!agent) return null;
   const model = findById('models', agent.model_id) || null;
@@ -64,9 +81,7 @@ function agentDetail(id) {
   const agentTools = col('tools').filter((t) => (agent.toolIds || []).includes(t.id));
   const guardrails = col('guardrails').filter((g) => g.scope_ref === id || g.scope === 'SYSTEM');
   const aiaRec = col('aia').find((a) => a.agent_id === id) || null;
-  const evalRuns = col('evaluationRuns').filter((r) => col('evaluationSuites').some((s) => s.id === r.suite_id && s.agent_id === id));
-  const lastEval = evalRuns.slice(-1)[0] || null;
-  return { ...agent, model, activePrompt, skills: agentSkills, tools: agentTools, guardrails, aia: aiaRec, lastEvaluation: lastEval };
+  return { ...agent, model, activePrompt, skills: agentSkills, tools: agentTools, guardrails, aia: aiaRec, lastEvaluation: latestEvaluationRun(id) };
 }
 
 // Vòng đời chuẩn (submit-review / review / approve / archive) dùng cho Platform/Guardrail/Policy.
@@ -201,17 +216,19 @@ async function api(req, res, path) {
       } else if (['submit-review', 'approve', 'activate'].includes(subaction) && req.method === 'POST') {
         if (!can(role, 'registry', 'write')) return denied(res);
         const v = findById('promptVersions', subid); if (!v) return notFound(res);
+        const agent = col('agents').find((a) => a.id === col('prompts').find((p) => p.id === id)?.agent_id);
+        if (subaction === 'activate' && agent) {
+          const gate = deploymentGate(agent.id);
+          if (!gate.ok) return fail(res, gate);
+        }
         const fnName = subaction === 'submit-review' ? 'submitReview' : subaction;
         const r = promptTransitions[fnName](v, user); if (!r.ok) return fail(res, r);
         const before = v.status;
         Object.assign(v, r.patch, { status: r.status });
-        if (r.status === PROMPT_STATUS.ACTIVE) {
-          const agent = col('agents').find((a) => a.id === col('prompts').find((p) => p.id === id)?.agent_id);
-          if (agent) {
-            const prevActiveId = agent.active_prompt_version_id;
-            if (prevActiveId && prevActiveId !== v.id) { const prev = findById('promptVersions', prevActiveId); if (prev) prev.status = PROMPT_STATUS.ARCHIVED; }
-            agent.active_prompt_version_id = v.id;
-          }
+        if (r.status === PROMPT_STATUS.ACTIVE && agent) {
+          const prevActiveId = agent.active_prompt_version_id;
+          if (prevActiveId && prevActiveId !== v.id) { const prev = findById('promptVersions', prevActiveId); if (prev) prev.status = PROMPT_STATUS.ARCHIVED; }
+          agent.active_prompt_version_id = v.id;
         }
         save();
         audit.appendAudit({ actor: user.id, entityType: 'promptVersions', entityId: v.id, field: 'status', before, after: r.status, reason: r.reason });
@@ -302,7 +319,8 @@ async function api(req, res, path) {
       if (req.method === 'POST') {
         if (!can(role, 'evaluations', 'write')) return denied(res);
         const cases = col('evaluationCases').filter((c) => c.suite_id === id);
-        const rec = { id: genId('EVRUN'), suite_id: id, agent_version: body.agent_version || 1, pass_count: cases.length, fail_count: 0, status: cases.length ? 'PASS' : 'NO_CASES', createdAt: nowISO() };
+        const { results, pass_count, fail_count, status } = runCases(cases);
+        const rec = { id: genId('EVRUN'), suite_id: id, agent_version: body.agent_version || 1, pass_count, fail_count, status, results, createdAt: nowISO() };
         col('evaluationRuns').push(rec); save();
         return json(res, 201, rec);
       }

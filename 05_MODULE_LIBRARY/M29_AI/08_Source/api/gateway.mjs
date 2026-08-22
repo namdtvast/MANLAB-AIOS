@@ -1,9 +1,9 @@
 // AIOS Control Plane — Tool Gateway: điểm gọi API nền tảng DUY NHẤT mà Agent được phép dùng.
 // Không route nào khác cho phép Agent gọi thẳng API bên ngoài (nguyên tắc kiến trúc #1, DacTa.md).
-import { load, save, findById, nextSeq } from './db.mjs';
+import { load, save, col, findById, nextSeq } from './db.mjs';
 import { getAdapter } from './adapters.mjs';
 import { hasToolPermission } from './rules.mjs';
-import { nowISO, genId, OP_STATUS } from './model.mjs';
+import { nowISO, genId, OP_STATUS, AIA_STATUS } from './model.mjs';
 
 const err = (code, message) => ({ ok: false, code, message });
 
@@ -11,15 +11,22 @@ export async function callTool({ toolId, agentId, input, user }) {
   const d = load();
   const tool = findById('tools', toolId);
   if (!tool) return err('NOT_FOUND', 'Không tìm thấy Tool.');
-  const agent = agentId ? findById('agents', agentId) : null;
-  if (agentId && !agent) return err('NOT_FOUND', 'Không tìm thấy Agent.');
+  if (!agentId) return err('AGENT_REQUIRED', 'Tool Gateway chỉ nhận lời gọi thay mặt một Agent cụ thể — thiếu agentId.');
+  const agent = findById('agents', agentId);
+  if (!agent) return err('NOT_FOUND', 'Không tìm thấy Agent.');
 
   if (tool.status === OP_STATUS.DISABLED)
     return err('TOOL_DISABLED', 'Tool đang bị vô hiệu hóa — Tool Gateway chặn, không forward tới nền tảng.');
-  if (agent && !(agent.toolIds || []).includes(toolId))
+  if (!(agent.toolIds || []).includes(toolId))
     return err('TOOL_NOT_WHITELISTED', 'Tool không nằm trong whitelist của Agent này.');
   if (!hasToolPermission(user.role, tool))
     return err('FORBIDDEN', `Vai trò ${user.role} không đủ quyền gọi Tool permission_level=${tool.permission_level}.`);
+
+  // AIA Gate (Phase 2, ISO/IEC 42001) — Agent chưa có hồ sơ đánh giá tác động AI ĐÃ PHÊ DUYỆT
+  // thì không được vận hành, kể cả khi Tool/permission đã hợp lệ.
+  const aia = col('aia').find((a) => a.agent_id === agentId);
+  if (!aia || aia.status !== AIA_STATUS.APPROVED)
+    return err('AIA_NOT_APPROVED', `Agent '${agent.name}' chưa có hồ sơ AI Impact Assessment ở trạng thái Đã phê duyệt (hiện tại: ${aia?.status || 'chưa có hồ sơ'}) — Tool Gateway chặn theo ISO/IEC 42001.`);
 
   const platform = findById('platforms', tool.platform_id);
   if (!platform) return err('NOT_FOUND', 'Không tìm thấy Platform của Tool.');
