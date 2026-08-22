@@ -3,6 +3,7 @@ import { APPROVAL, PROMPT_STATUS, OP_STATUS, HEALTH, PERMISSION_LEVEL, GUARDRAIL
 
 export function seed() {
   const t = nowISO();
+  const nextReview = new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toISOString(); // chu kỳ rà soát AIA 180 ngày
 
   const platforms = [
     { id: 'PLAT-MANLAB', code: 'MANLAB', name: 'ManLab (M10 Đảm bảo hiệu lực)', base_url: 'http://localhost:8010', api_base_url: 'http://localhost:8010', environment: 'INTERNAL', health: HEALTH.UNKNOWN, owner: 'Dương Thành Nam', adapter_type: 'ManlabPlatformAdapter', approvalStatus: APPROVAL.APPROVED, createdAt: t },
@@ -45,7 +46,7 @@ export function seed() {
   ];
 
   const aia = [
-    { id: 'AIA-2026-001', agent_id: 'AGENT-M29-TROLY', purpose: 'Rà soát KPI, gắn cờ cảnh báo cho người thẩm định', data_used: 'Chỉ số kỹ thuật P10 (không có dữ liệu cá nhân)', affected_users: 'Nhân sự phòng thí nghiệm ETV', risk: 'LOW', human_oversight: 'Người thẩm định xác nhận trước khi phê duyệt hồ sơ', controls: 'Guardrail NO_AUTO_APPROVE; Tool Gateway giới hạn READ-only', residual_risk: 'LOW', status: AIA_STATUS.APPROVED, review_date: t, createdAt: t },
+    { id: 'AIA-2026-001', agent_id: 'AGENT-M29-TROLY', purpose: 'Rà soát KPI, gắn cờ cảnh báo cho người thẩm định', data_used: 'Chỉ số kỹ thuật P10 (không có dữ liệu cá nhân)', affected_users: 'Nhân sự phòng thí nghiệm ETV', risk: 'LOW', human_oversight: 'Người thẩm định xác nhận trước khi phê duyệt hồ sơ', controls: 'Guardrail NO_AUTO_APPROVE; Tool Gateway giới hạn READ-only', residual_risk: 'LOW', status: AIA_STATUS.APPROVED, review_date: nextReview, createdAt: t },
   ];
 
   const evaluationSuites = [

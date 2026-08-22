@@ -13,9 +13,9 @@
 | GET | `/api/ai/agents/{id}` | AI_VIEWER | Agent Detail: Model + Prompt hiệu lực + Skills + Tools + Guardrails + AIA + Evaluation gần nhất |
 | GET/POST | `/api/ai/skills` | AI_VIEWER / AI_ADMIN | Skill registry |
 | GET/POST | `/api/ai/tools` | AI_VIEWER / AI_ADMIN | Tool registry (`permission_level`, `endpoint`, `status`) |
-| POST | `/api/ai/tools/{id}/call` | theo `permission_level` của Tool + quyền user | **Tool Gateway** — kiểm tra Tool `status`/whitelist theo Agent, forward tới Platform Adapter (M35), ghi `AIRequest` + `AIToolCall` |
+| POST | `/api/ai/tools/{id}/call` | theo `permission_level` của Tool + quyền user | **Tool Gateway** — bắt buộc `agentId`; kiểm tra Tool `status`/whitelist theo Agent, **AIA Gate** (Agent phải có AIA `APPROVED`), forward tới Platform Adapter (M35), ghi `AIRequest` + `AIToolCall` |
 | GET/POST | `/api/ai/prompts` | AI_ADMIN | Prompt registry |
-| GET/POST | `/api/ai/prompts/{id}/versions` | AI_ADMIN | Tạo/xem version Prompt (lifecycle DRAFT→ACTIVE) |
+| GET/POST | `/api/ai/prompts/{id}/versions` | AI_ADMIN | Tạo/xem version Prompt (lifecycle DRAFT→ACTIVE); `.../activate` áp **Deployment Gate** — chặn nếu Evaluation gần nhất của Agent `FAIL` |
 | GET/POST | `/api/ai/guardrails` | AI_SECURITY_ADMIN | Guardrail registry |
 | GET/POST | `/api/ai/policies` | AI_SECURITY_ADMIN | Policy registry |
 | GET/POST | `/api/ai/aia` | AI_ADMIN (duyệt: người có thẩm quyền, không phải AI) | AI Impact Assessment |
