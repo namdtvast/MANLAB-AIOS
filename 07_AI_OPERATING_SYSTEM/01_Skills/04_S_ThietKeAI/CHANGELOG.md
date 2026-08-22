@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1 — 2026-08-22
+
+- Đổi frontmatter `name` từ `thiet-ke-ai` thành `04-s-thiet-ke-ai` để định danh kích hoạt khớp cơ học với tên thư mục `04_S_ThietKeAI` (dễ nhớ, tránh phải nhớ 2 tên riêng biệt). Cập nhật đồng bộ `plugin.json`, `scripts/validate_repo.py`, `scripts/verify-install.sh`.
+
 ## 2.1.0 — 2026-07-25
 
 - Chuẩn hóa frontmatter `name: thiet-ke-ai` theo kebab-case ngắn.

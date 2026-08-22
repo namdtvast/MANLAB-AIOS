@@ -1,6 +1,6 @@
 ---
-name: xu-ly-van-phong
-description: "TẠO, SỬA, CHUYỂN ĐỔI FILE VĂN PHÒNG (WORD, EXCEL, POWERPOINT, PDF) THEO KIẾN TRÚC 2 CHIỀU. Chiều Đọc bóc tách Brand Kit (màu sắc, font, logo) và Data từ file mẫu; Chiều Ghi tái tạo file mới bằng Node.js mang Brand DNA. Hỗ trợ 2 luồng xuất bản - Chuẩn Hành chính NĐ 30 (đen trắng, nghiêm ngặt) và Chuẩn Thẩm mỹ Hiện đại (Brand Kit linh hoạt). Kích hoạt khi user đề cập 'soạn công văn', 'tạo file word', 'làm slide', 'tạo bảng tính', 'cắt file pdf'; yêu cầu 'tạo báo cáo', 'làm đề xuất', 'bóc tách format file này', 'bắt chước format file này', 'xuất bản sách', 'chuyển sang word'; nói 'gộp file', 'tách trang', 'đổi sang pdf', 'format cho đẹp', 'chuyển file md này thành word/excel/slide'; trong tình huống user gửi file Word/Excel/PDF/Slide kèm yêu cầu chỉnh sửa, gửi file MD/text thô cần chuyển thành tài liệu chuyên nghiệp, hoặc cần tạo tài liệu từ đầu. KHÔNG dùng cho viết nội dung bài viết (skill này chỉ chuyên thiết kế và cấu trúc file), lập trình phần mềm, đăng bài mạng xã hội. Đây là lớp KỸ THUẬT sinh file — nội dung/pháp lý của 5 loại văn bản hành chính chuẩn ETV (Công văn, Quyết định, Báo cáo, Thông báo, Biên bản) do skill etv-document-governance quyết định. Dùng cho MỌI nghiệp vụ tạo và xử lý file văn phòng — kể cả khi user chỉ gửi 1 file và nói 'xử lý giúp tôi'."
+name: 02-s-xu-ly-van-phong
+description: "TẠO, SỬA, CHUYỂN ĐỔI FILE VĂN PHÒNG (WORD, EXCEL, POWERPOINT, PDF) THEO KIẾN TRÚC 2 CHIỀU. Chiều Đọc bóc tách Brand Kit (màu sắc, font, logo) và Data từ file mẫu; Chiều Ghi tái tạo file mới bằng Node.js mang Brand DNA. Hỗ trợ 2 luồng xuất bản - Chuẩn Hành chính NĐ 30 (đen trắng, nghiêm ngặt) và Chuẩn Thẩm mỹ Hiện đại (Brand Kit linh hoạt). Kích hoạt khi user đề cập 'soạn công văn', 'tạo file word', 'làm slide', 'tạo bảng tính', 'cắt file pdf'; yêu cầu 'tạo báo cáo', 'làm đề xuất', 'bóc tách format file này', 'bắt chước format file này', 'xuất bản sách', 'chuyển sang word'; nói 'gộp file', 'tách trang', 'đổi sang pdf', 'format cho đẹp', 'chuyển file md này thành word/excel/slide'; trong tình huống user gửi file Word/Excel/PDF/Slide kèm yêu cầu chỉnh sửa, gửi file MD/text thô cần chuyển thành tài liệu chuyên nghiệp, hoặc cần tạo tài liệu từ đầu. KHÔNG dùng cho viết nội dung bài viết (skill này chỉ chuyên thiết kế và cấu trúc file), lập trình phần mềm, đăng bài mạng xã hội. Đây là lớp KỸ THUẬT sinh file — nội dung/pháp lý của 5 loại văn bản hành chính chuẩn ETV (Công văn, Quyết định, Báo cáo, Thông báo, Biên bản) do skill s14-kiem-soat-tai-lieu quyết định. Dùng cho MỌI nghiệp vụ tạo và xử lý file văn phòng — kể cả khi user chỉ gửi 1 file và nói 'xử lý giúp tôi'."
 argument-hint: "[loại file: docx|pptx|xlsx|pdf] [hành động: tạo|sửa|chuyển đổi|bóc tách]"
 license: Internal-ETV
 metadata:
@@ -17,19 +17,19 @@ Skill xử lý toàn diện file văn phòng (DOCX, XLSX, PPTX, PDF). Hệ thố
 
 ---
 
-## 0. Quan hệ với `etv-document-governance`
+## 0. Quan hệ với `s14-kiem-soat-tai-lieu`
 
 Hai skill chia nhau đúng một ranh giới: **nội dung/pháp lý** vs **file vật lý**.
 
-| | `etv-document-governance` | `xu-ly-van-phong` (skill này) |
+| | `s14-kiem-soat-tai-lieu` | `02-s-xu-ly-van-phong` (skill này) |
 |---|---|---|
 | Trả lời câu hỏi | Văn bản này viết gì, căn cứ luật nào, mã hoá ra sao, ai được ký? | File `.docx/.pptx/.xlsx` này trình bày thế nào cho đúng NĐ 30 / Brand Kit? |
 | Sở hữu | Nội dung, metadata, thể thức pháp lý của Công văn, Quyết định, Báo cáo, Thông báo, Biên bản, Thủ tục, Quy trình, Hướng dẫn, Biểu mẫu, Giấy chứng nhận | Toàn bộ pipeline OOXML: bóc tách Brand Kit, sinh file Node.js, convert, PDF, thiết kế Track 2 |
-| Khi nào gọi skill kia | Cần xuất file `.docx` thật từ nội dung đã soạn → gọi `xu-ly-van-phong` | Nội dung 1 trong 5 loại VB hành chính chuẩn chưa được chốt → gọi `etv-document-governance` trước |
+| Khi nào gọi skill kia | Cần xuất file `.docx` thật từ nội dung đã soạn → gọi `02-s-xu-ly-van-phong` | Nội dung 1 trong 5 loại VB hành chính chuẩn chưa được chốt → gọi `s14-kiem-soat-tai-lieu` trước |
 
-Với **Công văn, Quyết định, Báo cáo, Thông báo, Biên bản**: lấy khung nội dung + metadata từ `etv-document-governance/templates/`, chỉ dùng `standards/nd30.md` (mục "Biến thể kỹ thuật theo loại văn bản") để biết cách trình bày. Không tự bịa lại cấu trúc nội dung của 5 loại này trong skill này.
+Với **Công văn, Quyết định, Báo cáo, Thông báo, Biên bản**: lấy khung nội dung + metadata từ `s14-kiem-soat-tai-lieu/templates/`, chỉ dùng `standards/nd30.md` (mục "Biến thể kỹ thuật theo loại văn bản") để biết cách trình bày. Không tự bịa lại cấu trúc nội dung của 5 loại này trong skill này.
 
-Với **Kế hoạch, Tờ trình, Giấy mời/Ủy quyền, Đề xuất** và các loại VB không có template riêng: dùng `templates/` của skill này (`etv-document-governance` chưa có).
+Với **Kế hoạch, Tờ trình, Giấy mời/Ủy quyền, Đề xuất** và các loại VB không có template riêng: dùng `templates/` của skill này (`s14-kiem-soat-tai-lieu` chưa có).
 
 ---
 
@@ -57,7 +57,7 @@ Mọi tài liệu đi qua hệ thống đều phân tách rõ Tầng Dữ liệu
 
 | Lựa chọn | Luồng Thực thi | Ứng dụng | Kỹ thuật & Rào cản |
 |:---:|---|---|---|
-| **[1]** | **Chuẩn Hành chính Quốc gia (NĐ 30)** | Công văn, Tờ trình, Quyết định nhà nước | **Đen/Trắng tuyệt đối.** Cấm Brand Kit. Times New Roman, lề chuẩn (Trái 3, Phải 1.5, Trên/Dưới 2), header Quốc hiệu 2 cột. Theo `standards/nd30.md` + `templates/` (hoặc `etv-document-governance/templates/` cho 5 loại chuẩn) |
+| **[1]** | **Chuẩn Hành chính Quốc gia (NĐ 30)** | Công văn, Tờ trình, Quyết định nhà nước | **Đen/Trắng tuyệt đối.** Cấm Brand Kit. Times New Roman, lề chuẩn (Trái 3, Phải 1.5, Trên/Dưới 2), header Quốc hiệu 2 cột. Theo `standards/nd30.md` + `templates/` (hoặc `s14-kiem-soat-tai-lieu/templates/` cho 5 loại chuẩn) |
 | **[2]** | **Chuẩn Thẩm mỹ Hiện đại (Doanh nghiệp)** | Đề xuất, Pitch Deck, Báo cáo nội bộ, Tài liệu quy trình | **Kích hoạt Brand Kit.** Dùng Node.js Generator (`docx`, `exceljs`, `pptxgenjs`). Bảng zebra, callout box, nhúng logo và màu công ty |
 | **[3]** | **Trích xuất Brand & Assets (chỉ bóc tách)** | Cào file mẫu lấy format làm chuẩn về sau | Chỉ chạy Extractor: `extract_brand.py` → `brand_kit.json` + `assets/`. Báo cáo thông số bóc được |
 
@@ -89,7 +89,7 @@ Ngoài các track trên, nghiệp vụ PDF (cắt/ghép/trích/convert) làm the
 
 ### Tầng 2: Tiêu chuẩn (`standards/`)
 
-- `nd30.md`: (Track 1) Bộ luật cứng cho văn bản nhà nước + bảng biến thể kỹ thuật theo loại VB (thay cho template riêng của 5 loại đã chuyển sang `etv-document-governance`).
+- `nd30.md`: (Track 1) Bộ luật cứng cho văn bản nhà nước + bảng biến thể kỹ thuật theo loại VB (thay cho template riêng của 5 loại đã chuyển sang `s14-kiem-soat-tai-lieu`).
 - `brand_kits/`: (Track 2) Thư mục "sống" — mỗi doanh nghiệp 1 folder con gồm `brand_kit.json` + `assets/`. Có sẵn **10 preset** phân loại theo tông màu (xem `brand_kits/README.md`) và `example/` (chỉ dùng test script).
 - `dynamic_structure/`: 11 file quy chuẩn bố cục (page-setup, typography, heading, table, cover, header-footer, caption, list, special-blocks, xlsx-structure, pptx-structure) — nhận tham số màu/font từ Brand Kit.
 
@@ -103,8 +103,8 @@ Ngoài các track trên, nghiệp vụ PDF (cắt/ghép/trích/convert) làm the
 
 ### Tầng 4: Templates & Examples
 
-- `templates/`: khung nội dung cho các loại VB **chưa có** trong `etv-document-governance` — template chung, kế hoạch, tờ trình, giấy mời/ủy quyền, đề xuất. Xem `templates/README.md` cho ranh giới đầy đủ.
-- `examples/`: 6 file tham chiếu, mở xem để "nhìn thấy" đích đến trước khi tạo file mới. Gồm 4 file sinh bằng chính skill này theo khung mặc định (`docx-mau-khung-chuan` đen trắng, `docx-mau-de-xuat-brand` Track 2 đủ bìa/callout/bảng màu, `pptx-mau-brand` 5 layout slide, `xlsx-mau-tracking` live formula) và 2 file minh hoạ đầu ra Track 1 NĐ 30 (`docx-cong-van-mau`, `docx-quyet-dinh-mau` — nội dung mẫu, không phải nguồn sự thật; nội dung thật lấy từ `etv-document-governance`).
+- `templates/`: khung nội dung cho các loại VB **chưa có** trong `s14-kiem-soat-tai-lieu` — template chung, kế hoạch, tờ trình, giấy mời/ủy quyền, đề xuất. Xem `templates/README.md` cho ranh giới đầy đủ.
+- `examples/`: 6 file tham chiếu, mở xem để "nhìn thấy" đích đến trước khi tạo file mới. Gồm 4 file sinh bằng chính skill này theo khung mặc định (`docx-mau-khung-chuan` đen trắng, `docx-mau-de-xuat-brand` Track 2 đủ bìa/callout/bảng màu, `pptx-mau-brand` 5 layout slide, `xlsx-mau-tracking` live formula) và 2 file minh hoạ đầu ra Track 1 NĐ 30 (`docx-cong-van-mau`, `docx-quyet-dinh-mau` — nội dung mẫu, không phải nguồn sự thật; nội dung thật lấy từ `s14-kiem-soat-tai-lieu`).
 
 ---
 

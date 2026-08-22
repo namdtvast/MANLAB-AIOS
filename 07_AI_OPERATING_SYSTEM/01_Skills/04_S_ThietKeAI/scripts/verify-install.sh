@@ -5,7 +5,7 @@ CODEX_DIR="${CODEX_HOME:-$HOME/.codex}/skills/04_S_ThietKeAI"
 status=0
 for item in "Claude:$CLAUDE_DIR" "Codex:$CODEX_DIR"; do
   name="${item%%:*}"; dir="${item#*:}"
-  if [[ -f "$dir/SKILL.md" ]] && grep -q '^name: thiet-ke-ai$' "$dir/SKILL.md"; then
+  if [[ -f "$dir/SKILL.md" ]] && grep -q '^name: 04-s-thiet-ke-ai$' "$dir/SKILL.md"; then
     echo "OK $name: $dir"
   else
     echo "MISSING/INVALID $name: $dir" >&2

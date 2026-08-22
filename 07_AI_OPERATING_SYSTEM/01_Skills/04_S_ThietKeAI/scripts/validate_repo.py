@@ -41,8 +41,8 @@ def parse_frontmatter(path: Path):
     return data
 
 root_fm = parse_frontmatter(root / 'SKILL.md')
-if root_fm.get('name') != 'thiet-ke-ai':
-    errors.append('SKILL.md phải có frontmatter name: thiet-ke-ai')
+if root_fm.get('name') != '04-s-thiet-ke-ai':
+    errors.append('SKILL.md phải có frontmatter name: 04-s-thiet-ke-ai')
 if root_fm.get('version') != '2.1.0':
     errors.append('SKILL.md phải có version: 2.1.0')
 
@@ -56,8 +56,8 @@ for p in sorted(root.glob('skills/*/SKILL.md')):
 plugin = root / '.claude-plugin/plugin.json'
 if plugin.exists():
     obj = json.loads(plugin.read_text(encoding='utf-8'))
-    if obj.get('name') != 'thiet-ke-ai':
-        errors.append('plugin.json phải có name = thiet-ke-ai')
+    if obj.get('name') != '04-s-thiet-ke-ai':
+        errors.append('plugin.json phải có name = 04-s-thiet-ke-ai')
     if obj.get('version') != '2.1.0':
         errors.append('plugin.json phải có version = 2.1.0')
 
@@ -67,4 +67,4 @@ if root.name != '04_S_ThietKeAI':
 if errors:
     print('\n'.join(f'ERROR: {e}' for e in errors))
     sys.exit(1)
-print('VALID: 04_S_ThietKeAI v2.1.0 | skill=thiet-ke-ai | Claude+Codex')
+print('VALID: 04_S_ThietKeAI v2.1.0 | skill=04-s-thiet-ke-ai | Claude+Codex')

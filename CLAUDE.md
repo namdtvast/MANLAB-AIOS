@@ -113,7 +113,7 @@ Hai mẫu đặt tên skill — kiểm tra `07_AI_OPERATING_SYSTEM/01_Skills/REA
 - **Mẫu A** (ưu tiên khi skill vận hành một thủ tục cụ thể): `S{số thủ tục}_{Slug}`, ví dụ `S14_KiemSoatTaiLieu` triển khai `ETV.P14`.
 - **Mẫu B** (skill không gắn thủ tục nào): `{stt}_S_{Slug}` với `stt` là thứ tự tạo (không tái sử dụng số đã bỏ), ví dụ `02_S_XuLyVanPhong`.
 
-Mỗi thư mục skill cần `SKILL.md` với frontmatter `name:` kebab-case (đây là định danh kích hoạt — không cần khớp chữ với tên thư mục PascalCase, nhưng bảng ánh xạ trong README skill phải luôn đồng bộ). Ràng buộc ISO 42001 áp cho tầng này: **AI không bao giờ được tự ra kết luận đo lường cuối cùng hoặc tự phê duyệt chứng chỉ/kết quả** — mọi agent triển khai phải có hồ sơ AIA theo MP29.
+Mỗi thư mục skill cần `SKILL.md` với frontmatter `name:` kebab-case — **phải là bản chuyển đổi cơ học của tên thư mục** (hạ chữ thường + đổi `_` thành `-`, tách theo ranh giới chữ hoa của PascalCase), ví dụ `06_S_LapTrinhTheoDacTa` → `06-s-lap-trinh-theo-dac-ta`, `S14_KiemSoatTaiLieu` → `s14-kiem-soat-tai-lieu`. Không tự đặt tên kích hoạt khác tên thư mục — tránh phải nhớ hai định danh song song. Bảng ánh xạ trong README skill vẫn phải luôn đồng bộ. Ràng buộc ISO 42001 áp cho tầng này: **AI không bao giờ được tự ra kết luận đo lường cuối cùng hoặc tự phê duyệt chứng chỉ/kết quả** — mọi agent triển khai phải có hồ sơ AIA theo MP29.
 
 ## Quy trình Git
 

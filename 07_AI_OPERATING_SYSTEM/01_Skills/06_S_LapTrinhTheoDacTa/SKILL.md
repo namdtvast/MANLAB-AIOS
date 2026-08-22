@@ -1,5 +1,5 @@
 ---
-name: spec-driven-coding
+name: 06-s-lap-trinh-theo-dac-ta
 title: Lập trình có kỷ luật theo đặc tả (Spec-Driven Coding)
 description: Bắt buộc quy trình CLASSIFY → RECON → OUTCOME → SPEC → PLAN → BUILD → VERIFY khi thay đổi mã nguồn (tính năng, bug fix, refactor, đổi API/schema DB, tích hợp, AI agent/tool, phân quyền, đa tenant, kiến trúc); tự điều chỉnh mức độ nghi thức theo quy mô XS/S/M/L thay vì áp nghi thức cứng nhắc cho mọi việc.
 version: "2.0.0"

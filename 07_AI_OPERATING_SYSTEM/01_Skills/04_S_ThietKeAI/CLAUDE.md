@@ -2,7 +2,7 @@
 
 ## Skill identity
 
-- Skill name: `thiet-ke-ai`
+- Skill name: `04-s-thiet-ke-ai`
 - Skill directory: `04_S_ThietKeAI`
 
 ## Trình tự nạp

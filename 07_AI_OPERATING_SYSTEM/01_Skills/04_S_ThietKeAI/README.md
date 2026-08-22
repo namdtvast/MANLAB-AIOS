@@ -3,7 +3,7 @@
 **Tên thư mục skill chuẩn:** `04_S_ThietKeAI`  
 **Loại:** Skill dùng chung, không ánh xạ 1–1 với thủ tục ETV  
 **Mẫu đặt tên:** Mẫu B — `{Số thứ tự}_S_{TênPascalCase}`  
-**Frontmatter name:** `thiet-ke-ai`  
+**Frontmatter name:** `04-s-thiet-ke-ai`  
 **Vị trí mapping chuẩn:** `07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/`  
 **AI hỗ trợ:** Claude Code, Claude Desktop có môi trường đọc skill, OpenAI Codex CLI/IDE và các agent đọc `SKILL.md`/`AGENTS.md`.
 
@@ -30,7 +30,7 @@ Trong đó:
 - `04`: số thứ tự tiếp theo của nhóm skill dùng chung; không tái sử dụng số đã bỏ.
 - `S`: viết tắt của thư mục cha `01_Skills`.
 - `ThietKeAI`: tên ngắn gọn, PascalCase liền và không dấu.
-- Frontmatter trong `SKILL.md` dùng kebab-case: `thiet-ke-ai`.
+- Frontmatter trong `SKILL.md` dùng kebab-case: `04-s-thiet-ke-ai`.
 
 ## 3. Cài đặt và AI được hỗ trợ
 
@@ -79,13 +79,13 @@ Thư mục cài đặt:
 Sau khi cài, mở Codex tại thư mục dự án và yêu cầu:
 
 ```text
-Sử dụng skill thiet-ke-ai để thiết kế dashboard quan trắc môi trường theo DESIGN.md của ETV.
+Sử dụng skill 04-s-thiet-ke-ai để thiết kế dashboard quan trắc môi trường theo DESIGN.md của ETV.
 ```
 
 Để tăng khả năng Codex tự nhận diện skill, có thể ghi trong `AGENTS.md` của dự án:
 
 ```text
-- thiet-ke-ai: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo và prototype theo DESIGN.md. Skill: ~/.codex/skills/04_S_ThietKeAI/SKILL.md
+- 04-s-thiet-ke-ai: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo và prototype theo DESIGN.md. Skill: ~/.codex/skills/04_S_ThietKeAI/SKILL.md
 ```
 
 ### Cài cho cả Claude và Codex
@@ -97,15 +97,15 @@ bash 04_S_ThietKeAI/scripts/install-all.sh
 ## 4. Cách gọi skill
 
 ```text
-Sử dụng skill thiet-ke-ai để tạo infographic A4 dọc về quy trình hiệu chuẩn, theo nhận diện ETV, xuất PNG.
+Sử dụng skill 04-s-thiet-ke-ai để tạo infographic A4 dọc về quy trình hiệu chuẩn, theo nhận diện ETV, xuất PNG.
 ```
 
 ```text
-Sử dụng skill thiet-ke-ai để thiết kế dashboard quan trắc nước tự động. Lập brief, tạo prototype HTML và kiểm tra accessibility.
+Sử dụng skill 04-s-thiet-ke-ai để thiết kế dashboard quan trắc nước tự động. Lập brief, tạo prototype HTML và kiểm tra accessibility.
 ```
 
 ```text
-Sử dụng skill thiet-ke-ai để rà soát giao diện hiện có, chỉ ra lỗi về phân cấp thông tin, nhận diện ETV và khả năng sử dụng.
+Sử dụng skill 04-s-thiet-ke-ai để rà soát giao diện hiện có, chỉ ra lỗi về phân cấp thông tin, nhận diện ETV và khả năng sử dụng.
 ```
 
 ## 5. Quy trình mặc định

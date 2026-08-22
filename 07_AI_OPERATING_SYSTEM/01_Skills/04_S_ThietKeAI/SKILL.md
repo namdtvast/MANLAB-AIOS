@@ -1,5 +1,5 @@
 ---
-name: thiet-ke-ai
+name: 04-s-thiet-ke-ai
 description: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo, prototype web/mobile và kiểm tra chất lượng thiết kế cho ManLab-AIOS và ETV theo DESIGN.md. Dùng được với Claude Code và OpenAI Codex.
 version: 2.1.0
 language: vi

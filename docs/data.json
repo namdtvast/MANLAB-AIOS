@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11 15:52 UTC",
+ "generated_at": "2026-08-22 00:36 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
@@ -11,34 +11,37 @@
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 7126,
-  "dirs": 1698,
-  "docs": 4725,
+  "files": 7412,
+  "dirs": 1818,
+  "docs": 4727,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 849,
-   ".png": 95,
+   ".md": 1059,
+   ".png": 96,
    ".pdf": 3424,
    ".yaml": 102,
-   ".drawio": 3,
+   ".drawio": 31,
    ".jpg": 291,
-   ".html": 5,
-   ".json": 17,
+   ".html": 6,
+   ".json": 20,
    ".mjs": 3,
    ".js": 17,
-   ".css": 1,
+   ".css": 2,
    ".ps1": 1,
-   ".sh": 2,
-   ".docx": 226,
+   ".sh": 10,
+   ".docx": 228,
    ".pptx": 28,
    ".xlsx": 182,
-   ".py": 26,
+   ".py": 28,
    ".xsd": 39,
    ".txt": 20,
-   "": 43,
+   "": 45,
    ".csv": 99,
+   ".yml": 1,
+   ".svg": 22,
+   ".xml": 35,
    ".doc": 685,
    ".xls": 162,
    ".rar": 5,
@@ -49,7 +52,6 @@
    ".xlsm": 2,
    ".zip": 13,
    ".xdt": 10,
-   ".svg": 1,
    ".mp4": 6,
    ".bat": 2,
    ".exe": 68,
@@ -60,7 +62,6 @@
    ".bmp": 2,
    ".vsd": 1,
    ".jdx": 1,
-   ".xml": 29,
    ".lmt": 10,
    ".lic": 1,
    ".00": 9,
@@ -6926,14 +6927,14 @@
         "path": "04_PROCESS_LIBRARY/MP29_AI/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 213
+        "size": 217
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP29_AI/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 368
+        "size": 372
        }
       ],
       "desc": "Hub không chứa nội dung quy trình. Xem `links.yaml`.",
@@ -6943,7 +6944,7 @@
        "code": "MP29",
        "slug": "AI",
        "name": "Quản lý hệ thống trí tuệ nhân tạo",
-       "owner": "(cập nhật)",
+       "owner": "Dương Thành Nam",
        "status": "active",
        "standards": [
         "ISO42001"
@@ -9377,7 +9378,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 3510
+          "size": 3509
          }
         ],
         "n_dirs": 0,
@@ -9433,7 +9434,7 @@
           "path": "05_MODULE_LIBRARY/M14_TaiLieu/05_Report/Outputs.md",
           "type": "file",
           "ext": ".md",
-          "size": 1091
+          "size": 1090
          }
         ],
         "n_dirs": 0,
@@ -13533,6 +13534,112 @@
       "type": "dir",
       "children": [
        {
+        "name": "01_S_Governance",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance",
+        "type": "dir",
+        "children": [
+         {
+          "name": "examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/examples",
+          "type": "dir",
+          "children": [
+           {
+            "name": "example01.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/examples/example01.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 236
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "templates",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/templates",
+          "type": "dir",
+          "children": [
+           {
+            "name": "output-template.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/templates/output-template.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 260
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "tests",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/tests",
+          "type": "dir",
+          "children": [
+           {
+            "name": "golden-test.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/tests/golden-test.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 491
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "BPMN.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/BPMN.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 421
+         },
+         {
+          "name": "CHECKLIST.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/CHECKLIST.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 492
+         },
+         {
+          "name": "DECISION_TREE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/DECISION_TREE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 542
+         },
+         {
+          "name": "KNOWLEDGE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/KNOWLEDGE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1089
+         },
+         {
+          "name": "RULEBOOK.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/RULEBOOK.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1259
+         },
+         {
+          "name": "SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/SKILL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1813
+         },
+         {
+          "name": "WORKFLOW.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/01_S_Governance/WORKFLOW.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 340
+         }
+        ],
+        "n_dirs": 3,
+        "n_files": 7
+       },
+       {
         "name": "02_S_XuLyVanPhong",
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong",
         "type": "dir",
@@ -14450,7 +14557,7 @@
               "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/standards/dynamic_structure/docx-special-blocks.md",
               "type": "file",
               "ext": ".md",
-              "size": 3025
+              "size": 3030
              },
              {
               "name": "docx-table.md",
@@ -14489,7 +14596,7 @@
             "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/standards/nd30.md",
             "type": "file",
             "ext": ".md",
-            "size": 6346
+            "size": 6343
            }
           ],
           "n_dirs": 2,
@@ -14540,10 +14647,10 @@
             "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/templates/README.md",
             "type": "file",
             "ext": ".md",
-            "size": 977
+            "size": 981
            }
           ],
-          "desc": "Thư mục này chỉ chứa khung nội dung cho các loại văn bản **chưa có** template trong `etv-document-governance`:",
+          "desc": "Thư mục này chỉ chứa khung nội dung cho các loại văn bản **chưa có** template trong `s14-kiem-soat-tai-lieu`:",
           "readme": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/templates/README.md",
           "n_dirs": 0,
           "n_files": 6
@@ -14553,14 +14660,14 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/CLAUDE.md",
           "type": "file",
           "ext": ".md",
-          "size": 4488
+          "size": 4486
          },
          {
           "name": "SKILL.md",
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 11025
+          "size": 11030
          }
         ],
         "n_dirs": 5,
@@ -15499,7 +15606,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 2589
+          "size": 2587
          },
          {
           "name": "TREE.md",
@@ -15513,6 +15620,3001 @@
         "readme": "07_AI_OPERATING_SYSTEM/01_Skills/03_S_NghienCuuHocThuat/README.md",
         "n_dirs": 16,
         "n_files": 8
+       },
+       {
+        "name": "04_S_ThietKeAI",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI",
+        "type": "dir",
+        "children": [
+         {
+          "name": "assets",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets",
+          "type": "dir",
+          "children": [
+           {
+            "name": "fonts",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/fonts",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/fonts/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 164
+             }
+            ],
+            "desc": "Không đóng gói font thương mại. Chỉ ghi hướng dẫn cài đặt hoặc dùng font hệ thống/mã nguồn mở theo giấy phép phù hợp.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/fonts/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "icons",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/icons",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/icons/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 131
+             }
+            ],
+            "desc": "Ưu tiên icon mã nguồn mở có giấy phép rõ ràng. Ghi nguồn và giấy phép trong manifest khi phân phối.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/icons/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "images",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/images",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/images/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 104
+             }
+            ],
+            "desc": "Chỉ lưu ảnh do người dùng cung cấp hoặc ảnh có quyền sử dụng rõ ràng.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/images/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "logos",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/logos",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Logo_Chu ETV_Regi 2.png",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/logos/Logo_Chu ETV_Regi 2.png",
+              "type": "file",
+              "ext": ".png",
+              "size": 51673
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/logos/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 149
+             }
+            ],
+            "desc": "Đặt logo chính thức được phép sử dụng tại đây. Không dùng logo tự dựng hoặc lấy từ nguồn không xác minh.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/assets/logos/README.md",
+            "n_dirs": 0,
+            "n_files": 2
+           }
+          ],
+          "n_dirs": 4,
+          "n_files": 0
+         },
+         {
+          "name": "design-systems",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/design-systems",
+          "type": "dir",
+          "children": [
+           {
+            "name": "etv",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/design-systems/etv",
+            "type": "dir",
+            "children": [
+             {
+              "name": "components.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/design-systems/etv/components.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 752
+             },
+             {
+              "name": "DESIGN.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/design-systems/etv/DESIGN.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 2111
+             },
+             {
+              "name": "tokens.json",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/design-systems/etv/tokens.json",
+              "type": "file",
+              "ext": ".json",
+              "size": 600
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
+          "name": "examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/examples",
+          "type": "dir",
+          "children": [
+           {
+            "name": "prompt-library.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/examples/prompt-library.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 646
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "global",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/global",
+          "type": "dir",
+          "children": [
+           {
+            "name": "NAMING.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/global/NAMING.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 513
+           },
+           {
+            "name": "QUALITY-GATES.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/global/QUALITY-GATES.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1122
+           },
+           {
+            "name": "ROUTER.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/global/ROUTER.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1015
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 3
+         },
+         {
+          "name": "outputs",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/outputs",
+          "type": "dir",
+          "children": [],
+          "n_dirs": 0,
+          "n_files": 0
+         },
+         {
+          "name": "references",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/references",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ACCESSIBILITY.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/references/ACCESSIBILITY.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 296
+           },
+           {
+            "name": "PATTERNS.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/references/PATTERNS.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 526
+           },
+           {
+            "name": "TECHNICAL-DATA.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/references/TECHNICAL-DATA.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 396
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 3
+         },
+         {
+          "name": "schemas",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/schemas",
+          "type": "dir",
+          "children": [
+           {
+            "name": "design-brief.schema.json",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/schemas/design-brief.schema.json",
+            "type": "file",
+            "ext": ".json",
+            "size": 723
+           },
+           {
+            "name": "manifest.schema.json",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/schemas/manifest.schema.json",
+            "type": "file",
+            "ext": ".json",
+            "size": 950
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "scripts",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts",
+          "type": "dir",
+          "children": [
+           {
+            "name": "create-output.py",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/create-output.py",
+            "type": "file",
+            "ext": ".py",
+            "size": 731
+           },
+           {
+            "name": "install-all.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/install-all.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 170
+           },
+           {
+            "name": "install-claude.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/install-claude.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 305
+           },
+           {
+            "name": "install-codex.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/install-codex.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 378
+           },
+           {
+            "name": "uninstall-all.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/uninstall-all.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 174
+           },
+           {
+            "name": "uninstall-claude.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/uninstall-claude.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 167
+           },
+           {
+            "name": "uninstall-codex.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/uninstall-codex.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 164
+           },
+           {
+            "name": "validate_repo.py",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/validate_repo.py",
+            "type": "file",
+            "ext": ".py",
+            "size": 2478
+           },
+           {
+            "name": "verify-install.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/scripts/verify-install.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 473
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 9
+         },
+         {
+          "name": "skills",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills",
+          "type": "dir",
+          "children": [
+           {
+            "name": "accessibility-review",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/accessibility-review",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/accessibility-review/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 944
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "brand-compliance",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/brand-compliance",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/brand-compliance/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 930
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "data-visualization",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/data-visualization",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/data-visualization/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 979
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "design-review",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/design-review",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/design-review/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 929
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "design-router",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/design-router",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/design-router/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 941
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "export-delivery",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/export-delivery",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/export-delivery/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 927
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "infographic-etv",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/infographic-etv",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/infographic-etv/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 951
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "mobile-prototype",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/mobile-prototype",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/mobile-prototype/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 905
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "report-document",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/report-document",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/report-document/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 942
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "slide-deck-etv",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/slide-deck-etv",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/slide-deck-etv/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 949
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "ui-ux-dashboard",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/ui-ux-dashboard",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/ui-ux-dashboard/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 966
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "web-prototype",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/web-prototype",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SKILL.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/skills/web-prototype/SKILL.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 919
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           }
+          ],
+          "n_dirs": 12,
+          "n_files": 0
+         },
+         {
+          "name": "templates",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates",
+          "type": "dir",
+          "children": [
+           {
+            "name": "briefs",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/briefs",
+            "type": "dir",
+            "children": [
+             {
+              "name": "design-brief.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/briefs/design-brief.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 402
+             },
+             {
+              "name": "review-report.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/briefs/review-report.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 118
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "dashboards",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/dashboards",
+            "type": "dir",
+            "children": [
+             {
+              "name": "dashboard-spec.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/dashboards/dashboard-spec.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 200
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "html",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/html",
+            "type": "dir",
+            "children": [
+             {
+              "name": "index.html",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/html/index.html",
+              "type": "file",
+              "ext": ".html",
+              "size": 499
+             },
+             {
+              "name": "styles.css",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/html/styles.css",
+              "type": "file",
+              "ext": ".css",
+              "size": 521
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "infographic",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/infographic",
+            "type": "dir",
+            "children": [
+             {
+              "name": "A4-portrait.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/infographic/A4-portrait.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 202
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "reports",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/reports",
+            "type": "dir",
+            "children": [
+             {
+              "name": "report-style.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/reports/report-style.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 162
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "slides",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/slides",
+            "type": "dir",
+            "children": [
+             {
+              "name": "deck-outline.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/templates/slides/deck-outline.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 160
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           }
+          ],
+          "n_dirs": 6,
+          "n_files": 0
+         },
+         {
+          "name": "workflows",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows",
+          "type": "dir",
+          "children": [
+           {
+            "name": "01-design-request.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/01-design-request.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 267
+           },
+           {
+            "name": "02-dashboard.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/02-dashboard.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 356
+           },
+           {
+            "name": "03-infographic.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/03-infographic.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 323
+           },
+           {
+            "name": "04-slide-deck.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/04-slide-deck.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 375
+           },
+           {
+            "name": "05-report.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/05-report.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 272
+           },
+           {
+            "name": "06-web-prototype.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/06-web-prototype.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 270
+           },
+           {
+            "name": "07-mobile.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/07-mobile.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 281
+           },
+           {
+            "name": "08-data-visualization.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/08-data-visualization.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 320
+           },
+           {
+            "name": "09-review.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/09-review.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 248
+           },
+           {
+            "name": "10-export.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/workflows/10-export.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 253
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 10
+         },
+         {
+          "name": "AGENTS.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/AGENTS.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1739
+         },
+         {
+          "name": "CHANGELOG.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/CHANGELOG.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1313
+         },
+         {
+          "name": "CLAUDE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/CLAUDE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 890
+         },
+         {
+          "name": "DESIGN.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/DESIGN.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2087
+         },
+         {
+          "name": "INSTALL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/INSTALL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 729
+         },
+         {
+          "name": "LICENSE",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/LICENSE",
+          "type": "file",
+          "ext": "",
+          "size": 654
+         },
+         {
+          "name": "NOTICE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/NOTICE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 608
+         },
+         {
+          "name": "README.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/README.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6266
+         },
+         {
+          "name": "SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/SKILL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2946
+         }
+        ],
+        "desc": "**Tên thư mục skill chuẩn:** `04_S_ThietKeAI`",
+        "readme": "07_AI_OPERATING_SYSTEM/01_Skills/04_S_ThietKeAI/README.md",
+        "n_dirs": 11,
+        "n_files": 9
+       },
+       {
+        "name": "05_S_DrawIO",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ai",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai",
+          "type": "dir",
+          "children": [
+           {
+            "name": "agents",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/agents",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Architect.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/agents/Architect.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 41
+             },
+             {
+              "name": "Exporter.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/agents/Exporter.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 42
+             },
+             {
+              "name": "Planner.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/agents/Planner.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 40
+             },
+             {
+              "name": "Reviewer.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/agents/Reviewer.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 4
+           },
+           {
+            "name": "exports",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/exports",
+            "type": "dir",
+            "children": [
+             {
+              "name": "ExportProfile.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/exports/ExportProfile.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 43
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "quality",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/quality",
+            "type": "dir",
+            "children": [
+             {
+              "name": "QualityGate.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/quality/QualityGate.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 53
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "reasoning",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/reasoning",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SelectionRules.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/reasoning/SelectionRules.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 61
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 64
+           }
+          ],
+          "desc": "AI-specific guidance for diagram generation.",
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/ai/README.md",
+          "n_dirs": 4,
+          "n_files": 1
+         },
+         {
+          "name": "assets",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets",
+          "type": "dir",
+          "children": [
+           {
+            "name": "backgrounds",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/backgrounds",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/backgrounds/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 25
+             }
+            ],
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/backgrounds/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "branding",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/branding",
+            "type": "dir",
+            "children": [
+             {
+              "name": "BrandGuide.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/branding/BrandGuide.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 26
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "logos",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/logos",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/logos/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 25
+             }
+            ],
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/logos/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "stencils",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/stencils",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/stencils/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 30
+             }
+            ],
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/stencils/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 42
+           }
+          ],
+          "desc": "Shared visual assets for DrawIO.",
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/assets/README.md",
+          "n_dirs": 4,
+          "n_files": 1
+         },
+         {
+          "name": "automation",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/automation",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ClaudeCommands.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/automation/ClaudeCommands.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 141
+           },
+           {
+            "name": "OutputPipeline.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/automation/OutputPipeline.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 52
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "catalog",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog",
+          "type": "dir",
+          "children": [
+           {
+            "name": "business-domains",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/business-domains",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/business-domains/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 42
+             }
+            ],
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/business-domains/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "diagram-types",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/diagram-types",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/diagram-types/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 56
+             }
+            ],
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/diagram-types/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 16
+           }
+          ],
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/catalog/README.md",
+          "n_dirs": 2,
+          "n_files": 1
+         },
+         {
+          "name": "checklists",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/checklists",
+          "type": "dir",
+          "children": [
+           {
+            "name": "PreExport.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/checklists/PreExport.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 53
+           },
+           {
+            "name": "Review.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/checklists/Review.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 49
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "enterprise",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise",
+          "type": "dir",
+          "children": [
+           {
+            "name": "commands",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/commands",
+            "type": "dir",
+            "children": [
+             {
+              "name": "SlashCommands.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/commands/SlashCommands.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 141
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "playbooks",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/playbooks",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DMC.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/playbooks/DMC.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 45
+             },
+             {
+              "name": "ISO17025.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/playbooks/ISO17025.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 60
+             },
+             {
+              "name": "P2D.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/playbooks/P2D.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           },
+           {
+            "name": "presets",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/presets",
+            "type": "dir",
+            "children": [
+             {
+              "name": "ETV_Default.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/presets/ETV_Default.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 63
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "profiles",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/profiles",
+            "type": "dir",
+            "children": [
+             {
+              "name": "ETV.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/profiles/ETV.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 67
+             },
+             {
+              "name": "Presentation.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/profiles/Presentation.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 57
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "recipes",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/recipes",
+            "type": "dir",
+            "children": [
+             {
+              "name": "ArchitectureToDrawIO.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/recipes/ArchitectureToDrawIO.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 60
+             },
+             {
+              "name": "ProcedureToDrawIO.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/recipes/ProcedureToDrawIO.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 51
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "rules",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/rules",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DiagramPolicy.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/rules/DiagramPolicy.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 203
+             },
+             {
+              "name": "OutputStandard.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/rules/OutputStandard.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 81
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "skills",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/skills",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DiagramArchitect.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/skills/DiagramArchitect.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 80
+             },
+             {
+              "name": "ISOExpert.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/skills/ISOExpert.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 66
+             },
+             {
+              "name": "MetrologyExpert.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/skills/MetrologyExpert.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 55
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           },
+           {
+            "name": "validators",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/validators",
+            "type": "dir",
+            "children": [
+             {
+              "name": "ISOValidator.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/validators/ISOValidator.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 66
+             },
+             {
+              "name": "LayoutValidator.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/validators/LayoutValidator.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 62
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "workflows",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/workflows",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DiagramPipeline.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/workflows/DiagramPipeline.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 129
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 72
+           }
+          ],
+          "desc": "Bộ cấu hình nâng cao cho Claude DrawIO Skill.",
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/enterprise/README.md",
+          "n_dirs": 9,
+          "n_files": 1
+         },
+         {
+          "name": "examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples",
+          "type": "dir",
+          "children": [
+           {
+            "name": "Architecture",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/Architecture",
+            "type": "dir",
+            "children": [
+             {
+              "name": "AI_Agent.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/Architecture/AI_Agent.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 36
+             },
+             {
+              "name": "P2D_System.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/Architecture/P2D_System.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 59
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "BestPractices",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/BestPractices",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DiagramChecklist.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/BestPractices/DiagramChecklist.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 195
+             },
+             {
+              "name": "NamingConvention.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/BestPractices/NamingConvention.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 105
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "CompleteWorkflows",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/CompleteWorkflows",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DMC_EndToEnd.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/CompleteWorkflows/DMC_EndToEnd.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 72
+             },
+             {
+              "name": "P05_KiemDinh.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/CompleteWorkflows/P05_KiemDinh.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 80
+             },
+             {
+              "name": "P14_KiemSoatTaiLieu.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/CompleteWorkflows/P14_KiemSoatTaiLieu.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 59
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           },
+           {
+            "name": "DMC",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/DMC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/DMC/Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 14
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "ISO17025",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025",
+            "type": "dir",
+            "children": [
+             {
+              "name": "P05_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P05_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P06_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P06_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P11_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P11_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P14_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P14_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P15_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P15_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P19_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P19_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "P24_Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17025/P24_Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 7
+           },
+           {
+            "name": "ISO17034",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17034",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO17034/Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 19
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "ISO42001",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO42001",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ISO42001/Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 19
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "ManLab",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab",
+            "type": "dir",
+            "children": [
+             {
+              "name": "BaoGia.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/BaoGia.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 61
+             },
+             {
+              "name": "CheckPro.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/CheckPro.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 43
+             },
+             {
+              "name": "Dashboard.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/Dashboard.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 41
+             },
+             {
+              "name": "GCN.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/GCN.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 49
+             },
+             {
+              "name": "ManTrack.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/ManTrack.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 40
+             },
+             {
+              "name": "PNT.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/ManLab/PNT.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 64
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 6
+           },
+           {
+            "name": "P2D",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/P2D",
+            "type": "dir",
+            "children": [
+             {
+              "name": "Example.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/examples/P2D/Example.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 14
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           }
+          ],
+          "n_dirs": 9,
+          "n_files": 0
+         },
+         {
+          "name": "github",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ISSUE_TEMPLATE",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/ISSUE_TEMPLATE",
+            "type": "dir",
+            "children": [
+             {
+              "name": "bug_report.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/ISSUE_TEMPLATE/bug_report.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 33
+             },
+             {
+              "name": "feature_request.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/ISSUE_TEMPLATE/feature_request.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 44
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "PULL_REQUEST_TEMPLATE",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/PULL_REQUEST_TEMPLATE",
+            "type": "dir",
+            "children": [
+             {
+              "name": "pull_request.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/PULL_REQUEST_TEMPLATE/pull_request.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 39
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "workflows",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/workflows",
+            "type": "dir",
+            "children": [
+             {
+              "name": "validate.yml",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/github/workflows/validate.yml",
+              "type": "file",
+              "ext": ".yml",
+              "size": 179
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           }
+          ],
+          "n_dirs": 3,
+          "n_files": 0
+         },
+         {
+          "name": "icons",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ai",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ai",
+            "type": "dir",
+            "children": [
+             {
+              "name": "agent.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ai/agent.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 18
+             },
+             {
+              "name": "brain.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ai/brain.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 18
+             },
+             {
+              "name": "llm.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ai/llm.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 16
+             },
+             {
+              "name": "workflow.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ai/workflow.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 21
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 4
+           },
+           {
+            "name": "iot",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/iot",
+            "type": "dir",
+            "children": [
+             {
+              "name": "cloud.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/iot/cloud.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 18
+             },
+             {
+              "name": "device.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/iot/device.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 19
+             },
+             {
+              "name": "edge.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/iot/edge.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 17
+             },
+             {
+              "name": "gateway.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/iot/gateway.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 20
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 4
+           },
+           {
+            "name": "laboratory",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/laboratory",
+            "type": "dir",
+            "children": [
+             {
+              "name": "flask.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/laboratory/flask.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 18
+             },
+             {
+              "name": "microscope.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/laboratory/microscope.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 23
+             },
+             {
+              "name": "sample.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/laboratory/sample.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 19
+             },
+             {
+              "name": "test.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/laboratory/test.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 17
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 4
+           },
+           {
+            "name": "ManLab",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ManLab",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ManLab/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             }
+            ],
+            "desc": "Placeholder for ManLab SVG icons.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/ManLab/README.md",
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "measurement",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/measurement",
+            "type": "dir",
+            "children": [
+             {
+              "name": "calibration.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/measurement/calibration.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 24
+             },
+             {
+              "name": "certificate.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/measurement/certificate.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 24
+             },
+             {
+              "name": "sensor.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/measurement/sensor.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 19
+             },
+             {
+              "name": "verification.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/measurement/verification.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 25
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 4
+           },
+           {
+            "name": "svg",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg",
+            "type": "dir",
+            "children": [
+             {
+              "name": "api.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg/api.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 16
+             },
+             {
+              "name": "dashboard.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg/dashboard.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 22
+             },
+             {
+              "name": "database.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg/database.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 21
+             },
+             {
+              "name": "server.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg/server.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 19
+             },
+             {
+              "name": "user.svg",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/svg/user.svg",
+              "type": "file",
+              "ext": ".svg",
+              "size": 17
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 5
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 18
+           }
+          ],
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/icons/README.md",
+          "n_dirs": 6,
+          "n_files": 1
+         },
+         {
+          "name": "knowledge",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/knowledge",
+          "type": "dir",
+          "children": [
+           {
+            "name": "DiagramPatterns.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/knowledge/DiagramPatterns.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 87
+           },
+           {
+            "name": "ISO_Mapping.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/knowledge/ISO_Mapping.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 55
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "macros",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/macros",
+          "type": "dir",
+          "children": [
+           {
+            "name": "GenerateArchitecture.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/macros/GenerateArchitecture.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 50
+           },
+           {
+            "name": "GenerateWorkflow.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/macros/GenerateWorkflow.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 44
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "output",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/output",
+          "type": "dir",
+          "children": [
+           {
+            "name": "OUTPUT_STANDARD.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/output/OUTPUT_STANDARD.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 130
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/output/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 80
+           }
+          ],
+          "desc": "Claude nên sinh:",
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/output/README.md",
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "prompts",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ai-agent.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/ai-agent.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 37
+           },
+           {
+            "name": "architecture.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/architecture.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 84
+           },
+           {
+            "name": "bpmn.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/bpmn.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 70
+           },
+           {
+            "name": "c4.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/c4.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 41
+           },
+           {
+            "name": "dashboard.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/dashboard.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 55
+           },
+           {
+            "name": "decision-tree.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/decision-tree.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 42
+           },
+           {
+            "name": "dmc.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/dmc.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 54
+           },
+           {
+            "name": "erd.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/erd.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 49
+           },
+           {
+            "name": "flowchart.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/flowchart.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 117
+           },
+           {
+            "name": "infographic.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/infographic.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 57
+           },
+           {
+            "name": "iso17025.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/iso17025.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 55
+           },
+           {
+            "name": "iso17034.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/iso17034.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 63
+           },
+           {
+            "name": "iso42001.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/iso42001.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 52
+           },
+           {
+            "name": "manlab.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/manlab.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 53
+           },
+           {
+            "name": "mindmap.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/mindmap.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 50
+           },
+           {
+            "name": "network.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/network.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 46
+           },
+           {
+            "name": "p2d.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/p2d.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 43
+           },
+           {
+            "name": "README.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/README.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 97
+           },
+           {
+            "name": "sequence.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/sequence.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 73
+           },
+           {
+            "name": "swimlane.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/swimlane.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 41
+           },
+           {
+            "name": "timeline.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/timeline.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 45
+           }
+          ],
+          "desc": "Chứa các prompt mẫu để Claude lựa chọn loại sơ đồ phù hợp.",
+          "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/prompts/README.md",
+          "n_dirs": 0,
+          "n_files": 21
+         },
+         {
+          "name": "release",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/release",
+          "type": "dir",
+          "children": [
+           {
+            "name": "VERSIONING.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/release/VERSIONING.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 69
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "rules",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/rules",
+          "type": "dir",
+          "children": [
+           {
+            "name": "RULEBOOK.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/rules/RULEBOOK.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 238
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "snippets",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/snippets",
+          "type": "dir",
+          "children": [
+           {
+            "name": "CommonBlocks.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/snippets/CommonBlocks.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 62
+           },
+           {
+            "name": "Swimlanes.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/snippets/Swimlanes.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 44
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 2
+         },
+         {
+          "name": "standards",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards",
+          "type": "dir",
+          "children": [
+           {
+            "name": "DMC",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/DMC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DMC_Workflow.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/DMC/DMC_Workflow.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 48
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/DMC/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 60
+             }
+            ],
+            "desc": "Architecture and lifecycle.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/DMC/README.md",
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ISO17025",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025",
+            "type": "dir",
+            "children": [
+             {
+              "name": "P05_KiemDinh.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P05_KiemDinh.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 112
+             },
+             {
+              "name": "P06_HieuChuan.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P06_HieuChuan.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 104
+             },
+             {
+              "name": "P07_ThuNghiem.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P07_ThuNghiem.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 85
+             },
+             {
+              "name": "P11_BaoCaoKetQua.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P11_BaoCaoKetQua.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 94
+             },
+             {
+              "name": "P14_KiemSoatTaiLieu.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P14_KiemSoatTaiLieu.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 93
+             },
+             {
+              "name": "P15_KiemSoatHoSo.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P15_KiemSoatHoSo.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 86
+             },
+             {
+              "name": "P19_DanhGiaNoiBo.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P19_DanhGiaNoiBo.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 91
+             },
+             {
+              "name": "P24_NhanSu.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/P24_NhanSu.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 91
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 84
+             }
+            ],
+            "desc": "Thư viện template cho DrawIO theo ISO/IEC 17025.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17025/README.md",
+            "n_dirs": 0,
+            "n_files": 9
+           },
+           {
+            "name": "ISO17034",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17034",
+            "type": "dir",
+            "children": [
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17034/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 51
+             },
+             {
+              "name": "RM_Production.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17034/RM_Production.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 65
+             }
+            ],
+            "desc": "Reference Material Producer workflows.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO17034/README.md",
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ISO42001",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO42001",
+            "type": "dir",
+            "children": [
+             {
+              "name": "AI_Governance.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO42001/AI_Governance.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 54
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO42001/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 44
+             }
+            ],
+            "desc": "AI Management System workflows.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ISO42001/README.md",
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ManLab",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab",
+            "type": "dir",
+            "children": [
+             {
+              "name": "BusinessObjects.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/BusinessObjects.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 68
+             },
+             {
+              "name": "ColorGuide.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/ColorGuide.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 78
+             },
+             {
+              "name": "DashboardRules.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/DashboardRules.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 74
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 69
+             },
+             {
+              "name": "WorkflowRules.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/WorkflowRules.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 111
+             }
+            ],
+            "desc": "Quy chuẩn sơ đồ nghiệp vụ ETV/ManLab.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/ManLab/README.md",
+            "n_dirs": 0,
+            "n_files": 5
+           },
+           {
+            "name": "P2D",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/P2D",
+            "type": "dir",
+            "children": [
+             {
+              "name": "P2D_Workflow.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/P2D/P2D_Workflow.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 45
+             },
+             {
+              "name": "README.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/P2D/README.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 46
+             }
+            ],
+            "desc": "Reference architecture.",
+            "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/standards/P2D/README.md",
+            "n_dirs": 0,
+            "n_files": 2
+           }
+          ],
+          "n_dirs": 6,
+          "n_files": 0
+         },
+         {
+          "name": "styles",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles",
+          "type": "dir",
+          "children": [
+           {
+            "name": "layouts",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/layouts",
+            "type": "dir",
+            "children": [
+             {
+              "name": "layout-rules.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/layouts/layout-rules.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 59
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "palettes",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/palettes",
+            "type": "dir",
+            "children": [
+             {
+              "name": "colors.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/palettes/colors.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 66
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "themes",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/themes",
+            "type": "dir",
+            "children": [
+             {
+              "name": "etv.xml",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/themes/etv.xml",
+              "type": "file",
+              "ext": ".xml",
+              "size": 18
+             },
+             {
+              "name": "manlab-dark.xml",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/themes/manlab-dark.xml",
+              "type": "file",
+              "ext": ".xml",
+              "size": 26
+             },
+             {
+              "name": "manlab-light.xml",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/themes/manlab-light.xml",
+              "type": "file",
+              "ext": ".xml",
+              "size": 27
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           },
+           {
+            "name": "typography",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/typography",
+            "type": "dir",
+            "children": [
+             {
+              "name": "fonts.md",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/typography/fonts.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 55
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "arrow-library.xml",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/arrow-library.xml",
+            "type": "file",
+            "ext": ".xml",
+            "size": 21
+           },
+           {
+            "name": "manlab-theme.xml",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/manlab-theme.xml",
+            "type": "file",
+            "ext": ".xml",
+            "size": 44
+           },
+           {
+            "name": "shape-library.xml",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/styles/shape-library.xml",
+            "type": "file",
+            "ext": ".xml",
+            "size": 22
+           }
+          ],
+          "n_dirs": 4,
+          "n_files": 3
+         },
+         {
+          "name": "templates",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates",
+          "type": "dir",
+          "children": [
+           {
+            "name": "DMC",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/DMC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "DMC_Architecture.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/DMC/DMC_Architecture.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 32
+             },
+             {
+              "name": "DMC_Workflow.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/DMC/DMC_Workflow.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 28
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ISO17025",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025",
+            "type": "dir",
+            "children": [
+             {
+              "name": "P05_KiemDinh.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P05_KiemDinh.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 40
+             },
+             {
+              "name": "P06_HieuChuan.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P06_HieuChuan.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 41
+             },
+             {
+              "name": "P07_ThuNghiem.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P07_ThuNghiem.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 41
+             },
+             {
+              "name": "P11_BaoCaoKetQua.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P11_BaoCaoKetQua.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 44
+             },
+             {
+              "name": "P14_KiemSoatTaiLieu.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P14_KiemSoatTaiLieu.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 47
+             },
+             {
+              "name": "P15_KiemSoatHoSo.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P15_KiemSoatHoSo.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 44
+             },
+             {
+              "name": "P19_DanhGiaNoiBo.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P19_DanhGiaNoiBo.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 44
+             },
+             {
+              "name": "P24_NhanSu.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17025/P24_NhanSu.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 38
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 8
+           },
+           {
+            "name": "ISO17034",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17034",
+            "type": "dir",
+            "children": [
+             {
+              "name": "RM_Lifecycle.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17034/RM_Lifecycle.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 28
+             },
+             {
+              "name": "RM_Production.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO17034/RM_Production.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 29
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ISO42001",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO42001",
+            "type": "dir",
+            "children": [
+             {
+              "name": "AI_Governance.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO42001/AI_Governance.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 29
+             },
+             {
+              "name": "AI_Risk.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ISO42001/AI_Risk.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 23
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "ManLab",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab",
+            "type": "dir",
+            "children": [
+             {
+              "name": "BaoGia.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/BaoGia.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 34
+             },
+             {
+              "name": "BG_Workflow.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/BG_Workflow.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 39
+             },
+             {
+              "name": "CheckPro.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/CheckPro.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 36
+             },
+             {
+              "name": "Dashboard.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/Dashboard.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 37
+             },
+             {
+              "name": "GCN.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/GCN.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 31
+             },
+             {
+              "name": "HopDong.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/HopDong.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 35
+             },
+             {
+              "name": "KPI.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/KPI.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 31
+             },
+             {
+              "name": "ManTrack.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/ManTrack.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 36
+             },
+             {
+              "name": "NhanSu.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/NhanSu.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 34
+             },
+             {
+              "name": "PKQ.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/PKQ.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 31
+             },
+             {
+              "name": "PNT.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/PNT.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 31
+             },
+             {
+              "name": "WorkflowTongThe.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/ManLab/WorkflowTongThe.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 43
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 12
+           },
+           {
+            "name": "P2D",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/P2D",
+            "type": "dir",
+            "children": [
+             {
+              "name": "P2D_Architecture.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/P2D/P2D_Architecture.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 32
+             },
+             {
+              "name": "P2D_DataFlow.drawio",
+              "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/templates/P2D/P2D_DataFlow.drawio",
+              "type": "file",
+              "ext": ".drawio",
+              "size": 28
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           }
+          ],
+          "n_dirs": 6,
+          "n_files": 0
+         },
+         {
+          "name": "tests",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/tests",
+          "type": "dir",
+          "children": [
+           {
+            "name": "RepositoryChecklist.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/tests/RepositoryChecklist.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 142
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "validation",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/validation",
+          "type": "dir",
+          "children": [
+           {
+            "name": "ClaudeValidation.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/validation/ClaudeValidation.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 117
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "CHANGELOG.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/CHANGELOG.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 46
+         },
+         {
+          "name": "CODE_OF_CONDUCT.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/CODE_OF_CONDUCT.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 50
+         },
+         {
+          "name": "CONTRIBUTING.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/CONTRIBUTING.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 70
+         },
+         {
+          "name": "LICENSE",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/LICENSE",
+          "type": "file",
+          "ext": "",
+          "size": 4
+         },
+         {
+          "name": "README.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/README.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 125
+         },
+         {
+          "name": "RELEASE_NOTES.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/RELEASE_NOTES.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 38
+         },
+         {
+          "name": "SECURITY.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/SECURITY.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 52
+         },
+         {
+          "name": "SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/SKILL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2903
+         }
+        ],
+        "desc": "Professional Claude Skill for Draw.io generation.",
+        "readme": "07_AI_OPERATING_SYSTEM/01_Skills/05_S_DrawIO/README.md",
+        "n_dirs": 21,
+        "n_files": 8
+       },
+       {
+        "name": "06_S_LapTrinhTheoDacTa",
+        "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa",
+        "type": "dir",
+        "children": [
+         {
+          "name": "assets",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/assets",
+          "type": "dir",
+          "children": [
+           {
+            "name": "change-report.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/assets/change-report.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 528
+           },
+           {
+            "name": "feature-spec.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/assets/feature-spec.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1187
+           },
+           {
+            "name": "implementation-plan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/assets/implementation-plan.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 769
+           },
+           {
+            "name": "verification-report.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/assets/verification-report.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 603
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 4
+         },
+         {
+          "name": "examples",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/examples",
+          "type": "dir",
+          "children": [
+           {
+            "name": "l-multitenant-change.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/examples/l-multitenant-change.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2855
+           },
+           {
+            "name": "m-api-change.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/examples/m-api-change.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 3299
+           },
+           {
+            "name": "s-feature.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/examples/s-feature.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1724
+           },
+           {
+            "name": "xs-bugfix.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/examples/xs-bugfix.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 913
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 4
+         },
+         {
+          "name": "references",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references",
+          "type": "dir",
+          "children": [
+           {
+            "name": "build.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/build.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1581
+           },
+           {
+            "name": "definition-of-done.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/definition-of-done.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1347
+           },
+           {
+            "name": "migration-rollout.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/migration-rollout.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1897
+           },
+           {
+            "name": "outcome.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/outcome.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 739
+           },
+           {
+            "name": "plan.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/plan.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1731
+           },
+           {
+            "name": "recon.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/recon.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2261
+           },
+           {
+            "name": "security-checklist.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/security-checklist.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2976
+           },
+           {
+            "name": "spec.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/spec.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 1836
+           },
+           {
+            "name": "verify.md",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/references/verify.md",
+            "type": "file",
+            "ext": ".md",
+            "size": 2565
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 9
+         },
+         {
+          "name": "scripts",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/scripts",
+          "type": "dir",
+          "children": [
+           {
+            "name": "validate-skill.sh",
+            "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/scripts/validate-skill.sh",
+            "type": "file",
+            "ext": ".sh",
+            "size": 2171
+           }
+          ],
+          "n_dirs": 0,
+          "n_files": 1
+         },
+         {
+          "name": "CLAUDE.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/CLAUDE.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3411
+         },
+         {
+          "name": "SKILL.md",
+          "path": "07_AI_OPERATING_SYSTEM/01_Skills/06_S_LapTrinhTheoDacTa/SKILL.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 12149
+         }
+        ],
+        "n_dirs": 4,
+        "n_files": 2
        },
        {
         "name": "S14_KiemSoatTaiLieu",
@@ -15772,7 +18874,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/SKILL.md",
           "type": "file",
           "ext": ".md",
-          "size": 5100
+          "size": 5109
          }
         ],
         "n_dirs": 5,
@@ -15783,7 +18885,7 @@
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/00_SUMMARY.md",
         "type": "file",
         "ext": ".md",
-        "size": 9729
+        "size": 9728
        },
        {
         "name": "CHANGELOG_PORTABILITY.md",
@@ -15804,21 +18906,21 @@
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/MIGRATION_GUIDE.md",
         "type": "file",
         "ext": ".md",
-        "size": 6855
+        "size": 6861
        },
        {
         "name": "QUICK_START.md",
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/QUICK_START.md",
         "type": "file",
         "ext": ".md",
-        "size": 5522
+        "size": 5537
        },
        {
         "name": "README.md",
         "path": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 10794
+        "size": 11102
        },
        {
         "name": "SKILL_TEMPLATE.md",
@@ -15830,7 +18932,7 @@
       ],
       "desc": "**Ý nghĩa:** Định nghĩa kỹ năng AI",
       "readme": "07_AI_OPERATING_SYSTEM/01_Skills/README.md",
-      "n_dirs": 3,
+      "n_dirs": 7,
       "n_files": 7
      },
      {
@@ -66633,6 +69735,20 @@
       "type": "dir",
       "children": [
        {
+        "name": "MANLAB-AIOS_Yeu_cau_xay_dung_API_gui_Coder_v1.2.docx",
+        "path": "09_ENGINEERING/04_API/MANLAB-AIOS_Yeu_cau_xay_dung_API_gui_Coder_v1.2.docx",
+        "type": "file",
+        "ext": ".docx",
+        "size": 46290
+       },
+       {
+        "name": "MANLAB-AIOS_Yeu_cau_xay_dung_API_gui_Coder_v1.3.docx",
+        "path": "09_ENGINEERING/04_API/MANLAB-AIOS_Yeu_cau_xay_dung_API_gui_Coder_v1.3.docx",
+        "type": "file",
+        "ext": ".docx",
+        "size": 49949
+       },
+       {
         "name": "README.md",
         "path": "09_ENGINEERING/04_API/README.md",
         "type": "file",
@@ -66643,7 +69759,7 @@
       "desc": "**Ý nghĩa:** Triển khai API, cổng tích hợp",
       "readme": "09_ENGINEERING/04_API/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 3
      },
      {
       "name": "05_Database",
@@ -67834,6 +70950,14 @@
     ],
     "n_dirs": 1,
     "n_files": 8
+   },
+   {
+    "name": "Output_Codex",
+    "path": "Output_Codex",
+    "type": "dir",
+    "children": [],
+    "n_dirs": 0,
+    "n_files": 0
    },
    {
     "name": "ARCHITECTURE.md",
