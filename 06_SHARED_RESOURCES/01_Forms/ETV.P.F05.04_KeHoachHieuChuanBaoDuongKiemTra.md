@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ kế hoạch hiệu chuẩn/bảo dưỡng/kiểm tra thiết bị"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P05, "ETV.P.F05.02", "ETV.P.F05.05"]
-note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 05.04_Ke hoach HC, BD, KT thiet bi (Excel)_L2.doc`, lần BH 01, 22/04/2019). Bản gốc chứa dữ liệu kế hoạch hiệu chuẩn thiết bị thật năm 2019 (mã quản lý, hãng sản xuất, nơi hiệu chuẩn thật) — chỉ số hóa CẤU TRÚC CỘT DỮ LIỆU (bảng trống theo mẫu 12 tháng), không sao chép dữ liệu thiết bị thật. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P05 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 05.04_Ke hoach HC, BD, KT thiet bi (Excel)_L2.doc`, lần BH 01, 22/04/2019). Bản gốc chứa dữ liệu kế hoạch hiệu chuẩn thiết bị thật năm 2019 (mã quản lý, hãng sản xuất, nơi hiệu chuẩn thật) — chỉ số hóa CẤU TRÚC CỘT DỮ LIỆU (bảng trống theo mẫu 12 tháng), không sao chép dữ liệu thiết bị thật. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P05 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # KẾ HOẠCH HIỆU CHUẨN, BẢO DƯỠNG, KIỂM TRA THIẾT BỊ
 
@@ -38,7 +38,7 @@ Năm kế hoạch: `NamKeHoach`
 | Ngày `NgayDuyet` | `LanhDaoVien` | `NguoiDeXuat` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

@@ -23,12 +23,12 @@ cat ~/.codex/skills/04_S_ThietKeAI/SKILL.md | head
 ## Gọi trong Codex
 
 ```text
-Dùng skill thiet-ke-ai để tạo prototype dashboard ManLab theo design system ETV.
+Dùng skill 04-s-thiet-ke-ai để tạo prototype dashboard ManLab theo design system ETV.
 ```
 
 ## Khuyến nghị cho AGENTS.md của dự án
 
 ```text
 ## Skills
-- thiet-ke-ai: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo và prototype theo DESIGN.md. File: ~/.codex/skills/04_S_ThietKeAI/SKILL.md
+- 04-s-thiet-ke-ai: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo và prototype theo DESIGN.md. File: ~/.codex/skills/04_S_ThietKeAI/SKILL.md
 ```

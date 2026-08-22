@@ -233,7 +233,7 @@ cat /tmp/test_skills.json | python3 -m json.tool > /dev/null && echo "✓ Valid 
 
 **Nếu chưa biết về:**
 - **Semantic versioning:** `major.minor.patch` (1.0.0, 1.0.1, 1.1.0, 2.0.0)
-- **Kebab-case:** Chữ thường + dấu gạch ngang: `etv-document-governance`
+- **Kebab-case:** Chữ thường + dấu gạch ngang: `s14-kiem-soat-tai-lieu`
 - **YAML frontmatter:** Markdown block từ `---` đến `---` chứa metadata
 - **JSON Schema:** Định nghĩa cấu trúc JSON (xem `skills_schema.json`)
 

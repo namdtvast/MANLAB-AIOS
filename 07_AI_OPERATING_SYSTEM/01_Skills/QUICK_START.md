@@ -11,8 +11,8 @@ Hướng dẫn nhanh cách cài đặt & kích hoạt skill MANLAB trên Cursor,
 **Kích hoạt:**
 ```
 /s14-kiem-soat-tai-lieu
-/xu-ly-van-phong
-/manlab-academic-research-os
+/02-s-xu-ly-van-phong
+/03-s-nghien-cuu-hoc-thuat
 ```
 
 hoặc gõ tên skill trong `/invoke-skill` panel.
@@ -42,8 +42,8 @@ hoặc gõ tên skill trong `/invoke-skill` panel.
 
 **Ví dụ:**
 ```
-/etv-document-governance
-/xu-ly-van-phong
+/s14-kiem-soat-tai-lieu
+/02-s-xu-ly-van-phong
 ```
 
 ### Đồng bộ khi cập nhật skill
@@ -93,8 +93,8 @@ python3 _meta/export_skill_cursor.py --all --output .cursor/skills.json
 gemini-cli list-skills
 
 # Gọi skill
-gemini-cli invoke-skill etv-document-governance
-gemini-cli invoke-skill xu-ly-van-phong --input "param1=value1"
+gemini-cli invoke-skill s14-kiem-soat-tai-lieu
+gemini-cli invoke-skill 02-s-xu-ly-van-phong --input "param1=value1"
 ```
 
 ---
@@ -135,8 +135,8 @@ gemini-cli invoke-skill xu-ly-van-phong --input "param1=value1"
 
 **Ví dụ:**
 ```
-/@etv-document-governance điều chỉnh metadata file này
-/@xu-ly-van-phong hướng dẫn process này
+/@s14-kiem-soat-tai-lieu điều chỉnh metadata file này
+/@02-s-xu-ly-van-phong hướng dẫn process này
 ```
 
 ---

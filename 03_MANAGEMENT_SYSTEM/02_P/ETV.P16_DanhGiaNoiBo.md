@@ -37,7 +37,7 @@ superseded_by: null
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 20/10/2025, file `ETV.P. 16_TT Danh gia noi bo_L2.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý quan trọng:
+> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 20/10/2025, file `ETV.P. 16_TT Danh gia noi bo_L2.doc`), đối chiếu khung mẫu chuẩn tại skill `s14-kiem-soat-tai-lieu` (soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang; giữ nguyên lần ban hành hiện tại). Lưu ý quan trọng:
 > 1. **4 biểu mẫu áp dụng (`ETV.P.F 16.01`–`16.04`) hiện CHƯA số hóa được** — thư mục nguồn Dropbox chỉ chứa hồ sơ đã điền thực tế theo từng năm (2019–2025, có tên người đánh giá thật, phát hiện đánh giá nội bộ thật), **không có bản mẫu trống (template) riêng biệt**. Theo nguyên tắc không đưa hồ sơ đã điền lên repository công khai, AI không số hóa từ các hồ sơ này — cần Văn phòng/QLCL cung cấp hoặc dựng lại bản mẫu trống độc lập.
 > 2. Toàn bộ nội dung quy trình lập kế hoạch/chương trình đánh giá, chuẩn bị, thực hiện, xử lý sau đánh giá được **giữ nguyên bản chất** so với bản gốc, chỉ tái cấu trúc theo khung Bước–Trách nhiệm–Biểu mẫu.
 

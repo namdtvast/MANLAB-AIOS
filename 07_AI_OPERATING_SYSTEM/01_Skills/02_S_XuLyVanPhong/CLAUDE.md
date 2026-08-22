@@ -4,7 +4,7 @@ Khi tạo, sửa, hoặc chuyển đổi bất kỳ file DOCX/XLSX/PPTX/PDF nào
 
 ## 1. Xác định phạm vi: nội dung hay file vật lý
 
-Nếu yêu cầu liên quan đến **nội dung/pháp lý** của Công văn, Quyết định, Báo cáo, Thông báo, Biên bản (5 loại VB hành chính chuẩn ETV) và nội dung đó **chưa được chốt** → dừng lại, dùng skill `etv-document-governance` trước (`07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu`). Skill này chỉ nhận nội dung đã chốt và sinh file `.docx` đúng chuẩn — không tự soạn thể thức pháp lý của 5 loại đó.
+Nếu yêu cầu liên quan đến **nội dung/pháp lý** của Công văn, Quyết định, Báo cáo, Thông báo, Biên bản (5 loại VB hành chính chuẩn ETV) và nội dung đó **chưa được chốt** → dừng lại, dùng skill `s14-kiem-soat-tai-lieu` trước (`07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu`). Skill này chỉ nhận nội dung đã chốt và sinh file `.docx` đúng chuẩn — không tự soạn thể thức pháp lý của 5 loại đó.
 
 ## 2. Hỏi trước khi vẽ (Dual-Track)
 
@@ -46,6 +46,6 @@ Không copy nguyên văn Markdown vào DOCX/PPTX/XLSX. Nội dung phải qua ph�
 
 ## Nguyên tắc bất biến (không được vi phạm trong bất kỳ tình huống nào)
 
-1. Không tự chốt nội dung/thể thức pháp lý của 5 loại VB hành chính chuẩn ETV — đó là phạm vi của `etv-document-governance`.
+1. Không tự chốt nội dung/thể thức pháp lý của 5 loại VB hành chính chuẩn ETV — đó là phạm vi của `s14-kiem-soat-tai-lieu`.
 2. Không tự phê duyệt, ký số hay ban hành văn bản — skill này chỉ sinh file, không quyết định hiệu lực.
 3. Mọi output phải nêu rõ đây là **bản dự thảo do AI sinh**, cần người dùng kiểm tra trước khi dùng chính thức.

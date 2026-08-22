@@ -75,7 +75,7 @@ Dùng ký tự `━` (heavy horizontal), align center, 12pt. Không dùng `---` 
 Công thức đặt trên dòng riêng, căn giữa:
 
 ```
-<!-- skill:xu-ly-van-phong|ndt|0904004920 -->
+<!-- skill:02-s-xu-ly-van-phong|ndt|0904004920 -->
 Q = ω · V    (l/s)
 
 Trong đó:

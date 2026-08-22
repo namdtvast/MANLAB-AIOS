@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ đánh giá nhà cung cấp"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P06, "ETV.P.F06.01"]
-note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 06.02_Phieu danh gia_Nha cung cap.doc`, lần BH 02, 22/04/2023) — bản gốc có 1 ví dụ minh họa đã điền tên NCC thật, không đưa vào bản số hóa. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P06 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 06.02_Phieu danh gia_Nha cung cap.doc`, lần BH 02, 22/04/2023) — bản gốc có 1 ví dụ minh họa đã điền tên NCC thật, không đưa vào bản số hóa. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P06 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # PHIẾU ĐÁNH GIÁ NHÀ CUNG CẤP SẢN PHẨM/DỊCH VỤ
 
@@ -51,7 +51,7 @@ note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 06.02_P
 | Hà Nội, ngày `NgayDanhGia` | `NguoiPheDuyet` | `NguoiDanhGia` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

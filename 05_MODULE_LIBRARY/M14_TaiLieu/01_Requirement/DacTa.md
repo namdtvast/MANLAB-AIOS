@@ -27,7 +27,7 @@ Số hóa vòng đời kiểm soát văn bản theo `ETV.P14` — tài liệu HT
 4. Văn bản `type ∈ {Sổ tay, Thủ tục}` bắt buộc người phê duyệt = tài khoản nhóm **LĐV**, không ủy quyền (theo RACI `ETV.P14` §5).
 5. Khi `status → Hết hiệu lực/Hủy`, bắt buộc chọn `Thanh lý` hoặc `Hủy bỏ` (khác hành vi — `ETV.P14` §15) và bắt buộc `reason`.
 6. Khi tạo văn bản mới có `supersedes`, hệ thống tự động cập nhật `superseded_by` của văn bản cũ — không sửa tay hai chiều.
-7. AI Agent (← M29, qua Skill `etv-document-governance`) chỉ được: gợi ý `id`, gợi ý `iso_clause`/`legal_basis`, cảnh báo trùng phạm vi, cảnh báo sắp hết hạn soát xét (`effective_date` + 36 tháng). **Không** được tự đổi `status`.
+7. AI Agent (← M29, qua Skill `s14-kiem-soat-tai-lieu`) chỉ được: gợi ý `id`, gợi ý `iso_clause`/`legal_basis`, cảnh báo trùng phạm vi, cảnh báo sắp hết hạn soát xét (`effective_date` + 36 tháng). **Không** được tự đổi `status`.
 
 ## 4. Vai trò
 Người lập · Người soát xét (LĐP) · Người phê duyệt (LĐV) · Văn thư/QLCL (cấp mã, phân phối, lưu trữ) — chi tiết RACI: `ETV.P14` §5.

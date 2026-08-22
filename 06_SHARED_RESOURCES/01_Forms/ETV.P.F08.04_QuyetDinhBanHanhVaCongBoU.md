@@ -15,7 +15,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ xác nhận giá trị sử dụng phương pháp"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P08, "ETV.P.F08.01", "ETV.P.F08.03"]
-note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 08.04_QD BH va Cong bo U_L2.docx`, lần BH 02, 22/04/2023). Đây là mẫu VĂN BẢN HÀNH CHÍNH (Quyết định) theo Nghị định 30/2020/NĐ-CP, không phải bảng biểu HTQL thông thường — giữ nguyên thể thức gốc, chỉ chuẩn hóa placeholder theo quy ước ManLab. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P08 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 08.04_QD BH va Cong bo U_L2.docx`, lần BH 02, 22/04/2023). Đây là mẫu VĂN BẢN HÀNH CHÍNH (Quyết định) theo Nghị định 30/2020/NĐ-CP, không phải bảng biểu HTQL thông thường — giữ nguyên thể thức gốc, chỉ chuẩn hóa placeholder theo quy ước ManLab. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P08 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # ETV.P.F 08.04 — QUYẾT ĐỊNH BAN HÀNH ÁP DỤNG QUY TRÌNH HIỆU CHUẨN, THỬ NGHIỆM
 
@@ -86,7 +86,7 @@ Theo đề nghị của Phòng Đo lường Chất lượng,
 | `TB.TT` | `PhamViDo` | `GiaTriCMC` | `DonViDo` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` và `validation/checklist_document_release.md` tại skill `01-s-kiem-soat-tai-lieu-etv` (đây là văn bản hành chính, cần kiểm tra thêm thể thức Nghị định 30/2020/NĐ-CP).
+Xem `validation/checklist_template.md` và `validation/checklist_document_release.md` tại skill `s14-kiem-soat-tai-lieu` (đây là văn bản hành chính, cần kiểm tra thêm thể thức Nghị định 30/2020/NĐ-CP).
 
 ---
 

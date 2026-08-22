@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 15 — hồ sơ kỹ thuật hiệu chuẩn"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P11, "ETV.P.F11.03", "ETV.P.F11.10"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.02_Mau GCN HC_template_V12.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_HC_V2/`). Bản gốc là file mail-merge từ bảng tính, có hàng trăm token ô lưới (ví dụ `D207dv`, `H14_MQL`, `ZZ.d`...) lặp lại theo đúng một khuôn dạng cho 9 mục kết quả (4.1–4.9: Dữ liệu đo lường, Sai số, Độ lệch chuẩn, Độ đồng đều, Độ ổn định, Độ hồi trễ, Độ tuyến tính, Độ lặp lại, Độ không đảm bảo đo) — AI trình bày **1 bảng khuôn mẫu chung** duy nhất kèm quy ước đặt tên token thay vì lặp lại 9 bảng gần như giống hệt nhau, để tài liệu dễ đọc mà vẫn đủ để lập trình lại mail-merge nếu cần. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.02_Mau GCN HC_template_V12.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_HC_V2/`). Bản gốc là file mail-merge từ bảng tính, có hàng trăm token ô lưới (ví dụ `D207dv`, `H14_MQL`, `ZZ.d`...) lặp lại theo đúng một khuôn dạng cho 9 mục kết quả (4.1–4.9: Dữ liệu đo lường, Sai số, Độ lệch chuẩn, Độ đồng đều, Độ ổn định, Độ hồi trễ, Độ tuyến tính, Độ lặp lại, Độ không đảm bảo đo) — AI trình bày **1 bảng khuôn mẫu chung** duy nhất kèm quy ước đặt tên token thay vì lặp lại 9 bảng gần như giống hệt nhau, để tài liệu dễ đọc mà vẫn đủ để lập trình lại mail-merge nếu cần. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # GIẤY CHỨNG NHẬN HIỆU CHUẨN (CALIBRATION CERTIFICATE)
 
@@ -83,7 +83,7 @@ Ghi chú in kèm: "Điểm hiệu chuẩn theo yêu cầu khách hàng"; và tù
 **Người thực hiện (Calibrated by):** `TenNguoiHieuChuan`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

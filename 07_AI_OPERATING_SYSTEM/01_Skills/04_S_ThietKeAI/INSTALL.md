@@ -1,4 +1,4 @@
-# Cài đặt skill `thiet-ke-ai`
+# Cài đặt skill `04-s-thiet-ke-ai`
 
 ## Cài cho Claude và Codex
 
@@ -43,5 +43,5 @@ python3 scripts/validate_repo.py
 ## Cách gọi
 
 ```text
-Sử dụng skill thiet-ke-ai để thiết kế infographic A4 dọc theo nhận diện ETV và xuất PNG.
+Sử dụng skill 04-s-thiet-ke-ai để thiết kế infographic A4 dọc theo nhận diện ETV và xuất PNG.
 ```

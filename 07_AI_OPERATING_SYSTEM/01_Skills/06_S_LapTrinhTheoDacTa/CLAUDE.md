@@ -2,7 +2,7 @@
 
 ## Skill identity
 
-- Skill name (frontmatter `name:`): `spec-driven-coding`
+- Skill name (frontmatter `name:`): `06-s-lap-trinh-theo-dac-ta`
 - Skill directory: `06_S_LapTrinhTheoDacTa` (Mẫu B — không gắn Thủ tục `ETV.Pxx`)
 - Skill ID tham chiếu: `DEV-SPEC-001`
 
@@ -32,9 +32,9 @@
 
 ## Khi nào skill này không áp dụng
 
-- Soạn thảo văn bản hành chính/quy trình thuần Markdown không kèm mã nguồn thật → dùng `01-s-kiem-soat-tai-lieu-etv` hoặc `02-s-xu-ly-van-phong`.
+- Soạn thảo văn bản hành chính/quy trình thuần Markdown không kèm mã nguồn thật → dùng `s14-kiem-soat-tai-lieu` hoặc `02-s-xu-ly-van-phong`.
 - Thiết kế UI/UX thuần hình ảnh chưa đụng code → dùng `04_S_ThietKeAI`.
 - Vẽ sơ đồ Draw.io → dùng `05_S_DrawIO`.
 - Thiết kế quy chế/RBAC/BPMN cấp tổ chức chưa đụng code → dùng `01_S_Governance`.
 
-Nếu một yêu cầu vừa cần thiết kế UI vừa cần code chạy thật (ví dụ thêm màn hình vào `M10_DamBaoKQ/08_Source/webapp/`), phối hợp: dùng `04_S_ThietKeAI` cho phần thiết kế, `spec-driven-coding` cho phần SPEC/PLAN/BUILD/VERIFY mã nguồn.
+Nếu một yêu cầu vừa cần thiết kế UI vừa cần code chạy thật (ví dụ thêm màn hình vào `M10_DamBaoKQ/08_Source/webapp/`), phối hợp: dùng `04_S_ThietKeAI` cho phần thiết kế, `06-s-lap-trinh-theo-dac-ta` cho phần SPEC/PLAN/BUILD/VERIFY mã nguồn.

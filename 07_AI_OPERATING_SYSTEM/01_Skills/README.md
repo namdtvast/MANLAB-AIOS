@@ -56,7 +56,7 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 - Skill **ánh xạ 1-1 với một Thủ tục** `ETV.P{N}` → **Mẫu A** (`S{N}_...`).
 - Skill **không có thủ tục tương ứng** (năng lực kỹ thuật dùng chung) → **Mẫu B** (`{stt}_S_...`).
 
-> **Lưu ý:** tên thư mục (PascalCase) tách biệt với trường `name:` trong frontmatter `SKILL.md` (kebab-case — dùng để Claude nhận diện/kích hoạt skill). Hai giá trị **không cần khớp chữ**, nhưng phải cùng trỏ về một skill — xem bảng mapping bên dưới.
+> **Lưu ý:** trường `name:` trong frontmatter `SKILL.md` (kebab-case — dùng để Claude nhận diện/kích hoạt skill) **phải là bản chuyển đổi cơ học của tên thư mục** (hạ chữ thường + đổi `_` thành `-`, tách theo ranh giới chữ hoa của PascalCase), ví dụ `06_S_LapTrinhTheoDacTa` → `06-s-lap-trinh-theo-dac-ta`. Không tự đặt tên kích hoạt khác tên thư mục — xem bảng mapping bên dưới. `_meta/validate_skill_schema.py` (chạy trong CI) kiểm tra tự động quy tắc này.
 
 ### Bắt buộc kèm theo mỗi skill
 
@@ -67,13 +67,13 @@ Khi skill là năng lực kỹ thuật dùng chung, không phải bản triển 
 
 | Thư mục | Mẫu | Thủ tục nguồn | `name:` trong SKILL.md |
 |---|---|---|---|
-| `S14_KiemSoatTaiLieu` | A | `ETV.P14` — Kiểm soát tài liệu | `etv-document-governance` |
-| `01_S_Governance` | B | (không có) | `manlab-governance` |
-| `02_S_XuLyVanPhong` | B | (không có) | `xu-ly-van-phong` |
-| `03_S_NghienCuuHocThuat` | B | (không có) | `manlab-academic-research-os` |
-| `04_S_ThietKeAI` | B | (không có) | `thiet-ke-ai` |
-| `05_S_DrawIO` | B | (không có) | `manlab-drawio` |
-| `06_S_LapTrinhTheoDacTa` | B | (không có) | `spec-driven-coding` |
+| `S14_KiemSoatTaiLieu` | A | `ETV.P14` — Kiểm soát tài liệu | `s14-kiem-soat-tai-lieu` |
+| `01_S_Governance` | B | (không có) | `01-s-governance` |
+| `02_S_XuLyVanPhong` | B | (không có) | `02-s-xu-ly-van-phong` |
+| `03_S_NghienCuuHocThuat` | B | (không có) | `03-s-nghien-cuu-hoc-thuat` |
+| `04_S_ThietKeAI` | B | (không có) | `04-s-thiet-ke-ai` |
+| `05_S_DrawIO` | B | (không có) | `05-s-draw-io` |
+| `06_S_LapTrinhTheoDacTa` | B | (không có) | `06-s-lap-trinh-theo-dac-ta` |
 
 Số thứ tự tiếp theo cho skill **Mẫu B** (không gắn thủ tục): `07`.
 

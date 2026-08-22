@@ -1,5 +1,5 @@
 ---
-name: manlab-academic-research-os
+name: 03-s-nghien-cuu-hoc-thuat
 description: Hệ điều hành nghiên cứu học thuật cho Claude Code, từ chọn loại hồ sơ, đề xuất/thuyết minh đề tài, thực hiện nghiên cứu, báo cáo, luận văn/luận án đến công bố và phản biện. Kiến trúc human-in-the-loop, claim-evidence, provenance và quality gates.
 ---
 

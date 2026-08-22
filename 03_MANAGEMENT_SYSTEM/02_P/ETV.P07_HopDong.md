@@ -37,7 +37,7 @@ superseded_by: null
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 01/02/2024 và 26/03/2026, file `ETV.P 07_TT Xem xet yeu cau de nghi hop dong_V3.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý quan trọng:
+> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 01/02/2024 và 26/03/2026, file `ETV.P 07_TT Xem xet yeu cau de nghi hop dong_V3.doc`), đối chiếu khung mẫu chuẩn tại skill `s14-kiem-soat-tai-lieu` (soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang; giữ nguyên lần ban hành hiện tại). Lưu ý quan trọng:
 > 1. **10 biểu mẫu áp dụng (mục VII) hiện CHƯA số hóa được** — toàn bộ file biểu mẫu gốc (`ETV.P.F 07.01`–`07.10`) trên Dropbox nguồn đang ở dạng file rỗng 0 byte (placeholder online-only, chưa đồng bộ về máy). Thân thủ tục vẫn ban hành vì nội dung quy trình đọc được đầy đủ từ bản gốc; biểu mẫu sẽ được bổ sung ở lần cập nhật kế tiếp — **không tự suy diễn cấu trúc biểu mẫu (đặc biệt các mẫu hợp đồng `07.06`–`07.09`) khi chưa có bản gốc**.
 > 2. **Tách "Quy tắc mã hóa hồ sơ trong hệ thống ManLab"** (mã BG, mã PNT, mã hợp đồng) thành Phụ lục I, giữ nguyên nội dung.
 > 3. Toàn bộ nội dung quy trình tiếp nhận, báo giá, hợp đồng, nhận-trả phương tiện đo được **giữ nguyên bản chất** so với lần 02, chỉ sắp xếp lại theo khung Bước–Trách nhiệm–Biểu mẫu.

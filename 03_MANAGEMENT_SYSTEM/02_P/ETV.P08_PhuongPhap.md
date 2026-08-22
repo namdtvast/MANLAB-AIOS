@@ -37,7 +37,7 @@ superseded_by: null
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, file `ETV.P 08_TT XN GTSDPP_L4_Chua sua_BS U.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý:
+> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, file `ETV.P 08_TT XN GTSDPP_L4_Chua sua_BS U.doc`), đối chiếu khung mẫu chuẩn tại skill `s14-kiem-soat-tai-lieu` (soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang; giữ nguyên lần ban hành hiện tại). Lưu ý:
 > 1. **2/4 biểu mẫu số hóa được từ nguồn thật** (`ETV.P.F 08.01`, `08.04` — file đọc được); **2/4 biểu mẫu còn lại** (`08.02`, `08.03`) tạm **chưa số hóa** vì file nguồn trên Dropbox rỗng 0 byte (placeholder online-only, chưa đồng bộ) — sẽ bổ sung khi có nguồn.
 > 2. `ETV.P.F 08.04` có thể thức của một **Quyết định hành chính** (Quốc hiệu—Tiêu ngữ, số/ký hiệu, "QUYẾT ĐỊNH", các Điều) chứ không phải bảng biểu thông thường — giữ nguyên thể thức gốc khi số hóa, chỉ chuẩn hóa placeholder theo quy ước ManLab (`SoQuyetdinh`, `ngayPD`...).
 > 3. Toàn bộ nội dung kỹ thuật về lựa chọn thông số đánh giá, xác nhận GTSD phương pháp tiêu chuẩn/không tiêu chuẩn, ước lượng độ không đảm bảo đo được **giữ nguyên bản chất** so với lần 02, chỉ sắp xếp lại theo khung Bước–Trách nhiệm–Biểu mẫu và tách phần lựa chọn thông số/hình thức đánh giá thành Phụ lục I để thân bài gọn hơn.

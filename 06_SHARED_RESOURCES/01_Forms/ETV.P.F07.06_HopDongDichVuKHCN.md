@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ hợp đồng dịch vụ khoa học và công nghệ"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P07, "ETV.P.F07.06.02", "ETV.P.F07.06.03"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 07.06_Hop dong_TenKH_V1.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/Template/`). Mã 07.06 trong ManLab hiện tại là một HỌ 3 tài liệu dùng chung khung pháp lý (hợp đồng chính, biên bản nghiệm thu-thanh lý, phụ lục điều chỉnh) — xem `ETV.P.F07.06.02` (thanh lý) và `ETV.P.F07.06.03` (phụ lục) đi kèm — khác với thân thủ tục ETV.P07 gốc liệt kê 07.06 chỉ là \"Hợp đồng đo lường\" một mã riêng; đề nghị LĐP xác nhận cách đánh mã 3 cấp này khi cập nhật `knowledge/03_ma_hoa_van_ban.md`. **Đã ẩn số tài khoản ngân hàng thật của ETV** (thay bằng `SoTaiKhoanETV1`/`SoTaiKhoanETV2`) vì tài liệu này đồng bộ lên repository công khai — số điện thoại/hotline/mã số thuế công ty giữ nguyên vì đã công khai trên mọi hóa đơn/chứng chỉ phát hành cho khách hàng và trên website etv.org.vn. Nội dung pháp lý (12 điều) giữ nguyên bản chất so với bản gốc. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 07.06_Hop dong_TenKH_V1.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/Template/`). Mã 07.06 trong ManLab hiện tại là một HỌ 3 tài liệu dùng chung khung pháp lý (hợp đồng chính, biên bản nghiệm thu-thanh lý, phụ lục điều chỉnh) — xem `ETV.P.F07.06.02` (thanh lý) và `ETV.P.F07.06.03` (phụ lục) đi kèm — khác với thân thủ tục ETV.P07 gốc liệt kê 07.06 chỉ là \"Hợp đồng đo lường\" một mã riêng; đề nghị LĐP xác nhận cách đánh mã 3 cấp này khi cập nhật `knowledge/03_ma_hoa_van_ban.md`. **Đã ẩn số tài khoản ngân hàng thật của ETV** (thay bằng `SoTaiKhoanETV1`/`SoTaiKhoanETV2`) vì tài liệu này đồng bộ lên repository công khai — số điện thoại/hotline/mã số thuế công ty giữ nguyên vì đã công khai trên mọi hóa đơn/chứng chỉ phát hành cho khách hàng và trên website etv.org.vn. Nội dung pháp lý (12 điều) giữ nguyên bản chất so với bản gốc. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # HỢP ĐỒNG DỊCH VỤ KHOA HỌC VÀ CÔNG NGHỆ
 
@@ -89,7 +89,7 @@ Hai bên thỏa thuận và thống nhất ký kết hợp đồng với các đ
 Giá trị hợp đồng (chưa thuế): `VAT_SoTien_Total` VNĐ · Thuế GTGT 0/5/8/10%: `VAT0`/`VAT5`/`VAT8`/`VAT10` · Giảm trừ (nếu có): `GIAMGIA` · Tạm ứng (nếu có): `SoTienTU` · **Tổng giá trị hợp đồng (đã VAT): `VAT_TongTien_Total` VNĐ** · Số lượng PTĐ: `TB` thiết bị.
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

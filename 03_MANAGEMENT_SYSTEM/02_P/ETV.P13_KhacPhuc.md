@@ -37,7 +37,7 @@ superseded_by: null
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, file `ETV.P 13_TT Kiem soat CV KPH_L2.doc`), đối chiếu khung mẫu chuẩn tại skill `01-s-kiem-soat-tai-lieu-etv`. Lưu ý:
+> **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, file `ETV.P 13_TT Kiem soat CV KPH_L2.doc`), đối chiếu khung mẫu chuẩn tại skill `s14-kiem-soat-tai-lieu` (soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang; giữ nguyên lần ban hành hiện tại). Lưu ý:
 > 1. **Biểu mẫu áp dụng (`ETV.P.F 13.01`) hiện CHƯA số hóa được** — cả 3 phiên bản theo năm (`2020`, `2022`, `2024`) trên Dropbox nguồn đều ở dạng file rỗng 0 byte (placeholder online-only, chưa đồng bộ về máy) — **không tự suy diễn cấu trúc khi chưa có bản gốc**.
 > 2. Bản gốc lần 02 có một lỗi đánh máy: mục "Xử lý công việc không phù hợp mức nặng" dẫn chiếu nhầm biểu mẫu hành động khắc phục là `ETV.P.F 13.01` (trùng với biểu mẫu "Sổ theo dõi công việc không phù hợp" nêu ở đầu mục) — AI giữ nguyên nội dung nhưng chú thích rõ đây là hai hoạt động khác nhau (ghi sổ theo dõi vs. lập phương án khắc phục), đề nghị LĐP xác nhận có cần một mã biểu mẫu riêng cho phương án hành động khắc phục hay không khi cập nhật lần sau.
 > 3. Toàn bộ nội dung quy trình phát hiện, đánh giá mức độ, xử lý công việc không phù hợp được **giữ nguyên bản chất** so với lần 02, chỉ tái cấu trúc theo khung Bước–Trách nhiệm–Biểu mẫu.

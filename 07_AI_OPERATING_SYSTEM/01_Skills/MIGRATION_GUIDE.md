@@ -38,7 +38,7 @@ cp 03_S_NghienCuuHocThuat/SKILL.md 03_S_NghienCuuHocThuat/SKILL.md.backup
 **Trước (cũ):**
 ```yaml
 ---
-name: etv-document-governance
+name: s14-kiem-soat-tai-lieu
 description: "Kiểm soát tài liệu, dữ liệu, thông tin tại Viện Kiểm định Công nghệ và Môi trường (ETV)..."
 argument-hint: "[loại văn bản] [hành động: soạn thảo|soát xét|kiểm tra|phân loại]"
 license: Internal-ETV
@@ -52,7 +52,7 @@ metadata:
 **Sau (mới):**
 ```yaml
 ---
-name: etv-document-governance
+name: s14-kiem-soat-tai-lieu
 title: Kiểm soát Tài liệu & Dữ liệu ETV
 description: Kiểm soát vòng đời tài liệu/dữ liệu tại ETV theo ETV.P14 — nhận diện loại, căn cứ pháp luật, thể thức, metadata, kiểm tra trước ban hành
 version: "1.0.0"
@@ -79,7 +79,7 @@ tags:
 **Trước:**
 ```yaml
 ---
-name: xu-ly-van-phong
+name: 02-s-xu-ly-van-phong
 description: "..."
 metadata:
   version: "1.0.0"
@@ -89,7 +89,7 @@ metadata:
 **Sau:**
 ```yaml
 ---
-name: xu-ly-van-phong
+name: 02-s-xu-ly-van-phong
 title: Xử Lý Văn Phòng & Tài Liệu
 description: Sinh file, soát xét biểu mẫu, xử lý luồng văn phòng cho tài liệu ETV
 version: "1.0.0"
@@ -108,7 +108,7 @@ tags:
 **Sau:**
 ```yaml
 ---
-name: manlab-academic-research-os
+name: 03-s-nghien-cuu-hoc-thuat
 title: Hệ Điều Hành Nghiên Cứu Học Thuật
 description: Hỗ trợ tìm kiếm, phân tích, tổng hợp tài liệu học thuật cho dự án MANLAB
 version: "1.0.0"

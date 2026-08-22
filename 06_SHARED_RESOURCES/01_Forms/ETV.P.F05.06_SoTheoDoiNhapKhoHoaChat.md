@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ nhập kho hóa chất, chất chuẩn"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P05, "ETV.P.F05.07", "ETV.P.F05.10"]
-note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 05.06_So theo doi NHAP_Hoa chat, chat chuan (Excel)_Update_L2.doc`, lần BH 01, 22/04/2019). Bản gốc chứa dữ liệu nhập kho hóa chất/chất chuẩn thật năm 2019 (mã lô CAT/LOT thật) — chỉ số hóa CẤU TRÚC CỘT DỮ LIỆU (bảng trống), không sao chép dữ liệu thật. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P05 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 05.06_So theo doi NHAP_Hoa chat, chat chuan (Excel)_Update_L2.doc`, lần BH 01, 22/04/2019). Bản gốc chứa dữ liệu nhập kho hóa chất/chất chuẩn thật năm 2019 (mã lô CAT/LOT thật) — chỉ số hóa CẤU TRÚC CỘT DỮ LIỆU (bảng trống), không sao chép dữ liệu thật. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P05 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # SỔ THEO DÕI NHẬP KHO HÓA CHẤT, CHẤT CHUẨN (KHÍ CHUẨN, DUNG DỊCH CHUẨN)
 
@@ -34,7 +34,7 @@ note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 05.06_S
 | Hà Nội, ngày `NgayDuyet` | `LanhDaoVien` | `NguoiLap` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

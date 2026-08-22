@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ chi phí công tác phí"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P06, "ETV.P.F07.11"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P0611_DeNghiThanhToanCTP_V2.docx`, nguồn `0. Data_ManLab/1. Form BM/P06_Form_MuaSanphamDichvuBenngoai/Template/`). Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P0611_DeNghiThanhToanCTP_V2.docx`, nguồn `0. Data_ManLab/1. Form BM/P06_Form_MuaSanphamDichvuBenngoai/Template/`). Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # PHIẾU ĐỀ NGHỊ THANH TOÁN (CHI PHÍ CÔNG TÁC PHÍ)
 
@@ -60,7 +60,7 @@ Người đại diện nhận tiền: `Nguoinhantien_Ten` · Số tài khoản, 
 `IMG.FileDinhKem`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

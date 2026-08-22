@@ -4,7 +4,7 @@ This file governs OpenAI Codex and other agents that support `AGENTS.md`.
 
 ## Skill identity
 
-- Skill name: `thiet-ke-ai`
+- Skill name: `04-s-thiet-ke-ai`
 - Skill directory: `04_S_ThietKeAI`
 - Primary entry: `SKILL.md`
 - Design contract: `DESIGN.md`

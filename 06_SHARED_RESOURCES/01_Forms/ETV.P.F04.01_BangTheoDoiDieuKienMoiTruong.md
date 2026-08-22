@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ theo dõi điều kiện môi trường"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P04, "ETV.P.F04.04"]
-note: "Số hóa từ bản PDF gốc đang dùng thực tế (`ETV.P.F 04.01_Bang theo doi dieu kien MT_L2.pdf`, lần BH 02, 22/04/2023). Giữ nguyên cấu trúc và ngưỡng nhiệt độ/độ ẩm mẫu (23,3–26,7 °C; 42–78 %RH) như bản gốc — đây là ví dụ minh họa trên biểu mẫu, giá trị áp dụng thực tế theo từng khu vực lấy tại ETV.P04 Phụ lục II. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P04 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản PDF gốc đang dùng thực tế (`ETV.P.F 04.01_Bang theo doi dieu kien MT_L2.pdf`, lần BH 02, 22/04/2023). Giữ nguyên cấu trúc và ngưỡng nhiệt độ/độ ẩm mẫu (23,3–26,7 °C; 42–78 %RH) như bản gốc — đây là ví dụ minh họa trên biểu mẫu, giá trị áp dụng thực tế theo từng khu vực lấy tại ETV.P04 Phụ lục II. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P04 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # BẢNG THEO DÕI ĐIỀU KIỆN MÔI TRƯỜNG
 
@@ -36,7 +36,7 @@ Thiết bị đo: `ThietBiDoNhietAm` · Hiệu lực hiệu chuẩn: `HieuLucHie
 *(Bảng lặp lại 31 dòng theo ngày trong tháng — đánh dấu (*) vào ngày thực hiện kiểm định/hiệu chuẩn/thử nghiệm.)*
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 15 — hồ sơ đánh giá hệ thống quan trắc tự động"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P11, "ETV.P.F11.07", "ETV.P.F11.14"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.08_Phuluc 14_SA_Truyenbien_V7.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_BC_SA/`). Cấu trúc song song với `ETV.P.F11.07` (nước thải) nhưng áp dụng cho hệ thống quan trắc khí thải tự động, liên tục — căn cứ Thông tư 10/2021/TT-BTNMT và Nghị định 08/2022/NĐ-CP (bản gốc ghi Nghị định 08/2022/NĐ-CP ở mục Kết luận, khác với bản nước thải dẫn Nghị định 40/2019/NĐ-CP — giữ nguyên theo từng bản gốc, chưa xác minh lại). **Chưa rà soát hiệu lực hiện hành của các văn bản này tại thời điểm số hóa** — đề nghị LĐP xác nhận trước khi ban hành chính thức. Bản gốc rất dài, các bảng checklist Có/Không rút gọn thành gạch đầu dòng để dễ đọc, không rút gọn nội dung pháp lý. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.08_Phuluc 14_SA_Truyenbien_V7.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_BC_SA/`). Cấu trúc song song với `ETV.P.F11.07` (nước thải) nhưng áp dụng cho hệ thống quan trắc khí thải tự động, liên tục — căn cứ Thông tư 10/2021/TT-BTNMT và Nghị định 08/2022/NĐ-CP (bản gốc ghi Nghị định 08/2022/NĐ-CP ở mục Kết luận, khác với bản nước thải dẫn Nghị định 40/2019/NĐ-CP — giữ nguyên theo từng bản gốc, chưa xác minh lại). **Chưa rà soát hiệu lực hiện hành của các văn bản này tại thời điểm số hóa** — đề nghị LĐP xác nhận trước khi ban hành chính thức. Bản gốc rất dài, các bảng checklist Có/Không rút gọn thành gạch đầu dòng để dễ đọc, không rút gọn nội dung pháp lý. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # BIÊN BẢN ĐÁNH GIÁ CÁC ĐẶC TÍNH VÀ ĐỘ CHÍNH XÁC TƯƠNG ĐỐI CỦA HỆ THỐNG QUAN TRẮC KHÍ THẢI TỰ ĐỘNG, LIÊN TỤC
 
@@ -89,7 +89,7 @@ Hà Nội, ngày `Ngay` tháng `Thang` năm `Year`
 | `NguoiDG` | `Nguoisoatxet` | `NguoiPheDuyet` |  |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

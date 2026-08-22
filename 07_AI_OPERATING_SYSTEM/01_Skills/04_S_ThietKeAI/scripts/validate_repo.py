@@ -40,9 +40,20 @@ def parse_frontmatter(path: Path):
             data[key.strip()] = value.strip()
     return data
 
+def folder_name_to_kebab(folder_name: str) -> str:
+    """Bản chuyển đổi cơ học tên thư mục -> kebab-case (xem CLAUDE.md gốc)."""
+    parts = folder_name.split('_')
+    spaced = [re.sub(r'(?<=[a-z0-9])(?=[A-Z])', '-', part).lower() for part in parts]
+    return '-'.join(spaced)
+
+if root.name != '04_S_ThietKeAI':
+    errors.append(f'Tên thư mục gốc không đúng: {root.name}')
+
+expected_name = folder_name_to_kebab(root.name)
+
 root_fm = parse_frontmatter(root / 'SKILL.md')
-if root_fm.get('name') != 'thiet-ke-ai':
-    errors.append('SKILL.md phải có frontmatter name: thiet-ke-ai')
+if root_fm.get('name') != expected_name:
+    errors.append(f"SKILL.md phải có frontmatter name: {expected_name} (đang là {root_fm.get('name')!r})")
 if root_fm.get('version') != '2.1.0':
     errors.append('SKILL.md phải có version: 2.1.0')
 
@@ -56,15 +67,12 @@ for p in sorted(root.glob('skills/*/SKILL.md')):
 plugin = root / '.claude-plugin/plugin.json'
 if plugin.exists():
     obj = json.loads(plugin.read_text(encoding='utf-8'))
-    if obj.get('name') != 'thiet-ke-ai':
-        errors.append('plugin.json phải có name = thiet-ke-ai')
+    if obj.get('name') != expected_name:
+        errors.append(f"plugin.json phải có name = {expected_name} (đang là {obj.get('name')!r})")
     if obj.get('version') != '2.1.0':
         errors.append('plugin.json phải có version = 2.1.0')
-
-if root.name != '04_S_ThietKeAI':
-    errors.append(f'Tên thư mục gốc không đúng: {root.name}')
 
 if errors:
     print('\n'.join(f'ERROR: {e}' for e in errors))
     sys.exit(1)
-print('VALID: 04_S_ThietKeAI v2.1.0 | skill=thiet-ke-ai | Claude+Codex')
+print(f'VALID: 04_S_ThietKeAI v2.1.0 | skill={expected_name} | Claude+Codex')

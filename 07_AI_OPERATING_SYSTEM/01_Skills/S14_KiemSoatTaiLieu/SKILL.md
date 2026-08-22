@@ -1,5 +1,5 @@
 ---
-name: etv-document-governance
+name: s14-kiem-soat-tai-lieu
 description: "Kiểm soát tài liệu, dữ liệu, thông tin tại Viện Kiểm định Công nghệ và Môi trường (ETV) theo ETV.P14. Nhận diện loại văn bản, xác định căn cứ pháp luật/ISO áp dụng, kiểm tra thể thức, mã hóa, metadata, liên kết tài liệu, phát hiện xung đột, sinh template chuẩn (Quyết định, Công văn, Báo cáo, Thông báo, Biên bản, Thủ tục, Quy trình, Hướng dẫn, Giấy chứng nhận, Biểu mẫu) và checklist kiểm tra trước khi ban hành. Dùng khi: soạn thảo/soát xét/ban hành văn bản nội bộ hoặc bên ngoài, kiểm tra tuân thủ Nghị định 30/2020/NĐ-CP, Luật Giao dịch điện tử 2023, ISO 9001/17025/17034/27001/42001, hoặc khi làm việc với ManLab document module (M14). Không quản lý vòng đời hợp đồng — hợp đồng thuộc thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ); skill chỉ nhận diện và định tuyến về các thủ tục đó."
 argument-hint: "[loại văn bản] [hành động: soạn thảo|soát xét|kiểm tra|phân loại]"
 license: Internal-ETV
@@ -30,7 +30,7 @@ Skill quản trị vòng đời tài liệu, dữ liệu, thông tin của ETV �
 4. Chạy `validation/` checklist phù hợp trước khi coi văn bản là "sẵn sàng trình ký".
 5. Tham khảo `examples/` nếu cần một bản mẫu đã điền đủ để đối chiếu.
 6. Với thao tác nhiều bước (ban hành, soát xét/sửa đổi, thu hồi/hủy, ký số), theo đúng `workflows/`.
-7. Khi nội dung đã chốt và cần xuất file `.docx`/`.pptx`/`.xlsx` vật lý (không chỉ Markdown), chuyển sang skill `xu-ly-van-phong` (`07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong`) — skill đó sở hữu toàn bộ pipeline sinh file, không dựng lại thể thức pháp lý đã chốt ở đây.
+7. Khi nội dung đã chốt và cần xuất file `.docx`/`.pptx`/`.xlsx` vật lý (không chỉ Markdown), chuyển sang skill `02-s-xu-ly-van-phong` (`07_AI_OPERATING_SYSTEM/01_Skills/02_S_XuLyVanPhong`) — skill đó sở hữu toàn bộ pipeline sinh file, không dựng lại thể thức pháp lý đã chốt ở đây.
 
 ## Bản đồ thư mục
 
@@ -49,5 +49,5 @@ Skill quản trị vòng đời tài liệu, dữ liệu, thông tin của ETV �
 - Không chép nguyên văn luật/ISO vào văn bản đang soạn — luôn dẫn chiếu (`knowledge/01_phap_luat.md`, `knowledge/02_iso.md`).
 - Không tự đặt tên trạng thái khác ngoài bảng tại `knowledge/05_vong_doi_van_ban.md`.
 - Không xử lý dữ liệu cá nhân/mật nhạy cảm trong nội dung prompt khi không cần thiết.
-- Không tự sinh file `.docx`/`.pptx`/`.xlsx` vật lý (OOXML, Brand Kit, format NĐ 30) — đó là phạm vi của skill `xu-ly-van-phong`.
+- Không tự sinh file `.docx`/`.pptx`/`.xlsx` vật lý (OOXML, Brand Kit, format NĐ 30) — đó là phạm vi của skill `02-s-xu-ly-van-phong`.
 - Mọi agent triển khai tính năng AI trong skill này khi đưa vào production phải có hồ sơ đánh giá tác động (AIA) theo `MP29_AI`.
