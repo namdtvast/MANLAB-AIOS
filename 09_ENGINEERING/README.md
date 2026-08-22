@@ -18,3 +18,13 @@
 - Dữ liệu sản xuất thật
 
 **Lưu ý:** Code thực tế nên ở repo riêng và liên kết; tầng này có thể chứa submodule hoặc đặc tả.
+
+## `aios-platform/` — nền tảng hợp nhất 12 tầng
+
+App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất 38 module (M01–M38)
+thành một nền tảng có DB thật/build step thật, thay cho các prototype rời
+rạc trong `05_MODULE_LIBRARY/Mxx_Slug/08_Source/`. Không gắn số `Mxx` nào
+(đây là lớp xuyên suốt, không số hóa một MPxx cụ thể) — xem
+[aios-platform/README.md](aios-platform/README.md) để biết trạng thái
+từng increment và cách chạy dev/build. Triển khai VPS: xem
+[07_DevOps/DEPLOYMENT.md](07_DevOps/DEPLOYMENT.md).

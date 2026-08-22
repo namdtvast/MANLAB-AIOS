@@ -1,0 +1,322 @@
+// MANLAB-AIOS platform — schema Prisma
+// Nguồn sự thật về danh sách 38 module lấy từ 05_MODULE_LIBRARY/Mxx_Slug/
+// (seed bằng prisma/seed.ts, quét trực tiếp repo — không hardcode 2 nơi).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- Auth (NextAuth / Auth.js — Prisma adapter) ----------
+
+enum PlatformRole {
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String?
+  email         String       @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?
+  role          PlatformRole @default(VIEWER)
+  createdAt     DateTime     @default(now())
+
+  accounts    Account[]
+  sessions    Session[]
+  moduleRoles ModuleRoleAssignment[]
+
+  m10Created      M10Assessment[] @relation("M10Created")
+  m10Reviewed     M10Assessment[] @relation("M10Reviewed")
+  m10Approved     M10Assessment[] @relation("M10Approved")
+  m10AuditEntries M10AuditEntry[]
+
+  m21Created      M21Record[]     @relation("M21Created")
+  m21AuditEntries M21AuditEntry[]
+}
+
+// Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
+// có bộ vai trò riêng (vd M10: NTH/LDP/LDV/QLCL/QTHT; M29: AI_VIEWER/AI_OPERATOR/
+// AI_ADMIN/...— đã xác nhận khác nhau khi RECON api/model.mjs của 2 module gốc).
+// role là String tự do theo vocabulary của module đó, KHÔNG phải PlatformRole
+// (PlatformRole là quyền truy cập nền tảng nói chung: ADMIN/MEMBER/VIEWER).
+model ModuleRoleAssignment {
+  id         String   @id @default(cuid())
+  userId     String
+  moduleCode String // vd "M10"
+  role       String // vd "LDP" — theo đúng vocabulary gốc của module đó
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, moduleCode, role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ---------- Module Registry (khung menu 38 module) ----------
+
+enum ModuleStatus {
+  ACTIVE // đã có prototype/app thật đang chạy (M10, M21, M29 ở Increment 0)
+  COMING_SOON // chỉ có đặc tả, chưa xây trong nền tảng hợp nhất
+}
+
+model PlatformModule {
+  id             String       @id @default(cuid())
+  code           String       @unique // vd "M10"
+  slug           String       @unique // vd "DamBaoKQ" — khớp tên thư mục 05_MODULE_LIBRARY
+  name           String // tên hiển thị, lấy từ README.md của module
+  mpCode         String? // MPxx tương ứng (quy ước: Mxx và MPxx cùng số)
+  capabilityCode String? // CAP-xx liên quan, nếu xác định được từ manifest
+  status         ModuleStatus @default(COMING_SOON)
+  sourcePath     String // đường dẫn tương đối tới 05_MODULE_LIBRARY/Mxx_Slug trong repo
+  order          Int          @unique // thứ tự menu, khớp số Mxx
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- M10_DamBaoKQ — di trú từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api ----------
+// Port 1:1 từ model.mjs (enum), rules.mjs (control rules R1–R8 — logic port sang
+// src/lib/m10/rules.ts, KHÔNG lặp lại ở đây), store.mjs (thao tác dữ liệu).
+// Nhãn tiếng Việt hiển thị (vd "Chờ soát xét") giữ ở tầng UI, DB dùng mã code ổn định.
+
+enum M10RecordType {
+  PT_ILC
+  QC
+  STABILITY
+  PLAN // NO_TECH — không cần trường kỹ thuật (planId/procedureId/...)
+  PUBLICATION // NO_TECH
+}
+
+enum M10Status {
+  DRAFT
+  PENDING_REVIEW
+  RETURNED
+  PENDING_APPROVAL
+  REJECTED
+  APPROVED
+  PUBLISHED
+  EXPIRED
+  REVOKED
+}
+
+enum M10Result {
+  PASS
+  WARNING
+  FAIL
+}
+
+enum M10PubStatus {
+  PASS
+  CONDITIONAL
+  WARNING
+  FAIL_BLOCKED
+  EXPIRED
+}
+
+model M10Assessment {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement()) // dùng để sinh `code`, KHÔNG hiển thị trực tiếp
+  code String @unique // vd "P10-2026-0001" — sinh 1 lần lúc tạo, ổn định
+
+  recordType M10RecordType
+  object     String
+  status     M10Status     @default(DRAFT)
+  result     M10Result?
+  version    Int           @default(1)
+  indicators Json // map chỉ tiêu kỹ thuật (vd {"z-score": 2.4, "En": 0.8}) — giữ tự do như bản gốc
+
+  planId      String?
+  procedureId String?
+  personnelId String?
+  criteriaId  String?
+  rawData     Int     @default(0)
+  evidence    Int     @default(0)
+
+  capaId           String?
+  pubStatus        M10PubStatus?
+  sourceCertId     String?
+  sourceSnapshotAt DateTime?
+  releaseAllowed   Boolean       @default(false)
+  expiresAt        DateTime?
+
+  createdById  String
+  reviewedById String?
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy    User            @relation("M10Created", fields: [createdById], references: [id])
+  reviewedBy   User?           @relation("M10Reviewed", fields: [reviewedById], references: [id])
+  approvedBy   User?           @relation("M10Approved", fields: [approvedById], references: [id])
+  auditEntries M10AuditEntry[]
+}
+
+model M10AuditEntry {
+  id           String   @id @default(cuid())
+  assessmentId String
+  ts           DateTime @default(now())
+  actorId      String
+  role         String // vai trò M10 (NTH/LDP/LDV/...) của actor TẠI thời điểm hành động
+  action       String
+  reason       String?
+
+  assessment M10Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  actor      User          @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M21_CongBoNangLuc — di trú từ 05_MODULE_LIBRARY/M21_CongBoNangLuc/08_Source/index.html ----------
+// Port 1:1 từ state machine `var TR`/`var ST` + gateCheck/lineGaps/recordGaps/hasGoodLine/doTransition
+// của bản standalone gốc (xem 01_Requirement/_work/20260822-di-tru-m21/spec.md) sang
+// src/lib/m21/rules.ts, KHÔNG lặp lại logic ở đây. Không dùng chung enum vai trò với M10
+// (ModuleRoleAssignment.role tự do theo vocabulary từng module — xem ghi chú ở model đó).
+
+enum M21RecordType {
+  DL // Công bố năng lực Đo lường (Mẫu 01)
+  QTMT // Thông báo hoạt động dịch vụ Quan trắc môi trường (Mẫu 9.01)
+}
+
+enum M21Status {
+  CHUALAP
+  DANGLAP
+  SOATXET
+  DNLDV
+  PHENOIBO
+  DAGUI
+  YEUCAUBOSUNG
+  TIEPNHAN
+  CONGHIEU
+  DIEUCHINH
+  TAMDUNG
+  HUYBO
+  HETHIEU
+}
+
+enum M21LineResult {
+  DAPUNG
+  KHONG
+  DIEUCHINH
+}
+
+model M21Record {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement()) // dùng để sinh `code`, KHÔNG hiển thị trực tiếp
+  code String @unique // vd "CB-01/2026" (DL) / "TB-01/2026" (QTMT) — sinh 1 lần lúc tạo
+
+  loai   M21RecordType
+  lan    String        @default("01") // số hiệu phiên bản, tăng khi "Điều chỉnh" hoàn tất
+  status M21Status     @default(CHUALAP)
+
+  toChuc          String
+  diaChi          String
+  daiDien         String
+  dienThoai       String @default("")
+  email           String @default("")
+  diaDiem         String @default("") // bắt buộc khi gửi soát xét nếu loai=DL — xem rules.ts
+  coQuanTiepNhan  String
+  coQuanChuQuan   String @default("")
+  congNhanSo      String @default("")
+  congNhanHieuLuc String @default("")
+
+  kyso         Boolean   @default(false)
+  kysoAt       DateTime?
+  ngayGui      DateTime?
+  maBienNhan   String?
+  ngayTiepNhan DateTime?
+  ngayCongKhai DateTime?
+
+  phienBanCu    Json? // mảng snapshot {lan, ngayHieuLuc, luuLuc, lines} mỗi lần "Điều chỉnh" — xem BR ở spec.md
+  baoCaoHangNam Json? // {ky,khoiLuong,thayDoi,qaqc,suCo,nguoiLap,ngayLap} — chỉ QTMT; UI nhập liệu ngoài phạm vi Increment 1
+
+  createdById String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy    User            @relation("M21Created", fields: [createdById], references: [id])
+  lines        M21Line[]
+  auditEntries M21AuditEntry[]
+}
+
+model M21Line {
+  id       String @id @default(cuid())
+  recordId String
+
+  dichVu   String // "kiemdinh" (DL) | "quantrac" (QTMT) — set tự động theo loai hồ sơ cha
+  ten      String @default("")
+  linhVuc  String @default("")
+  phamVi   String @default("")
+  ccx      String @default("") // "Cấp/ĐCX/MPE/LOD"
+  quyTrinh String @default("")
+  nguoiTH  String @default("")
+  ghiChu   String @default("")
+
+  ketQua     M21LineResult @default(DAPUNG)
+  lyDo       String        @default("") // bắt buộc khi ketQua != DAPUNG — BR10
+  bangChung  String        @default("") // ghi chú bằng chứng dạng text — BR10 (KHÔNG lưu file thật, xem spec.md Quyết định phạm vi #2)
+  bcFileName String        @default("") // tên file demo — placeholder, không lưu nội dung file
+
+  linked     Boolean @default(false) // có chọn từ Danh mục PTĐ hay tự nhập tay
+  catalogRef String  @default("") // tham chiếu tự do vào catalog.ts, KHÔNG FK (M05 chưa có backend thật)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  record M21Record @relation(fields: [recordId], references: [id], onDelete: Cascade)
+}
+
+model M21AuditEntry {
+  id       String   @id @default(cuid())
+  recordId String
+  ts       DateTime @default(now())
+  actorId  String
+  role     String // vai trò M21 (NTH/LDP/LDV) của actor TẠI thời điểm hành động
+  action   String
+  reason   String?
+
+  record M21Record @relation(fields: [recordId], references: [id], onDelete: Cascade)
+  actor  User      @relation(fields: [actorId], references: [id])
+}

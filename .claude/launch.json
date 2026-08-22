@@ -28,6 +28,13 @@
       "runtimeArgs": ["-c", "cd '05_MODULE_LIBRARY/M29_AI/08_Source/api' && PORT=$PORT node server.js"],
       "port": 8029,
       "autoPort": true
+    },
+    {
+      "name": "aios-platform",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '09_ENGINEERING/aios-platform' && PORT=$PORT npx next dev"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

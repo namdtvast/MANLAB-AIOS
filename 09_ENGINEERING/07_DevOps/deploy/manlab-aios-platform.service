@@ -1,0 +1,26 @@
+# systemd — MANLAB-AIOS Platform (Next.js + Prisma + PostgreSQL, app duy nhất)
+# Sửa User=/WorkingDirectory= nếu VPS clone repo vào vị trí khác /var/www/manlab-aios.
+# Yêu cầu: đã chạy `npm ci && npx prisma generate && npm run build` trong
+# WorkingDirectory trước khi start (xem DEPLOYMENT.md mục 6).
+#
+# KHÔNG dùng EnvironmentFile= trỏ thẳng vào .env: file .env dùng cú pháp
+# dotenv (giá trị có thể có dấu ngoặc kép "..."), còn systemd EnvironmentFile
+# không tự bỏ dấu ngoặc kép đó — sẽ làm sai giá trị (vd DATABASE_URL). Next.js
+# tự đọc .env bằng dotenv khi `next start` chạy, không cần systemd nạp hộ.
+
+[Unit]
+Description=MANLAB-AIOS Platform (Next.js)
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/manlab-aios/09_ENGINEERING/aios-platform
+Environment=PORT=3000
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/npm run start
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
