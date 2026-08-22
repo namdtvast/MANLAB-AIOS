@@ -89,6 +89,7 @@ async function main() {
 
   await seedM10();
   await seedM21();
+  await seedM29();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -323,6 +324,188 @@ async function seedM21() {
   }
 
   console.log(`Đã nạp 2 hồ sơ M21 demo + vai trò M21 cho ${Object.keys(M21_ROLE_EMAILS).length} tài khoản.`);
+}
+
+// M29 — port dữ liệu demo từ 05_MODULE_LIBRARY/M29_AI/08_Source/api/seed.mjs (1 Platform thật
+// trỏ M10 cũ cổng 8010, 1 placeholder VI-CONNECT) + tài khoản demo cho 6 vai trò AIOS.
+const M29_DEMO_USERS = [
+  { email: "ai-viewer@manlab.vn", name: "Ngô Viewer (AI_VIEWER)", role: "AI_VIEWER" },
+  { email: "ai-operator@manlab.vn", name: "Đặng Operator (AI_OPERATOR)", role: "AI_OPERATOR" },
+  { email: "ai-admin@manlab.vn", name: "Dương Thành Nam (AI_ADMIN)", role: "AI_ADMIN" },
+  { email: "ai-secadmin@manlab.vn", name: "Bùi Security (AI_SECURITY_ADMIN)", role: "AI_SECURITY_ADMIN" },
+  { email: "ai-auditor@manlab.vn", name: "Vũ Auditor (AI_AUDITOR)", role: "AI_AUDITOR" },
+] as const;
+
+async function seedM29() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+  for (const u of M29_DEMO_USERS) {
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    userByRole[u.role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M29", role: u.role } },
+      create: { userId: user.id, moduleCode: "M29", role: u.role },
+      update: {},
+    });
+  }
+  const admin = userByRole["AI_ADMIN"];
+
+  // Tài khoản admin nền tảng (PlatformRole.ADMIN) cũng giữ vai trò SUPER_ADMIN của M29 — 2 khái
+  // niệm khác nhau (PlatformRole = quyền nền tảng chung, ModuleRoleAssignment = vai trò nghiệp
+  // vụ M29), gán chung 1 người cho hợp lý ở dữ liệu demo.
+  const platformAdmin = await prisma.user.findUnique({ where: { email: "admin@manlab.vn" } });
+  if (platformAdmin) {
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: platformAdmin.id, moduleCode: "M29", role: "SUPER_ADMIN" } },
+      create: { userId: platformAdmin.id, moduleCode: "M29", role: "SUPER_ADMIN" },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.aIPlatform.count();
+  if (existing > 0) {
+    console.log(`Đã có ${M29_DEMO_USERS.length} tài khoản vai trò M29 (dữ liệu mẫu M29 đã seed trước đó, bỏ qua).`);
+    return;
+  }
+
+  const platManlab = await prisma.aIPlatform.create({
+    data: {
+      code: "MANLAB",
+      name: "ManLab (M10 Đảm bảo hiệu lực)",
+      baseUrl: "http://localhost:8010",
+      apiBaseUrl: "http://localhost:8010",
+      environment: "INTERNAL",
+      owner: "Dương Thành Nam",
+      adapterType: "ManlabPlatformAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+  });
+  await prisma.aIPlatform.create({
+    data: {
+      code: "VICONNECT",
+      name: "VI-CONNECT",
+      environment: "STAGING",
+      owner: "(chưa phân công)",
+      adapterType: "PlaceholderPlatformAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+  });
+
+  const provider = await prisma.aIProvider.create({ data: { code: "GEMINI", name: "Google Gemini" } });
+  const model = await prisma.aIModel.create({
+    data: {
+      providerId: provider.id,
+      modelId: "gemini-2.5-flash",
+      displayName: "Gemini 2.5 Flash",
+      purpose: "Phân tích chỉ số, cảnh báo bất thường",
+      temperature: 0.2,
+      maxTokens: 2048,
+      costPer1kTokens: 0.0003,
+    },
+  });
+  const skill = await prisma.aISkill.create({
+    data: { code: "PhanTichKPI", name: "Phân tích KPI đảm bảo hiệu lực", platformScope: "MANLAB", riskLevel: "LOW" },
+  });
+  const tool = await prisma.aITool.create({
+    data: {
+      platformId: platManlab.id,
+      code: "M10_KpiSummary",
+      name: "Xem KPI đảm bảo hiệu lực (M10)",
+      endpoint: "/api/kpi/summary",
+      httpMethod: "GET",
+      outputSchema: { total: "number", pass: "number", warning: "number", fail: "number", capaOpen: "number" },
+      permissionLevel: "READ",
+      riskLevel: "LOW",
+      requireConfirmation: false,
+      requireApproval: false,
+    },
+  });
+  const agent = await prisma.aIAgent.create({
+    data: {
+      platformId: platManlab.id,
+      code: "AGENT_TROLY_M29",
+      name: "Trợ lý AI (M29)",
+      purpose: "Rà soát chỉ số KPI đảm bảo hiệu lực, gắn cờ cảnh báo — không tự kết luận phù hợp",
+      modelId: model.id,
+      riskLevel: "MEDIUM",
+      owner: "Dương Thành Nam",
+      skillIds: [skill.id],
+      toolIds: [tool.id],
+    },
+  });
+
+  const prompt = await prisma.aIPrompt.create({ data: { code: "PROMPT_TROLY_M29", agentId: agent.id } });
+  const promptVersion = await prisma.aIPromptVersion.create({
+    data: {
+      promptId: prompt.id,
+      content:
+        "Bạn là trợ lý rà soát KPI đảm bảo hiệu lực kết quả (M10). Chỉ gắn cờ cảnh báo khi z-score |>=2| hoặc kết quả KHÔNG ĐẠT chưa có CAPA. Không tự kết luận sự phù hợp; luôn đề xuất người đủ năng lực kiểm chứng.",
+      status: "ACTIVE",
+      createdBy: admin.id,
+      approvedBy: admin.id,
+      effectiveFrom: new Date(),
+    },
+  });
+  await prisma.aIAgent.update({ where: { id: agent.id }, data: { activePromptVersionId: promptVersion.id } });
+
+  await prisma.aIGuardrail.create({
+    data: {
+      code: "NO_AUTO_APPROVE",
+      description: "AI không được tự đổi trạng thái phê duyệt của hồ sơ nghiệp vụ (ISO/IEC 42001)",
+      scope: "AGENT",
+      scopeRef: agent.id,
+      severity: "HIGH",
+      action: "BLOCK",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+  });
+  await prisma.aIPolicy.create({
+    data: {
+      name: "Chính sách quản trị AI Office",
+      owner: "Dương Thành Nam",
+      approver: "Dương Thành Nam",
+      effectiveDate: new Date(),
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+      reference: "MP29_AI",
+    },
+  });
+
+  const nextReview = new Date(Date.now() + 180 * 24 * 60 * 60 * 1000);
+  await prisma.aIImpactAssessment.create({
+    data: {
+      code: "AIA-2026-001",
+      agentId: agent.id,
+      purpose: "Rà soát KPI, gắn cờ cảnh báo cho người thẩm định",
+      dataUsed: "Chỉ số kỹ thuật P10 (không có dữ liệu cá nhân)",
+      affectedUsers: "Nhân sự phòng thí nghiệm ETV",
+      risk: "LOW",
+      humanOversight: "Người thẩm định xác nhận trước khi phê duyệt hồ sơ",
+      controls: "Guardrail NO_AUTO_APPROVE; Tool Gateway giới hạn READ-only",
+      residualRisk: "LOW",
+      status: "APPROVED",
+      reviewDate: nextReview,
+    },
+  });
+
+  const suite = await prisma.aIEvaluationSuite.create({
+    data: {
+      name: "Smoke test Trợ lý AI (M29)",
+      agentId: agent.id,
+      cases: { create: [{ input: { "z-score": 2.4 }, expected: "flag_warning" }] },
+    },
+  });
+  await prisma.aIEvaluationRun.create({ data: { suiteId: suite.id, passCount: 1, failCount: 0, status: "PASS" } });
+
+  console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
+  console.log(`Tài khoản M29 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
 }
 
 main()

@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 (khung 38 module + M10/M21 di trú)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 (khung 38 module + M10/M21/M29 di trú)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -14,9 +14,9 @@ các prototype rời rạc trước đây).
 - ✅ `PlatformModule` — bảng đăng ký 38 module, seed bằng cách **quét trực
   tiếp** `05_MODULE_LIBRARY/` + `04_PROCESS_LIBRARY/*/manifest.yaml` của
   repo (`prisma/seed.ts`) — không hardcode tên module 2 nơi.
-- ✅ Sidebar 38 mục (M01–M38); M10 và M21 đã di trú thật (xem Increment 1/2
-  dưới), M29 còn đánh dấu "Đang chạy" ở prototype riêng (chưa di trú), 35
-  module còn lại hiện trang "Sắp ra mắt" trỏ về đặc tả (`DacTa.md`).
+- ✅ Sidebar 38 mục (M01–M38); M10, M21 và M29 đã di trú thật (xem Increment
+  1/2/3 dưới), 35 module còn lại hiện trang "Sắp ra mắt" trỏ về đặc tả
+  (`DacTa.md`).
 
 ## Trạng thái Increment 1 — di trú M10_DamBaoKQ
 
@@ -36,7 +36,6 @@ Chi tiết đầy đủ + evidence verify:
   tả".
 - ❌ Bản `08_Source` cũ **vẫn chạy song song**, chưa deprecate — 2 nguồn dữ
   liệu M10 cùng tồn tại, cần quyết định rõ thời điểm tắt bản cũ.
-- ❌ M29 **chưa di trú** — vẫn là prototype Node/JSON riêng.
 
 ## Trạng thái Increment 2 — di trú M21_CongBoNangLuc
 
@@ -55,6 +54,31 @@ Chi tiết đầy đủ + evidence verify:
   năm Mẫu 9.02, upload file thật cho bằng chứng, tích hợp DB thật với M05
   (Danh mục Phương tiện đo — dùng dữ liệu nhúng tĩnh port từ bản gốc).
 - ❌ Bản `08_Source` cũ (submodule) **vẫn chạy song song**, chưa deprecate.
+
+## Trạng thái Increment 3 — di trú M29_AI
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260823-di-tru-m29/verify.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260823-di-tru-m29/verify.md).
+
+- ✅ AIOS Control Plane: RBAC 6 vai trò, vòng đời phê duyệt (Platform/Guardrail/
+  Policy/AIA/Prompt), **AIA Gate** + **Deployment Gate** + Tool Gateway port
+  1:1 từ `08_Source/api/*.mjs` sang `src/lib/m29/` — đã verify thật qua
+  Browser (AIA chưa duyệt chặn Tool Gateway đúng message gốc, disable Tool
+  chặn thật, Prompt lifecycle đủ 4 bước, audit log, health check thủ công
+  gọi thật ra platform ManLab cổng 8010).
+- ✅ Gate theo vai trò thật (`ModuleRoleAssignment`, moduleCode="M29") — 6
+  tài khoản demo AI_VIEWER/AI_OPERATOR/AI_ADMIN/AI_SECURITY_ADMIN/AI_AUDITOR
+  (+ SUPER_ADMIN gán thêm cho `admin@manlab.vn`).
+- ⚠️ Phát hiện + sửa 1 bug thật khi verify qua Browser (thiếu archive
+  PromptVersion cũ khi activate bản mới — nằm trong `server.js` gốc, không
+  phải `rules.mjs`, RECON ban đầu bỏ sót) — xem verify.md mục "Bug phát hiện".
+- ❌ **Chưa có UI**: AISecret (action đã viết, chưa có trang), Evaluation
+  Suite/Case tùy biến (chỉ verify được nhánh PASS của Deployment Gate).
+  Health polling nền tự động (chỉ có nút thủ công). Platform Registry M35/
+  VI-CONNECT thật.
+- ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa
+  deprecate — Tool Gateway của Agent mẫu gọi thật ra `localhost:8010` (server
+  M10 standalone cũ), cần server đó chạy để demo thành công.
 
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
@@ -102,4 +126,5 @@ src/app/login/          Trang đăng nhập
 src/app/(platform)/     Layout có sidebar + trang dashboard + /modules/[code]
 src/lib/m10/            Rule engine + actor/actions M10 (Increment 1)
 src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
+src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
 ```
