@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/*
+ * Bảng token dùng chung với webapp M29 (05_MODULE_LIBRARY/M29_AI/08_Source/webapp/styles.css)
+ * để toàn bộ mặt trận web của MANLAB-AIOS (nền tảng hợp nhất + prototype module) cùng
+ * một ngôn ngữ thị giác. Đừng đổi rời một bên mà không đối chiếu bên kia.
+ */
+/*
+ * Sáng là mặc định trên :root. Tối áp dụng khi hệ điều hành yêu cầu (media query)
+ * HOẶC khi người dùng bấm nút chuyển giao diện (đặt data-theme trên <html> — xem
+ * ThemeToggle.tsx). data-theme="dark" luôn thắng để nút bấm ép được cả khi hệ điều
+ * hành đang ở chế độ sáng; data-theme="light" chặn media query khi hệ điều hành tối
+ * nhưng người dùng chọn sáng.
+ */
+:root {
+  color-scheme: light;
+
+  --bg: #f5f8fa;
+  --surface: #ffffff;
+  --sunk: #edf2f5;
+  --border: #d8e0e7;
+  --border-strong: #c0ccd5;
+
+  --ink: #17212b;
+  --ink-2: #5b6875;
+  --ink-3: #8493a0;
+
+  --accent: #123b5d;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4f4f6;
+  --accent-line: #9fd3da;
+
+  --good: #2e7d5b;
+  --good-soft: #e4f2ea;
+  --warn: #c88719;
+  --warn-soft: #fbf0dd;
+  --crit: #b74242;
+  --crit-soft: #fbeaea;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #0b1a28;
+    --surface: #122436;
+    --sunk: #0e1f2e;
+    --border: #233649;
+    --border-strong: #2e4457;
+
+    --ink: #eaf1f6;
+    --ink-2: #9fb0be;
+    --ink-3: #71838f;
+
+    --accent: #5fa6d6;
+    --accent-ink: #0a2233;
+    --accent-soft: #0f3238;
+    --accent-line: #1f5b62;
+
+    --good: #5cc298;
+    --good-soft: #123326;
+    --warn: #e3aa4e;
+    --warn-soft: #3a2c10;
+    --crit: #e28787;
+    --crit-soft: #3b1b1b;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b1a28;
+  --surface: #122436;
+  --sunk: #0e1f2e;
+  --border: #233649;
+  --border-strong: #2e4457;
+
+  --ink: #eaf1f6;
+  --ink-2: #9fb0be;
+  --ink-3: #71838f;
+
+  --accent: #5fa6d6;
+  --accent-ink: #0a2233;
+  --accent-soft: #0f3238;
+  --accent-line: #1f5b62;
+
+  --good: #5cc298;
+  --good-soft: #123326;
+  --warn: #e3aa4e;
+  --warn-soft: #3a2c10;
+  --crit: #e28787;
+  --crit-soft: #3b1b1b;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunk: var(--sunk);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-crit: var(--crit);
+  --color-crit-soft: var(--crit-soft);
+
+  --font-sans: var(--font-inter);
+  --font-head: var(--font-be-vietnam-pro);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+* {
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Icon 2 trạng thái của ThemeToggle.tsx — hiện icon biểu thị hành động SẼ xảy ra khi
+   bấm (đang tối → hiện icon mặt trời để chuyển sang sáng, và ngược lại). Đổi bằng CSS
+   thuần theo cùng logic cascade với biến màu ở trên, không dùng React state, để tránh
+   lệch hydration SSR/CSR. */
+.theme-icon-moon {
+  display: block;
+}
+.theme-icon-sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-moon {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .theme-icon-sun {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
