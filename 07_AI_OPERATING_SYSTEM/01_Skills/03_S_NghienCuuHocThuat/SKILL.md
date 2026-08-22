@@ -1,6 +1,10 @@
 ---
 name: 03-s-nghien-cuu-hoc-thuat
-description: Hệ điều hành nghiên cứu học thuật cho Claude Code, từ chọn loại hồ sơ, đề xuất/thuyết minh đề tài, thực hiện nghiên cứu, báo cáo, luận văn/luận án đến công bố và phản biện. Kiến trúc human-in-the-loop, claim-evidence, provenance và quality gates.
+title: Hệ Điều Hành Nghiên Cứu Học Thuật
+description: Hỗ trợ tìm kiếm, phân tích, tổng hợp tài liệu học thuật cho dự án MANLAB — từ chọn loại hồ sơ, đề xuất/thuyết minh đề tài, thực hiện nghiên cứu, báo cáo, luận văn/luận án đến công bố và phản biện.
+version: "1.0.0"
+scope: [claude-code]
+tags: [academic-research, knowledge-synthesis, manlab-research, vietnam-vietnamese]
 ---
 
 # MANLAB Academic ResearchOS v3.0

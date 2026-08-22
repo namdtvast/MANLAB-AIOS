@@ -1,7 +1,10 @@
 ---
 name: 01-s-governance
+title: Quản trị & Kiểm soát Thay đổi ManLab/ETV
 description: Thiết kế quy chế, vai trò, phân quyền, kiểm soát thay đổi và trách nhiệm phê duyệt cho ManLab/ETV/DMC — sinh SOP, sơ đồ BPMN, rule RBAC và checklist audit theo ISO/IEC 17025, ISO/IEC 42001, ISO/IEC 27001.
 version: "1.0.0"
+scope: [claude-code]
+tags: [governance, rbac, change-management, audit, iso-compliance]
 ---
 
 # Quản trị ManLab/ETV

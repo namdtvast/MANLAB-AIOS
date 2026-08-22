@@ -1,9 +1,10 @@
 ---
 name: 04-s-thiet-ke-ai
+title: Thiết kế UI/UX & Design System ManLab-AIOS
 description: Thiết kế UI/UX, dashboard, infographic, slide, báo cáo, prototype web/mobile và kiểm tra chất lượng thiết kế cho ManLab-AIOS và ETV theo DESIGN.md. Dùng được với Claude Code và OpenAI Codex.
 version: 2.1.0
-language: vi
-license: Apache-2.0
+scope: [claude-code, codex]
+tags: [ui-ux-design, design-system, dashboard, infographic, prototype]
 ---
 
 # 04_S_ThietKeAI

@@ -1,12 +1,11 @@
 ---
 name: s14-kiem-soat-tai-lieu
-description: "Kiểm soát tài liệu, dữ liệu, thông tin tại Viện Kiểm định Công nghệ và Môi trường (ETV) theo ETV.P14. Nhận diện loại văn bản, xác định căn cứ pháp luật/ISO áp dụng, kiểm tra thể thức, mã hóa, metadata, liên kết tài liệu, phát hiện xung đột, sinh template chuẩn (Quyết định, Công văn, Báo cáo, Thông báo, Biên bản, Thủ tục, Quy trình, Hướng dẫn, Giấy chứng nhận, Biểu mẫu) và checklist kiểm tra trước khi ban hành. Dùng khi: soạn thảo/soát xét/ban hành văn bản nội bộ hoặc bên ngoài, kiểm tra tuân thủ Nghị định 30/2020/NĐ-CP, Luật Giao dịch điện tử 2023, ISO 9001/17025/17034/27001/42001, hoặc khi làm việc với ManLab document module (M14). Không quản lý vòng đời hợp đồng — hợp đồng thuộc thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ); skill chỉ nhận diện và định tuyến về các thủ tục đó."
-argument-hint: "[loại văn bản] [hành động: soạn thảo|soát xét|kiểm tra|phân loại]"
-license: Internal-ETV
-metadata:
-  author: ETV-QMS
-  version: "1.0.0"
-  owner_procedure: ETV.P14
+title: Kiểm soát Tài liệu & Dữ liệu ETV
+description: Kiểm soát vòng đời tài liệu/dữ liệu tại ETV theo ETV.P14 — nhận diện loại, căn cứ pháp luật, thể thức, metadata, kiểm tra trước ban hành. Không quản lý vòng đời hợp đồng (thuộc P03/P07).
+version: "1.0.0"
+scope: [claude-code]
+procedure: "ETV.P14"
+tags: [document-governance, quality-management, compliance, etv-procedure, vietnam-vietnamese]
 ---
 
 # ETV Document Governance

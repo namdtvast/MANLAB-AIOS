@@ -1,7 +1,10 @@
 ---
 name: 05-s-draw-io
+title: Sơ đồ Draw.io ManLab/ETV/DMC
 description: Sinh sơ đồ Draw.io chuyên nghiệp (flowchart, BPMN, swimlane, sequence, ERD, C4, kiến trúc hệ thống, network, timeline, dashboard, mindmap, infographic) cho ManLab, ETV, DMC, P2D và các hệ thống quản lý theo ISO/IEC 17025, ISO 17034, ISO/IEC 42001.
-version: "2.0"
+version: "2.0.0"
+scope: [claude-code]
+tags: [diagramming, drawio, bpmn, architecture-diagram, flowchart]
 ---
 
 # ManLab DrawIO Skill
