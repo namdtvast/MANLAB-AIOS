@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ công tác, chi phí công tác phí"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P07, "ETV.P.F06.11", "ETV.P.F06.13", "ETV.P.F06.14"]
-note: "Biểu mẫu mới phát hiện trong quá trình rà soát nguồn ManLab (`P.F 07.11_QDCongTac_Template.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/`) — chưa từng được liệt kê trong mục VII của ETV.P07 (bản gốc chỉ có 07.01-07.10); bổ sung vào danh mục biểu mẫu áp dụng chính thức. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Biểu mẫu mới phát hiện trong quá trình rà soát nguồn ManLab (`P.F 07.11_QDCongTac_Template.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/`) — chưa từng được liệt kê trong mục VII của ETV.P07 (bản gốc chỉ có 07.01-07.10); bổ sung vào danh mục biểu mẫu áp dụng chính thức. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # QUYẾT ĐỊNH VỀ VIỆC CỬ NHÂN SỰ ĐI CÔNG TÁC VÀ PHỐI HỢP THỰC HIỆN NHIỆM VỤ
 
@@ -46,7 +46,7 @@ Nơi nhận: Như Điều 4; `ETV.P.F 07.11`; Lưu VT.
 | Ngày `NgayPD` | `ChucVu` — `NguoiPheDuyet` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

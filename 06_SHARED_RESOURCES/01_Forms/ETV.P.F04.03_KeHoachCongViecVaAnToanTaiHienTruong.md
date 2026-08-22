@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — lưu cùng hồ sơ đo lường của đợt công tác hiện trường"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P04]
-note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 04.03_Ke hoach cong viec va an toan tai hien truong_L2.docx`, lần BH 02, 22/04/2023). Giữ nguyên cấu trúc 4 phần của bản gốc (danh sách nhân sự, lịch trình, kế hoạch thực hiện, nội dung công việc/yêu cầu kỹ thuật/an toàn); phần ví dụ minh họa (thi công trạm quan trắc khí thải, lấy mẫu bụi trên ống khói) giữ lại làm mẫu tham khảo cách điền, không phải nội dung bắt buộc — mỗi đợt công tác điền lại theo công việc thực tế. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P04 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản Word gốc đang dùng thực tế (`ETV.P.F 04.03_Ke hoach cong viec va an toan tai hien truong_L2.docx`, lần BH 02, 22/04/2023). Giữ nguyên cấu trúc 4 phần của bản gốc (danh sách nhân sự, lịch trình, kế hoạch thực hiện, nội dung công việc/yêu cầu kỹ thuật/an toàn); phần ví dụ minh họa (thi công trạm quan trắc khí thải, lấy mẫu bụi trên ống khói) giữ lại làm mẫu tham khảo cách điền, không phải nội dung bắt buộc — mỗi đợt công tác điền lại theo công việc thực tế. Đã được soát xét và phê duyệt cùng lần ban hành 03 của ETV.P04 (21/07/2026) — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # KẾ HOẠCH CÔNG VIỆC VÀ AN TOÀN TẠI HIỆN TRƯỜNG
 
@@ -72,7 +72,7 @@ Người lập phiếu: `NguoiLapPhieu` · Ngày lập: `NgayLap`
 Phê duyệt (khi thuộc rủi ro cao theo ETV.P04 mục 6.6): `NguoiPheDuyet`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

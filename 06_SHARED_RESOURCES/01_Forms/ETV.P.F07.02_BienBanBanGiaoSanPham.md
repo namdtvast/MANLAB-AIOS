@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ hợp đồng, bàn giao sản phẩm"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P07, ETV.P11, ETV.P20]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`ETV.P.F 07.02_BienBanBanGiaoSP_TemplateV6.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/`). Bản gốc dùng token placeholder ManLab (SoHopDong, ZZ.TT...), giữ nguyên. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`ETV.P.F 07.02_BienBanBanGiaoSP_TemplateV6.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/`). Bản gốc dùng token placeholder ManLab (SoHopDong, ZZ.TT...), giữ nguyên. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # BIÊN BẢN BÀN GIAO SẢN PHẨM
 
@@ -48,7 +48,7 @@ Bên giao đã hoàn thành việc bàn giao sản phẩm cho bên nhận; biên
 Người bàn giao: `NguoiBanGiaoSP` · Ngày bàn giao: `NgayBanGiaoSP`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 15 — hồ sơ kỹ thuật kiểm định"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P11, "ETV.P.F11.02", "ETV.P.F11.03"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.10_Mau GCN KDTN_template.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_KDTN_V2/`). Cấu trúc giống `ETV.P.F11.03` (GCN kiểm định nhóm 2) nhưng áp dụng cho PTĐ nhóm 1 (không bắt buộc kiểm định theo luật, khách hàng tự nguyện — KDTN = Kiểm định tự nguyện). Khác với bản 11.03, bảng kết quả ở đây dùng đúng dải token riêng biệt cho từng mục (không lặp token như phát hiện ở 11.03) — đã kiểm tra không có lỗi tương tự. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.10_Mau GCN KDTN_template.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_KDTN_V2/`). Cấu trúc giống `ETV.P.F11.03` (GCN kiểm định nhóm 2) nhưng áp dụng cho PTĐ nhóm 1 (không bắt buộc kiểm định theo luật, khách hàng tự nguyện — KDTN = Kiểm định tự nguyện). Khác với bản 11.03, bảng kết quả ở đây dùng đúng dải token riêng biệt cho từng mục (không lặp token như phát hiện ở 11.03) — đã kiểm tra không có lỗi tương tự. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # GIẤY CHỨNG NHẬN KIỂM ĐỊNH (CERTIFICATE OF VERIFICATION) — PTĐ NHÓM 1 (TỰ NGUYỆN)
 
@@ -69,7 +69,7 @@ Ghi chú: `fn_MakeHtml_BBHC_GhiChu`, `NoteCapLai` (ghi chú kiểm định lại
 `fn_MakeHtml_BBHC_TraodoiNB`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

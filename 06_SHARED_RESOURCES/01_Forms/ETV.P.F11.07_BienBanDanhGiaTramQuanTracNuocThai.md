@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 15 — hồ sơ đánh giá hệ thống quan trắc tự động"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P11, "ETV.P.F11.08", "ETV.P.F11.13"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.07_Phuluc 13_SW_Truyenbien_V7.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_BC_SW/`). Nội dung căn cứ Thông tư 10/2021/TT-BTNMT (yêu cầu kỹ thuật, quy trình, thông số kỹ thuật quan trắc nước thải tự động, liên tục) và Nghị định 40/2019/NĐ-CP — đã giữ nguyên số điều/khoản/điểm trích dẫn theo bản gốc, **chưa rà soát hiệu lực hiện hành của Thông tư 10 và Nghị định 40/2019/NĐ-CP tại thời điểm số hóa (21/07/2026)** — đề nghị LĐP xác nhận trước khi ban hành chính thức, vì lĩnh vực môi trường có tần suất sửa đổi văn bản dưới luật cao. Bản gốc rất dài (~600 dòng, nhiều bảng checklist Có/Không lặp lại theo từng yêu cầu điều khoản) — AI giữ nguyên đầy đủ nội dung pháp lý và trình tự đánh giá, chỉ rút gọn cách trình bày các ô checklist thuần túy thành danh sách gạch đầu dòng thay vì bảng để dễ đọc, không rút gọn nội dung. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 11.07_Phuluc 13_SW_Truyenbien_V7.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_BC_SW/`). Nội dung căn cứ Thông tư 10/2021/TT-BTNMT (yêu cầu kỹ thuật, quy trình, thông số kỹ thuật quan trắc nước thải tự động, liên tục) và Nghị định 40/2019/NĐ-CP — đã giữ nguyên số điều/khoản/điểm trích dẫn theo bản gốc, **chưa rà soát hiệu lực hiện hành của Thông tư 10 và Nghị định 40/2019/NĐ-CP tại thời điểm số hóa (21/07/2026)** — đề nghị LĐP xác nhận trước khi ban hành chính thức, vì lĩnh vực môi trường có tần suất sửa đổi văn bản dưới luật cao. Bản gốc rất dài (~600 dòng, nhiều bảng checklist Có/Không lặp lại theo từng yêu cầu điều khoản) — AI giữ nguyên đầy đủ nội dung pháp lý và trình tự đánh giá, chỉ rút gọn cách trình bày các ô checklist thuần túy thành danh sách gạch đầu dòng thay vì bảng để dễ đọc, không rút gọn nội dung. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # BIÊN BẢN KIỂM TRA CÁC ĐẶC TÍNH VÀ ĐỘ CHÍNH XÁC TƯƠNG ĐỐI CỦA HỆ THỐNG QUAN TRẮC NƯỚC THẢI TỰ ĐỘNG, LIÊN TỤC
 
@@ -89,7 +89,7 @@ Hà Nội, ngày `Ngay` tháng `Thang` năm `Year`
 | `NguoiDG` | `Nguoisoatxet` | `NguoiPheDuyet` |  |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

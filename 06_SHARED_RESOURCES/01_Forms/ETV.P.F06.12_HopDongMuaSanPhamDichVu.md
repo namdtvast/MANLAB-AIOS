@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ hợp đồng mua sản phẩm/dịch vụ"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P06, "ETV.P.F06.13"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P0611_HDM_Template_0603_V5.docx`, nguồn `0. Data_ManLab/1. Form BM/P06_Form_MuaSanphamDichvuBenngoai/Template/`). **2 điều chỉnh khi số hóa:** (1) Bản gốc dẫn Luật Giao dịch điện tử số 51/2005/QH11 và Nghị định 130/2018/NĐ-CP về chữ ký số — cả hai đã hết hiệu lực/lỗi thời theo `knowledge/01_phap_luat.md` của skill (Luật GDĐT hiện hành là 20/2023/QH15; chữ ký số/dịch vụ tin cậy hiện theo Nghị định 23/2025/NĐ-CP, đã dùng thống nhất tại `ETV.P.F07.06`) — AI cập nhật lại căn cứ pháp luật cho đúng hiện hành, đề nghị Văn phòng cập nhật luôn bản gốc đang chạy trên ManLab. (2) Bản gốc có tên và số điện thoại di động thật của một nhân sự cụ thể (Phòng Kinh doanh) làm dữ liệu mặc định ở mục đầu mối tiếp nhận sản phẩm — đã ẩn thành placeholder vì tài liệu đồng bộ lên repository công khai. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P0611_HDM_Template_0603_V5.docx`, nguồn `0. Data_ManLab/1. Form BM/P06_Form_MuaSanphamDichvuBenngoai/Template/`). **2 điều chỉnh khi số hóa:** (1) Bản gốc dẫn Luật Giao dịch điện tử số 51/2005/QH11 và Nghị định 130/2018/NĐ-CP về chữ ký số — cả hai đã hết hiệu lực/lỗi thời theo `knowledge/01_phap_luat.md` của skill (Luật GDĐT hiện hành là 20/2023/QH15; chữ ký số/dịch vụ tin cậy hiện theo Nghị định 23/2025/NĐ-CP, đã dùng thống nhất tại `ETV.P.F07.06`) — AI cập nhật lại căn cứ pháp luật cho đúng hiện hành, đề nghị Văn phòng cập nhật luôn bản gốc đang chạy trên ManLab. (2) Bản gốc có tên và số điện thoại di động thật của một nhân sự cụ thể (Phòng Kinh doanh) làm dữ liệu mặc định ở mục đầu mối tiếp nhận sản phẩm — đã ẩn thành placeholder vì tài liệu đồng bộ lên repository công khai. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # HỢP ĐỒNG MUA SẢN PHẨM VÀ DỊCH VỤ BÊN NGOÀI
 
@@ -75,7 +75,7 @@ Hai bên thỏa thuận, thống nhất ký kết hợp đồng mua sản phẩm
 | `ZZ.TT` | `ZZ.Ten` | `ZZ.C3` | `ZZ.C4` | `ZZ.C5` | `ZZ.C6` | `ZZ.C7` | `ZZ.C8` | `ZZ.C9` | `ZZ.C10` | `ZZ.C11` | `ZZ.C12` | `ZZ.C15` |
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

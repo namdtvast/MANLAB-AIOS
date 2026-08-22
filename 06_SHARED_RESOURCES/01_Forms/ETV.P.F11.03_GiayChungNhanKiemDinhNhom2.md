@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 15 — hồ sơ kỹ thuật kiểm định"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P11, "ETV.P.F11.02", "ETV.P.F11.10"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.03_Mau GCN KD_template.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_KD_V2/`). Cấu trúc bảng kết quả giống hệt `ETV.P.F11.02` (9 mục lặp cùng khuôn dạng, xem bảng khuôn mẫu chung tại đó); áp dụng cho phương tiện đo (PTĐ) thuộc Danh mục nhóm 2 phải kiểm định. **Phát hiện khi số hóa:** trong file nguồn, mục 7 (Độ tuyến tính) và mục 8 (Độ lặp lại) dùng **trùng token** với mục 6 (Độ hồi trễ) — `D231dv`…`O236dv` lặp lại 3 lần thay vì có dải token riêng như bản `ETV.P.F11.02` (dùng 243–248 và 261–266 cho hai mục này) — nhiều khả năng là lỗi copy-paste khi tạo template KD từ template HC. AI **không tự sửa** token vì không có quyền truy cập file bảng tính gốc để xác nhận; đã ghi token đúng như bản gốc và đánh dấu để LĐP/Văn phòng kiểm tra lại file mail-merge gốc trước khi dùng in ấn thật. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`Manlab_P.F 11.03_Mau GCN KD_template.docx`, nguồn `0. Data_ManLab/1. Form BM/P11_Form_GCN/P11_Form_GCN_KD_V2/`). Cấu trúc bảng kết quả giống hệt `ETV.P.F11.02` (9 mục lặp cùng khuôn dạng, xem bảng khuôn mẫu chung tại đó); áp dụng cho phương tiện đo (PTĐ) thuộc Danh mục nhóm 2 phải kiểm định. **Phát hiện khi số hóa:** trong file nguồn, mục 7 (Độ tuyến tính) và mục 8 (Độ lặp lại) dùng **trùng token** với mục 6 (Độ hồi trễ) — `D231dv`…`O236dv` lặp lại 3 lần thay vì có dải token riêng như bản `ETV.P.F11.02` (dùng 243–248 và 261–266 cho hai mục này) — nhiều khả năng là lỗi copy-paste khi tạo template KD từ template HC. AI **không tự sửa** token vì không có quyền truy cập file bảng tính gốc để xác nhận; đã ghi token đúng như bản gốc và đánh dấu để LĐP/Văn phòng kiểm tra lại file mail-merge gốc trước khi dùng in ấn thật. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # GIẤY CHỨNG NHẬN KIỂM ĐỊNH (CERTIFICATE OF VERIFICATION) — PTĐ NHÓM 2
 
@@ -79,7 +79,7 @@ Ghi chú: `fn_MakeHtml_BBHC_GhiChu`, `NoteCapLai` (ghi chú hiệu chuẩn/kiể
 `fn_MakeHtml_BBHC_TraodoiNB`
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 

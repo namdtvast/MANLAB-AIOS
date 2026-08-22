@@ -14,7 +14,7 @@ permission: Noi-bo
 retention: "Theo ETV.P.F 14.06 — hồ sơ nghiệm thu, thanh lý hợp đồng"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
 related_documents: [ETV.P07, "ETV.P.F07.06"]
-note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 07.06_Thanh ly_TenKH_V1.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/Template/`). File `P.F 07.06_PhuLuc_HD_TenKH_V1.docx` tìm được trong cùng thư mục có nội dung 6 điều gần như trùng khớp hoàn toàn với file này (chỉ khác tiêu đề \"Phụ lục hợp đồng\" thay vì \"Biên bản nghiệm thu và thanh lý\") — nhận định đây là bản trùng lặp/nháp cũ trong ManLab, không số hóa riêng để tránh trùng biểu mẫu; đề nghị QLCL xác nhận và dọn bản trùng trên ManLab nếu đúng. **Đã ẩn số tài khoản ngân hàng thật của ETV** cùng lý do như `ETV.P.F07.06`. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
+note: "Số hóa từ bản ManLab đang dùng thực tế (`P.F 07.06_Thanh ly_TenKH_V1.docx`, nguồn `0. Data_ManLab/1. Form BM/P07_Form_XemxetYC_DN_HD/Template/`). File `P.F 07.06_PhuLuc_HD_TenKH_V1.docx` tìm được trong cùng thư mục có nội dung 6 điều gần như trùng khớp hoàn toàn với file này (chỉ khác tiêu đề \"Phụ lục hợp đồng\" thay vì \"Biên bản nghiệm thu và thanh lý\") — nhận định đây là bản trùng lặp/nháp cũ trong ManLab, không số hóa riêng để tránh trùng biểu mẫu; đề nghị QLCL xác nhận và dọn bản trùng trên ManLab nếu đúng. **Đã ẩn số tài khoản ngân hàng thật của ETV** cùng lý do như `ETV.P.F07.06`. Đã được soát xét và phê duyệt cùng lần cập nhật biểu mẫu 21/07/2026 — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang. Soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — giữ nguyên lần ban hành hiện tại. Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang."
 ---
 # BIÊN BẢN NGHIỆM THU VÀ THANH LÝ HỢP ĐỒNG
 
@@ -58,7 +58,7 @@ Hai bên thống nhất ký Biên bản nghiệm thu và thanh lý Hợp đồng
 Giá trị thanh lý (chưa thuế): `VAT_SoTien_Total` VNĐ · Thuế GTGT 0/5/8/10%: `VAT0`/`VAT5`/`VAT8`/`VAT10` · **Tổng giá trị hợp đồng (đã VAT): `VAT_TongTien_Total` VNĐ** · Tạm ứng (nếu có): `SoTienTU` · **Tổng giá trị thanh lý (đã VAT): `GiaTriThanhLy_CoVAT` VNĐ** · Tạm ứng thực tế: `SoTienThanhToan` · Còn phải thanh toán: `GiaTriThanhLy_ConLai` VNĐ · Số lượng PTĐ: `TB` thiết bị.
 
 ## Checklist trước khi ban hành biểu mẫu
-Xem `validation/checklist_template.md` tại skill `01-s-kiem-soat-tai-lieu-etv`.
+Xem `validation/checklist_template.md` tại skill `s14-kiem-soat-tai-lieu`.
 
 ---
 
