@@ -6,6 +6,10 @@ node_modules/
 # Dữ liệu runtime của API M10 (khởi tạo từ seed khi chạy)
 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/data/
 
+# Dữ liệu runtime của API AIOS Control Plane M29_AI (khởi tạo từ seed khi chạy;
+# data/secrets.local.json chứa giá trị Secret thật — không bao giờ đồng bộ lên git)
+05_MODULE_LIBRARY/M29_AI/08_Source/api/data/
+
 # File > 100MB — vượt giới hạn cứng của GitHub, giữ tại chỗ, không đồng bộ lên repo
 08_KNOWLEDGE_GRAPH/14_Technical_References/07_TLTK_ChuanBui/Aerosol Measurement_ Principles, Techniques, and Applications, Third Edition (2011)_Sach.pdf
 08_KNOWLEDGE_GRAPH/14_Technical_References/08_TaiLieuChung/Method of Air Sampling and Analysis.pdf

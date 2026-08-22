@@ -1,0 +1,10 @@
+{
+  "name": "m29-aios-control-plane-api",
+  "version": "1.0.0",
+  "description": "API AIOS Control Plane (M29_AI + M35_NenTangSo) — Node built-in http, không phụ thuộc",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
