@@ -7,7 +7,9 @@ export const APPROVAL_STATUS_LABEL: Record<string, string> = {
   PENDING_APPROVAL: "Chờ phê duyệt",
   REJECTED: "Không phê duyệt",
   APPROVED: "Đã phê duyệt",
+  ACTIVE: "Hiệu lực",
   ARCHIVED: "Hết hiệu lực/Hủy",
+  CANCELLED: "Hủy",
 };
 
 export const APPROVAL_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
@@ -17,7 +19,9 @@ export const APPROVAL_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "ne
   PENDING_APPROVAL: "warn",
   REJECTED: "crit",
   APPROVED: "good",
+  ACTIVE: "good",
   ARCHIVED: "crit",
+  CANCELLED: "crit",
 };
 
 export const PROMPT_STATUS_LABEL: Record<string, string> = {
