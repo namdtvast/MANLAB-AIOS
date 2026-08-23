@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP24
 slug: KPI
 name: Quản lý và đánh giá hiệu suất công việc (KPI)
@@ -8,3 +8,5 @@ standards: ['ISO9001']
 legal: []
 capabilities: [CAP-16]
 module: M24
+menu_group: DIEU_HANH
+menu_order: 3

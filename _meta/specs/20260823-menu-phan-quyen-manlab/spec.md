@@ -43,11 +43,12 @@ menu của tài liệu đó.
 - A1: ETV vừa là đơn vị vận hành nền tảng vừa là một tổ chức đo lường tham gia — thiết kế phải
   chịu được điều đó ngay từ đầu (đã được M36 DacTa §5.4 quy tắc 3 nêu là MUST).
 - A2: Giai đoạn trước mắt chỉ có người dùng **nội bộ** đăng nhập; các vai trò ngoài tổ chức
-  (chủ phương tiện đo, cơ quan quản lý, khách vãng lai) được thiết kế sẵn nhưng tắt bằng cờ.
+  (chủ phương tiện đo, cơ quan quản lý, khách vãng lai) được khai sẵn nhưng tắt bằng cờ — đã
+  được chốt thành QĐ-4 (§13), không còn là giả định.
 - A3: Không có yêu cầu phải giữ nguyên `enum PlatformRole` — nhưng đổi nó là thay đổi phá vỡ
   (10 module đang chạy đọc `session.user.role`), nên thiết kế chọn hướng **bổ sung, không thay thế**.
 
-### [QUESTION] Điểm chưa chốt — xem §13
+### [QUESTION] Năm điểm chưa chốt khi RECON — đã được chốt ngày 2026-08-23, xem §13
 
 ---
 
@@ -162,7 +163,7 @@ phương pháp → đảm bảo kết quả → quy tắc quyết định → b�
 phối), **không** theo thứ tự số Mxx và **không** theo ABC — đúng quy ước "đánh số theo thứ tự
 logic" của repo.
 
-**Nguồn sự thật của phép gán nhóm**: thêm khóa `menu_group` vào `04_PROCESS_LIBRARY/MPxx/manifest.yaml`
+**Nguồn sự thật của phép gán nhóm** (đã chốt — §13 QĐ-5): thêm khóa `menu_group` vào `04_PROCESS_LIBRARY/MPxx/manifest.yaml`
 (nâng `schema: manlab-aios/process@1.1`, cập nhật `_meta/SCHEMA.md`), seed đọc lên đúng theo
 cách đang làm với `name`/`capabilities` (F4). Không hardcode bảng ánh xạ trong `seed.ts` — sẽ
 thành nguồn sự thật thứ hai. Module thiếu `menu_group` rơi vào nhóm mặc định `CHAT_LUONG` và
@@ -238,12 +239,16 @@ dùng trong DB** để không phá 10 module đang chạy:
 | | `QLKT` | Quản lý kỹ thuật | `ORGANIZATION` |
 | | `QLCL` | Quản lý chất lượng | `ORGANIZATION` |
 | Phê duyệt | `LDV` | Lãnh đạo Viện | `ORGANIZATION` |
-| Nền tảng | `QTHT` | Quản trị hệ thống | `PLATFORM` (hạ tầng) |
+| Nền tảng | `QTHT` | Quản trị hệ thống — **mã chuẩn duy nhất** cho quản trị nền tảng (§13 QĐ-1) | `PLATFORM` (hạ tầng) |
 | | `QTAT` | Quản trị an toàn thông tin | `PLATFORM` (hạ tầng) |
 | | `KIEMTOAN` | Kiểm toán/đánh giá — chỉ đọc + nhật ký | `ORGANIZATION`, chỉ `VIEW`/`AUDIT`/`EXPORT` |
 | AI (M29) | `AI_VIEWER` `AI_OPERATOR` `AI_ADMIN` `AI_SECURITY_ADMIN` `AI_AUDITOR` | giữ nguyên đang dùng | theo M29 |
 | | `AI_AGENT` | tài khoản dịch vụ cho agent | chỉ hành động được liệt kê tường minh |
-| Ngoài tổ chức (M36 §5.2, tắt ở giai đoạn đầu) | `PTD_ADMIN` `PTD_NHANVIEN` `QLNN_GIAMSAT` `QLNN_THANHTRA` `GUEST` | giữ nguyên mã M36 đã đặc tả | theo M36 §5.3 |
+| Ngoài tổ chức (M36 §5.2 — khai sẵn, **chưa bật**, §13 QĐ-4) | `PTD_ADMIN` `PTD_NHANVIEN` `QLNN_GIAMSAT` `QLNN_THANHTRA` `GUEST` | giữ nguyên mã M36 đã đặc tả | theo M36 §5.3 |
+
+`SUPER_ADMIN` (đang gán cho tài khoản quản trị ở M29) và `SUPERADMIN` (cách viết ở M36 DacTa §5.2)
+là **alias của `QTHT`**: `RoleCatalog` ghi nhận alias, dữ liệu `ModuleRoleAssignment` của M29 di trú
+về `QTHT` ở Increment 2, và M36 DacTa §5.2 phải sửa cho khớp.
 
 Danh mục này lưu thành bảng `RoleCatalog` (§10) — `ModuleRoleAssignment.role` vẫn là `String`
 (không phá F2) nhưng được **validate theo registry** ở tầng ứng dụng. Mã lạ bị từ chối khi
@@ -258,7 +263,7 @@ bổ sung 2 phạm vi nội bộ mà các module quản trị nội bộ cần:
 |---|---|---|
 | `OWN` | Bản ghi do chính người dùng lập | M36 §5.3 |
 | `DUOC_GIAO` | Bản ghi được phân công cho người dùng (`assignedToId`) | **bổ sung** — đã tồn tại trường trong M01/M12/M13 |
-| `BO_PHAN` | Bản ghi thuộc đơn vị/phòng của người dùng | **bổ sung** — chặn bởi F12, xem §13 Q3 |
+| `BO_PHAN` | Bản ghi thuộc đơn vị/phòng của người dùng | **bổ sung** — cần bảng `OrgUnit`, di trú theo §13 QĐ-3 |
 | `ORGANIZATION` | Toàn bộ bản ghi của tổ chức người dùng | M36 §5.3 |
 | `LIEN_QUAN` | Đúng bản ghi bắc cầu hai tổ chức | M36 §5.3 |
 | `NGANH` | Số liệu tổng hợp xuyên tổ chức (đếm/tỷ lệ, không chi tiết) | M36 §5.3 |
@@ -339,8 +344,8 @@ Bảng mới:
 
 | Bảng | Vai trò | Ghi chú |
 |---|---|---|
-| `Organization` | tổ chức tham gia nền tảng | có `orgType` (`PTD`/`TCDL`/`QLNN`/`BEN_LIEN_QUAN`) — chính là trường M36 §5.6 điểm 1 đã yêu cầu |
-| `OrgUnit` | đơn vị/phòng trong tổ chức | nền cho phạm vi `BO_PHAN`; thay thế dần `M03Employee.department` chuỗi tự do (F12) |
+| `Organization` | tổ chức tham gia nền tảng | có `orgType` (`PTD`/`TCDL`/`QLNN`/`BEN_LIEN_QUAN`) — trường M36 §5.6 điểm 1 đã yêu cầu. ETV có **hai bản ghi tách biệt**: đơn vị vận hành nền tảng và tổ chức đo lường (§13 QĐ-2) |
+| `OrgUnit` | đơn vị/phòng trong tổ chức | nền cho phạm vi `BO_PHAN`; `M03Employee` **thêm** `orgUnitId` nullable và **giữ nguyên** cột `department` cũ tới khi đối chiếu xong (F12, §13 QĐ-3) |
 | `Membership` | `User` ↔ `Organization`, mang vai trò tại tổ chức đó | theo M36 §5.1 |
 | `RoleCatalog` | danh mục vai trò chuẩn (§4) | `code`, `name`, `group`, `isService`, `isExternal` |
 | `PermissionGrant` | `role` × `moduleCode` × `action` × `dataScope` | hiện thực §3–§6; khuôn chuẩn seed sẵn, module khai ngoại lệ |
@@ -382,12 +387,26 @@ Cột bổ sung (đều `nullable` → migration cộng thêm, không phá):
 - Mọi thay đổi trạng thái đi kèm nhật ký trong cùng một giao dịch (đã là cách làm hiện tại của
   các module).
 
-### 13. Điểm chưa chốt — cần xác nhận trước khi code hóa
+### 13. Quyết định đã chốt (2026-08-23)
 
-| # | Vấn đề | Vì sao không tự quyết |
+Năm điểm mở khi RECON đã được chủ sở hữu nghiệp vụ chốt. Từ đây chúng là **ràng buộc thiết kế**,
+không phải câu hỏi; muốn đổi phải sửa mục này trước, không sửa ngầm ở tầng mã nguồn.
+
+| # | Quyết định | Hệ quả phải làm |
 |---|---|---|
-| Q1 | Mã quản trị tối cao: DB đang dùng `SUPER_ADMIN` (M29), M36 DacTa §5.2 viết `SUPERADMIN`, thiết kế này đề xuất `QTHT`. Ba mã cho một khái niệm. | Chọn mã nào là quyết định vocabulary xuyên module; đổi sai kéo theo sửa dữ liệu đã seed. |
-| Q2 | ETV vừa vận hành nền tảng vừa là một tổ chức đo lường — tách thành hai tổ chức trong `Organization` hay một tổ chức hai vai? | M36 §5.4 quy tắc 3 bắt buộc tách vai trò nhưng chưa chốt cách mô hình hóa; ảnh hưởng trực tiếp đến dữ liệu đã có. |
-| Q3 | Phạm vi `BO_PHAN` cần cây đơn vị thật, trong khi `M03Employee.department` đang là chuỗi tự do (F12). Lập `OrgUnit` mới và di trú, hay tạm suy ra từ chuỗi? | Đây là migration dữ liệu đang dùng thật → thuộc diện phải hỏi (mục 12 SKILL.md). |
-| Q4 | Có bật đăng nhập cho đối tượng ngoài tổ chức (`PTD_*`, `QLNN_*`, `GUEST`) trong đợt này không? | Mở ranh giới bảo mật ra ngoài ETV là quyết định của chủ sở hữu nghiệp vụ, không phải quyết định kỹ thuật. |
-| Q5 | Nhóm menu khai ở `manifest.yaml` (nâng schema lên 1.1) hay ở một file danh mục riêng trong `_meta/`? | Chạm quy ước tài liệu của 38 MPxx và `_meta/SCHEMA.md`. |
+| QĐ-1 | Mã vai trò quản trị nền tảng chuẩn là **`QTHT`** | `SUPER_ADMIN`/`SUPERADMIN` thành alias; di trú `ModuleRoleAssignment` của M29 về `QTHT` (Increment 2); sửa `M36_ChungChiSo/01_Requirement/DacTa.md` §5.2 cho khớp — M36 chưa `issued` nên sửa trực tiếp được, vẫn phải ghi rõ trong commit |
+| QĐ-2 | ETV được mô hình hóa thành **hai bản ghi `Organization` tách biệt**: đơn vị vận hành nền tảng và tổ chức đo lường ETV | Tách vai trò trở thành ràng buộc của dữ liệu chứ không phải rule thủ công; tài khoản làm cả hai việc phải có hai `Membership`; R-SoD-2 (§7) vẫn giữ như lớp chặn thứ hai |
+| QĐ-3 | Lập bảng **`OrgUnit`** và di trú dần theo expand-contract | `M03Employee` thêm `orgUnitId` nullable, **giữ nguyên** cột `department`; phạm vi `BO_PHAN` chỉ được bật sau khi đối chiếu đủ hồ sơ nhân sự; bước di trú vẫn phải xin phê duyệt trước khi chạy (Tier L) |
+| QĐ-4 | **Chưa bật** đăng nhập cho đối tượng ngoài ETV; mở `GUEST` đúng lúc xây M36 | `PTD_*`, `QLNN_*`, `GUEST` vẫn nằm trong `RoleCatalog` với `isExternal = true` và cờ tắt; Increment 6 chỉ chạy khi M36 rời trạng thái `COMING_SOON` |
+| QĐ-5 | Nhóm menu khai ở **`manifest.yaml` của MPxx** | Thêm khóa `menu_group` + thứ tự vào 38 file, nâng `schema` lên `manlab-aios/process@1.1`, cập nhật `_meta/SCHEMA.md`; `seed.ts` đọc lên, không hardcode |
+
+### 14. Điều vẫn phải hỏi lại khi hiện thực hóa
+
+Năm quyết định trên **không** mở khóa các bước sau — chúng vẫn thuộc diện STOP theo mục 12 của
+`SKILL.md` và phải xin phê duyệt riêng ngay trước khi chạy:
+
+1. Lệnh di trú dữ liệu `M03Employee.department` → `OrgUnit` (QĐ-3) — có khả năng mất liên kết
+   hồ sơ nhân sự đang dùng thật.
+2. Lệnh di trú `SUPER_ADMIN` → `QTHT` trên dữ liệu M29 đã seed (QĐ-1).
+3. Bật cờ `PERMISSION_V2` trên môi trường có người dùng thật (Increment 3) — sai một điều kiện
+   là người dùng mất quyền giữa ca làm việc.

@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP32
 slug: ChuyenDoiSo
 name: Chuyển đổi số và cải tiến hệ thống
@@ -8,3 +8,5 @@ standards: ['ISO9001']
 legal: []
 capabilities: [CAP-16]
 module: M32
+menu_group: DIEU_HANH
+menu_order: 8

@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP21
 slug: CongBoNangLuc
 name: Công bố, thông báo và kiểm soát năng lực hoạt động
@@ -14,3 +14,5 @@ document:
   issued: "2026-06-28"
   doc_status: issued
 forms: [F21.01, F21.02, F21.03, F21.04, F21.05, F21.06, F21.07, F21.08, F21.09, F21.10, F21.11, F21.12]
+menu_group: CHAT_LUONG
+menu_order: 2

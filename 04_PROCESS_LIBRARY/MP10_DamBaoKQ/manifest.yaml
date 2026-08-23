@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP10
 slug: DamBaoKQ
 name: Đảm bảo giá trị sử dụng của kết quả
@@ -8,3 +8,5 @@ standards: ['ISO17025']
 legal: []
 capabilities: [CAP-16]
 module: M10
+menu_group: KY_THUAT
+menu_order: 3

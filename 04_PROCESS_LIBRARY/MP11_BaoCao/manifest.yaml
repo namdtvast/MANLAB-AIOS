@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP11
 slug: BaoCao
 name: Báo cáo kết quả
@@ -8,3 +8,5 @@ standards: ['ISO17025']
 legal: []
 capabilities: [CAP-08,CAP-09,CAP-10,CAP-11]
 module: M11
+menu_group: KY_THUAT
+menu_order: 5

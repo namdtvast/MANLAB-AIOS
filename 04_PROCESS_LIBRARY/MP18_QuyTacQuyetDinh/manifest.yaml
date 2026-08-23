@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP18
 slug: QuyTacQuyetDinh
 name: Quy tắc quyết định và tuyên bố sự phù hợp
@@ -8,3 +8,5 @@ standards: ['ISO17025']
 legal: []
 capabilities: [CAP-08,CAP-09,CAP-10]
 module: M18
+menu_group: KY_THUAT
+menu_order: 4
