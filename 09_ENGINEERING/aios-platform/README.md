@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -192,6 +192,30 @@ Giống M01/M02/M03/M04 (xây mới từ `DacTa.md`, không di trú `08_Source`)
 - ❌ Chưa test qua UI: luồng Trả lại/Từ chối kế hoạch, gate DANHGIAVIEN riêng biệt khi ghi phát
   hiện.
 
+## Trạng thái Increment 9 — xây mới M17_XemXetLanhDao (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/_work/20260823-xay-moi-m17/verify.md`](../../05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/_work/20260823-xay-moi-m17/verify.md).
+
+Giống M01/M02/M03/M04/M16 (xây mới từ `DacTa.md`, không di trú `08_Source`). 4 đối tượng: chương
+trình xem xét, biên bản (12 nội dung ISO/IEC 17025 §8.9), theo dõi hành động, phiếu yêu cầu khắc
+phục (→ M13).
+
+- ✅ **Điểm kỹ thuật mới**: gate **đồng phê duyệt** (co-approval) cho `ReviewPlan` — TP và LĐV phê
+  duyệt độc lập theo bất kỳ thứ tự nào, tự chuyển `APPROVED` khi đủ cả 2 — khác mô hình phân cấp
+  tuần tự đã dùng ở M10/M16. Đã verify chiều TP→LĐV qua Browser.
+- ✅ Gate đủ 12 nội dung khi lập `ReviewMinutes` (quy tắc 4 ETV.P17): chặn đúng khi thiếu 1 nội
+  dung, thành công khi đủ 12 — đã verify cả 2 nhánh qua Browser.
+- ✅ Gate chỉ LĐV ghi kết luận cuộc họp (quy tắc 5) — verify nhánh thành công qua Browser.
+- ✅ **Cross-module thật đầu tiên**: cảnh báo mềm quy tắc 1 (chưa đủ dữ liệu đánh giá M16 năm đó)
+  query Prisma trực tiếp vào bảng `M16AuditReport`/`M16AuditProgram`/`M16AuditPlan` — không import
+  code M16, không chặn tạo. Đã verify trường hợp không hiển thị cảnh báo (M16 đã có dữ liệu).
+- ✅ "Quá hạn" tính toán khi đọc (derived, không lưu DB), mirror M04 — đã verify hiển thị đúng.
+- ⚠️ 3 "Quyết định phạm vi" (Quá hạn derived; co-approval thay vì phân cấp; cảnh báo mềm bằng
+  query thật) — chưa được LĐV xác nhận chính thức, xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: chiều LĐV→TP của gate đồng phê duyệt, gate `ALREADY_APPROVED`, nhánh chặn
+  của gate "chỉ LĐV ghi kết luận", trường hợp cảnh báo mềm **hiển thị**, luồng Từ chối kế hoạch.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -244,4 +268,5 @@ src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây m�
 src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)
 src/lib/m04/            Rule engine + actor/actions M04 — Môi trường, xây mới (Increment 7)
 src/lib/m16/            Rule engine + actor/actions M16 — Đánh giá nội bộ, xây mới (Increment 8)
+src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạo, xây mới (Increment 9)
 ```

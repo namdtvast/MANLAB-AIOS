@@ -23,7 +23,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M02 xây mới từ 05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/DacTa.md (Increment 6).
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M16", "M21", "M29"]);
+// M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M16", "M17", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -100,6 +101,7 @@ async function main() {
   await seedM02();
   await seedM04();
   await seedM16();
+  await seedM17();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1215,6 +1217,149 @@ async function seedM16() {
   await prisma.m16AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: qlcl.id, role: "QLCL", action: "Gửi xem xét" } });
 
   console.log(`Đã nạp 2 kế hoạch + 1 chương trình + 2 phát hiện + 1 báo cáo demo M16 + vai trò M16 cho ${Object.keys(userByRole).length} tài khoản.`);
+}
+
+// M17 — xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (không có
+// 08_Source nguyên mẫu, giống M01/M02/M03/M04/M16). Dùng lại nth/ldp/ldv (QLCL/TP/LDV).
+const M17_ROLE_EMAILS: Record<string, string> = {
+  QLCL: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+const M17_TOPIC_LABELS: Record<number, string> = {
+  1: "Sự phù hợp của chính sách và mục tiêu chất lượng",
+  2: "Sự phù hợp của các thủ tục",
+  3: "Các kết quả đánh giá nội bộ",
+  4: "Tình trạng hành động từ các cuộc xem xét trước",
+  5: "Kết quả các cuộc đánh giá nội bộ gần nhất",
+  6: "Các hành động khắc phục",
+  7: "Kết quả đánh giá của tổ chức bên ngoài",
+  8: "Kết quả so sánh liên phòng/thử nghiệm thành thạo",
+  9: "Khiếu nại, phản hồi khách hàng, phản hồi nhân viên",
+  10: "Khuyến nghị cải tiến",
+  11: "Vấn đề quan trọng khác (chất lượng, nguồn lực, đào tạo)",
+  12: "Mục tiêu năm tiếp theo",
+};
+
+async function seedM17() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M17_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M17", role } },
+      create: { userId: user.id, moduleCode: "M17", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m17ReviewPlan.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const qlcl = userByRole["QLCL"];
+  const tp = userByRole["TP"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+
+  // 1. Chương trình đã Đồng phê duyệt (cả TP + LĐV) → biên bản đủ 12 nội dung + kết luận
+  const plan1 = await prisma.m17ReviewPlan.create({
+    data: {
+      code: `CTXX-${year}-0001`,
+      title: `Xem xét lãnh đạo Quý 4/${year}`,
+      isAdHoc: false,
+      plannedDate: new Date(`${year}-12-15`),
+      location: "Phòng họp Viện",
+      attendees: ["Lê Văn V. (LĐV)", "Trần Thị Hoa (TP)", "Nguyễn Thị H. (QLCL)"],
+      plannedTopics: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      status: "APPROVED",
+      createdById: qlcl.id,
+      tpApprovedById: tp.id,
+      tpApprovedAt: new Date(),
+      ldvApprovedById: ldv.id,
+      ldvApprovedAt: new Date(),
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan1.id, actorId: qlcl.id, role: "QLCL", action: "Lập chương trình xem xét lãnh đạo" } });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan1.id, actorId: tp.id, role: "TP", action: "Trưởng phòng phê duyệt" } });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan1.id, actorId: ldv.id, role: "LDV", action: "LĐV phê duyệt" } });
+
+  const topicResults = Object.entries(M17_TOPIC_LABELS).map(([id, label]) => ({
+    topicId: Number(id),
+    assessmentResult: `Đạt yêu cầu — ${label.toLowerCase()} được rà soát đầy đủ.`,
+  }));
+  const minutes1 = await prisma.m17ReviewMinutes.create({
+    data: {
+      code: `BBXX-${year}-0001`,
+      planId: plan1.id,
+      meetingDate: new Date(`${year}-12-15`),
+      topicResults,
+      conclusion: "Hệ thống quản lý vận hành phù hợp, cần bổ sung 1 hành động khắc phục về kiểm soát hồ sơ.",
+      recordedById: qlcl.id,
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "MINUTES", itemId: minutes1.id, actorId: qlcl.id, role: "QLCL", action: "Lập biên bản xem xét (đủ 12 nội dung)" } });
+  await prisma.m17AuditEntry.create({ data: { itemType: "MINUTES", itemId: minutes1.id, actorId: ldv.id, role: "LDV", action: "LĐV ghi kết luận cuộc họp" } });
+
+  const overdueDate = new Date();
+  overdueDate.setDate(overdueDate.getDate() - 5);
+  const action1 = await prisma.m17ReviewActionTracking.create({
+    data: {
+      code: `HDXX-${year}-0001`,
+      minutesId: minutes1.id,
+      actionDescription: "Rà soát lại quy trình kiểm soát hồ sơ đo lường.",
+      startDate: new Date(`${year}-12-16`),
+      dueDate: overdueDate, // đã quá hạn — demo derived status
+      status: "DANG_THUC_HIEN",
+      assignedTo: "Trần Thị Hoa (TP)",
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "MINUTES", itemId: minutes1.id, actorId: qlcl.id, role: "QLCL", action: `Lập theo dõi hành động ${action1.code}` } });
+
+  const action2 = await prisma.m17ReviewActionTracking.create({
+    data: {
+      code: `HDXX-${year}-0002`,
+      minutesId: minutes1.id,
+      actionDescription: "Cập nhật mục tiêu chất lượng năm sau.",
+      startDate: new Date(`${year}-12-16`),
+      dueDate: new Date(`${year + 1}-01-15`),
+      status: "HOAN_THANH",
+      assignedTo: "Nguyễn Thị H. (QLCL)",
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "MINUTES", itemId: minutes1.id, actorId: qlcl.id, role: "QLCL", action: `Lập theo dõi hành động ${action2.code}` } });
+
+  const capa1 = await prisma.m17CorrectiveActionRequest.create({
+    data: {
+      code: `F13.01-${year}-0001`,
+      minutesId: minutes1.id,
+      description: "Khắc phục thiếu sót kiểm soát hồ sơ đo lường theo kết luận xem xét lãnh đạo.",
+      createdById: qlcl.id,
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "MINUTES", itemId: minutes1.id, actorId: qlcl.id, role: "QLCL", action: `Lập phiếu yêu cầu khắc phục ${capa1.code} (→ M13)` } });
+
+  // 2. Chương trình mới chỉ có TP duyệt — demo gate đồng phê duyệt còn thiếu LĐV
+  const plan2 = await prisma.m17ReviewPlan.create({
+    data: {
+      code: `CTXX-${year}-0002`,
+      title: "Xem xét lãnh đạo đột xuất — thay đổi phạm vi công nhận",
+      isAdHoc: true,
+      plannedDate: new Date(`${year + 1}-02-01`),
+      location: "Phòng họp Viện",
+      attendees: ["Lê Văn V. (LĐV)", "Trần Thị Hoa (TP)"],
+      plannedTopics: [1, 2, 11, 12],
+      status: "PENDING_APPROVAL",
+      createdById: qlcl.id,
+      tpApprovedById: tp.id,
+      tpApprovedAt: new Date(),
+    },
+  });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: qlcl.id, role: "QLCL", action: "Lập chương trình xem xét lãnh đạo" } });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: qlcl.id, role: "QLCL", action: "Gửi yêu cầu duyệt" } });
+  await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: tp.id, role: "TP", action: "Trưởng phòng phê duyệt" } });
+
+  console.log(`Đã nạp 2 chương trình + 1 biên bản + 2 hành động + 1 phiếu CAPA demo M17 + vai trò M17 cho ${Object.keys(userByRole).length} tài khoản.`);
 }
 
 main()
