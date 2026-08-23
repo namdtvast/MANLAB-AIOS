@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -172,6 +172,26 @@ trúc chung" trong DacTa) và kế hoạch công việc hiện trường (`M04Fi
 - ❌ Chưa test qua UI: nhánh TP tự duyệt mức Thường, luồng Từ chối, ghi log loại tủ hóa
   chất/thiết bị qua form (chỉ có trong seed).
 
+## Trạng thái Increment 8 — xây mới M16_DanhGiaNoiBo (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/_work/20260823-xay-moi-m16/verify.md`](../../05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/_work/20260823-xay-moi-m16/verify.md).
+
+Giống M01/M02/M03/M04 (xây mới từ `DacTa.md`, không di trú `08_Source`). 4 đối tượng: kế hoạch
+đánh giá, chương trình đánh giá, phát hiện, báo cáo tổng hợp.
+
+- ✅ Gate duyệt `AuditPlan` 2 cấp (mirror M10): LĐP xem xét trước (không tự xem xét hồ sơ mình
+  tạo), LĐV phê duyệt cuối (LĐP không tự phê duyệt được) — đã verify cả 2 nhánh chặn qua Browser.
+- ✅ Gate thời hạn thông báo `AuditProgram` (quy tắc 2 ETV.P16): chặn xác nhận khi ngày đánh giá
+  còn dưới 7 ngày.
+- ✅ Gate vai trò tạo `AuditReport`: chỉ Trưởng đoàn đánh giá — LĐV bị chặn đúng thông báo.
+- ✅ Báo cáo trễ hạn hiển thị badge cảnh báo nhưng **không chặn tạo**, đúng phân biệt "bắt buộc"
+  vs "cần cảnh báo" trong DacTa.
+- ⚠️ 2 "Quyết định phạm vi" (2 bước duyệt tường minh; chỉ gate cứng mốc 7 ngày) — chưa được LĐP
+  xác nhận chính thức, xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: luồng Trả lại/Từ chối kế hoạch, gate DANHGIAVIEN riêng biệt khi ghi phát
+  hiện.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -223,4 +243,5 @@ src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội
 src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
 src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)
 src/lib/m04/            Rule engine + actor/actions M04 — Môi trường, xây mới (Increment 7)
+src/lib/m16/            Rule engine + actor/actions M16 — Đánh giá nội bộ, xây mới (Increment 8)
 ```
