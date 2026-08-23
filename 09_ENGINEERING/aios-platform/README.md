@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 → 12 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13/M14 xây mới)
+# MANLAB-AIOS Platform — Increment 0 → 13 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13/M14 xây mới + M16 hoàn thiện theo đặc tả)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -189,8 +189,9 @@ Giống M01/M02/M03/M04 (xây mới từ `DacTa.md`, không di trú `08_Source`)
   vs "cần cảnh báo" trong DacTa.
 - ⚠️ 2 "Quyết định phạm vi" (2 bước duyệt tường minh; chỉ gate cứng mốc 7 ngày) — chưa được LĐP
   xác nhận chính thức, xem DacTa.md mục 6.
-- ❌ Chưa test qua UI: luồng Trả lại/Từ chối kế hoạch, gate DANHGIAVIEN riêng biệt khi ghi phát
-  hiện.
+- ❌ Chưa test qua UI: luồng Trả lại/Từ chối kế hoạch. (Gate DANHGIAVIEN đã được verify ở
+  Increment 13.)
+- ➡️ Quy tắc 1/2(mốc 2 tuần)/3/6/7 được hoàn thiện ở **Increment 13** bên dưới.
 
 ## Trạng thái Increment 9 — xây mới M17_XemXetLanhDao (không có nguyên mẫu code)
 
@@ -323,6 +324,35 @@ Tài khoản demo (chỉ dev/demo — đổi/xoá trước khi triển khai th�
 Hoặc dùng cấu hình preview có sẵn của repo: `.claude/launch.json` →
 `aios-platform` (port mặc định 3000).
 
+## Trạng thái Increment 13 — hoàn thiện M16_DanhGiaNoiBo theo đặc tả
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/_work/20260823-hoan-thien-m16/verify.md`](../../05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/_work/20260823-hoan-thien-m16/verify.md).
+
+Khác các increment trước (mỗi increment = 1 module mới): đây là increment **quay lại đóng khoảng
+trống đặc tả** của một module đã xây — 5 quy tắc ETV.P16 trước đó phải hoãn vì M03/M13 chưa có
+backend thật, nay đã có.
+
+- ✅ **Quy tắc 1 — năng lực đánh giá viên là dữ liệu thật, không phải ghi chú**: `M16AuditorQualification`
+  công nhận từng loại năng lực với bằng chứng bắt buộc là hồ sơ đào tạo `DAT`+`APPROVED` của
+  **M03** (server kiểm tra hồ sơ đúng người/đúng kết quả); đoàn đánh giá chuyển từ tên tự do sang
+  FK `M03Employee`. Xác nhận chương trình bị chặn cứng khi đoàn thiếu năng lực — đã verify qua
+  Browser (nêu đích danh người thiếu gì).
+- ✅ **Quy tắc 6 — KPH sinh hồ sơ thật bên M13**: Trưởng bộ phận được đánh giá xác nhận nhận kết
+  quả → phân tích nguyên nhân → đề xuất khắc phục, gọi thẳng action của M13 (`M13SourceType`
+  thêm `DANH_GIA_NOI_BO`), hồ sơ đi tiếp đúng luồng M13. Thay cho `capaRef` chuỗi tự do.
+- ✅ **Quy tắc 7 — LĐP thẩm tra mới được đóng**: trạng thái `CLOSED` chỉ mở khi có báo cáo + mọi
+  KPH đã chuyển M13 + mọi hồ sơ M13 đã Đã khắc phục; nhánh "chưa đủ tin cậy" tạo kế hoạch **đánh
+  giá bổ sung** đột xuất. Đã verify trọn vòng đời qua Browser (chặn 2 lần, đóng thành công sau khi
+  xử lý xong hồ sơ bên M13).
+- ✅ Quy tắc 3 (ý kiến bảo lưu, không biểu quyết) + quy tắc 2 (cảnh báo mềm mốc 2 tuần, không chặn).
+- ✅ 2 vai trò trước đây không có action nay dùng thật: `DANHGIAVIEN`, `TRUONGBOPHAN` (+2 tài khoản
+  demo).
+- ⚠️ 5 "Quyết định phạm vi" mới — chưa được LĐP xác nhận chính thức, xem DacTa.md mục 7.
+- ❌ Chưa verify runtime: gate "hồ sơ đào tạo chưa Đạt" (UI không tạo được tình huống), thu hồi
+  công nhận năng lực (action có, chưa có nút). Quy tắc 5 (→ M11) và 8 (→ M15) vẫn ngoài phạm vi vì
+  2 module đó chưa xây.
+
 ## Build production
 
 ```bash
@@ -352,4 +382,5 @@ src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạ
 src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & phản hồi, xây mới (Increment 10)
 src/lib/m13/            Rule engine + actor/actions M13 — Công việc không phù hợp/CAPA, xây mới (Increment 11)
 src/lib/m14/            Rule engine + actor/actions M14 — Kiểm soát tài liệu, xây mới (Increment 12)
+                        (M16 bổ sung năng lực đánh giá viên + liên kết M03/M13 ở Increment 13)
 ```

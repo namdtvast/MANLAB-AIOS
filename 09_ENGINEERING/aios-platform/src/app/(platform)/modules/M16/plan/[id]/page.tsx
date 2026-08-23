@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getM16Role } from "@/lib/m16/actor";
 import { AUDIT_TYPE_LABEL, PLAN_STATUS_LABEL, PROGRAM_STATUS_LABEL } from "@/lib/m16/labels";
+import { REQUIRED_MEMBER_QUALS } from "@/lib/m16/rules";
 import { PlanActionPanel } from "./ActionPanel";
 import { NewProgramForm } from "./NewProgramForm";
 
@@ -10,7 +11,7 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
   const [p, m16Role] = await Promise.all([
     prisma.m16AuditPlan.findUnique({
       where: { id },
-      include: { createdBy: true, reviewedBy: true, approvedBy: true, programs: true },
+      include: { createdBy: true, reviewedBy: true, approvedBy: true, programs: true, followUpOfProgram: true },
     }),
     getM16Role(),
   ]);
@@ -22,6 +23,18 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
     include: { actor: true },
   });
 
+  // Nhân sự M03 + trạng thái năng lực để chọn đoàn đánh giá (quy tắc 1 ETV.P16, Increment 13).
+  const employees =
+    p.status === "APPROVED"
+      ? (await prisma.m03Employee.findMany({ orderBy: { code: "asc" }, include: { m16Qualifications: true } })).map((e) => ({
+          id: e.id,
+          code: e.code,
+          fullName: e.fullName,
+          department: e.department,
+          qualified: REQUIRED_MEMBER_QUALS.every((q) => e.m16Qualifications.some((x) => x.qualType === q)),
+        }))
+      : [];
+
   return (
     <div className="grid max-w-4xl grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
@@ -31,6 +44,15 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
             Đánh giá {AUDIT_TYPE_LABEL[p.type]} năm {p.year}
           </h1>
           <p className="mt-1 text-sm text-ink-2">{PLAN_STATUS_LABEL[p.status]}{p.isAdHoc ? " · Đột xuất" : ""}</p>
+          {p.followUpOfProgram && (
+            <p className="mt-1 text-sm text-warn">
+              Đánh giá bổ sung sau chương trình{" "}
+              <a href={`/modules/M16/program/${p.followUpOfProgram.id}`} className="text-accent hover:underline">
+                {p.followUpOfProgram.code}
+              </a>{" "}
+              (quy tắc 7 ETV.P16 — thẩm tra chưa đủ tin cậy)
+            </p>
+          )}
         </div>
 
         <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
@@ -62,7 +84,7 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
           </div>
         )}
 
-        {p.status === "APPROVED" && <NewProgramForm planId={p.id} />}
+        {p.status === "APPROVED" && <NewProgramForm planId={p.id} employees={employees} />}
 
         <div>
           <h2 className="mb-2 font-head text-sm font-bold text-ink">Nhật ký</h2>

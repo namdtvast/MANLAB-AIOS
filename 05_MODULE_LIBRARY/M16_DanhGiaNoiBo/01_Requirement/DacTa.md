@@ -95,3 +95,28 @@ DacTa quy tắc 4 chỉ ghi "cần cảnh báo", không phải "bắt buộc".
 Vai trò module: `QLCL`, `LDP`, `LDV`, `TRUONGDOAN`, `DANHGIAVIEN`(chưa có action riêng — gộp
 chung điều kiện với TRUONGDOAN), `TRUONGBOPHAN`(chưa dùng ở Increment 8) — dùng lại 3 tài khoản
 demo M01/M02/M03/M04 + 1 tài khoản mới `truongdoan@manlab.vn`.
+
+## 7. Hoàn thiện theo đặc tả (Increment 13, aios-platform)
+
+Increment 8 chỉ cài 3 gate chính; Increment 13 đóng tiếp **quy tắc 1, 2, 3, 6, 7** — những quy tắc
+trước đó phải hoãn vì M03/M13 chưa có backend thật. Chi tiết + bằng chứng VERIFY:
+`01_Requirement/_work/20260823-hoan-thien-m16/{spec.md, plan.md, verify.md}`.
+
+| Quy tắc | Hiện thực trong Increment 13 |
+|---|---|
+| 1 — năng lực đánh giá viên | `M16AuditorQualification`: QLCL công nhận từng loại năng lực, **bằng chứng bắt buộc là hồ sơ đào tạo `DAT`+`APPROVED` thật của M03** (server kiểm tra hồ sơ đúng người, đúng kết quả). Đoàn đánh giá là nhân sự thật (`M16ProgramMember` + `teamLeadEmployeeId` → `M03Employee`); xác nhận chương trình bị **chặn cứng** nếu bất kỳ thành viên thiếu ISO/IEC 17025 hoặc đào tạo đánh giá nội bộ, trưởng đoàn thiếu thêm kinh nghiệm đánh giá |
+| 2 — mốc nhắc 2 tuần | Cảnh báo mềm khi ngày đánh giá còn 7–13 ngày (không chặn); mốc 7 ngày vẫn là gate cứng |
+| 3 — kết luận trưởng đoàn là cuối cùng | `M16ReportDissent` — ý kiến khác được **bảo lưu** kèm báo cáo, không sửa `closingConclusion`, không biểu quyết |
+| 6 — KPH → CAPA qua M13 | Trưởng bộ phận được đánh giá xác nhận đã nhận kết quả → phân tích nguyên nhân → đề xuất khắc phục, sinh **hồ sơ KPH thật bên M13** (`M16AuditFinding.ncwId` FK, `M13SourceType.DANH_GIA_NOI_BO`); hồ sơ đi tiếp đúng luồng M13. `capaRef` chuỗi tự do trở thành dữ liệu lịch sử |
+| 7 — LĐP thẩm tra trước khi coi là đóng | Trạng thái mới `CLOSED`: **chỉ LĐP** đóng được, và chỉ khi đã có báo cáo + mọi phát hiện KPH đã chuyển M13 + mọi hồ sơ M13 liên kết ở trạng thái Đã khắc phục. Nhánh còn lại: "chưa đủ tin cậy" → tạo kế hoạch **đánh giá bổ sung** đột xuất liên kết ngược chương trình |
+
+Vai trò `DANHGIAVIEN` và `TRUONGBOPHAN` nay đã có action riêng (ghi phát hiện/ý kiến bảo lưu; nhận
+kết quả + đề xuất CAPA) — thêm 2 tài khoản demo `danhgiavien@manlab.vn`, `truongbophan@manlab.vn`.
+
+**Quyết định phạm vi mới cần LĐP xác nhận** (chi tiết trong `spec.md`): (1) năng lực là **đăng ký
+có bằng chứng**, không suy diễn từ nội dung đào tạo; (2) `teamLeadName`/`teamMembers` giữ lại làm
+bản chụp tên theo ETV.P15; (3) đóng ở cấp **chương trình đánh giá**; (4) bắt buộc xác nhận nhận
+kết quả **trước khi** đề xuất CAPA; (5) 2 tài khoản demo mới.
+
+**Vẫn chưa làm**: quy tắc 5 (thông báo khách hàng + thu hồi kết quả đã phát hành → cần M11) và quy
+tắc 8 (lưu hồ sơ theo ETV.P15 → cần M15).
