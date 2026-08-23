@@ -24,7 +24,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M29"]);
+// M25 xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md (chưa có ETV.P25).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -135,6 +136,7 @@ async function main() {
   await seedM12();
   await seedM13();
   await seedM14();
+  await seedM25();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1951,3 +1953,274 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
+// M25 — xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md. CHƯA có Thủ tục
+// ETV.P25 (đặc tả suy dẫn từ Sổ tay chất lượng §9.2 + ISO 9001 §4.1/§4.2). Dùng lại
+// nth/ldp/ldv (QLCL/TP/LDV) như M16/M17 — không tạo tài khoản mới.
+const M25_ROLE_EMAILS: Record<string, string> = {
+  QLCL: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM25() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M25_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M25", role } },
+      create: { userId: user.id, moduleCode: "M25", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m25ContextReview.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const qlcl = userByRole["QLCL"];
+  const tp = userByRole["TP"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000);
+
+  // 1. Kỳ định kỳ đã phê duyệt — hồ sơ bất biến, dùng làm bằng chứng ISO 9001 §4.1/§4.2
+  const review1 = await prisma.m25ContextReview.create({
+    data: {
+      code: `BC-${year}-0001`,
+      cycleType: "DINH_KY",
+      periodYear: year,
+      scopeSystems: ["ISO_9001", "ISO_17025", "ISO_17034"],
+      summary: "Rà soát bối cảnh đầu năm: pháp luật đo lường có thay đổi, nhu cầu kiểm định phương tiện đo tăng, nhân lực kỹ thuật còn mỏng.",
+      conclusion: "Thông qua bối cảnh và danh mục bên quan tâm; giao QLCL chuyển 2 vấn đề mức Cao sang M01 theo dõi xử lý.",
+      status: "APPROVED",
+      createdById: qlcl.id,
+      reviewedById: tp.id,
+      reviewedAt: daysAgo(200),
+      approvedById: ldv.id,
+      approvedAt: daysAgo(198),
+    },
+  });
+  for (const [actorId, role, action] of [
+    [qlcl.id, "QLCL", "Lập kỳ xem xét bối cảnh"],
+    [tp.id, "TP", "Soát xét đạt (DRAFT → PENDING_APPROVAL)"],
+    [ldv.id, "LDV", "LĐV phê duyệt (PENDING_APPROVAL → APPROVED)"],
+  ] as const) {
+    await prisma.m25AuditEntry.create({ data: { itemType: "REVIEW", itemId: review1.id, actorId, role, action } });
+  }
+
+  // Vấn đề mức Cao → bắt buộc có liên kết M01 (quy tắc 3). Lấy rủi ro/cơ hội có sẵn của M01 seed.
+  const risk = await prisma.m01RiskItem.findFirst({ orderBy: { createdAt: "asc" } });
+  const opportunity = await prisma.m01OpportunityItem.findFirst({ orderBy: { createdAt: "asc" } });
+
+  const issue1 = await prisma.m25ContextIssue.create({
+    data: {
+      code: `VD-${year}-0001`,
+      reviewId: review1.id,
+      origin: "BEN_NGOAI",
+      category: "CHINH_TRI_PHAP_LY",
+      title: "Thay đổi văn bản quy phạm pháp luật về đo lường",
+      description: "Nghị định mới thay thế quy định cũ về kiểm định phương tiện đo nhóm 2 — ảnh hưởng phạm vi chỉ định và biểu mẫu chứng nhận.",
+      direction: "THACH_THUC",
+      affectedSystems: ["ISO_9001", "ISO_17025"],
+      impactLevel: "CAO",
+      monitoringMethod: "Theo dõi công báo và văn bản của cơ quan quản lý; đối chiếu 08_KNOWLEDGE_GRAPH/01_Regulations",
+      monitoringFrequency: "QUY",
+      ownerId: qlcl.id,
+      evidenceRefs: ["NĐ 36/2026/NĐ-CP", "NĐ 22/2026/NĐ-CP"],
+      objectiveRefs: ["Cập nhật 100% biểu mẫu chứng nhận trong quý"],
+      updatedAt: daysAgo(200), // quá hạn theo dõi (tần suất Quý) — hiện ở màn hình Theo dõi đến hạn
+    },
+  });
+  if (risk) await prisma.m25IssueRiskLink.create({ data: { issueId: issue1.id, riskId: risk.id } });
+
+  const issue2 = await prisma.m25ContextIssue.create({
+    data: {
+      code: `VD-${year}-0002`,
+      reviewId: review1.id,
+      origin: "NOI_BO",
+      category: "NGUON_LUC_NOI_BO",
+      title: "Thiếu kiểm định viên có chứng chỉ ở lĩnh vực áp suất",
+      description: "Số lượng kiểm định viên đủ năng lực lĩnh vực áp suất chưa đáp ứng khối lượng công việc dự kiến.",
+      direction: "THACH_THUC",
+      affectedSystems: ["ISO_17025"],
+      impactLevel: "CAO",
+      monitoringMethod: "Đối chiếu danh sách nhân sự (M03) với kế hoạch công việc hằng quý",
+      monitoringFrequency: "QUY",
+      ownerId: tp.id,
+      evidenceRefs: ["Kế hoạch đào tạo 2026"],
+      updatedAt: daysAgo(10),
+    },
+  });
+  if (opportunity) await prisma.m25IssueRiskLink.create({ data: { issueId: issue2.id, opportunityId: opportunity.id } });
+
+  await prisma.m25ContextIssue.create({
+    data: {
+      code: `VD-${year}-0003`,
+      reviewId: review1.id,
+      origin: "BEN_NGOAI",
+      category: "CONG_NGHE_SO_AI",
+      title: "Khách hàng yêu cầu tra cứu kết quả trực tuyến",
+      description: "Xu hướng khách hàng muốn tra cứu chứng chỉ số và tiến độ dịch vụ trên nền tảng số.",
+      direction: "CO_HOI",
+      affectedSystems: ["ISO_9001", "ISO_42001"],
+      impactLevel: "TRUNG_BINH",
+      monitoringMethod: "Tổng hợp phản hồi khách hàng (M12) theo quý",
+      monitoringFrequency: "SAU_THANG",
+      ownerId: qlcl.id,
+      updatedAt: daysAgo(20),
+    },
+  });
+
+  const party1 = await prisma.m25InterestedParty.create({
+    data: {
+      code: `BQT-${year}-0001`,
+      reviewId: review1.id,
+      name: "Khách hàng sử dụng dịch vụ kiểm định/hiệu chuẩn",
+      group: "KHACH_HANG",
+      influenceLevel: "CAO",
+      engagementChannel: "Hợp đồng, khảo sát mức độ hài lòng, kênh khiếu nại (M12)",
+      monitoringFrequency: "QUY",
+      ownerId: qlcl.id,
+      updatedAt: daysAgo(200), // quá hạn theo dõi
+    },
+  });
+  await prisma.m25PartyExpectation.createMany({
+    data: [
+      {
+        partyId: party1.id,
+        description: "Kết quả kiểm định/hiệu chuẩn chính xác, có giá trị pháp lý, trả đúng hạn cam kết.",
+        source: "HOP_DONG",
+        isComplianceObligation: true,
+        obligationRef: "Luật Đo lường 2011; Thông tư 24/2013/TT-BKHCN",
+        responseAction: "Kiểm soát kết quả theo ETV.P10 và ETV.P11; theo dõi tiến độ theo hợp đồng.",
+        responseModuleRef: "M10, M11",
+        fulfillmentStatus: "DANG_DAP_UNG",
+      },
+      {
+        partyId: party1.id,
+        description: "Bảo mật thông tin khách hàng và dữ liệu kết quả.",
+        source: "TIEU_CHUAN",
+        isComplianceObligation: true,
+        obligationRef: "ISO/IEC 17025 §4.2; ISO/IEC 27001",
+        responseAction: "Cam kết bảo mật theo ETV.P02; kiểm soát truy cập trên nền tảng số.",
+        responseModuleRef: "M02",
+        fulfillmentStatus: "DANG_DAP_UNG",
+      },
+    ],
+  });
+
+  const party2 = await prisma.m25InterestedParty.create({
+    data: {
+      code: `BQT-${year}-0002`,
+      reviewId: review1.id,
+      name: "Tổ chức công nhận (BoA) và cơ quan chỉ định",
+      group: "TO_CHUC_CONG_NHAN",
+      influenceLevel: "CAO",
+      engagementChannel: "Đánh giá công nhận định kỳ, văn bản chỉ định",
+      monitoringFrequency: "NAM",
+      ownerId: ldv.id,
+      updatedAt: daysAgo(30),
+    },
+  });
+  await prisma.m25PartyExpectation.create({
+    data: {
+      partyId: party2.id,
+      description: "Duy trì năng lực và tuân thủ ISO/IEC 17025, ISO 17034 trong toàn bộ phạm vi được công nhận.",
+      source: "DANH_GIA_BEN_NGOAI",
+      isComplianceObligation: true,
+      obligationRef: "ISO/IEC 17025:2017; ISO 17034:2016",
+      responseAction: "Duy trì đánh giá nội bộ hằng năm (M16) và xem xét lãnh đạo (M17); công bố năng lực qua M21.",
+      responseModuleRef: "M16, M17, M21",
+      fulfillmentStatus: "DANG_DAP_UNG",
+    },
+  });
+
+  const party3 = await prisma.m25InterestedParty.create({
+    data: {
+      code: `BQT-${year}-0003`,
+      reviewId: review1.id,
+      name: "Nhà thầu phụ hiệu chuẩn thiết bị chuẩn",
+      group: "NHA_CUNG_CAP",
+      influenceLevel: "TRUNG_BINH",
+      engagementChannel: "Hợp đồng dịch vụ, đánh giá nhà cung cấp (M06)",
+      monitoringFrequency: "NAM",
+      ownerId: tp.id,
+      impartialityFlag: true, // ISO/IEC 17025 §4.1 — quan hệ có nguy cơ ảnh hưởng tính khách quan
+      updatedAt: daysAgo(40),
+    },
+  });
+  await prisma.m25PartyExpectation.create({
+    data: {
+      partyId: party3.id,
+      description: "Duy trì quan hệ hợp đồng ổn định, thanh toán đúng hạn.",
+      source: "HOP_DONG",
+      isComplianceObligation: false,
+      responseAction: "Đánh giá nhà cung cấp định kỳ theo ETV.P06; tách bạch quan hệ thương mại khỏi quyết định kỹ thuật.",
+      responseModuleRef: "M06",
+      fulfillmentStatus: "DANG_DAP_UNG",
+    },
+  });
+
+  // 2. Kỳ đột xuất đang soạn — để thao tác thử toàn bộ state machine
+  const review2 = await prisma.m25ContextReview.create({
+    data: {
+      code: `BC-${year}-0002`,
+      cycleType: "DOT_XUAT",
+      periodYear: year,
+      triggerReason: "Mở rộng phạm vi công nhận sang lĩnh vực thử nghiệm môi trường (← M21).",
+      scopeSystems: ["ISO_9001", "ISO_17025"],
+      summary: "Rà soát lại bối cảnh sau khi mở rộng phạm vi công nhận.",
+      status: "DRAFT",
+      createdById: qlcl.id,
+    },
+  });
+  await prisma.m25AuditEntry.create({
+    data: { itemType: "REVIEW", itemId: review2.id, actorId: qlcl.id, role: "QLCL", action: "Lập kỳ xem xét bối cảnh" },
+  });
+  const issue4 = await prisma.m25ContextIssue.create({
+    data: {
+      code: `VD-${year}-0004`,
+      reviewId: review2.id,
+      origin: "NOI_BO",
+      category: "NANG_LUC_KY_THUAT",
+      title: "Phạm vi công nhận mở rộng sang thử nghiệm môi trường",
+      description: "Cần bổ sung phương pháp, thiết bị và nhân sự cho lĩnh vực mới trước khi nhận việc.",
+      direction: "CA_HAI",
+      affectedSystems: ["ISO_17025"],
+      impactLevel: "CAO", // cố ý CHƯA liên kết M01 — minh họa gate quy tắc 3 chặn gửi soát xét
+      monitoringMethod: "Đối chiếu tiến độ chuẩn bị với kế hoạch mở rộng phạm vi",
+      monitoringFrequency: "THANG",
+      ownerId: tp.id,
+    },
+  });
+  const party4 = await prisma.m25InterestedParty.create({
+    data: {
+      code: `BQT-${year}-0004`,
+      reviewId: review2.id,
+      name: "Cơ quan quản lý môi trường địa phương",
+      group: "CO_QUAN_QUAN_LY",
+      influenceLevel: "CAO",
+      engagementChannel: "Văn bản, hội nghị chuyên đề",
+      monitoringFrequency: "SAU_THANG",
+      ownerId: qlcl.id,
+    },
+  });
+  await prisma.m25PartyExpectation.create({
+    data: {
+      partyId: party4.id,
+      description: "Kết quả quan trắc/thử nghiệm môi trường đáp ứng quy chuẩn kỹ thuật quốc gia.",
+      source: "VAN_BAN_PHAP_LUAT",
+      isComplianceObligation: true,
+      obligationRef: "QCVN về môi trường (08_KNOWLEDGE_GRAPH/01_Regulations)",
+      responseAction: "Xác nhận giá trị sử dụng phương pháp theo ETV.P08 trước khi cung cấp dịch vụ.",
+      responseModuleRef: "M08",
+      fulfillmentStatus: "CHUA_DAP_UNG",
+    },
+  });
+
+  console.log(
+    `Đã nạp 2 kỳ xem xét bối cảnh (1 đã phê duyệt + 1 nháp), ${4} vấn đề bối cảnh, ${4} bên quan tâm demo M25 + vai trò M25 cho ${Object.keys(userByRole).length} tài khoản. ` +
+      `(${issue4.code} cố ý để mức Cao chưa liên kết M01 nhằm minh họa gate quy tắc 3.)`,
+  );
+}
