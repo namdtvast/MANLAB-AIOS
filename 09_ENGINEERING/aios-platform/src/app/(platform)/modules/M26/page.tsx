@@ -1,0 +1,182 @@
+import Link from "next/link";
+import { prisma } from "@/lib/prisma";
+import { getViewer } from "@/lib/m26/actor";
+import { isDueForReview, visibleConfidentiality } from "@/lib/m26/rules";
+import {
+  CATEGORY_LABEL,
+  CONFIDENTIALITY_LABEL,
+  CONFIDENTIALITY_TONE,
+  CRITICALITY_LABEL,
+  CRITICALITY_TONE,
+  ITEM_STATUS_LABEL,
+  ITEM_STATUS_TONE,
+  KNOWLEDGE_FORM_LABEL,
+  M26_ROLE_LABEL,
+  REVIEW_CYCLE_LABEL,
+} from "@/lib/m26/labels";
+import { Badge, fmtDate, th } from "./_ui";
+
+const navLink = "rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk";
+
+export default async function M26ListPage() {
+  const viewer = await getViewer();
+  const allowed = visibleConfidentiality(viewer.role);
+
+  // Lọc NGAY Ở TẦNG DỮ LIỆU theo mức bảo mật (NFR phân quyền), kèm ngoại lệ cho chủ sở hữu/người giữ.
+  const items = await prisma.m26KnowledgeItem.findMany({
+    where: {
+      OR: [
+        { confidentiality: { in: allowed } },
+        ...(viewer.id
+          ? [{ ownerId: viewer.id }, { holders: { some: { userId: viewer.id } } }]
+          : []),
+      ],
+    },
+    include: { owner: true, _count: { select: { holders: true, riskLinks: true } } },
+    orderBy: [{ status: "asc" }, { code: "asc" }],
+    take: 200,
+  });
+
+  const hiddenCount = (await prisma.m26KnowledgeItem.count()) - items.length;
+  const dueCount = items.filter(
+    (i) => i.status === "APPROVED" && isDueForReview(i.reviewCycle, i.lastReviewedAt ?? i.approvedAt),
+  ).length;
+  const atRiskCount = items.filter(
+    (i) => i.knowledgeForm === "TRI_THUC_AN" && i.criticality === "CAO" && i._count.holders <= 1,
+  ).length;
+  const indexedCount = items.filter((i) => i.aiIndexed).length;
+
+  return (
+    <div className="flex flex-col gap-8">
+      <div>
+        <p className="text-xs font-medium text-ink-3">M26 · MP26 · Quản lý tri thức tổ chức</p>
+        <h1 className="font-head text-2xl font-bold text-ink">Danh mục tri thức tổ chức</h1>
+        <p className="mt-1 text-sm text-ink-2">
+          Vai trò M26 của bạn:{" "}
+          <strong className="text-ink">{viewer.role ? (M26_ROLE_LABEL[viewer.role] ?? viewer.role) : "Chưa được gán vai trò"}</strong>
+        </p>
+      </div>
+
+      <p className="max-w-3xl rounded-lg border border-border bg-surface px-3 py-2 text-xs text-ink-2">
+        Vận hành theo <strong>Thủ tục ETV.P26</strong> (ban hành lần 01, ngày 23/08/2026) và biểu mẫu F26.01–F26.04. Danh mục này là{" "}
+        <strong>sổ đăng ký</strong>: chỉ lưu tóm tắt và đường dẫn tới nội dung gốc — nội dung thật nằm ở 08_KNOWLEDGE_GRAPH, M14 (tài liệu),
+        M15 (hồ sơ), M05 (thiết bị).
+      </p>
+
+      <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {[
+          { label: "Mục tri thức hiển thị", value: items.length, href: null },
+          { label: "Đến hạn rà soát", value: dueCount, href: "/modules/M26/review-due" },
+          { label: "Rủi ro mất tri thức", value: atRiskCount, href: "/modules/M26/knowledge-risk" },
+          { label: "Trong chỉ mục trợ lý AI", value: indexedCount, href: null },
+        ].map((c) => (
+          <div key={c.label} className="rounded-xl border border-border bg-surface px-4 py-3">
+            <p className="text-xs text-ink-3">{c.label}</p>
+            <p className="mt-1 font-head text-xl font-bold text-ink">{c.value}</p>
+            {c.href && (
+              <Link href={c.href} className="text-xs text-accent hover:underline">
+                Xem chi tiết
+              </Link>
+            )}
+          </div>
+        ))}
+      </section>
+
+      <section className="flex flex-col gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 className="font-head text-sm font-bold text-ink">Mục tri thức</h2>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/modules/M26/lessons" className={navLink}>
+              Bài học kinh nghiệm
+            </Link>
+            <Link href="/modules/M26/needs" className={navLink}>
+              Nhu cầu tri thức
+            </Link>
+            <Link href="/modules/M26/sharing" className={navLink}>
+              Chia sẻ tri thức
+            </Link>
+            <Link href="/modules/M26/knowledge-risk" className={navLink}>
+              Rủi ro mất tri thức
+            </Link>
+            {(viewer.role === "QLCL" || viewer.role === "TP") && (
+              <Link href="/modules/M26/item/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
+                + Thêm mục tri thức
+              </Link>
+            )}
+          </div>
+        </div>
+
+        {hiddenCount > 0 && (
+          <p className="text-xs text-ink-3">
+            {hiddenCount} mục không hiển thị do vượt mức bảo mật của vai trò hiện tại (ETV.P26 mục 5.1.4).
+          </p>
+        )}
+
+        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
+          <table className="w-full min-w-[60rem] text-sm">
+            <thead>
+              <tr>
+                <th className={th}>Mã</th>
+                <th className={th}>Tên mục tri thức</th>
+                <th className={th}>Nhóm</th>
+                <th className={th}>Dạng</th>
+                <th className={th}>Trọng yếu</th>
+                <th className={th}>Bảo mật</th>
+                <th className={th}>Chủ sở hữu</th>
+                <th className={th}>Rà soát</th>
+                <th className={th}>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((i) => {
+                const due = i.status === "APPROVED" && isDueForReview(i.reviewCycle, i.lastReviewedAt ?? i.approvedAt);
+                return (
+                  <tr key={i.id} className="border-b border-border last:border-0 hover:bg-sunk">
+                    <td className="px-3 py-2">
+                      <Link href={`/modules/M26/item/${i.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                        {i.code}
+                      </Link>
+                      {i.version > 1 && <span className="ml-1 text-xs text-ink-3">v{i.version}</span>}
+                    </td>
+                    <td className="px-3 py-2 text-ink">
+                      {i.title}
+                      {i.aiIndexed && <span className="ml-2 text-xs text-good">· AI</span>}
+                    </td>
+                    <td className="px-3 py-2 text-xs text-ink-2">{CATEGORY_LABEL[i.category]}</td>
+                    <td className="px-3 py-2 text-xs text-ink-2">
+                      {KNOWLEDGE_FORM_LABEL[i.knowledgeForm]}
+                      {i.knowledgeForm === "TRI_THUC_AN" && <span className="text-ink-3"> · {i._count.holders} người giữ</span>}
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge label={CRITICALITY_LABEL[i.criticality]} tone={CRITICALITY_TONE[i.criticality]} />
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge label={CONFIDENTIALITY_LABEL[i.confidentiality]} tone={CONFIDENTIALITY_TONE[i.confidentiality]} />
+                    </td>
+                    <td className="px-3 py-2 text-xs text-ink-2">{i.owner.name}</td>
+                    <td className="px-3 py-2 text-xs">
+                      <span className={due ? "text-crit" : "text-ink-2"}>
+                        {REVIEW_CYCLE_LABEL[i.reviewCycle]} · {fmtDate(i.lastReviewedAt ?? i.approvedAt)}
+                        {due && " · quá hạn"}
+                      </span>
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge label={ITEM_STATUS_LABEL[i.status]} tone={ITEM_STATUS_TONE[i.status]} />
+                    </td>
+                  </tr>
+                );
+              })}
+              {items.length === 0 && (
+                <tr>
+                  <td colSpan={9} className="px-3 py-6 text-center text-sm text-ink-3">
+                    Chưa có mục tri thức nào hiển thị với vai trò hiện tại.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -8,5 +8,5 @@
 | Vai trò | QLCL (quản trị danh mục) · TP (chủ sở hữu, soát xét) · LĐV (**phê duyệt mọi mục tri thức**) · Nhân viên (khai thác, đề xuất) |
 | Liên thông | → M01 (rủi ro mất tri thức), M03 (đào tạo), M17, M29 + chỉ mục AI · ← M13, M12, M10, M16, M05, M08, M21, M25 |
 | Nguyên tắc | **Sổ đăng ký, không phải kho nội dung** — nội dung thật nằm ở `08_KNOWLEDGE_GRAPH`, M14, M15, M05 |
-| Triển khai | **Chưa xây** — đã có thủ tục, biểu mẫu và đặc tả (`01_Requirement/DacTa.md`) |
+| Triển khai | **Đã xây Increment 1–11** trên `09_ENGINEERING/aios-platform` (schema, gate, 8 màn hình) — còn hook từ M13/M12/M10/M16 và xuất biểu mẫu |
 | Nhật ký | Mọi thao tác ghi vết: ai, khi nào, nội dung, lý do; mục Hạn chế/Mật ghi cả lượt truy cập |

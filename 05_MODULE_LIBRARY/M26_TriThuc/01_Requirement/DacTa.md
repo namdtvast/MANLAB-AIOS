@@ -103,7 +103,8 @@ là **ba dòng vào/ra** của nó: bài học kinh nghiệm (tri thức sinh ra
 | `required_by` | date | có | Hạn cần có tri thức (thường gắn mốc của module nguồn) |
 | `acquisition_method` | enum | có | Đào tạo nội bộ · Đào tạo bên ngoài · Tuyển dụng (← M03) · Thuê chuyên gia · Mua tài liệu/tiêu chuẩn (← M06) · Nghiên cứu nội bộ · Hợp tác – chuyển giao |
 | `responsible` | ref User | có | Người chịu trách nhiệm bổ sung |
-| `result_ref` | ref `KnowledgeItem` \| ref → M03 | có, khi đóng ở trạng thái Đã đáp ứng | Quy tắc 8 |
+| `target_item_ref` | ref `KnowledgeItem` | có, khi là phiếu chuyển giao theo quy tắc 3 | **Đầu vào** — mục tri thức mà nhu cầu nhằm bổ sung/chuyển giao; gate mục 5.1.6 đếm theo trường này |
+| `result_ref` | ref `KnowledgeItem` \| ref → M03 | có, khi đóng ở trạng thái Đã đáp ứng | **Đầu ra** — quy tắc 8 |
 | `status` | enum: Mở / Đang bổ sung / Đã đáp ứng / Không thực hiện | tự quản lý | "Không thực hiện" bắt buộc lý do + LĐV duyệt |
 
 ### 2.4. `SharingEvent` — Hoạt động chia sẻ tri thức
@@ -291,10 +292,25 @@ hành động khắc phục (M13).
 
 ## 9. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform`
-(`PlatformModule.status = COMING_SOON`). Đặc tả kỹ thuật chi tiết (màn hình, API, tiêu chí chấp
-nhận, NFR) và kế hoạch tăng trưởng theo increment:
-`01_Requirement/_work/20260823-dac-ta-m26/{outcome.md, spec.md, plan.md}`.
+**Đã xây Increment 1–11 trên `09_ENGINEERING/aios-platform`** (ngày 24/08/2026), module chuyển
+`ACTIVE`:
+
+| Vùng | Nội dung |
+|---|---|
+| `prisma/schema.prisma` | 8 model `M26*` + 14 enum; khóa ngoại thật sang M14 (tài liệu), M01 (rủi ro), M03 (hồ sơ đào tạo), M13 (KPH nguồn bài học) |
+| `prisma/migrations/` | `20260823205019_m26_tri_thuc`, `20260823..._m26_need_target_item` — chỉ thêm bảng/cột |
+| `prisma/seed.ts` | `M26` vào `ACTIVE_MODULE_CODES`; 5 mục tri thức phủ đủ nhánh kiểm thử, 2 bài học, 2 nhu cầu, 1 hoạt động chia sẻ; vai trò M26 cho QLCL/TP/LĐV/QTHT/Nhân viên |
+| `src/lib/m26/` | `rules.ts` (toàn bộ gate, thuần hàm) · `actions.ts` (server action + nhật ký) · `labels.ts` · `actor.ts` |
+| `src/app/(platform)/modules/M26/` | 8 màn: danh mục · chi tiết · thêm/sửa mục · đến hạn rà soát · rủi ro mất tri thức · bài học · nhu cầu · chia sẻ |
+
+**Chưa xây**: Increment 12 (hook mềm từ M13/M12/M10/M16 tự sinh bài học — AC13) và Increment 13
+(xuất biểu mẫu F26.01–F26.04, trích xuất báo cáo cho M17), tách PR riêng để revert độc lập. Việc
+nạp/gỡ chỉ mục AI thật ở `08_KNOWLEDGE_GRAPH/09_Embedding, 10_Vector_DB` thuộc M29 — M26 chỉ quản
+cờ `ai_indexed`.
+
+Kết quả kiểm thử 13/14 tiêu chí chấp nhận (AC13 chưa chạy vì thuộc Increment 12):
+`01_Requirement/_work/20260823-dac-ta-m26/verify.md`. Đặc tả kỹ thuật và kế hoạch increment:
+cùng thư mục `_work` (`outcome.md`, `spec.md`, `plan.md`).
 
 ## 10. Quyết định đã chốt và câu hỏi còn mở
 
