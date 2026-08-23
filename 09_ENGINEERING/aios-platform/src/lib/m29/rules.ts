@@ -1,7 +1,15 @@
 // M29 — RBAC + vòng đời phê duyệt, port 1:1 từ
 // 05_MODULE_LIBRARY/M29_AI/08_Source/api/rules.mjs (bản authoritative gốc).
 // KHÔNG đổi hành vi so với bản gốc — chỉ đổi nhãn tiếng Việt trạng thái sang mã enum.
-import type { AIApprovalStatus, AIAStatus, AIPermissionLevel, AIPromptStatus } from "@/generated/prisma/enums";
+import type {
+  AIApprovalStatus,
+  AIAStatus,
+  AIIncidentSeverity,
+  AIIncidentStatus,
+  AIPermissionLevel,
+  AIPromptStatus,
+  AIUnregisteredStatus,
+} from "@/generated/prisma/enums";
 import { ROLE_RANK, TOOL_MIN_ROLE, type M29Role } from "./model";
 
 export type TxResult =
@@ -109,3 +117,99 @@ export function hasToolPermission(role: M29Role | null, tool: { permissionLevel:
   const minRole = TOOL_MIN_ROLE[tool.permissionLevel];
   return (ROLE_RANK[role] ?? 0) >= (ROLE_RANK[minRole] ?? 99);
 }
+
+// ---------- Increment 4 — Phiếu sự cố AI (ETV.P29 mục 5.7.3, 6.3) ----------
+
+export interface IncidentForRules {
+  status: AIIncidentStatus;
+  severity: AIIncidentSeverity;
+  detectedById: string;
+  containmentAction: string;
+  affectsIssuedResult: boolean;
+  sensitiveDataExposed: boolean;
+}
+
+export const incidentTransitions = {
+  /** Mới → Đang xử lý. Bắt buộc đã ghi biện pháp khống chế ("khống chế trước" — P29 5.7.3 bước 1). */
+  start(inc: IncidentForRules, extra: { containmentAction?: string } = {}): TxResult {
+    if (inc.status !== "NEW") return err("BAD_STATE", "Chỉ phiếu Mới mới chuyển sang Đang xử lý được.");
+    const containment = extra.containmentAction ?? inc.containmentAction;
+    if (!containment.trim()) return err("CONTAINMENT_REQUIRED", "Bắt buộc ghi biện pháp khống chế đã thực hiện trước khi chuyển sang Đang xử lý.");
+    return ok("IN_PROGRESS", "Bắt đầu xử lý", null, { containmentAction: containment });
+  },
+
+  submit(inc: IncidentForRules): TxResult {
+    if (inc.status !== "IN_PROGRESS") return err("BAD_STATE", "Chỉ phiếu Đang xử lý mới trình xác nhận được.");
+    return ok("PENDING_CONFIRMATION", "Trình xác nhận");
+  },
+
+  /**
+   * Chờ xác nhận → Đã đóng. Gom đủ 5 ràng buộc của P29 mục 5.7.3:
+   * (1) người phát hiện không tự đóng · (2) sự cố Nghiêm trọng chỉ LĐV (SUPER_ADMIN) đóng ·
+   * (3) Nghiêm trọng/Đáng kể bắt buộc mã KPH · (4) lộ dữ liệu nhạy cảm bắt buộc số phiếu F28.03 ·
+   * (5) ảnh hưởng kết quả đã phát hành bắt buộc mã hồ sơ MP10/MP11.
+   */
+  close(
+    inc: IncidentForRules,
+    user: { id: string; role: M29Role | null },
+    extra: { capRef?: string; f28Ref?: string; issuedResultRef?: string; closureNote?: string } = {}
+  ): TxResult {
+    if (inc.status !== "PENDING_CONFIRMATION") return err("BAD_STATE", "Chỉ phiếu Chờ xác nhận mới đóng được.");
+    if (user.id === inc.detectedById)
+      return err("SELF_CLOSE_FORBIDDEN", "Người phát hiện hoặc liên quan trực tiếp tới sự cố không được kết luận và đóng chính sự cố đó (ETV.P29 mục 5.7.3).");
+    if (inc.severity === "SEVERE" && user.role !== "SUPER_ADMIN")
+      return err("APPROVER_ROLE_REQUIRED", "Sự cố mức Nghiêm trọng chỉ Lãnh đạo Viện (SUPER_ADMIN) được kết luận và đóng.");
+    if ((["SEVERE", "SIGNIFICANT"] as AIIncidentSeverity[]).includes(inc.severity) && !extra.capRef?.trim())
+      return err("CAP_REQUIRED", "Sự cố mức Nghiêm trọng/Đáng kể bắt buộc lập KPH theo ETV.MP13 — nhập mã phiếu KPH.");
+    if (inc.sensitiveDataExposed && !extra.f28Ref?.trim())
+      return err("F28_REQUIRED", "Sự cố có lộ dữ liệu Hạn chế/Mật hoặc dữ liệu cá nhân bắt buộc có số phiếu ETV.P.F28.03 (xử lý đồng thời theo ETV.MP28).");
+    if (inc.affectsIssuedResult && !extra.issuedResultRef?.trim())
+      return err("ISSUED_RESULT_REF_REQUIRED", "Sự cố ảnh hưởng kết quả/chứng chỉ đã phát hành bắt buộc ghi mã hồ sơ đã xử lý theo ETV.MP10/MP11.");
+    return ok("CLOSED", "Đóng sự cố", extra.closureNote ?? null, {
+      capRef: extra.capRef ?? null,
+      f28Ref: extra.f28Ref ?? null,
+      issuedResultRef: extra.issuedResultRef ?? null,
+      closureNote: extra.closureNote ?? null,
+      closedById: user.id,
+    });
+  },
+
+  cancel(inc: IncidentForRules, user: { role: M29Role | null }, extra: { reason?: string } = {}): TxResult {
+    if (inc.status === "CLOSED" || inc.status === "CANCELLED") return err("BAD_STATE", "Phiếu đã kết thúc, không hủy được.");
+    if (user.role !== "SUPER_ADMIN") return err("APPROVER_ROLE_REQUIRED", "Chỉ Lãnh đạo Viện (SUPER_ADMIN) được hủy phiếu sự cố.");
+    if (!extra.reason?.trim()) return err("REASON_REQUIRED", "Hủy phiếu bắt buộc ghi lý do.");
+    return ok("CANCELLED", "Hủy phiếu", extra.reason, { cancelReason: extra.reason });
+  },
+};
+
+// ---------- Increment 4 — Hệ thống AI chưa đăng ký (ETV.P29 mục 5.1.7) ----------
+
+export interface SightingForRules {
+  status: AIUnregisteredStatus;
+  sensitiveData: boolean;
+  incidentId: string | null;
+}
+
+export const unregisteredTransitions = {
+  startRegistering(s: SightingForRules): TxResult {
+    if (s.status !== "OPEN") return err("BAD_STATE", "Chỉ bản ghi Mới phát hiện mới chuyển sang Đang hoàn thiện đăng ký được.");
+    return ok("REGISTERING", "Bắt đầu hoàn thiện hồ sơ đăng ký");
+  },
+
+  /** Đóng bằng "Đã đăng ký" — bắt buộc trỏ tới Agent đã đăng ký thật trong danh mục. */
+  markRegistered(s: SightingForRules, extra: { registeredAgentId?: string } = {}): TxResult {
+    if (s.status === "REGISTERED" || s.status === "DISCONTINUED") return err("BAD_STATE", "Bản ghi đã kết thúc.");
+    if (!extra.registeredAgentId) return err("AGENT_REQUIRED", "Đóng bằng Đã đăng ký bắt buộc chọn Agent tương ứng đã có trong danh mục hệ thống AI.");
+    if (s.sensitiveData && !s.incidentId)
+      return err("INCIDENT_REQUIRED", "Hệ thống AI này đã xử lý dữ liệu Hạn chế/Mật hoặc dữ liệu cá nhân — bắt buộc mở phiếu sự cố (ETV.P29 mục 5.1.7) trước khi đóng bản ghi.");
+    return ok("REGISTERED", "Đã hoàn thiện đăng ký", null, { registeredAgentId: extra.registeredAgentId });
+  },
+
+  discontinue(s: SightingForRules, extra: { reason?: string } = {}): TxResult {
+    if (s.status === "REGISTERED" || s.status === "DISCONTINUED") return err("BAD_STATE", "Bản ghi đã kết thúc.");
+    if (!extra.reason?.trim()) return err("REASON_REQUIRED", "Chấm dứt sử dụng bắt buộc ghi lý do.");
+    if (s.sensitiveData && !s.incidentId)
+      return err("INCIDENT_REQUIRED", "Hệ thống AI này đã xử lý dữ liệu Hạn chế/Mật hoặc dữ liệu cá nhân — bắt buộc mở phiếu sự cố trước khi đóng bản ghi.");
+    return ok("DISCONTINUED", "Chấm dứt sử dụng", extra.reason, { closeReason: extra.reason });
+  },
+};

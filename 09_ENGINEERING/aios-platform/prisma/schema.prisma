@@ -43,6 +43,11 @@ model User {
 
   m29AuditEntries AIAuditLog[]
 
+  m29IncidentDetected     AIIncident[]             @relation("AIIncidentDetected")
+  m29IncidentAssessed     AIIncident[]             @relation("AIIncidentAssessed")
+  m29IncidentClosed       AIIncident[]             @relation("AIIncidentClosed")
+  m29UnregisteredDetected AIUnregisteredSighting[] @relation("AIUnregisteredDetected")
+
   m01RiskCreated  M01RiskItem[] @relation("M01RiskCreated")
   m01RiskReviewed M01RiskItem[] @relation("M01RiskReviewed")
   m01RiskApproved M01RiskItem[] @relation("M01RiskApproved")
@@ -437,6 +442,7 @@ enum AIOpStatus {
   ACTIVE
   DISABLED
   DEPRECATED
+  SUSPENDED
 }
 
 enum AIHealth {
@@ -486,8 +492,9 @@ model AIPlatform {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  tools  AITool[]
-  agents AIAgent[]
+  tools     AITool[]
+  agents    AIAgent[]
+  incidents AIIncident[]
 }
 
 model AIProvider {
@@ -572,16 +579,23 @@ model AIAgent {
   version               Int        @default(1)
   skillIds              String[]   @default([])
   toolIds               String[]   @default([])
+  // Vì sao Agent bị Tạm dừng: "AIA_OVERDUE" (sweep AIA quá hạn — ETV.P29 5.2.3) hoặc
+  // "INCIDENT:<mã phiếu>" (khống chế sự cố Nghiêm trọng — ETV.P29 5.7.3). Phân biệt hai nguyên
+  // nhân này để chỉ tự phục hồi đúng nhánh AIA, xem rules/actions.
+  suspendedReason       String?
+  suspendedAt           DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  platform         AIPlatform           @relation(fields: [platformId], references: [id])
-  model            AIModel?             @relation(fields: [modelId], references: [id])
+  platform         AIPlatform               @relation(fields: [platformId], references: [id])
+  model            AIModel?                 @relation(fields: [modelId], references: [id])
   prompts          AIPrompt[]
   aia              AIImpactAssessment[]
   evaluationSuites AIEvaluationSuite[]
   requests         AIRequest[]
+  incidents        AIIncident[]
+  sightings        AIUnregisteredSighting[]
 }
 
 model AIPrompt {
@@ -748,7 +762,11 @@ model AISecret {
 
 model AIAuditLog {
   id         String   @id @default(cuid())
-  actorId    String
+  // actorId để trống khi hành động do hệ thống thực hiện theo lịch (sweep AIA quá hạn) —
+  // khi đó actorLabel = "SYSTEM". Hệ thống chỉ PHÁT HIỆN theo lịch, không tự kết luận nội dung
+  // đánh giá (DacTa quy tắc 11, ETV.P29 5.2.3).
+  actorId    String?
+  actorLabel String   @default("")
   role       String // vai trò M29 (AI_VIEWER/.../SUPER_ADMIN) của actor TẠI thời điểm hành động
   entityType String
   entityId   String
@@ -758,7 +776,121 @@ model AIAuditLog {
   reason     String?
   at         DateTime @default(now())
 
-  actor User @relation(fields: [actorId], references: [id])
+  actor User? @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M29 Increment 4 — giám sát AIA quá hạn, sự cố AI, AI chưa đăng ký ----------
+// Xây theo ETV.P29 (ban hành 24/8/2026) mục 5.1.7, 5.2.3, 5.7, 6.3 — xem
+// 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260824-m29-giam-sat-su-co/spec.md.
+
+enum AIIncidentSeverity {
+  SEVERE // Nghiêm trọng — ETV.P29 5.7.2
+  SIGNIFICANT // Đáng kể
+  MINOR // Nhẹ
+}
+
+enum AIIncidentKind {
+  WRONG_OUTPUT
+  DATA_LEAK
+  PROMPT_INJECTION
+  PERMISSION_BREACH
+  BIAS
+  SERVICE_DISRUPTION
+  UNREGISTERED_AI
+  OTHER
+}
+
+enum AIIncidentStatus {
+  NEW
+  IN_PROGRESS
+  PENDING_CONFIRMATION
+  CLOSED
+  CANCELLED
+}
+
+enum AIUnregisteredStatus {
+  OPEN
+  REGISTERING
+  REGISTERED
+  DISCONTINUED
+}
+
+// Phiếu sự cố trí tuệ nhân tạo — biểu mẫu ETV.P.F29.04.
+model AIIncident {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "SCAI-YYYY-NNNN"
+
+  severity AIIncidentSeverity
+  kind     AIIncidentKind
+
+  agentId    String?
+  platformId String?
+  traceId    String? // mã AIRequest liên quan (nhật ký suy luận)
+
+  occurredAt   DateTime @default(now())
+  detectedAt   DateTime @default(now())
+  detectedById String
+
+  description       String
+  containmentAction String @default("")
+
+  // Ảnh hưởng kết quả/chứng chỉ ĐÃ PHÁT HÀNH: phần mềm không tự kết luận về hiệu lực kết quả,
+  // chỉ buộc khai báo mã hồ sơ đã xử lý theo ETV.MP10/MP11 (ETV.P29 5.7.3 điểm 4).
+  affectsIssuedResult  Boolean @default(false)
+  issuedResultRef      String?
+  sensitiveDataExposed Boolean @default(false)
+  f28Ref               String? // số phiếu ETV.P.F28.03 (xử lý đồng thời theo ETV.MP28)
+  capRef               String? // mã KPH theo ETV.MP13
+
+  assessedById String?
+  closedById   String?
+  closureNote  String?
+  cancelReason String?
+
+  status AIIncidentStatus @default(NEW)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  agent      AIAgent?    @relation(fields: [agentId], references: [id])
+  platform   AIPlatform? @relation(fields: [platformId], references: [id])
+  detectedBy User        @relation("AIIncidentDetected", fields: [detectedById], references: [id])
+  assessedBy User?       @relation("AIIncidentAssessed", fields: [assessedById], references: [id])
+  closedBy   User?       @relation("AIIncidentClosed", fields: [closedById], references: [id])
+
+  sightings AIUnregisteredSighting[]
+}
+
+// Hệ thống AI phát hiện đang dùng mà chưa đăng ký — ETV.P29 5.1.7, phần 3 biểu mẫu F29.01.
+model AIUnregisteredSighting {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "UAI-YYYY-NNN"
+
+  name         String
+  usedBy       String
+  detectedAt   DateTime @default(now())
+  detectedById String
+
+  dataExposed   String  @default("")
+  sensitiveData Boolean @default(false) // dữ liệu Hạn chế/Mật hoặc dữ liệu cá nhân
+  incidentId    String? // bắt buộc khi sensitiveData = true mới đóng được
+
+  plannedAction String   @default("")
+  dueDate       DateTime // mặc định detectedAt + 15 ngày (ETV.P29 5.1.7)
+
+  registeredAgentId String? // bắt buộc khi đóng bằng REGISTERED
+  closeReason       String? // bắt buộc khi DISCONTINUED
+
+  status AIUnregisteredStatus @default(OPEN)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  detectedBy      User        @relation("AIUnregisteredDetected", fields: [detectedById], references: [id])
+  incident        AIIncident? @relation(fields: [incidentId], references: [id])
+  registeredAgent AIAgent?    @relation(fields: [registeredAgentId], references: [id])
 }
 
 // ---------- M01_RuiRo — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md ----------

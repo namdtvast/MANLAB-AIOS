@@ -9,15 +9,28 @@ import type {
   AIApprovalStatus,
   AIAStatus,
   AIGuardrailAction,
+  AIIncidentKind,
+  AIIncidentSeverity,
+  AIIncidentStatus,
   AIOpStatus,
   AIPermissionLevel,
   AIPromptStatus,
+  AIUnregisteredStatus,
 } from "@/generated/prisma/enums";
 import { getActor, type M29ActorUser } from "./actor";
 import { can } from "./model";
-import { aiaTransitions, approvalTransitions, promptTransitions, validateTool, type TxResult } from "./rules";
+import {
+  aiaTransitions,
+  approvalTransitions,
+  incidentTransitions,
+  promptTransitions,
+  unregisteredTransitions,
+  validateTool,
+  type TxResult,
+} from "./rules";
 import { callTool as gatewayCallTool } from "./gateway";
 import { deploymentGate, runCases } from "./evaluation";
+import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
 import { getAdapter } from "./adapters";
 
 function forbidden(): TxResult {
@@ -33,6 +46,7 @@ async function logAudit(
   await prisma.aIAuditLog.create({
     data: {
       actorId: actor.id,
+      actorLabel: actor.name ?? "",
       role: actor.m29Role ?? "—",
       entityType,
       entityId,
@@ -275,6 +289,25 @@ export async function aiaAction(
     data: { status: result.status as AIAStatus, reviewDate: action === "approve" ? new Date(Date.now() + 180 * 24 * 60 * 60 * 1000) : undefined },
   });
   await logAudit(actor, "aia", id, { field: "status", before, after: result.status, reason: result.reason });
+
+  // Phê duyệt lại AIA → gỡ tạm dừng cho Agent BỊ TẠM DỪNG VÌ AIA QUÁ HẠN. Agent bị tạm dừng vì
+  // sự cố (suspendedReason = "INCIDENT:<mã>") KHÔNG tự phục hồi ở đây — phải mở lại thủ công sau
+  // khi đóng sự cố, tránh việc phê duyệt một hồ sơ khác vô tình gỡ khống chế sự cố.
+  if (action === "approve") {
+    const agent = await prisma.aIAgent.findUnique({ where: { id: rec.agentId } });
+    if (agent && agent.status === "SUSPENDED" && agent.suspendedReason === SUSPEND_REASON_AIA) {
+      await prisma.aIAgent.update({
+        where: { id: agent.id },
+        data: { status: "ACTIVE", suspendedReason: null, suspendedAt: null },
+      });
+      await logAudit(actor, "agents", agent.id, {
+        field: "status",
+        before: "SUSPENDED",
+        after: "ACTIVE",
+        reason: `Gỡ tạm dừng: hồ sơ AIA ${rec.code} đã được phê duyệt lại (ETV.P29 mục 5.2.3).`,
+      });
+    }
+  }
   revalidateM29();
   return result;
 }
@@ -363,18 +396,11 @@ export async function checkHealthAction() {
     });
   }
 
-  const now = new Date();
-  const dueAia = await prisma.aIImpactAssessment.findMany({ where: { status: "APPROVED", reviewDate: { lt: now } } });
-  for (const aia of dueAia) {
-    await prisma.aIImpactAssessment.update({ where: { id: aia.id }, data: { status: "REVIEW_REQUIRED" } });
-    await logAudit(actor, "aia", aia.id, {
-      field: "status",
-      before: "APPROVED",
-      after: "REVIEW_REQUIRED",
-      reason: `Quá hạn rà soát định kỳ (reviewDate=${aia.reviewDate?.toISOString()}) — phát hiện thủ công qua nút "Kiểm tra ngay", không phải AI tự kết luận.`,
-    });
-  }
+  // Sweep AIA quá hạn dùng chung "@/lib/m29/sweep" — nút "Kiểm tra ngay" và cron gọi cùng một
+  // đường, để hành vi tạm dừng Agent không phân nhánh theo cách kích hoạt.
+  const result = await sweepAiaReview();
   revalidateM29();
+  return result;
 }
 
 // ---------- Evaluation ----------
@@ -432,4 +458,186 @@ export async function disableSecret(id: string) {
   await logAudit(actor, "secrets", id, { field: "status", after: "DISABLED", reason: "disable" });
   revalidateM29();
   return rec;
+}
+
+// ---------- Increment 4 — Phiếu sự cố AI (ETV.P.F29.04) ----------
+
+export async function createIncident(input: {
+  severity: AIIncidentSeverity;
+  kind: AIIncidentKind;
+  agentId?: string;
+  platformId?: string;
+  traceId?: string;
+  occurredAt?: Date;
+  description: string;
+  containmentAction?: string;
+  affectsIssuedResult?: boolean;
+  sensitiveDataExposed?: boolean;
+}) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "incidents", "write")) throw new Error("Không đủ quyền.");
+
+  const year = new Date().getFullYear();
+  const seq = (await prisma.aIIncident.count()) + 1;
+  const code = `SCAI-${year}-${String(seq).padStart(4, "0")}`;
+
+  const rec = await prisma.aIIncident.create({
+    data: {
+      code,
+      severity: input.severity,
+      kind: input.kind,
+      agentId: input.agentId || null,
+      platformId: input.platformId || null,
+      traceId: input.traceId || null,
+      occurredAt: input.occurredAt ?? new Date(),
+      detectedById: actor.id,
+      description: input.description,
+      containmentAction: input.containmentAction ?? "",
+      affectsIssuedResult: input.affectsIssuedResult ?? false,
+      sensitiveDataExposed: input.sensitiveDataExposed ?? false,
+    },
+  });
+  await logAudit(actor, "incidents", rec.id, { after: rec, reason: "create" });
+
+  // Khống chế trước khi điều tra (ETV.P29 mục 5.7.3 bước 1): sự cố Nghiêm trọng gắn Agent thì
+  // tạm dừng Agent NGAY trong cùng thao tác, không chờ ai bấm thêm nút nào.
+  if (input.severity === "SEVERE" && rec.agentId) {
+    const agent = await prisma.aIAgent.findUnique({ where: { id: rec.agentId } });
+    if (agent && agent.status === "ACTIVE") {
+      await prisma.aIAgent.update({
+        where: { id: agent.id },
+        data: { status: "SUSPENDED", suspendedReason: `INCIDENT:${rec.code}`, suspendedAt: new Date() },
+      });
+      await logAudit(actor, "agents", agent.id, {
+        field: "status",
+        before: "ACTIVE",
+        after: "SUSPENDED",
+        reason: `Tạm dừng ngay để khống chế sự cố Nghiêm trọng ${rec.code} (ETV.P29 mục 5.7.3).`,
+      });
+    }
+  }
+  revalidateM29();
+  return rec;
+}
+
+export async function incidentAction(
+  id: string,
+  action: "start" | "submit" | "close" | "cancel",
+  extra: { containmentAction?: string; capRef?: string; f28Ref?: string; issuedResultRef?: string; closureNote?: string; reason?: string } = {}
+): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "incidents", "write")) return forbidden();
+  const rec = await prisma.aIIncident.findUniqueOrThrow({ where: { id } });
+
+  const result =
+    action === "start"
+      ? incidentTransitions.start(rec, extra)
+      : action === "submit"
+        ? incidentTransitions.submit(rec)
+        : action === "close"
+          ? incidentTransitions.close(rec, { id: actor.id, role: actor.m29Role }, extra)
+          : incidentTransitions.cancel(rec, { role: actor.m29Role }, extra);
+  if (!result.ok) return result;
+
+  const before = rec.status;
+  await prisma.aIIncident.update({
+    where: { id },
+    data: {
+      status: result.status as AIIncidentStatus,
+      ...(result.patch as Record<string, unknown>),
+      assessedById: action === "start" ? actor.id : undefined,
+    },
+  });
+  await logAudit(actor, "incidents", id, { field: "status", before, after: result.status, reason: result.reason });
+  revalidateM29();
+  return result;
+}
+
+/** Mở lại Agent bị tạm dừng để khống chế sự cố — thao tác có chủ đích của người có thẩm quyền. */
+export async function resumeAgent(agentId: string, reason: string): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+  if (!reason.trim()) return { ok: false, code: "REASON_REQUIRED", message: "Mở lại tác tử bắt buộc ghi lý do." };
+  const agent = await prisma.aIAgent.findUniqueOrThrow({ where: { id: agentId } });
+  if (agent.status !== "SUSPENDED") return { ok: false, code: "BAD_STATE", message: "Chỉ tác tử đang Tạm dừng mới mở lại được." };
+
+  await prisma.aIAgent.update({ where: { id: agentId }, data: { status: "ACTIVE", suspendedReason: null, suspendedAt: null } });
+  await logAudit(actor, "agents", agentId, { field: "status", before: "SUSPENDED", after: "ACTIVE", reason });
+  revalidateM29();
+  return { ok: true, status: "ACTIVE", action: "Mở lại tác tử", reason, patch: {} };
+}
+
+// ---------- Increment 4 — Hệ thống AI chưa đăng ký (ETV.P29 mục 5.1.7) ----------
+
+const SIGHTING_DUE_DAYS = 15;
+
+export async function createSighting(input: {
+  name: string;
+  usedBy: string;
+  dataExposed?: string;
+  sensitiveData?: boolean;
+  plannedAction?: string;
+  incidentId?: string;
+}) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "unregistered", "write")) throw new Error("Không đủ quyền.");
+
+  const year = new Date().getFullYear();
+  const seq = (await prisma.aIUnregisteredSighting.count()) + 1;
+  const code = `UAI-${year}-${String(seq).padStart(3, "0")}`;
+  const detectedAt = new Date();
+
+  const rec = await prisma.aIUnregisteredSighting.create({
+    data: {
+      code,
+      name: input.name,
+      usedBy: input.usedBy,
+      detectedAt,
+      detectedById: actor.id,
+      dataExposed: input.dataExposed ?? "",
+      sensitiveData: input.sensitiveData ?? false,
+      plannedAction: input.plannedAction ?? "",
+      incidentId: input.incidentId || null,
+      dueDate: new Date(detectedAt.getTime() + SIGHTING_DUE_DAYS * 24 * 60 * 60 * 1000),
+    },
+  });
+  await logAudit(actor, "unregistered", rec.id, { after: rec, reason: "create" });
+  revalidateM29();
+  return rec;
+}
+
+export async function linkSightingIncident(id: string, incidentId: string) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "unregistered", "write")) throw new Error("Không đủ quyền.");
+  const rec = await prisma.aIUnregisteredSighting.update({ where: { id }, data: { incidentId } });
+  await logAudit(actor, "unregistered", id, { field: "incidentId", after: incidentId, reason: "Gắn phiếu sự cố" });
+  revalidateM29();
+  return rec;
+}
+
+export async function sightingAction(
+  id: string,
+  action: "start-registering" | "mark-registered" | "discontinue",
+  extra: { registeredAgentId?: string; reason?: string } = {}
+): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "unregistered", "write")) return forbidden();
+  const rec = await prisma.aIUnregisteredSighting.findUniqueOrThrow({ where: { id } });
+
+  const result =
+    action === "start-registering"
+      ? unregisteredTransitions.startRegistering(rec)
+      : action === "mark-registered"
+        ? unregisteredTransitions.markRegistered(rec, extra)
+        : unregisteredTransitions.discontinue(rec, extra);
+  if (!result.ok) return result;
+
+  const before = rec.status;
+  await prisma.aIUnregisteredSighting.update({
+    where: { id },
+    data: { status: result.status as AIUnregisteredStatus, ...(result.patch as Record<string, unknown>) },
+  });
+  await logAudit(actor, "unregistered", id, { field: "status", before, after: result.status, reason: result.reason });
+  revalidateM29();
+  return result;
 }

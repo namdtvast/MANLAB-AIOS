@@ -26,9 +26,16 @@
 | GET/POST | `/api/ai/secrets` | đọc: AI_SECURITY_ADMIN (masked); ghi: AI_SECURITY_ADMIN | Secret registry — đọc luôn trả `masked_value` |
 | GET | `/api/ai/audit-logs` | AI_AUDITOR (read-only) | Audit Log, không có route sửa/xóa |
 | GET | `/api/ai/health` | AI_VIEWER | System Health tổng hợp theo Platform/Provider |
+| GET/POST | `/api/ai/incidents` | AI_OPERATOR (lập) / AI_ADMIN | Phiếu sự cố AI (ETV.P.F29.04); lập phiếu `SEVERE` gắn Agent → tạm dừng Agent ngay |
+| POST | `/api/ai/incidents/{id}/{start\|submit\|close\|cancel}` | đóng `SEVERE`: SUPER_ADMIN; hủy: SUPER_ADMIN | Vòng đời phiếu; ràng buộc khi đóng xem DataModel |
+| GET/POST | `/api/ai/unregistered` | AI_ADMIN | Sổ theo dõi hệ thống AI chưa đăng ký (ETV.P29 mục 5.1.7), hạn xử lý 15 ngày |
+| POST | `/api/m29/sweep` | **không session** — xác thực bằng header `x-m29-sweep-token` | Lịch quét AIA quá hạn cho cron ngoài; chưa cấu hình `M29_SWEEP_TOKEN` → 503, token sai → 401 |
 
 ## Ghi chú triển khai
 
+- `/api/m29/sweep` là route DUY NHẤT nằm ngoài chặn đăng nhập (khai báo trong `src/proxy.ts`),
+  vì lịch quét chạy khi không có người đăng nhập; route tự xác thực bằng token và ghi
+  `AIAuditLog` với `actor_label = SYSTEM`.
 - Không có route DELETE cho `AIRequest`, `AIToolCall`, `AIAuditLog` (append-only theo quy tắc
   nghiệp vụ #2 trong [DacTa.md](../01_Requirement/DacTa.md)).
 - Danh sách Platform (`AIPlatform`) và endpoint quản trị Platform thuộc
