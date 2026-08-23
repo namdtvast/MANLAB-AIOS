@@ -56,6 +56,14 @@ model User {
   m01OppVerified M01OpportunityItem[] @relation("M01OppVerified")
 
   m01AuditEntries M01AuditEntry[]
+
+  m03RecruitmentCreated  M03RecruitmentPlan[]     @relation("M03RecruitmentCreated")
+  m03RecruitmentApproved M03RecruitmentPlan[]     @relation("M03RecruitmentApproved")
+  m03TrainingApproved    M03TrainingRecord[]      @relation("M03TrainingApproved")
+  m03ContractSigned      M03LaborContract[]       @relation("M03ContractSigned")
+  m03ServiceSigned       M03ServiceContract[]     @relation("M03ServiceSigned")
+  m03Terminated          M03ContractTermination[] @relation("M03Terminated")
+  m03AuditEntries        M03AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -818,6 +826,263 @@ model M01AuditEntry {
   ts       DateTime    @default(now())
   actorId  String
   role     String // vai trò M01 (NV/TP_QLCL/LDV) của actor TẠI thời điểm hành động
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M03_NhanSu — xây mới từ 05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01) — logic port từ ETV.P03_NhanSu.md (Đã phê duyệt, lần
+// 03) sang src/lib/m03/rules.ts, xem 01_Requirement/_work/20260823-xay-moi-m03/spec.md để đối
+// chiếu "Quyết định phạm vi" (ProbationReport/ServiceContract rút gọn, EXPIRED derived không cron).
+
+enum M03RecruitmentStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  FULFILLED
+  REJECTED
+}
+
+enum M03EmploymentType {
+  CHINHTHUC
+  THUVIEC
+  THUCTAP
+  HDDV
+}
+
+enum M03EmployeeStatus {
+  THUVIEC
+  CHINHTHUC
+  DANGHIVIEC
+}
+
+enum M03TrainingPlanType {
+  BAN_DAU
+  DINH_KY
+  BO_SUNG
+}
+
+enum M03TrainingResult {
+  DAT
+  CHUA_DAT
+  BO_SUNG
+}
+
+enum M03TrainingStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  NEEDS_SUPPLEMENT
+}
+
+enum M03ContractType {
+  THOIVU
+  KHONGTHOIHAN
+  THUVIEC
+  THUCTAP
+}
+
+enum M03ContractStatus {
+  DRAFT
+  PENDING_SIGN
+  ACTIVE
+  TERMINATED
+}
+
+enum M03ServiceType {
+  CHUYENMON
+  PHOTHONG
+}
+
+enum M03ServiceStatus {
+  DRAFT
+  ACTIVE
+  TERMINATED
+}
+
+enum M03TerminationContractType {
+  LABOR
+  SERVICE
+}
+
+enum M03ItemType {
+  RECRUITMENT
+  TRAINING_RECORD
+  LABOR_CONTRACT
+  SERVICE_CONTRACT
+  TERMINATION
+}
+
+model M03RecruitmentPlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "TD-2026-0001"
+
+  position    String
+  department  String
+  headcount   Int                  @default(1)
+  requirement String
+  status      M03RecruitmentStatus @default(DRAFT)
+  reason      String?
+
+  createdById  String
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User          @relation("M03RecruitmentCreated", fields: [createdById], references: [id])
+  approvedBy User?         @relation("M03RecruitmentApproved", fields: [approvedById], references: [id])
+  employees  M03Employee[]
+}
+
+model M03Employee {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "NS-2026-0001"
+
+  fullName              String
+  position              String
+  department            String
+  employmentType        M03EmploymentType
+  hireDate              DateTime
+  status                M03EmployeeStatus @default(THUVIEC)
+  securityCommitmentRef String            @default("") // tham chiếu tự do M02 — chưa có backend thật
+
+  recruitmentPlanId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  recruitmentPlan  M03RecruitmentPlan?  @relation(fields: [recruitmentPlanId], references: [id])
+  trainingPlans    M03TrainingPlan[]
+  trainingRecords  M03TrainingRecord[]
+  laborContracts   M03LaborContract[]
+  serviceContracts M03ServiceContract[]
+}
+
+model M03TrainingPlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "DT-2026-0001"
+
+  employeeId String
+  planType   M03TrainingPlanType
+  content    String[] // ≥8 nội dung bắt buộc nếu BAN_DAU — validate ở rules.ts
+  trainer    String
+  status     String              @default("DRAFT") // DRAFT / APPROVED — đơn giản, không phải state machine chính
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  employee M03Employee         @relation(fields: [employeeId], references: [id])
+  records  M03TrainingRecord[]
+}
+
+model M03TrainingRecord {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "PT-2026-0001"
+
+  trainingPlanId String
+  employeeId     String
+
+  // 6 điều kiện đồng thời — DacTa.md quy tắc 3
+  c1AttendedAllContent Boolean @default(false)
+  c2FollowedRules      Boolean @default(false)
+  c3CanPerformWork     Boolean @default(false)
+  c4RecordsComplete    Boolean @default(false)
+  c5AssessmentPassed   Boolean @default(false)
+  c6EvidenceSufficient Boolean @default(false)
+
+  assessmentMethod String?
+  evidence         String?
+  result           M03TrainingResult?
+  status           M03TrainingStatus  @default(DRAFT)
+  reason           String?
+
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  trainingPlan M03TrainingPlan @relation(fields: [trainingPlanId], references: [id])
+  employee     M03Employee     @relation(fields: [employeeId], references: [id])
+  approvedBy   User?           @relation("M03TrainingApproved", fields: [approvedById], references: [id])
+}
+
+model M03LaborContract {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HDLD-2026-0001"
+
+  employeeId   String
+  contractType M03ContractType
+  duration     String?
+  salary       Int?
+  bhxhInfo     String?
+  status       M03ContractStatus @default(DRAFT)
+
+  effectiveDate  DateTime?
+  expiryDate     DateTime?
+  renewalHistory Json? // mảng snapshot mỗi lần gia hạn — mirror M21 phienBanCu
+
+  signedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  employee M03Employee @relation(fields: [employeeId], references: [id])
+  signedBy User?       @relation("M03ContractSigned", fields: [signedById], references: [id])
+}
+
+model M03ServiceContract {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HDDV-2026-0001"
+
+  employeeId  String
+  serviceType M03ServiceType
+  duration    String?
+  fee         Int?
+  status      M03ServiceStatus @default(DRAFT)
+
+  signedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  employee M03Employee @relation(fields: [employeeId], references: [id])
+  signedBy User?       @relation("M03ServiceSigned", fields: [signedById], references: [id])
+}
+
+model M03ContractTermination {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "TL-2026-0001"
+
+  contractType    M03TerminationContractType
+  contractId      String // trỏ tự do vào M03LaborContract.id hoặc M03ServiceContract.id
+  reason          String
+  securityRevoked Boolean                    @default(false)
+  bhxhSettled     Boolean                    @default(false)
+
+  terminatedById String
+
+  createdAt DateTime @default(now())
+
+  terminatedBy User @relation("M03Terminated", fields: [terminatedById], references: [id])
+}
+
+model M03AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M03ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
   action   String
   reason   String?
 

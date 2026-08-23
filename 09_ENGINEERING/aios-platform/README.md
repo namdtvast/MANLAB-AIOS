@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 (khung 38 module + M10/M21/M29 di trú + M01 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 (khung 38 module + M10/M21/M29 di trú + M01/M03 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -103,6 +103,31 @@ Chi tiết đầy đủ + evidence verify:
 - ❌ **Chưa có**: menu Báo cáo (F01.03 — biểu đồ/xuất PDF-Excel), luồng "Trả lại" chưa click qua
   UI thật (chỉ verify qua code), self-review-forbidden chưa có tình huống demo để click thử.
 
+## Trạng thái Increment 5 — xây mới M03_NhanSu (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260823-xay-moi-m03/verify.md`](../../05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260823-xay-moi-m03/verify.md).
+
+Giống M01 (xây mới từ `DacTa.md`, không di trú `08_Source`). Phạm vi rộng hơn M01: 7 loại đối
+tượng dữ liệu (RecruitmentPlan/Employee/TrainingPlan/TrainingRecord/LaborContract/ServiceContract/
+ContractTermination) nhưng chỉ 4 loại có workflow đầy đủ trong Increment này.
+
+- ✅ Luồng tuyển dụng → nhân sự: `RecruitmentPlan` (Nháp→Chờ duyệt→Đã duyệt→Đã tuyển, tạo
+  `Employee` tự động) với 2 gate vai trò (LĐV-only phê duyệt, VanPhong/TP-only đánh dấu Đã tuyển).
+- ✅ **Trọng tâm**: gate 6 điều kiện hoàn thành đào tạo (`TrainingRecord`, quy tắc 3 ETV.P03) —
+  LĐV bị chặn cứng ở server nếu thiếu bất kỳ 1/6 điều kiện, dù có bấm nút Phê duyệt; luồng
+  "Yêu cầu bổ sung" → sửa → gửi lại → phê duyệt đã verify đầy đủ qua Browser.
+- ✅ Side-effect tự động: `Employee.status` chuyển Chính thức khi đào tạo Đạt; chuyển Đã nghỉ
+  việc khi chấm dứt HĐLĐ.
+- ✅ Gate chấm dứt hợp đồng lao động — bắt buộc tick "đã thu hồi quyền truy cập bảo mật" (phối
+  hợp M02) trước khi cho xác nhận, đúng quy tắc 7 DacTa.
+- ✅ Hợp đồng dịch vụ (soạn + ký) đã verify; gia hạn HĐLĐ và chấm dứt HĐDV **chưa** verify qua UI.
+- ⚠️ 2 "Quyết định phạm vi" (rút gọn ProbationReport/ServiceContract, EXPIRED derived không cron)
+  — chưa được LĐP xác nhận chính thức, xem DacTa.md mục 6.
+- ⚠️ Phát hiện 1 gate còn thiếu khi VERIFY (nội dung đào tạo Ban đầu chưa validate ≥8 mục) — đã
+  sửa ngay trong cùng increment trước khi merge, xem verify.md mục 5.
+- ❌ Chưa có UI riêng cho `ContractTermination` (chỉ tạo ngầm trong transaction).
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -151,4 +176,5 @@ src/lib/m10/            Rule engine + actor/actions M10 (Increment 1)
 src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
 src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
 src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
+src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
 ```

@@ -81,4 +81,26 @@ Quy trình: MP03 · Năng lực: CAP-03_NhanSu · Thủ tục gốc: `ETV.P03_Nh
 Liên quan: M02 (cam kết bảo mật khi tuyển dụng/thu hồi khi thôi việc), M10 (theo dõi năng lực
 nhân sự PTN), M06 (đánh giá nhà cung cấp đào tạo bên ngoài — F06.01/F06.02) · Căn cứ: ISO 9001
 §7.1.2/§7.2, ISO/IEC 17025 §6.2, Bộ luật Lao động 45/2019/QH14, NĐ 145/2020/NĐ-CP, Luật BHXH
+
+## 6. Triển khai thật (Increment 5, aios-platform)
+
+Đã xây thành CRUD + 4 state machine thật trong `09_ENGINEERING/aios-platform` (Prisma + Next.js),
+không có `08_Source` nguyên mẫu (giống M01, khác M10/M21/M29 là di trú). Chi tiết đầy đủ + bằng
+chứng VERIFY: `01_Requirement/_work/20260823-xay-moi-m03/{spec.md, plan.md, verify.md}`.
+
+**Phạm vi Increment 5** — chỉ 4/7 entity DacTa.md có workflow đầy đủ (`RecruitmentPlan`,
+`Employee`, `TrainingPlan`/`TrainingRecord`, `LaborContract`); `ServiceContract` rút gọn (CRUD +
+Đang soạn/Đang hiệu lực/Đã chấm dứt, không có luồng gia hạn nhiều bước); `ProbationReport` không
+có model/UI riêng (nội dung gộp vào luồng `TrainingRecord`); `ContractTermination` chỉ tạo ngầm
+trong transaction khi chấm dứt hợp đồng, chưa có UI xem lại riêng — **2 quyết định này cần LĐP
+xác nhận lại** (không phải điều `ETV.P03` quy định tường minh, xem spec.md).
+
+Trọng tâm kỹ thuật: **gate 6 điều kiện hoàn thành đào tạo** (quy tắc 3) chặn cứng ở server — LĐV
+không thể phê duyệt Đạt nếu thiếu bất kỳ 1/6 điều kiện, đã xác nhận qua Browser thật (không chỉ
+ẩn nút UI). Side-effect tự động: `Employee.status` chuyển "Chính thức" khi đào tạo Đạt, chuyển
+"Đã nghỉ việc" khi chấm dứt HĐLĐ.
+
+Vai trò module: `NV`(chưa dùng ở Increment 5), `TP`, `QLCL`(chưa dùng), `QLKT`(chưa dùng),
+`VANPHONG`, `NGUOIHUONGDAN`, `LDV` — dùng lại 3 tài khoản demo M01/M10 (nth→NGUOIHUONGDAN,
+ldp→TP, ldv→LDV) + 1 tài khoản mới `vanphong@manlab.vn`.
 41/2024/QH15.

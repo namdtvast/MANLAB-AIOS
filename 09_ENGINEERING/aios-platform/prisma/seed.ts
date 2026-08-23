@@ -19,7 +19,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 
 // Module đã xây thật trong aios-platform (di trú từ 08_Source hoặc xây mới từ DacTa.md — xem
 // DEPLOYMENT.md). M01 xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (Increment 4).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M10", "M21", "M29"]);
+// M03 xây mới từ 05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md (Increment 5).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M03", "M10", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -92,6 +93,7 @@ async function main() {
   await seedM21();
   await seedM29();
   await seedM01();
+  await seedM03();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -649,6 +651,206 @@ async function seedM01() {
   }
 
   console.log(`Đã nạp 3 hồ sơ Rủi ro + 1 Cơ hội demo M01 + vai trò M01 cho ${Object.keys(M01_ROLE_EMAILS).length} tài khoản.`);
+}
+
+// M03 — xây mới từ 05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md (không có 08_Source
+// nguyên mẫu, giống M01). Dùng lại nth/ldp/ldv (NguoiHuongDan/TP/LDV — gần nghĩa nhất trong 3 tài
+// khoản đã có) + tạo mới 1 tài khoản vanphong@manlab.vn cho vai trò VANPHONG.
+const M03_ROLE_EMAILS: Record<string, string> = {
+  NGUOIHUONGDAN: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM03() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+
+  for (const [role, email] of Object.entries(M03_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M03", role } },
+      create: { userId: user.id, moduleCode: "M03", role },
+      update: {},
+    });
+  }
+
+  const vanPhong = await prisma.user.upsert({
+    where: { email: "vanphong@manlab.vn" },
+    create: { email: "vanphong@manlab.vn", name: "Ngô Thị Văn Phòng", role: "MEMBER", passwordHash },
+    update: {},
+  });
+  await prisma.moduleRoleAssignment.upsert({
+    where: { userId_moduleCode_role: { userId: vanPhong.id, moduleCode: "M03", role: "VANPHONG" } },
+    create: { userId: vanPhong.id, moduleCode: "M03", role: "VANPHONG" },
+    update: {},
+  });
+  userByRole["VANPHONG"] = vanPhong;
+
+  const existing = await prisma.m03RecruitmentPlan.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const tp = userByRole["TP"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+
+  // 1. Đề xuất tuyển dụng đã Fulfilled → nhân sự đã đào tạo đạt + đã ký HĐLĐ
+  const plan1 = await prisma.m03RecruitmentPlan.create({
+    data: {
+      code: `TD-${year}-0001`,
+      position: "Kỹ thuật viên hiệu chuẩn",
+      department: "Phòng Đo lường Chất lượng",
+      headcount: 1,
+      requirement: "Tốt nghiệp Đại học chuyên ngành Đo lường/Vật lý kỹ thuật, ưu tiên có kinh nghiệm hiệu chuẩn.",
+      status: "APPROVED",
+      createdById: tp.id,
+      approvedById: ldv.id,
+    },
+  });
+  await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan1.id, actorId: tp.id, role: "TP", action: "Tạo đề xuất tuyển dụng" } });
+  await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan1.id, actorId: ldv.id, role: "LDV", action: "Phê duyệt đề xuất tuyển dụng" } });
+
+  const emp1 = await prisma.m03Employee.create({
+    data: {
+      code: `NS-${year}-0001`,
+      fullName: "Nguyễn Văn An",
+      position: "Kỹ thuật viên hiệu chuẩn",
+      department: "Phòng Đo lường Chất lượng",
+      employmentType: "THUVIEC",
+      hireDate: new Date(`${year}-01-15`),
+      status: "CHINHTHUC",
+      recruitmentPlanId: plan1.id,
+    },
+  });
+  await prisma.m03RecruitmentPlan.update({ where: { id: plan1.id }, data: { status: "FULFILLED" } });
+  await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan1.id, actorId: tp.id, role: "TP", action: `Đã tuyển — tạo hồ sơ nhân sự ${emp1.code}` } });
+
+  const trainingPlan1 = await prisma.m03TrainingPlan.create({
+    data: {
+      code: `DT-${year}-0001`,
+      employeeId: emp1.id,
+      planType: "BAN_DAU",
+      content: [
+        "Nhận thức hệ thống quản lý",
+        "Nội quy lao động",
+        "Bảo mật thông tin",
+        "An toàn lao động",
+        "Mô tả công việc",
+        "Chuyên môn kỹ thuật",
+        "Hướng dẫn biểu mẫu/phần mềm ManLab",
+        "Thực hành có giám sát",
+      ],
+      trainer: "Trần Thị Hoa (TP)",
+      status: "APPROVED",
+    },
+  });
+  const trainingRecord1 = await prisma.m03TrainingRecord.create({
+    data: {
+      code: `PT-${year}-0001`,
+      trainingPlanId: trainingPlan1.id,
+      employeeId: emp1.id,
+      c1AttendedAllContent: true,
+      c2FollowedRules: true,
+      c3CanPerformWork: true,
+      c4RecordsComplete: true,
+      c5AssessmentPassed: true,
+      c6EvidenceSufficient: true,
+      assessmentMethod: "Bài kiểm tra thực hành + phỏng vấn",
+      evidence: "Bài kiểm tra đạt 9/10 điểm, biên bản giám sát thực hành đính kèm.",
+      result: "DAT",
+      status: "APPROVED",
+      approvedById: ldv.id,
+    },
+  });
+  await prisma.m03AuditEntry.create({ data: { itemType: "TRAINING_RECORD", itemId: trainingRecord1.id, actorId: tp.id, role: "NGUOIHUONGDAN", action: "Tạo phiếu theo dõi kết quả đào tạo" } });
+  await prisma.m03AuditEntry.create({
+    data: { itemType: "TRAINING_RECORD", itemId: trainingRecord1.id, actorId: ldv.id, role: "LDV", action: "Phê duyệt — hoàn thành đào tạo (đủ 6/6 điều kiện)" },
+  });
+
+  const contract1 = await prisma.m03LaborContract.create({
+    data: {
+      code: `HDLD-${year}-0001`,
+      employeeId: emp1.id,
+      contractType: "THOIVU",
+      duration: "12 tháng",
+      salary: 12000000,
+      bhxhInfo: "Đã đăng ký BHXH bắt buộc",
+      status: "ACTIVE",
+      effectiveDate: new Date(`${year}-02-01`),
+      expiryDate: new Date(`${year + 1}-01-31`),
+      signedById: ldv.id,
+    },
+  });
+  await prisma.m03AuditEntry.create({ data: { itemType: "LABOR_CONTRACT", itemId: contract1.id, actorId: tp.id, role: "TP", action: "Soạn hợp đồng lao động" } });
+  await prisma.m03AuditEntry.create({ data: { itemType: "LABOR_CONTRACT", itemId: contract1.id, actorId: ldv.id, role: "LDV", action: "Ký hợp đồng" } });
+
+  // 2. Nhân sự thử việc đang đào tạo — thiếu 1/6 điều kiện (demo gate LĐV bị chặn approve)
+  const emp2 = await prisma.m03Employee.create({
+    data: {
+      code: `NS-${year}-0002`,
+      fullName: "Trần Thị Bích",
+      position: "Nhân viên hành chính",
+      department: "Văn phòng",
+      employmentType: "THUVIEC",
+      hireDate: new Date(`${year}-06-01`),
+      status: "THUVIEC",
+    },
+  });
+  const trainingPlan2 = await prisma.m03TrainingPlan.create({
+    data: {
+      code: `DT-${year}-0002`,
+      employeeId: emp2.id,
+      planType: "BAN_DAU",
+      content: [
+        "Nhận thức hệ thống quản lý",
+        "Nội quy lao động",
+        "Bảo mật thông tin",
+        "An toàn lao động",
+        "Mô tả công việc",
+        "Chuyên môn kỹ thuật",
+        "Hướng dẫn biểu mẫu/phần mềm ManLab",
+        "Thực hành có giám sát",
+      ],
+      trainer: "Trần Thị Hoa (TP)",
+      status: "DRAFT",
+    },
+  });
+  const trainingRecord2 = await prisma.m03TrainingRecord.create({
+    data: {
+      code: `PT-${year}-0002`,
+      trainingPlanId: trainingPlan2.id,
+      employeeId: emp2.id,
+      c1AttendedAllContent: true,
+      c2FollowedRules: true,
+      c3CanPerformWork: true,
+      c4RecordsComplete: true,
+      c5AssessmentPassed: false, // thiếu điều kiện 5 — demo gate
+      c6EvidenceSufficient: true,
+      assessmentMethod: "Bài kiểm tra thực hành",
+      evidence: "Biên bản giám sát thực hành đính kèm, chờ kết quả bài kiểm tra chính thức.",
+      status: "PENDING_APPROVAL",
+    },
+  });
+  await prisma.m03AuditEntry.create({ data: { itemType: "TRAINING_RECORD", itemId: trainingRecord2.id, actorId: tp.id, role: "NGUOIHUONGDAN", action: "Tạo phiếu theo dõi kết quả đào tạo" } });
+  await prisma.m03AuditEntry.create({ data: { itemType: "TRAINING_RECORD", itemId: trainingRecord2.id, actorId: tp.id, role: "NGUOIHUONGDAN", action: "Gửi duyệt kết quả đào tạo" } });
+
+  // 3. Đề xuất tuyển dụng đang chờ duyệt — demo luồng RecruitmentPlan qua UI
+  const plan2 = await prisma.m03RecruitmentPlan.create({
+    data: {
+      code: `TD-${year}-0002`,
+      position: "Nhân viên quản lý chất lượng",
+      department: "Phòng Đo lường Chất lượng",
+      headcount: 1,
+      requirement: "Tốt nghiệp Đại học, hiểu biết ISO/IEC 17025, ưu tiên đã có chứng chỉ đánh giá viên nội bộ.",
+      status: "PENDING_APPROVAL",
+      createdById: tp.id,
+    },
+  });
+  await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan2.id, actorId: tp.id, role: "TP", action: "Tạo đề xuất tuyển dụng" } });
+  await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan2.id, actorId: tp.id, role: "TP", action: "Gửi duyệt" } });
+
+  console.log(`Đã nạp 2 đề xuất tuyển dụng + 2 hồ sơ nhân sự + 2 phiếu đào tạo + 1 HĐLĐ demo M03 + vai trò M03 cho ${Object.keys(userByRole).length} tài khoản.`);
 }
 
 main()
