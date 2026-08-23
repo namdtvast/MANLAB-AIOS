@@ -69,3 +69,24 @@ Liên quan: M03 (đào tạo an toàn ban đầu), M05 (thiết bị/chuẩn đo
 (thông số môi trường ghi vào biên bản đo lường) · Căn cứ: ISO 9001 §7.1.3/§7.1.4, ISO/IEC 17025
 §6.3, Luật ATVSLĐ 84/2015/QH13, Luật Bảo vệ môi trường 72/2020/QH14, QCVN 03:2011/BLĐTBXH, QCVN
 18:2004/BXD.
+
+## 6. Triển khai thật (Increment 7, aios-platform)
+
+Đã xây thành CRUD + 2 gate nghiệp vụ thật trong `09_ENGINEERING/aios-platform` (Prisma +
+Next.js), không có `08_Source` nguyên mẫu (giống M01/M02/M03). Chi tiết đầy đủ + bằng chứng
+VERIFY: `01_Requirement/_work/20260823-xay-moi-m04/{spec.md, plan.md, verify.md}`.
+
+**Quyết định phạm vi cần LĐP xác nhận lại**:
+1. Gộp `EnvironmentLog`/`ChemicalCabinetLog`/`EquipmentCabinetLog` thành **1 model
+   `M04ConditionLog`** với field `logType` — đúng theo gợi ý "cấu trúc chung" đã có sẵn ở mục 2.1
+   phía trên, không phải cắt giảm phạm vi.
+2. Bảng cấu hình ngưỡng `M04AreaSpec` chỉ seed **4 khu vực mẫu minh họa** (Phòng đo áp suất, Kho
+   hóa chất, Kho thiết bị, Phòng hiệu chuẩn chung) — **không phải danh mục đầy đủ Phụ lục II
+   thật**; DacTa.md chưa transcribe chi tiết toàn bộ Phụ lục II nên chưa thể seed đủ.
+
+Gate chính đã verify thật qua Browser: `M04ConditionLog.withinSpec` tự tính hoàn toàn ở server
+(không nhận từ client), bắt buộc biện pháp xử lý khi vượt ngưỡng (quy tắc 2); `M04FieldWorkPlan`
+mức Rủi ro cao chỉ LĐV được phê duyệt, TP bị chặn đúng thông báo (quy tắc 5).
+
+Vai trò module: `NV`, `TP`, `LDV` — dùng lại 3 tài khoản demo M01/M02/M03, không tạo tài khoản
+mới. `QLKT`/`QLCL` chưa có action riêng trong Increment 7.
