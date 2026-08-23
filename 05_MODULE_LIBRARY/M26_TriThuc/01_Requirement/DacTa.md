@@ -1,17 +1,15 @@
 # M26_TriThuc — Đặc tả yêu cầu
 
-> **Nguồn và giới hạn nguồn**: **chưa có Thủ tục `ETV.P26`** trong `03_MANAGEMENT_SYSTEM/02_P/` và
-> **chưa có biểu mẫu `F26.xx`** trong `06_SHARED_RESOURCES/01_Forms/` (0/0). Căn cứ duy nhất đã ban
-> hành là Sổ tay chất lượng `03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md` **§9.3 Quản lý
-> tri thức tổ chức** — mục này chỉ nêu nguyên tắc (thu thập · lưu giữ · chia sẻ · cập nhật · khai
-> thác) và **dẫn chiếu tới "Thủ tục ETV.MP26"** như một tài liệu sẽ ban hành. Vì vậy đặc tả này
-> **suy dẫn** từ QM §9.3 + yêu cầu tiêu chuẩn (ISO 9001 §7.1.6, ISO/IEC 17025 §6.2 và §8.5,
-> ISO/IEC 27001 §7.4/§8.1 và A.5.9–A.5.12, ISO/IEC 42001 §7.1/§7.4, ISO 17034) + khuôn mẫu đã dùng
-> ở các module cùng họ quản trị (M14, M15, M25).
+> **Nguồn**: Thủ tục **`ETV.P26` — Quản lý tri thức tổ chức** đã **ban hành lần 01 ngày 23/08/2026**
+> (`03_MANAGEMENT_SYSTEM/02_P/ETV.P26_QuanLyTriThuc.md`) cùng bộ biểu mẫu **`ETV.P.F26.01–F26.04`**
+> trong `06_SHARED_RESOURCES/01_Forms/`. Căn cứ cấp trên: Sổ tay chất lượng
+> `03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md` **§9.3 Quản lý tri thức tổ chức**; tiêu
+> chuẩn áp dụng: ISO 9001 §7.1.6, ISO/IEC 17025 §6.2 và §8.5, ISO 17034, ISO/IEC 27001 §7.4 và
+> A.5.9–A.5.12, ISO/IEC 42001 §7.1/§7.4/§8.1.
 >
-> Mọi quy tắc **không** đọc được trực tiếp từ văn bản đã ban hành đều được đánh dấu `[SUY DẪN]` —
-> phải được LĐV/QLCL xác nhận và **ban hành chính thức `ETV.P26` + bộ biểu mẫu F26.xx theo MP14**
-> trước khi BUILD. Xem danh sách câu hỏi cần chốt ở mục 10.
+> Các giả định `[SUY DẪN]` của bản đặc tả trước đã được LĐV/QLCL chốt và đưa vào thủ tục ban hành
+> (xem mục 10). **Thủ tục là nguồn sự thật**: nếu đặc tả lệch thủ tục thì sửa đặc tả, không sửa
+> ngược lại.
 
 ## 1. Mục tiêu module
 
@@ -44,7 +42,7 @@ Bốn thực thể nghiệp vụ + nhật ký. Trục chính là `KnowledgeItem`
 là **ba dòng vào/ra** của nó: bài học kinh nghiệm (tri thức sinh ra từ thực tiễn), nhu cầu tri thức
 (tri thức còn thiếu), hoạt động chia sẻ (tri thức được lan tỏa).
 
-| Đối tượng | Mô tả | Biểu mẫu đề xuất (chưa ban hành) |
+| Đối tượng | Mô tả | Biểu mẫu áp dụng (đã ban hành 23/08/2026) |
 |---|---|---|
 | `KnowledgeItem` | Mục tri thức trong danh mục tri thức tổ chức | F26.01 — Danh mục tri thức tổ chức |
 | `LessonLearned` | Bài học kinh nghiệm rút ra từ một sự việc cụ thể | F26.02 — Phiếu bài học kinh nghiệm |
@@ -142,7 +140,7 @@ Nguyên tắc tách vai trò: **người lập ≠ người phê duyệt** — t
 
 ## 4. Danh mục chuẩn
 
-### 4.1. Phân nhóm tri thức (`category`) `[SUY DẪN]`
+### 4.1. Phân nhóm tri thức (`category`) — ETV.P26 mục 5.1.1
 
 | Nhóm | Ví dụ tại Viện | Nội dung thật thường nằm ở |
 |---|---|---|
@@ -162,7 +160,7 @@ Nguyên tắc tách vai trò: **người lập ≠ người phê duyệt** — t
 | **Tri thức hiện** (tường minh) | Đã được ghi lại thành tài liệu/dữ liệu | Bắt buộc `source_ref` hoặc `doc_ref` (quy tắc 1, 2) |
 | **Tri thức ẩn** (kinh nghiệm cá nhân) | Nằm ở con người, chưa văn bản hóa | Bắt buộc `holders[]` ≥ 1; `criticality = Cao` + 1 người giữ ⇒ quy tắc 3 |
 
-### 4.3. Mức trọng yếu (`criticality`) và hành động yêu cầu `[SUY DẪN]`
+### 4.3. Mức trọng yếu (`criticality`) và hành động yêu cầu — ETV.P26 mục 5.1.3
 
 | Mức | Ý nghĩa | Hành động bắt buộc |
 |---|---|---|
@@ -185,15 +183,19 @@ M26 **không** định nghĩa thang riêng (quy tắc 9). Nếu M27 ban hành th
    `summary` (vi phạm nguyên tắc một nguồn sự thật, và có thể vi phạm bản quyền tiêu chuẩn).
 2. **Tài liệu kiểm soát do M14 giữ quyền**: khi mục tri thức là tài liệu kiểm soát, bắt buộc
    `doc_ref` → M14; M26 **không** tự đánh phiên bản, **không** phê duyệt nội dung tài liệu đó. Tài
-   liệu ở M14 chuyển Hết hiệu lực ⇒ mục tri thức tương ứng tự gắn cờ **Cần rà soát**. `[SUY DẪN]`
+   liệu ở M14 chuyển Hết hiệu lực ⇒ mục tri thức tương ứng tự gắn cờ **Cần rà soát**
+   (ETV.P26 mục 5.1.8).
 3. **Không để tri thức trọng yếu nằm ở một người**: mục có `knowledge_form = Tri thức ẩn`,
    `criticality = Cao` và `holders` chỉ **một** người ⇒ phải có ≥ 1 liên kết rủi ro sang **M01** và
    ≥ 1 `KnowledgeNeed` với `acquisition_method` mang tính chuyển giao (kèm cặp/đào tạo nội bộ/văn
-   bản hóa) trước khi được phê duyệt — hệ thống **chặn** phê duyệt. `[SUY DẪN]`
-4. **Rà soát định kỳ**: mọi mục Đã phê duyệt phải rà soát theo `review_cycle`. Quá hạn ⇒ gắn cờ
-   **Đến hạn rà soát** (tính khi đọc từ `last_reviewed_at` + `review_cycle`, **không** lưu cột
-   riêng) và cảnh báo `owner`; quá **2 chu kỳ** ⇒ cảnh báo LĐV. Hệ thống **không** tự chuyển mục
-   sang Hết hiệu lực — quyết định lỗi thời là của con người. `[SUY DẪN]`
+   bản hóa) trước khi được phê duyệt — hệ thống **chặn cứng** thao tác phê duyệt
+   (ETV.P26 mục 5.1.6, đã chốt là chặn cứng chứ không phải cảnh báo mềm).
+4. **Rà soát định kỳ**: mọi mục Đã phê duyệt phải rà soát theo `review_cycle`, mặc định theo mức
+   trọng yếu — **Cao ≤ 1 năm · Trung bình 2 năm · Thấp theo sự kiện** (6 tháng cho tri thức thay đổi
+   nhanh: pháp luật, công nghệ, AI). Quá hạn ⇒ gắn cờ **Đến hạn rà soát** (tính khi đọc từ
+   `last_reviewed_at` + `review_cycle`, **không** lưu cột riêng) và cảnh báo `owner`; quá **2 chu
+   kỳ** ⇒ cảnh báo LĐV. Hệ thống **không** tự chuyển mục sang Hết hiệu lực — quyết định lỗi thời là
+   của con người (ETV.P26 mục 5.1.5).
 5. **Cập nhật là tạo phiên bản mới**: mục đã phê duyệt **không sửa đè**. Muốn thay đổi nội dung ⇒
    tạo phiên bản mới (`version + 1`, `supersedes_ref` trỏ bản cũ); khi bản mới được phê duyệt, bản
    cũ tự chuyển **Hết hiệu lực** và tự **gỡ khỏi chỉ mục AI**. Bản cũ vẫn tra cứu được làm bằng
@@ -201,13 +203,14 @@ M26 **không** định nghĩa thang riêng (quy tắc 9). Nếu M27 ban hành th
 6. **Bài học kinh nghiệm không được rơi rụng**: khi module nguồn đóng một KPH mức nặng (M13), một
    khiếu nại có cơ sở (M12), một kết quả ngoài kiểm soát (M10) hoặc một KPH của đánh giá (M16),
    M26 tự tạo `LessonLearned` ở trạng thái **Mới** và giao QLCL. Đây là **cảnh báo mềm**: M26 không
-   chặn thao tác của module nguồn (ranh giới trách nhiệm). `[SUY DẪN]`
+   chặn thao tác của module nguồn (ranh giới trách nhiệm) — ETV.P26 mục 5.2.1.
 7. **Bài học phải kết tinh thành tri thức**: `LessonLearned` chỉ được phê duyệt khi có
    `knowledge_item_ref` (tạo mới hoặc cập nhật một mục hiện có). Bài học không vào danh mục tri thức
-   thì không có giá trị đối với tổ chức. `[SUY DẪN]`
+   thì không có giá trị đối với tổ chức (ETV.P26 mục 5.2.2).
 8. **Nhu cầu tri thức phải có đầu ra**: `KnowledgeNeed` chỉ chuyển **Đã đáp ứng** khi có
    `result_ref` (mục tri thức mới hoặc hồ sơ đào tạo ở M03). Chuyển **Không thực hiện** bắt buộc lý
-   do và do **LĐV** duyệt. Nhu cầu quá `required_by` mà còn Mở/Đang bổ sung ⇒ cảnh báo LĐV. `[SUY DẪN]`
+   do và do **LĐV** duyệt. Nhu cầu quá `required_by` mà còn Mở/Đang bổ sung ⇒ cảnh báo LĐV
+   (ETV.P26 mục 5.3.3).
 9. **Bảo mật kế thừa, không tự định nghĩa**: `confidentiality` lấy theo thang của M02/M27/M28. Mục
    **Hạn chế/Mật** chỉ hiển thị cho vai trò được phép, mọi lượt xem đều ghi nhật ký, và **không bao
    giờ** được đưa vào chỉ mục AI.
@@ -217,9 +220,9 @@ M26 **không** định nghĩa thang riêng (quy tắc 9). Nếu M27 ban hành th
     giao dịch** — nếu không, trợ lý AI sẽ trả lời bằng tri thức lỗi thời. AI được phép *gợi ý* mục
     tri thức từ tài liệu/hồ sơ sẵn có và *đánh dấu* mục nghi lỗi thời; AI **không** tạo bản ghi
     chính thức, **không** soát xét, **không** phê duyệt (ISO/IEC 42001; ràng buộc MP29).
-11. **Tách vai trò**: `created_by ≠ approved_by`; `reviewed_by` là TP khác người lập; mục
-    `criticality = Cao` **chỉ LĐV** được phê duyệt. `[SUY DẪN]` (mức Thấp/Trung bình có ủy quyền cho
-    TP hay không — câu hỏi 3, mục 10.)
+11. **Tách vai trò**: `created_by ≠ approved_by`; `reviewed_by` là TP khác người lập; **mọi mục tri
+    thức đều do LĐV phê duyệt**, không ủy quyền cho TP ở bất kỳ mức trọng yếu nào
+    (ETV.P26 mục 4.1 và 5.1.7).
 12. **Chỉ chia sẻ tri thức đã phê duyệt**: `SharingEvent` chỉ được chọn mục tri thức ở trạng thái Đã
     phê duyệt. Nếu hoạt động là **đào tạo nội bộ**, hồ sơ chính thức lập ở **M03** (F03.05.x) và
     M26 chỉ trỏ bằng `evidence_ref` — không lập biểu mẫu trùng.
@@ -234,7 +237,7 @@ M26 **không** định nghĩa thang riêng (quy tắc 9). Nếu M27 ban hành th
 | 1 | Nháp | Đang soạn | QLCL, TP | Đủ trường bắt buộc theo `knowledge_form` → Chờ soát xét | Không |
 | 2 | Chờ soát xét | Chờ TP lĩnh vực kiểm tra | TP (≠ người lập) | Đạt → Chờ phê duyệt; Không đạt → Không soát xét | — |
 | 3 | Không soát xét | Bị trả lại | Người lập | Sửa → Chờ soát xét | **Có** |
-| 4 | Chờ phê duyệt | Chờ thẩm quyền | LĐV (bắt buộc khi `criticality = Cao`) | Đạt → Đã phê duyệt (chặn nếu vi phạm quy tắc 3); Không đạt → Không phê duyệt | — |
+| 4 | Chờ phê duyệt | Chờ thẩm quyền | **LĐV** (mọi mức trọng yếu) | Đạt → Đã phê duyệt (chặn nếu vi phạm quy tắc 3); Không đạt → Không phê duyệt | — |
 | 5 | Không phê duyệt | Bị trả lại | Người lập | Sửa → Chờ soát xét | **Có** |
 | 6 | Đã phê duyệt | Có hiệu lực, khai thác được, **chỉ đọc** | — | Phiên bản mới được phê duyệt → Hết hiệu lực (tự động); hoặc người có thẩm quyền tuyên bố lỗi thời → Hết hiệu lực | — |
 | 7 | Hết hiệu lực | Lỗi thời/bị thay thế — **tự gỡ khỏi chỉ mục AI** | LĐV/QLCL | (kết thúc — vẫn tra cứu được làm bằng chứng) | **Có** khi tuyên bố lỗi thời |
@@ -259,14 +262,16 @@ hoạch → Đã thực hiện / Hủy). Mọi nhánh Hủy/Không thực hiện
 | Bảng mục đến hạn rà soát | Màn hình | Tính khi đọc theo `review_cycle` (quy tắc 4) |
 | Bảng **rủi ro mất tri thức** | Màn hình/PDF | Mục `criticality = Cao` là tri thức ẩn, số người giữ ≤ 1 — đầu vào M01 |
 
-**Bốn biểu mẫu F26.01–F26.04 hiện chưa tồn tại** trong `06_SHARED_RESOURCES/01_Forms/` — phải soạn
-và ban hành theo MP14 trước khi bản xuất được dùng làm hồ sơ chính thức. Hoạt động đào tạo nội bộ
-dùng lại **F03.05.x** của M03, không tạo biểu mẫu mới.
+**Bốn biểu mẫu F26.01–F26.04 đã ban hành** (lần 01, ngày 23/08/2026) tại
+`06_SHARED_RESOURCES/01_Forms/ETV.P.F26.0{1..4}_*.md` — bản xuất của module phải khớp bố cục và
+danh mục chuẩn của biểu mẫu gốc. Hoạt động đào tạo nội bộ dùng lại **F03.05.x** của M03, không tạo
+biểu mẫu mới.
 
 ## 8. Liên kết
 
-Quy trình: **MP26** (`ETV.P26` chưa ban hành) · Năng lực: **CAP-25_BoiCanhTriThuc** (dùng chung với
-MP25/M25) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.3 · Tiêu chuẩn: ISO 9001 §7.1.6,
+Quy trình: **MP26** (`ETV.P26`, ban hành lần 01 ngày 23/08/2026) · Năng lực:
+**CAP-25_BoiCanhTriThuc** (dùng chung với MP25/M25) · Căn cứ cấp trên: `ETV.QM_QuanlyChatluong.md`
+§9.3 · Tiêu chuẩn: ISO 9001 §7.1.6,
 ISO/IEC 17025 §6.2 (năng lực) và §8.5 (rủi ro/cơ hội), ISO/IEC 27001 §7.4 và A.5.9–A.5.12 (tài sản
 thông tin, phân loại, xử lý), ISO/IEC 42001 §7.1/§7.4 (nguồn lực và thông tin cho hệ thống AI),
 ISO 17034 · Lưu hồ sơ: **ETV.P15** · Nhóm menu: `NGUON_LUC` (manifest MP26).
@@ -291,21 +296,25 @@ hành động khắc phục (M13).
 nhận, NFR) và kế hoạch tăng trưởng theo increment:
 `01_Requirement/_work/20260823-dac-ta-m26/{outcome.md, spec.md, plan.md}`.
 
-## 10. Câu hỏi cần LĐV/QLCL chốt trước khi BUILD
+## 10. Quyết định đã chốt và câu hỏi còn mở
 
-1. **Ban hành `ETV.P26`**: đặc tả này có được dùng làm dự thảo đầu vào để soạn thủ tục chính thức
-   theo MP14 không? (Nếu thủ tục ban hành khác đặc tả → đặc tả phải sửa theo thủ tục, không ngược lại.)
-2. **Phạm vi danh mục kỳ đầu**: chốt đăng ký toàn bộ tri thức hiện có, hay chỉ bắt đầu từ nhóm trọng
-   yếu (kỹ thuật đo lường, vận hành thiết bị, bài học kinh nghiệm) rồi mở rộng dần?
-3. **Thẩm quyền phê duyệt**: LĐV phê duyệt mọi mục tri thức, hay ủy quyền TP phê duyệt mục
-   `criticality` Thấp/Trung bình và LĐV chỉ phê duyệt mức Cao (giả định hiện tại của quy tắc 11)?
-4. **Quy tắc 3** (chặn phê duyệt tri thức ẩn trọng yếu chỉ có 1 người giữ) là **chặn cứng** hay chỉ
-   **cảnh báo mềm**?
-5. **Chu kỳ rà soát mặc định**: 1 năm cho mọi mục, hay theo `criticality` (Cao ≤ 1 năm, Trung bình 2
-   năm, Thấp theo sự kiện)?
-6. **Chỉ mục AI**: mức bảo mật **Nội bộ** có được đưa vào chỉ mục trợ lý AI không, hay chỉ mức
-   **Công khai** (quy tắc 10 hiện giả định cho phép cả Nội bộ)?
-7. **Thang bảo mật**: M27/M02 đã chốt thang 4 mức (Công khai · Nội bộ · Hạn chế · Mật) chưa, để M26
-   kế thừa đúng tên gọi?
-8. **Danh mục chuẩn** mục 4.1: bộ 8 nhóm tri thức này đủ cho Viện chưa, hay cần tách nhóm đặc thù
-   (vd tách riêng chất chuẩn/ISO 17034)?
+**Đã chốt và đưa vào `ETV.P26` (ban hành 23/08/2026):**
+
+| # | Nội dung | Quyết định | Điều khoản thủ tục |
+|---|---|---|---|
+| 1 | Ban hành thủ tục | `ETV.P26` ban hành lần 01 ngày 23/08/2026; đặc tả này là đầu vào, thủ tục là nguồn sự thật | Toàn văn |
+| 2 | Thẩm quyền phê duyệt | **LĐV phê duyệt mọi mục tri thức**, không ủy quyền TP theo mức trọng yếu | 4.1, 5.1.7, 6.1 |
+| 3 | Quy tắc 3 (tri thức ẩn trọng yếu, 1 người giữ) | **Chặn cứng** phê duyệt tới khi có rủi ro ở M01 + phiếu F26.03 chuyển giao | 5.1.6, 7 |
+| 4 | Chỉ mục AI | Chỉ mục nhận mức **Công khai + Nội bộ**; Hạn chế/Mật cấm tuyệt đối; gỡ chỉ mục trong cùng giao dịch khi hết hiệu lực | 5.5 |
+| 5 | Chu kỳ rà soát | Theo mức trọng yếu: Cao ≤ 1 năm · Trung bình 2 năm · Thấp theo sự kiện (6 tháng cho tri thức thay đổi nhanh) | 5.1.5 |
+| 6 | Bộ biểu mẫu | F26.01 Danh mục · F26.02 Bài học kinh nghiệm · F26.03 Nhu cầu tri thức · F26.04 Biên bản chia sẻ; đào tạo nội bộ dùng F03.05.x | 8 |
+| 7 | Thời hạn lưu hồ sơ | F26.01 vĩnh viễn trên ManLab · F26.02 10 năm · F26.03 05 năm sau khi đóng · F26.04 05 năm | 9 |
+
+**Còn mở — cần chốt trước hoặc trong quá trình BUILD:**
+
+1. **Phạm vi danh mục kỳ đầu**: đăng ký toàn bộ tri thức hiện có, hay bắt đầu từ nhóm trọng yếu
+   (kỹ thuật đo lường, vận hành thiết bị, bài học kinh nghiệm) rồi mở rộng dần?
+2. **Thang bảo mật**: M27/M02 đã chốt đủ 4 mức (Công khai · Nội bộ · Hạn chế · Mật) chưa, để M26 kế
+   thừa đúng tên gọi? Thủ tục đang dẫn chiếu thang này (mục 5.1.4) mà không định nghĩa lại.
+3. **Danh mục chuẩn mục 4.1**: bộ 8 nhóm tri thức đã đủ chưa, hay cần tách nhóm đặc thù (ví dụ tách
+   riêng chất chuẩn/ISO 17034)?
