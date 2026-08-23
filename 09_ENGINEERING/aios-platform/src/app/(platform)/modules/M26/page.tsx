@@ -98,6 +98,12 @@ export default async function M26ListPage() {
             <Link href="/modules/M26/knowledge-risk" className={navLink}>
               Rủi ro mất tri thức
             </Link>
+            <Link href="/modules/M26/report" className={navLink}>
+              Báo cáo cho M17
+            </Link>
+            <Link href="/modules/M26/print/f26-01" className={navLink}>
+              Xuất F26.01
+            </Link>
             {(viewer.role === "QLCL" || viewer.role === "TP") && (
               <Link href="/modules/M26/item/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
                 + Thêm mục tri thức

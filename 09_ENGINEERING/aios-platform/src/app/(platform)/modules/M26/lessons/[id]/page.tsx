@@ -59,7 +59,12 @@ export default async function LessonDetailPage({ params }: { params: Promise<{ i
           <h1 className="font-head text-2xl font-bold text-ink">{lesson.title}</h1>
           <Badge label={LESSON_STATUS_LABEL[lesson.status]} tone={LESSON_STATUS_TONE[lesson.status]} />
         </div>
-        <p className="mt-1 font-mono text-xs text-ink-3">{lesson.code}</p>
+        <p className="mt-1 font-mono text-xs text-ink-3">
+          {lesson.code} ·{" "}
+          <Link href={`/modules/M26/lessons/${lesson.id}/print`} className="font-sans text-accent hover:underline">
+            Xuất biểu mẫu F26.02
+          </Link>
+        </p>
         {lesson.reason && <p className="mt-2 rounded-lg border border-warn/30 bg-warn-soft px-3 py-2 text-sm text-warn">Lý do: {lesson.reason}</p>}
       </div>
 

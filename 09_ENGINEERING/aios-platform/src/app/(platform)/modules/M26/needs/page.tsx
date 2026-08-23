@@ -78,7 +78,11 @@ export default async function NeedsPage() {
               const late = isNeedOverdue(n);
               return (
                 <tr key={n.id} className="border-b border-border last:border-0 align-top hover:bg-sunk">
-                  <td className="px-3 py-2 font-mono text-xs text-ink-2">{n.code}</td>
+                  <td className="px-3 py-2">
+                    <Link href={`/modules/M26/needs/${n.id}/print`} className="font-mono text-xs text-accent hover:underline">
+                      {n.code}
+                    </Link>
+                  </td>
                   <td className="px-3 py-2 text-xs text-ink-2">
                     {NEED_TRIGGER_LABEL[n.trigger]}
                     <br />
