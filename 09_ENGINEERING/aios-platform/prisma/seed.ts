@@ -1986,7 +1986,7 @@ async function seedM26() {
   const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000);
   const daysAhead = (n: number) => new Date(Date.now() + n * 86_400_000);
 
-  const audit = (itemType: "ITEM" | "LESSON" | "NEED" | "SHARING", itemId: string, actorId: string, role: string, action: string, before?: string, after?: string) =>
+  const audit = (itemType: "ITEM" | "LESSON" | "NEED" | "SHARING", itemId: string, actorId: string, role: string, action: string, before?: string | null, after?: string | null) =>
     prisma.m26AuditEntry.create({ data: { itemType, itemId, actorId, role, action, before: before ?? null, after: after ?? null } });
 
   // Tài liệu kiểm soát có sẵn ở M14 để minh họa quy tắc 2 (mục tri thức trỏ doc_ref, không tự đánh phiên bản).
