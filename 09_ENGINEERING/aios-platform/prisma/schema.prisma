@@ -42,6 +42,20 @@ model User {
   m21AuditEntries M21AuditEntry[]
 
   m29AuditEntries AIAuditLog[]
+
+  m01RiskCreated  M01RiskItem[] @relation("M01RiskCreated")
+  m01RiskReviewed M01RiskItem[] @relation("M01RiskReviewed")
+  m01RiskApproved M01RiskItem[] @relation("M01RiskApproved")
+  m01RiskAssigned M01RiskItem[] @relation("M01RiskAssigned")
+  m01RiskVerified M01RiskItem[] @relation("M01RiskVerified")
+
+  m01OppCreated  M01OpportunityItem[] @relation("M01OppCreated")
+  m01OppReviewed M01OpportunityItem[] @relation("M01OppReviewed")
+  m01OppApproved M01OpportunityItem[] @relation("M01OppApproved")
+  m01OppAssigned M01OpportunityItem[] @relation("M01OppAssigned")
+  m01OppVerified M01OpportunityItem[] @relation("M01OppVerified")
+
+  m01AuditEntries M01AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -100,7 +114,7 @@ model VerificationToken {
 // ---------- Module Registry (khung menu 38 module) ----------
 
 enum ModuleStatus {
-  ACTIVE // đã có prototype/app thật đang chạy (M10, M21, M29 ở Increment 0)
+  ACTIVE // đã xây thật trong aios-platform (di trú từ 08_Source hoặc xây mới từ DacTa.md)
   COMING_SOON // chỉ có đặc tả, chưa xây trong nền tảng hợp nhất
 }
 
@@ -672,6 +686,140 @@ model AIAuditLog {
   after      Json?
   reason     String?
   at         DateTime @default(now())
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M01_RuiRo — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (khác M10/M21/M29 là di trú) — logic state machine port từ
+// ETV.P01_RuiRoCoHoi.md (Đã phê duyệt, lần 03) sang src/lib/m01/rules.ts, xem
+// 01_Requirement/_work/20260823-xay-moi-m01/spec.md để đối chiếu "Quyết định phạm vi" #1-#4.
+
+enum M01Source {
+  DANH_GIA_NOI_BO
+  XEM_XET_LANH_DAO
+  DE_XUAT_NHAN_VIEN
+  PHAN_NAN
+  DANH_GIA_BEN_NGOAI
+  TNTT_SSLP // Đảm bảo giá trị kết quả bằng TNTT/SSLP — nguồn tham chiếu M10
+  KHAC
+}
+
+enum M01OppSource {
+  DANH_GIA_NOI_BO
+  DE_XUAT_NHAN_VIEN
+  PHAN_HOI_KHACH_HANG
+  KHAC
+}
+
+enum M01RiskLevel {
+  THAP // R 1-3
+  TRUNGBINH // R 4-8
+  CAO // R 9-15
+  RATCAO // R 16-25
+}
+
+enum M01Status {
+  DRAFT
+  PENDING_REVIEW
+  PENDING_LEADER_APPROVAL // chỉ Rủi ro mức RATCAO đi qua state này (LĐV quyết định — spec.md Quyết định phạm vi #2)
+  IN_PROGRESS
+  DONE
+}
+
+enum M01VerifyResult {
+  DAT
+  CHUA_DAT
+}
+
+enum M01ItemType {
+  RISK
+  OPPORTUNITY
+}
+
+model M01RiskItem {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement()) // dùng để sinh `code`, KHÔNG hiển thị trực tiếp
+  code String @unique // vd "RR-2026-0001" — sinh 1 lần lúc tạo, ổn định
+
+  title       String
+  description String
+  source      M01Source
+
+  cause          String?
+  controlMeasure String?
+
+  severity    Int? // S, 1-5
+  possibility Int? // P, 1-5
+  riskScore   Int? // R = S x P — server tự tính, KHÔNG nhận trực tiếp từ client
+  riskLevel   M01RiskLevel?
+
+  status M01Status @default(DRAFT)
+
+  assigneeId String?
+  dueDate    DateTime?
+
+  evidence     String?
+  verifyResult M01VerifyResult?
+  verifiedById String?
+
+  createdById  String
+  reviewedById String?
+  approvedById String? // chỉ set khi đi qua nhánh LĐV (RATCAO)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M01RiskCreated", fields: [createdById], references: [id])
+  reviewedBy User? @relation("M01RiskReviewed", fields: [reviewedById], references: [id])
+  approvedBy User? @relation("M01RiskApproved", fields: [approvedById], references: [id])
+  assignee   User? @relation("M01RiskAssigned", fields: [assigneeId], references: [id])
+  verifiedBy User? @relation("M01RiskVerified", fields: [verifiedById], references: [id])
+}
+
+model M01OpportunityItem {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CH-2026-0001"
+
+  title       String
+  description String
+  source      M01OppSource
+
+  proposedAction String?
+
+  status M01Status @default(DRAFT) // không đi qua PENDING_LEADER_APPROVAL (không có riskLevel)
+
+  assigneeId String?
+  dueDate    DateTime?
+
+  evidence     String?
+  verifyResult M01VerifyResult?
+  verifiedById String?
+
+  createdById  String
+  reviewedById String?
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M01OppCreated", fields: [createdById], references: [id])
+  reviewedBy User? @relation("M01OppReviewed", fields: [reviewedById], references: [id])
+  approvedBy User? @relation("M01OppApproved", fields: [approvedById], references: [id])
+  assignee   User? @relation("M01OppAssigned", fields: [assigneeId], references: [id])
+  verifiedBy User? @relation("M01OppVerified", fields: [verifiedById], references: [id])
+}
+
+model M01AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M01ItemType
+  itemId   String // trỏ tự do vào M01RiskItem.id hoặc M01OpportunityItem.id tuỳ itemType — không FK cứng
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String // vai trò M01 (NV/TP_QLCL/LDV) của actor TẠI thời điểm hành động
+  action   String
+  reason   String?
 
   actor User @relation(fields: [actorId], references: [id])
 }

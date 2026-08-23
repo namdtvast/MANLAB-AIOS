@@ -129,3 +129,29 @@ ETV.P.F01.02 (bảng tổng hợp, chưa có file số hóa riêng — kiểm tr
 ETV.P15 · Ranh giới: M13_KhacPhuc (hình thức "Khắc phục", dùng chung biểu mẫu gốc) · Nguồn dữ
 liệu tham chiếu: M10 (TNTT/SSLP làm 1 nguồn xác định rủi ro) · Căn cứ: ISO/IEC 17025:2017 §8.5,
 ISO 9001:2015 §6.1.
+
+## 8. Triển khai thật (Increment 4, aios-platform)
+
+Đã xây thành CRUD + state machine thật trong `09_ENGINEERING/aios-platform` (Prisma + Next.js),
+khác M10/M21/M29 (di trú từ `08_Source`) — M01 **xây mới hoàn toàn từ đặc tả** vì không có nguyên
+mẫu code. Chi tiết đầy đủ + bằng chứng VERIFY: `01_Requirement/_work/20260823-xay-moi-m01/
+{spec.md, plan.md, verify.md}`.
+
+**4 quyết định phạm vi cần LĐP xác nhận lại** (suy luận hợp lý khi lập trình state machine, không
+phải điều `ETV.P01` quy định tường minh bằng tên trạng thái/state riêng):
+
+1. Nhãn "Đã phê duyệt" trong bảng trạng thái ở mục 2.1 **không persist thành 1 trạng thái DB
+   riêng** — phê duyệt và phân công (assignee+due_date) xảy ra cùng 1 hành động, chuyển thẳng
+   `Đang soát xét → Đang xử lý` (đúng mục 6.1 bước 4 bản gốc: "được duyệt thực hiện thì... phân
+   công"). "Đã phê duyệt" chỉ là nhãn tức thời trong action log.
+2. Thêm state mới **`PENDING_LEADER_APPROVAL`** ("Chờ LĐV quyết định") — không có tên tường minh
+   trong bảng field rút gọn, nhưng bắt buộc phải có để cài đúng RACI "LĐV quyết định cuối cùng"
+   khi Rủi ro Rất cao (quy tắc 5).
+3. Quy tắc 7 (người thực hiện/thẩm xét không thống nhất → trình TP/QLCL quyết định cuối) **không
+   mô hình hoá thành state/field riêng** — xử lý bằng việc `verify(Chưa đạt)` đưa hồ sơ về
+   `Đang xử lý` kèm lý do, để TP/QLCL can thiệp thủ công nếu cần đảo kết luận.
+4. Chỉ tiêu Phụ lục B (RSR%, thời gian xử lý, tỷ lệ đạt, tỷ lệ lưu hồ sơ — mục 6 DacTa) và menu
+   **F01.03 Báo cáo** (Phụ lục A) **chưa xây** — để dành 1 increment Dashboard/Report riêng.
+
+Vai trò module (`ModuleRoleAssignment.role`): `NV`, `TP_QLCL`, `LDV` (khác vocabulary M10/M21/M29,
+đúng nguyên tắc mỗi module có bộ vai trò riêng).

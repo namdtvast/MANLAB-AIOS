@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 (khung 38 module + M10/M21/M29 di trú)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 (khung 38 module + M10/M21/M29 di trú + M01 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -80,6 +80,29 @@ Chi tiết đầy đủ + evidence verify:
   deprecate — Tool Gateway của Agent mẫu gọi thật ra `localhost:8010` (server
   M10 standalone cũ), cần server đó chạy để demo thành công.
 
+## Trạng thái Increment 4 — xây mới M01_RuiRo (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/_work/20260823-xay-moi-m01/verify.md`](../../05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/_work/20260823-xay-moi-m01/verify.md).
+
+**Khác M10/M21/M29** (di trú từ `08_Source` nguyên mẫu thật): M01 **xây mới hoàn toàn từ
+`01_Requirement/DacTa.md`** (transcribe từ `ETV.P01_RuiRoCoHoi.md`) — module đầu tiên trong batch
+đặc tả M02→M24 được hiện thực hóa thành CRUD + state machine thật.
+
+- ✅ Quản lý Rủi ro (`M01RiskItem`) và Cơ hội (`M01OpportunityItem`) — 2 entity tách riêng, chung
+  1 state machine (`DRAFT → PENDING_REVIEW → [PENDING_LEADER_APPROVAL nếu Rủi ro Rất cao] →
+  IN_PROGRESS → DONE`), `risk_score = severity × possibility` luôn tính lại ở server.
+- ✅ Gate theo vai trò thật (`ModuleRoleAssignment`, moduleCode="M01") — 3 vai trò
+  NV/TP_QLCL/LDV, dùng lại 3 tài khoản demo đã có (nth/ldp/ldv@manlab.vn).
+- ✅ Đã verify thật qua Browser: luồng Cơ hội đầy đủ, luồng Rủi ro mức Rất cao (LĐV-only gate),
+  gate bắt buộc chọn người phụ trách khi phê duyệt, gate "Chưa đạt bắt buộc lý do" + không tự
+  đóng hồ sơ, gate không tự thẩm xét chính mình — xem verify.md mục "VERIFY qua Browser".
+- ⚠️ 4 "Quyết định phạm vi" khi thiết kế state machine (state `Đã phê duyệt` không persist riêng,
+  state mới `PENDING_LEADER_APPROVAL`, không mô hình hoá tranh chấp thẩm xét khác người, dashboard
+  Phụ lục B ngoài phạm vi) — **chưa được LĐP xác nhận chính thức**, xem DacTa.md mục 8.
+- ❌ **Chưa có**: menu Báo cáo (F01.03 — biểu đồ/xuất PDF-Excel), luồng "Trả lại" chưa click qua
+  UI thật (chỉ verify qua code), self-review-forbidden chưa có tình huống demo để click thử.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -127,4 +150,5 @@ src/app/(platform)/     Layout có sidebar + trang dashboard + /modules/[code]
 src/lib/m10/            Rule engine + actor/actions M10 (Increment 1)
 src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
 src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
+src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
 ```

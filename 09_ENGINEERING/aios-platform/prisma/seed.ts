@@ -17,8 +17,9 @@ const REPO_ROOT = join(__dirname, "..", "..", "..");
 const MODULE_LIB = join(REPO_ROOT, "05_MODULE_LIBRARY");
 const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 
-// Module đã có 08_Source chạy thật ở thời điểm Increment 0 (xem DEPLOYMENT.md).
-const ACTIVE_MODULE_CODES = new Set(["M10", "M21", "M29"]);
+// Module đã xây thật trong aios-platform (di trú từ 08_Source hoặc xây mới từ DacTa.md — xem
+// DEPLOYMENT.md). M01 xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (Increment 4).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M10", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -90,6 +91,7 @@ async function main() {
   await seedM10();
   await seedM21();
   await seedM29();
+  await seedM01();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -506,6 +508,147 @@ async function seedM29() {
 
   console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
   console.log(`Tài khoản M29 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
+}
+
+// M01 — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (không có 08_Source
+// nguyên mẫu). Dùng LẠI 3 tài khoản đã tạo ở seedM10() — NV=nth@manlab.vn, TP_QLCL=ldp@manlab.vn,
+// LDV=ldv@manlab.vn (đúng kiểu M21 "dùng lại tài khoản, gán thêm vai trò module mới").
+const M01_ROLE_EMAILS: Record<string, string> = {
+  NV: "nth@manlab.vn",
+  TP_QLCL: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM01() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M01_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M01", role } },
+      create: { userId: user.id, moduleCode: "M01", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m01RiskItem.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu, giống seedM10()/seedM21()
+
+  const nv = userByRole["NV"];
+  const tpQlcl = userByRole["TP_QLCL"];
+  const year = new Date().getFullYear();
+
+  async function nextRiskCode() {
+    const r = await prisma.m01RiskItem.create({
+      data: { code: "PENDING", title: "", description: "", source: "KHAC", createdById: nv.id },
+    });
+    return r;
+  }
+
+  // 1. Rủi ro mức Thấp — Hoàn thành (đi hết vòng đời)
+  {
+    const r = await nextRiskCode();
+    await prisma.m01RiskItem.update({
+      where: { id: r.id },
+      data: {
+        code: `RR-${year}-${String(r.seq).padStart(4, "0")}`,
+        title: "Ẩm mốc hồ sơ giấy lưu kho",
+        description: "Kho lưu hồ sơ giấy tầng trệt có nguy cơ ẩm vào mùa mưa.",
+        source: "DANH_GIA_NOI_BO",
+        cause: "Hệ thống thông gió kho chưa đủ, chưa có máy hút ẩm.",
+        controlMeasure: "Lắp máy hút ẩm + kiểm tra định kỳ hàng tháng.",
+        severity: 1,
+        possibility: 2,
+        riskScore: 2,
+        riskLevel: "THAP",
+        status: "DONE",
+        reviewedById: tpQlcl.id,
+        approvedById: tpQlcl.id,
+        assigneeId: nv.id,
+        dueDate: new Date(`${year}-12-31`),
+        evidence: "Đã lắp máy hút ẩm ngày 15/03, ảnh chụp lưu tại hồ sơ kho.",
+        verifiedById: tpQlcl.id,
+        verifyResult: "DAT",
+      },
+    });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: nv.id, role: "NV", action: "Tạo hồ sơ rủi ro" } });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: tpQlcl.id, role: "TP_QLCL", action: "Soát xét đạt → Đã phê duyệt → Đang xử lý" } });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: tpQlcl.id, role: "TP_QLCL", action: "Thẩm xét: Đạt → Hoàn thành" } });
+  }
+
+  // 2. Rủi ro mức Cao — Đang xử lý (TP/QLCL tự phê duyệt, không cần LĐV)
+  {
+    const r = await nextRiskCode();
+    await prisma.m01RiskItem.update({
+      where: { id: r.id },
+      data: {
+        code: `RR-${year}-${String(r.seq).padStart(4, "0")}`,
+        title: "Sai lệch kết quả hiệu chuẩn do chuẩn quá hạn",
+        description: "Phát hiện 1 chuẩn đo lường gần hết hạn hiệu chuẩn còn dùng cho phép đo quan trọng.",
+        source: "TNTT_SSLP",
+        cause: "Lịch nhắc hiệu chuẩn chuẩn đo lường chưa được theo dõi sát.",
+        controlMeasure: "Ngừng sử dụng chuẩn, gửi hiệu chuẩn khẩn cấp, rà soát lại kết quả đã dùng chuẩn này.",
+        severity: 3,
+        possibility: 3,
+        riskScore: 9,
+        riskLevel: "CAO",
+        status: "IN_PROGRESS",
+        reviewedById: tpQlcl.id,
+        approvedById: tpQlcl.id,
+        assigneeId: nv.id,
+        dueDate: new Date(`${year}-11-30`),
+      },
+    });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: nv.id, role: "NV", action: "Tạo hồ sơ rủi ro" } });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: tpQlcl.id, role: "TP_QLCL", action: "Soát xét đạt → Đã phê duyệt → Đang xử lý" } });
+  }
+
+  // 3. Rủi ro mức Rất cao — Chờ LĐV quyết định (chưa gán assignee, demo gate PENDING_LEADER_APPROVAL)
+  {
+    const r = await nextRiskCode();
+    await prisma.m01RiskItem.update({
+      where: { id: r.id },
+      data: {
+        code: `RR-${year}-${String(r.seq).padStart(4, "0")}`,
+        title: "Mất kết nối hệ thống ManLab trong đợt cao điểm",
+        description: "Máy chủ ManLab từng gián đoạn 4 giờ khi lượng hồ sơ tăng đột biến cuối quý.",
+        source: "DANH_GIA_BEN_NGOAI",
+        cause: "Hạ tầng máy chủ chưa có phương án dự phòng (failover).",
+        controlMeasure: "Đề xuất máy chủ dự phòng + quy trình chuyển đổi khẩn cấp, báo cáo LĐV.",
+        severity: 5,
+        possibility: 4,
+        riskScore: 20,
+        riskLevel: "RATCAO",
+        status: "PENDING_LEADER_APPROVAL",
+        reviewedById: tpQlcl.id,
+      },
+    });
+    await prisma.m01AuditEntry.create({ data: { itemType: "RISK", itemId: r.id, actorId: nv.id, role: "NV", action: "Tạo hồ sơ rủi ro" } });
+    await prisma.m01AuditEntry.create({
+      data: { itemType: "RISK", itemId: r.id, actorId: tpQlcl.id, role: "TP_QLCL", action: "Soát xét đạt — mức Rất cao, chuyển LĐV quyết định" },
+    });
+  }
+
+  // 4. Cơ hội — Đang soạn
+  {
+    const o = await prisma.m01OpportunityItem.create({
+      data: { code: "PENDING", title: "", description: "", source: "KHAC", createdById: nv.id },
+    });
+    await prisma.m01OpportunityItem.update({
+      where: { id: o.id },
+      data: {
+        code: `CH-${year}-${String(o.seq).padStart(4, "0")}`,
+        title: "Tự động cảnh báo hiệu chuẩn sắp hết hạn",
+        description: "Đề xuất thêm cảnh báo tự động trên Dashboard khi chuẩn đo lường còn 30 ngày tới hạn hiệu chuẩn.",
+        source: "DE_XUAT_NHAN_VIEN",
+        proposedAction: "Bổ sung job kiểm tra hằng ngày + thông báo trên Dashboard M05.",
+        status: "DRAFT",
+      },
+    });
+    await prisma.m01AuditEntry.create({ data: { itemType: "OPPORTUNITY", itemId: o.id, actorId: nv.id, role: "NV", action: "Tạo hồ sơ cơ hội" } });
+  }
+
+  console.log(`Đã nạp 3 hồ sơ Rủi ro + 1 Cơ hội demo M01 + vai trò M01 cho ${Object.keys(M01_ROLE_EMAILS).length} tài khoản.`);
 }
 
 main()
