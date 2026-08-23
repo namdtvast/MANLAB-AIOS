@@ -422,7 +422,9 @@ enum AIApprovalStatus {
   PENDING_APPROVAL
   REJECTED
   APPROVED
-  ARCHIVED
+  ACTIVE // Hiệu lực — đã phê duyệt VÀ đã bật giám sát/kết nối (ETV.P35 mục 6, trạng thái 7)
+  ARCHIVED // Hết hiệu lực
+  CANCELLED // Hủy — bỏ bản ghi trước khi phê duyệt (ETV.P35 mục 6, trạng thái 9)
 }
 
 enum AIPromptStatus {

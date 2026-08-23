@@ -377,13 +377,28 @@ tục (M31) · thẩm định thay đổi liên phòng (M30).
 Trường `health` của schema chính là **tình trạng vận hành**; `approvalStatus` là **vòng đời hồ sơ**
 — hai trục tách biệt, đúng quy tắc 6.
 
-**Khoảng cách cần đóng khi BUILD**: enum `AIApprovalStatus` hiện có 7 giá trị (`DRAFT`,
-`PENDING_REVIEW`, `RETURNED`, `PENDING_APPROVAL`, `REJECTED`, `APPROVED`, `ARCHIVED`) trong khi
-thủ tục quy định **09** trạng thái, tách riêng **Đã phê duyệt** và **Hiệu lực** (mục 6). Cần bổ
-sung giá trị cho trạng thái *Hiệu lực* thay vì gộp vào `APPROVED` — nếu gộp thì không phân biệt
-được nền tảng đã được duyệt nhưng **chưa** bật kiểm tra sức khỏe, tức không thực thi được điều kiện
-chặn cứng (c). Ánh xạ đề xuất: `RETURNED` dùng cho *Không soát xét*, `REJECTED` cho *Không phê
-duyệt*, `ARCHIVED` cho *Hết hiệu lực*, thêm `ACTIVE` cho *Hiệu lực*, thêm `CANCELLED` cho *Hủy*.
+**Enum trạng thái — đã đóng khoảng cách** (24/08/2026): `AIApprovalStatus` nay có **09** giá trị,
+khớp 09 trạng thái tại mục 6. Ánh xạ chính thức:
+
+| Trạng thái ETV.P35 | Giá trị enum |
+|---|---|
+| Nháp | `DRAFT` |
+| Chờ soát xét | `PENDING_REVIEW` |
+| Không soát xét | `RETURNED` |
+| Chờ phê duyệt | `PENDING_APPROVAL` |
+| Không phê duyệt | `REJECTED` |
+| Đã phê duyệt | `APPROVED` |
+| **Hiệu lực** | `ACTIVE` |
+| Hết hiệu lực | `ARCHIVED` |
+| **Hủy** | `CANCELLED` |
+
+Migration `20260824044500_ai_approval_status_active_cancelled` (additive, `ALTER TYPE ... ADD
+VALUE`). Hồ sơ thay đổi: [`_work/20260824-enum-approval-status/`](_work/20260824-enum-approval-status/).
+
+**Khoảng cách còn lại khi BUILD**: `approvalTransitions` trong `src/lib/m29/rules.ts` (và bản
+authoritative `M29_AI/08_Source/api/rules.mjs`) **chưa** có transition sinh ra `ACTIVE`/`CANCELLED`
+— `archive()` vẫn gộp *Hết hiệu lực/Hủy* vào `ARCHIVED`. Hàm này dùng chung cho
+Platform/Guardrail/Policy nên việc tách phải làm cùng M29, không sửa riêng phía M35.
 
 > Đặc tả làm việc chi tiết hơn (RECON/OUTCOME/SPEC/PLAN) của sáng kiến AIOS Control Plane nằm ở
 > module chủ M29_AI:
@@ -405,11 +420,14 @@ duyệt*, `ARCHIVED` cho *Hết hiệu lực*, thêm `ACTIVE` cho *Hiệu lực*
 | 7 | Ngừng vận hành | Chặn khi còn phụ thuộc M29/M38; xử lý dữ liệu trước khi cắt truy cập | 5.5.3 |
 | 8 | Bộ biểu mẫu | F35.01 Danh mục · F35.02 Đánh giá trước vận hành · F35.03 Sự cố và giám sát · F35.04 Ngừng vận hành | 8 |
 | 9 | Thời hạn lưu hồ sơ | F35.01 vĩnh viễn · F35.02 vòng đời + 05 năm · F35.03 05 năm · F35.04 10 năm · health check 02 năm | 9 |
+| 10 | Enum trạng thái (bổ sung 24/08/2026) | Thêm `ACTIVE` (Hiệu lực) và `CANCELLED` (Hủy) vào `AIApprovalStatus` dùng chung, không tạo enum riêng cho `AIPlatform` | 6 |
 
 **Còn mở — cần chốt trước hoặc trong quá trình BUILD:**
 
-1. **Enum trạng thái**: bổ sung `ACTIVE` và `CANCELLED` vào `AIApprovalStatus` (ảnh hưởng M29 vì
-   dùng chung enum), hay tạo enum riêng cho `AIPlatform`? Xem mục 9.
+1. **Transition cho `ACTIVE`/`CANCELLED`**: enum đã có đủ 09 giá trị (mục 9), nhưng
+   `approvalTransitions` chưa sinh ra hai giá trị mới. Tách `archive()` thành *Hết hiệu lực* và
+   *Hủy* riêng, rồi thêm `activate()` — làm chung với M29 (đối tượng Guardrail/Policy dùng chung
+   hàm này) ở increment nào?
 2. **Phạm vi đăng ký kỳ đầu**: đăng ký toàn bộ nền tảng đang dùng, hay bắt đầu từ PRODUCTION và
    nền tảng xử lý dữ liệu Hạn chế/Mật rồi mở rộng dần?
 3. **Tần suất kiểm tra sức khỏe**: thủ tục quy định ngưỡng cảnh báo (24 giờ, 07 ngày) nhưng chưa
