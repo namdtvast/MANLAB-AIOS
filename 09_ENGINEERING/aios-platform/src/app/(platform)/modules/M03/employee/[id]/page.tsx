@@ -45,7 +45,7 @@ export default async function M03EmployeeDetailPage({ params }: { params: Promis
         <ul className="flex flex-col gap-2 text-sm">
           {employee.trainingRecords.map((t) => (
             <li key={t.id} className="rounded-lg border border-border bg-surface p-3">
-              <a href={`/modules/M03/training/${t.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+              <a href={`/modules/M03/training/${t.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                 {t.code}
               </a>
               <span className="ml-2 text-ink-2">{TRAINING_STATUS_LABEL[t.status]}</span>
@@ -63,7 +63,7 @@ export default async function M03EmployeeDetailPage({ params }: { params: Promis
         <ul className="flex flex-col gap-2 text-sm">
           {employee.laborContracts.map((c) => (
             <li key={c.id} className="rounded-lg border border-border bg-surface p-3">
-              <a href={`/modules/M03/contract/${c.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+              <a href={`/modules/M03/contract/${c.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                 {c.code}
               </a>
               <span className="ml-2 text-ink-2">

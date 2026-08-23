@@ -23,7 +23,7 @@ const TONE_CLASS: Record<string, string> = {
 
 function Badge({ label, tone }: { label: string; tone: string }) {
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
+    <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
       {label}
     </span>
   );
@@ -58,7 +58,7 @@ export default async function M03ListPage() {
       <section className="flex flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Đề xuất tuyển dụng</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -73,7 +73,7 @@ export default async function M03ListPage() {
               {plans.map((p) => (
                 <tr key={p.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2.5">
-                    <Link href={`/modules/M03/recruitment/${p.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M03/recruitment/${p.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {p.code}
                     </Link>
                   </td>
@@ -101,7 +101,7 @@ export default async function M03ListPage() {
       <section className="flex flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Nhân sự</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -115,7 +115,7 @@ export default async function M03ListPage() {
               {employees.map((e) => (
                 <tr key={e.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2.5">
-                    <Link href={`/modules/M03/employee/${e.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M03/employee/${e.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {e.code}
                     </Link>
                   </td>

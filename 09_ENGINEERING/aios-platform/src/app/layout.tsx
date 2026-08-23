@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Inter } from "next/font/google";
 import "./globals.css";
 
+// Chạy trước khi React hydrate để giao diện không nháy: đặt sẵn chủ đề sáng/tối
+// và trạng thái thu/mở của sidebar (xem ThemeToggle.tsx, Sidebar.tsx).
 const THEME_INIT_SCRIPT = `
 try {
   var t = localStorage.getItem("theme");
   if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  if (localStorage.getItem("sidebar:collapsed") === "1")
+    document.documentElement.setAttribute("data-sidebar", "collapsed");
 } catch (e) {}
 `;
 

@@ -59,7 +59,7 @@ export default async function M16ProgramDetailPage({ params }: { params: Promise
         <p className="rounded-lg border border-border bg-warn-soft px-3 py-2 text-sm text-warn">⚠ {prepWarning}</p>
       )}
 
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
         <dt className="text-ink-3">Kế hoạch</dt>
         <dd className="text-ink">
           <Link href={`/modules/M16/plan/${p.planId}`} className="text-accent hover:underline">

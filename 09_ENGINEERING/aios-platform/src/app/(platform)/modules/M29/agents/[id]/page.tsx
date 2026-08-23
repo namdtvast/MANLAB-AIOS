@@ -27,7 +27,7 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
   const lastRun = agent.evaluationSuites.flatMap((s) => s.runs)[0] ?? null;
 
   return (
-    <div className="grid max-w-6xl grid-cols-3 gap-6">
+    <div className="grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
         <div>
           <p className="font-mono text-xs text-ink-3">
@@ -37,7 +37,7 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
           <p className="mt-1 text-sm text-ink-2">{agent.purpose}</p>
         </div>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
           <dt className="text-ink-3">Model</dt>
           <dd className="text-ink">{agent.model ? `${agent.model.displayName} (${agent.model.modelId})` : "—"}</dd>
           <dt className="text-ink-3">Trạng thái vận hành</dt>

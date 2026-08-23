@@ -13,7 +13,7 @@ const TONE_CLASS: Record<string, string> = {
 
 function Badge({ label, tone }: { label: string; tone: string }) {
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
+    <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
       {label}
     </span>
   );
@@ -53,7 +53,7 @@ export default async function M21ListPage() {
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[36rem] text-sm">
           <thead>
             <tr>
               <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã hồ sơ</th>
@@ -68,7 +68,7 @@ export default async function M21ListPage() {
             {records.map((r) => (
               <tr key={r.id} className="border-b border-border last:border-0 hover:bg-sunk">
                 <td className="px-3 py-2.5">
-                  <Link href={`/modules/M21/${r.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                  <Link href={`/modules/M21/${r.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                     {r.code}
                   </Link>
                 </td>

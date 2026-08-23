@@ -58,7 +58,7 @@ export function EditPanel({ type, id, isRisk, initial }: Props) {
             Biện pháp kiểm soát
             <textarea value={controlMeasure} onChange={(e) => setControlMeasure(e.target.value)} rows={2} className={fieldCls} />
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label className={labelCls}>
               Mức độ hậu quả (S, 1–5)
               <input type="number" min={1} max={5} value={severity} onChange={(e) => setSeverity(Number(e.target.value))} className={fieldCls} />

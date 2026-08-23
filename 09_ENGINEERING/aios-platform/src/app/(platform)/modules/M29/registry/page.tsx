@@ -34,7 +34,7 @@ export default async function M29RegistryPage() {
       <section>
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Mã</th>
@@ -70,7 +70,7 @@ export default async function M29RegistryPage() {
       <section>
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>

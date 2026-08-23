@@ -62,7 +62,7 @@ export function NewAssessmentForm() {
         />
       </label>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <label className={labelCls}>
           Kế hoạch (plan_id)
           <input name="planId" className={fieldCls} />

@@ -106,7 +106,7 @@ function LineRowEditor({ line, editable }: { line: LineRow; editable: boolean })
   return (
     <div className="rounded-lg border border-border bg-surface p-3">
       <div className="flex items-start justify-between gap-2">
-        <div className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-3">
+        <div className="grid flex-1 grid-cols-1 gap-2 sm:grid-cols-3">
           <label className="flex flex-col gap-0.5 text-[11px] font-medium text-ink-2">
             Tên đối tượng
             <input disabled={!editable} defaultValue={line.ten} onBlur={(e) => patch({ ten: e.target.value })} className={inputCls} />

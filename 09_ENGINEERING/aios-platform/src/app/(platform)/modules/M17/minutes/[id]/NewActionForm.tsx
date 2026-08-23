@@ -22,7 +22,7 @@ export function NewActionForm({ minutesId }: { minutesId: string }) {
     <div className="flex flex-col gap-2 rounded-lg border border-border bg-surface p-3">
       <p className="text-xs font-medium text-ink">Lập theo dõi hành động mới</p>
       <input placeholder="Mô tả hành động" value={actionDescription} onChange={(e) => setActionDescription(e.target.value)} className={inputCls} />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <label className="flex flex-col gap-1 text-xs text-ink-2">
           Bắt đầu
           <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className={inputCls} />

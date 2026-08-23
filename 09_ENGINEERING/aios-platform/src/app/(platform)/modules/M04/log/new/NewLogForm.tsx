@@ -77,7 +77,7 @@ export function NewLogForm({ areas }: { areas: Area[] }) {
           ))}
         </select>
       </label>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <label className={labelCls}>
           Nhiệt độ (°C)
           <input type="number" step="0.1" value={temperature} onChange={(e) => setTemperature(e.target.value)} required className={fieldCls} />

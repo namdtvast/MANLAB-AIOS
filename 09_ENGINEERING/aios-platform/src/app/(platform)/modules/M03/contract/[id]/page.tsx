@@ -21,7 +21,7 @@ export default async function M03ContractDetailPage({ params }: { params: Promis
   const renewalHistory = Array.isArray(contract.renewalHistory) ? (contract.renewalHistory as Record<string, unknown>[]) : [];
 
   return (
-    <div className="grid max-w-4xl grid-cols-3 gap-6">
+    <div className="grid max-w-4xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
         <div>
           <p className="font-mono text-xs text-ink-3">{contract.code}</p>
@@ -31,7 +31,7 @@ export default async function M03ContractDetailPage({ params }: { params: Promis
           </p>
         </div>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
           <dt className="text-ink-3">Thời hạn</dt>
           <dd className="text-ink">{contract.duration ?? "—"}</dd>
           <dt className="text-ink-3">Lương</dt>

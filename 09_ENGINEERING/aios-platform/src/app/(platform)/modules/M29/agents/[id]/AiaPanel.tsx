@@ -35,7 +35,7 @@ export function AiaPanel({ aia, agentId, m29Role }: { aia: AIImpactAssessment | 
 
   return (
     <div className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="font-head text-sm font-bold text-ink">AI Impact Assessment (ISO 42001)</h2>
         {aia && <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[AIA_STATUS_TONE[aia.status]]}`}>{AIA_STATUS_LABEL[aia.status]}</span>}
       </div>

@@ -23,7 +23,7 @@ export default async function M17PlanDetailPage({ params }: { params: Promise<{ 
   });
 
   return (
-    <div className="grid max-w-4xl grid-cols-3 gap-6">
+    <div className="grid max-w-4xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
         <div>
           <p className="font-mono text-xs text-ink-3">{p.code}</p>
@@ -31,7 +31,7 @@ export default async function M17PlanDetailPage({ params }: { params: Promise<{ 
           <p className="mt-1 text-sm text-ink-2">{PLAN_STATUS_LABEL[p.status]}{p.isAdHoc ? " · Đột xuất" : ""}</p>
         </div>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
           <dt className="text-ink-3">Ngày dự kiến</dt>
           <dd className="text-ink">{p.plannedDate.toLocaleDateString("vi-VN")}</dd>
           <dt className="text-ink-3">Địa điểm</dt>
