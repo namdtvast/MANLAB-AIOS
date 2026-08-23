@@ -212,10 +212,10 @@ export function IssuesSection({ reviewId, editable, issues, users, m01 }: Props)
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-mono text-xs text-ink-3">{i.code}</span>
               <strong className="text-ink">{i.title}</strong>
-              <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[IMPACT_LEVEL_TONE[i.impactLevel]]}`}>
+              <span className={`rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[IMPACT_LEVEL_TONE[i.impactLevel]]}`}>
                 Tác động {IMPACT_LEVEL_LABEL[i.impactLevel].toLowerCase()}
               </span>
-              {i.status === "DA_DONG" && <span className="rounded-full bg-sunk px-2 py-0.5 text-xs text-ink-2">{ENTRY_STATUS_LABEL[i.status]}</span>}
+              {i.status === "DA_DONG" && <span className="rounded-full whitespace-nowrap bg-sunk px-2 py-0.5 text-xs text-ink-2">{ENTRY_STATUS_LABEL[i.status]}</span>}
             </div>
             <p className="mt-1 text-ink-2">{i.description}</p>
             <p className="mt-1 text-xs text-ink-3">
