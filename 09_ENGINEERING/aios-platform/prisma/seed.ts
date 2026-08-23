@@ -21,7 +21,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // DEPLOYMENT.md). M01 xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (Increment 4).
 // M03 xây mới từ 05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md (Increment 5).
 // M02 xây mới từ 05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/DacTa.md (Increment 6).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M10", "M21", "M29"]);
+// M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -96,6 +97,7 @@ async function main() {
   await seedM01();
   await seedM03();
   await seedM02();
+  await seedM04();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -952,6 +954,117 @@ async function seedM02() {
   await prisma.m02AuditEntry.create({ data: { itemType: "INCIDENT", itemId: incident1.id, actorId: tp.id, role: "TP", action: "Đánh giá phạm vi/hậu quả sự cố" } });
 
   console.log(`Đã nạp 2 cam kết + 1 sổ khách + 1 hồ sơ công bố + 1 sự cố demo M02 + vai trò M02 cho ${Object.keys(userByRole).length} tài khoản.`);
+}
+
+// M04 — xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (không có 08_Source
+// nguyên mẫu, giống M01/M02/M03). Dùng lại nth/ldp/ldv (NV/TP/LDV).
+const M04_ROLE_EMAILS: Record<string, string> = {
+  NV: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM04() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M04_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M04", role } },
+      create: { userId: user.id, moduleCode: "M04", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m04AreaSpec.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const nv = userByRole["NV"];
+  const year = new Date().getFullYear();
+
+  const areaPressure = await prisma.m04AreaSpec.create({
+    data: { areaCode: "PHONG-AP-SUAT", name: "Phòng đo áp suất", tempMin: 18, tempMax: 22, humidityMin: 40, humidityMax: 60 },
+  });
+  const areaChemical = await prisma.m04AreaSpec.create({
+    data: { areaCode: "KHO-HOA-CHAT", name: "Kho hóa chất", tempMin: 15, tempMax: 30, humidityMin: 30, humidityMax: 70 },
+  });
+  await prisma.m04AreaSpec.create({
+    data: { areaCode: "KHO-THIET-BI", name: "Kho thiết bị", tempMin: 15, tempMax: 28, humidityMin: 30, humidityMax: 65 },
+  });
+  await prisma.m04AreaSpec.create({
+    data: { areaCode: "PHONG-HIEU-CHUAN", name: "Phòng hiệu chuẩn chung", tempMin: 20, tempMax: 26, humidityMin: 35, humidityMax: 65 },
+  });
+
+  // 1 log đạt ngưỡng
+  const log1 = await prisma.m04ConditionLog.create({
+    data: {
+      code: `DK-${year}-0001`,
+      logType: "ENVIRONMENT",
+      areaId: areaPressure.id,
+      temperature: 20.5,
+      humidity: 50,
+      deviceRef: "ibeacon01",
+      withinSpec: true,
+      reportedById: nv.id,
+    },
+  });
+  await prisma.m04AuditEntry.create({ data: { itemType: "CONDITION_LOG", itemId: log1.id, actorId: nv.id, role: "NV", action: "Ghi nhận điều kiện" } });
+
+  // 1 log vượt ngưỡng (đã có biện pháp xử lý) — demo dữ liệu thật, không phải demo gate (gate demo qua thao tác UI trực tiếp)
+  const log2 = await prisma.m04ConditionLog.create({
+    data: {
+      code: `DK-${year}-0002`,
+      logType: "CHEMICAL_CABINET",
+      areaId: areaChemical.id,
+      temperature: 32,
+      humidity: 75,
+      deviceRef: "ibeacon02",
+      withinSpec: false,
+      abnormalAction: "Đã bật thêm quạt thông gió, di chuyển hóa chất nhạy nhiệt sang tủ dự phòng, báo TP theo dõi.",
+      reportedById: nv.id,
+    },
+  });
+  await prisma.m04AuditEntry.create({ data: { itemType: "CONDITION_LOG", itemId: log2.id, actorId: nv.id, role: "NV", action: "Ghi nhận điều kiện" } });
+
+  // 2 FieldWorkPlan: 1 mức Thường đã duyệt, 1 mức Cao đang chờ duyệt (demo gate LĐV-only)
+  const plan1 = await prisma.m04FieldWorkPlan.create({
+    data: {
+      code: `HT-${year}-0001`,
+      site: "Nhà máy X, KCN Yên Phong",
+      customer: "Công ty TNHH Sản xuất X",
+      personnel: ["Nguyễn Văn An", "Trần Thị Bích"],
+      schedule: new Date(`${year}-09-15`),
+      workItems: ["Hiệu chuẩn cân bàn 500kg", "Kiểm định áp kế đường ống"],
+      riskLevel: "THUONG",
+      status: "APPROVED",
+      approvedById: userByRole["TP"].id,
+      briefed: true,
+      briefedAt: new Date(),
+      createdById: nv.id,
+    },
+  });
+  await prisma.m04AuditEntry.create({ data: { itemType: "FIELD_WORK_PLAN", itemId: plan1.id, actorId: nv.id, role: "NV", action: "Lập kế hoạch công việc hiện trường" } });
+  await prisma.m04AuditEntry.create({
+    data: { itemType: "FIELD_WORK_PLAN", itemId: plan1.id, actorId: userByRole["TP"].id, role: "TP", action: "Phê duyệt kế hoạch hiện trường" },
+  });
+
+  const plan2 = await prisma.m04FieldWorkPlan.create({
+    data: {
+      code: `HT-${year}-0002`,
+      site: "Trạm xử lý nước thải Y",
+      customer: "Ban Quản lý KCN Y",
+      personnel: ["Lê Văn V."],
+      schedule: new Date(`${year}-10-01`),
+      workItems: ["Quan trắc khí trong không gian hạn chế (bể chứa)", "Đo nồng độ khí độc trước khi vào bể"],
+      riskLevel: "CAO",
+      status: "PENDING_APPROVAL",
+      createdById: nv.id,
+    },
+  });
+  await prisma.m04AuditEntry.create({ data: { itemType: "FIELD_WORK_PLAN", itemId: plan2.id, actorId: nv.id, role: "NV", action: "Lập kế hoạch công việc hiện trường" } });
+  await prisma.m04AuditEntry.create({ data: { itemType: "FIELD_WORK_PLAN", itemId: plan2.id, actorId: nv.id, role: "NV", action: "Gửi duyệt kế hoạch hiện trường" } });
+
+  console.log(`Đã nạp 4 khu vực + 2 nhật ký điều kiện + 2 kế hoạch hiện trường demo M04 + vai trò M04 cho ${Object.keys(userByRole).length} tài khoản.`);
 }
 
 main()

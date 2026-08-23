@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -152,6 +152,26 @@ sổ khách, phê duyệt công bố thông tin, sự cố bảo mật.
   Chưa có form sửa `customerNotified` sau khi tạo hồ sơ công bố. Chưa test nhánh LĐV duyệt thành
   công (chỉ test nhánh TP bị chặn sai thẩm quyền).
 
+## Trạng thái Increment 7 — xây mới M04_MoiTruong (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/_work/20260823-xay-moi-m04/verify.md`](../../05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/_work/20260823-xay-moi-m04/verify.md).
+
+Giống M01/M02/M03 (xây mới từ `DacTa.md`, không di trú `08_Source`). 2 đối tượng chính: nhật ký
+điều kiện (`M04ConditionLog` — gộp môi trường + tủ hóa chất + tủ thiết bị theo đúng gợi ý "cấu
+trúc chung" trong DacTa) và kế hoạch công việc hiện trường (`M04FieldWorkPlan`).
+
+- ✅ Gate `withinSpec` (quy tắc 2 ETV.P04): tự tính hoàn toàn ở server so với ngưỡng khu vực
+  (`M04AreaSpec`), bắt buộc biện pháp xử lý khi vượt ngưỡng — đã verify chặn đúng qua Browser.
+- ✅ Gate cấp phê duyệt `FieldWorkPlan` theo mức rủi ro (quy tắc 5 ETV.P04): mức Rủi ro cao chỉ
+  LĐV được duyệt, TP bị chặn đúng thông báo — đã verify qua Browser (LĐV duyệt thành công sau khi
+  TP bị chặn).
+- ✅ Đánh dấu đã phổ biến kế hoạch cho nhân sự trước khi thi công (quy tắc 4).
+- ⚠️ 2 "Quyết định phạm vi" (gộp 3 loại log thành 1 model; `M04AreaSpec` chỉ seed 4 khu vực mẫu,
+  chưa phải Phụ lục II đầy đủ) — chưa được LĐP xác nhận chính thức, xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: nhánh TP tự duyệt mức Thường, luồng Từ chối, ghi log loại tủ hóa
+  chất/thiết bị qua form (chỉ có trong seed).
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -202,4 +222,5 @@ src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (
 src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
 src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
 src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)
+src/lib/m04/            Rule engine + actor/actions M04 — Môi trường, xây mới (Increment 7)
 ```

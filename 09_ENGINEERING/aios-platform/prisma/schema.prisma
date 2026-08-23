@@ -72,6 +72,11 @@ model User {
   m02IncidentAssessed   M02SecurityIncident[]   @relation("M02IncidentAssessed")
   m02IncidentClosed     M02SecurityIncident[]   @relation("M02IncidentClosed")
   m02AuditEntries       M02AuditEntry[]
+
+  m04LogReported  M04ConditionLog[]  @relation("M04LogReported")
+  m04PlanCreated  M04FieldWorkPlan[] @relation("M04PlanCreated")
+  m04PlanApproved M04FieldWorkPlan[] @relation("M04PlanApproved")
+  m04AuditEntries M04AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1235,6 +1240,112 @@ model M02SecurityIncident {
 model M02AuditEntry {
   id       String      @id @default(cuid())
   itemType M02ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M04_MoiTruong — xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03) — logic port từ ETV.P04_MoiTruong.md (Đã phê
+// duyệt, lần 03), xem 01_Requirement/_work/20260823-xay-moi-m04/spec.md để đối chiếu "Quyết định
+// phạm vi" (gộp 3 loại log thành 1 model M04ConditionLog; M04AreaSpec chỉ seed mẫu minh họa,
+// không phải danh mục đầy đủ Phụ lục II thật).
+
+enum M04LogType {
+  ENVIRONMENT
+  CHEMICAL_CABINET
+  EQUIPMENT_CABINET
+}
+
+enum M04RiskLevel {
+  THUONG
+  CAO
+}
+
+enum M04PlanStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+}
+
+enum M04ItemType {
+  CONDITION_LOG
+  FIELD_WORK_PLAN
+}
+
+model M04AreaSpec {
+  id          String @id @default(cuid())
+  areaCode    String @unique
+  name        String
+  tempMin     Float
+  tempMax     Float
+  humidityMin Float
+  humidityMax Float
+
+  createdAt DateTime @default(now())
+
+  logs M04ConditionLog[]
+}
+
+model M04ConditionLog {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "DK-2026-0001"
+
+  logType     M04LogType
+  areaId      String
+  measuredAt  DateTime   @default(now())
+  temperature Float
+  humidity    Float
+  deviceRef   String?
+  withinSpec  Boolean    @default(true) // server tự tính, không nhận trực tiếp từ client
+
+  abnormalAction String? // bắt buộc nếu withinSpec = false
+
+  reportedById String
+
+  createdAt DateTime @default(now())
+
+  area       M04AreaSpec @relation(fields: [areaId], references: [id])
+  reportedBy User        @relation("M04LogReported", fields: [reportedById], references: [id])
+}
+
+model M04FieldWorkPlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HT-2026-0001"
+
+  site      String
+  customer  String
+  personnel String[]
+  schedule  DateTime
+  workItems String[]
+  riskLevel M04RiskLevel  @default(THUONG)
+  status    M04PlanStatus @default(DRAFT)
+  reason    String?
+
+  briefed   Boolean   @default(false)
+  briefedAt DateTime?
+
+  createdById  String
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M04PlanCreated", fields: [createdById], references: [id])
+  approvedBy User? @relation("M04PlanApproved", fields: [approvedById], references: [id])
+}
+
+model M04AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M04ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
