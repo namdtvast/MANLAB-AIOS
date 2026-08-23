@@ -72,3 +72,30 @@ lần 03) · Biểu mẫu: F12.01–F12.03 (chưa có nguồn) · Lưu hồ sơ:
 liên quan sai sót GCN) · Phụ lục I (kịch bản xử lý phản ánh tiêu cực công khai trên Google): quy
 trình vận hành thực tế, không phải trường dữ liệu — tham khảo khi xây UI cảnh báo SLA phản hồi ·
 Căn cứ: ISO 9001 §9.1.2/§10.2, ISO/IEC 17025 §7.9, ISO 17034 (khi liên quan mẫu chuẩn).
+
+## 6. Triển khai thật (Increment 10, aios-platform)
+
+Đã xây thành CRUD + state machine khiếu nại + gate nghiệp vụ thật trong
+`09_ENGINEERING/aios-platform` (Prisma + Next.js), không có `08_Source` nguyên mẫu (giống
+M01/M02/M03/M04/M16/M17). Chi tiết đầy đủ + bằng chứng VERIFY:
+`01_Requirement/_work/20260823-xay-moi-m12/{spec.md, plan.md, verify.md}`.
+
+**Quyết định phạm vi cần LĐV xác nhận lại**:
+1. Gộp `Feedback`/`InternalFeedback` thành 1 model `M12Feedback` với field `origin`
+   (KHACH_HANG/NOI_BO) phân biệt — 2 đối tượng DacTa gần như trùng field, mirror cách đã gộp 3
+   loại log M04 thành 1 model.
+2. Người thực hiện phân công cán bộ phụ trách xử lý (`txAssignComplaint`) quy định cứng là
+   **LĐV** cho mọi khiếu nại (kể cả không phức tạp) — DacTa chỉ nói rõ LĐV phân công khiếu nại
+   phức tạp, chọn LĐV cho mọi trường hợp để có 1 gate duy nhất, nhất quán.
+3. `isComplex` (ảnh hưởng lớn/sai sót hệ thống, quy tắc 4) là cờ tự đánh dấu thủ công khi tạo hồ
+   sơ, không có quy tắc tính tự động nào trong DacTa.
+
+Gate chính đã verify thật qua Browser: bắt buộc khởi tạo văn bản khiếu nại chính thức F14.03
+trước khi phân công khi không giải quyết được ngay tại chỗ (quy tắc 1-2), bắt buộc liên kết CAPA
+trước khi đóng hồ sơ khiếu nại phức tạp (quy tắc 4), chỉ LĐV được quyết định dừng giải quyết khi
+khách hàng chưa chấp nhận (quy tắc 5, verify cả nhánh chặn PHUTRACH lẫn nhánh LĐV thành công),
+nhánh tắt đóng hồ sơ ngay khi giải thích được tại chỗ + khách hài lòng (quy tắc 2), chuyển
+phàn nàn/góp ý thành khiếu nại (quy tắc 6).
+
+Vai trò module: `QLCL`, `LDV`, `TIEPNHAN`, `PHUTRACH` — dùng lại 4 tài khoản demo đã có
+(`nth`/`ldp`/`ldv`/`qlcl@manlab.vn`), không tạo tài khoản mới.
