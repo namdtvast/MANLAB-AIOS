@@ -72,3 +72,26 @@ duyệt, lần 03) · Biểu mẫu: F16.01–F16.04 (chưa có bản mẫu trố
 quan: M13 (hành động khắc phục sau phát hiện KPH), M17 (kết quả đánh giá là đầu vào xem xét lãnh
 đạo), M11 (thu hồi kết quả đã phát hành nếu bị ảnh hưởng) · Căn cứ: ISO 9001 §9.2, ISO/IEC 17025
 §8.8.
+
+## 6. Triển khai thật (Increment 8, aios-platform)
+
+Đã xây thành CRUD + 3 gate nghiệp vụ thật trong `09_ENGINEERING/aios-platform` (Prisma +
+Next.js), không có `08_Source` nguyên mẫu (giống M01/M02/M03/M04). Chi tiết đầy đủ + bằng chứng
+VERIFY: `01_Requirement/_work/20260823-xay-moi-m16/{spec.md, plan.md, verify.md}`.
+
+**Quyết định phạm vi cần LĐP xác nhận lại**:
+1. Mô hình hóa "phê duyệt LĐV, qua LĐP xem xét trước" thành **2 bước tường minh**
+   (`PENDING_REVIEW` → `PENDING_APPROVAL`), mirror đúng pattern M10 — DacTa chỉ viết gọn 1 câu,
+   không liệt kê 2 trạng thái riêng.
+2. Chỉ cài gate cứng cho mốc **7 ngày** (thông báo bộ phận liên quan, quy tắc 2); mốc 2 tuần
+   (nhắc đoàn chuẩn bị) chỉ là gợi ý, chưa cài thành gate/cảnh báo riêng.
+
+Gate chính đã verify thật qua Browser: duyệt kế hoạch 2 cấp (LĐP không tự duyệt hồ sơ mình xem
+xét lên cấp trên, LĐV-only phê duyệt cuối), gate thời hạn 7 ngày khi xác nhận chương trình, gate
+vai trò tạo báo cáo (chỉ Trưởng đoàn đánh giá — đúng quy tắc 3 "kết luận trưởng đoàn là cuối
+cùng"). Báo cáo trễ hạn hiển thị cảnh báo (badge đỏ) nhưng **không chặn tạo** — đúng tinh thần
+DacTa quy tắc 4 chỉ ghi "cần cảnh báo", không phải "bắt buộc".
+
+Vai trò module: `QLCL`, `LDP`, `LDV`, `TRUONGDOAN`, `DANHGIAVIEN`(chưa có action riêng — gộp
+chung điều kiện với TRUONGDOAN), `TRUONGBOPHAN`(chưa dùng ở Increment 8) — dùng lại 3 tài khoản
+demo M01/M02/M03/M04 + 1 tài khoản mới `truongdoan@manlab.vn`.

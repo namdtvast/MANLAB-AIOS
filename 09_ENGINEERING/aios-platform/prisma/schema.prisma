@@ -77,6 +77,12 @@ model User {
   m04PlanCreated  M04FieldWorkPlan[] @relation("M04PlanCreated")
   m04PlanApproved M04FieldWorkPlan[] @relation("M04PlanApproved")
   m04AuditEntries M04AuditEntry[]
+
+  m16PlanCreated   M16AuditPlan[]   @relation("M16PlanCreated")
+  m16PlanReviewed  M16AuditPlan[]   @relation("M16PlanReviewed")
+  m16PlanApproved  M16AuditPlan[]   @relation("M16PlanApproved")
+  m16ReportCreated M16AuditReport[] @relation("M16ReportCreated")
+  m16AuditEntries  M16AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1346,6 +1352,141 @@ model M04FieldWorkPlan {
 model M04AuditEntry {
   id       String      @id @default(cuid())
   itemType M04ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M16_DanhGiaNoiBo — xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04) — logic port từ ETV.P16_DanhGiaNoiBo.md
+// (Đã phê duyệt, lần 03), xem 01_Requirement/_work/20260823-xay-moi-m16/spec.md để đối chiếu
+// "Quyết định phạm vi" (mô hình 2 bước duyệt tường minh; chỉ gate cứng mốc 7 ngày).
+
+enum M16AuditType {
+  NOI_BO
+  BEN_NGOAI
+}
+
+enum M16PlanStatus {
+  DRAFT
+  PENDING_REVIEW
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+}
+
+enum M16ProgramStatus {
+  DRAFT
+  CONFIRMED
+}
+
+enum M16Conformity {
+  PHU_HOP
+  KHONG_PHU_HOP
+}
+
+enum M16ItemType {
+  PLAN
+  PROGRAM
+  REPORT
+}
+
+model M16AuditPlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KHDG-2026-0001"
+
+  type     M16AuditType
+  year     Int
+  scope    String[]
+  auditors String[]
+  isAdHoc  Boolean       @default(false)
+  status   M16PlanStatus @default(DRAFT)
+  reason   String?
+
+  createdById  String
+  reviewedById String?
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M16PlanCreated", fields: [createdById], references: [id])
+  reviewedBy User? @relation("M16PlanReviewed", fields: [reviewedById], references: [id])
+  approvedBy User? @relation("M16PlanApproved", fields: [approvedById], references: [id])
+
+  programs M16AuditProgram[]
+}
+
+model M16AuditProgram {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CTDG-2026-0001"
+
+  planId       String
+  department   String
+  field        String
+  auditDate    DateTime
+  teamLeadName String
+  teamMembers  String[]
+  status       M16ProgramStatus @default(DRAFT)
+  confirmedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  plan     M16AuditPlan      @relation(fields: [planId], references: [id])
+  findings M16AuditFinding[]
+  reports  M16AuditReport[]
+}
+
+model M16AuditFinding {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "PH-2026-0001"
+
+  programId        String
+  clauseRef        String
+  department       String
+  description      String
+  conformity       M16Conformity
+  evidence         String?
+  auditorSignature String
+  capaRef          String? // tham chiếu tự do → M13, M13 chưa có backend thật
+
+  createdAt DateTime @default(now())
+
+  program M16AuditProgram @relation(fields: [programId], references: [id])
+}
+
+model M16AuditReport {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "BCDG-2026-0001"
+
+  programId           String
+  openingMeetingNotes String?
+  closingMeetingDate  DateTime
+  closingConclusion   String
+  submittedAt         DateTime @default(now())
+  isLate              Boolean  @default(false) // server tự tính so closingMeetingDate + 7 ngày làm việc
+
+  createdById String
+
+  createdAt DateTime @default(now())
+
+  program   M16AuditProgram @relation(fields: [programId], references: [id])
+  createdBy User            @relation("M16ReportCreated", fields: [createdById], references: [id])
+}
+
+model M16AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M16ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
