@@ -90,6 +90,11 @@ model User {
   m17MinutesRecorded M17ReviewMinutes[]           @relation("M17MinutesRecorded")
   m17CapaCreated     M17CorrectiveActionRequest[] @relation("M17CapaCreated")
   m17AuditEntries    M17AuditEntry[]
+
+  m12ComplaintCreated  M12Complaint[]  @relation("M12ComplaintCreated")
+  m12ComplaintAssigned M12Complaint[]  @relation("M12ComplaintAssigned")
+  m12FeedbackCreated   M12Feedback[]   @relation("M12FeedbackCreated")
+  m12AuditEntries      M12AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1619,6 +1624,109 @@ model M17CorrectiveActionRequest {
 model M17AuditEntry {
   id       String      @id @default(cuid())
   itemType M17ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M12_KhieuNai — xây mới từ 05_MODULE_LIBRARY/M12_KhieuNai/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04/M16/M17) — logic port từ
+// ETV.P12_KhieuNai.md (Đã phê duyệt, lần 03), xem
+// 01_Requirement/_work/20260823-xay-moi-m12/spec.md để đối chiếu "Quyết định phạm vi". Gate
+// chính: bắt buộc văn bản khiếu nại chính thức (F14.03) khi không giải quyết được ngay tại chỗ.
+
+enum M12Channel {
+  TRUC_TIEP
+  DIEN_THOAI
+  EMAIL
+  VAN_BAN
+  FORM_ONLINE
+}
+
+enum M12ComplaintStatus {
+  NHAP
+  DANG_XU_LY
+  DA_TRA_LOI
+  DONG_HO_SO
+  KHONG_DAT_THOA_THUAN
+}
+
+enum M12FeedbackOrigin {
+  KHACH_HANG
+  NOI_BO
+}
+
+enum M12FeedbackCategory {
+  QUY_TRINH
+  THAI_DO_PHUC_VU
+  PHOI_HOP_NOI_BO
+  DIEU_HANH
+  THOI_GIAN_XU_LY
+}
+
+enum M12ItemType {
+  COMPLAINT
+  FEEDBACK
+}
+
+model M12Complaint {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KN-2026-0001"
+
+  channel                 M12Channel
+  content                 String
+  relatedCertificateRef   String? // tham chiếu tự do → M11, không có FK (DacTa không mô tả liên kết ngược)
+  resolvedOnSpot          Boolean            @default(false)
+  customerSatisfiedOnSpot Boolean?
+  isComplex               Boolean            @default(false)
+  externalDocRef          String? // tham chiếu tự do → M14 F14.03, M14 chưa có backend thật
+  status                  M12ComplaintStatus @default(NHAP)
+  resolution              String?
+  customerSatisfied       Boolean?
+  stopReason              String?
+  capaRef                 String? // tham chiếu tự do → M13, M13 chưa có backend thật
+
+  createdById String
+  assignedToId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User @relation("M12ComplaintCreated", fields: [createdById], references: [id])
+  assignedTo User? @relation("M12ComplaintAssigned", fields: [assignedToId], references: [id])
+
+  feedbacks M12Feedback[]
+}
+
+model M12Feedback {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "PNGY-2026-0001"
+
+  origin   M12FeedbackOrigin
+  category M12FeedbackCategory
+  content  String
+  source   String?
+
+  escalatedComplaintId String?
+
+  createdById String
+
+  createdAt DateTime @default(now())
+
+  createdBy         User          @relation("M12FeedbackCreated", fields: [createdById], references: [id])
+  escalatedComplaint M12Complaint? @relation(fields: [escalatedComplaintId], references: [id])
+}
+
+model M12AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M12ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String

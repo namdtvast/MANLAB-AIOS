@@ -24,7 +24,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M16", "M17", "M21", "M29"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M16", "M17", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -102,6 +102,7 @@ async function main() {
   await seedM04();
   await seedM16();
   await seedM17();
+  await seedM12();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1360,6 +1361,129 @@ async function seedM17() {
   await prisma.m17AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: tp.id, role: "TP", action: "Trưởng phòng phê duyệt" } });
 
   console.log(`Đã nạp 2 chương trình + 1 biên bản + 2 hành động + 1 phiếu CAPA demo M17 + vai trò M17 cho ${Object.keys(userByRole).length} tài khoản.`);
+}
+
+// M12_KhieuNai — xây mới từ 01_Requirement/DacTa.md. Dùng LẠI 4 tài khoản đã có
+// (nth=Người tiếp nhận, ldp=Cán bộ phụ trách, ldv=LĐV, qlcl@manlab.vn=QLCL — đã tạo sẵn ở
+// seedM10() nhưng chưa dùng vai trò QLCL ở module nào trước đó), không tạo tài khoản mới.
+const M12_ROLE_EMAILS: Record<string, string> = {
+  TIEPNHAN: "nth@manlab.vn",
+  PHUTRACH: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+  QLCL: "qlcl@manlab.vn",
+};
+
+async function seedM12() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M12_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M12", role } },
+      create: { userId: user.id, moduleCode: "M12", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m12Complaint.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const tiepNhan = userByRole["TIEPNHAN"];
+  const phuTrach = userByRole["PHUTRACH"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+
+  // 1. Giải thích ngay tại chỗ, khách hài lòng → đóng hồ sơ ngay, không cần F14.03 (quy tắc 2).
+  const c1 = await prisma.m12Complaint.create({
+    data: {
+      code: `KN-${year}-0001`,
+      channel: "TRUC_TIEP",
+      content: "Khách hàng thắc mắc thời gian trả kết quả hiệu chuẩn — đã giải thích quy trình ngay tại quầy tiếp nhận.",
+      resolvedOnSpot: true,
+      customerSatisfiedOnSpot: true,
+      isComplex: false,
+      status: "DONG_HO_SO",
+      resolution: "Giải thích trực tiếp ngay khi tiếp nhận — khách hàng đồng ý.",
+      customerSatisfied: true,
+      createdById: tiepNhan.id,
+    },
+  });
+  await prisma.m12AuditEntry.create({ data: { itemType: "COMPLAINT", itemId: c1.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Tiếp nhận khiếu nại — giải thích ngay, khách hài lòng → đóng hồ sơ" } });
+
+  // 2. Không giải thích được ngay, CHƯA có F14.03 — demo gate EXTERNAL_DOC_REQUIRED sống qua UI.
+  const c2 = await prisma.m12Complaint.create({
+    data: {
+      code: `KN-${year}-0002`,
+      channel: "EMAIL",
+      content: "Khách hàng khiếu nại kết quả thử nghiệm mẫu nước không khớp với kỳ vọng, yêu cầu giải trình bằng văn bản.",
+      resolvedOnSpot: false,
+      isComplex: false,
+      status: "NHAP",
+      createdById: tiepNhan.id,
+    },
+  });
+  await prisma.m12AuditEntry.create({ data: { itemType: "COMPLAINT", itemId: c2.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Tiếp nhận khiếu nại" } });
+
+  // 3. Phức tạp, đã có F14.03, đã phân công, đã trả lời — chờ đóng, demo gate CAPA_REQUIRED sống.
+  const c3 = await prisma.m12Complaint.create({
+    data: {
+      code: `KN-${year}-0003`,
+      channel: "VAN_BAN",
+      content: "Khách hàng khiếu nại sai sót thông tin hành chính trên GCN đã phát hành, nghi ngờ ảnh hưởng nhiều hồ sơ cùng đợt.",
+      relatedCertificateRef: "GCN-2026-0088",
+      resolvedOnSpot: false,
+      isComplex: true,
+      externalDocRef: "F14.03-2026-0004",
+      status: "DA_TRA_LOI",
+      resolution: "Đã rà soát, xác nhận sai sót do lỗi nhập liệu — đã đính chính và gửi lại GCN cho khách hàng.",
+      createdById: tiepNhan.id,
+      assignedToId: phuTrach.id,
+    },
+  });
+  await prisma.m12AuditEntry.create({ data: { itemType: "COMPLAINT", itemId: c3.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Tiếp nhận khiếu nại" } });
+  await prisma.m12AuditEntry.create({ data: { itemType: "COMPLAINT", itemId: c3.id, actorId: ldv.id, role: "LDV", action: "LĐV phân công xử lý (NHAP → DANG_XU_LY)" } });
+  await prisma.m12AuditEntry.create({ data: { itemType: "COMPLAINT", itemId: c3.id, actorId: phuTrach.id, role: "PHUTRACH", action: "Trả lời khách hàng (DANG_XU_LY → DA_TRA_LOI)" } });
+
+  // 4. Feedback nội bộ ĐÃ escalate thành khiếu nại (quy tắc 6) — demo trạng thái đã chuyển.
+  const escalated = await prisma.m12Complaint.create({
+    data: {
+      code: `KN-${year}-0004`,
+      channel: "VAN_BAN",
+      content: "Phản ánh nội bộ về phối hợp giữa 2 phòng ban làm chậm tiến độ trả kết quả — có dấu hiệu ảnh hưởng chất lượng dịch vụ.",
+      resolvedOnSpot: false,
+      isComplex: false,
+      status: "NHAP",
+      createdById: tiepNhan.id,
+    },
+  });
+  const f1 = await prisma.m12Feedback.create({
+    data: {
+      code: `PNGY-${year}-0001`,
+      origin: "NOI_BO",
+      category: "PHOI_HOP_NOI_BO",
+      content: "Phản ánh nội bộ về phối hợp giữa 2 phòng ban làm chậm tiến độ trả kết quả.",
+      source: "Khảo sát nội bộ định kỳ",
+      createdById: tiepNhan.id,
+      escalatedComplaintId: escalated.id,
+    },
+  });
+  await prisma.m12AuditEntry.create({ data: { itemType: "FEEDBACK", itemId: f1.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Ghi nhận phàn nàn/góp ý" } });
+  await prisma.m12AuditEntry.create({ data: { itemType: "FEEDBACK", itemId: f1.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: `Chuyển thành khiếu nại ${escalated.code} (quy tắc 6 ETV.P12)` } });
+
+  // 5. Feedback khách hàng CHƯA escalate — demo nút "Chuyển thành khiếu nại" còn sống.
+  const f2 = await prisma.m12Feedback.create({
+    data: {
+      code: `PNGY-${year}-0002`,
+      origin: "KHACH_HANG",
+      category: "THOI_GIAN_XU_LY",
+      content: "Khách hàng góp ý nên rút ngắn thời gian trả kết quả kiểm định thiết bị đo lường.",
+      source: "Form etv.org.vn/danh-gia-va-phan-nan",
+      createdById: tiepNhan.id,
+    },
+  });
+  await prisma.m12AuditEntry.create({ data: { itemType: "FEEDBACK", itemId: f2.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Ghi nhận phàn nàn/góp ý" } });
+
+  console.log(`Đã nạp 4 khiếu nại + 2 phàn nàn/góp ý demo M12 + vai trò M12 cho ${Object.keys(userByRole).length} tài khoản.`);
 }
 
 main()

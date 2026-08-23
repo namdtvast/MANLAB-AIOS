@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -216,6 +216,31 @@ phục (→ M13).
 - ❌ Chưa test qua UI: chiều LĐV→TP của gate đồng phê duyệt, gate `ALREADY_APPROVED`, nhánh chặn
   của gate "chỉ LĐV ghi kết luận", trường hợp cảnh báo mềm **hiển thị**, luồng Từ chối kế hoạch.
 
+## Trạng thái Increment 10 — xây mới M12_KhieuNai (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M12_KhieuNai/01_Requirement/_work/20260823-xay-moi-m12/verify.md`](../../05_MODULE_LIBRARY/M12_KhieuNai/01_Requirement/_work/20260823-xay-moi-m12/verify.md).
+
+Giống M01/M02/M03/M04/M16/M17 (xây mới từ `DacTa.md`, không di trú `08_Source`). 2 đối tượng
+nghiệp vụ: khiếu nại (state machine đầy đủ) và phàn nàn/góp ý (khách hàng + nội bộ, gộp 1 model
+với field `origin`).
+
+- ✅ **Điểm nghiệp vụ mới**: gate **bắt buộc văn bản khiếu nại chính thức F14.03** trước khi phân
+  công, khi không giải quyết được ngay tại chỗ (quy tắc 1-2 ETV.P12) — đã verify cả nhánh chặn lẫn
+  nhánh thành công qua Browser.
+- ✅ Gate bắt buộc liên kết CAPA (→ M13) trước khi đóng hồ sơ khiếu nại phức tạp (quy tắc 4) —
+  verify cả 2 nhánh qua Browser.
+- ✅ Gate chỉ LĐV được quyết định dừng giải quyết khi khách hàng chưa chấp nhận (quy tắc 5) —
+  verify nhánh chặn (PHUTRACH) lẫn nhánh thành công (LĐV) bằng đăng nhập đổi vai trò thật.
+- ✅ Nhánh tắt: giải thích được ngay + khách hài lòng → đóng hồ sơ ngay khi tạo, không qua bước
+  trung gian (quy tắc 2). Chuyển phàn nàn/góp ý thành khiếu nại chỉ 1 lần (quy tắc 6).
+- ⚠️ 3 "Quyết định phạm vi" (gộp `Feedback`/`InternalFeedback` 1 model; `txAssignComplaint` quy
+  định cứng vai trò LĐV cho mọi khiếu nại; `isComplex` là cờ thủ công) — chưa được LĐV xác nhận
+  chính thức, xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: nhánh chặn `FORBIDDEN` khi người không được phân công cố trả lời, nhánh
+  chặn `ASSIGNEE_REQUIRED`/không phải LĐV cố phân công, tổ hợp khiếu nại phức tạp + dừng giải
+  quyết.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -269,4 +294,5 @@ src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây m�
 src/lib/m04/            Rule engine + actor/actions M04 — Môi trường, xây mới (Increment 7)
 src/lib/m16/            Rule engine + actor/actions M16 — Đánh giá nội bộ, xây mới (Increment 8)
 src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạo, xây mới (Increment 9)
+src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & phản hồi, xây mới (Increment 10)
 ```
