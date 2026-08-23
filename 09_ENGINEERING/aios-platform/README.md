@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 (khung 38 module + M10/M21/M29 di trú + M01/M03 xây mới)
+# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -128,6 +128,30 @@ ContractTermination) nhưng chỉ 4 loại có workflow đầy đủ trong Incre
   sửa ngay trong cùng increment trước khi merge, xem verify.md mục 5.
 - ❌ Chưa có UI riêng cho `ContractTermination` (chỉ tạo ngầm trong transaction).
 
+## Trạng thái Increment 6 — xây mới M02_BaoMat (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/_work/20260823-xay-moi-m02/verify.md`](../../05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/_work/20260823-xay-moi-m02/verify.md).
+
+Giống M01/M03 (xây mới từ `DacTa.md`, không di trú `08_Source`). 4 đối tượng: cam kết bảo mật,
+sổ khách, phê duyệt công bố thông tin, sự cố bảo mật.
+
+- ✅ **Điểm kỹ thuật đáng chú ý**: `SecurityCommitment.employeeId` là FK thật tới `M03Employee`
+  (không phải chuỗi tham chiếu tự do như M03 dự kiến ban đầu, vì lúc đó M02 chưa xây) — đã verify
+  qua Browser, mở cam kết hiển thị đúng liên kết nhân sự thật.
+- ✅ Gate `DisclosureApproval` (quy tắc 5 ETV.P02): bắt buộc đã thông báo khách hàng trước khi
+  công bố (trừ khi pháp luật cấm), đúng thẩm quyền TP/LĐV theo lựa chọn khi tạo hồ sơ — cả 2 gate
+  đã verify chặn đúng qua Browser.
+- ✅ Gate `SecurityIncident` (quy tắc 8 ETV.P02): bắt buộc đánh giá phạm vi/hậu quả trước khi
+  chuyển bước, bắt buộc biện pháp khắc phục trước khi đóng hồ sơ — cả 2 gate đã verify chặn đúng.
+- ✅ Thu hồi cam kết bảo mật đã verify qua Browser.
+- ⚠️ 1 "Quyết định phạm vi" (SecurityCommitment không có bước soát xét/phê duyệt riêng — ký giấy
+  = hiệu lực ngay) — chưa được LĐP xác nhận chính thức, xem DacTa.md mục 6.
+- ❌ Gate `VisitorLog` (bắt buộc cam kết KHÁCH hợp lệ) chỉ verify qua code, chưa demo runtime (UI
+  tự nhiên chỉ cho chọn cam kết hợp lệ nên không tạo được tình huống lỗi qua thao tác thường).
+  Chưa có form sửa `customerNotified` sau khi tạo hồ sơ công bố. Chưa test nhánh LĐV duyệt thành
+  công (chỉ test nhánh TP bị chặn sai thẩm quyền).
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -177,4 +201,5 @@ src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
 src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
 src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
 src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
+src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)
 ```

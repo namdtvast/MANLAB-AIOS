@@ -64,6 +64,14 @@ model User {
   m03ServiceSigned       M03ServiceContract[]     @relation("M03ServiceSigned")
   m03Terminated          M03ContractTermination[] @relation("M03Terminated")
   m03AuditEntries        M03AuditEntry[]
+
+  m02CommitmentRevoked  M02SecurityCommitment[] @relation("M02CommitmentRevoked")
+  m02VisitorApproved    M02VisitorLog[]         @relation("M02VisitorApproved")
+  m02DisclosureApproved M02DisclosureApproval[] @relation("M02DisclosureApproved")
+  m02IncidentDetected   M02SecurityIncident[]   @relation("M02IncidentDetected")
+  m02IncidentAssessed   M02SecurityIncident[]   @relation("M02IncidentAssessed")
+  m02IncidentClosed     M02SecurityIncident[]   @relation("M02IncidentClosed")
+  m02AuditEntries       M02AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -956,11 +964,12 @@ model M03Employee {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  recruitmentPlan  M03RecruitmentPlan?  @relation(fields: [recruitmentPlanId], references: [id])
+  recruitmentPlan  M03RecruitmentPlan?     @relation(fields: [recruitmentPlanId], references: [id])
   trainingPlans    M03TrainingPlan[]
   trainingRecords  M03TrainingRecord[]
   laborContracts   M03LaborContract[]
   serviceContracts M03ServiceContract[]
+  m02Commitments   M02SecurityCommitment[] // FK thật từ M02 (Increment 6) — thay cho securityCommitmentRef tự do phía trên
 }
 
 model M03TrainingPlan {
@@ -1079,6 +1088,153 @@ model M03ContractTermination {
 model M03AuditEntry {
   id       String      @id @default(cuid())
   itemType M03ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M02_BaoMat — xây mới từ 05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M03) — logic port từ ETV.P02_BaoMat.md (Đã phê duyệt,
+// lần 03), xem 01_Requirement/_work/20260823-xay-moi-m02/spec.md để đối chiếu "Quyết định phạm
+// vi" (FK thật tới M03Employee thay cho securityCommitmentRef tự do; SecurityCommitment không có
+// bước soát xét/phê duyệt riêng — ký giấy = hiệu lực ngay).
+
+enum M02CommitmentType {
+  NHAN_VIEN
+  THU_VIEC
+  KHACH
+}
+
+enum M02CommitmentStatus {
+  HIEU_LUC
+  DA_THU_HOI
+}
+
+enum M02DisclosureStatus {
+  DRAFT
+  APPROVED
+}
+
+enum M02AuthorityLevel {
+  TP
+  LDV
+}
+
+enum M02IncidentStatus {
+  DETECTED
+  ASSESSED
+  CLOSED
+}
+
+enum M02ItemType {
+  COMMITMENT
+  VISITOR_LOG
+  DISCLOSURE
+  INCIDENT
+}
+
+model M02SecurityCommitment {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CK-2026-0001"
+
+  type        M02CommitmentType
+  personName  String
+  org         String?
+  signedDate  DateTime
+  accessScope String
+  status      M02CommitmentStatus @default(HIEU_LUC)
+
+  employeeId String? // chỉ áp dụng type=NHAN_VIEN/THU_VIEC — FK thật tới M03Employee
+
+  revokedAt    DateTime?
+  revokedById  String?
+  revokeReason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  employee    M03Employee?    @relation(fields: [employeeId], references: [id])
+  revokedBy   User?           @relation("M02CommitmentRevoked", fields: [revokedById], references: [id])
+  visitorLogs M02VisitorLog[]
+}
+
+model M02VisitorLog {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KH-2026-0001"
+
+  commitmentId String
+  visitorName  String
+  org          String?
+  purpose      String
+  area         String
+  entryTime    DateTime  @default(now())
+  exitTime     DateTime?
+
+  approvedById String
+
+  createdAt DateTime @default(now())
+
+  commitment M02SecurityCommitment @relation(fields: [commitmentId], references: [id])
+  approvedBy User                  @relation("M02VisitorApproved", fields: [approvedById], references: [id])
+}
+
+model M02DisclosureApproval {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CB-2026-0001"
+
+  basis                   String
+  content                 String
+  recipient               String
+  legallyProhibitedNotify Boolean             @default(false)
+  customerNotified        Boolean             @default(false)
+  authorityLevel          M02AuthorityLevel
+  status                  M02DisclosureStatus @default(DRAFT)
+
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  approvedBy User? @relation("M02DisclosureApproved", fields: [approvedById], references: [id])
+}
+
+model M02SecurityIncident {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "SC-2026-0001"
+
+  detectedById      String
+  detectedAt        DateTime @default(now())
+  containmentAction String
+
+  impactAssessment     String?
+  notificationRequired Boolean?
+  assessedById         String?
+
+  correctiveAction String?
+  closedById       String?
+
+  status M02IncidentStatus @default(DETECTED)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  detectedBy User  @relation("M02IncidentDetected", fields: [detectedById], references: [id])
+  assessedBy User? @relation("M02IncidentAssessed", fields: [assessedById], references: [id])
+  closedBy   User? @relation("M02IncidentClosed", fields: [closedById], references: [id])
+}
+
+model M02AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M02ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String

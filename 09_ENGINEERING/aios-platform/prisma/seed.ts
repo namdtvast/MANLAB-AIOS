@@ -20,7 +20,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // Module đã xây thật trong aios-platform (di trú từ 08_Source hoặc xây mới từ DacTa.md — xem
 // DEPLOYMENT.md). M01 xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (Increment 4).
 // M03 xây mới từ 05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md (Increment 5).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M03", "M10", "M21", "M29"]);
+// M02 xây mới từ 05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/DacTa.md (Increment 6).
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M10", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -94,6 +95,7 @@ async function main() {
   await seedM29();
   await seedM01();
   await seedM03();
+  await seedM02();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -851,6 +853,105 @@ async function seedM03() {
   await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan2.id, actorId: tp.id, role: "TP", action: "Gửi duyệt" } });
 
   console.log(`Đã nạp 2 đề xuất tuyển dụng + 2 hồ sơ nhân sự + 2 phiếu đào tạo + 1 HĐLĐ demo M03 + vai trò M03 cho ${Object.keys(userByRole).length} tài khoản.`);
+}
+
+// M02 — xây mới từ 05_MODULE_LIBRARY/M02_BaoMat/01_Requirement/DacTa.md (không có 08_Source
+// nguyên mẫu, giống M01/M03). Dùng lại nth/ldp/ldv (NV/TP/LDV) — QLCL không có action riêng
+// trong Increment 6 theo spec.md nên không seed vai trò riêng.
+const M02_ROLE_EMAILS: Record<string, string> = {
+  NV: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM02() {
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M02_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M02", role } },
+      create: { userId: user.id, moduleCode: "M02", role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m02SecurityCommitment.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const tp = userByRole["TP"];
+  const year = new Date().getFullYear();
+
+  const employee = await prisma.m03Employee.findFirst({ where: { code: "NS-2026-0002" } });
+
+  const commitment1 = await prisma.m02SecurityCommitment.create({
+    data: {
+      code: `CK-${year}-0001`,
+      type: "NHAN_VIEN",
+      personName: "Trần Thị Bích",
+      signedDate: new Date(`${year}-06-01`),
+      accessScope: "Hồ sơ hành chính, dữ liệu khách hàng phục vụ công việc văn phòng.",
+      status: "HIEU_LUC",
+      employeeId: employee?.id,
+    },
+  });
+  await prisma.m02AuditEntry.create({ data: { itemType: "COMMITMENT", itemId: commitment1.id, actorId: tp.id, role: "TP", action: "Ghi nhận cam kết bảo mật" } });
+
+  const commitment2 = await prisma.m02SecurityCommitment.create({
+    data: {
+      code: `CK-${year}-0002`,
+      type: "KHACH",
+      personName: "Nguyễn Văn Khách",
+      org: "Công ty TNHH Thiết bị Đo lường ABC",
+      signedDate: new Date(`${year}-07-10`),
+      accessScope: "Khu vực phòng thí nghiệm hiệu chuẩn, phục vụ bảo trì thiết bị.",
+      status: "HIEU_LUC",
+    },
+  });
+  await prisma.m02AuditEntry.create({ data: { itemType: "COMMITMENT", itemId: commitment2.id, actorId: tp.id, role: "TP", action: "Ghi nhận cam kết bảo mật" } });
+
+  const visitor1 = await prisma.m02VisitorLog.create({
+    data: {
+      code: `KH-${year}-0001`,
+      commitmentId: commitment2.id,
+      visitorName: "Nguyễn Văn Khách",
+      org: "Công ty TNHH Thiết bị Đo lường ABC",
+      purpose: "Bảo trì thiết bị đo lường",
+      area: "Phòng thí nghiệm hiệu chuẩn",
+      approvedById: tp.id,
+    },
+  });
+  await prisma.m02AuditEntry.create({ data: { itemType: "VISITOR_LOG", itemId: visitor1.id, actorId: tp.id, role: "TP", action: "Ghi nhận khách vào khu vực hạn chế" } });
+
+  const disclosure1 = await prisma.m02DisclosureApproval.create({
+    data: {
+      code: `CB-${year}-0001`,
+      basis: "Yêu cầu bằng văn bản từ cơ quan thanh tra theo Luật Thanh tra.",
+      content: "Kết quả hiệu chuẩn thiết bị đo lường của khách hàng X trong quý gần nhất.",
+      recipient: "Đoàn thanh tra Sở Khoa học và Công nghệ",
+      authorityLevel: "TP",
+      customerNotified: false,
+      legallyProhibitedNotify: false,
+      status: "DRAFT",
+    },
+  });
+  await prisma.m02AuditEntry.create({ data: { itemType: "DISCLOSURE", itemId: disclosure1.id, actorId: tp.id, role: "TP", action: "Soạn hồ sơ công bố thông tin" } });
+
+  const incident1 = await prisma.m02SecurityIncident.create({
+    data: {
+      code: `SC-${year}-0001`,
+      detectedById: tp.id,
+      containmentAction: "Đã khóa tạm thời tài khoản email nghi bị xâm nhập, đổi mật khẩu quản trị.",
+      impactAssessment: "Ảnh hưởng 1 hộp thư nội bộ, không phát hiện dữ liệu khách hàng bị truy cập.",
+      notificationRequired: false,
+      assessedById: tp.id,
+      status: "ASSESSED",
+    },
+  });
+  await prisma.m02AuditEntry.create({ data: { itemType: "INCIDENT", itemId: incident1.id, actorId: tp.id, role: "TP", action: "Phát hiện sự cố — đã ngăn chặn" } });
+  await prisma.m02AuditEntry.create({ data: { itemType: "INCIDENT", itemId: incident1.id, actorId: tp.id, role: "TP", action: "Đánh giá phạm vi/hậu quả sự cố" } });
+
+  console.log(`Đã nạp 2 cam kết + 1 sổ khách + 1 hồ sơ công bố + 1 sự cố demo M02 + vai trò M02 cho ${Object.keys(userByRole).length} tài khoản.`);
 }
 
 main()
