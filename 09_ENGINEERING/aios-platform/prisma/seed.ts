@@ -24,7 +24,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M29"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M26", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -135,6 +135,7 @@ async function main() {
   await seedM12();
   await seedM13();
   await seedM14();
+  await seedM26();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1941,6 +1942,287 @@ async function seedM14() {
   await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: newProc.id, actorId: nth.id, role: "NTH", action: `Soạn thảo văn bản mới (thay thế ${oldProc.code})` } });
 
   console.log(`Đã nạp 7 văn bản demo M14 + 1 gợi ý AI + vai trò M14 cho ${Object.keys(userByRole).length} tài khoản (có tạo mới pvt@manlab.vn).`);
+}
+
+
+// M26 — Quản lý tri thức tổ chức. Nguồn: Thủ tục ETV.P26 (ban hành lần 01, 23/08/2026) +
+// 05_MODULE_LIBRARY/M26_TriThuc/01_Requirement/DacTa.md. Dùng lại nth/ldp/ldv/qtht + tạo mới
+// ktv@manlab.vn cho vai trò Nhân viên (người giữ tri thức ẩn — cần tách khỏi QLCL/TP để demo
+// gate lọc theo mức bảo mật và gate tri thức ẩn trọng yếu).
+const M26_ROLE_EMAILS: Record<string, string> = {
+  QLCL: "nth@manlab.vn",
+  TP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+  QTHT: "qtht@manlab.vn",
+  NV: "ktv@manlab.vn",
+};
+
+async function seedM26() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  await prisma.user.upsert({
+    where: { email: "ktv@manlab.vn" },
+    create: { email: "ktv@manlab.vn", name: "Trần V. K. (Kiểm nghiệm viên)", role: "MEMBER", passwordHash },
+    update: {},
+  });
+
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M26_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M26", role } },
+      create: { userId: user.id, moduleCode: "M26", role },
+      update: {},
+    });
+  }
+
+  if ((await prisma.m26KnowledgeItem.count()) > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const qlcl = userByRole["QLCL"];
+  const tp = userByRole["TP"];
+  const ldv = userByRole["LDV"];
+  const nv = userByRole["NV"];
+  const year = new Date().getFullYear();
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000);
+  const daysAhead = (n: number) => new Date(Date.now() + n * 86_400_000);
+
+  const audit = (itemType: "ITEM" | "LESSON" | "NEED" | "SHARING", itemId: string, actorId: string, role: string, action: string, before?: string, after?: string) =>
+    prisma.m26AuditEntry.create({ data: { itemType, itemId, actorId, role, action, before: before ?? null, after: after ?? null } });
+
+  // Tài liệu kiểm soát có sẵn ở M14 để minh họa quy tắc 2 (mục tri thức trỏ doc_ref, không tự đánh phiên bản).
+  const doc = await prisma.m14Document.findFirst({ where: { status: "DA_PHE_DUYET" }, orderBy: { code: "asc" } });
+  // Rủi ro có sẵn ở M01 để minh họa quy tắc 3 (rủi ro mất tri thức trọng yếu).
+  const risk = await prisma.m01RiskItem.findFirst({ orderBy: { createdAt: "asc" } });
+
+  // 1. Tri thức hiện, đã phê duyệt, đang nằm trong chỉ mục AI (bảo mật Nội bộ).
+  const item1 = await prisma.m26KnowledgeItem.create({
+    data: {
+      code: `TT-${year}-0001`,
+      title: "Quy trình ước lượng độ không đảm bảo đo cho phép đo điện áp một chiều",
+      knowledgeForm: "TRI_THUC_HIEN",
+      category: "KY_THUAT_DO_LUONG",
+      origin: "NOI_BO",
+      summary:
+        "Cách xác định các nguồn thành phần độ không đảm bảo (chuẩn, độ phân giải, độ lặp lại, ảnh hưởng nhiệt độ), hệ số phủ và cách trình bày kết quả trong giấy chứng nhận hiệu chuẩn.",
+      sourceRef: "08_KNOWLEDGE_GRAPH/14_Technical_References/UncertaintyBudget_DCV.md",
+      docId: doc?.id ?? null,
+      ownerId: tp.id,
+      criticality: "TRUNG_BINH",
+      confidentiality: "NOI_BO",
+      appliesTo: ["ĐLVN 42:2017", "Chuẩn đa năng Fluke 5522A"],
+      reviewCycle: "HAI_NAM",
+      lastReviewedAt: daysAgo(60),
+      aiIndexed: true,
+      status: "APPROVED",
+      createdById: qlcl.id,
+      reviewedById: tp.id,
+      reviewedAt: daysAgo(64),
+      approvedById: ldv.id,
+      approvedAt: daysAgo(62),
+    },
+  });
+  await audit("ITEM", item1.id, qlcl.id, "QLCL", "Lập mục tri thức", null, "DRAFT");
+  await audit("ITEM", item1.id, tp.id, "TP", "Soát xét đạt", "PENDING_REVIEW", "PENDING_APPROVAL");
+  await audit("ITEM", item1.id, ldv.id, "LDV", "LĐV phê duyệt", "PENDING_APPROVAL", "APPROVED");
+  await audit("ITEM", item1.id, qlcl.id, "QLCL", "Bật chỉ mục trợ lý AI", "false", "true");
+
+  // 2. Tri thức ẩn TRỌNG YẾU CAO, chỉ 1 người giữ, chưa có rủi ro M01 và chưa có nhu cầu chuyển giao
+  //    ⇒ cố tình để ở Chờ phê duyệt để demo gate chặn cứng (quy tắc 3 / ETV.P26 mục 5.1.6).
+  const item2 = await prisma.m26KnowledgeItem.create({
+    data: {
+      code: `TT-${year}-0002`,
+      title: "Kinh nghiệm xử lý mẫu nền phức tạp khi thử nghiệm kim loại nặng trong bùn thải",
+      knowledgeForm: "TRI_THUC_AN",
+      category: "KY_THUAT_DO_LUONG",
+      origin: "NOI_BO",
+      summary:
+        "Cách nhận biết và xử lý nền mẫu gây nhiễu khi phá mẫu, thứ tự thêm axit, dấu hiệu mất mẫu — hiện chỉ một kiểm nghiệm viên làm thành thạo, chưa văn bản hóa.",
+      ownerId: tp.id,
+      criticality: "CAO",
+      confidentiality: "NOI_BO",
+      appliesTo: ["Phá mẫu vi sóng", "ICP-MS"],
+      reviewCycle: "NAM",
+      status: "PENDING_APPROVAL",
+      createdById: qlcl.id,
+      reviewedById: tp.id,
+      reviewedAt: daysAgo(3),
+    },
+  });
+  await prisma.m26KnowledgeHolder.create({ data: { itemId: item2.id, userId: nv.id, note: "Người duy nhất thực hiện thành thạo" } });
+  await audit("ITEM", item2.id, qlcl.id, "QLCL", "Lập mục tri thức", null, "DRAFT");
+  await audit("ITEM", item2.id, tp.id, "TP", "Soát xét đạt", "PENDING_REVIEW", "PENDING_APPROVAL");
+
+  // 3. Mục đã phê duyệt nhưng QUÁ HẠN rà soát (chu kỳ 1 năm, rà soát lần cuối 400 ngày trước).
+  const item3 = await prisma.m26KnowledgeItem.create({
+    data: {
+      code: `TT-${year}-0003`,
+      title: "Danh mục văn bản pháp luật về đo lường áp dụng cho hoạt động kiểm định",
+      knowledgeForm: "TRI_THUC_HIEN",
+      category: "PHAP_LY_TIEU_CHUAN",
+      origin: "BEN_NGOAI",
+      summary: "Tập hợp luật, nghị định, thông tư và ĐLVN đang áp dụng, kèm ghi chú hiệu lực và điều khoản liên quan tới phạm vi chỉ định của Viện.",
+      sourceRef: "08_KNOWLEDGE_GRAPH/01_Regulations/",
+      ownerId: qlcl.id,
+      criticality: "CAO",
+      confidentiality: "CONG_KHAI",
+      appliesTo: [],
+      reviewCycle: "NAM",
+      lastReviewedAt: daysAgo(400),
+      aiIndexed: true,
+      status: "APPROVED",
+      createdById: qlcl.id,
+      reviewedById: tp.id,
+      reviewedAt: daysAgo(402),
+      approvedById: ldv.id,
+      approvedAt: daysAgo(400),
+    },
+  });
+  await audit("ITEM", item3.id, ldv.id, "LDV", "LĐV phê duyệt", "PENDING_APPROVAL", "APPROVED");
+
+  // 4. Mục mức MẬT — dùng để kiểm tra lọc theo mức bảo mật (AC8) và cấm đưa vào chỉ mục AI (AC7).
+  const item4 = await prisma.m26KnowledgeItem.create({
+    data: {
+      code: `TT-${year}-0004`,
+      title: "Cấu hình và khóa an toàn hệ thống ký số nội bộ",
+      knowledgeForm: "TRI_THUC_HIEN",
+      category: "SO_HOA_DU_LIEU_AI",
+      origin: "NOI_BO",
+      summary: "Sơ đồ đặt khóa, quy trình cấp phát và thu hồi chứng thư số nội bộ, danh sách người giữ khóa dự phòng.",
+      sourceRef: "M15 — hồ sơ an toàn thông tin (lưu nội bộ, không công bố)",
+      ownerId: qlcl.id,
+      criticality: "CAO",
+      confidentiality: "MAT",
+      appliesTo: ["Hệ thống ký số nội bộ"],
+      reviewCycle: "SAU_THANG",
+      lastReviewedAt: daysAgo(20),
+      status: "APPROVED",
+      createdById: qlcl.id,
+      reviewedById: tp.id,
+      reviewedAt: daysAgo(24),
+      approvedById: ldv.id,
+      approvedAt: daysAgo(22),
+    },
+  });
+  await audit("ITEM", item4.id, ldv.id, "LDV", "LĐV phê duyệt", "PENDING_APPROVAL", "APPROVED");
+
+  // 5. Mục nháp do TP lập — dùng để kiểm tra tách vai trò: TP không tự soát xét mục của mình (AC4).
+  const item5 = await prisma.m26KnowledgeItem.create({
+    data: {
+      code: `TT-${year}-0005`,
+      title: "Cách xử lý khi thiết bị chuẩn trôi điểm giữa hai kỳ hiệu chuẩn",
+      knowledgeForm: "TRI_THUC_HIEN",
+      category: "VAN_HANH_THIET_BI",
+      origin: "NOI_BO",
+      summary: "Dấu hiệu nhận biết trôi điểm, cách kiểm tra trung gian, ngưỡng dừng sử dụng và các bước xử lý kết quả đã phát hành.",
+      sourceRef: "08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi/",
+      ownerId: tp.id,
+      criticality: "TRUNG_BINH",
+      confidentiality: "NOI_BO",
+      appliesTo: [],
+      reviewCycle: "NAM",
+      status: "PENDING_REVIEW",
+      createdById: tp.id,
+    },
+  });
+  await audit("ITEM", item5.id, tp.id, "TP", "Lập mục tri thức", null, "DRAFT");
+
+  // Bài học kinh nghiệm: 1 mới (chưa phân tích), 1 đã phê duyệt và đã kết tinh thành mục tri thức.
+  const ncw = await prisma.m13NonconformingWork.findFirst({ orderBy: { code: "asc" } });
+  const lesson1 = await prisma.m26LessonLearned.create({
+    data: {
+      code: `BH-${year}-0001`,
+      title: "Kết quả thử nghiệm bị ảnh hưởng do mẫu lưu sai điều kiện bảo quản",
+      sourceType: "KPH_CAPA",
+      sourceRef: ncw?.code ?? "KPH-2026-0001",
+      m13NcId: ncw?.id ?? null,
+      context: "Một lô mẫu được lưu ở tủ không kiểm soát nhiệt độ trong 2 ngày trước khi phân tích, phát hiện khi soát xét hồ sơ.",
+      rootCauseRef: ncw?.code ?? null,
+      lesson: "Điều kiện bảo quản mẫu phải được kiểm tra và ghi nhận ngay khi tiếp nhận, không đợi tới bước phân tích.",
+      recommendedAction: "Bổ sung bước xác nhận điều kiện bảo quản vào phiếu tiếp nhận mẫu và kiểm tra chéo hằng ngày.",
+      shareRequired: true,
+      status: "MOI",
+      createdById: qlcl.id,
+    },
+  });
+  await audit("LESSON", lesson1.id, qlcl.id, "QLCL", "Tạo phiếu bài học từ KPH của M13", null, "MOI");
+
+  const lesson2 = await prisma.m26LessonLearned.create({
+    data: {
+      code: `BH-${year}-0002`,
+      title: "Sai lệch khi hiệu chuẩn do bỏ qua thời gian ổn định nhiệt của chuẩn",
+      sourceType: "KET_QUA_NGOAI_KIEM_SOAT",
+      sourceRef: "M10 — kết quả so sánh liên phòng ngoài kiểm soát",
+      context: "Kết quả kiểm tra trung gian lệch khỏi giới hạn cảnh báo; truy nguyên cho thấy chuẩn chưa đủ thời gian ổn định nhiệt sau vận chuyển.",
+      lesson: "Chuẩn sau vận chuyển phải ổn định nhiệt tối thiểu theo hướng dẫn của nhà sản xuất trước khi dùng để hiệu chuẩn.",
+      recommendedAction: "Ghi rõ thời gian ổn định nhiệt tối thiểu trong quy trình đo và nhật ký sử dụng thiết bị.",
+      knowledgeItemId: item1.id,
+      shareRequired: true,
+      status: "DA_PHE_DUYET",
+      createdById: qlcl.id,
+      approvedById: ldv.id,
+      approvedAt: daysAgo(30),
+    },
+  });
+  await audit("LESSON", lesson2.id, ldv.id, "LDV", "LĐV phê duyệt bài học", "CHO_PHE_DUYET", "DA_PHE_DUYET");
+
+  // Nhu cầu tri thức: 1 quá hạn còn mở, 1 đã đáp ứng bằng hồ sơ đào tạo M03.
+  const need1 = await prisma.m26KnowledgeNeed.create({
+    data: {
+      code: `NC-${year}-0001`,
+      trigger: "MO_RONG_PHAM_VI",
+      triggerRef: "Hồ sơ mở rộng phạm vi chỉ định — phép thử kim loại nặng trong bùn thải",
+      description: "Thiếu tri thức vận hành phá mẫu vi sóng cho nền mẫu bùn thải; hiện chỉ một người làm được.",
+      requiredBy: daysAgo(15), // đã quá hạn — hiện cảnh báo cho LĐV
+      method: "KEM_CAP",
+      responsibleId: tp.id,
+      status: "DANG_BO_SUNG",
+      createdById: qlcl.id,
+    },
+  });
+  await audit("NEED", need1.id, qlcl.id, "QLCL", "Lập phiếu nhu cầu tri thức", null, "MO");
+
+  const training = await prisma.m03TrainingRecord.findFirst({ where: { result: "DAT", status: "APPROVED" }, orderBy: { code: "asc" } });
+  const need2 = await prisma.m26KnowledgeNeed.create({
+    data: {
+      code: `NC-${year}-0002`,
+      trigger: "THAY_DOI_PHAP_LUAT",
+      triggerRef: "Văn bản pháp luật về đo lường có hiệu lực trong năm",
+      description: "Cập nhật tri thức pháp lý cho nhân sự kỹ thuật sau khi văn bản mới có hiệu lực.",
+      requiredBy: daysAgo(45),
+      method: "DAO_TAO_NOI_BO",
+      responsibleId: qlcl.id,
+      resultTrainingId: training?.id ?? null,
+      resultItemId: training ? null : item3.id, // luôn có đầu ra để đúng quy tắc 8
+      status: "DA_DAP_UNG",
+      createdById: qlcl.id,
+      decidedById: qlcl.id,
+      decidedAt: daysAgo(40),
+    },
+  });
+  await audit("NEED", need2.id, qlcl.id, "QLCL", "Đóng nhu cầu — đã đáp ứng", "DANG_BO_SUNG", "DA_DAP_UNG");
+
+  // Hoạt động chia sẻ đã thực hiện, gắn 2 mục tri thức đã phê duyệt.
+  const sharing = await prisma.m26SharingEvent.create({
+    data: {
+      code: `CS-${year}-0001`,
+      form: "SINH_HOAT_CHUYEN_MON",
+      heldAt: daysAgo(25),
+      topic: "Ước lượng độ không đảm bảo đo và bài học từ kết quả ngoài kiểm soát",
+      presenterId: tp.id,
+      effectivenessNote: "Nhân sự nắm được cách lập bảng thành phần độ không đảm bảo; đề nghị bổ sung ví dụ cho phép đo nhiệt độ.",
+      status: "DA_THUC_HIEN",
+      createdById: qlcl.id,
+      items: { create: [{ itemId: item1.id }, { itemId: item3.id }] },
+      participants: { create: [{ userId: qlcl.id }, { userId: nv.id }, { userId: tp.id }] },
+    },
+  });
+  await audit("SHARING", sharing.id, qlcl.id, "QLCL", "Ghi nhận hoạt động chia sẻ đã thực hiện", "KE_HOACH", "DA_THUC_HIEN");
+
+  console.log(
+    `Đã nạp 5 mục tri thức (2 đã phê duyệt + 1 quá hạn rà soát + 1 Mật + 1 chờ soát xét), 2 bài học, 2 nhu cầu, 1 hoạt động chia sẻ demo M26 ` +
+      `+ vai trò M26 cho ${Object.keys(userByRole).length} tài khoản.`,
+  );
+  console.log(`Tài khoản M26 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${Object.values(M26_ROLE_EMAILS).join(", ")}`);
 }
 
 main()
