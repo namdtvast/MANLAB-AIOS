@@ -2,11 +2,26 @@ schema: manlab-aios/process@1.1
 code: MP28
 slug: ATTT
 name: Quản lý an toàn thông tin
-owner: "(cập nhật)"
+owner: "Người phụ trách an toàn thông tin (PT.ATTT)"
 status: active
-standards: ['ISO27001']
-legal: []
+standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
+legal:
+  - "Luật An toàn thông tin mạng số 86/2015/QH13"
+  - "Luật An ninh mạng số 24/2018/QH14"
+  - "Luật Giao dịch điện tử số 20/2023/QH15"
+  - "Nghị định 13/2023/NĐ-CP"
+  - "Nghị định 85/2016/NĐ-CP"
 capabilities: [CAP-28]
 module: M28
 menu_group: CONG_NGHE
 menu_order: 2
+document:
+  doc_id: ETV.P28
+  doc_status: issued
+  doc_version: "01"
+  issued_date: 2026-08-24
+forms:
+  - ETV.P.F28.01
+  - ETV.P.F28.02
+  - ETV.P.F28.03
+  - ETV.P.F28.04
