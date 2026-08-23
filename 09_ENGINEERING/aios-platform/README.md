@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 → 11 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13 xây mới)
+# MANLAB-AIOS Platform — Increment 0 → 12 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13/M14 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -270,6 +270,32 @@ thu hồi, ghi chép diễn biến theo dõi.
 - ❌ Chưa test qua UI: nhánh `NOT_SEVERE`, `PLAN_EXISTS`, thẩm xét KHÔNG ĐẠT + `NOTE_REQUIRED`,
   `txCompleteCapPlan` bởi người không được phân công.
 
+## Trạng thái Increment 12 — xây mới M14_TaiLieu (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M14_TaiLieu/01_Requirement/_work/20260823-xay-moi-m14/verify.md`](../../05_MODULE_LIBRARY/M14_TaiLieu/01_Requirement/_work/20260823-xay-moi-m14/verify.md).
+
+Khác các increment trước: M14 **đã có sẵn đặc tả** `02_API/API.md`, `03_Database/DataModel.md`,
+`07_Workflow/StateMachine.md` — bản triển khai bám theo (đúng 7 trạng thái, đúng danh sách mã lỗi
+nghiệp vụ), không định nghĩa lại.
+
+- ✅ **Điểm mới quan trọng nhất — gate ISO/IEC 42001**: tài khoản AI Agent bị chặn ở **mọi**
+  transition (`assertNotAiActor` gọi trong từng tx), verify bằng chính `ai-operator@manlab.vn`
+  thao tác trên UI thật; chiều ngược lại cũng verify: gợi ý của AI chỉ vào văn bản khi người có
+  thẩm quyền bấm "Áp dụng gợi ý".
+- ✅ Gate thiếu trường bắt buộc **theo loại văn bản** (ETV.P14 §6.3) — thông báo liệt kê đúng tên
+  từng trường còn thiếu, danh sách rút ngắn sau khi áp dụng gợi ý AI.
+- ✅ Gate **không ủy quyền** phê duyệt Sổ tay/Thủ tục (quy tắc 4) — verify cả nhánh chặn
+  (`LDV_UYQUYEN`) lẫn nhánh thành công (LĐV chính danh) trên cùng một văn bản.
+- ✅ Gate người lập không tự soát xét; chỉ Văn thư/QLCL ban hành; chỉ LĐP thanh lý (phân biệt
+  thanh lý vs hủy bỏ theo §6.11).
+- ✅ **Cross-module chiều ngược**: văn bản bên ngoài hiển thị khiếu nại (M12) đang viện dẫn nó qua
+  `externalDocRef` — khép vòng liên kết M12 → F14.03 tạo ở Increment 10.
+- ⚠️ 5 "Quyết định phạm vi" + **nợ kỹ thuật**: `permissionGroup`/`retention` lưu chuỗi thay vì FK
+  tới F14.06 (biểu mẫu chưa số hóa) — xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: `INVALID_CODE_FORMAT`/trùng mã khi tạo mới, nhánh Không soát xét/Không phê
+  duyệt, `txPublish` nhánh thành công, `txDiscard` (LĐV hủy bỏ), `ALREADY_APPLIED`.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -325,4 +351,5 @@ src/lib/m16/            Rule engine + actor/actions M16 — Đánh giá nội b�
 src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạo, xây mới (Increment 9)
 src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & phản hồi, xây mới (Increment 10)
 src/lib/m13/            Rule engine + actor/actions M13 — Công việc không phù hợp/CAPA, xây mới (Increment 11)
+src/lib/m14/            Rule engine + actor/actions M14 — Kiểm soát tài liệu, xây mới (Increment 12)
 ```

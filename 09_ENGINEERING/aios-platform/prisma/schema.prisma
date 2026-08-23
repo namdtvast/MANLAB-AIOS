@@ -102,6 +102,13 @@ model User {
   m13CapApproved       M13CorrectiveActionPlan[]  @relation("M13CapReplacementApproved")
   m13MonitoringNotes   M13MonitoringNote[]
   m13AuditEntries      M13AuditEntry[]
+  m14DocCreated        M14Document[]      @relation("M14DocCreated")
+  m14DocReviewed       M14Document[]      @relation("M14DocReviewed")
+  m14DocApproved       M14Document[]      @relation("M14DocApproved")
+  m14DocPublished      M14Document[]      @relation("M14DocPublished")
+  m14Suggestions       M14AiSuggestion[]  @relation("M14SuggestionCreated")
+  m14SuggestionApplied M14AiSuggestion[]  @relation("M14SuggestionApplied")
+  m14AuditEntries      M14AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1861,6 +1868,142 @@ model M13MonitoringNote {
 model M13AuditEntry {
   id       String      @id @default(cuid())
   itemType M13ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M14_TaiLieu — xây mới từ 05_MODULE_LIBRARY/M14_TaiLieu ----------
+// Khác các module trước: M14 đã có sẵn đặc tả 02_API/API.md, 03_Database/DataModel.md và
+// 07_Workflow/StateMachine.md — schema này bám theo, KHÔNG định nghĩa lại. Metadata theo đúng
+// bảng ETV.P14 §6.3 (quy định gốc duy nhất). Trạng thái dùng đúng 7 giá trị của StateMachine.md.
+// Gate ISO 42001: AI Agent chỉ ghi M14AiSuggestion, không bao giờ đổi status (ETV.P14 §6.9).
+
+enum M14DocType {
+  SO_TAY
+  THU_TUC
+  QUY_TRINH
+  HUONG_DAN
+  BIEU_MAU
+  QUYET_DINH
+  CONG_VAN
+  THONG_BAO
+  BIEN_BAN
+  BAO_CAO
+  GIAY_CHUNG_NHAN
+  VAN_BAN_BEN_NGOAI
+}
+
+enum M14DocStatus {
+  NHAP
+  CHO_SOAT_XET
+  KHONG_SOAT_XET
+  CHO_PHE_DUYET
+  KHONG_PHE_DUYET
+  DA_PHE_DUYET
+  HET_HIEU_LUC_HUY
+}
+
+enum M14KnowledgeCategory {
+  NOI_BO
+  CONG_KHAI
+  MAT
+}
+
+// §6.11: hai hành vi khác nhau cùng đích "Hết hiệu lực/Hủy" — thanh lý (LĐP) vs hủy bỏ (LĐV).
+enum M14DisposalType {
+  THANH_LY
+  HUY_BO
+}
+
+enum M14ItemType {
+  DOCUMENT
+  SUGGESTION
+}
+
+model M14Document {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // mã theo ETV.P14 §6.2, duy nhất toàn hệ thống
+
+  title      String
+  docType    M14DocType
+  owner      String
+  department String
+  processCode String? // → MPxx (04_PROCESS_LIBRARY)
+
+  effectiveDate DateTime?
+  revision      String?
+
+  keywords          String[]
+  relatedDocuments  String[]
+  isoClause         String[]
+  legalBasis        String[]
+  aiTags            String[]
+
+  knowledgeCategory M14KnowledgeCategory?
+  permissionGroup   String? // → ETV.P.F 14.06 (biểu mẫu chưa số hóa — lưu chuỗi tham chiếu)
+  retention         String? // → ETV.P.F 14.06
+  digitalSignature  String?
+  sourceOrg         String? // nơi phát hành/tiếp nhận
+
+  status       M14DocStatus     @default(NHAP)
+  disposalType M14DisposalType?
+  reviewNote   String?
+
+  publishedAt      DateTime?
+  publishedById    String?
+  distributionNote String? // ETV.P.F 14.04 — phiếu giao nhận
+
+  supersedesId String? @unique // cặp nghịch đảo, hệ thống tự đồng bộ 2 chiều (quy tắc 6)
+
+  createdById  String
+  reviewedById String?
+  approvedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy   User @relation("M14DocCreated", fields: [createdById], references: [id])
+  reviewedBy  User? @relation("M14DocReviewed", fields: [reviewedById], references: [id])
+  approvedBy  User? @relation("M14DocApproved", fields: [approvedById], references: [id])
+  publishedBy User? @relation("M14DocPublished", fields: [publishedById], references: [id])
+
+  supersedes   M14Document? @relation("M14Supersedes", fields: [supersedesId], references: [id])
+  supersededBy M14Document? @relation("M14Supersedes")
+
+  suggestions M14AiSuggestion[]
+}
+
+// ETV.P14 §6.9: AI chỉ gợi ý và cảnh báo — mọi gợi ý nằm ở bảng này, phải có người có thẩm quyền
+// bấm "Áp dụng" mới ghi vào M14Document.
+model M14AiSuggestion {
+  id         String @id @default(cuid())
+  documentId String
+
+  field          String // tên trường được gợi ý (vd "isoClause")
+  suggestedValue String
+  rationale      String?
+
+  createdById String
+  createdAt   DateTime @default(now())
+
+  appliedById String?
+  appliedAt   DateTime?
+
+  document  M14Document @relation(fields: [documentId], references: [id])
+  createdBy User        @relation("M14SuggestionCreated", fields: [createdById], references: [id])
+  appliedBy User?       @relation("M14SuggestionApplied", fields: [appliedById], references: [id])
+}
+
+model M14AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M14ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
