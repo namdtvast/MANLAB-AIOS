@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM21Role } from "@/lib/m21/actor";
 import { createDLRecordAndRedirect, createQTMTRecordAndRedirect } from "@/lib/m21/actions";
 import { M21_ROLE_LABEL, RECORD_TYPE_SHORT, STATUS_LABEL, STATUS_TONE } from "@/lib/m21/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -51,6 +52,8 @@ export default async function M21ListPage() {
           </form>
         </div>
       </div>
+
+      <CanCuBanner moduleCode="M21" />
 
       <div className="overflow-x-auto rounded-xl border border-border bg-surface">
         <table className="w-full min-w-[36rem] text-sm">

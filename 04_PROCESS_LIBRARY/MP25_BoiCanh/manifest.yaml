@@ -12,6 +12,7 @@ menu_group: DIEU_HANH
 menu_order: 1
 document:
   doc_id: ETV.P25
+  doc_title: "Thủ tục Quản lý bối cảnh tổ chức và các bên quan tâm"
   doc_status: issued
   doc_version: "01"
   issued_date: 2026-08-24

@@ -2,7 +2,7 @@ schema: manlab-aios/process@1.1
 code: MP01
 slug: RuiRo
 name: Giải quyết rủi ro và cơ hội
-owner: "(cập nhật)"
+owner: "LĐP Trần Thị Hoa"
 status: active
 standards: ['ISO9001', 'ISO17025']
 legal: []
@@ -10,3 +10,17 @@ capabilities: [CAP-16]
 module: M01
 menu_group: DIEU_HANH
 menu_order: 2
+document:
+  doc_id: ETV.P01
+  doc_title: "Thủ tục Giải quyết rủi ro và cơ hội"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-19
+  iso_clauses:
+    - "ISO/IEC 17025:2017 §8.5"
+    - "ISO 9001:2015 §6.1"
+forms:
+  - ETV.P.F01.01
+  - ETV.P.F01.02
+  - ETV.P.F01.03
+  - ETV.P.F01.04

@@ -10,3 +10,12 @@ capabilities: [CAP-16]
 module: M13
 menu_group: CHAT_LUONG
 menu_order: 1
+document:
+  doc_id: ETV.P13
+  doc_title: "Thủ tục Kiểm soát Công việc Không phù hợp"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §10.2 (Sự không phù hợp và hành động khắc phục)"
+    - "ISO/IEC 17025:2017 §7.10 (Công việc không phù hợp)"

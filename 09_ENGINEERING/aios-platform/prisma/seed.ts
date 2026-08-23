@@ -3,10 +3,11 @@
 // (tên module lấy từ manifest.yaml của MPxx tương ứng), không hardcode 2 nơi.
 import "dotenv/config";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative as relative_ } from "node:path";
 import yaml from "js-yaml";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
+import type { Prisma } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
@@ -29,10 +30,37 @@ const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "
 
 interface MpManifest {
   name?: string;
+  owner?: string;
   capabilities?: string[];
   module?: string;
   menu_group?: string;
   menu_order?: number;
+  standards?: string[];
+  legal?: string[];
+  // Khối căn cứ pháp lý — xem _meta/SCHEMA.md. MP chưa ban hành thủ tục thì
+  // không khai khối này; nền tảng hiển thị "chưa ban hành" thay vì bịa căn cứ.
+  document?: {
+    doc_id?: string;
+    doc_title?: string;
+    doc_status?: string;
+    doc_version?: string;
+    issued_date?: string | Date;
+    iso_clauses?: string[];
+    controlled_file?: string;
+  };
+  forms?: string[];
+}
+
+interface MpLinks {
+  procedure?: string;
+  form_files?: string[];
+}
+
+// Biểu mẫu hiển thị trên banner căn cứ: mã + tên đọc được + đường dẫn trong repo.
+interface FormRef {
+  code: string;
+  title: string;
+  path: string | null;
 }
 
 // Nhóm menu hợp lệ — đối chiếu với _meta/SCHEMA.md (manlab-aios/process@1.1).
@@ -49,13 +77,63 @@ const MENU_GROUPS = new Set([
 ]);
 const DEFAULT_MENU_GROUP = "CHAT_LUONG";
 
-function findMpManifest(num: string): MpManifest | null {
+function findMpDir(num: string): string | null {
   const prefix = `MP${num}_`;
-  const dir = readdirSync(PROCESS_LIB).find((d) => d.startsWith(prefix));
-  if (!dir) return null;
-  const manifestPath = join(PROCESS_LIB, dir, "manifest.yaml");
-  if (!existsSync(manifestPath)) return null;
-  return yaml.load(readFileSync(manifestPath, "utf8")) as MpManifest;
+  return readdirSync(PROCESS_LIB).find((d) => d.startsWith(prefix)) ?? null;
+}
+
+function loadYaml<T>(path: string): T | null {
+  if (!existsSync(path)) return null;
+  return yaml.load(readFileSync(path, "utf8")) as T;
+}
+
+function findMpManifest(num: string): MpManifest | null {
+  const dir = findMpDir(num);
+  return dir ? loadYaml<MpManifest>(join(PROCESS_LIB, dir, "manifest.yaml")) : null;
+}
+
+function findMpLinks(num: string): MpLinks | null {
+  const dir = findMpDir(num);
+  return dir ? loadYaml<MpLinks>(join(PROCESS_LIB, dir, "links.yaml")) : null;
+}
+
+// links.yaml dùng đường dẫn tương đối tính từ thư mục MPxx (vd "../../03_.../ETV.P01_*.md");
+// DB lưu đường dẫn tính từ gốc repo để UI hiển thị và deep-link ra cổng tài liệu.
+function repoPath(num: string, relative: string): string {
+  const dir = findMpDir(num);
+  const full = join(PROCESS_LIB, dir ?? "", relative);
+  return relative_(REPO_ROOT, full);
+}
+
+// Tên biểu mẫu lấy từ frontmatter của chính file biểu mẫu (title/doc_name) — không
+// chép tên vào manifest, tránh hai nguồn sự thật lệch nhau.
+function readFormTitle(absPath: string): string | null {
+  if (!existsSync(absPath)) return null;
+  const head = readFileSync(absPath, "utf8").split(/\r?\n/).slice(0, 40);
+  const line = head.find((l) => /^(title|doc_name):/.test(l));
+  if (!line) return null;
+  return line.replace(/^(title|doc_name):\s*/, "").replace(/^"|"$/g, "").trim() || null;
+}
+
+// Ghép mã biểu mẫu (manifest.forms) với file thật (links.form_files). Mã không có
+// file tương ứng vẫn hiển thị — chỉ là không bấm mở được.
+function buildForms(num: string, manifest: MpManifest | null, links: MpLinks | null): FormRef[] {
+  const files = links?.form_files ?? [];
+  const byFile: FormRef[] = files.map((rel) => {
+    const abs = join(PROCESS_LIB, findMpDir(num) ?? "", rel);
+    const base = rel.split("/").pop() ?? rel;
+    return {
+      code: base.split("_")[0].replace(/\.md$/, ""),
+      title: readFormTitle(abs) ?? base.replace(/\.md$/, ""),
+      path: repoPath(num, rel),
+    };
+  });
+  const covered = new Set(byFile.map((f) => f.code));
+  const declaredOnly = (manifest?.forms ?? [])
+    .map(String)
+    .filter((code) => !covered.has(code) && !covered.has(`ETV.P.${code}`))
+    .map((code) => ({ code, title: code, path: null }));
+  return [...byFile, ...declaredOnly];
 }
 
 async function main() {
@@ -70,9 +148,35 @@ async function main() {
     const [, num, slug] = match;
     const code = `M${num}`;
     const mpManifest = findMpManifest(num);
+    const mpLinks = findMpLinks(num);
 
     const name = mpManifest?.name ?? slug;
     const capabilityCode = mpManifest?.capabilities?.[0];
+
+    // Căn cứ pháp lý của module (banner đầu trang). Thiếu khối document nghĩa là
+    // MP chưa ban hành thủ tục — để null hết, UI hiển thị "chưa ban hành".
+    const doc = mpManifest?.document;
+    const issuedDate = doc?.issued_date ? new Date(doc.issued_date) : null;
+    const canCu = {
+      docId: doc?.doc_id ?? null,
+      docTitle: doc?.doc_title ?? null,
+      docStatus: doc?.doc_status ?? null,
+      docVersion: doc?.doc_version ?? null,
+      issuedDate,
+      procedurePath: mpLinks?.procedure && doc?.doc_id ? repoPath(num, mpLinks.procedure) : null,
+      procedureOwner: mpManifest?.owner ?? null,
+      standards: mpManifest?.standards ?? [],
+      isoClauses: doc?.iso_clauses ?? [],
+      legalBasis: mpManifest?.legal ?? [],
+      // Json trong Prisma cần kiểu InputJsonValue — FormRef[] là dữ liệu thuần, ép kiểu là an toàn.
+      forms: buildForms(num, mpManifest, mpLinks) as unknown as Prisma.InputJsonValue,
+    };
+    if (ACTIVE_MODULE_CODES.has(code) && !doc?.doc_id) {
+      console.warn(
+        `[căn cứ] ${code}: chưa khai khối document trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
+          `→ banner sẽ hiển thị "chưa ban hành thủ tục".`,
+      );
+    }
 
     let menuGroup = mpManifest?.menu_group;
     if (!menuGroup || !MENU_GROUPS.has(menuGroup)) {
@@ -97,6 +201,7 @@ async function main() {
         order: Number(num),
         menuGroup,
         menuOrder,
+        ...canCu,
       },
       update: {
         slug,
@@ -107,6 +212,7 @@ async function main() {
         sourcePath: `05_MODULE_LIBRARY/${dirName}`,
         menuGroup,
         menuOrder,
+        ...canCu,
       },
     });
   }

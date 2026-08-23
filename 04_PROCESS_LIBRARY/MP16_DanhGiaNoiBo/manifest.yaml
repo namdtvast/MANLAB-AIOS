@@ -10,3 +10,12 @@ capabilities: [CAP-16]
 module: M16
 menu_group: DIEU_HANH
 menu_order: 5
+document:
+  doc_id: ETV.P16
+  doc_title: "Thủ tục Đánh giá Nội bộ/Bên ngoài"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §9.2 (Đánh giá nội bộ)"
+    - "ISO/IEC 17025:2017 §8.8 (Đánh giá nội bộ)"

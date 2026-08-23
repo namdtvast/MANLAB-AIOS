@@ -9,10 +9,15 @@ legal: ["NĐ 36/2026", "NĐ 22/2026", "NQ 66.18/2026", "NQ 66.19/2026"]
 capabilities: [CAP-21]
 module: M21
 document:
-  controlled: ETV.MP21_Thu_tuc_Final_V5.docx
-  edition: "02"
-  issued: "2026-06-28"
+  doc_id: ETV.P21
+  doc_title: "Thủ tục Công bố, Thông báo và Kiểm soát Năng lực Đo lường và Quan trắc Môi trường"
   doc_status: issued
+  doc_version: "02"
+  issued_date: 2026-06-28
+  controlled_file: ETV.MP21_Thu_tuc_Final_V5.docx
+  iso_clauses:
+    - "ISO/IEC 17025:2017 §7.7"
+    - "ISO 17034:2016 §7.7 (có điều kiện)"
 forms: [F21.01, F21.02, F21.03, F21.04, F21.05, F21.06, F21.07, F21.08, F21.09, F21.10, F21.11, F21.12]
 menu_group: CHAT_LUONG
 menu_order: 2

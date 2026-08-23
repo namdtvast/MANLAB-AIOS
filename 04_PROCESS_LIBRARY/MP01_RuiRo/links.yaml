@@ -1,5 +1,5 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P01_RuiRoCoHoi.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M01_RuiRo
 forms:      ../../06_SHARED_RESOURCES/01_Forms
@@ -8,3 +8,9 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_MucTieu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_QuaTrinh.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.04_CamKet_ATLD_TrenCao.md

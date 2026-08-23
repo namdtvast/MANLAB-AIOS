@@ -1,5 +1,5 @@
 schema: manlab-aios/links@1.0
-procedure:      ./ETV.MP21_Thu_tuc_Final_V5.docx
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md
 quality_manual: ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
 iso:            ../../03_MANAGEMENT_SYSTEM
 module:         ../../05_MODULE_LIBRARY/M21_CongBoNangLuc

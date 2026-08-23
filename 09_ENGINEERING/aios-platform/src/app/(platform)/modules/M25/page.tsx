@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM25Role } from "@/lib/m25/actor";
 import { CYCLE_TYPE_LABEL, M25_ROLE_LABEL, MGMT_SYSTEM_LABEL, REVIEW_STATUS_LABEL, REVIEW_STATUS_TONE } from "@/lib/m25/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -42,11 +43,7 @@ export default async function M25ListPage() {
         </p>
       </div>
 
-      <p className="max-w-3xl rounded-lg border border-border bg-sunk px-3 py-2 text-xs text-ink-2">
-        Căn cứ: Thủ tục <strong>ETV.MP 25</strong> lần ban hành 01 ngày 24/08/2026
-        (<code>03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md</code>) và Sổ tay chất lượng mục 9.2. Biểu mẫu áp dụng:
-        F25.01 Bảng phân tích bối cảnh · F25.02 Bảng bên quan tâm và mong đợi · F25.03 Biên bản xem xét bối cảnh.
-      </p>
+      <CanCuBanner moduleCode="M25" />
 
       <section className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">

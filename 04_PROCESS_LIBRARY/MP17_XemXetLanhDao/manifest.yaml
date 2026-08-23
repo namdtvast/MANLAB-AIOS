@@ -10,3 +10,12 @@ capabilities: [CAP-16]
 module: M17
 menu_group: DIEU_HANH
 menu_order: 4
+document:
+  doc_id: ETV.P17
+  doc_title: "Thủ tục Xem xét của Lãnh đạo"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §9.3 (Xem xét của lãnh đạo)"
+    - "ISO/IEC 17025:2017 §8.9 (Xem xét của lãnh đạo)"

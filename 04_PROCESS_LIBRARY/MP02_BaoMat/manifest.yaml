@@ -2,11 +2,28 @@ schema: manlab-aios/process@1.1
 code: MP02
 slug: BaoMat
 name: Bảo mật thông tin và quyền sở hữu của khách hàng
-owner: "(cập nhật)"
+owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025', 'ISO27001']
-legal: []
+legal:
+  - "Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân"
 capabilities: [CAP-28]
 module: M02
 menu_group: CHAT_LUONG
 menu_order: 5
+document:
+  doc_id: ETV.P02
+  doc_title: "Thủ tục Bảo mật"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-18
+  iso_clauses:
+    - "ISO 9001:2015 §7.5"
+    - "ISO/IEC 17025:2017 §4.2, §8.3"
+    - "ISO/IEC 27001:2022 A.5.9–A.5.18, A.5.37, A.8.13"
+forms:
+  - ETV.P.F02.01
+  - ETV.P.F02.02
+  - ETV.P.F02.03
+  - ETV.P.F02.04
+  - ETV.P.F02.05

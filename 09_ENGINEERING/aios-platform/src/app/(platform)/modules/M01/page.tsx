@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM01Role } from "@/lib/m01/actor";
 import { M01_ROLE_LABEL, RISK_LEVEL_LABEL, RISK_SOURCE_LABEL, OPP_SOURCE_LABEL, STATUS_LABEL } from "@/lib/m01/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -66,6 +67,8 @@ export default async function M01ListPage() {
           </Link>
         </div>
       </div>
+
+      <CanCuBanner moduleCode="M01" />
 
       <section className="flex flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Rủi ro</h2>

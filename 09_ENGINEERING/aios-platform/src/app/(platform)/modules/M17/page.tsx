@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM17Role } from "@/lib/m17/actor";
 import { M17_ROLE_LABEL, PLAN_STATUS_LABEL } from "@/lib/m17/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -37,6 +38,8 @@ export default async function M17ListPage() {
           <strong className="text-ink">{role ? (M17_ROLE_LABEL[role] ?? role) : "Chưa được gán vai trò"}</strong>
         </p>
       </div>
+
+      <CanCuBanner moduleCode="M17" />
 
       <section className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">

@@ -4,6 +4,7 @@ import { getM29Role } from "@/lib/m29/actor";
 import { M29_ROLE_LABEL, APPROVAL_STATUS_LABEL, APPROVAL_STATUS_TONE, HEALTH_LABEL, HEALTH_TONE, OP_STATUS_LABEL } from "@/lib/m29/labels";
 import { can } from "@/lib/m29/model";
 import { CheckHealthButton } from "./CheckHealthButton";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -42,6 +43,8 @@ export default async function M29OverviewPage() {
           Vai trò M29 của bạn: <strong className="text-ink">{role ? M29_ROLE_LABEL[role] : "Chưa được gán vai trò"}</strong>
         </p>
       </div>
+
+      <CanCuBanner moduleCode="M29" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <div className="rounded-xl border border-border bg-surface p-4">

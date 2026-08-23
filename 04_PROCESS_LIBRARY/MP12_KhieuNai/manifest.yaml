@@ -10,3 +10,12 @@ capabilities: [CAP-16]
 module: M12
 menu_group: KHACH_HANG
 menu_order: 2
+document:
+  doc_id: ETV.P12
+  doc_title: "Thủ tục Giải quyết Khiếu nại, Phàn nàn, Góp ý"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §9.1.2 (Sự thỏa mãn của khách hàng), §10.2 (Sự không phù hợp và hành động khắc phục)"
+    - "ISO/IEC 17025:2017 §7.9 (Phàn nàn)"

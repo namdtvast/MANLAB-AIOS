@@ -9,3 +9,22 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-13_DaoTao
   - ../../02_CAPABILITIES/CAP-03_NhanSu
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.02_BanMoTaCongViec.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.04_KeHoachDaoTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.1_ChuongTrinhDaoTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.2_DanhSachThamDuDaoTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.08_DanhSachNhanSu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.09_HopDongLaoDong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.10_ChungChiDaoTaoNoiBo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.11_HopDongDichVuChuyenMon.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.12_HopDongDichVuPhoThong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md

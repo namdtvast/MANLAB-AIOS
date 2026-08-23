@@ -5,8 +5,27 @@ name: Kiểm soát cơ sở vật chất và điều kiện môi trường
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']
-legal: []
+legal:
+  - "Luật An toàn, vệ sinh lao động số 84/2015/QH13"
+  - "Luật Bảo vệ môi trường số 72/2020/QH14"
+  - "Luật Hóa chất hiện hành và các nghị định hướng dẫn về quản lý hóa chất"
+  - "QCVN 03:2011/BLĐTBXH (an toàn điện)"
+  - "QCVN 18:2004/BXD (an toàn trong xây dựng, chiếu sáng công trường)"
 capabilities: [CAP-08,CAP-09,CAP-10]
 module: M04
 menu_group: NGUON_LUC
 menu_order: 2
+document:
+  doc_id: ETV.P04
+  doc_title: "Thủ tục Cơ sở vật chất và Điều kiện môi trường"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §7.1.3 (Cơ sở hạ tầng), §7.1.4 (Môi trường cho việc thực hiện quá trình)"
+    - "ISO/IEC 17025:2017 §6.3 (Tiện nghi và điều kiện môi trường)"
+forms:
+  - ETV.P.F04.01
+  - ETV.P.F04.02
+  - ETV.P.F04.03
+  - ETV.P.F04.04
