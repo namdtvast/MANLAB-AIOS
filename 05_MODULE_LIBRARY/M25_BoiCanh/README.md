@@ -2,7 +2,7 @@
 
 | Đặc tả | Mô tả |
 |---|---|
-| Số hóa quy trình | MP25 (Thủ tục `ETV.P25` **chưa ban hành** — căn cứ hiện có: Sổ tay chất lượng §9.2) |
+| Số hóa quy trình | MP25 — Thủ tục `ETV.P25` lần ban hành 01, **Chờ soát xét** (dự thảo) |
 | Đối tượng dữ liệu chính | Kỳ xem xét bối cảnh · Vấn đề nội bộ/bên ngoài · Bên quan tâm · Nhu cầu và mong đợi |
 | Trạng thái | Nháp → Chờ soát xét → Chờ phê duyệt → Đã phê duyệt → Hết hiệu lực / Hủy |
 | Vai trò | QLCL (lập) · TP (soát xét, theo dõi) · LĐV (phê duyệt, kết luận) |

@@ -1,16 +1,16 @@
 # M25_BoiCanh — Đặc tả yêu cầu
 
-> **Nguồn và giới hạn nguồn**: **chưa có Thủ tục `ETV.P25`** trong `03_MANAGEMENT_SYSTEM/02_P/`
-> và **chưa có biểu mẫu `F25.xx`** trong `06_SHARED_RESOURCES/01_Forms/` (0/0). Căn cứ duy nhất đã
-> ban hành là Sổ tay chất lượng `03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md` **§9.2 Bối
-> cảnh tổ chức và các bên quan tâm** — mục này chỉ nêu nguyên tắc và **dẫn chiếu tới "Thủ tục
-> ETV.MP25"** như một tài liệu sẽ ban hành. Vì vậy đặc tả này **suy dẫn** từ QM §9.2 + yêu cầu
-> tiêu chuẩn (ISO 9001 §4.1/§4.2, ISO/IEC 17025 §4.1/§8.5, ISO/IEC 27001 §4.1–§4.3, ISO/IEC 42001
-> §4.1–§4.3, ISO 17034) + khuôn mẫu đã dùng ở các module cùng họ quản trị (M01, M17).
+> **Nguồn**: `03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md` (Thủ tục ETV.MP 25, lần ban hành
+> 01, **Chờ soát xét** — dự thảo, chưa có hiệu lực) + Sổ tay chất lượng
+> `01_QM/ETV.QM_QuanlyChatluong.md` **§9.2** (đã ban hành, dẫn chiếu tới thủ tục này) + yêu cầu
+> tiêu chuẩn (ISO 9001 §4.1/§4.2, ISO/IEC 17025 §4.1/§8.5, ISO 17034 §4.1, ISO/IEC 27001 §4.1–§4.3,
+> ISO/IEC 42001 §4.1–§4.3). Biểu mẫu `F25.01`–`F25.03` đã soạn, cùng ở trạng thái dự thảo.
 >
-> Mọi quy tắc **không** đọc được trực tiếp từ văn bản đã ban hành đều được đánh dấu `[SUY DẪN]` —
-> phải được LĐV/QLCL xác nhận và **ban hành chính thức `ETV.P25` + bộ biểu mẫu F25.xx theo MP14**
-> trước khi BUILD. Xem danh sách câu hỏi cần chốt ở mục 10.
+> **Thứ tự hình thành khác thông lệ**: các module khác số hóa một thủ tục đã ban hành; ở M25 thủ tục
+> chưa tồn tại nên đặc tả này được **suy dẫn trước** (các quy tắc suy dẫn vẫn giữ nhãn `[SUY DẪN]`),
+> rồi ETV.P25 được soạn theo đúng đặc tả đang chạy. Vì vậy **nếu bản ban hành chính thức của
+> ETV.P25 khác đặc tả này thì thủ tục là đúng** — sửa đặc tả và mã nguồn theo thủ tục, không ngược
+> lại. Sáu điểm cần chốt khi soát xét/phê duyệt: xem mục 10 và khối "GHI CHÚ DỰ THẢO" của ETV.P25.
 
 ## 1. Mục tiêu module
 
@@ -219,13 +219,13 @@ Thang này cố ý **3 mức**, khác ma trận 5×5 của M01 — M25 chỉ sà
 | Trích xuất đầu vào cho M17 | Dữ liệu/PDF | Phần "bối cảnh" trong 12 nội dung xem xét lãnh đạo |
 | Bảng theo dõi mục quá hạn xem xét | Màn hình | Mục có `monitoring_frequency` đã đến hạn mà chưa cập nhật |
 
-**Ba biểu mẫu F25.01–F25.03 hiện chưa tồn tại** — phải soạn và ban hành theo MP14 trước khi phát
-hành hồ sơ chính thức.
+**Ba biểu mẫu F25.01–F25.03 đã soạn** (`06_SHARED_RESOURCES/01_Forms/`) nhưng còn ở trạng thái
+**Chờ soát xét** cùng thủ tục — chỉ dùng làm hồ sơ chính thức sau khi ban hành theo MP14.
 
 ## 8. Liên kết
 
-Quy trình: **MP25** (`ETV.P25` chưa ban hành) · Năng lực: **CAP-25_BoiCanhTriThuc** (dùng chung với
-MP26/M26) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.2 · Tiêu chuẩn: ISO 9001 §4.1/§4.2,
+Quy trình: **MP25** · Thủ tục: `ETV.P25_QuanLyBoiCanh.md` (lần 01, Chờ soát xét) · Năng lực:
+**CAP-25_BoiCanhTriThuc** (dùng chung với MP26/M26) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.2 · Tiêu chuẩn: ISO 9001 §4.1/§4.2,
 ISO/IEC 17025 §4.1 (tính khách quan) và §8.5 (rủi ro/cơ hội), ISO/IEC 27001 §4.1–§4.3, ISO/IEC 42001
 §4.1–§4.3, ISO 17034 · Lưu hồ sơ: **ETV.P15** · Nhóm menu: `DIEU_HANH` (manifest MP25).
 
@@ -263,14 +263,15 @@ mới.
 
 ## 10. Câu hỏi cần LĐV/QLCL chốt trước khi BUILD
 
-1. **Ban hành `ETV.P25`**: đặc tả này có được dùng làm dự thảo đầu vào để soạn thủ tục chính thức
-   theo MP14 không? (Nếu thủ tục ban hành khác đặc tả → đặc tả phải sửa theo thủ tục, không ngược lại.)
+1. **Ban hành `ETV.P25`**: dự thảo thủ tục đã soạn (lần 01, Chờ soát xét) — cần phân công người
+   soát xét và trình LĐV phê duyệt theo MP14. (Nếu bản ban hành khác đặc tả → sửa đặc tả và mã
+   nguồn theo thủ tục, không ngược lại.)
 2. **Chu kỳ định kỳ**: 1 lần/năm trước Quý 4 (giả định hiện tại) hay 6 tháng/lần?
 3. **Cấp phê duyệt**: LĐV phê duyệt một mình (giả định hiện tại, giống M16) hay đồng phê duyệt
    LĐV + TP (như mô hình M17)?
 4. **Quy tắc 3** (chặn phê duyệt khi vấn đề mức Cao chưa liên kết M01) là **chặn cứng** hay chỉ
    **cảnh báo mềm**?
-5. **Danh mục chuẩn** mục 4.1/4.2: có chốt đúng bộ giá trị này để đưa vào biểu mẫu F25.01/F25.02
-   không, hay cần bổ sung nhóm đặc thù của Viện?
+5. **Danh mục chuẩn** mục 4.1/4.2 (đã đưa vào ETV.P25 mục 5.2.1/5.3.1 và biểu mẫu F25.01/F25.02):
+   đã đủ và đúng đặc thù của Viện chưa?
 6. **Bên quan tâm đã có sẵn**: có danh sách bên quan tâm hiện hành nào đang dùng trên giấy để nhập
    liệu kỳ đầu tiên (kỳ gốc) không?

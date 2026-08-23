@@ -10,8 +10,8 @@
 | Trích xuất đầu vào cho M17 | Dữ liệu/PDF | Phần "bối cảnh" trong nội dung xem xét của lãnh đạo |
 | Bảng theo dõi mục đến hạn xem xét | Màn hình | Tính khi đọc theo `monitoring_frequency` |
 
-> **Ba biểu mẫu F25.01–F25.03 chưa được ban hành** (không có trong `06_SHARED_RESOURCES/01_Forms/`)
-> — phải soạn và ban hành theo MP14 trước khi bản xuất được dùng làm hồ sơ chính thức.
+> **Ba biểu mẫu F25.01–F25.03 đã soạn** trong `06_SHARED_RESOURCES/01_Forms/` nhưng còn ở trạng
+> thái **Chờ soát xét** cùng Thủ tục ETV.P25 — bản xuất chỉ dùng nội bộ cho tới khi ban hành theo MP14.
 
 ## Hỗ trợ AI (← M29, có kiểm soát)
 

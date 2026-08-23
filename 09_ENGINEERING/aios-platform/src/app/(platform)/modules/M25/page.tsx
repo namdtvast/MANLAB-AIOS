@@ -43,9 +43,10 @@ export default async function M25ListPage() {
       </div>
 
       <p className="max-w-3xl rounded-lg border border-warn/30 bg-warn-soft px-3 py-2 text-xs text-warn">
-        Thủ tục <strong>ETV.P25 chưa được ban hành</strong> — module vận hành theo đặc tả suy dẫn từ Sổ tay chất lượng §9.2 và
-        ISO 9001 §4.1/§4.2 (xem <code>05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md</code>). Bản xuất biểu mẫu
-        F25.01–F25.03 chỉ dùng nội bộ cho tới khi biểu mẫu được ban hành theo MP14.
+        Thủ tục <strong>ETV.P25 đang ở bản dự thảo lần 01 — Chờ soát xét</strong>, chưa có hiệu lực (xem
+        <code>03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md</code>). Module vận hành theo đặc tả tại
+        <code>05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md</code>; biểu mẫu F25.01–F25.03 cũng còn ở bản dự thảo nên
+        hồ sơ in ra chỉ dùng nội bộ cho tới khi ban hành theo MP14.
       </p>
 
       <section className="flex flex-col gap-2">
