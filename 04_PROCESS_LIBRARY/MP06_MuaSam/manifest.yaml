@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP06
 slug: MuaSam
 name: Mua sản phẩm và dịch vụ do bên ngoài cung cấp
@@ -8,3 +8,5 @@ standards: ['ISO17025']
 legal: []
 capabilities: [CAP-06]
 module: M06
+menu_group: NGUON_LUC
+menu_order: 4

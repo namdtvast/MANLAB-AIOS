@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP20
 slug: PhanPhoi
 name: Phân phối và truy xuất nguồn gốc
@@ -8,3 +8,5 @@ standards: ['ISO17034']
 legal: []
 capabilities: [CAP-12]
 module: M20
+menu_group: KY_THUAT
+menu_order: 8

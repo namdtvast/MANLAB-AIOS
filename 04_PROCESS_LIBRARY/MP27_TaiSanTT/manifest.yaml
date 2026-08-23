@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP27
 slug: TaiSanTT
 name: Quản trị dữ liệu và tài sản thông tin
@@ -8,3 +8,5 @@ standards: ['ISO27001']
 legal: []
 capabilities: [CAP-28]
 module: M27
+menu_group: DU_LIEU_SO
+menu_order: 4

@@ -180,7 +180,14 @@ model PlatformModule {
   capabilityCode String? // CAP-xx liên quan, nếu xác định được từ manifest
   status         ModuleStatus @default(COMING_SOON)
   sourcePath     String // đường dẫn tương đối tới 05_MODULE_LIBRARY/Mxx_Slug trong repo
-  order          Int          @unique // thứ tự menu, khớp số Mxx
+  order          Int          @unique // thứ tự menu phẳng, khớp số Mxx (giữ nguyên — vẫn dùng cho trang Bản đồ 38 module)
+
+  // Nhóm menu (Increment 1 của _meta/specs/20260823-menu-phan-quyen-manlab).
+  // Nguồn sự thật là khóa menu_group/menu_order trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
+  // (schema manlab-aios/process@1.1) — seed.ts đọc lên, KHÔNG hardcode ở đây.
+  // Nullable: module thiếu khai báo vẫn nạp được, seed in cảnh báo và xếp vào nhóm mặc định.
+  menuGroup      String? // vd "KY_THUAT"
+  menuOrder      Int? // thứ tự trong nhóm, theo dòng chảy nghiệp vụ
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

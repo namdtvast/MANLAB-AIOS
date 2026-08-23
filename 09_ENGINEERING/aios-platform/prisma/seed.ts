@@ -30,7 +30,23 @@ interface MpManifest {
   name?: string;
   capabilities?: string[];
   module?: string;
+  menu_group?: string;
+  menu_order?: number;
 }
+
+// Nhóm menu hợp lệ — đối chiếu với _meta/SCHEMA.md (manlab-aios/process@1.1).
+// Module khai nhóm lạ hoặc không khai đều rơi về DEFAULT_MENU_GROUP kèm cảnh báo:
+// thà xếp sai nhóm còn hơn biến mất khỏi menu.
+const MENU_GROUPS = new Set([
+  "DIEU_HANH",
+  "NGUON_LUC",
+  "KHACH_HANG",
+  "KY_THUAT",
+  "CHAT_LUONG",
+  "DU_LIEU_SO",
+  "CONG_NGHE",
+]);
+const DEFAULT_MENU_GROUP = "CHAT_LUONG";
 
 function findMpManifest(num: string): MpManifest | null {
   const prefix = `MP${num}_`;
@@ -57,6 +73,16 @@ async function main() {
     const name = mpManifest?.name ?? slug;
     const capabilityCode = mpManifest?.capabilities?.[0];
 
+    let menuGroup = mpManifest?.menu_group;
+    if (!menuGroup || !MENU_GROUPS.has(menuGroup)) {
+      console.warn(
+        `[menu] ${code}: menu_group ${menuGroup ? `không hợp lệ ("${menuGroup}")` : "chưa khai"} trong ` +
+          `04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml → xếp tạm vào ${DEFAULT_MENU_GROUP}.`,
+      );
+      menuGroup = DEFAULT_MENU_GROUP;
+    }
+    const menuOrder = mpManifest?.menu_order ?? Number(num);
+
     await prisma.platformModule.upsert({
       where: { code },
       create: {
@@ -68,6 +94,8 @@ async function main() {
         status: ACTIVE_MODULE_CODES.has(code) ? "ACTIVE" : "COMING_SOON",
         sourcePath: `05_MODULE_LIBRARY/${dirName}`,
         order: Number(num),
+        menuGroup,
+        menuOrder,
       },
       update: {
         slug,
@@ -76,6 +104,8 @@ async function main() {
         capabilityCode,
         status: ACTIVE_MODULE_CODES.has(code) ? "ACTIVE" : "COMING_SOON",
         sourcePath: `05_MODULE_LIBRARY/${dirName}`,
+        menuGroup,
+        menuOrder,
       },
     });
   }

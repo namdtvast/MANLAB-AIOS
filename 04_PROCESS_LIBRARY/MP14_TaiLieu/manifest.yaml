@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP14
 slug: TaiLieu
 name: Kiểm soát tài liệu
@@ -8,3 +8,5 @@ standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
 legal: ['NĐ 30/2020/NĐ-CP', 'Luật GDĐT 20/2023/QH15']
 capabilities: [CAP-14]
 module: M14
+menu_group: CHAT_LUONG
+menu_order: 3

@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP31
 slug: LienTuc
 name: Quản lý tính liên tục hoạt động
@@ -8,3 +8,5 @@ standards: ['ISO27001']
 legal: []
 capabilities: [CAP-28]
 module: M31
+menu_group: DIEU_HANH
+menu_order: 7

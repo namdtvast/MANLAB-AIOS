@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP17
 slug: XemXetLanhDao
 name: Xem xét của lãnh đạo
@@ -8,3 +8,5 @@ standards: ['ISO17025']
 legal: []
 capabilities: [CAP-16]
 module: M17
+menu_group: DIEU_HANH
+menu_order: 4

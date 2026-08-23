@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP28
 slug: ATTT
 name: Quản lý an toàn thông tin
@@ -8,3 +8,5 @@ standards: ['ISO27001']
 legal: []
 capabilities: [CAP-28]
 module: M28
+menu_group: CONG_NGHE
+menu_order: 2

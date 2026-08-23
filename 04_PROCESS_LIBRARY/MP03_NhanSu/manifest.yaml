@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.0
+schema: manlab-aios/process@1.1
 code: MP03
 slug: NhanSu
 name: Tuyển dụng và đào tạo
@@ -8,3 +8,5 @@ standards: ['ISO9001', 'ISO17025']
 legal: []
 capabilities: [CAP-13,CAP-03]
 module: M03
+menu_group: NGUON_LUC
+menu_order: 1
