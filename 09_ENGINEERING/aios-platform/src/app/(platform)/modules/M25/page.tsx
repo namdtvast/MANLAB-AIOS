@@ -88,7 +88,7 @@ export default async function M25ListPage() {
               {reviews.map((r) => (
                 <tr key={r.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M25/review/${r.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M25/review/${r.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {r.code}
                     </Link>
                   </td>
