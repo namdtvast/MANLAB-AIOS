@@ -33,4 +33,4 @@ Số hóa vòng đời kiểm soát văn bản theo `ETV.P14` — tài liệu HT
 Người lập · Người soát xét (LĐP) · Người phê duyệt (LĐV) · Văn thư/QLCL (cấp mã, phân phối, lưu trữ) — chi tiết RACI: `ETV.P14` §5.
 
 ## 5. Liên kết
-Quy trình: MP14 · Năng lực: CAP-14 · Căn cứ: ISO/IEC 17025 §8.3, ISO 9001 §7.5, ISO 17034 §8.3 (có điều kiện), ISO/IEC 27001, ISO/IEC 42001 §7.5 · Thủ tục nguồn: `03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/ETV.P14_KiemSoatTaiLieu.md` · Skill AI: `07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu`.
+Quy trình: MP14 · Năng lực: CAP-14 · Căn cứ: ISO/IEC 17025 §8.3, ISO 9001 §7.5, ISO 17034 §8.3 (có điều kiện), ISO/IEC 27001, ISO/IEC 42001 §7.5 · Thủ tục nguồn: `03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md` (đường dẫn đã cập nhật — cấu trúc `03_MANAGEMENT_SYSTEM` đổi từ `03_ISO17025/procedures/` sang `02_P/` sau khi ghi chú này được viết) · Skill AI: `07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu`.
