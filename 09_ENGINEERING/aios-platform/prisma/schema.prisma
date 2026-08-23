@@ -2137,9 +2137,9 @@ model M14AuditEntry {
 }
 
 // ---------- M25_BoiCanh — xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md ----------
-// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04/M16/M17). Thủ tục ETV.P25 hiện ở bản dự
-// thảo lần 01 (Chờ soát xét), soạn sau và theo đúng đặc tả này; các quy tắc [SUY DẪN] gom hết vào
-// src/lib/m25/rules.ts để sửa một chỗ nếu bản ban hành chính thức khác đặc tả.
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04/M16/M17). Thủ tục ETV.MP 25 ban hành lần
+// 01 ngày 24/08/2026 (soạn sau, theo đúng đặc tả này); quy tắc nghiệp vụ gom hết vào
+// src/lib/m25/rules.ts, sửa thủ tục trước theo MP14 rồi mới sửa mã nguồn.
 // Mô hình: KỲ XEM XÉT LÀ SNAPSHOT CÓ PHIÊN BẢN — kỳ Đã phê duyệt bất biến, kỳ mới thay thế kỳ cũ.
 
 enum M25CycleType {

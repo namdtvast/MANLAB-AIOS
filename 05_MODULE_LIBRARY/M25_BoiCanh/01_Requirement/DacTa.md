@@ -1,16 +1,16 @@
 # M25_BoiCanh — Đặc tả yêu cầu
 
 > **Nguồn**: `03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md` (Thủ tục ETV.MP 25, lần ban hành
-> 01, **Chờ soát xét** — dự thảo, chưa có hiệu lực) + Sổ tay chất lượng
+> 01, **Đã ban hành** 24/08/2026) + Sổ tay chất lượng
 > `01_QM/ETV.QM_QuanlyChatluong.md` **§9.2** (đã ban hành, dẫn chiếu tới thủ tục này) + yêu cầu
 > tiêu chuẩn (ISO 9001 §4.1/§4.2, ISO/IEC 17025 §4.1/§8.5, ISO 17034 §4.1, ISO/IEC 27001 §4.1–§4.3,
-> ISO/IEC 42001 §4.1–§4.3). Biểu mẫu `F25.01`–`F25.03` đã soạn, cùng ở trạng thái dự thảo.
+> ISO/IEC 42001 §4.1–§4.3). Biểu mẫu `F25.01`–`F25.03` ban hành cùng ngày với thủ tục.
 >
 > **Thứ tự hình thành khác thông lệ**: các module khác số hóa một thủ tục đã ban hành; ở M25 thủ tục
-> chưa tồn tại nên đặc tả này được **suy dẫn trước** (các quy tắc suy dẫn vẫn giữ nhãn `[SUY DẪN]`),
-> rồi ETV.P25 được soạn theo đúng đặc tả đang chạy. Vì vậy **nếu bản ban hành chính thức của
-> ETV.P25 khác đặc tả này thì thủ tục là đúng** — sửa đặc tả và mã nguồn theo thủ tục, không ngược
-> lại. Sáu điểm cần chốt khi soát xét/phê duyệt: xem mục 10 và khối "GHI CHÚ DỰ THẢO" của ETV.P25.
+> chưa tồn tại nên đặc tả này được **suy dẫn trước** (các quy tắc suy dẫn vẫn giữ nhãn `[SUY DẪN]`
+> để truy vết xuất xứ), rồi ETV.P25 được soạn theo đúng đặc tả đang chạy và ban hành lần 01 ngày
+> 24/08/2026. Từ nay **ETV.P25 là nguồn quy định**: mọi sửa đổi quy tắc nghiệp vụ phải sửa thủ tục
+> trước theo MP14, rồi mới sửa đặc tả và mã nguồn theo.
 
 ## 1. Mục tiêu module
 
@@ -219,12 +219,12 @@ Thang này cố ý **3 mức**, khác ma trận 5×5 của M01 — M25 chỉ sà
 | Trích xuất đầu vào cho M17 | Dữ liệu/PDF | Phần "bối cảnh" trong 12 nội dung xem xét lãnh đạo |
 | Bảng theo dõi mục quá hạn xem xét | Màn hình | Mục có `monitoring_frequency` đã đến hạn mà chưa cập nhật |
 
-**Ba biểu mẫu F25.01–F25.03 đã soạn** (`06_SHARED_RESOURCES/01_Forms/`) nhưng còn ở trạng thái
-**Chờ soát xét** cùng thủ tục — chỉ dùng làm hồ sơ chính thức sau khi ban hành theo MP14.
+**Ba biểu mẫu F25.01–F25.03 đã ban hành** lần 01 ngày 24/08/2026
+(`06_SHARED_RESOURCES/01_Forms/`) — dùng làm hồ sơ chính thức.
 
 ## 8. Liên kết
 
-Quy trình: **MP25** · Thủ tục: `ETV.P25_QuanLyBoiCanh.md` (lần 01, Chờ soát xét) · Năng lực:
+Quy trình: **MP25** · Thủ tục: `ETV.P25_QuanLyBoiCanh.md` (lần 01, đã ban hành 24/08/2026) · Năng lực:
 **CAP-25_BoiCanhTriThuc** (dùng chung với MP26/M26) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.2 · Tiêu chuẩn: ISO 9001 §4.1/§4.2,
 ISO/IEC 17025 §4.1 (tính khách quan) và §8.5 (rủi ro/cơ hội), ISO/IEC 27001 §4.1–§4.3, ISO/IEC 42001
 §4.1–§4.3, ISO 17034 · Lưu hồ sơ: **ETV.P15** · Nhóm menu: `DIEU_HANH` (manifest MP25).
@@ -261,11 +261,13 @@ mới.
 5. **Chưa làm chức năng xuất F25.01–F25.03** vì 3 biểu mẫu chưa được ban hành theo MP14 — xuất
    bản khi biểu mẫu chưa có sẽ tạo ra hồ sơ không có giá trị pháp lý.
 
-## 10. Câu hỏi cần LĐV/QLCL chốt trước khi BUILD
+## 10. Câu hỏi cần LĐV/QLCL chốt (đã đưa vào ETV.P25 khi ban hành)
 
-1. **Ban hành `ETV.P25`**: dự thảo thủ tục đã soạn (lần 01, Chờ soát xét) — cần phân công người
-   soát xét và trình LĐV phê duyệt theo MP14. (Nếu bản ban hành khác đặc tả → sửa đặc tả và mã
-   nguồn theo thủ tục, không ngược lại.)
+Các lựa chọn dưới đây đã được thể hiện thành quy định trong ETV.P25 lần ban hành 01; giữ lại ở đây
+để truy vết xuất xứ và làm đầu vào cho lần soát xét thủ tục tiếp theo.
+
+1. ~~**Ban hành `ETV.P25`**~~ — **đã xong**: thủ tục ban hành lần 01 ngày 24/08/2026 theo đúng đặc
+   tả này. Mọi sửa đổi tiếp theo đi từ thủ tục xuống đặc tả và mã nguồn.
 2. **Chu kỳ định kỳ**: 1 lần/năm trước Quý 4 (giả định hiện tại) hay 6 tháng/lần?
 3. **Cấp phê duyệt**: LĐV phê duyệt một mình (giả định hiện tại, giống M16) hay đồng phê duyệt
    LĐV + TP (như mô hình M17)?

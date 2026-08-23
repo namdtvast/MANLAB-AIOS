@@ -1,10 +1,11 @@
 // M25 — gate/state machine thuần hàm, AUTHORITATIVE.
 //
-// NGUỒN: Thủ tục ETV.P25 (03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md) hiện ở bản dự thảo
-// lần 01 — Chờ soát xét, soạn theo chính đặc tả này; căn cứ đã ban hành là Sổ tay chất lượng §9.2
-// + ISO 9001 §4.1/§4.2. Quy tắc đầy đủ: 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md mục
-// 5. Mọi quy tắc [SUY DẪN] gom hết vào file này — nếu bản ban hành chính thức của ETV.P25 khác đặc
-// tả thì sửa ở đây (thủ tục là đúng, không phải mã nguồn).
+// NGUỒN QUY ĐỊNH: Thủ tục ETV.MP 25 — 03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md (lần ban
+// hành 01, 24/08/2026), soạn theo chính đặc tả này rồi ban hành. Diễn giải nghiệp vụ đầy đủ:
+// 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md mục 5.
+// Chặn cứng theo ETV.P25: mục 5.2.3 (vấn đề mức tác động Cao phải liên kết MP01), mục 5.3.2 (mỗi
+// bên quan tâm ≥1 mong đợi), mục 5.3.3 (nghĩa vụ tuân thủ phải dẫn chiếu văn bản cụ thể), mục
+// 5.1.5 (kỳ đã phê duyệt bất biến). Sửa quy tắc phải sửa thủ tục trước theo MP14, rồi sửa file này.
 import type { M25ReviewStatus } from "@/generated/prisma/enums";
 
 export type TxResult =

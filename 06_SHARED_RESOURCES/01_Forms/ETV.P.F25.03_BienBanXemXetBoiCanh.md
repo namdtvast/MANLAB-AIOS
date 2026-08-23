@@ -5,8 +5,8 @@ type: Bieu-mau
 process: MP25_BoiCanh
 module: M25_BoiCanh
 revision: "01"
-effective_date: null
-status: Cho-soat-xet
+effective_date: "24/08/2026"
+status: Da-phe-duyet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
@@ -18,7 +18,7 @@ related_documents: [ETV.P25, ETV.P.F25.01, ETV.P.F25.02]
 | --- | --- |
 | **Mã số** | ETV.P.F 25.03 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | ..../..../........ |
+| **Ngày ban hành** | 24/08/2026 |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/1 |
 

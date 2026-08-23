@@ -12,9 +12,9 @@ menu_group: DIEU_HANH
 menu_order: 1
 document:
   doc_id: ETV.P25
-  doc_status: Cho-soat-xet   # dự thảo lần 01 — chờ soát xét và LĐV phê duyệt
+  doc_status: issued
   doc_version: "01"
-  issued_date: null
+  issued_date: 2026-08-24
 forms:
   - ETV.P.F25.01
   - ETV.P.F25.02

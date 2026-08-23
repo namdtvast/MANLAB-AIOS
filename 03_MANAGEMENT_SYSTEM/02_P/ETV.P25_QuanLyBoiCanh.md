@@ -1,13 +1,13 @@
 ---
 doc_id: ETV.P25
 doc_name: Thủ tục Quản lý bối cảnh tổ chức và các bên quan tâm
-doc_status: Cho-soat-xet
+doc_status: issued
 doc_version: 01
-issued_date: null
+issued_date: 2026-08-24
 responsibility:
   author: Dương Thành Nam
-  reviewer: (chờ phân công soát xét)
-  approver: (chờ Lãnh đạo Viện phê duyệt)
+  reviewer: Đỗ Văn Vinh
+  approver: Nguyễn Hoàng Giang
 applicable_standard:
   - ISO 9001:2015
   - ISO/IEC 17025:2017
@@ -22,32 +22,13 @@ applicable_standard:
 
 **Mã số:** ETV.MP 25  
 **Lần ban hành:** 01  
-**Ngày ban hành:** ..../..../........ *(điền khi Lãnh đạo Viện phê duyệt)*
+**Ngày ban hành:** 24/08/2026
 
 ## THEO DÕI SỬA ĐỔI TÀI LIỆU
 
 | Ngày soát xét | Lý do soát xét, ban hành lại | Lần ban hành |
 |---|---|---|
-| ..../..../........ | Ban hành lần thứ 01 | 01 |
-
----
-
-> ## GHI CHÚ DỰ THẢO — XÓA KHI BAN HÀNH
->
-> Bản này **đang ở trạng thái Chờ soát xét**, chưa có hiệu lực. Sổ tay chất lượng ETV.QM mục 9.2 đã
-> dẫn chiếu tới thủ tục này nhưng thủ tục chưa từng được ban hành; nội dung dưới đây được biên soạn
-> trên cơ sở ETV.QM mục 9.2, yêu cầu của ISO 9001 §4.1/§4.2 và bản đặc tả module M25 đang vận hành
-> trên ManLab. **Sáu điểm sau là lựa chọn của người biên soạn, cần người soát xét và Lãnh đạo Viện
-> xác nhận trước khi ban hành:**
->
-> 1. **Chu kỳ định kỳ** (mục 5.1.1): 01 lần/năm, hoàn tất trước khi lập chương trình xem xét của lãnh đạo — hay 06 tháng/lần?
-> 2. **Cấp phê duyệt** (mục 4.1, 5.1.4): Lãnh đạo Viện phê duyệt (Trưởng phòng soát xét) — hay đồng phê duyệt LĐV + TP như ETV.MP17?
-> 3. **Mức chặn của quy định tại mục 5.2.3**: hiện quy định **chặn cứng** — vấn đề mức tác động Cao chưa mở rủi ro/cơ hội tại ETV.MP01 thì không được trình soát xét. Có giữ mức chặn cứng hay hạ xuống cảnh báo?
-> 4. **Danh mục chuẩn** tại mục 5.2.1 (10 nhóm vấn đề) và 5.3.1 (08 nhóm bên quan tâm): đã đủ và đúng đặc thù của Viện chưa?
-> 5. **Ba biểu mẫu F25.01–F25.03**: bố cục cột đã đáp ứng yêu cầu đánh giá của tổ chức công nhận chưa?
-> 6. **Danh sách bên quan tâm hiện hành** để nhập kỳ gốc (kỳ đầu tiên) — cần đơn vị cung cấp.
->
-> Bản dự thảo do trợ lý AI hỗ trợ biên soạn theo ETV.MP14; AI **không** soát xét và **không** phê duyệt tài liệu.
+| 24/08/2026 | Ban hành lần thứ 01 | 01 |
 
 ---
 

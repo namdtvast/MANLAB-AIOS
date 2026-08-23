@@ -42,11 +42,10 @@ export default async function M25ListPage() {
         </p>
       </div>
 
-      <p className="max-w-3xl rounded-lg border border-warn/30 bg-warn-soft px-3 py-2 text-xs text-warn">
-        Thủ tục <strong>ETV.P25 đang ở bản dự thảo lần 01 — Chờ soát xét</strong>, chưa có hiệu lực (xem
-        <code>03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md</code>). Module vận hành theo đặc tả tại
-        <code>05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md</code>; biểu mẫu F25.01–F25.03 cũng còn ở bản dự thảo nên
-        hồ sơ in ra chỉ dùng nội bộ cho tới khi ban hành theo MP14.
+      <p className="max-w-3xl rounded-lg border border-border bg-sunk px-3 py-2 text-xs text-ink-2">
+        Căn cứ: Thủ tục <strong>ETV.MP 25</strong> lần ban hành 01 ngày 24/08/2026
+        (<code>03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md</code>) và Sổ tay chất lượng mục 9.2. Biểu mẫu áp dụng:
+        F25.01 Bảng phân tích bối cảnh · F25.02 Bảng bên quan tâm và mong đợi · F25.03 Biên bản xem xét bối cảnh.
       </p>
 
       <section className="flex flex-col gap-2">
