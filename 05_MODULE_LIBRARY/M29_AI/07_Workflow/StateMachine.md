@@ -34,3 +34,28 @@ bao giờ tự chuyển trạng thái phê duyệt**, người phê duyệt luô
 (`ACTIVE`/`DISABLED`/`DEPRECATED`, hoặc `HEALTHY`/`DEGRADED`/`DOWN`/`UNKNOWN` cho Platform) —
 đây là bật/tắt kỹ thuật, không phải quy trình phê duyệt nội dung, nên không dùng bảng trạng
 thái 8 bước ở trên.
+
+## Increment 4 — sự cố AI, AI chưa đăng ký, tạm dừng tác tử
+
+**Phiếu sự cố AI (`AIIncident`)** — ETV.P29 mục 6.3:
+
+`NEW` → `IN_PROGRESS` (bắt buộc có biện pháp khống chế) → `PENDING_CONFIRMATION` → `CLOSED`.
+Nhánh `CANCELLED` mở từ mọi trạng thái chưa kết thúc, chỉ SUPER_ADMIN và bắt buộc lý do.
+Điều kiện đóng: người phát hiện không tự đóng · `SEVERE` chỉ SUPER_ADMIN · `SEVERE`/`SIGNIFICANT`
+bắt buộc mã KPH (MP13) · lộ dữ liệu nhạy cảm bắt buộc số phiếu F28.03 · ảnh hưởng kết quả đã phát
+hành bắt buộc mã hồ sơ MP10/MP11.
+
+**Hệ thống AI chưa đăng ký (`AIUnregisteredSighting`)** — ETV.P29 mục 5.1.7:
+
+`OPEN` → `REGISTERING` → `REGISTERED` (bắt buộc trỏ Agent thật) hoặc `DISCONTINUED` (bắt buộc lý
+do). Bản ghi có `sensitive_data = true` không đóng được ở cả hai nhánh khi chưa gắn phiếu sự cố.
+
+**Trạng thái `SUSPENDED` của `AIAgent`** — không phải vòng đời phê duyệt, mà là khống chế vận hành:
+
+| Nguyên nhân | Ai/cái gì đặt | Gỡ thế nào |
+|---|---|---|
+| `AIA_OVERDUE` | Hệ thống quét theo lịch khi AIA quá `review_date` (actor = SYSTEM) | Tự gỡ khi AIA được phê duyệt lại |
+| `INCIDENT:<mã>` | Lập phiếu sự cố mức Nghiêm trọng có gắn Agent | Người có thẩm quyền mở lại có chủ đích, bắt buộc ghi lý do |
+
+Tool Gateway chặn mọi lời gọi thay mặt Agent không ở `ACTIVE` (mã lỗi `AGENT_NOT_ACTIVE`) — bước
+kiểm tra này bổ sung ở Increment 4, đặt ngay sau bước xác thực Agent tồn tại.

@@ -19,7 +19,7 @@ export default async function M29AuditPage() {
         {entries.map((e) => (
           <div key={e.id} className="rounded-lg border border-border bg-surface p-3 text-sm">
             <p className="text-ink">
-              <span className="text-ink-3">{e.at.toLocaleString("vi-VN")}</span> · {e.actor.name} ({e.role}) — {e.entityType}/{e.entityId}
+              <span className="text-ink-3">{e.at.toLocaleString("vi-VN")}</span> · {e.actor?.name ?? e.actorLabel ?? "SYSTEM"} ({e.role}) — {e.entityType}/{e.entityId}
               {e.field ? ` · ${e.field}` : ""}
             </p>
             {e.reason && <p className="mt-1 text-xs text-ink-2">{e.reason}</p>}

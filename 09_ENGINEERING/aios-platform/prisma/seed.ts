@@ -552,6 +552,52 @@ async function seedM29() {
   });
   await prisma.aIEvaluationRun.create({ data: { suiteId: suite.id, passCount: 1, failCount: 0, status: "PASS" } });
 
+  // ---- Increment 4: dữ liệu mẫu cho giám sát AIA quá hạn / sự cố AI / AI chưa đăng ký ----
+  // Agent thứ hai có AIA ĐÃ QUÁ HẠN để lượt sweep đầu tiên có việc thật để làm (demo ETV.P29
+  // mục 5.2.3) — Agent chính ở trên giữ nguyên AIA còn hạn để đường dây Tool Gateway vẫn chạy.
+  const overdueAgent = await prisma.aIAgent.create({
+    data: {
+      platformId: agent.platformId,
+      code: "AGENT_TOMTAT_HOSO",
+      name: "Trợ lý tóm tắt hồ sơ",
+      purpose: "Tóm tắt hồ sơ kỹ thuật thành bản nháp cho người xem xét",
+      modelId: agent.modelId,
+      owner: "Phòng Kỹ thuật",
+      riskLevel: "MEDIUM",
+    },
+  });
+  await prisma.aIImpactAssessment.create({
+    data: {
+      code: "AIA-2026-002",
+      agentId: overdueAgent.id,
+      purpose: "Tóm tắt hồ sơ kỹ thuật (đầu ra là bản nháp, người xem xét quyết định)",
+      dataUsed: "Hồ sơ kỹ thuật mức Nội bộ",
+      affectedUsers: "Chuyên viên kỹ thuật",
+      risk: "MEDIUM",
+      humanOversight: "Người xem xét đối chiếu bản gốc trước khi dùng",
+      controls: "Tool Gateway READ-only; gắn nhãn nguồn gốc AI trên bản nháp",
+      residualRisk: "LOW",
+      status: "APPROVED",
+      // Quá hạn 10 ngày — lượt quét đầu tiên sẽ chuyển AIA sang REVIEW_REQUIRED và tạm dừng Agent.
+      reviewDate: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000),
+    },
+  });
+
+  const sightingDetectedAt = new Date(Date.now() - 20 * 24 * 60 * 60 * 1000);
+  await prisma.aIUnregisteredSighting.create({
+    data: {
+      code: "UAI-2026-001",
+      name: "Dịch vụ dịch thuật trực tuyến miễn phí",
+      usedBy: "Phòng Hành chính",
+      detectedAt: sightingDetectedAt,
+      detectedById: admin.id,
+      dataExposed: "Bản thảo công văn nội bộ",
+      sensitiveData: false,
+      plannedAction: "Đánh giá và đăng ký hoặc chấm dứt sử dụng",
+      dueDate: new Date(sightingDetectedAt.getTime() + 15 * 24 * 60 * 60 * 1000),
+    },
+  });
+
   console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
   console.log(`Tài khoản M29 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
 }

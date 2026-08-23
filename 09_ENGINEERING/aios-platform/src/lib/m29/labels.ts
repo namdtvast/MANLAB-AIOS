@@ -36,6 +36,77 @@ export const OP_STATUS_LABEL: Record<string, string> = {
   ACTIVE: "Hoạt động",
   DISABLED: "Vô hiệu hóa",
   DEPRECATED: "Ngừng dùng",
+  SUSPENDED: "Tạm dừng",
+};
+
+export const OP_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  ACTIVE: "good",
+  DISABLED: "neutral",
+  DEPRECATED: "neutral",
+  SUSPENDED: "crit",
+};
+
+// Lý do tạm dừng Agent — hiển thị cho người đọc thay vì mã kỹ thuật.
+export function suspendReasonLabel(reason: string | null): string {
+  if (!reason) return "";
+  if (reason === "AIA_OVERDUE") return "Hồ sơ AIA quá hạn rà soát";
+  if (reason.startsWith("INCIDENT:")) return `Khống chế sự cố ${reason.slice("INCIDENT:".length)}`;
+  return reason;
+}
+
+// ---------- Increment 4: sự cố AI + AI chưa đăng ký (ETV.P29 mục 5.1.7, 5.7) ----------
+
+export const INCIDENT_SEVERITY_LABEL: Record<string, string> = {
+  SEVERE: "Nghiêm trọng",
+  SIGNIFICANT: "Đáng kể",
+  MINOR: "Nhẹ",
+};
+
+export const INCIDENT_SEVERITY_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  SEVERE: "crit",
+  SIGNIFICANT: "warn",
+  MINOR: "neutral",
+};
+
+export const INCIDENT_KIND_LABEL: Record<string, string> = {
+  WRONG_OUTPUT: "Đầu ra sai/bịa thông tin",
+  DATA_LEAK: "Rò rỉ dữ liệu",
+  PROMPT_INJECTION: "Tiêm lệnh",
+  PERMISSION_BREACH: "Vượt quyền hành động",
+  BIAS: "Thiên lệch, phân biệt đối xử",
+  SERVICE_DISRUPTION: "Gián đoạn dịch vụ",
+  UNREGISTERED_AI: "Sử dụng AI chưa đăng ký",
+  OTHER: "Khác",
+};
+
+export const INCIDENT_STATUS_LABEL: Record<string, string> = {
+  NEW: "Mới",
+  IN_PROGRESS: "Đang xử lý",
+  PENDING_CONFIRMATION: "Chờ xác nhận",
+  CLOSED: "Đã đóng",
+  CANCELLED: "Hủy",
+};
+
+export const INCIDENT_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  NEW: "crit",
+  IN_PROGRESS: "warn",
+  PENDING_CONFIRMATION: "warn",
+  CLOSED: "good",
+  CANCELLED: "neutral",
+};
+
+export const UNREGISTERED_STATUS_LABEL: Record<string, string> = {
+  OPEN: "Mới phát hiện",
+  REGISTERING: "Đang hoàn thiện đăng ký",
+  REGISTERED: "Đã đăng ký",
+  DISCONTINUED: "Đã chấm dứt sử dụng",
+};
+
+export const UNREGISTERED_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  OPEN: "crit",
+  REGISTERING: "warn",
+  REGISTERED: "good",
+  DISCONTINUED: "neutral",
 };
 
 export const HEALTH_LABEL: Record<string, string> = {

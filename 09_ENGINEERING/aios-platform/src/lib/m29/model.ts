@@ -30,15 +30,17 @@ export type PermCategory =
   | "usage"
   | "secrets"
   | "audit"
-  | "health";
+  | "health"
+  | "incidents"
+  | "unregistered";
 
 // Ma trận RBAC — port nguyên `PERMS` trong rules.mjs (khớp mục 4 DacTa.md M29_AI).
 export const PERMS: Record<M29Role, Partial<Record<PermCategory, "r" | "rw">>> = {
-  AI_VIEWER: { platforms: "r", registry: "r", health: "r" },
-  AI_OPERATOR: { platforms: "r", registry: "r", evaluations: "rw", traces: "r", usage: "r", health: "r" },
-  AI_ADMIN: { platforms: "r", registry: "rw", aia: "rw", governance: "r", evaluations: "r", health: "r" },
-  AI_SECURITY_ADMIN: { platforms: "r", registry: "r", governance: "rw", secrets: "rw", health: "r" },
-  AI_AUDITOR: { platforms: "r", registry: "r", governance: "r", aia: "r", audit: "r", traces: "r", health: "r" },
+  AI_VIEWER: { platforms: "r", registry: "r", health: "r", incidents: "r" },
+  AI_OPERATOR: { platforms: "r", registry: "r", evaluations: "rw", traces: "r", usage: "r", health: "r", incidents: "rw", unregistered: "r" },
+  AI_ADMIN: { platforms: "r", registry: "rw", aia: "rw", governance: "r", evaluations: "r", health: "r", incidents: "rw", unregistered: "rw" },
+  AI_SECURITY_ADMIN: { platforms: "r", registry: "r", governance: "rw", secrets: "rw", health: "r", incidents: "rw", unregistered: "rw" },
+  AI_AUDITOR: { platforms: "r", registry: "r", governance: "r", aia: "r", audit: "r", traces: "r", health: "r", incidents: "r", unregistered: "r" },
   SUPER_ADMIN: {
     platforms: "rw",
     registry: "rw",
@@ -50,6 +52,8 @@ export const PERMS: Record<M29Role, Partial<Record<PermCategory, "r" | "rw">>> =
     secrets: "rw",
     audit: "r",
     health: "r",
+    incidents: "rw",
+    unregistered: "rw",
   },
 };
 
