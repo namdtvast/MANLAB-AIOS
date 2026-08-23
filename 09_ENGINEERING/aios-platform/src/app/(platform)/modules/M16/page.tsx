@@ -19,7 +19,7 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 }
 
 const PLAN_TONE: Record<string, string> = { DRAFT: "neutral", PENDING_REVIEW: "warn", PENDING_APPROVAL: "warn", APPROVED: "good", REJECTED: "crit" };
-const PROGRAM_TONE: Record<string, string> = { DRAFT: "neutral", CONFIRMED: "good" };
+const PROGRAM_TONE: Record<string, string> = { DRAFT: "neutral", CONFIRMED: "good", CLOSED: "neutral" };
 
 export default async function M16ListPage() {
   const [plans, programs, role] = await Promise.all([
@@ -42,9 +42,17 @@ export default async function M16ListPage() {
       <section className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <h2 className="font-head text-sm font-bold text-ink">Kế hoạch đánh giá</h2>
-          <Link href="/modules/M16/plan/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
-            + Lập kế hoạch
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/modules/M16/auditors"
+              className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-medium text-ink hover:bg-sunk"
+            >
+              Sổ năng lực đánh giá viên
+            </Link>
+            <Link href="/modules/M16/plan/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
+              + Lập kế hoạch
+            </Link>
+          </div>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full text-sm">

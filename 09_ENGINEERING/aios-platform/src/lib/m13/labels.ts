@@ -3,6 +3,7 @@ export const SOURCE_TYPE_LABEL: Record<string, string> = {
   TU_PHAT_HIEN: "Tự phát hiện",
   KHIEU_NAI: "Từ khiếu nại (← M12)",
   IC_VUOT_GIOI_HAN: "IC vượt giới hạn kiểm soát (← M05)",
+  DANH_GIA_NOI_BO: "Phát hiện khi đánh giá nội bộ (← M16)",
   KHAC: "Khác",
 };
 

@@ -78,11 +78,15 @@ model User {
   m04PlanApproved M04FieldWorkPlan[] @relation("M04PlanApproved")
   m04AuditEntries M04AuditEntry[]
 
-  m16PlanCreated   M16AuditPlan[]   @relation("M16PlanCreated")
-  m16PlanReviewed  M16AuditPlan[]   @relation("M16PlanReviewed")
-  m16PlanApproved  M16AuditPlan[]   @relation("M16PlanApproved")
-  m16ReportCreated M16AuditReport[] @relation("M16ReportCreated")
-  m16AuditEntries  M16AuditEntry[]
+  m16PlanCreated         M16AuditPlan[]            @relation("M16PlanCreated")
+  m16PlanReviewed        M16AuditPlan[]            @relation("M16PlanReviewed")
+  m16PlanApproved        M16AuditPlan[]            @relation("M16PlanApproved")
+  m16ReportCreated       M16AuditReport[]          @relation("M16ReportCreated")
+  m16QualRecognized      M16AuditorQualification[] @relation("M16QualRecognized")
+  m16ProgramClosed       M16AuditProgram[]         @relation("M16ProgramClosed")
+  m16FindingAcknowledged M16AuditFinding[]         @relation("M16FindingAcknowledged")
+  m16DissentRecorded     M16ReportDissent[]        @relation("M16DissentRecorded")
+  m16AuditEntries        M16AuditEntry[]
 
   m17PlanCreated     M17ReviewPlan[]              @relation("M17PlanCreated")
   m17PlanTpApproved  M17ReviewPlan[]              @relation("M17PlanTpApproved")
@@ -91,23 +95,23 @@ model User {
   m17CapaCreated     M17CorrectiveActionRequest[] @relation("M17CapaCreated")
   m17AuditEntries    M17AuditEntry[]
 
-  m12ComplaintCreated  M12Complaint[]  @relation("M12ComplaintCreated")
-  m12ComplaintAssigned M12Complaint[]  @relation("M12ComplaintAssigned")
-  m12FeedbackCreated   M12Feedback[]   @relation("M12FeedbackCreated")
+  m12ComplaintCreated  M12Complaint[]            @relation("M12ComplaintCreated")
+  m12ComplaintAssigned M12Complaint[]            @relation("M12ComplaintAssigned")
+  m12FeedbackCreated   M12Feedback[]             @relation("M12FeedbackCreated")
   m12AuditEntries      M12AuditEntry[]
-  m13NcwDetected       M13NonconformingWork[]     @relation("M13NcwDetected")
-  m13NcwAssessed       M13NonconformingWork[]     @relation("M13NcwAssessed")
-  m13CapAssigned       M13CorrectiveActionPlan[]  @relation("M13CapAssigned")
-  m13CapReviewed       M13CorrectiveActionPlan[]  @relation("M13CapReviewed")
-  m13CapApproved       M13CorrectiveActionPlan[]  @relation("M13CapReplacementApproved")
+  m13NcwDetected       M13NonconformingWork[]    @relation("M13NcwDetected")
+  m13NcwAssessed       M13NonconformingWork[]    @relation("M13NcwAssessed")
+  m13CapAssigned       M13CorrectiveActionPlan[] @relation("M13CapAssigned")
+  m13CapReviewed       M13CorrectiveActionPlan[] @relation("M13CapReviewed")
+  m13CapApproved       M13CorrectiveActionPlan[] @relation("M13CapReplacementApproved")
   m13MonitoringNotes   M13MonitoringNote[]
   m13AuditEntries      M13AuditEntry[]
-  m14DocCreated        M14Document[]      @relation("M14DocCreated")
-  m14DocReviewed       M14Document[]      @relation("M14DocReviewed")
-  m14DocApproved       M14Document[]      @relation("M14DocApproved")
-  m14DocPublished      M14Document[]      @relation("M14DocPublished")
-  m14Suggestions       M14AiSuggestion[]  @relation("M14SuggestionCreated")
-  m14SuggestionApplied M14AiSuggestion[]  @relation("M14SuggestionApplied")
+  m14DocCreated        M14Document[]             @relation("M14DocCreated")
+  m14DocReviewed       M14Document[]             @relation("M14DocReviewed")
+  m14DocApproved       M14Document[]             @relation("M14DocApproved")
+  m14DocPublished      M14Document[]             @relation("M14DocPublished")
+  m14Suggestions       M14AiSuggestion[]         @relation("M14SuggestionCreated")
+  m14SuggestionApplied M14AiSuggestion[]         @relation("M14SuggestionApplied")
   m14AuditEntries      M14AuditEntry[]
 }
 
@@ -186,8 +190,8 @@ model PlatformModule {
   // Nguồn sự thật là khóa menu_group/menu_order trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
   // (schema manlab-aios/process@1.1) — seed.ts đọc lên, KHÔNG hardcode ở đây.
   // Nullable: module thiếu khai báo vẫn nạp được, seed in cảnh báo và xếp vào nhóm mặc định.
-  menuGroup      String? // vd "KY_THUAT"
-  menuOrder      Int? // thứ tự trong nhóm, theo dòng chảy nghiệp vụ
+  menuGroup String? // vd "KY_THUAT"
+  menuOrder Int? // thứ tự trong nhóm, theo dòng chảy nghiệp vụ
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1014,6 +1018,11 @@ model M03Employee {
   laborContracts   M03LaborContract[]
   serviceContracts M03ServiceContract[]
   m02Commitments   M02SecurityCommitment[] // FK thật từ M02 (Increment 6) — thay cho securityCommitmentRef tự do phía trên
+
+  // FK thật từ M16 (Increment 13) — năng lực đánh giá viên + tham gia đoàn đánh giá
+  m16Qualifications     M16AuditorQualification[] @relation("M16Qualification")
+  m16ProgramsLed        M16AuditProgram[]         @relation("M16TeamLead")
+  m16ProgramMemberships M16ProgramMember[]        @relation("M16ProgramMember")
 }
 
 model M03TrainingPlan {
@@ -1064,6 +1073,8 @@ model M03TrainingRecord {
   trainingPlan M03TrainingPlan @relation(fields: [trainingPlanId], references: [id])
   employee     M03Employee     @relation(fields: [employeeId], references: [id])
   approvedBy   User?           @relation("M03TrainingApproved", fields: [approvedById], references: [id])
+
+  m16Qualifications M16AuditorQualification[] @relation("M16QualEvidence") // bằng chứng năng lực M16 (Increment 13)
 }
 
 model M03LaborContract {
@@ -1416,6 +1427,14 @@ enum M16PlanStatus {
 enum M16ProgramStatus {
   DRAFT
   CONFIRMED
+  CLOSED // quy tắc 7 ETV.P16 — LĐP thẩm tra sau khắc phục mới được đóng (Increment 13)
+}
+
+// Quy tắc 1 ETV.P16 — năng lực đánh giá viên, mỗi loại phải có bằng chứng thật (Increment 13).
+enum M16QualType {
+  ISO_17025 // đã đào tạo ISO/IEC 17025
+  DANH_GIA_NOI_BO // đã đào tạo đánh giá nội bộ
+  KINH_NGHIEM_TRUONG_DOAN // kinh nghiệm đánh giá nội bộ — điều kiện riêng của trưởng đoàn
 }
 
 enum M16Conformity {
@@ -1449,9 +1468,15 @@ model M16AuditPlan {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Quy tắc 7 ETV.P16 — kế hoạch đánh giá bổ sung do LĐP/QLCL đề xuất khi thẩm tra chưa đủ tin
+  // cậy; trỏ ngược về chương trình đã phát sinh đề xuất (Increment 13).
+  followUpOfProgramId String?
+
   createdBy  User  @relation("M16PlanCreated", fields: [createdById], references: [id])
   reviewedBy User? @relation("M16PlanReviewed", fields: [reviewedById], references: [id])
   approvedBy User? @relation("M16PlanApproved", fields: [approvedById], references: [id])
+
+  followUpOfProgram M16AuditProgram? @relation("M16FollowUpAudit", fields: [followUpOfProgramId], references: [id])
 
   programs M16AuditProgram[]
 }
@@ -1461,21 +1486,70 @@ model M16AuditProgram {
   seq  Int    @default(autoincrement())
   code String @unique // vd "CTDG-2026-0001"
 
-  planId       String
-  department   String
-  field        String
-  auditDate    DateTime
-  teamLeadName String
-  teamMembers  String[]
-  status       M16ProgramStatus @default(DRAFT)
-  confirmedAt  DateTime?
+  planId             String
+  department         String
+  field              String
+  auditDate          DateTime
+  // teamLeadName/teamMembers giữ lại làm BẢN CHỤP tên tại thời điểm lập chương trình (hồ sơ lưu
+  // theo ETV.P15 phải giữ tên đúng lúc đó); FK teamLeadEmployeeId + M16ProgramMember mới là
+  // nguồn dùng để validate năng lực (quy tắc 1, Increment 13).
+  teamLeadName       String
+  teamMembers        String[]
+  teamLeadEmployeeId String?
+  status             M16ProgramStatus @default(DRAFT)
+  confirmedAt        DateTime?
+
+  // Quy tắc 7 ETV.P16 — LĐP đóng chương trình sau khi thẩm tra hành động khắc phục.
+  closedAt    DateTime?
+  closedById  String?
+  closureNote String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  plan     M16AuditPlan      @relation(fields: [planId], references: [id])
-  findings M16AuditFinding[]
-  reports  M16AuditReport[]
+  plan             M16AuditPlan @relation(fields: [planId], references: [id])
+  teamLeadEmployee M03Employee? @relation("M16TeamLead", fields: [teamLeadEmployeeId], references: [id])
+  closedBy         User?        @relation("M16ProgramClosed", fields: [closedById], references: [id])
+
+  members       M16ProgramMember[]
+  findings      M16AuditFinding[]
+  reports       M16AuditReport[]
+  followUpPlans M16AuditPlan[]     @relation("M16FollowUpAudit")
+}
+
+// Quy tắc 1 ETV.P16 — thành viên đoàn đánh giá là nhân sự thật của M03, không phải tên tự do.
+model M16ProgramMember {
+  id         String @id @default(cuid())
+  programId  String
+  employeeId String
+
+  createdAt DateTime @default(now())
+
+  program  M16AuditProgram @relation(fields: [programId], references: [id])
+  employee M03Employee     @relation("M16ProgramMember", fields: [employeeId], references: [id])
+
+  @@unique([programId, employeeId])
+}
+
+// Quy tắc 1 ETV.P16 — sổ năng lực đánh giá viên. QLCL công nhận từng loại năng lực, bằng chứng là
+// HỒ SƠ ĐÀO TẠO THẬT của M03 (result = DAT, status = APPROVED) — không có cờ "đã đào tạo" tự khai.
+// Loại KINH_NGHIEM_TRUONG_DOAN không có hồ sơ tương ứng trong M03 nên bắt buộc ghi note thay thế.
+model M16AuditorQualification {
+  id         String      @id @default(cuid())
+  employeeId String
+  qualType   M16QualType
+
+  trainingRecordId String?
+  note             String?
+
+  recognizedById String
+  recognizedAt   DateTime @default(now())
+
+  employee       M03Employee        @relation("M16Qualification", fields: [employeeId], references: [id])
+  trainingRecord M03TrainingRecord? @relation("M16QualEvidence", fields: [trainingRecordId], references: [id])
+  recognizedBy   User               @relation("M16QualRecognized", fields: [recognizedById], references: [id])
+
+  @@unique([employeeId, qualType])
 }
 
 model M16AuditFinding {
@@ -1490,11 +1564,20 @@ model M16AuditFinding {
   conformity       M16Conformity
   evidence         String?
   auditorSignature String
-  capaRef          String? // tham chiếu tự do → M13, M13 chưa có backend thật
+  capaRef          String? // DEPRECATED từ Increment 13 — giữ cho dữ liệu cũ, thay bằng ncwId
+
+  // Quy tắc 6 ETV.P16 — Trưởng bộ phận được đánh giá nhận kết quả, phân tích nguyên nhân rồi đề
+  // xuất hành động khắc phục; đề xuất sinh ra HỒ SƠ KPH THẬT trong M13 (Increment 13).
+  acknowledgedById  String?
+  acknowledgedAt    DateTime?
+  rootCauseProposal String?
+  ncwId             String?   @unique
 
   createdAt DateTime @default(now())
 
-  program M16AuditProgram @relation(fields: [programId], references: [id])
+  program        M16AuditProgram       @relation(fields: [programId], references: [id])
+  acknowledgedBy User?                 @relation("M16FindingAcknowledged", fields: [acknowledgedById], references: [id])
+  ncw            M13NonconformingWork? @relation("M16FindingNcw", fields: [ncwId], references: [id])
 }
 
 model M16AuditReport {
@@ -1515,6 +1598,24 @@ model M16AuditReport {
 
   program   M16AuditProgram @relation(fields: [programId], references: [id])
   createdBy User            @relation("M16ReportCreated", fields: [createdById], references: [id])
+
+  dissents M16ReportDissent[]
+}
+
+// Quy tắc 3 ETV.P16 — kết luận trưởng đoàn là cuối cùng; ý kiến khác được BẢO LƯU ở đây, không
+// phải biểu quyết đa số và không làm thay đổi closingConclusion (Increment 13).
+model M16ReportDissent {
+  id       String @id @default(cuid())
+  reportId String
+
+  opinionBy String // tên thành viên nêu ý kiến bảo lưu
+  opinion   String
+
+  recordedById String
+  createdAt    DateTime @default(now())
+
+  report     M16AuditReport @relation(fields: [reportId], references: [id])
+  recordedBy User           @relation("M16DissentRecorded", fields: [recordedById], references: [id])
 }
 
 model M16AuditEntry {
@@ -1713,13 +1814,13 @@ model M12Complaint {
   stopReason              String?
   capaRef                 String? // tham chiếu tự do → M13, M13 chưa có backend thật
 
-  createdById String
+  createdById  String
   assignedToId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  createdBy  User @relation("M12ComplaintCreated", fields: [createdById], references: [id])
+  createdBy  User  @relation("M12ComplaintCreated", fields: [createdById], references: [id])
   assignedTo User? @relation("M12ComplaintAssigned", fields: [assignedToId], references: [id])
 
   feedbacks M12Feedback[]
@@ -1741,7 +1842,7 @@ model M12Feedback {
 
   createdAt DateTime @default(now())
 
-  createdBy         User          @relation("M12FeedbackCreated", fields: [createdById], references: [id])
+  createdBy          User          @relation("M12FeedbackCreated", fields: [createdById], references: [id])
   escalatedComplaint M12Complaint? @relation(fields: [escalatedComplaintId], references: [id])
 }
 
@@ -1769,6 +1870,7 @@ enum M13SourceType {
   TU_PHAT_HIEN
   KHIEU_NAI // ← M12
   IC_VUOT_GIOI_HAN // ← M05
+  DANH_GIA_NOI_BO // ← M16 (phát hiện Không phù hợp khi đánh giá nội bộ, Increment 13)
   KHAC
 }
 
@@ -1807,9 +1909,9 @@ model M13NonconformingWork {
   severity      M13Severity? // null = chưa đánh giá (quy tắc 2: đánh giá thủ công, không tự động)
   severityBasis String?
   assessedById  String?
-  status        M13NcwStatus @default(GHI_NHAN)
-  emergencyStop Boolean      @default(false) // quy tắc 1: dừng ngay khi phát hiện, báo cáo sau
-  stoppedWork   Boolean      @default(false) // quy tắc 4: bắt buộc true khi severity = NANG
+  status        M13NcwStatus  @default(GHI_NHAN)
+  emergencyStop Boolean       @default(false) // quy tắc 1: dừng ngay khi phát hiện, báo cáo sau
+  stoppedWork   Boolean       @default(false) // quy tắc 4: bắt buộc true khi severity = NANG
 
   detectedById String
 
@@ -1822,6 +1924,8 @@ model M13NonconformingWork {
   plan            M13CorrectiveActionPlan?
   revokedReports  M13RevokedReport[]
   monitoringNotes M13MonitoringNote[]
+
+  m16Finding M16AuditFinding? @relation("M16FindingNcw") // hồ sơ KPH sinh từ phát hiện M16 (Increment 13)
 }
 
 model M13CorrectiveActionPlan {
@@ -1845,10 +1949,10 @@ model M13CorrectiveActionPlan {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  ncw                  M13NonconformingWork @relation(fields: [ncwId], references: [id])
-  assignedTo           User                 @relation("M13CapAssigned", fields: [assignedToId], references: [id])
-  reviewedBy           User?                @relation("M13CapReviewed", fields: [reviewedById], references: [id])
-  replacementApprovedBy User?               @relation("M13CapReplacementApproved", fields: [replacementApprovedById], references: [id])
+  ncw                   M13NonconformingWork @relation(fields: [ncwId], references: [id])
+  assignedTo            User                 @relation("M13CapAssigned", fields: [assignedToId], references: [id])
+  reviewedBy            User?                @relation("M13CapReviewed", fields: [reviewedById], references: [id])
+  replacementApprovedBy User?                @relation("M13CapReplacementApproved", fields: [replacementApprovedById], references: [id])
 }
 
 model M13RevokedReport {
@@ -1938,20 +2042,20 @@ model M14Document {
   seq  Int    @default(autoincrement())
   code String @unique // mã theo ETV.P14 §6.2, duy nhất toàn hệ thống
 
-  title      String
-  docType    M14DocType
-  owner      String
-  department String
+  title       String
+  docType     M14DocType
+  owner       String
+  department  String
   processCode String? // → MPxx (04_PROCESS_LIBRARY)
 
   effectiveDate DateTime?
   revision      String?
 
-  keywords          String[]
-  relatedDocuments  String[]
-  isoClause         String[]
-  legalBasis        String[]
-  aiTags            String[]
+  keywords         String[]
+  relatedDocuments String[]
+  isoClause        String[]
+  legalBasis       String[]
+  aiTags           String[]
 
   knowledgeCategory M14KnowledgeCategory?
   permissionGroup   String? // → ETV.P.F 14.06 (biểu mẫu chưa số hóa — lưu chuỗi tham chiếu)
@@ -1976,7 +2080,7 @@ model M14Document {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  createdBy   User @relation("M14DocCreated", fields: [createdById], references: [id])
+  createdBy   User  @relation("M14DocCreated", fields: [createdById], references: [id])
   reviewedBy  User? @relation("M14DocReviewed", fields: [reviewedById], references: [id])
   approvedBy  User? @relation("M14DocApproved", fields: [approvedById], references: [id])
   publishedBy User? @relation("M14DocPublished", fields: [publishedById], references: [id])

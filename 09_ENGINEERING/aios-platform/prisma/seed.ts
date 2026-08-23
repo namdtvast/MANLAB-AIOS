@@ -1114,6 +1114,49 @@ const M16_ROLE_EMAILS: Record<string, string> = {
   LDV: "ldv@manlab.vn",
 };
 
+// Quy tắc 1 ETV.P16 (Increment 13) — công nhận năng lực dựa trên HỒ SƠ ĐÀO TẠO THẬT của M03.
+// NS-xxxx-0001 (đã có hồ sơ đào tạo Đạt) đủ 3 năng lực; NS-xxxx-0002 (hồ sơ chưa Đạt) cố tình
+// KHÔNG được công nhận để demo gate chặn xác nhận chương trình.
+async function seedM16Qualifications(recognizedById: string) {
+  const emp = await prisma.m03Employee.findFirst({
+    where: { trainingRecords: { some: { result: "DAT", status: "APPROVED" } } },
+    orderBy: { code: "asc" },
+    include: { trainingRecords: { where: { result: "DAT", status: "APPROVED" }, orderBy: { code: "asc" } } },
+  });
+  if (!emp) return;
+  const evidence = emp.trainingRecords[0];
+
+  for (const [qualType, trainingRecordId, note] of [
+    ["ISO_17025", evidence.id, null],
+    ["DANH_GIA_NOI_BO", evidence.id, null],
+    ["KINH_NGHIEM_TRUONG_DOAN", null, "Đã tham gia 3 đợt đánh giá nội bộ 2024–2025 với vai trò đánh giá viên."],
+  ] as const) {
+    await prisma.m16AuditorQualification.upsert({
+      where: { employeeId_qualType: { employeeId: emp.id, qualType } },
+      create: { employeeId: emp.id, qualType, trainingRecordId, note, recognizedById },
+      update: {},
+    });
+  }
+}
+
+// Gắn nhân sự thật cho chương trình demo tạo từ Increment 8 (khi đó chưa có FK) — nếu không,
+// chương trình cũ không hiển thị được năng lực đoàn.
+async function linkM16ProgramMembers() {
+  const program = await prisma.m16AuditProgram.findFirst({ where: { teamLeadEmployeeId: null }, orderBy: { code: "asc" } });
+  if (!program) return;
+  const lead = await prisma.m03Employee.findFirst({
+    where: { m16Qualifications: { some: { qualType: "KINH_NGHIEM_TRUONG_DOAN" } } },
+    orderBy: { code: "asc" },
+  });
+  if (!lead) return;
+  await prisma.m16AuditProgram.update({ where: { id: program.id }, data: { teamLeadEmployeeId: lead.id, teamLeadName: lead.fullName } });
+  await prisma.m16ProgramMember.upsert({
+    where: { programId_employeeId: { programId: program.id, employeeId: lead.id } },
+    create: { programId: program.id, employeeId: lead.id },
+    update: {},
+  });
+}
+
 async function seedM16() {
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   const userByRole: Record<string, { id: string }> = {};
@@ -1139,8 +1182,32 @@ async function seedM16() {
   });
   userByRole["TRUONGDOAN"] = truongDoan;
 
+  // Increment 13: 2 vai trò còn thiếu action ở Increment 8 nay đã có gate riêng — mỗi vai trò cần
+  // 1 tài khoản riêng vì getActor() chỉ lấy 1 vai trò M16/người.
+  for (const [role, email, name] of [
+    ["DANHGIAVIEN", "danhgiavien@manlab.vn", "Lê Thị Đánh Giá Viên"],
+    ["TRUONGBOPHAN", "truongbophan@manlab.vn", "Phạm Văn Trưởng Bộ Phận"],
+  ] as const) {
+    const u = await prisma.user.upsert({
+      where: { email },
+      create: { email, name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: u.id, moduleCode: "M16", role } },
+      create: { userId: u.id, moduleCode: "M16", role },
+      update: {},
+    });
+    userByRole[role] = u;
+  }
+
+  await seedM16Qualifications(userByRole["QLCL"].id);
+
   const existing = await prisma.m16AuditPlan.count();
-  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+  if (existing > 0) {
+    await linkM16ProgramMembers();
+    return; // idempotent thô — dữ liệu demo chính chỉ seed lần đầu
+  }
 
   const qlcl = userByRole["QLCL"];
   const ldp = userByRole["LDP"];
@@ -1181,6 +1248,7 @@ async function seedM16() {
       confirmedAt: new Date(),
     },
   });
+  await linkM16ProgramMembers();
   await prisma.m16AuditEntry.create({ data: { itemType: "PROGRAM", itemId: program1.id, actorId: qlcl.id, role: "QLCL", action: "Lập chương trình đánh giá" } });
   await prisma.m16AuditEntry.create({ data: { itemType: "PROGRAM", itemId: program1.id, actorId: qlcl.id, role: "QLCL", action: "Xác nhận chương trình đánh giá (DRAFT → CONFIRMED)" } });
 
@@ -1249,7 +1317,9 @@ async function seedM16() {
   await prisma.m16AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: qlcl.id, role: "QLCL", action: "Lập kế hoạch đánh giá" } });
   await prisma.m16AuditEntry.create({ data: { itemType: "PLAN", itemId: plan2.id, actorId: qlcl.id, role: "QLCL", action: "Gửi xem xét" } });
 
-  console.log(`Đã nạp 2 kế hoạch + 1 chương trình + 2 phát hiện + 1 báo cáo demo M16 + vai trò M16 cho ${Object.keys(userByRole).length} tài khoản.`);
+  console.log(
+    `Đã nạp 2 kế hoạch + 1 chương trình + 2 phát hiện + 1 báo cáo demo M16 + năng lực đánh giá viên + vai trò M16 cho ${Object.keys(userByRole).length} tài khoản.`
+  );
 }
 
 // M17 — xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (không có

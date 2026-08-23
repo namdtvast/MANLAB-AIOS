@@ -15,6 +15,14 @@ export const PLAN_STATUS_LABEL: Record<string, string> = {
 export const PROGRAM_STATUS_LABEL: Record<string, string> = {
   DRAFT: "Đang soạn",
   CONFIRMED: "Đã xác nhận",
+  CLOSED: "Đã đóng (LĐP thẩm tra đạt)",
+};
+
+// Quy tắc 1 ETV.P16 — năng lực đánh giá viên (Increment 13).
+export const QUAL_TYPE_LABEL: Record<string, string> = {
+  ISO_17025: "Đã đào tạo ISO/IEC 17025",
+  DANH_GIA_NOI_BO: "Đã đào tạo đánh giá nội bộ",
+  KINH_NGHIEM_TRUONG_DOAN: "Có kinh nghiệm đánh giá nội bộ (trưởng đoàn)",
 };
 
 export const CONFORMITY_LABEL: Record<string, string> = {
