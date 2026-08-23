@@ -56,6 +56,7 @@ thống nhất trên toàn nền tảng để các module kế thừa dùng lạ
 | `recordRestoreTest` | QT hệ thống (`custodian`) | Bắt buộc bằng chứng; cập nhật `last_restore_test_at` |
 | `transferOwner` | QLCL | Bắt buộc người nhận đang làm việc; ghi lý do (thường ← M03) |
 | `retireAsset` | TP (`owner`), QLCL | Bắt buộc lý do → Ngừng sử dụng |
+| `setAiUse` | QLCL + QT hệ thống | Chỉ bật khi `classification ∈ {Công khai, Nội bộ}` và tài sản Đang sử dụng (quy tắc 12) |
 | `createSharing` / `approveSharing` | TP tạo · **LĐV** duyệt | Chặn nếu tài sản không ở Đang sử dụng; dữ liệu khách hàng/cá nhân ⇒ bắt buộc `disclosure_ref` → M02 (quy tắc 6) |
 | `revokeSharing` | QT hệ thống, LĐV | Bắt buộc lý do; tự nhắc khi quá `valid_until` |
 | `createDisposal` / `approveDisposal` | QLCL, QT hệ thống tạo · **LĐV** duyệt | Chỉ tài sản Ngừng sử dụng **và** hết thời hạn lưu (quy tắc 9) |
@@ -84,7 +85,7 @@ action xóa `InfoAsset`.
 | AC12 | Không có bất kỳ đường nào xóa bản ghi tài sản (kể cả API trực tiếp) | Rà soát server action + thử gọi |
 | AC13 | Tài sản **Mật** không hiển thị với vai trò không được phép; lượt xem hợp lệ vào nhật ký | Đăng nhập 2 vai trò + xem AuditLog |
 | AC14 | Ba bảng đến hạn (rà soát/khôi phục/hủy) hiển thị đúng; ghi nhận rà soát hoặc kiểm tra khôi phục ⇒ mục rời khỏi bảng | Dữ liệu seed có mục quá hạn và chưa quá hạn |
-| AC15 | Bật `ai_use_allowed` cho tài sản **Mật** ⇒ bị chặn | Thao tác UI 2 chiều |
+| AC15 | Bật `ai_use_allowed` cho tài sản **Hạn chế** hoặc **Mật** ⇒ bị chặn (`ETV.P28` mục 5.7) | Thử cả 4 mức phân loại |
 | AC16 | Mọi chuyển trạng thái và mọi lần đổi mức phân loại ghi `AuditLog` đủ ai/khi nào/trước→sau/lý do | Xem nhật ký sau chuỗi thao tác |
 
 ## 5. NFR
