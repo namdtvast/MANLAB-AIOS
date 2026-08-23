@@ -22,7 +22,7 @@ export default async function M03TrainingDetailPage({ params }: { params: Promis
   });
 
   return (
-    <div className="grid max-w-4xl grid-cols-3 gap-6">
+    <div className="grid max-w-4xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
         <div>
           <p className="font-mono text-xs text-ink-3">{record.code}</p>
@@ -44,7 +44,7 @@ export default async function M03TrainingDetailPage({ params }: { params: Promis
           </div>
         )}
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
           <dt className="text-ink-3">Phương pháp đánh giá</dt>
           <dd className="text-ink">{record.assessmentMethod ?? "—"}</dd>
           <dt className="text-ink-3">Bằng chứng</dt>

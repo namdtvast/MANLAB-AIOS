@@ -160,3 +160,62 @@ body {
 :root[data-theme="dark"] .theme-icon-sun {
   display: block;
 }
+
+/*
+ * Sidebar có hai hình thái cùng nằm trong DOM — bảng đầy đủ (.sidebar-full) và
+ * thanh rút gọn (.sidebar-rail) — chọn bằng thuộc tính data-sidebar trên <html>
+ * (xem src/lib/sidebar.ts). Script inline ở layout.tsx đặt sẵn thuộc tính này
+ * trước khi hydrate nên không nháy khi tải lại trang.
+ *
+ * Khổ máy tính: mặc định hiện bảng đầy đủ; "collapsed" thu về thanh rút gọn.
+ * Khổ điện thoại (< 768px): sidebar ẩn hẳn để nhường hết bề ngang cho nội dung;
+ * "open" bung bảng đầy đủ thành lớp phủ có nền mờ.
+ */
+.sidebar-rail,
+.sidebar-backdrop {
+  display: none;
+}
+
+:root[data-sidebar="collapsed"] .sidebar-full {
+  display: none;
+}
+
+:root[data-sidebar="collapsed"] .sidebar-rail {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  /* Thanh rút gọn là tiện ích của khổ máy tính — điện thoại không dùng. */
+  :root[data-sidebar="collapsed"] .sidebar-rail {
+    display: none;
+  }
+
+  .sidebar-full {
+    position: fixed;
+    inset: 0 auto 0 0;
+    max-width: 85vw;
+    display: none;
+    box-shadow: 0 0 40px rgb(0 0 0 / 0.35);
+  }
+
+  :root[data-sidebar="open"] .sidebar-full {
+    display: flex;
+  }
+
+  :root[data-sidebar="open"] .sidebar-backdrop {
+    display: block;
+  }
+}
+
+/*
+ * Safari trên iOS tự phóng to trang khi con trỏ nhảy vào ô nhập có cỡ chữ dưới
+ * 16px. Toàn bộ biểu mẫu ở đây dùng text-sm (14px) nên ép 16px ở khổ điện thoại
+ * để không bị giật khung nhìn mỗi lần gõ.
+ */
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}

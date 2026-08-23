@@ -54,7 +54,7 @@ export function NewDocForm() {
         });
       }}
     >
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label className={labelCls}>
           Loại văn bản
           <select value={docType} onChange={(e) => setDocType(e.target.value as M14DocType)} className={fieldCls}>
@@ -76,7 +76,7 @@ export function NewDocForm() {
         <input name="title" required className={fieldCls} />
       </label>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label className={labelCls}>
           Chủ sở hữu nội dung
           <input name="owner" className={fieldCls} />

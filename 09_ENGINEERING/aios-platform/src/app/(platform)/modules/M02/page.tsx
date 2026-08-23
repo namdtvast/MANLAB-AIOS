@@ -18,7 +18,7 @@ const TONE_CLASS: Record<string, string> = {
 
 function Badge({ label, tone }: { label: string; tone: string }) {
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
+    <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
       {label}
     </span>
   );
@@ -49,14 +49,14 @@ export default async function M02ListPage() {
       </div>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Cam kết bảo mật</h2>
           <Link href="/modules/M02/commitment/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Ghi nhận cam kết
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -69,7 +69,7 @@ export default async function M02ListPage() {
               {commitments.map((c) => (
                 <tr key={c.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M02/commitment/${c.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M02/commitment/${c.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {c.code}
                     </Link>
                   </td>
@@ -91,14 +91,14 @@ export default async function M02ListPage() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sổ khách ra vào khu vực hạn chế</h2>
           <Link href="/modules/M02/visitor/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Ghi sổ khách
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -129,14 +129,14 @@ export default async function M02ListPage() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Công bố thông tin ra bên thứ ba</h2>
           <Link href="/modules/M02/disclosure/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Soạn hồ sơ công bố
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -148,7 +148,7 @@ export default async function M02ListPage() {
               {disclosures.map((d) => (
                 <tr key={d.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M02/disclosure/${d.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M02/disclosure/${d.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {d.code}
                     </Link>
                   </td>
@@ -169,14 +169,14 @@ export default async function M02ListPage() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sự cố bảo mật</h2>
           <Link href="/modules/M02/incident/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Báo cáo sự cố
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
@@ -188,7 +188,7 @@ export default async function M02ListPage() {
               {incidents.map((i) => (
                 <tr key={i.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M02/incident/${i.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M02/incident/${i.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {i.code}
                     </Link>
                   </td>

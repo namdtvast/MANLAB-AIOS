@@ -36,7 +36,7 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
       : [];
 
   return (
-    <div className="grid max-w-4xl grid-cols-3 gap-6">
+    <div className="grid max-w-4xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="col-span-2 flex flex-col gap-4">
         <div>
           <p className="font-mono text-xs text-ink-3">{p.code}</p>
@@ -55,7 +55,7 @@ export default async function M16PlanDetailPage({ params }: { params: Promise<{ 
           )}
         </div>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-border bg-surface p-4 text-sm">
           <dt className="text-ink-3">Phạm vi</dt>
           <dd className="text-ink">{p.scope.join(", ")}</dd>
           <dt className="text-ink-3">Đánh giá viên</dt>

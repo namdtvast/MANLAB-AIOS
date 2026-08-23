@@ -12,7 +12,7 @@ const TONE_CLASS: Record<string, string> = {
 
 function Badge({ label, tone }: { label: string; tone: string }) {
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
+    <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>
       {label}
     </span>
   );
@@ -50,7 +50,7 @@ export default async function M13ListPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
         <div className="rounded-xl border border-border bg-surface p-4">
           <p className="text-xs text-ink-3">Hồ sơ chưa đóng</p>
           <p className="font-head text-2xl font-bold text-ink">{openCount}</p>
@@ -66,14 +66,14 @@ export default async function M13ListPage() {
       </div>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sổ theo dõi công việc không phù hợp (F13.01)</h2>
           <Link href="/modules/M13/ncw/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Ghi nhận không phù hợp
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className={th}>Mã</th>
@@ -88,7 +88,7 @@ export default async function M13ListPage() {
               {items.map((n) => (
                 <tr key={n.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M13/ncw/${n.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M13/ncw/${n.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {n.code}
                     </Link>
                   </td>

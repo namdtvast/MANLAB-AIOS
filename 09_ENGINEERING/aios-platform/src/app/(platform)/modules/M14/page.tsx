@@ -46,7 +46,7 @@ export default async function M14ListPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="rounded-xl border border-border bg-surface p-4">
           <p className="text-xs text-ink-3">Đang có hiệu lực</p>
           <p className="font-head text-2xl font-bold text-good">{effective}</p>
@@ -66,14 +66,14 @@ export default async function M14ListPage() {
       </div>
 
       <section className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sổ đăng ký văn bản (F14.02 nội bộ · F14.03 bên ngoài)</h2>
           <Link href="/modules/M14/doc/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Soạn thảo văn bản
           </Link>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
                 <th className={th}>Mã số</th>
@@ -88,7 +88,7 @@ export default async function M14ListPage() {
               {docs.map((d) => (
                 <tr key={d.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
-                    <Link href={`/modules/M14/doc/${d.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                    <Link href={`/modules/M14/doc/${d.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
                       {d.code}
                     </Link>
                   </td>
@@ -96,7 +96,7 @@ export default async function M14ListPage() {
                   <td className="px-3 py-2 text-ink-2">{DOC_TYPE_LABEL[d.docType]}</td>
                   <td className="px-3 py-2 text-ink-2">{d.revision ?? "—"}</td>
                   <td className="px-3 py-2">
-                    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[STATUS_TONE[d.status]]}`}>
+                    <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[STATUS_TONE[d.status]]}`}>
                       {DOC_STATUS_LABEL[d.status]}
                     </span>
                   </td>
