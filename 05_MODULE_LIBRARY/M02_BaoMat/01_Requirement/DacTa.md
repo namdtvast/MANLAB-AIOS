@@ -85,3 +85,25 @@ Quy trình: MP02 · Năng lực: CAP-28_ATTT · Thủ tục gốc: `ETV.P02_BaoM
 · Biểu mẫu: F02.01–F02.05, F07.02 (phiếu nhận/trả thiết bị) · Lưu hồ sơ: ETV.P15 · Liên quan:
 ETV.P03 (Nhân sự — điều khoản hợp đồng), ETV.P07 (Hợp đồng), ETV.P14 (Kiểm soát tài liệu) · Căn
 cứ: ISO 9001 §7.5, ISO/IEC 17025 §4.2/§8.3, ISO/IEC 27001 A.5.9–A.5.18/A.5.37/A.8.13, NĐ 13/2023.
+
+## 6. Triển khai thật (Increment 6, aios-platform)
+
+Đã xây thành CRUD + 3 gate nghiệp vụ thật trong `09_ENGINEERING/aios-platform` (Prisma +
+Next.js), không có `08_Source` nguyên mẫu (giống M01/M03). Chi tiết đầy đủ + bằng chứng VERIFY:
+`01_Requirement/_work/20260823-xay-moi-m02/{spec.md, plan.md, verify.md}`.
+
+**Điểm kỹ thuật quan trọng**: `SecurityCommitment.employeeId` là **FK thật** tới `M03Employee`
+(không phải chuỗi tham chiếu tự do như dự kiến ban đầu ở M03) — vì M03 đã xây thật trước M02
+trong cùng phiên làm việc. Đã xác nhận qua Browser: mở cam kết loại Nhân viên hiển thị đúng liên
+kết `NS-2026-0002 — Trần Thị Bích`.
+
+**Phạm vi Increment 6** — 4/4 entity DacTa.md có mặt, nhưng `SecurityCommitment` không có bước
+soát xét/phê duyệt riêng (ký giấy = hiệu lực ngay, digitize chỉ ghi nhận lại — quyết định phạm vi
+cần LĐP xác nhận, xem spec.md). Gate chính đã verify thật: `DisclosureApproval` (bắt buộc thông
+báo khách hàng trừ khi pháp luật cấm — quy tắc 5; đúng thẩm quyền TP/LĐV theo lựa chọn khi tạo),
+`SecurityIncident` (bắt buộc đánh giá trước khi chuyển bước, bắt buộc biện pháp khắc phục trước
+khi đóng — quy tắc 8). Gate `VisitorLog` (bắt buộc cam kết KHÁCH hợp lệ) đã cài ở server nhưng
+chưa demo runtime vì UI tự nhiên chỉ cho chọn cam kết hợp lệ.
+
+Vai trò module: `NV`, `TP`, `QLCL`(chưa dùng ở Increment 6), `LDV` — dùng lại 3 tài khoản demo
+M01/M03 (nth→NV, ldp→TP, ldv→LDV), không tạo tài khoản mới.

@@ -30,7 +30,9 @@ trùng và bị lệch dữ liệu so với ETV.QM).
 
 `full_name`, `position`, `department`, `employment_type` (Chính thức/Thử việc/Thực tập/HĐDV),
 `hire_date`, `status` (Đang thử việc/Chính thức/Đã nghỉ việc), liên kết `LaborContract`/
-`ServiceContract` hiện hành, liên kết `SecurityCommitment` (← M02).
+`ServiceContract` hiện hành, liên kết `SecurityCommitment` (← M02 — **FK thật** kể từ khi M02 xây
+xong ở Increment 6, xem `M02_BaoMat/01_Requirement/DacTa.md` mục 6; trước đó là tham chiếu tự do
+vì M02 chưa có backend).
 
 ### 2.2. `TrainingPlan` / `TrainingRecord`
 
