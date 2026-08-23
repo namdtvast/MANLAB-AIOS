@@ -8,6 +8,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import type { M10PubStatus, M10RecordType } from "@/generated/prisma/enums";
+import { ensureLessonFromSource } from "@/lib/m26/hooks";
 import { getActor } from "./actor";
 import {
   txApprove,
@@ -87,7 +88,23 @@ export async function approveAssessment(
 ): Promise<TxResult> {
   const actor = await getActor();
   const a = await prisma.m10Assessment.findUniqueOrThrow({ where: { id } });
-  return applyTransition(id, txApprove(toRulesShape(a), actor, input), actor);
+  const result = await applyTransition(id, txApprove(toRulesShape(a), actor, input), actor);
+
+  // Hook mềm sang M26 (quy tắc 6 DacTa M26 / ETV.P26 mục 5.2.1): hồ sơ đảm bảo giá trị sử dụng
+  // kết quả được phê duyệt với kết quả NGOÀI KIỂM SOÁT (FAIL) là tri thức phải giữ lại.
+  // Cảnh báo mềm — không chặn việc phê duyệt của M10.
+  if (result.ok && input.decision === "approve" && a.result === "FAIL") {
+    await ensureLessonFromSource({
+      sourceType: "KET_QUA_NGOAI_KIEM_SOAT",
+      sourceRef: a.code,
+      title: `Bài học từ kết quả ngoài kiểm soát ${a.code}`,
+      context: `Hồ sơ ${a.code} — đối tượng: ${a.object}. Kết quả đánh giá: ngoài kiểm soát (FAIL).`,
+      createdById: actor.id,
+      rootCauseRef: a.capaId,
+    });
+  }
+
+  return result;
 }
 
 export async function publishAssessment(
