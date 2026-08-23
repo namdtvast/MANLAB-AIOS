@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 → 13 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13/M14 xây mới + M16 hoàn thiện theo đặc tả)
+# MANLAB-AIOS Platform — Increment 0 → 14 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13/M14/M25 xây mới + M16 hoàn thiện theo đặc tả)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -297,6 +297,41 @@ nghiệp vụ), không định nghĩa lại.
 - ❌ Chưa test qua UI: `INVALID_CODE_FORMAT`/trùng mã khi tạo mới, nhánh Không soát xét/Không phê
   duyệt, `txPublish` nhánh thành công, `txDiscard` (LĐV hủy bỏ), `ALREADY_APPLIED`.
 
+## Trạng thái Increment 14 — xây mới M25_BoiCanh (không có nguyên mẫu code, **cũng chưa có thủ tục**)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/_work/20260823-dac-ta-m25/verify.md`](../../05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/_work/20260823-dac-ta-m25/verify.md).
+
+Khác **mọi** increment trước: các module trước đều số hóa một Thủ tục `ETV.Pxx` đã ban hành, còn
+**`ETV.P25` chưa tồn tại** — Sổ tay chất lượng §9.2 mới chỉ dẫn chiếu tới nó. Đặc tả là bản **suy
+dẫn** từ QM §9.2 + ISO 9001 §4.1/§4.2 (+ 17025 §4.1, 27001/42001 §4.1–4.3); mọi quy tắc suy dẫn
+gom hết vào `src/lib/m25/rules.ts` và được đánh dấu `[SUY DẪN]` trong `DacTa.md` để sửa một chỗ
+khi thủ tục được ban hành theo MP14.
+
+- ✅ **Mô hình mới trên nền tảng — kỳ xem xét là snapshot có phiên bản**: kỳ Đã phê duyệt bất
+  biến (không đường ghi nào), kỳ mới phê duyệt tự đẩy kỳ cũ sang `SUPERSEDED` + gán
+  `supersedesId`; verify thật cả 2 chiều (BC-2026-0002 duyệt → BC-2026-0001 Hết hiệu lực, hết
+  nút sửa).
+- ✅ Gate **không để vấn đề trọng yếu bị treo** (quy tắc 3): vấn đề mức tác động Cao chưa liên
+  kết rủi ro/cơ hội bên M01 thì chặn gửi soát xét — verify cả nhánh chặn lẫn nhánh qua sau khi
+  liên kết FK thật sang `M01RiskItem`.
+- ✅ Gate mong đợi thành **nghĩa vụ tuân thủ phải có căn cứ** (quy tắc 4) và **mỗi bên quan tâm
+  phải có ≥1 mong đợi** (quy tắc 6) — verify đủ nhánh chặn + nhánh thành công.
+- ✅ Gate **tách vai trò** (quy tắc 7): chỉ TP soát xét, chỉ LĐV phê duyệt (bắt buộc kết luận),
+  người lập không tự soát xét/tự phê duyệt — verify cả 4 nhánh trên UI thật.
+- ✅ **Kế thừa kỳ trước** (quy tắc 9): kỳ mới sao chép mục còn hiệu lực (kèm liên kết M01) và
+  sinh mã mới; đóng mục bắt buộc lý do (quy tắc 10).
+- ✅ "Đến hạn xem xét" là **tính khi đọc** từ tần suất + lần cập nhật gần nhất, không lưu cột
+  trạng thái — verify cả 2 chiều; mục "Theo sự kiện" không bao giờ bị tính quá hạn.
+- ✅ **Cross-module chiều mới**: M17 cảnh báo mềm khi lập chương trình xem xét lãnh đạo cho năm
+  chưa có kỳ bối cảnh nào được phê duyệt (đọc thẳng bảng M25, không import code) — verify cả 2
+  chiều.
+- ⚠️ **6 câu hỏi phải chốt với LĐV/QLCL** trước khi coi là hồ sơ chính thức (chu kỳ, cấp phê
+  duyệt, chặn cứng hay cảnh báo mềm ở quy tắc 3, danh mục chuẩn…) — xem `DacTa.md` mục 10; biểu
+  mẫu F25.01–F25.03 **chưa ban hành** nên chưa làm chức năng xuất biểu mẫu.
+- ❌ Chưa test qua UI: nhánh Không soát xét/Không phê duyệt (trả lại kèm lý do), bỏ liên kết M01,
+  xóa mong đợi, đóng vấn đề bối cảnh.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -382,5 +417,6 @@ src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạ
 src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & phản hồi, xây mới (Increment 10)
 src/lib/m13/            Rule engine + actor/actions M13 — Công việc không phù hợp/CAPA, xây mới (Increment 11)
 src/lib/m14/            Rule engine + actor/actions M14 — Kiểm soát tài liệu, xây mới (Increment 12)
+src/lib/m25/            Rule engine + actor/actions M25 — Bối cảnh & bên quan tâm, xây mới (Increment 14)
                         (M16 bổ sung năng lực đánh giá viên + liên kết M03/M13 ở Increment 13)
 ```
