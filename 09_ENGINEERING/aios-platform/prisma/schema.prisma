@@ -2331,7 +2331,8 @@ model M26KnowledgeItem {
   holders   M26KnowledgeHolder[]
   riskLinks M26ItemRiskLink[]
   lessons   M26LessonLearned[]
-  needs     M26KnowledgeNeed[]   @relation("M26NeedResultItem")
+  needs     M26KnowledgeNeed[]   @relation("M26NeedResultItem") // nhu cầu có KẾT QUẢ là mục này
+  targetedBy M26KnowledgeNeed[]  @relation("M26NeedTargetItem") // nhu cầu nhằm bổ sung/chuyển giao CHÍNH mục này
   sharings  M26SharingItem[]
 }
 
@@ -2412,6 +2413,10 @@ model M26KnowledgeNeed {
 
   responsibleId String
 
+  // Mục tri thức mà nhu cầu này nhằm bổ sung/chuyển giao — ĐẦU VÀO, khác với kết quả bên dưới.
+  // Dùng cho gate ETV.P26 mục 5.1.6: mục tri thức ẩn trọng yếu 1 người giữ phải có phiếu chuyển giao.
+  targetItemId String?
+
   // Đầu ra bắt buộc khi đóng ở trạng thái DA_DAP_UNG (quy tắc 8): mục tri thức mới HOẶC hồ sơ đào tạo M03.
   resultItemId     String?
   resultTrainingId String?
@@ -2429,6 +2434,7 @@ model M26KnowledgeNeed {
   createdBy      User               @relation("M26NeedCreated", fields: [createdById], references: [id])
   responsible    User               @relation("M26NeedResponsible", fields: [responsibleId], references: [id])
   decidedBy      User?              @relation("M26NeedDecided", fields: [decidedById], references: [id])
+  targetItem     M26KnowledgeItem?  @relation("M26NeedTargetItem", fields: [targetItemId], references: [id])
   resultItem     M26KnowledgeItem?  @relation("M26NeedResultItem", fields: [resultItemId], references: [id])
   resultTraining M03TrainingRecord? @relation("M26NeedTraining", fields: [resultTrainingId], references: [id])
 }

@@ -22,7 +22,7 @@ export default async function KnowledgeRiskPage() {
       owner: true,
       holders: { include: { user: true } },
       riskLinks: { include: { risk: { select: { code: true } } } },
-      needs: { select: { code: true, method: true, status: true } },
+      targetedBy: { select: { code: true, method: true, status: true } },
     },
     orderBy: { code: "asc" },
   });
@@ -59,7 +59,7 @@ export default async function KnowledgeRiskPage() {
           </thead>
           <tbody>
             {atRisk.map((i) => {
-              const transfer = i.needs.filter(
+              const transfer = i.targetedBy.filter(
                 (n) => (TRANSFER_METHODS as readonly string[]).includes(n.method) && n.status !== "KHONG_THUC_HIEN",
               );
               return (

@@ -8,10 +8,11 @@ import { NeedActions, NewNeedForm } from "./NeedsClient";
 
 export default async function NeedsPage() {
   const viewer = await getViewer();
-  const [needs, users, items, trainings] = await Promise.all([
+  const [needs, users, items, allItems, trainings] = await Promise.all([
     prisma.m26KnowledgeNeed.findMany({
       include: {
         responsible: true,
+        targetItem: { select: { id: true, code: true } },
         resultItem: { select: { id: true, code: true } },
         resultTraining: { select: { code: true } },
       },
@@ -20,6 +21,11 @@ export default async function NeedsPage() {
     }),
     prisma.user.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true, email: true } }),
     prisma.m26KnowledgeItem.findMany({ where: { status: "APPROVED" }, select: { id: true, code: true }, orderBy: { code: "asc" } }),
+    prisma.m26KnowledgeItem.findMany({
+      where: { status: { notIn: ["CANCELLED", "RETIRED"] } },
+      select: { id: true, code: true, title: true },
+      orderBy: { code: "asc" },
+    }),
     prisma.m03TrainingRecord.findMany({
       where: { result: "DAT", status: "APPROVED" },
       select: { id: true, code: true },
@@ -49,7 +55,7 @@ export default async function NeedsPage() {
         )}
       </div>
 
-      {canAct && <NewNeedForm users={users} />}
+      {canAct && <NewNeedForm users={users} allItems={allItems} />}
 
       <div className="overflow-x-auto rounded-xl border border-border bg-surface">
         <table className="w-full min-w-[64rem] text-sm">
@@ -61,6 +67,7 @@ export default async function NeedsPage() {
               <th className={th}>Hình thức</th>
               <th className={th}>Phụ trách</th>
               <th className={th}>Hạn</th>
+              <th className={th}>Mục liên quan</th>
               <th className={th}>Kết quả</th>
               <th className={th}>Trạng thái</th>
               {canAct && <th className={th}>Thao tác</th>}
@@ -83,6 +90,15 @@ export default async function NeedsPage() {
                   <td className={`px-3 py-2 text-xs ${late ? "text-crit" : "text-ink-2"}`}>
                     {fmtDate(n.requiredBy)}
                     {late && " · quá hạn"}
+                  </td>
+                  <td className="px-3 py-2 text-xs">
+                    {n.targetItem ? (
+                      <Link href={`/modules/M26/item/${n.targetItem.id}`} className="font-mono text-accent hover:underline">
+                        {n.targetItem.code}
+                      </Link>
+                    ) : (
+                      <span className="text-ink-3">—</span>
+                    )}
                   </td>
                   <td className="px-3 py-2 text-xs">
                     {n.resultItem ? (
@@ -115,7 +131,7 @@ export default async function NeedsPage() {
             })}
             {needs.length === 0 && (
               <tr>
-                <td colSpan={canAct ? 9 : 8} className="px-3 py-6 text-center text-sm text-ink-3">
+                <td colSpan={canAct ? 10 : 9} className="px-3 py-6 text-center text-sm text-ink-3">
                   Chưa có phiếu nhu cầu tri thức nào.
                 </td>
               </tr>

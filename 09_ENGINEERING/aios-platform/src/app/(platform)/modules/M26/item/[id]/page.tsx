@@ -42,7 +42,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
       document: { select: { code: true, title: true, status: true } },
       holders: { include: { user: true } },
       riskLinks: { include: { risk: { select: { id: true, code: true, title: true } } } },
-      needs: { include: { responsible: true } },
+      targetedBy: { include: { responsible: true } },
       lessons: { select: { id: true, code: true, title: true, status: true } },
       supersedes: { select: { id: true, code: true, version: true } },
       supersededBy: { select: { id: true, code: true, version: true } },
@@ -74,7 +74,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
     take: 100,
   });
 
-  const transferNeedCount = item.needs.filter(
+  const transferNeedCount = item.targetedBy.filter(
     (n) => (TRANSFER_METHODS as readonly string[]).includes(n.method) && n.status !== "KHONG_THUC_HIEN",
   ).length;
 
@@ -208,13 +208,13 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
           <section className="rounded-xl border border-border bg-surface p-4">
             <h2 className="font-head text-sm font-bold text-ink">Nhu cầu tri thức liên quan</h2>
             <ul className="mt-2 flex flex-col gap-1 text-sm text-ink-2">
-              {item.needs.map((n) => (
+              {item.targetedBy.map((n) => (
                 <li key={n.id}>
                   <span className="font-mono text-xs text-accent">{n.code}</span> — {NEED_METHOD_LABEL[n.method]} · {NEED_STATUS_LABEL[n.status]} ·
                   phụ trách {n.responsible.name}
                 </li>
               ))}
-              {item.needs.length === 0 && <li className="text-ink-3">Chưa có phiếu nhu cầu tri thức nào gắn với mục này.</li>}
+              {item.targetedBy.length === 0 && <li className="text-ink-3">Chưa có phiếu nhu cầu tri thức nào gắn với mục này.</li>}
             </ul>
           </section>
 

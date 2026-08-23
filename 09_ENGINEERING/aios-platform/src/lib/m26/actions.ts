@@ -88,10 +88,10 @@ async function loadItemForRules(id: string): Promise<ItemForRules & { id: string
     where: { id },
     include: {
       _count: { select: { holders: true, riskLinks: true } },
-      needs: { select: { method: true, status: true } },
+      targetedBy: { select: { method: true, status: true } },
     },
   });
-  const transferNeedCount = item.needs.filter(
+  const transferNeedCount = item.targetedBy.filter(
     (n) => (TRANSFER_METHODS as readonly string[]).includes(n.method) && n.status !== "KHONG_THUC_HIEN",
   ).length;
   return {
@@ -549,6 +549,7 @@ export interface NeedFormInput {
   requiredBy: string; // yyyy-mm-dd
   method: M26NeedMethod;
   responsibleId: string;
+  targetItemId?: string; // mục tri thức mà nhu cầu này nhằm bổ sung/chuyển giao (ETV.P26 mục 5.1.6)
 }
 
 export async function createNeed(input: NeedFormInput) {
@@ -569,6 +570,7 @@ export async function createNeed(input: NeedFormInput) {
         requiredBy,
         method: input.method,
         responsibleId: input.responsibleId,
+        targetItemId: input.targetItemId || null,
         createdById: actor.id,
       },
     });
@@ -583,9 +585,9 @@ export async function createNeed(input: NeedFormInput) {
 // Gắn nhu cầu vào mục tri thức đang thiếu người kế cận (dùng cho gate ETV.P26 mục 5.1.6).
 export async function attachNeedToItem(needId: string, itemId: string | null) {
   const actor = await getActor();
-  if (actor.m26Role !== "QLCL" && actor.m26Role !== "TP")
-    return fail("FORBIDDEN", "Chỉ QLCL hoặc Trưởng phòng được gắn nhu cầu vào mục tri thức.");
-  await prisma.m26KnowledgeNeed.update({ where: { id: needId }, data: { resultItemId: itemId } });
+  if (actor.m26Role !== "QLCL" && actor.m26Role !== "TP" && actor.m26Role !== "LDV")
+    return fail("FORBIDDEN", "Chỉ QLCL, Trưởng phòng hoặc LĐV được gắn nhu cầu vào mục tri thức.");
+  await prisma.m26KnowledgeNeed.update({ where: { id: needId }, data: { targetItemId: itemId } });
   await logAudit("NEED", needId, actor, itemId ? "Gắn nhu cầu với mục tri thức" : "Gỡ liên kết mục tri thức", { after: itemId ?? "—" });
   revalidateM26();
   return { ok: true as const };

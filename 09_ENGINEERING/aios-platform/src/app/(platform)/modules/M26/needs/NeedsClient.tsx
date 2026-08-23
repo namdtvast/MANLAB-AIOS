@@ -9,7 +9,13 @@ const fieldCls = "rounded-lg border border-border bg-bg px-3 py-2 text-sm text-i
 const labelCls = "flex flex-col gap-1.5 text-sm font-medium text-ink";
 const btnGhost = "cursor-pointer rounded-lg border border-border-strong px-2.5 py-1 text-xs text-ink hover:bg-sunk disabled:opacity-50";
 
-export function NewNeedForm({ users }: { users: { id: string; name: string | null; email: string }[] }) {
+export function NewNeedForm({
+  users,
+  allItems,
+}: {
+  users: { id: string; name: string | null; email: string }[];
+  allItems: { id: string; code: string; title: string }[];
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -39,6 +45,7 @@ export function NewNeedForm({ users }: { users: { id: string; name: string | nul
           requiredBy: String(fd.get("requiredBy") ?? ""),
           method: String(fd.get("method")) as NeedFormInput["method"],
           responsibleId: String(fd.get("responsibleId") ?? ""),
+          targetItemId: String(fd.get("targetItemId") ?? "") || undefined,
         };
         startTransition(async () => {
           const r = await createNeed(payload);
@@ -91,6 +98,21 @@ export function NewNeedForm({ users }: { users: { id: string; name: string | nul
         Bản ghi/căn cứ dẫn chiếu
         <input name="triggerRef" required className={fieldCls} placeholder="Hồ sơ mở rộng phạm vi, mã KPH, văn bản pháp luật…" />
       </label>
+      <label className={labelCls}>
+        Mục tri thức liên quan (bắt buộc khi là phiếu chuyển giao tri thức ẩn trọng yếu)
+        <select name="targetItemId" defaultValue="" className={fieldCls}>
+          <option value="">— Không gắn mục nào —</option>
+          {allItems.map((i) => (
+            <option key={i.id} value={i.id}>
+              {i.code} — {i.title}
+            </option>
+          ))}
+        </select>
+        <span className="text-xs font-normal text-ink-3">
+          Đây là mục tri thức mà nhu cầu nhằm bổ sung/chuyển giao — khác với &quot;kết quả&quot; ghi nhận khi đóng phiếu.
+        </span>
+      </label>
+
       <label className={labelCls}>
         Mô tả nhu cầu
         <textarea name="description" rows={3} required className={fieldCls} placeholder="Tri thức còn thiếu là gì, thiếu ở đâu" />

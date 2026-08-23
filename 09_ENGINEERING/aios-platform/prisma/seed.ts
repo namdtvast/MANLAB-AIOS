@@ -2175,6 +2175,7 @@ async function seedM26() {
       requiredBy: daysAgo(15), // đã quá hạn — hiện cảnh báo cho LĐV
       method: "KEM_CAP",
       responsibleId: tp.id,
+      targetItemId: item2.id, // phiếu chuyển giao cho chính mục tri thức ẩn trọng yếu (ETV.P26 mục 5.1.6)
       status: "DANG_BO_SUNG",
       createdById: qlcl.id,
     },
