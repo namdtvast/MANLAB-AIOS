@@ -24,7 +24,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M16", "M17", "M21", "M29"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M16", "M17", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -103,6 +103,7 @@ async function main() {
   await seedM16();
   await seedM17();
   await seedM12();
+  await seedM13();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1484,6 +1485,142 @@ async function seedM12() {
   await prisma.m12AuditEntry.create({ data: { itemType: "FEEDBACK", itemId: f2.id, actorId: tiepNhan.id, role: "TIEPNHAN", action: "Ghi nhận phàn nàn/góp ý" } });
 
   console.log(`Đã nạp 4 khiếu nại + 2 phàn nàn/góp ý demo M12 + vai trò M12 cho ${Object.keys(userByRole).length} tài khoản.`);
+}
+
+// M13 — xây mới từ 05_MODULE_LIBRARY/M13_KhacPhuc/01_Requirement/DacTa.md (không có 08_Source
+// nguyên mẫu). Dùng lại nth/qlcl/ldv@manlab.vn + tạo mới qlkt@manlab.vn cho vai trò QLKT (chưa
+// từng có trong seed) — cùng cách M03 tạo vanphong@manlab.vn.
+const M13_ROLE_EMAILS: Record<string, string> = {
+  NHANVIEN: "nth@manlab.vn",
+  QLCL: "qlcl@manlab.vn",
+  LDV: "ldv@manlab.vn",
+};
+
+async function seedM13() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M13_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M13", role } },
+      create: { userId: user.id, moduleCode: "M13", role },
+      update: {},
+    });
+  }
+
+  const qlkt = await prisma.user.upsert({
+    where: { email: "qlkt@manlab.vn" },
+    create: { email: "qlkt@manlab.vn", name: "Hoàng T. (QLKT)", role: "MEMBER", passwordHash },
+    update: {},
+  });
+  await prisma.moduleRoleAssignment.upsert({
+    where: { userId_moduleCode_role: { userId: qlkt.id, moduleCode: "M13", role: "QLKT" } },
+    create: { userId: qlkt.id, moduleCode: "M13", role: "QLKT" },
+    update: {},
+  });
+  userByRole["QLKT"] = qlkt;
+
+  const existing = await prisma.m13NonconformingWork.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const nhanVien = userByRole["NHANVIEN"];
+  const qlcl = userByRole["QLCL"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+
+  // 1. Mức Nhẹ, CHƯA có ghi chép theo dõi — demo gate MONITORING_REQUIRED sống qua UI.
+  const n1 = await prisma.m13NonconformingWork.create({
+    data: {
+      code: `KPH-${year}-0001`,
+      sourceType: "TU_PHAT_HIEN",
+      description: "Ghi nhãn mẫu thử nghiệm thiếu ngày tiếp nhận trên 2 mẫu nước — chưa ảnh hưởng kết quả đo.",
+      severity: "NHE",
+      severityBasis: "Chưa ảnh hưởng kết quả đo, khắc phục được ngay tại chỗ — QLKT đánh giá.",
+      assessedById: qlkt.id,
+      status: "DANG_THEO_DOI",
+      detectedById: nhanVien.id,
+    },
+  });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n1.id, actorId: nhanVien.id, role: "NHANVIEN", action: "Ghi nhận công việc không phù hợp vào sổ theo dõi" } });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n1.id, actorId: qlkt.id, role: "QLKT", action: "Đánh giá mức độ: Nhẹ — tiếp tục việc, theo dõi chặt chẽ (GHI_NHAN → DANG_THEO_DOI)", reason: "Chưa ảnh hưởng kết quả đo, khắc phục được ngay tại chỗ — QLKT đánh giá." } });
+
+  // 2. Mức Nặng, phương án ĐANG CHỜ THẨM XÉT, người thực hiện = QLCL — demo gate SELF_REVIEW
+  //    (chính QLCL này không được tự thẩm xét) rồi nhánh thành công khi LĐV/QLCL khác xử lý.
+  const n2 = await prisma.m13NonconformingWork.create({
+    data: {
+      code: `KPH-${year}-0002`,
+      sourceType: "IC_VUOT_GIOI_HAN",
+      sourceRef: "IC-2026-0042",
+      description: "Mẫu kiểm soát nội bộ vượt giới hạn cảnh báo 3σ hai lần liên tiếp trên cân phân tích — nghi ngờ sai lệch hệ thống.",
+      severity: "NANG",
+      severityBasis: "Ảnh hưởng trực tiếp độ tin cậy kết quả đo của cả đợt — QLCL và QLKT thống nhất mức Nặng.",
+      assessedById: qlcl.id,
+      status: "DANG_KHAC_PHUC",
+      stoppedWork: true,
+      detectedById: nhanVien.id,
+    },
+  });
+  const p2 = await prisma.m13CorrectiveActionPlan.create({
+    data: {
+      ncwId: n2.id,
+      rootCause: "Cân phân tích lệch do nền đặt không ổn định sau khi di chuyển thiết bị.",
+      actionPlan: "Hiệu chuẩn lại cân, cố định vị trí đặt, chạy lại mẫu IC 5 lần liên tiếp để xác nhận.",
+      assignedToId: qlcl.id,
+      status: "CHO_THAM_XET",
+      completedAt: new Date(),
+    },
+  });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n2.id, actorId: nhanVien.id, role: "NHANVIEN", action: "Ghi nhận công việc không phù hợp vào sổ theo dõi" } });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n2.id, actorId: qlcl.id, role: "QLCL", action: "Đánh giá mức độ: Nặng — dừng hẳn công việc (GHI_NHAN → DANG_KHAC_PHUC)", reason: "Ảnh hưởng trực tiếp độ tin cậy kết quả đo của cả đợt." } });
+  await prisma.m13AuditEntry.create({ data: { itemType: "CAP", itemId: p2.id, actorId: qlcl.id, role: "QLCL", action: "Báo hoàn thành hành động khắc phục — chờ QLCL thẩm xét (DANG_THUC_HIEN → CHO_THAM_XET)" } });
+
+  // 3. Mức Nặng, ĐÃ thu hồi báo cáo, phương án CHƯA đạt — demo gate CAP_REVIEW_REQUIRED cả khi
+  //    đóng hồ sơ lẫn khi LĐV xin cho phát hành báo cáo thay thế.
+  const n3 = await prisma.m13NonconformingWork.create({
+    data: {
+      code: `KPH-${year}-0003`,
+      sourceType: "TU_PHAT_HIEN",
+      description: "Phát hiện dùng nhầm phương pháp thử cũ đã hết hiệu lực cho 3 báo cáo đã phát hành.",
+      severity: "NANG",
+      severityBasis: "Sai phương pháp trên báo cáo đã phát hành — bắt buộc thu hồi, ảnh hưởng khách hàng.",
+      assessedById: ldv.id,
+      status: "DANG_KHAC_PHUC",
+      stoppedWork: true,
+      emergencyStop: true,
+      detectedById: nhanVien.id,
+    },
+  });
+  await prisma.m13CorrectiveActionPlan.create({
+    data: {
+      ncwId: n3.id,
+      rootCause: "Bản phương pháp cũ chưa được thu khỏi thư mục dùng chung sau khi ban hành bản mới.",
+      actionPlan: "Thu hồi 3 báo cáo, đo lại theo phương pháp hiện hành, rà soát toàn bộ thư mục tài liệu kỹ thuật.",
+      assignedToId: nhanVien.id,
+      status: "DANG_THUC_HIEN",
+    },
+  });
+  for (const ref of ["BC-2026-0155", "BC-2026-0156", "BC-2026-0157"]) {
+    await prisma.m13RevokedReport.create({ data: { ncwId: n3.id, reportRef: ref, note: "Sai phương pháp thử — thu hồi theo quy tắc 4 ETV.P13" } });
+  }
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n3.id, actorId: nhanVien.id, role: "NHANVIEN", action: "Ghi nhận công việc không phù hợp — DỪNG NGAY khẩn cấp tại chỗ (quy tắc 1 ETV.P13)" } });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n3.id, actorId: ldv.id, role: "LDV", action: "Đánh giá mức độ: Nặng — dừng hẳn công việc (GHI_NHAN → DANG_KHAC_PHUC)", reason: "Sai phương pháp trên báo cáo đã phát hành — bắt buộc thu hồi." } });
+
+  // 4. Nguồn phát hiện từ khiếu nại M12 — demo liên kết cross-module thật (tra theo mã khiếu nại).
+  const complaint = await prisma.m12Complaint.findFirst({ where: { isComplex: true }, orderBy: { seq: "asc" } });
+  const n4 = await prisma.m13NonconformingWork.create({
+    data: {
+      code: `KPH-${year}-0004`,
+      sourceType: "KHIEU_NAI",
+      sourceRef: complaint?.code ?? null,
+      description: "Khiếu nại của khách hàng về sai sót thông tin hành chính trên GCN đã phát hành — nghi ngờ lỗi hệ thống nhập liệu.",
+      status: "GHI_NHAN",
+      detectedById: nhanVien.id,
+    },
+  });
+  await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n4.id, actorId: nhanVien.id, role: "NHANVIEN", action: `Ghi nhận công việc không phù hợp từ khiếu nại ${complaint?.code ?? "—"} (← M12)` } });
+
+  console.log(`Đã nạp 4 hồ sơ công việc không phù hợp demo M13 + vai trò M13 cho ${Object.keys(userByRole).length} tài khoản (có tạo mới qlkt@manlab.vn).`);
 }
 
 main()

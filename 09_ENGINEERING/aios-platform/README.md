@@ -1,4 +1,4 @@
-# MANLAB-AIOS Platform — Increment 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12 xây mới)
+# MANLAB-AIOS Platform — Increment 0 → 11 (khung 38 module + M10/M21/M29 di trú + M01/M03/M02/M04/M16/M17/M12/M13 xây mới)
 
 App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của
 MANLAB-AIOS thành **một nền tảng có DB thật và build step thật** (thay cho
@@ -241,6 +241,35 @@ với field `origin`).
   chặn `ASSIGNEE_REQUIRED`/không phải LĐV cố phân công, tổ hợp khiếu nại phức tạp + dừng giải
   quyết.
 
+## Trạng thái Increment 11 — xây mới M13_KhacPhuc (không có nguyên mẫu code)
+
+Chi tiết đầy đủ + evidence verify:
+[`05_MODULE_LIBRARY/M13_KhacPhuc/01_Requirement/_work/20260823-xay-moi-m13/verify.md`](../../05_MODULE_LIBRARY/M13_KhacPhuc/01_Requirement/_work/20260823-xay-moi-m13/verify.md).
+
+Giống M01/M02/M03/M04/M16/M17/M12 (xây mới từ `DacTa.md`, không di trú `08_Source`). M13 là
+**điểm hội tụ CAPA** của hệ thống — M05/M10/M12 đều dẫn về đây. 4 đối tượng: sổ theo dõi công
+việc không phù hợp (F13.01), phương án hành động khắc phục (1-1, chỉ mức Nặng), báo cáo/GCN đã
+thu hồi, ghi chép diễn biến theo dõi.
+
+- ✅ **Điểm nghiệp vụ mới**: gate **tách vai trò khi thẩm xét** — đúng vai trò QLCL nhưng nếu là
+  người được phân công thực hiện phương án thì vẫn bị chặn tự thẩm xét. Đã verify cả 3 nhánh
+  (sai vai trò / đúng vai trò nhưng tự thẩm xét / QLCL khác thẩm xét đạt) qua Browser.
+- ✅ Gate **không tự mở khóa** (quy tắc 5 ETV.P13): mức Nặng chỉ đóng hồ sơ và cho tiếp tục công
+  việc khi phương án đã thẩm xét ĐẠT — verify cả 2 nhánh; đóng thành công thì `stoppedWork` tự
+  gỡ.
+- ✅ Gate đánh giá mức độ (quy tắc 2): bắt buộc căn cứ + chỉ LĐV/QLCL/QLKT — verify cả 3 nhánh;
+  chọn mức Nặng tự đặt dừng hẳn công việc (quy tắc 4).
+- ✅ Gate mức Nhẹ bắt buộc ghi chép diễn biến trước khi đóng (quy tắc 3) và gate báo cáo thay thế
+  chỉ LĐV + chỉ sau thẩm xét đạt (quy tắc 6) — verify đủ nhánh chặn lẫn nhánh thành công.
+- ✅ **Cross-module đọc thật**: hồ sơ có nguồn phát hiện là khiếu nại hiển thị link sống sang
+  `M12Complaint` (query thẳng bảng M12, không import code M12) — mirror cách M17 đọc bảng M16.
+- ✅ Tạo mới tài khoản demo `qlkt@manlab.vn` (vai trò QLKT chưa từng có trong seed).
+- ⚠️ 4 "Quyết định phạm vi" (plan 1-1 với hồ sơ; gate tự-thẩm-xét; yêu cầu phương án ĐẠT trước
+  khi phát hành báo cáo thay thế; ngưỡng tối thiểu 1 ghi chép theo dõi) — chưa được LĐV xác nhận
+  chính thức, xem DacTa.md mục 6.
+- ❌ Chưa test qua UI: nhánh `NOT_SEVERE`, `PLAN_EXISTS`, thẩm xét KHÔNG ĐẠT + `NOTE_REQUIRED`,
+  `txCompleteCapPlan` bởi người không được phân công.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -295,4 +324,5 @@ src/lib/m04/            Rule engine + actor/actions M04 — Môi trường, xây
 src/lib/m16/            Rule engine + actor/actions M16 — Đánh giá nội bộ, xây mới (Increment 8)
 src/lib/m17/            Rule engine + actor/actions M17 — Xem xét lãnh đạo, xây mới (Increment 9)
 src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & phản hồi, xây mới (Increment 10)
+src/lib/m13/            Rule engine + actor/actions M13 — Công việc không phù hợp/CAPA, xây mới (Increment 11)
 ```

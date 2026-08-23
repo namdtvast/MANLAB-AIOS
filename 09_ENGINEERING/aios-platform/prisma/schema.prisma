@@ -95,6 +95,13 @@ model User {
   m12ComplaintAssigned M12Complaint[]  @relation("M12ComplaintAssigned")
   m12FeedbackCreated   M12Feedback[]   @relation("M12FeedbackCreated")
   m12AuditEntries      M12AuditEntry[]
+  m13NcwDetected       M13NonconformingWork[]     @relation("M13NcwDetected")
+  m13NcwAssessed       M13NonconformingWork[]     @relation("M13NcwAssessed")
+  m13CapAssigned       M13CorrectiveActionPlan[]  @relation("M13CapAssigned")
+  m13CapReviewed       M13CorrectiveActionPlan[]  @relation("M13CapReviewed")
+  m13CapApproved       M13CorrectiveActionPlan[]  @relation("M13CapReplacementApproved")
+  m13MonitoringNotes   M13MonitoringNote[]
+  m13AuditEntries      M13AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1727,6 +1734,133 @@ model M12Feedback {
 model M12AuditEntry {
   id       String      @id @default(cuid())
   itemType M12ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M13_KhacPhuc — xây mới từ 05_MODULE_LIBRARY/M13_KhacPhuc/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04/M16/M17/M12) — logic port từ
+// ETV.P13_KhacPhuc.md (Đã phê duyệt, lần 03), xem
+// 01_Requirement/_work/20260823-xay-moi-m13/spec.md để đối chiếu "Quyết định phạm vi".
+// M13 là điểm hội tụ CAPA của hệ thống (M05/M10/M12 dẫn về). Gate chính: mức Nặng không được
+// tiếp tục/đóng công việc cho tới khi QLCL thẩm xét phương án khắc phục ĐẠT — không tự mở khóa.
+
+enum M13SourceType {
+  TU_PHAT_HIEN
+  KHIEU_NAI // ← M12
+  IC_VUOT_GIOI_HAN // ← M05
+  KHAC
+}
+
+enum M13Severity {
+  NHE
+  NANG
+}
+
+enum M13NcwStatus {
+  GHI_NHAN
+  DANG_THEO_DOI // mức Nhẹ — tiếp tục việc nhưng theo dõi chặt (quy tắc 3)
+  DANG_KHAC_PHUC // mức Nặng — đã dừng hẳn việc (quy tắc 4)
+  DA_KHAC_PHUC
+}
+
+enum M13CapStatus {
+  DANG_THUC_HIEN
+  CHO_THAM_XET
+  DAT
+  KHONG_DAT
+}
+
+enum M13ItemType {
+  NCW
+  CAP
+}
+
+model M13NonconformingWork {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KPH-2026-0001"
+
+  sourceType    M13SourceType
+  sourceRef     String? // tham chiếu tự do → M12 (mã khiếu nại) / M05, không FK chéo module
+  description   String
+  severity      M13Severity? // null = chưa đánh giá (quy tắc 2: đánh giá thủ công, không tự động)
+  severityBasis String?
+  assessedById  String?
+  status        M13NcwStatus @default(GHI_NHAN)
+  emergencyStop Boolean      @default(false) // quy tắc 1: dừng ngay khi phát hiện, báo cáo sau
+  stoppedWork   Boolean      @default(false) // quy tắc 4: bắt buộc true khi severity = NANG
+
+  detectedById String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  detectedBy User  @relation("M13NcwDetected", fields: [detectedById], references: [id])
+  assessedBy User? @relation("M13NcwAssessed", fields: [assessedById], references: [id])
+
+  plan            M13CorrectiveActionPlan?
+  revokedReports  M13RevokedReport[]
+  monitoringNotes M13MonitoringNote[]
+}
+
+model M13CorrectiveActionPlan {
+  id    String @id @default(cuid())
+  ncwId String @unique // 1-1 với NCW — xem "Quyết định phạm vi" #1 trong spec.md
+
+  rootCause    String
+  actionPlan   String
+  assignedToId String
+  status       M13CapStatus @default(DANG_THUC_HIEN)
+  completedAt  DateTime?
+
+  reviewedById String?
+  reviewedAt   DateTime?
+  reviewNote   String?
+
+  replacementReportRef    String? // báo cáo thay thế báo cáo đã thu hồi
+  replacementApprovedById String? // quy tắc 6: chỉ LĐV
+  replacementApprovedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ncw                  M13NonconformingWork @relation(fields: [ncwId], references: [id])
+  assignedTo           User                 @relation("M13CapAssigned", fields: [assignedToId], references: [id])
+  reviewedBy           User?                @relation("M13CapReviewed", fields: [reviewedById], references: [id])
+  replacementApprovedBy User?               @relation("M13CapReplacementApproved", fields: [replacementApprovedById], references: [id])
+}
+
+model M13RevokedReport {
+  id        String   @id @default(cuid())
+  ncwId     String
+  reportRef String // tham chiếu tự do → M11 (báo cáo/GCN bị thu hồi)
+  note      String?
+  createdAt DateTime @default(now())
+
+  ncw M13NonconformingWork @relation(fields: [ncwId], references: [id])
+}
+
+model M13MonitoringNote {
+  id        String   @id @default(cuid())
+  ncwId     String
+  note      String // quy tắc 3: ghi chép đầy đủ diễn biến với mức Nhẹ
+  authorId  String
+  createdAt DateTime @default(now())
+
+  ncw    M13NonconformingWork @relation(fields: [ncwId], references: [id])
+  author User                 @relation(fields: [authorId], references: [id])
+}
+
+model M13AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M13ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
