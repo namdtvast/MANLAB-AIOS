@@ -18,6 +18,7 @@
 | POST | `/taisantt/{id}/mark-reviewed` | TP (`owner`) | Xác nhận rà soát định kỳ — cập nhật `last_reviewed_at` |
 | POST | `/taisantt/{id}/restore-test` | QT hệ thống (`custodian`) | Ghi nhận kiểm tra khôi phục sao lưu + bằng chứng (F27.05) — cập nhật `last_restore_test_at` |
 | POST | `/taisantt/{id}/retire` | TP (`owner`), QLCL | → Ngừng sử dụng (**bắt buộc lý do**) |
+| POST | `/taisantt/{id}/ai-use` | QLCL + QT hệ thống | Bật/tắt `ai_use_allowed` — chỉ với tài sản Đang sử dụng và `classification ∈ {Công khai, Nội bộ}` (quy tắc 12, `ETV.P28` mục 5.7) |
 | POST | `/taisantt/{id}/transfer-owner` | QLCL | Chuyển chủ sở hữu khi nhân sự thay đổi (← M03) |
 | POST | `/taisantt/{id}/cancel` | LĐV | → Hủy bản ghi (chỉ khi chưa phê duyệt, **bắt buộc lý do**) |
 | GET | `/taisantt/due-review` · `/taisantt/due-restore-test` · `/taisantt/due-disposal` | QLCL, QT hệ thống, LĐV | Ba bảng đến hạn (tính khi đọc) |
