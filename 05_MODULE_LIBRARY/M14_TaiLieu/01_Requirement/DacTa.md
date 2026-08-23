@@ -34,3 +34,40 @@ Người lập · Người soát xét (LĐP) · Người phê duyệt (LĐV) · 
 
 ## 5. Liên kết
 Quy trình: MP14 · Năng lực: CAP-14 · Căn cứ: ISO/IEC 17025 §8.3, ISO 9001 §7.5, ISO 17034 §8.3 (có điều kiện), ISO/IEC 27001, ISO/IEC 42001 §7.5 · Thủ tục nguồn: `03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md` (đường dẫn đã cập nhật — cấu trúc `03_MANAGEMENT_SYSTEM` đổi từ `03_ISO17025/procedures/` sang `02_P/` sau khi ghi chú này được viết) · Skill AI: `07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu`.
+
+## 6. Triển khai thật (Increment 12, aios-platform)
+
+Đã xây trong `09_ENGINEERING/aios-platform` (Prisma + Next.js), không có `08_Source` nguyên mẫu.
+Khác các module trước: M14 **đã có sẵn** `02_API/API.md`, `03_Database/DataModel.md`,
+`07_Workflow/StateMachine.md` — bản triển khai bám theo (đúng 7 trạng thái, đúng danh sách mã lỗi
+nghiệp vụ), không định nghĩa lại. Chi tiết + bằng chứng VERIFY:
+`01_Requirement/_work/20260823-xay-moi-m14/{spec.md, plan.md, verify.md}`.
+
+**Ánh xạ**: `Document` → `M14Document` (metadata theo đúng bảng ETV.P14 §6.3); `AuditLog` →
+`M14AuditEntry`; bổ sung `M14AiSuggestion` để hiện thực §6.9 (AI chỉ gợi ý, không tự ghi).
+`Permission`/`RetentionSchedule` của DataModel.md **chưa làm được** vì F14.06 chưa số hóa — hiện
+lưu chuỗi tham chiếu, ghi rõ là nợ kỹ thuật.
+
+**Quyết định phạm vi cần LĐV xác nhận lại**:
+1. Vai trò `LDV_UYQUYEN` là do bản triển khai đặt ra để kiểm chứng được quy tắc 4 ("không ủy
+   quyền"); ETV.P14 không định nghĩa vai trò người được ủy quyền.
+2. Gate `SELF_REVIEW` (người lập không được tự soát xét) — RACI tách NTH/LĐP nhưng không viết
+   thành điều cấm; bổ sung theo tinh thần tách vai trò của M10/M13.
+3. `supersedes` chỉ đồng bộ hai chiều, **không** tự chuyển văn bản cũ sang Hết hiệu lực (quy tắc 6
+   chỉ nói cập nhật `superseded_by`); thay vào đó hiển thị cảnh báo mềm để LĐP chủ động thanh lý.
+4. "Ban hành/phân phối" là **hành động trong trạng thái Đã phê duyệt**, không phải trạng thái mới —
+   giữ đúng 7 giá trị của StateMachine.md.
+5. `permissionGroup`/`retention` lưu chuỗi tham chiếu F14.06 thay vì FK (biểu mẫu chưa số hóa).
+
+Gate đã verify thật qua Browser: **AI Agent không chuyển được trạng thái** (verify bằng chính tài
+khoản AI, quy tắc 7 + ISO/IEC 42001 §7.5); gợi ý AI chỉ vào hệ thống khi người có thẩm quyền áp
+dụng; thiếu trường bắt buộc theo loại văn bản thì không rời được Nháp (quy tắc 2); Sổ tay/Thủ tục
+chỉ LĐV chính danh phê duyệt (quy tắc 4, verify cả nhánh chặn người được ủy quyền lẫn nhánh LĐV
+thành công); người lập không tự soát xét; chỉ Văn thư/QLCL ban hành, chỉ LĐP thanh lý (RACI §III,
+§6.11).
+
+Vai trò module: `NTH`, `LDP`, `LDV`, `LDV_UYQUYEN`, `VANTHU`, `AI_AGENT` — dùng lại `nth`/`ldp`/
+`ldv`/`vanphong@manlab.vn` và `ai-operator@manlab.vn` (M29), **tạo mới `pvt@manlab.vn`**.
+
+Liên kết cross-module đã chạy thật: văn bản bên ngoài hiển thị các khiếu nại (M12) đang viện dẫn
+nó qua `externalDocRef` — chiều ngược của liên kết M12 → F14.03 có từ Increment 10.

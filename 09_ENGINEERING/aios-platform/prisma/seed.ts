@@ -24,7 +24,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M04 xây mới từ 05_MODULE_LIBRARY/M04_MoiTruong/01_Requirement/DacTa.md (Increment 7).
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M16", "M17", "M21", "M29"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M29"]);
 
 interface MpManifest {
   name?: string;
@@ -104,6 +104,7 @@ async function main() {
   await seedM17();
   await seedM12();
   await seedM13();
+  await seedM14();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
@@ -1621,6 +1622,225 @@ async function seedM13() {
   await prisma.m13AuditEntry.create({ data: { itemType: "NCW", itemId: n4.id, actorId: nhanVien.id, role: "NHANVIEN", action: `Ghi nhận công việc không phù hợp từ khiếu nại ${complaint?.code ?? "—"} (← M12)` } });
 
   console.log(`Đã nạp 4 hồ sơ công việc không phù hợp demo M13 + vai trò M13 cho ${Object.keys(userByRole).length} tài khoản (có tạo mới qlkt@manlab.vn).`);
+}
+
+// M14 — xây mới từ 05_MODULE_LIBRARY/M14_TaiLieu (đã có sẵn API.md/DataModel.md/StateMachine.md).
+// Dùng lại nth/ldp/ldv/vanphong@manlab.vn + ai-operator@manlab.vn (M29) và tạo mới pvt@manlab.vn
+// cho vai trò LDV_UYQUYEN — vai trò chỉ tồn tại để kiểm chứng quy tắc 4 "không ủy quyền".
+const M14_ROLE_EMAILS: Record<string, string> = {
+  NTH: "nth@manlab.vn",
+  LDP: "ldp@manlab.vn",
+  LDV: "ldv@manlab.vn",
+  VANTHU: "vanphong@manlab.vn",
+  AI_AGENT: "ai-operator@manlab.vn",
+};
+
+async function seedM14() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+  for (const [role, email] of Object.entries(M14_ROLE_EMAILS)) {
+    const user = await prisma.user.findUniqueOrThrow({ where: { email } });
+    userByRole[role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M14", role } },
+      create: { userId: user.id, moduleCode: "M14", role },
+      update: {},
+    });
+  }
+
+  const pvt = await prisma.user.upsert({
+    where: { email: "pvt@manlab.vn" },
+    create: { email: "pvt@manlab.vn", name: "Vũ M. (Phó Viện trưởng — được ủy quyền)", role: "MEMBER", passwordHash },
+    update: {},
+  });
+  await prisma.moduleRoleAssignment.upsert({
+    where: { userId_moduleCode_role: { userId: pvt.id, moduleCode: "M14", role: "LDV_UYQUYEN" } },
+    create: { userId: pvt.id, moduleCode: "M14", role: "LDV_UYQUYEN" },
+    update: {},
+  });
+  userByRole["LDV_UYQUYEN"] = pvt;
+
+  const existing = await prisma.m14Document.count();
+  if (existing > 0) return; // idempotent thô — chỉ seed lần đầu
+
+  const nth = userByRole["NTH"];
+  const ldp = userByRole["LDP"];
+  const ldv = userByRole["LDV"];
+  const vanthu = userByRole["VANTHU"];
+  const ai = userByRole["AI_AGENT"];
+
+  // 1. Thủ tục Nháp THIẾU trường bắt buộc — demo gate MISSING_REQUIRED_FIELD sống qua UI.
+  const d1 = await prisma.m14Document.create({
+    data: {
+      code: "ETV.P 21",
+      title: "Thủ tục Kiểm soát dữ liệu quan trắc tự động",
+      docType: "THU_TUC",
+      owner: "LĐP phụ trách Hệ thống quản lý",
+      department: "Phòng Đo lường Chất lượng",
+      processCode: "MP21_CongBoNangLuc",
+      status: "NHAP",
+      createdById: nth.id,
+      // cố ý thiếu: revision, effectiveDate, knowledgeCategory, permissionGroup, retention,
+      // sourceOrg, isoClause
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d1.id, actorId: nth.id, role: "NTH", action: "Soạn thảo văn bản mới" } });
+  const s1 = await prisma.m14AiSuggestion.create({
+    data: {
+      documentId: d1.id,
+      field: "isoClause",
+      createdById: ai.id,
+      suggestedValue: "ISO/IEC 17025:2017 §7.11; ISO 9001:2015 §7.5",
+      rationale: "AI nhận diện nội dung kiểm soát dữ liệu — gợi ý điều khoản tương ứng, chờ người có thẩm quyền xác nhận.",
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "SUGGESTION", itemId: s1.id, actorId: ai.id, role: "AI_AGENT", action: 'AI gợi ý trường "isoClause" — chờ người có thẩm quyền áp dụng' } });
+
+  // 2. Quy trình ĐANG CHỜ SOÁT XÉT do chính LĐP lập — demo gate SELF_REVIEW.
+  const d2 = await prisma.m14Document.create({
+    data: {
+      code: "ETV.MCW 07",
+      title: "Quy trình hiệu chuẩn đồng hồ đo nước lạnh cấp C",
+      docType: "QUY_TRINH",
+      owner: "LĐP phụ trách kỹ thuật",
+      department: "Phòng Đo lường Chất lượng",
+      processCode: "MP08_PhuongPhap",
+      revision: "01",
+      effectiveDate: new Date("2026-09-01"),
+      isoClause: ["ISO/IEC 17025:2017 §7.2"],
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "36 tháng",
+      sourceOrg: "Viện Kiểm định Công nghệ và Môi trường (ETV)",
+      status: "CHO_SOAT_XET",
+      createdById: ldp.id,
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d2.id, actorId: ldp.id, role: "LDP", action: "Soạn thảo văn bản mới" } });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d2.id, actorId: ldp.id, role: "LDP", action: "Gửi soát xét (NHAP → CHO_SOAT_XET)" } });
+
+  // 3. Sổ tay chất lượng CHỜ PHÊ DUYỆT — demo gate NO_DELEGATION (người được ủy quyền bị chặn).
+  const d3 = await prisma.m14Document.create({
+    data: {
+      code: "ETV.QM",
+      title: "Sổ tay chất lượng ETV (lần ban hành 04)",
+      docType: "SO_TAY",
+      owner: "Lãnh đạo Viện",
+      department: "Toàn Viện",
+      processCode: "MP14_TaiLieu",
+      revision: "04",
+      effectiveDate: new Date("2026-10-01"),
+      isoClause: ["ISO/IEC 17025:2017 §8.2", "ISO 9001:2015 §4.4"],
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "Vĩnh viễn",
+      sourceOrg: "Viện Kiểm định Công nghệ và Môi trường (ETV)",
+      status: "CHO_PHE_DUYET",
+      createdById: nth.id,
+      reviewedById: ldp.id,
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d3.id, actorId: nth.id, role: "NTH", action: "Soạn thảo văn bản mới" } });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d3.id, actorId: nth.id, role: "NTH", action: "Gửi soát xét (NHAP → CHO_SOAT_XET)" } });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d3.id, actorId: ldp.id, role: "LDP", action: "LĐP soát xét đạt — trình phê duyệt (CHO_SOAT_XET → CHO_PHE_DUYET)" } });
+
+  // 4. Công văn ĐÃ PHÊ DUYỆT, CHƯA ban hành — demo publish + thanh lý/hủy bỏ.
+  const d4 = await prisma.m14Document.create({
+    data: {
+      code: "ETV.CV 118/2026",
+      title: "Công văn hướng dẫn áp dụng biểu mẫu kiểm soát tài liệu mới",
+      docType: "CONG_VAN",
+      owner: "Văn thư",
+      department: "Toàn Viện",
+      processCode: "MP14_TaiLieu",
+      revision: "01",
+      effectiveDate: new Date("2026-08-15"),
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "60 tháng",
+      sourceOrg: "Viện Kiểm định Công nghệ và Môi trường (ETV)",
+      status: "DA_PHE_DUYET",
+      createdById: nth.id,
+      reviewedById: ldp.id,
+      approvedById: ldv.id,
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d4.id, actorId: ldv.id, role: "LDV", action: "Phê duyệt ban hành (CHO_PHE_DUYET → DA_PHE_DUYET)" } });
+
+  // 5. Văn bản BÊN NGOÀI (F14.03) — mã khớp externalDocRef của khiếu nại M12 seed sẵn,
+  //    demo liên kết cross-module chiều M14 → M12.
+  const d5 = await prisma.m14Document.create({
+    data: {
+      code: "F14.03-2026-0004",
+      title: "Văn bản khiếu nại chính thức của khách hàng về sai sót thông tin trên GCN",
+      docType: "VAN_BAN_BEN_NGOAI",
+      owner: "Văn thư",
+      department: "Toàn Viện",
+      revision: "01",
+      effectiveDate: new Date("2026-08-20"),
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "60 tháng",
+      sourceOrg: "Khách hàng (văn bản đến)",
+      status: "DA_PHE_DUYET",
+      createdById: vanthu.id,
+      reviewedById: ldp.id,
+      approvedById: ldv.id,
+      publishedAt: new Date(),
+      publishedById: vanthu.id,
+      distributionNote: "Vào sổ văn bản đến, chuyển cán bộ phụ trách xử lý khiếu nại.",
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: d5.id, actorId: vanthu.id, role: "VANTHU", action: "Tiếp nhận văn bản đến, vào sổ F14.03" } });
+
+  // 6. Thủ tục mới THAY THẾ bản cũ — demo cặp nghịch đảo supersedes/superseded_by (quy tắc 6).
+  const oldProc = await prisma.m14Document.create({
+    data: {
+      code: "ETV.P 15",
+      title: "Thủ tục Kiểm soát hồ sơ (lần ban hành 02)",
+      docType: "THU_TUC",
+      owner: "LĐP phụ trách Hệ thống quản lý",
+      department: "Toàn Viện",
+      processCode: "MP15_HoSo",
+      revision: "02",
+      effectiveDate: new Date("2023-04-22"),
+      isoClause: ["ISO/IEC 17025:2017 §8.4"],
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "Vĩnh viễn",
+      sourceOrg: "Viện Kiểm định Công nghệ và Môi trường (ETV)",
+      status: "DA_PHE_DUYET",
+      createdById: nth.id,
+      reviewedById: ldp.id,
+      approvedById: ldv.id,
+      publishedAt: new Date("2023-04-22"),
+      publishedById: vanthu.id,
+      distributionNote: "Phân phối bản kiểm soát cho các phòng.",
+    },
+  });
+  const newProc = await prisma.m14Document.create({
+    data: {
+      code: "ETV.P.F 15.01",
+      title: "Biểu mẫu Danh mục hồ sơ chất lượng (bản soát xét 2026)",
+      docType: "BIEU_MAU",
+      owner: "LĐP phụ trách Hệ thống quản lý",
+      department: "Toàn Viện",
+      processCode: "MP15_HoSo",
+      revision: "03",
+      effectiveDate: new Date("2026-08-01"),
+      isoClause: ["ISO/IEC 17025:2017 §8.4"],
+      knowledgeCategory: "NOI_BO",
+      permissionGroup: "Noi-bo",
+      retention: "Vĩnh viễn",
+      sourceOrg: "Viện Kiểm định Công nghệ và Môi trường (ETV)",
+      status: "NHAP",
+      createdById: nth.id,
+      supersedesId: oldProc.id,
+    },
+  });
+  await prisma.m14AuditEntry.create({ data: { itemType: "DOCUMENT", itemId: newProc.id, actorId: nth.id, role: "NTH", action: `Soạn thảo văn bản mới (thay thế ${oldProc.code})` } });
+
+  console.log(`Đã nạp 7 văn bản demo M14 + 1 gợi ý AI + vai trò M14 cho ${Object.keys(userByRole).length} tài khoản (có tạo mới pvt@manlab.vn).`);
 }
 
 main()
