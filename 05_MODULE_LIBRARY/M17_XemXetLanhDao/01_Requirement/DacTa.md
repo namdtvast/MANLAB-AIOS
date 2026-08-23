@@ -95,3 +95,31 @@ duyệt, lần 03) · Biểu mẫu: F17.01–F17.03 (chưa có bản mẫu trố
 sơ: ETV.P15 · Liên quan: M16 (đầu vào — kết quả đánh giá nội bộ/bên ngoài), M13 (đầu ra — hành
 động khắc phục/phòng ngừa sau kết luận họp), M12 (đầu vào — khiếu nại/phản hồi), M03 (đầu vào —
 đào tạo/nguồn lực) · Căn cứ: ISO 9001 §9.3, ISO/IEC 17025 §8.9.
+
+## 6. Triển khai thật (Increment 9, aios-platform)
+
+Đã xây thành CRUD + gate đồng phê duyệt (co-approval) + gate đủ 12 nội dung trong
+`09_ENGINEERING/aios-platform` (Prisma + Next.js), không có `08_Source` nguyên mẫu (giống
+M01/M02/M03/M04/M16). Chi tiết đầy đủ + bằng chứng VERIFY:
+`01_Requirement/_work/20260823-xay-moi-m17/{spec.md, plan.md, verify.md}`.
+
+**Quyết định phạm vi cần LĐV xác nhận lại**:
+1. `ReviewActionTracking.status = Quá hạn` là **tính toán khi đọc** (derived, không lưu DB) —
+   mirror pattern đã dùng ở M04/M20, DacTa chỉ nói "phải tự động đánh dấu" không quy định cơ chế.
+2. Gate đồng phê duyệt (quy tắc 2: "bắt buộc LĐV + Trưởng phòng phê duyệt") triển khai là **2 phê
+   duyệt độc lập theo bất kỳ thứ tự nào**, chuyển `APPROVED` ngay khi đủ cả 2 — khác hẳn mô hình
+   phân cấp tuần tự đã dùng ở M10/M16 (`PENDING_REVIEW` → `PENDING_APPROVAL`), vì DacTa dùng liên
+   từ "và" ngang hàng chứ không mô tả cấp trên/cấp dưới.
+3. Cảnh báo mềm quy tắc 1 (chưa đủ dữ liệu đánh giá M16 của năm) triển khai bằng **query Prisma
+   thật** trực tiếp vào bảng `M16AuditReport`/`M16AuditProgram`/`M16AuditPlan` — không chặn tạo
+   `ReviewPlan`, đúng tinh thần "nên cảnh báo" không phải "bắt buộc".
+
+Gate chính đã verify thật qua Browser: đồng phê duyệt chương trình xem xét (test chiều TP duyệt
+trước → LĐV duyệt sau → tự động `APPROVED`, xem `verify.md` mục "Điều CHƯA verify" về chiều ngược
+lại), gate đủ 12 nội dung khi lập biên bản (chặn đúng khi thiếu 1 nội dung, cho qua khi đủ 12),
+gate chỉ LĐV ghi kết luận cuộc họp (nhánh thành công), hiển thị "Quá hạn"/"Hoàn thành" đúng theo
+tính toán khi đọc, cảnh báo mềm cross-module không hiển thị sai khi M16 đã có dữ liệu năm đó.
+
+Vai trò module: `QLCL`, `TP` (Trưởng phòng), `LDV` — dùng lại 3 tài khoản demo M01/M02/M03/M04,
+không tạo tài khoản mới. `CorrectiveActionRequest` (F13.01) chỉ tạo bản ghi tối giản, chưa có FK
+thật tới M13 (M13 chưa xây).

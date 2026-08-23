@@ -83,6 +83,13 @@ model User {
   m16PlanApproved  M16AuditPlan[]   @relation("M16PlanApproved")
   m16ReportCreated M16AuditReport[] @relation("M16ReportCreated")
   m16AuditEntries  M16AuditEntry[]
+
+  m17PlanCreated     M17ReviewPlan[]              @relation("M17PlanCreated")
+  m17PlanTpApproved  M17ReviewPlan[]              @relation("M17PlanTpApproved")
+  m17PlanLdvApproved M17ReviewPlan[]              @relation("M17PlanLdvApproved")
+  m17MinutesRecorded M17ReviewMinutes[]           @relation("M17MinutesRecorded")
+  m17CapaCreated     M17CorrectiveActionRequest[] @relation("M17CapaCreated")
+  m17AuditEntries    M17AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -1487,6 +1494,131 @@ model M16AuditReport {
 model M16AuditEntry {
   id       String      @id @default(cuid())
   itemType M16ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M17_XemXetLanhDao — xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md ----------
+// Không có 08_Source nguyên mẫu (giống M01/M02/M03/M04/M16) — logic port từ
+// ETV.P17_XemXetLanhDao.md (Đã phê duyệt, lần 03), xem
+// 01_Requirement/_work/20260823-xay-moi-m17/spec.md để đối chiếu "Quyết định phạm vi". Gate
+// chính: ĐỒNG PHÊ DUYỆT (TP + LĐV độc lập, không phân cấp tuần tự — khác M16).
+
+enum M17PlanStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+}
+
+enum M17ActionStatus {
+  DANG_THUC_HIEN
+  HOAN_THANH
+}
+
+enum M17ItemType {
+  PLAN
+  MINUTES
+  ACTION
+}
+
+model M17ReviewPlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CTXX-2026-0001"
+
+  title         String
+  isAdHoc       Boolean       @default(false)
+  plannedDate   DateTime
+  location      String
+  attendees     String[]
+  plannedTopics Int[] // chỉ số 1-12 theo mục 2.4 DacTa
+  status        M17PlanStatus @default(DRAFT)
+  reason        String?
+
+  createdById     String
+  tpApprovedById  String?
+  tpApprovedAt    DateTime?
+  ldvApprovedById String?
+  ldvApprovedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy     User  @relation("M17PlanCreated", fields: [createdById], references: [id])
+  tpApprovedBy  User? @relation("M17PlanTpApproved", fields: [tpApprovedById], references: [id])
+  ldvApprovedBy User? @relation("M17PlanLdvApproved", fields: [ldvApprovedById], references: [id])
+
+  minutes M17ReviewMinutes[]
+}
+
+model M17ReviewMinutes {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "BBXX-2026-0001"
+
+  planId       String
+  meetingDate  DateTime
+  topicResults Json // mảng 12 phần tử {topicId, assessmentResult}
+  conclusion   String? // chỉ LĐV ghi được, qua action riêng
+
+  recordedById String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  plan       M17ReviewPlan @relation(fields: [planId], references: [id])
+  recordedBy User          @relation("M17MinutesRecorded", fields: [recordedById], references: [id])
+
+  actions M17ReviewActionTracking[]
+  capas   M17CorrectiveActionRequest[]
+}
+
+model M17ReviewActionTracking {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HDXX-2026-0001"
+
+  minutesId         String
+  actionDescription String
+  startDate         DateTime
+  dueDate           DateTime
+  status            M17ActionStatus @default(DANG_THUC_HIEN) // "Quá hạn" tính derived lúc đọc, không lưu DB
+  assignedTo        String
+  progressNotes     String?
+  capaRef           String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  minutes M17ReviewMinutes @relation(fields: [minutesId], references: [id])
+}
+
+model M17CorrectiveActionRequest {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "F13.01-2026-0001"
+
+  minutesId   String
+  description String
+
+  createdById String
+
+  createdAt DateTime @default(now())
+
+  minutes   M17ReviewMinutes @relation(fields: [minutesId], references: [id])
+  createdBy User             @relation("M17CapaCreated", fields: [createdById], references: [id])
+}
+
+model M17AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M17ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
