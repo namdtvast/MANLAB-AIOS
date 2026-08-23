@@ -68,7 +68,11 @@ export default async function SharingPage() {
           <tbody>
             {events.map((e) => (
               <tr key={e.id} className="border-b border-border last:border-0 align-top hover:bg-sunk">
-                <td className="px-3 py-2 font-mono text-xs text-ink-2">{e.code}</td>
+                <td className="px-3 py-2">
+                  <Link href={`/modules/M26/sharing/${e.id}/print`} className="font-mono text-xs text-accent hover:underline">
+                    {e.code}
+                  </Link>
+                </td>
                 <td className="px-3 py-2 text-xs text-ink-2">{SHARING_FORM_LABEL[e.form]}</td>
                 <td className="max-w-sm px-3 py-2 text-sm text-ink">{e.topic}</td>
                 <td className="px-3 py-2 text-xs text-ink-2">{fmtDate(e.heldAt)}</td>
