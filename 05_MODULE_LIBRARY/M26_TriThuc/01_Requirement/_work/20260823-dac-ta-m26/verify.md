@@ -48,8 +48,51 @@ chi tiết mục tri thức đọc theo `targetItem`.
 
 ## 4. Phạm vi chưa làm
 
-| Increment | Nội dung | Lý do |
+| Increment | Nội dung | Trạng thái |
 |---|---|---|
-| 12 | Hook mềm từ M13/M12/M10/M16 tự sinh bài học kinh nghiệm | Chạm 4 module đang chạy thật — giữ PR riêng để revert độc lập (AC13 chưa verify được) |
-| 13 | Xuất biểu mẫu F26.01–F26.04 và trích xuất báo cáo cho M17 | Tách khỏi PR lõi |
-| — | Nạp/gỡ chỉ mục AI thật ở `08_KNOWLEDGE_GRAPH/09_Embedding, 10_Vector_DB` | Thuộc M29; M26 mới quản cờ `aiIndexed` trong DB |
+| 12 | Hook mềm từ M13/M12/M10/M16 tự sinh bài học kinh nghiệm | **Đã làm** (24/08/2026) — mục 5 |
+| 13 | Xuất biểu mẫu F26.01–F26.04 và trích xuất báo cáo cho M17 | **Đã làm** (24/08/2026) — mục 6 |
+| — | Nạp/gỡ chỉ mục AI thật ở `08_KNOWLEDGE_GRAPH/09_Embedding, 10_Vector_DB` | Chưa — thuộc M29; M26 mới quản cờ `aiIndexed` trong DB |
+
+---
+
+# Increment 12–13 — VERIFY bổ sung (ngày 24/08/2026)
+
+Môi trường: worktree `feat/m26-hook-va-xuat-bieu-mau` (base `main` sau khi M26 lõi đã merge),
+DB dev riêng `aios_platform_m26b`, dev server `http://localhost:3200`.
+
+## 5. Increment 12 — hook mềm sinh bài học kinh nghiệm
+
+Điểm chèn và kết quả thao tác thật trên giao diện (đăng nhập đúng vai trò từng module):
+
+| Module nguồn | Điểm chèn | Điều kiện sinh bài học | Kết quả |
+|---|---|---|---|
+| **M13** | `closeNcw` | KPH mức **Nặng** đóng thành công | **PASS** — đóng `KPH-2026-0003` (NANG) → `BH-2026-0003` (nguồn KPH_CAPA, khóa ngoại `m13NcId`), KPH vẫn chuyển `DA_KHAC_PHUC` |
+| **M12** | `closeComplaint` | Khiếu nại có cơ sở: có CAPA, hoặc phức tạp, hoặc dừng giải quyết vì khách không chấp nhận | **PASS** — LĐV dừng giải quyết `KN-2026-0003` → `BH-2026-0005`, khiếu nại vẫn chuyển `KHONG_DAT_THOA_THUAN` |
+| **M10** | `approveAssessment` | Phê duyệt hồ sơ có `result = FAIL` | **PASS** — phê duyệt `P10-2026-0003` (FAIL) → `BH-2026-0006`, hồ sơ vẫn `APPROVED` |
+| **M16** | `closeAuditProgram` | Chương trình có ≥ 1 phát hiện Không phù hợp | **PASS** — đóng `CTDG-2026-0001` → `BH-2026-0007` (bối cảnh liệt kê `PH-2026-0002`, dẫn chiếu `KPH-2026-0003`), chương trình vẫn `CLOSED` |
+
+| Tính chất | Cách kiểm | Kết quả |
+|---|---|---|
+| **Idempotent** | Gọi `ensureLessonFromSource` hai lần cùng `(sourceType, sourceRef)` | **PASS** — `{"before":3,"after":4,"r1":{"created":true,"code":"BH-2026-0004"},"r2":{"created":false,"code":"BH-2026-0004"}}` |
+| **Cảnh báo mềm** | Mọi lỗi trong hook bị nuốt tại `hooks.ts`, module nguồn không nhận exception | Đã kiểm bằng đọc mã + 4 luồng trên đều hoàn tất trạng thái của module nguồn |
+
+### Spec drift thứ hai đã xử lý
+
+Bản đầu của hook M16 chỉ sinh bài học cho phát hiện **chưa** chuyển thành hồ sơ KPH (`!ncwId`). Khi
+verify mới lộ ra: quy tắc 6 ETV.P16 **chặn** đóng chương trình nếu còn phát hiện Không phù hợp chưa
+chuyển sang M13 — điều kiện đó không bao giờ đúng, hook là code chết. Đã đổi sang **một phiếu bài
+học cấp chương trình** khi chương trình có ≥ 1 phát hiện không phù hợp; bài học của từng KPH vẫn do
+hook M13 sinh, không có hai phiếu cho một sự việc.
+
+## 6. Increment 13 — xuất biểu mẫu và báo cáo cho M17
+
+| Đầu ra | Đường dẫn | Kết quả |
+|---|---|---|
+| F26.01 — Danh mục tri thức tổ chức | `/modules/M26/print/f26-01` | **PASS** — đủ 4 phần của biểu mẫu gốc (danh mục · rủi ro mất tri thức · đến hạn rà soát · hết hiệu lực), header mã số/lần ban hành/ngày ban hành đúng bản gốc; danh mục vẫn **lọc theo mức bảo mật** của người in (vai trò TP không thấy mục Mật) |
+| F26.02 — Phiếu bài học kinh nghiệm | `/modules/M26/lessons/[id]/print` | **PASS** — 8 mục, khớp bố cục biểu mẫu gốc |
+| F26.03 — Phiếu xác định nhu cầu tri thức | `/modules/M26/needs/[id]/print` | **PASS** — 5 mục, nêu rõ khi thiếu kết quả thì không đóng được |
+| F26.04 — Biên bản chia sẻ tri thức | `/modules/M26/sharing/[id]/print` | **PASS** — 7 mục, có bảng mục tri thức, danh sách tham dự kèm ô ký |
+| Báo cáo tình hình tri thức cho M17 | `/modules/M26/report?months=3\|6\|12` | **PASS** — 8 chỉ số + 7 bảng theo ETV.P26 mục 5.6; đổi kỳ 3/6/12 tháng chạy đúng |
+
+Kiểm tra kỹ thuật: `tsc --noEmit` · `eslint` · `next build` — **PASS** (18 route M26 trong bảng route).

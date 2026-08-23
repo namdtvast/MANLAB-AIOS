@@ -7,6 +7,7 @@ import {
   CONFIDENTIALITY_LABEL,
   CRITICALITY_LABEL,
   LESSON_SOURCE_LABEL,
+  LESSON_STATUS_LABEL,
   NEED_METHOD_LABEL,
   NEED_STATUS_LABEL,
   SHARING_FORM_LABEL,
@@ -241,7 +242,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
                 <td className="px-3 py-2 text-ink">{l.title}</td>
                 <td className="px-3 py-2 text-xs text-ink-2">{LESSON_SOURCE_LABEL[l.sourceType]}</td>
                 <td className="px-3 py-2 font-mono text-xs text-ink-2">{l.knowledgeItem?.code ?? "—"}</td>
-                <td className="px-3 py-2 text-xs text-ink-2">{l.status}</td>
+                <td className="px-3 py-2 text-xs text-ink-2">{LESSON_STATUS_LABEL[l.status]}</td>
               </tr>
             ))}
             {lessons.length === 0 && (
