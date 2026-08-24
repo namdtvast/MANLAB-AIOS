@@ -83,7 +83,7 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
   return (
     <section
       aria-label="Căn cứ pháp lý"
-      className="max-w-4xl rounded-lg border border-border bg-sunk px-3 py-2.5 text-xs text-ink-2"
+      className="rounded-lg border border-border bg-sunk px-3 py-2.5 text-xs text-ink-2"
     >
       {/* 1–3. Thủ tục viện dẫn + lần ban hành/ngày + trạng thái hiệu lực */}
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
