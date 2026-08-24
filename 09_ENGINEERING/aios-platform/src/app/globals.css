@@ -219,3 +219,12 @@ body {
     font-size: 16px;
   }
 }
+
+/*
+ * Đường dẫn và mã dài trong <code> (ví dụ 05_MODULE_LIBRARY/M25_BoiCanh/...)
+ * không có chỗ ngắt tự nhiên nên tràn khỏi khung ở khổ điện thoại — cho phép
+ * ngắt ở bất kỳ đâu thay vì đẩy chữ ra ngoài.
+ */
+code {
+  overflow-wrap: anywhere;
+}

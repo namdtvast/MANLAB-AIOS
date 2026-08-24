@@ -5,6 +5,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import type { M13Severity, M13SourceType } from "@/generated/prisma/enums";
+import { ensureLessonFromSource } from "@/lib/m26/hooks";
 import { getActor } from "./actor";
 import {
   txApproveReplacementReport,
@@ -104,7 +105,27 @@ export async function assessSeverity(id: string, input: { severity: M13Severity;
 export async function closeNcw(id: string): Promise<TxResult> {
   const actor = await getActor();
   const n = await loadNcwForRules(id);
-  return applyNcwTransition(id, txCloseNcw(n, actor), actor);
+  const result = await applyNcwTransition(id, txCloseNcw(n, actor), actor);
+
+  // Hook mềm sang M26 (quy tắc 6 DacTa M26 / ETV.P26 mục 5.2.1): đóng KPH mức NẶNG thì tổ chức
+  // phải rút kinh nghiệm. Cảnh báo mềm — không chặn việc đóng hồ sơ của M13 nếu M26 hỏng.
+  if (result.ok && n.severity === "NANG") {
+    const ncw = await prisma.m13NonconformingWork.findUniqueOrThrow({
+      where: { id },
+      select: { code: true, description: true },
+    });
+    await ensureLessonFromSource({
+      sourceType: "KPH_CAPA",
+      sourceRef: ncw.code,
+      title: `Bài học từ công việc không phù hợp ${ncw.code}`,
+      context: ncw.description,
+      createdById: actor.id,
+      m13NcId: id,
+      rootCauseRef: ncw.code,
+    });
+  }
+
+  return result;
 }
 
 export async function addMonitoringNote(id: string, note: string): Promise<TxResult> {

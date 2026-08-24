@@ -5,6 +5,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import type { M12Channel, M12FeedbackCategory, M12FeedbackOrigin } from "@/generated/prisma/enums";
+import { ensureLessonFromSource } from "@/lib/m26/hooks";
 import { getActor } from "./actor";
 import { canEscalate, txAssignComplaint, txCloseComplaint, txRespondComplaint, type M12ActorUser, type TxResult } from "./rules";
 
@@ -97,7 +98,24 @@ export async function respondComplaint(id: string, resolution: string): Promise<
 export async function closeComplaint(id: string, input: { customerSatisfied: boolean; reason?: string }): Promise<TxResult> {
   const actor = await getActor();
   const c = await prisma.m12Complaint.findUniqueOrThrow({ where: { id } });
-  return applyComplaintTransition(id, txCloseComplaint(c, actor, input), actor);
+  const result = await applyComplaintTransition(id, txCloseComplaint(c, actor, input), actor);
+
+  // Hook mềm sang M26 (quy tắc 6 DacTa M26 / ETV.P26 mục 5.2.1). Chỉ khiếu nại CÓ CƠ SỞ mới sinh
+  // bài học: đã dẫn tới hành động khắc phục (capaRef), hoặc thuộc nhóm phức tạp/ảnh hưởng lớn,
+  // hoặc phải dừng giải quyết vì khách không chấp nhận. Cảnh báo mềm — không chặn M12.
+  const grounded = Boolean(c.capaRef) || c.isComplex || !input.customerSatisfied;
+  if (result.ok && grounded) {
+    await ensureLessonFromSource({
+      sourceType: "KHIEU_NAI",
+      sourceRef: c.code,
+      title: `Bài học từ khiếu nại ${c.code}`,
+      context: c.content,
+      createdById: actor.id,
+      rootCauseRef: c.capaRef ?? null,
+    });
+  }
+
+  return result;
 }
 
 export async function setCapaRef(id: string, capaRef: string): Promise<TxResult> {

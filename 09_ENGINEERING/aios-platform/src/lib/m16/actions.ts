@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 import type { M16AuditType, M16Conformity } from "@/generated/prisma/enums";
 import { getActor } from "./actor";
 import { createNcw } from "@/lib/m13/actions";
+import { ensureLessonFromSource } from "@/lib/m26/hooks";
 import {
   canCreateFinding,
   canCreateReport,
@@ -339,6 +340,26 @@ export async function closeAuditProgram(id: string, input: { note?: string } = {
     data: { status: "CLOSED", closedAt: new Date(), closedById: actor.id, closureNote: input.note ?? null },
   });
   await logAudit("PROGRAM", id, actor, `${result.action} (CONFIRMED → CLOSED)`, result.reason);
+
+  // Hook mềm sang M26 (quy tắc 6 DacTa M26 / ETV.P26 mục 5.2.1): rút kinh nghiệm Ở CẤP CHƯƠNG
+  // TRÌNH đánh giá, không phải từng phát hiện. Lý do: quy tắc 6 ETV.P16 đã bắt mọi KPH của đánh giá
+  // phải chuyển thành hồ sơ KPH bên M13 trước khi đóng chương trình, nên bài học của từng KPH do
+  // hook M13 sinh khi đóng hồ sơ đó — làm thêm ở đây sẽ ra hai phiếu cho một sự việc.
+  // Cảnh báo mềm — không chặn việc đóng chương trình của M16.
+  const nonConformities = p.findings.filter((f) => f.conformity === "KHONG_PHU_HOP");
+  if (nonConformities.length > 0) {
+    await ensureLessonFromSource({
+      sourceType: "DANH_GIA",
+      sourceRef: p.code,
+      title: `Bài học từ chương trình đánh giá ${p.code}`,
+      context:
+        `Chương trình đánh giá ${p.code} kết thúc với ${nonConformities.length} phát hiện không phù hợp: ` +
+        `${nonConformities.map((f) => `${f.code} (${f.clauseRef}, ${f.department})`).join("; ")}.`,
+      createdById: actor.id,
+      rootCauseRef: nonConformities.map((f) => f.ncw?.code).filter(Boolean).join(", ") || null,
+    });
+  }
+
   revalidateM16([`/modules/M16/program/${id}`]);
   return result;
 }

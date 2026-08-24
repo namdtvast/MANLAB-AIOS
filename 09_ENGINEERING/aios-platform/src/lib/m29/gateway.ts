@@ -34,6 +34,15 @@ export async function callTool({
   const agent = await prisma.aIAgent.findUnique({ where: { id: agentId } });
   if (!agent) return err("NOT_FOUND", "Không tìm thấy Agent.");
 
+  // (3b) Agent phải đang hoạt động. Bước này BỔ SUNG ở Increment 4 — bản port gốc không xét
+  // agent.status nên Agent đã Vô hiệu hóa/Tạm dừng vẫn gọi được Tool. ETV.P29 mục 5.2.3 và 5.7.3
+  // yêu cầu tác tử bị tạm dừng thì không được vận hành, nên chặn ngay tại Gateway.
+  if (agent.status !== "ACTIVE")
+    return err(
+      "AGENT_NOT_ACTIVE",
+      `Agent "${agent.name}" đang ở trạng thái ${agent.status}${agent.suspendedReason ? ` (lý do: ${agent.suspendedReason})` : ""} — Tool Gateway chặn, không forward tới nền tảng.`
+    );
+
   // (4) Tool không bị DISABLED.
   if (tool.status === "DISABLED") return err("TOOL_DISABLED", "Tool đang bị vô hiệu hóa — Tool Gateway chặn, không forward tới nền tảng.");
 

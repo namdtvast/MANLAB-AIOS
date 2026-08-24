@@ -2,11 +2,21 @@ schema: manlab-aios/process@1.1
 code: MP35
 slug: NenTangSo
 name: Quản lý nền tảng số
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
-standards: ['(none)']
+standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-29]
 module: M35
 menu_group: CONG_NGHE
 menu_order: 4
+document:
+  doc_id: ETV.P35
+  doc_status: issued
+  doc_version: "01"
+  issued_date: 2026-08-24
+forms:
+  - ETV.P.F35.01
+  - ETV.P.F35.02
+  - ETV.P.F35.03
+  - ETV.P.F35.04

@@ -43,6 +43,11 @@ model User {
 
   m29AuditEntries AIAuditLog[]
 
+  m29IncidentDetected     AIIncident[]             @relation("AIIncidentDetected")
+  m29IncidentAssessed     AIIncident[]             @relation("AIIncidentAssessed")
+  m29IncidentClosed       AIIncident[]             @relation("AIIncidentClosed")
+  m29UnregisteredDetected AIUnregisteredSighting[] @relation("AIUnregisteredDetected")
+
   m01RiskCreated  M01RiskItem[] @relation("M01RiskCreated")
   m01RiskReviewed M01RiskItem[] @relation("M01RiskReviewed")
   m01RiskApproved M01RiskItem[] @relation("M01RiskApproved")
@@ -120,6 +125,21 @@ model User {
   m25IssueOwned     M25ContextIssue[]    @relation("M25IssueOwner")
   m25PartyOwned     M25InterestedParty[] @relation("M25PartyOwner")
   m25AuditEntries   M25AuditEntry[]
+
+  m26ItemCreated      M26KnowledgeItem[]     @relation("M26ItemCreated")
+  m26ItemReviewed     M26KnowledgeItem[]     @relation("M26ItemReviewed")
+  m26ItemApproved     M26KnowledgeItem[]     @relation("M26ItemApproved")
+  m26ItemOwned        M26KnowledgeItem[]     @relation("M26ItemOwner")
+  m26Holders          M26KnowledgeHolder[]
+  m26LessonCreated    M26LessonLearned[]     @relation("M26LessonCreated")
+  m26LessonApproved   M26LessonLearned[]     @relation("M26LessonApproved")
+  m26NeedCreated      M26KnowledgeNeed[]     @relation("M26NeedCreated")
+  m26NeedResponsible  M26KnowledgeNeed[]     @relation("M26NeedResponsible")
+  m26NeedDecided      M26KnowledgeNeed[]     @relation("M26NeedDecided")
+  m26SharingCreated   M26SharingEvent[]      @relation("M26SharingCreated")
+  m26SharingPresented M26SharingEvent[]      @relation("M26SharingPresenter")
+  m26Participations   M26SharingParticipant[]
+  m26AuditEntries     M26AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -438,7 +458,9 @@ enum AIApprovalStatus {
   PENDING_APPROVAL
   REJECTED
   APPROVED
-  ARCHIVED
+  ACTIVE // Hiệu lực — đã phê duyệt VÀ đã bật giám sát/kết nối (ETV.P35 mục 6, trạng thái 7)
+  ARCHIVED // Hết hiệu lực
+  CANCELLED // Hủy — bỏ bản ghi trước khi phê duyệt (ETV.P35 mục 6, trạng thái 9)
 }
 
 enum AIPromptStatus {
@@ -453,6 +475,7 @@ enum AIOpStatus {
   ACTIVE
   DISABLED
   DEPRECATED
+  SUSPENDED
 }
 
 enum AIHealth {
@@ -502,8 +525,9 @@ model AIPlatform {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  tools  AITool[]
-  agents AIAgent[]
+  tools     AITool[]
+  agents    AIAgent[]
+  incidents AIIncident[]
 }
 
 model AIProvider {
@@ -588,16 +612,23 @@ model AIAgent {
   version               Int        @default(1)
   skillIds              String[]   @default([])
   toolIds               String[]   @default([])
+  // Vì sao Agent bị Tạm dừng: "AIA_OVERDUE" (sweep AIA quá hạn — ETV.P29 5.2.3) hoặc
+  // "INCIDENT:<mã phiếu>" (khống chế sự cố Nghiêm trọng — ETV.P29 5.7.3). Phân biệt hai nguyên
+  // nhân này để chỉ tự phục hồi đúng nhánh AIA, xem rules/actions.
+  suspendedReason       String?
+  suspendedAt           DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  platform         AIPlatform           @relation(fields: [platformId], references: [id])
-  model            AIModel?             @relation(fields: [modelId], references: [id])
+  platform         AIPlatform               @relation(fields: [platformId], references: [id])
+  model            AIModel?                 @relation(fields: [modelId], references: [id])
   prompts          AIPrompt[]
   aia              AIImpactAssessment[]
   evaluationSuites AIEvaluationSuite[]
   requests         AIRequest[]
+  incidents        AIIncident[]
+  sightings        AIUnregisteredSighting[]
 }
 
 model AIPrompt {
@@ -764,7 +795,11 @@ model AISecret {
 
 model AIAuditLog {
   id         String   @id @default(cuid())
-  actorId    String
+  // actorId để trống khi hành động do hệ thống thực hiện theo lịch (sweep AIA quá hạn) —
+  // khi đó actorLabel = "SYSTEM". Hệ thống chỉ PHÁT HIỆN theo lịch, không tự kết luận nội dung
+  // đánh giá (DacTa quy tắc 11, ETV.P29 5.2.3).
+  actorId    String?
+  actorLabel String   @default("")
   role       String // vai trò M29 (AI_VIEWER/.../SUPER_ADMIN) của actor TẠI thời điểm hành động
   entityType String
   entityId   String
@@ -774,7 +809,121 @@ model AIAuditLog {
   reason     String?
   at         DateTime @default(now())
 
-  actor User @relation(fields: [actorId], references: [id])
+  actor User? @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M29 Increment 4 — giám sát AIA quá hạn, sự cố AI, AI chưa đăng ký ----------
+// Xây theo ETV.P29 (ban hành 24/8/2026) mục 5.1.7, 5.2.3, 5.7, 6.3 — xem
+// 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260824-m29-giam-sat-su-co/spec.md.
+
+enum AIIncidentSeverity {
+  SEVERE // Nghiêm trọng — ETV.P29 5.7.2
+  SIGNIFICANT // Đáng kể
+  MINOR // Nhẹ
+}
+
+enum AIIncidentKind {
+  WRONG_OUTPUT
+  DATA_LEAK
+  PROMPT_INJECTION
+  PERMISSION_BREACH
+  BIAS
+  SERVICE_DISRUPTION
+  UNREGISTERED_AI
+  OTHER
+}
+
+enum AIIncidentStatus {
+  NEW
+  IN_PROGRESS
+  PENDING_CONFIRMATION
+  CLOSED
+  CANCELLED
+}
+
+enum AIUnregisteredStatus {
+  OPEN
+  REGISTERING
+  REGISTERED
+  DISCONTINUED
+}
+
+// Phiếu sự cố trí tuệ nhân tạo — biểu mẫu ETV.P.F29.04.
+model AIIncident {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "SCAI-YYYY-NNNN"
+
+  severity AIIncidentSeverity
+  kind     AIIncidentKind
+
+  agentId    String?
+  platformId String?
+  traceId    String? // mã AIRequest liên quan (nhật ký suy luận)
+
+  occurredAt   DateTime @default(now())
+  detectedAt   DateTime @default(now())
+  detectedById String
+
+  description       String
+  containmentAction String @default("")
+
+  // Ảnh hưởng kết quả/chứng chỉ ĐÃ PHÁT HÀNH: phần mềm không tự kết luận về hiệu lực kết quả,
+  // chỉ buộc khai báo mã hồ sơ đã xử lý theo ETV.MP10/MP11 (ETV.P29 5.7.3 điểm 4).
+  affectsIssuedResult  Boolean @default(false)
+  issuedResultRef      String?
+  sensitiveDataExposed Boolean @default(false)
+  f28Ref               String? // số phiếu ETV.P.F28.03 (xử lý đồng thời theo ETV.MP28)
+  capRef               String? // mã KPH theo ETV.MP13
+
+  assessedById String?
+  closedById   String?
+  closureNote  String?
+  cancelReason String?
+
+  status AIIncidentStatus @default(NEW)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  agent      AIAgent?    @relation(fields: [agentId], references: [id])
+  platform   AIPlatform? @relation(fields: [platformId], references: [id])
+  detectedBy User        @relation("AIIncidentDetected", fields: [detectedById], references: [id])
+  assessedBy User?       @relation("AIIncidentAssessed", fields: [assessedById], references: [id])
+  closedBy   User?       @relation("AIIncidentClosed", fields: [closedById], references: [id])
+
+  sightings AIUnregisteredSighting[]
+}
+
+// Hệ thống AI phát hiện đang dùng mà chưa đăng ký — ETV.P29 5.1.7, phần 3 biểu mẫu F29.01.
+model AIUnregisteredSighting {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "UAI-YYYY-NNN"
+
+  name         String
+  usedBy       String
+  detectedAt   DateTime @default(now())
+  detectedById String
+
+  dataExposed   String  @default("")
+  sensitiveData Boolean @default(false) // dữ liệu Hạn chế/Mật hoặc dữ liệu cá nhân
+  incidentId    String? // bắt buộc khi sensitiveData = true mới đóng được
+
+  plannedAction String   @default("")
+  dueDate       DateTime // mặc định detectedAt + 15 ngày (ETV.P29 5.1.7)
+
+  registeredAgentId String? // bắt buộc khi đóng bằng REGISTERED
+  closeReason       String? // bắt buộc khi DISCONTINUED
+
+  status AIUnregisteredStatus @default(OPEN)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  detectedBy      User        @relation("AIUnregisteredDetected", fields: [detectedById], references: [id])
+  incident        AIIncident? @relation(fields: [incidentId], references: [id])
+  registeredAgent AIAgent?    @relation(fields: [registeredAgentId], references: [id])
 }
 
 // ---------- M01_RuiRo — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md ----------
@@ -864,6 +1013,7 @@ model M01RiskItem {
   verifiedBy User? @relation("M01RiskVerified", fields: [verifiedById], references: [id])
 
   m25IssueLinks M25IssueRiskLink[] @relation("M25LinkRisk")
+  m26RiskLinks  M26ItemRiskLink[] // rủi ro mất tri thức trọng yếu (quy tắc 3 DacTa M26)
 }
 
 model M01OpportunityItem {
@@ -1102,6 +1252,9 @@ model M03TrainingRecord {
   approvedBy   User?           @relation("M03TrainingApproved", fields: [approvedById], references: [id])
 
   m16Qualifications M16AuditorQualification[] @relation("M16QualEvidence") // bằng chứng năng lực M16 (Increment 13)
+
+  m26Needs    M26KnowledgeNeed[] @relation("M26NeedTraining")   // nhu cầu tri thức đáp ứng bằng đào tạo (quy tắc 8 DacTa M26)
+  m26Sharings M26SharingEvent[]  @relation("M26SharingTraining") // hồ sơ đào tạo của hoạt động chia sẻ (quy tắc 12)
 }
 
 model M03LaborContract {
@@ -1953,6 +2106,8 @@ model M13NonconformingWork {
   monitoringNotes M13MonitoringNote[]
 
   m16Finding M16AuditFinding? @relation("M16FindingNcw") // hồ sơ KPH sinh từ phát hiện M16 (Increment 13)
+
+  m26Lessons M26LessonLearned[] // bài học kinh nghiệm kết tinh từ KPH này (quy tắc 6 DacTa M26)
 }
 
 model M13CorrectiveActionPlan {
@@ -2116,6 +2271,7 @@ model M14Document {
   supersededBy M14Document? @relation("M14Supersedes")
 
   suggestions M14AiSuggestion[]
+  m26Items    M26KnowledgeItem[] // mục tri thức trỏ tới tài liệu kiểm soát này (quy tắc 2 DacTa M26)
 }
 
 // ETV.P14 §6.9: AI chỉ gợi ý và cảnh báo — mọi gợi ý nằm ở bảng này, phải có người có thẩm quyền
@@ -2415,4 +2571,372 @@ model M25AuditEntry {
   reason   String?
 
   actor User @relation(fields: [actorId], references: [id])
+}
+
+// ---------- M26 — Quản lý tri thức tổ chức ----------
+// Nguồn: Thủ tục ETV.P26 (ban hành lần 01, 23/08/2026) + 05_MODULE_LIBRARY/M26_TriThuc/01_Requirement/DacTa.md.
+// Nguyên tắc: SỔ ĐĂNG KÝ, không phải kho nội dung — chỉ metadata + đường dẫn tới nội dung gốc
+// (08_KNOWLEDGE_GRAPH, M14, M15, M05). Xem quy tắc 1 DacTa M26 / ETV.P26 mục 1.3.
+
+enum M26KnowledgeForm {
+  TRI_THUC_HIEN // đã văn bản hóa — bắt buộc sourceRef hoặc docId
+  TRI_THUC_AN // nằm ở con người — bắt buộc ≥ 1 người giữ
+}
+
+enum M26Category {
+  PHAP_LY_TIEU_CHUAN
+  KY_THUAT_DO_LUONG
+  VAN_HANH_THIET_BI
+  BAI_HOC_TINH_HUONG
+  HE_THONG_QUAN_LY
+  KHACH_HANG_DICH_VU
+  SO_HOA_DU_LIEU_AI
+  NGHIEN_CUU_PHAT_TRIEN
+}
+
+enum M26Origin {
+  NOI_BO
+  BEN_NGOAI
+}
+
+enum M26Criticality {
+  THAP
+  TRUNG_BINH
+  CAO
+}
+
+// Thang phân loại bảo mật KẾ THỪA của ETV.MP02/MP27/MP28 — M26 không định nghĩa thang riêng
+// (quy tắc 9 DacTa M26 / ETV.P26 mục 5.1.4).
+enum M26Confidentiality {
+  CONG_KHAI
+  NOI_BO
+  HAN_CHE
+  MAT
+}
+
+enum M26ReviewCycle {
+  SAU_THANG
+  NAM
+  HAI_NAM
+  THEO_SU_KIEN
+}
+
+enum M26ItemStatus {
+  DRAFT
+  PENDING_REVIEW
+  REVIEW_REJECTED
+  PENDING_APPROVAL
+  APPROVAL_REJECTED
+  APPROVED
+  RETIRED // hết hiệu lực — tự gỡ khỏi chỉ mục AI
+  CANCELLED
+}
+
+enum M26LessonSource {
+  KPH_CAPA // ← M13
+  KHIEU_NAI // ← M12
+  KET_QUA_NGOAI_KIEM_SOAT // ← M10
+  DANH_GIA // ← M16
+  SU_CO_THIET_BI // ← M05
+  SU_CO_ATTT // ← M28
+  SU_CO_AI // ← M29
+  HOP_DONG_DU_AN // ← M07
+  NGHIEN_CUU
+}
+
+enum M26LessonStatus {
+  MOI
+  DANG_PHAN_TICH
+  CHO_PHE_DUYET
+  DA_PHE_DUYET
+  HUY
+}
+
+enum M26NeedTrigger {
+  PHUONG_PHAP_MOI
+  THIET_BI_MOI
+  MO_RONG_PHAM_VI
+  BIEN_DONG_NHAN_SU
+  CONG_NGHE_AI_MOI
+  THAY_DOI_PHAP_LUAT
+  VAN_DE_BOI_CANH
+  KPH_LAP_LAI
+  CHUYEN_GIAO_TRI_THUC_AN // phát sinh từ gate quy tắc 3
+}
+
+enum M26NeedMethod {
+  DAO_TAO_NOI_BO
+  DAO_TAO_BEN_NGOAI
+  TUYEN_DUNG
+  THUE_CHUYEN_GIA
+  MUA_TAI_LIEU
+  NGHIEN_CUU_NOI_BO
+  HOP_TAC_CHUYEN_GIAO
+  KEM_CAP
+  VAN_BAN_HOA
+}
+
+enum M26NeedStatus {
+  MO
+  DANG_BO_SUNG
+  DA_DAP_UNG
+  KHONG_THUC_HIEN
+}
+
+enum M26SharingForm {
+  SINH_HOAT_CHUYEN_MON
+  DAO_TAO_NOI_BO
+  KEM_CAP
+  BAN_TIN_FAQ
+  PHO_BIEN_HOI_THAO
+  BAN_GIAO_NHAN_SU
+}
+
+enum M26SharingStatus {
+  KE_HOACH
+  DA_THUC_HIEN
+  HUY
+}
+
+enum M26ItemType {
+  ITEM
+  LESSON
+  NEED
+  SHARING
+}
+
+model M26KnowledgeItem {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "TT-2026-0001"
+
+  title         String
+  knowledgeForm M26KnowledgeForm
+  category      M26Category
+  origin        M26Origin
+  summary       String // tóm tắt để tìm kiếm — GIỚI HẠN ĐỘ DÀI ở rules.ts, cấm dán toàn văn (quy tắc 1)
+
+  sourceRef String? // đường dẫn nội dung gốc: 08_KNOWLEDGE_GRAPH/..., M15, M05
+  docId     String? // → M14Document khi tri thức là tài liệu kiểm soát (quy tắc 2)
+
+  ownerId         String
+  criticality     M26Criticality
+  confidentiality M26Confidentiality
+  appliesTo       String[] // phương pháp/thiết bị/dịch vụ áp dụng — chuỗi tham chiếu cho tới khi M08/M05 mở API
+  reviewCycle     M26ReviewCycle
+  lastReviewedAt  DateTime? // mốc tính cờ "đến hạn rà soát" (tính khi đọc — quy tắc 4)
+
+  aiIndexed Boolean @default(false) // chỉ bật khi APPROVED và bảo mật ∈ {CONG_KHAI, NOI_BO} (quy tắc 10)
+
+  version      Int     @default(1)
+  supersedesId String? @unique // phiên bản bị thay thế (quy tắc 5)
+
+  status M26ItemStatus @default(DRAFT)
+  reason String? // lý do trả lại/hết hiệu lực/hủy gần nhất
+
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+  retiredAt    DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner      User         @relation("M26ItemOwner", fields: [ownerId], references: [id])
+  createdBy  User         @relation("M26ItemCreated", fields: [createdById], references: [id])
+  reviewedBy User?        @relation("M26ItemReviewed", fields: [reviewedById], references: [id])
+  approvedBy User?        @relation("M26ItemApproved", fields: [approvedById], references: [id])
+  document   M14Document? @relation(fields: [docId], references: [id])
+
+  supersedes   M26KnowledgeItem? @relation("M26Supersede", fields: [supersedesId], references: [id])
+  supersededBy M26KnowledgeItem? @relation("M26Supersede")
+
+  holders   M26KnowledgeHolder[]
+  riskLinks M26ItemRiskLink[]
+  lessons   M26LessonLearned[]
+  needs     M26KnowledgeNeed[]   @relation("M26NeedResultItem") // nhu cầu có KẾT QUẢ là mục này
+  targetedBy M26KnowledgeNeed[]  @relation("M26NeedTargetItem") // nhu cầu nhằm bổ sung/chuyển giao CHÍNH mục này
+  sharings  M26SharingItem[]
+}
+
+// Người đang giữ tri thức ẩn. Tri thức ẩn + trọng yếu CAO + đúng 1 người ⇒ chặn phê duyệt
+// tới khi có riskLinks và nhu cầu chuyển giao (quy tắc 3 / ETV.P26 mục 5.1.6).
+model M26KnowledgeHolder {
+  id     String @id @default(cuid())
+  itemId String
+  userId String
+  note   String?
+
+  createdAt DateTime @default(now())
+
+  item M26KnowledgeItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  user User             @relation(fields: [userId], references: [id])
+
+  @@unique([itemId, userId])
+}
+
+// Liên kết mục tri thức → rủi ro bên M01. FK thật vì M01 đã ACTIVE (NFR truy vết chéo).
+model M26ItemRiskLink {
+  id     String @id @default(cuid())
+  itemId String
+  riskId String
+
+  createdAt DateTime @default(now())
+
+  item M26KnowledgeItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  risk M01RiskItem      @relation(fields: [riskId], references: [id])
+
+  @@unique([itemId, riskId])
+}
+
+model M26LessonLearned {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "BH-2026-0001"
+
+  title      String
+  sourceType M26LessonSource
+  sourceRef  String // mã bản ghi gốc ở module nguồn (quy tắc 6)
+  m13NcId    String? // FK thật khi nguồn là KPH của M13 (hook mềm — increment sau)
+
+  context           String
+  rootCauseRef      String? // → M13, không phân tích lại nguyên nhân gốc
+  lesson            String
+  recommendedAction String
+
+  knowledgeItemId String? // bắt buộc trước khi phê duyệt (quy tắc 7)
+  shareRequired   Boolean @default(false)
+
+  status M26LessonStatus @default(MOI)
+  reason String?
+
+  createdById  String
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy     User                  @relation("M26LessonCreated", fields: [createdById], references: [id])
+  approvedBy    User?                 @relation("M26LessonApproved", fields: [approvedById], references: [id])
+  knowledgeItem M26KnowledgeItem?     @relation(fields: [knowledgeItemId], references: [id])
+  m13Nc         M13NonconformingWork? @relation(fields: [m13NcId], references: [id])
+}
+
+model M26KnowledgeNeed {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "NC-2026-0001"
+
+  trigger     M26NeedTrigger
+  triggerRef  String // bản ghi/căn cứ làm phát sinh nhu cầu
+  description String
+  requiredBy  DateTime
+  method      M26NeedMethod
+
+  responsibleId String
+
+  // Mục tri thức mà nhu cầu này nhằm bổ sung/chuyển giao — ĐẦU VÀO, khác với kết quả bên dưới.
+  // Dùng cho gate ETV.P26 mục 5.1.6: mục tri thức ẩn trọng yếu 1 người giữ phải có phiếu chuyển giao.
+  targetItemId String?
+
+  // Đầu ra bắt buộc khi đóng ở trạng thái DA_DAP_UNG (quy tắc 8): mục tri thức mới HOẶC hồ sơ đào tạo M03.
+  resultItemId     String?
+  resultTrainingId String?
+
+  status M26NeedStatus @default(MO)
+  reason String? // bắt buộc khi KHONG_THUC_HIEN (LĐV duyệt)
+
+  createdById String
+  decidedById String?
+  decidedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy      User               @relation("M26NeedCreated", fields: [createdById], references: [id])
+  responsible    User               @relation("M26NeedResponsible", fields: [responsibleId], references: [id])
+  decidedBy      User?              @relation("M26NeedDecided", fields: [decidedById], references: [id])
+  targetItem     M26KnowledgeItem?  @relation("M26NeedTargetItem", fields: [targetItemId], references: [id])
+  resultItem     M26KnowledgeItem?  @relation("M26NeedResultItem", fields: [resultItemId], references: [id])
+  resultTraining M03TrainingRecord? @relation("M26NeedTraining", fields: [resultTrainingId], references: [id])
+}
+
+model M26SharingEvent {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CS-2026-0001"
+
+  form   M26SharingForm
+  heldAt DateTime
+  topic  String
+
+  presenterId String
+
+  // Đào tạo nội bộ ⇒ hồ sơ chính thức ở M03 (F03.05.x), M26 chỉ trỏ — không lập biểu mẫu trùng (quy tắc 12).
+  evidenceTrainingId String?
+  evidenceRef        String?
+
+  handoverNote       String? // dùng khi form = BAN_GIAO_NHAN_SU
+  effectivenessNote  String?
+
+  status M26SharingStatus @default(KE_HOACH)
+  reason String?
+
+  createdById String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy        User               @relation("M26SharingCreated", fields: [createdById], references: [id])
+  presenter        User               @relation("M26SharingPresenter", fields: [presenterId], references: [id])
+  evidenceTraining M03TrainingRecord? @relation("M26SharingTraining", fields: [evidenceTrainingId], references: [id])
+
+  items        M26SharingItem[]
+  participants M26SharingParticipant[]
+}
+
+// Chỉ được trỏ tới mục tri thức ở trạng thái APPROVED (quy tắc 12 — kiểm ở rules.ts).
+model M26SharingItem {
+  id      String @id @default(cuid())
+  eventId String
+  itemId  String
+
+  event M26SharingEvent  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  item  M26KnowledgeItem @relation(fields: [itemId], references: [id])
+
+  @@unique([eventId, itemId])
+}
+
+model M26SharingParticipant {
+  id      String @id @default(cuid())
+  eventId String
+  userId  String
+  note    String?
+
+  event M26SharingEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user  User            @relation(fields: [userId], references: [id])
+
+  @@unique([eventId, userId])
+}
+
+// Append-only: không có server action xóa/sửa. Ghi cả LƯỢT XEM mục HAN_CHE/MAT (ISO/IEC 27001,
+// ETV.P26 mục 5.5) và giá trị trước → sau của mỗi chuyển trạng thái (AC14).
+model M26AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M26ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  before   String?
+  after    String?
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([itemType, itemId])
 }

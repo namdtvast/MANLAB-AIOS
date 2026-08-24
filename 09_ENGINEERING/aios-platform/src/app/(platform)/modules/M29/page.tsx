@@ -1,21 +1,21 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
-import { M29_ROLE_LABEL, APPROVAL_STATUS_LABEL, APPROVAL_STATUS_TONE, HEALTH_LABEL, HEALTH_TONE, OP_STATUS_LABEL } from "@/lib/m29/labels";
+import {
+  M29_ROLE_LABEL,
+  APPROVAL_STATUS_LABEL,
+  APPROVAL_STATUS_TONE,
+  HEALTH_LABEL,
+  HEALTH_TONE,
+  OP_STATUS_LABEL,
+  OP_STATUS_TONE,
+  suspendReasonLabel,
+} from "@/lib/m29/labels";
 import { can } from "@/lib/m29/model";
+import { maybeSweep } from "@/lib/m29/sweep";
 import { CheckHealthButton } from "./CheckHealthButton";
+import { Badge } from "./ui";
 import { CanCuBanner } from "@/components/CanCuBanner";
-
-const TONE_CLASS: Record<string, string> = {
-  good: "bg-good-soft text-good",
-  warn: "bg-warn-soft text-warn",
-  crit: "bg-crit-soft text-crit",
-  neutral: "bg-sunk text-ink-2",
-};
-
-function Badge({ label, tone }: { label: string; tone: string }) {
-  return <span className={`inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}>{label}</span>;
-}
 
 export default async function M29OverviewPage() {
   const role = await getM29Role();
@@ -27,11 +27,17 @@ export default async function M29OverviewPage() {
     );
   }
 
-  const [platforms, agents, pendingAia, disabledTools] = await Promise.all([
+  // Quét AIA quá hạn theo lịch (ETV.P29 mục 5.2.3) — tự chạy khi có người vào module, tối đa
+  // 15 phút/lần. Cron ngoài gọi POST /api/m29/sweep cho môi trường không ai truy cập thường xuyên.
+  await maybeSweep();
+
+  const [platforms, agents, pendingAia, disabledTools, openIncidents, overdueSightings] = await Promise.all([
     prisma.aIPlatform.findMany({ orderBy: { code: "asc" } }),
     prisma.aIAgent.findMany({ orderBy: { code: "asc" }, include: { model: true, aia: true } }),
     prisma.aIImpactAssessment.count({ where: { status: { in: ["NOT_ASSESSED", "DRAFT", "REVIEWED", "REVIEW_REQUIRED"] } } }),
     prisma.aITool.count({ where: { status: "DISABLED" } }),
+    prisma.aIIncident.count({ where: { status: { notIn: ["CLOSED", "CANCELLED"] } } }),
+    prisma.aIUnregisteredSighting.count({ where: { status: { in: ["OPEN", "REGISTERING"] }, dueDate: { lt: new Date() } } }),
   ]);
 
   return (
@@ -46,7 +52,7 @@ export default async function M29OverviewPage() {
 
       <CanCuBanner moduleCode="M29" />
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
         <div className="rounded-xl border border-border bg-surface p-4">
           <p className="text-xs text-ink-2">Platform</p>
           <p className="mt-2 font-head text-3xl font-bold tabular-nums text-ink">{platforms.length}</p>
@@ -63,6 +69,14 @@ export default async function M29OverviewPage() {
           <p className="text-xs text-ink-2">Tool đang Vô hiệu hóa</p>
           <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${disabledTools > 0 ? "text-crit" : "text-good"}`}>{disabledTools}</p>
         </div>
+        <Link href="/modules/M29/incidents" className="rounded-xl border border-border bg-surface p-4 transition-colors hover:border-accent-line">
+          <p className="text-xs text-ink-2">Sự cố AI đang mở</p>
+          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${openIncidents > 0 ? "text-crit" : "text-good"}`}>{openIncidents}</p>
+        </Link>
+        <Link href="/modules/M29/unregistered" className="rounded-xl border border-border bg-surface p-4 transition-colors hover:border-accent-line">
+          <p className="text-xs text-ink-2">AI chưa đăng ký quá hạn</p>
+          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${overdueSightings > 0 ? "text-crit" : "text-good"}`}>{overdueSightings}</p>
+        </Link>
       </div>
 
       <div>
@@ -126,7 +140,8 @@ export default async function M29OverviewPage() {
                     <td className="px-3 py-2.5 text-ink">{a.name}</td>
                     <td className="px-3 py-2.5 text-ink-2">{a.model?.displayName ?? "—"}</td>
                     <td className="px-3 py-2.5">
-                      <Badge label={OP_STATUS_LABEL[a.status]} tone={a.status === "ACTIVE" ? "good" : "neutral"} />
+                      <Badge label={OP_STATUS_LABEL[a.status]} tone={OP_STATUS_TONE[a.status] ?? "neutral"} />
+                      {a.suspendedReason && <span className="mt-1 block text-xs text-ink-3">{suspendReasonLabel(a.suspendedReason)}</span>}
                     </td>
                     <td className="px-3 py-2.5">
                       {aia ? (
@@ -156,6 +171,12 @@ export default async function M29OverviewPage() {
         </Link>
         <Link href="/modules/M29/traces" className="text-accent hover:underline">
           Trace (nhật ký gọi AI) →
+        </Link>
+        <Link href="/modules/M29/incidents" className="text-accent hover:underline">
+          Sự cố AI →
+        </Link>
+        <Link href="/modules/M29/unregistered" className="text-accent hover:underline">
+          AI chưa đăng ký →
         </Link>
         <Link href="/modules/M29/audit" className="text-accent hover:underline">
           Audit Log →

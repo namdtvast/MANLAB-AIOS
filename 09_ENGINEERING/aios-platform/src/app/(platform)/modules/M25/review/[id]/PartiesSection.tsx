@@ -173,11 +173,11 @@ export function PartiesSection({
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-mono text-xs text-ink-3">{p.code}</span>
               <strong className="text-ink">{p.name}</strong>
-              <span className="rounded-full bg-sunk px-2 py-0.5 text-xs text-ink-2">{PARTY_GROUP_LABEL[p.group]}</span>
+              <span className="rounded-full whitespace-nowrap bg-sunk px-2 py-0.5 text-xs text-ink-2">{PARTY_GROUP_LABEL[p.group]}</span>
               {p.impartialityFlag && (
-                <span className="rounded-full bg-warn-soft px-2 py-0.5 text-xs font-medium text-warn">Ảnh hưởng tính khách quan</span>
+                <span className="rounded-full whitespace-nowrap bg-warn-soft px-2 py-0.5 text-xs font-medium text-warn">Ảnh hưởng tính khách quan</span>
               )}
-              {p.status === "DA_DONG" && <span className="rounded-full bg-sunk px-2 py-0.5 text-xs text-ink-2">{ENTRY_STATUS_LABEL[p.status]}</span>}
+              {p.status === "DA_DONG" && <span className="rounded-full whitespace-nowrap bg-sunk px-2 py-0.5 text-xs text-ink-2">{ENTRY_STATUS_LABEL[p.status]}</span>}
             </div>
             <p className="mt-1 text-xs text-ink-3">
               Ảnh hưởng {INFLUENCE_LEVEL_LABEL[p.influenceLevel].toLowerCase()} · kênh: {p.engagementChannel} · theo dõi{" "}

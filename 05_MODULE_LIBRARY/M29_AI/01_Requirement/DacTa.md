@@ -46,7 +46,9 @@ Code vận hành trên chính repo này*) — M29_AI là phần mềm quản tr�
 | `AIToolCall` | 1 lần Agent gọi 1 Tool trong 1 Trace | FK `request_id`, `tool_id` |
 | `AICostUsage` | Tổng hợp token/chi phí theo ngày | FK `platform_id`, `agent_id`, `model_id` |
 | `AISecret` | Khóa/thông tin nhạy cảm dùng cho Tool/Provider | chỉ trả `masked_value` ra ngoài |
-| `AIAuditLog` | Nhật ký mọi thay đổi cấu hình | append-only, FK tự do tới mọi entity |
+| `AIAuditLog` | Nhật ký mọi thay đổi cấu hình | append-only; `actorId` rỗng + `actorLabel="SYSTEM"` khi hệ thống tự chạy theo lịch |
+| `AIIncident` | Phiếu sự cố AI — **biểu mẫu ETV.P.F29.04** | mã `SCAI-YYYY-NNNN`; FK `agent_id?`, `platform_id?`, `trace_id?` |
+| `AIUnregisteredSighting` | Hệ thống AI dùng ngoài danh mục (ETV.P29 mục 5.1.7) | mã `UAI-YYYY-NNN`; hạn xử lý 15 ngày; FK `incident_id?`, `registered_agent_id?` |
 
 Chi tiết trường từng thực thể: [DataModel.md](../03_Database/DataModel.md).
 
@@ -60,6 +62,10 @@ Chi tiết trường từng thực thể: [DataModel.md](../03_Database/DataMode
 | AI_SECURITY_ADMIN | Xem | Xem | CRUD | — |
 | AI_AUDITOR | Xem | Xem | Xem | Xem (read-only) |
 | SUPER_ADMIN | CRUD | CRUD | CRUD | Xem |
+
+Increment 4 bổ sung 2 nhóm quyền: **Sự cố AI** (`AI_OPERATOR` trở lên được lập và xử lý; đóng phiếu
+mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo Viện) và **AI chưa đăng ký**
+(`AI_ADMIN`/`AI_SECURITY_ADMIN` ghi, `AI_OPERATOR`/`AI_AUDITOR` đọc).
 
 > AI (agent/model) không bao giờ có vai trò trong bảng này — chỉ con người mới có role AIOS.
 
@@ -87,7 +93,20 @@ Chi tiết trường từng thực thể: [DataModel.md](../03_Database/DataMode
     override thủ công ở Phase 2.
 11. `AIImpactAssessment.status=APPROVED` tự động chuyển sang `REVIEW_REQUIRED` khi quá hạn
     `review_date` — do hệ thống phát hiện theo lịch (không phải AI tự kết luận nội dung đánh
-    giá), ghi `AIAuditLog` với `actor=SYSTEM`.
+    giá), ghi `AIAuditLog` với `actor=SYSTEM`. **Đồng thời** `AIAgent` tương ứng chuyển
+    `SUSPENDED` với `suspendedReason="AIA_OVERDUE"`, và tự trở lại `ACTIVE` khi AIA được phê
+    duyệt lại (ETV.P29 mục 5.2.3).
+12. Tool Gateway từ chối mọi lời gọi thay mặt `AIAgent` không ở trạng thái `ACTIVE`
+    (`AGENT_NOT_ACTIVE`) — bước kiểm tra đặt ngay sau bước xác thực Agent tồn tại.
+13. Lập `AIIncident` mức `SEVERE` có gắn Agent → Agent chuyển `SUSPENDED` ngay trong cùng thao
+    tác với `suspendedReason="INCIDENT:<mã phiếu>"` (khống chế trước — ETV.P29 mục 5.7.3). Nhánh
+    tạm dừng vì sự cố **không** tự phục hồi theo AIA — phải mở lại có chủ đích, bắt buộc ghi lý do.
+14. Đóng `AIIncident`: người phát hiện không được tự đóng · mức `SEVERE` chỉ `SUPER_ADMIN` ·
+    `SEVERE`/`SIGNIFICANT` bắt buộc mã KPH (MP13) · lộ dữ liệu nhạy cảm bắt buộc số phiếu F28.03 ·
+    ảnh hưởng kết quả đã phát hành bắt buộc mã hồ sơ MP10/MP11. Phần mềm **không** tự kết luận về
+    hiệu lực kết quả, chỉ buộc khai báo hồ sơ đã xử lý ở thủ tục chuyên trách.
+15. `AIUnregisteredSighting` đóng bằng `REGISTERED` bắt buộc trỏ tới Agent thật; `DISCONTINUED`
+    bắt buộc lý do; bản ghi có `sensitiveData=true` không đóng được khi chưa gắn phiếu sự cố.
 
 ## 6. Liên kết
 
@@ -111,10 +130,21 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   [`_work/20260823-di-tru-m29/verify.md`](_work/20260823-di-tru-m29/verify.md).
 - ✅ Không cần di trú M35_NenTangSo trước — Platform là 1 bảng nội bộ của M29
   (`AIPlatform`), không phụ thuộc M35 thật (RECON xác nhận từ `seed.mjs` gốc).
+- ✅ **Increment 4** (2026-08-24, bù 3 khoảng trống giữa Thủ tục **ETV.P29** đã ban hành và phần
+  mềm): quét AIA quá hạn **tự động** + tạm dừng tác tử + tự phục hồi, Tool Gateway chặn tác tử
+  không `ACTIVE`, phiếu sự cố AI (F29.04) đủ vòng đời và ràng buộc tách vai trò, sổ theo dõi AI
+  chưa đăng ký (mục 5.1.7). Verify qua Browser thật + kịch bản logic — xem
+  [`_work/20260824-m29-giam-sat-su-co/verify.md`](_work/20260824-m29-giam-sat-su-co/verify.md).
+- ✅ **Bộ test logic** (2026-08-24): 73 ca `vitest` phủ `rules.ts`, `gateway.ts`, `model.ts`,
+  `evaluation.ts`, `sweep.ts` — chạy không cần Postgres (Prisma giả lập), có workflow CI
+  `test-aios-platform.yml`. Đã kiểm chứng bằng 5 đột biến gieo vào mã sản phẩm, xem
+  [`_work/20260824-m29-bo-test-logic/verify.md`](_work/20260824-m29-bo-test-logic/verify.md).
+  Chưa có test tích hợp trên DB thật, test `actions.ts` và test giao diện.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
-  công), tích hợp Platform Registry M35/VI-CONNECT thật.
+  công; riêng sweep AIA đã tự động từ Increment 4), tích hợp Platform Registry M35/VI-CONNECT
+  thật, hạ tầng cron thật gọi `/api/m29/sweep` ở môi trường triển khai.
 - ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa deprecate. Tool Gateway
   của Agent mẫu gọi thật ra `http://localhost:8010` (server M10 standalone cũ) — cần server đó
   chạy để demo Tool Gateway/health check thành công.

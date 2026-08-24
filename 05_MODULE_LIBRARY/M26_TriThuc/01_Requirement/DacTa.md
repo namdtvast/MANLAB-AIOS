@@ -103,7 +103,8 @@ là **ba dòng vào/ra** của nó: bài học kinh nghiệm (tri thức sinh ra
 | `required_by` | date | có | Hạn cần có tri thức (thường gắn mốc của module nguồn) |
 | `acquisition_method` | enum | có | Đào tạo nội bộ · Đào tạo bên ngoài · Tuyển dụng (← M03) · Thuê chuyên gia · Mua tài liệu/tiêu chuẩn (← M06) · Nghiên cứu nội bộ · Hợp tác – chuyển giao |
 | `responsible` | ref User | có | Người chịu trách nhiệm bổ sung |
-| `result_ref` | ref `KnowledgeItem` \| ref → M03 | có, khi đóng ở trạng thái Đã đáp ứng | Quy tắc 8 |
+| `target_item_ref` | ref `KnowledgeItem` | có, khi là phiếu chuyển giao theo quy tắc 3 | **Đầu vào** — mục tri thức mà nhu cầu nhằm bổ sung/chuyển giao; gate mục 5.1.6 đếm theo trường này |
+| `result_ref` | ref `KnowledgeItem` \| ref → M03 | có, khi đóng ở trạng thái Đã đáp ứng | **Đầu ra** — quy tắc 8 |
 | `status` | enum: Mở / Đang bổ sung / Đã đáp ứng / Không thực hiện | tự quản lý | "Không thực hiện" bắt buộc lý do + LĐV duyệt |
 
 ### 2.4. `SharingEvent` — Hoạt động chia sẻ tri thức
@@ -201,9 +202,13 @@ M26 **không** định nghĩa thang riêng (quy tắc 9). Nếu M27 ban hành th
    cũ tự chuyển **Hết hiệu lực** và tự **gỡ khỏi chỉ mục AI**. Bản cũ vẫn tra cứu được làm bằng
    chứng. Riêng mục có `doc_ref` → phiên bản đi theo M14/MP14, M26 chỉ cập nhật liên kết.
 6. **Bài học kinh nghiệm không được rơi rụng**: khi module nguồn đóng một KPH mức nặng (M13), một
-   khiếu nại có cơ sở (M12), một kết quả ngoài kiểm soát (M10) hoặc một KPH của đánh giá (M16),
-   M26 tự tạo `LessonLearned` ở trạng thái **Mới** và giao QLCL. Đây là **cảnh báo mềm**: M26 không
-   chặn thao tác của module nguồn (ranh giới trách nhiệm) — ETV.P26 mục 5.2.1.
+   khiếu nại có cơ sở (M12), một kết quả ngoài kiểm soát (M10) hoặc một chương trình đánh giá có
+   phát hiện không phù hợp (M16), M26 tự tạo `LessonLearned` ở trạng thái **Mới** và giao QLCL. Đây
+   là **cảnh báo mềm**: M26 không chặn thao tác của module nguồn (ranh giới trách nhiệm) —
+   ETV.P26 mục 5.2.1. Hook là **idempotent** theo `(source_type, source_ref)`.
+   Riêng M16: bài học lập ở **cấp chương trình**, vì quy tắc 6 ETV.P16 đã bắt mọi phát hiện không
+   phù hợp phải chuyển thành hồ sơ KPH bên M13 trước khi đóng chương trình — bài học của từng KPH
+   do hook M13 sinh, tránh hai phiếu cho một sự việc.
 7. **Bài học phải kết tinh thành tri thức**: `LessonLearned` chỉ được phê duyệt khi có
    `knowledge_item_ref` (tạo mới hoặc cập nhật một mục hiện có). Bài học không vào danh mục tri thức
    thì không có giá trị đối với tổ chức (ETV.P26 mục 5.2.2).
@@ -291,10 +296,27 @@ hành động khắc phục (M13).
 
 ## 9. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform`
-(`PlatformModule.status = COMING_SOON`). Đặc tả kỹ thuật chi tiết (màn hình, API, tiêu chí chấp
-nhận, NFR) và kế hoạch tăng trưởng theo increment:
-`01_Requirement/_work/20260823-dac-ta-m26/{outcome.md, spec.md, plan.md}`.
+**Đã xây trọn Increment 1–13 trên `09_ENGINEERING/aios-platform`** (ngày 24/08/2026), module chuyển
+`ACTIVE`:
+
+| Vùng | Nội dung |
+|---|---|
+| `prisma/schema.prisma` | 8 model `M26*` + 14 enum; khóa ngoại thật sang M14 (tài liệu), M01 (rủi ro), M03 (hồ sơ đào tạo), M13 (KPH nguồn bài học) |
+| `prisma/migrations/` | `20260823205019_m26_tri_thuc`, `20260823..._m26_need_target_item` — chỉ thêm bảng/cột |
+| `prisma/seed.ts` | `M26` vào `ACTIVE_MODULE_CODES`; 5 mục tri thức phủ đủ nhánh kiểm thử, 2 bài học, 2 nhu cầu, 1 hoạt động chia sẻ; vai trò M26 cho QLCL/TP/LĐV/QTHT/Nhân viên |
+| `src/lib/m26/` | `rules.ts` (toàn bộ gate, thuần hàm) · `actions.ts` (server action + nhật ký) · `labels.ts` · `actor.ts` |
+| `src/app/(platform)/modules/M26/` | 8 màn nghiệp vụ: danh mục · chi tiết · thêm/sửa mục · đến hạn rà soát · rủi ro mất tri thức · bài học · nhu cầu · chia sẻ |
+| `src/lib/m26/hooks.ts` | Hook mềm cho module nguồn: idempotent theo `(sourceType, sourceRef)`, nuốt mọi lỗi để không chặn M13/M12/M10/M16 |
+| `src/lib/{m13,m12,m10,m16}/actions.ts` | Điểm chèn hook: `closeNcw` (KPH mức Nặng) · `closeComplaint` (khiếu nại có cơ sở) · `approveAssessment` (kết quả FAIL) · `closeAuditProgram` (chương trình có KPH) |
+| `src/app/(platform)/modules/M26/print/*`, `*/print` | Bản xuất F26.01–F26.04 theo bố cục biểu mẫu gốc (có CSS in, giữ nguyên lọc theo mức bảo mật) |
+| `src/app/(platform)/modules/M26/report` | Báo cáo tình hình tri thức cho ETV.MP17 (kỳ 3/6/12 tháng, 8 chỉ số + 7 bảng theo mục 5.6) |
+
+**Chưa xây**: nạp/gỡ chỉ mục AI thật ở `08_KNOWLEDGE_GRAPH/09_Embedding, 10_Vector_DB` — thuộc M29,
+M26 chỉ quản cờ `ai_indexed` trong CSDL.
+
+Kết quả kiểm thử **14/14 tiêu chí chấp nhận PASS** (AC13 verify ở Increment 12):
+`01_Requirement/_work/20260823-dac-ta-m26/verify.md`. Đặc tả kỹ thuật và kế hoạch increment:
+cùng thư mục `_work` (`outcome.md`, `spec.md`, `plan.md`).
 
 ## 10. Quyết định đã chốt và câu hỏi còn mở
 
