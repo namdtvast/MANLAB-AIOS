@@ -15,6 +15,24 @@ import {
   subscribeOpenGroups,
 } from "@/lib/sidebar";
 
+function HomeIcon() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 shrink-0"
+    >
+      <path d="M3.5 8.5 10 3l6.5 5.5" />
+      <path d="M5 8v8.5h10V8" />
+    </svg>
+  );
+}
+
 function Chevron({ open }: { open: boolean }) {
   return (
     <svg
@@ -43,6 +61,7 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
     getServerOpenGroups,
   );
   const searchRef = useRef<HTMLInputElement>(null);
+  const onHome = pathname === "/";
 
   // Gom 38 module thành các nhóm nghiệp vụ theo menuGroup (nạp từ manifest.yaml
   // của MPxx qua seed). Trong nhóm sắp theo menuOrder — thứ tự dòng chảy nghiệp
@@ -105,6 +124,18 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
           className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent font-head text-sm font-bold text-accent-ink"
         >
           AI
+        </Link>
+        <Link
+          href="/"
+          aria-current={onHome ? "page" : undefined}
+          title="Trang chủ"
+          className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg border transition-colors ${
+            onHome
+              ? "border-accent-line bg-accent-soft text-accent"
+              : "border-border text-ink-2 hover:border-border-strong hover:text-ink"
+          }`}
+        >
+          <HomeIcon />
         </Link>
         <button
           type="button"
@@ -219,6 +250,20 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
         </div>
 
         <div className="flex-1 overflow-y-auto p-2">
+          <Link
+            href="/"
+            onClick={closeSidebarOnMobile}
+            aria-current={onHome ? "page" : undefined}
+            className={`mb-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
+              onHome
+                ? "bg-accent-soft font-semibold text-accent"
+                : "text-ink-2 hover:bg-sunk hover:text-ink"
+            }`}
+          >
+            <HomeIcon />
+            Trang chủ
+          </Link>
+
           {groups.map((g) => {
             const open = isOpen(g.code);
             const panelId = `menu-group-${g.code}`;
