@@ -395,6 +395,25 @@ npm run build
 npm run start
 ```
 
+## Chạy test
+
+```bash
+npm test
+```
+
+Bộ test logic nghiệp vụ (hiện phủ module M29) đặt tại `src/lib/m29/__tests__/`, chạy bằng
+`vitest`. Prisma được giả lập trong từng file test nên **không cần Postgres** — chạy được trên máy
+sạch và trong CI, hết dưới 1 giây. `npm run test:watch` để chạy liên tục khi đang sửa mã.
+
+Test phủ những chốt chặn mà Thủ tục ETV.P29 đặt ra: 8 bước của Tool Gateway, AIA Gate, Cổng triển
+khai, vòng đời phiếu sự cố (tách vai trò người phát hiện/người đóng), vòng quét AIA quá hạn, và ma
+trận phân quyền. Sửa mã làm hỏng một trong các chốt đó thì test đỏ — xem
+`05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260824-m29-bo-test-logic/verify.md` để biết bộ
+test đã được kiểm chứng thế nào.
+
+CI chạy bộ test này ở mọi push/PR chạm `09_ENGINEERING/aios-platform/**`
+(`.github/workflows/test-aios-platform.yml`).
+
 ## Cấu trúc chính
 
 ```

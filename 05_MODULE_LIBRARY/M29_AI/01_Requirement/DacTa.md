@@ -135,6 +135,11 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   không `ACTIVE`, phiếu sự cố AI (F29.04) đủ vòng đời và ràng buộc tách vai trò, sổ theo dõi AI
   chưa đăng ký (mục 5.1.7). Verify qua Browser thật + kịch bản logic — xem
   [`_work/20260824-m29-giam-sat-su-co/verify.md`](_work/20260824-m29-giam-sat-su-co/verify.md).
+- ✅ **Bộ test logic** (2026-08-24): 73 ca `vitest` phủ `rules.ts`, `gateway.ts`, `model.ts`,
+  `evaluation.ts`, `sweep.ts` — chạy không cần Postgres (Prisma giả lập), có workflow CI
+  `test-aios-platform.yml`. Đã kiểm chứng bằng 5 đột biến gieo vào mã sản phẩm, xem
+  [`_work/20260824-m29-bo-test-logic/verify.md`](_work/20260824-m29-bo-test-logic/verify.md).
+  Chưa có test tích hợp trên DB thật, test `actions.ts` và test giao diện.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
