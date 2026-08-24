@@ -1,0 +1,42 @@
+name: Test aios-platform
+
+# Chạy bộ test logic nghiệp vụ của aios-platform. Prisma được giả lập trong test nên job này
+# KHÔNG cần Postgres — chỉ cần cài phụ thuộc và sinh Prisma Client để TypeScript phân giải được
+# các kiểu enum sinh ra trong `src/generated/prisma`.
+on:
+  push:
+    paths:
+      - "09_ENGINEERING/aios-platform/**"
+      - ".github/workflows/test-aios-platform.yml"
+  pull_request:
+    paths:
+      - "09_ENGINEERING/aios-platform/**"
+      - ".github/workflows/test-aios-platform.yml"
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: 09_ENGINEERING/aios-platform
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: 09_ENGINEERING/aios-platform/package-lock.json
+
+      - name: Cài phụ thuộc
+        run: npm ci
+
+      - name: Sinh Prisma Client
+        run: npx prisma generate
+
+      - name: Chạy bộ test
+        run: npm test
