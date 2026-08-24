@@ -5,7 +5,7 @@ name: Quản lý dữ liệu số
 owner: "(cập nhật)"
 status: active
 standards: ['ISO27001', 'ISO42001']
-legal: []
+legal: ['NĐ 13/2023/NĐ-CP']
 capabilities: [CAP-28]
 module: M34
 menu_group: DU_LIEU_SO

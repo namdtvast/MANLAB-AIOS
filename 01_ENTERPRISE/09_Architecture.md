@@ -206,7 +206,7 @@ Yêu cầu tiêu chuẩn được quản lý làm nguồn ở tầng 03/08, ánh
 
 | Miền | Khả năng/mô-đun |
 |---|---|
-| Khách hàng | CRM, cổng khách hàng, báo giá, hợp đồng, phản hồi |
+| Khách hàng | QLKH (quản lý quan hệ khách hàng), cổng khách hàng, báo giá, hợp đồng, phản hồi |
 | Dịch vụ | Yêu cầu, kế hoạch, thiết bị, mẫu, hiện trường, chuỗi kiểm soát |
 | Đo lường | Kiểm định, hiệu chuẩn, thử nghiệm, độ không đảm bảo đo, DMC |
 | Lĩnh vực đo lường | Hóa lý, Khối lượng, Nhiệt ẩm, Quang học, Y tế; liên kết năng lực - nhân sự - chuẩn - thiết bị - phương pháp |
@@ -225,6 +225,24 @@ Yêu cầu tiêu chuẩn được quản lý làm nguồn ở tầng 03/08, ánh
 - Dữ liệu thô và hồ sơ minh chứng: lưu trong kho phù hợp, có checksum và chính sách lưu giữ.
 - Dữ liệu phân tích: KPI, xu hướng, cảnh báo và dashboard.
 - Knowledge Graph và vector database: phục vụ tìm kiếm ngữ nghĩa và RAG, không thay thế nguồn gốc.
+
+#### 9.2.1. Mô hình dữ liệu chủ Chủ thể - Vai trò (Party - Role)
+
+Khách hàng, khách hàng tiềm năng, nhà cung cấp, bên ngoài cung cấp, cơ sở được đánh giá, đối tác, chuyên gia, nhân sự, cơ quan quản lý và bên quan tâm **không có master riêng cho từng loại**. Tất cả là **một chủ thể (Party)** duy nhất, mang **nhiều vai trò (Party Role)** theo thời gian.
+
+> **Lưu ý thuật ngữ:** trong ManLab-AIOS, `CRM` luôn có nghĩa **Certified Reference Material - mẫu chuẩn** (CAP-12, MP19, MP23). Quản lý quan hệ khách hàng viết là **QLKH**.
+
+Nguyên tắc bắt buộc:
+
+- Một chủ thể - một bản ghi `party`, dù giữ bao nhiêu vai trò.
+- `party` (là ai) và `party_role` (đóng vai gì) là hai khái niệm tách biệt; vai trò luôn có thời hạn hiệu lực.
+- Giao dịch nghiệp vụ xác định bên tham gia qua `party_role_id`, không qua `party_id` trần.
+- Giao dịch có giá trị pháp lý phải lưu bản chụp bất biến (`party_snapshot`) tại thời điểm phát sinh.
+- Không hard-delete chủ thể, vai trò, quan hệ khi đã phát sinh giao dịch; gộp chủ thể phải được phê duyệt và ghi nhật ký.
+- Dữ liệu của thể nhân mặc định là dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP.
+- AI phát hiện, tóm tắt, gợi ý; không tự gộp chủ thể, không tự kết luận tính khách quan (đồng bộ MP29).
+
+Chuẩn chi tiết (lược đồ, danh mục vai trò, khử trùng, phân loại dữ liệu, lộ trình): [`09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md`](../09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md). Thủ tục sở hữu: **MP34_DuLieuSo**. Đa tenant, Global Registry và Row-Level Security được **hoãn** cho tới khi có tenant thứ hai.
 
 ### 9.3. Tích hợp
 
