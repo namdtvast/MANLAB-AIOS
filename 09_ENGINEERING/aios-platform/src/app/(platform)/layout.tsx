@@ -20,12 +20,16 @@ export default async function PlatformLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  const modules = await prisma.platformModule.findMany({ orderBy: { order: "asc" } });
+  const isAdmin = session?.user?.role === "ADMIN";
+  const [modules, pendingAccessRequests] = await Promise.all([
+    prisma.platformModule.findMany({ orderBy: { order: "asc" } }),
+    isAdmin ? prisma.accessRequest.count({ where: { status: "PENDING" } }) : Promise.resolve(0),
+  ]);
   const displayName = session?.user?.name ?? session?.user?.email ?? "";
 
   return (
     <div className="flex flex-1">
-      <Sidebar modules={modules} />
+      <Sidebar modules={modules} isAdmin={isAdmin} pendingAccessRequests={pendingAccessRequests} />
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 flex items-center justify-between gap-2 border-b border-border bg-surface/85 px-3 py-3 backdrop-blur sm:px-6">
           <SidebarToggle />

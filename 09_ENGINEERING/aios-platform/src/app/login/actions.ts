@@ -11,7 +11,7 @@ export async function loginAction(
     await signIn("credentials", {
       email: formData.get("email"),
       password: formData.get("password"),
-      redirectTo: (formData.get("callbackUrl") as string) || "/",
+      redirectTo: (formData.get("callbackUrl") as string) || "/dashboard",
     });
   } catch (error) {
     if (error instanceof AuthError) {
