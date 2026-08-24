@@ -1,8 +1,8 @@
 name: Test aios-platform
 
-# Chạy bộ test logic nghiệp vụ của aios-platform. Prisma được giả lập trong test nên job này
-# KHÔNG cần Postgres — chỉ cần cài phụ thuộc và sinh Prisma Client để TypeScript phân giải được
-# các kiểu enum sinh ra trong `src/generated/prisma`.
+# Chạy bộ test logic nghiệp vụ + build production của aios-platform. Prisma được giả lập trong
+# test nên job này KHÔNG cần Postgres — chỉ cần cài phụ thuộc và sinh Prisma Client để TypeScript
+# phân giải được các kiểu enum sinh ra trong `src/generated/prisma`.
 on:
   push:
     paths:
@@ -40,3 +40,15 @@ jobs:
 
       - name: Chạy bộ test
         run: npm test
+
+      # `npm test` chỉ phủ logic nghiệp vụ thuần; lỗi biên dịch của trang/route
+      # (import sai, kiểu không khớp, dùng hook client trong Server Component)
+      # chỉ lộ ra khi build. Toàn bộ route đều render động (không prerender trang
+      # nào chạm DB), nên build KHÔNG cần Postgres thật — hai biến dưới đây là giá
+      # trị giả, chỉ để `new PrismaPg({ connectionString })` và NextAuth khởi tạo
+      # được lúc nạp module. KHÔNG dùng lại làm cấu hình triển khai thật.
+      - name: Build production
+        run: npm run build
+        env:
+          DATABASE_URL: postgresql://ci:ci@127.0.0.1:5432/ci
+          AUTH_SECRET: ci-build-only-not-a-real-secret
