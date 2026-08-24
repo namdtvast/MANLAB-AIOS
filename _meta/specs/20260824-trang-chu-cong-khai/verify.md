@@ -53,6 +53,32 @@ Truy vấn kiểm chứng DB sau các lần gửi:
 số bản ghi cho admin@manlab.vn: 0
 ```
 
+## 3bis. AC6 — ADMIN duyệt/từ chối (bổ sung ngày 24/08/2026)
+
+Phiên verify không nhập mật khẩu vào biểu mẫu đăng nhập, nên thay vì bấm qua giao diện với
+tài khoản quản trị, AC6 được kiểm chứng bằng cách gọi **thẳng server action thật** với phiên
+ADMIN giả lập (chỉ `@/lib/auth` bị mock; Prisma và Postgres là thật), và **render thật** trang
+duyệt bằng `react-dom/server` với hai vai khác nhau. Hai file test này là tạm thời — cần
+Postgres nên không commit vào bộ test của CI — đã xoá sau khi chạy.
+
+| Kịch bản | Kết quả | Trạng thái |
+|---|---|---|
+| MEMBER gọi thẳng action (R6) | Bị từ chối; bản ghi giữ nguyên `PENDING` | PASS |
+| Từ chối thiếu lý do (R5) | Bị chặn ở server, thông báo nhắc "lý do"; trạng thái không đổi | PASS |
+| ADMIN đồng ý cấp | `status=APPROVED`, ghi đúng `reviewedById` và `reviewedAt` | PASS |
+| ADMIN từ chối kèm lý do | `status=REJECTED`, lưu đúng `reviewNote` | PASS |
+| Xử lý lại yêu cầu đã xử lý (R4) | Bị chặn; trạng thái giữ nguyên `APPROVED` | PASS |
+| **R1 — duyệt không tạo tài khoản** | `User` count không đổi; không có `User` nào mang email của yêu cầu | PASS |
+| Render trang với phiên MEMBER | Ra khối "Không có quyền truy cập"; **không lộ** họ tên và email người đề nghị trong HTML | PASS |
+| Render trang với phiên ADMIN | Ra bảng hàng chờ đủ họ tên, email, đơn vị, trạng thái "Chờ xử lý", nút "Đồng ý cấp"/"Từ chối", kèm câu nói rõ tài khoản vẫn cấp theo quy trình hiện hành (R1) | PASS |
+
+Kết quả chạy: 6/6 test action + 2/2 test render, đều PASS trên Postgres thật. Mọi bản ghi tạm
+đã xoá; sau đó `npm test` (bộ chuẩn, 84 test) vẫn PASS và cây làm việc sạch.
+
+Còn lại **chưa** kiểm chứng: thao tác bấm nút thật trên trình duyệt với phiên ADMIN. Rủi ro còn
+lại hẹp — chỉ nằm ở tầng gắn sự kiện của `ReviewPanel`, vì cả hàm xử lý phía server lẫn HTML
+sinh ra của trang đều đã kiểm chứng ở trên.
+
 ## 4. Toàn vẹn repo
 
 `python3 _meta/validate_links.py` → PASS (xem log ở PR). Thay đổi không đụng thư mục Hub
@@ -62,7 +88,6 @@ số bản ghi cho admin@manlab.vn: 0
 
 | Hạng mục | Trạng thái | Lý do |
 |---|---|---|
-| AC6 — ADMIN duyệt/từ chối trên giao diện thật | NOT RUN | Cần đăng nhập bằng tài khoản quản trị; phiên làm việc này không nhập mật khẩu vào biểu mẫu. Nhánh **từ chối** của cùng logic đã kiểm chứng: MEMBER bị chặn ở giao diện thật (mục 3), và toàn bộ gate R4/R5/R6 có 11 test đơn vị. |
 | Gửi email thông báo cho người đề nghị | NOT APPLICABLE | Ngoài phạm vi — hệ thống chưa có hạ tầng gửi thư (xem spec mục "Ngoài phạm vi"). |
 | Chống lạm dụng form công khai (captcha, giới hạn tần suất) | NOT RUN | Ngoài phạm vi đợt này. Hiện chỉ có chống trùng theo email (R2) và giới hạn độ dài trường. |
 
