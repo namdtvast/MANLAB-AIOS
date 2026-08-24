@@ -25,7 +25,7 @@ export default async function LoginPage({
             </p>
           </div>
         </div>
-        <LoginForm callbackUrl={callbackUrl ?? "/"} />
+        <LoginForm callbackUrl={callbackUrl ?? "/dashboard"} />
       </div>
       <p className="text-xs text-ink-3">
         Tài khoản demo: admin@manlab.vn / DoiMatKhauNgay!2026 — đổi trước khi triển khai thật.

@@ -33,6 +33,25 @@ function HomeIcon() {
   );
 }
 
+function UserPlusIcon() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 shrink-0"
+    >
+      <circle cx="8" cy="6.5" r="3" />
+      <path d="M2.5 16.5c0-2.8 2.5-4.5 5.5-4.5" />
+      <path d="M14 11v5M11.5 13.5h5" />
+    </svg>
+  );
+}
+
 function Chevron({ open }: { open: boolean }) {
   return (
     <svg
@@ -50,7 +69,16 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
-export function Sidebar({ modules }: { modules: PlatformModule[] }) {
+export function Sidebar({
+  modules,
+  isAdmin = false,
+  pendingAccessRequests = 0,
+}: {
+  modules: PlatformModule[];
+  /** Quản trị hệ thống mới thấy mục hàng chờ cấp tài khoản — trang đó tự chặn lại ở server. */
+  isAdmin?: boolean;
+  pendingAccessRequests?: number;
+}) {
   const pathname = usePathname();
   const [query, setQuery] = useState("");
   // Chỉ chứa các nhóm người dùng đã tự bấm mở/đóng; nhóm chưa có mặt ở đây theo
@@ -61,7 +89,8 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
     getServerOpenGroups,
   );
   const searchRef = useRef<HTMLInputElement>(null);
-  const onHome = pathname === "/";
+  const onHome = pathname === "/dashboard";
+  const onAccessRequests = pathname.startsWith("/admin/access-requests");
 
   // Gom 38 module thành các nhóm nghiệp vụ theo menuGroup (nạp từ manifest.yaml
   // của MPxx qua seed). Trong nhóm sắp theo menuOrder — thứ tự dòng chảy nghiệp
@@ -119,16 +148,16 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
       {/* Hình thái rút gọn (máy tính): lối vào trang chủ, nút mở lại, nút tìm. */}
       <nav className="sidebar-rail w-14 shrink-0 flex-col items-center gap-2 border-r border-border bg-surface py-3">
         <Link
-          href="/"
+          href="/dashboard"
           title="MANLAB-AIOS"
           className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent font-head text-sm font-bold text-accent-ink"
         >
           AI
         </Link>
         <Link
-          href="/"
+          href="/dashboard"
           aria-current={onHome ? "page" : undefined}
-          title="Trang chủ"
+          title="Bảng điều khiển"
           className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg border transition-colors ${
             onHome
               ? "border-accent-line bg-accent-soft text-accent"
@@ -185,7 +214,7 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
       <nav className="sidebar-full z-40 flex w-72 shrink-0 flex-col border-r border-border bg-surface">
         <div className="flex items-center gap-2 border-b border-border px-3 py-4">
           <Link
-            href="/"
+            href="/dashboard"
             onClick={closeSidebarOnMobile}
             className="flex min-w-0 flex-1 items-center gap-3"
           >
@@ -251,7 +280,7 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
 
         <div className="flex-1 overflow-y-auto p-2">
           <Link
-            href="/"
+            href="/dashboard"
             onClick={closeSidebarOnMobile}
             aria-current={onHome ? "page" : undefined}
             className={`mb-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
@@ -261,8 +290,30 @@ export function Sidebar({ modules }: { modules: PlatformModule[] }) {
             }`}
           >
             <HomeIcon />
-            Trang chủ
+            Bảng điều khiển
           </Link>
+
+          {isAdmin && (
+            <Link
+              href="/admin/access-requests"
+              onClick={closeSidebarOnMobile}
+              aria-current={onAccessRequests ? "page" : undefined}
+              className={`mb-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
+                onAccessRequests
+                  ? "bg-accent-soft font-semibold text-accent"
+                  : "text-ink-2 hover:bg-sunk hover:text-ink"
+              }`}
+            >
+              <UserPlusIcon />
+              <span className="min-w-0 flex-1 truncate">Yêu cầu cấp tài khoản</span>
+              {pendingAccessRequests > 0 && (
+                <span className="shrink-0 rounded-full bg-warn-soft px-1.5 py-0.5 font-mono text-[10px] font-semibold text-warn">
+                  {pendingAccessRequests}
+                  <span className="sr-only"> yêu cầu đang chờ xử lý</span>
+                </span>
+              )}
+            </Link>
+          )}
 
           {groups.map((g) => {
             const open = isOpen(g.code);
