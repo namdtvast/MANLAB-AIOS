@@ -6,9 +6,72 @@ import { MENU_GROUPS, DEFAULT_MENU_GROUP } from "@/lib/menu";
 // Trang chủ CÔNG KHAI — người đọc chưa đăng nhập và có thể chưa biết ETV là gì.
 // Không đặt liên kết vào /modules/* ở đây: những đường dẫn đó bị middleware chặn,
 // bấm vào chỉ rơi về màn hình đăng nhập.
+//
+// Vùng nội dung dùng <div>, KHÔNG dùng <main>: layout công khai đã có <main> bọc
+// ngoài (và mang id="main-content" cho liên kết bỏ qua điều hướng). Lồng hai <main>
+// là HTML không hợp lệ và tạo hai vùng nội dung chính cho trình đọc màn hình.
 
 const DOCS_PORTAL =
   process.env.NEXT_PUBLIC_DOCS_PORTAL_URL ?? "https://namdtvast.github.io/MANLAB-AIOS/";
+
+type IconName = "shield" | "calibrate" | "flask" | "leaf" | "trace" | "document";
+
+function Icon({ name, className = "h-5 w-5" }: { name: IconName; className?: string }) {
+  const paths: Record<IconName, React.ReactNode> = {
+    shield: (
+      <>
+        <path d="M12 3 5.5 5.5v5.7c0 4.1 2.7 7.8 6.5 9.3 3.8-1.5 6.5-5.2 6.5-9.3V5.5L12 3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+    calibrate: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <path d="M12 4v3m0 10v3M4 12h3m10 0h3" />
+        <circle cx="12" cy="12" r="2.5" />
+      </>
+    ),
+    flask: (
+      <>
+        <path d="M9 3h6m-5 0v6l-5 8.2A2.5 2.5 0 0 0 7.1 21h9.8a2.5 2.5 0 0 0 2.1-3.8L14 9V3" />
+        <path d="M7.5 15h9" />
+      </>
+    ),
+    leaf: (
+      <>
+        <path d="M20 4.5C12 4.5 6 8.3 6 14a6 6 0 0 0 6 6c5.7 0 8-6.5 8-15.5Z" />
+        <path d="M4 21c2.2-5.2 6.2-8.8 12-11" />
+      </>
+    ),
+    trace: (
+      <>
+        <path d="M5 4h14v14H5z" />
+        <path d="M9 8h6m-6 4h6m-6 4h3" />
+        <path d="M5 7H3v14h13v-3" />
+      </>
+    ),
+    document: (
+      <>
+        <path d="M7 3h7l4 4v14H7z" />
+        <path d="M14 3v5h4M10 12h5m-5 4h5" />
+      </>
+    ),
+  };
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      {paths[name]}
+    </svg>
+  );
+}
 
 function Arrow() {
   return (
@@ -17,50 +80,82 @@ function Arrow() {
       viewBox="0 0 20 20"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.7}
+      strokeWidth={1.8}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-3.5 w-3.5 shrink-0"
+      className="h-4 w-4 shrink-0"
     >
-      <path d="M8 5.5 13.5 10 8 14.5" />
+      <path d="M4 10h11m-4-4 4 4-4 4" />
     </svg>
   );
 }
 
 function SectionHead({ eyebrow, title, lead }: { eyebrow: string; title: string; lead?: string }) {
   return (
-    <div>
-      <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-accent">{eyebrow}</p>
-      <h2 className="font-head text-xl font-bold text-ink">{title}</h2>
-      {lead && <p className="mt-1.5 max-w-3xl text-[15px] leading-relaxed text-ink-2">{lead}</p>}
+    <div className="max-w-3xl">
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent">{eyebrow}</p>
+      <h2 className="font-head text-2xl font-bold tracking-tight text-ink sm:text-3xl">{title}</h2>
+      {lead && <p className="mt-3 text-base leading-7 text-ink-2">{lead}</p>}
     </div>
   );
 }
 
-const FEATURES = [
+// Bốn chuỗi nghiệp vụ chuyên môn của Viện, bám đúng năng lực gốc ở 02_CAPABILITIES:
+// CAP-09 Kiểm định, CAP-08 Hiệu chuẩn, CAP-10 Thử nghiệm, CAP-11 Quan trắc.
+const SERVICES: { icon: IconName; code: string; title: string; body: string; steps: string[] }[] = [
   {
-    title: "Căn cứ pháp lý hiện ngay trên màn hình làm việc",
-    body: "Mỗi trang module mở ra là thấy thủ tục viện dẫn, lần ban hành, ngày hiệu lực, chủ sở hữu quy trình, điều khoản ISO và biểu mẫu áp dụng — bấm mở được file gốc.",
+    icon: "shield",
+    code: "KĐ",
+    title: "Kiểm định",
+    body: "Quản lý đối tượng, phương tiện đo và hồ sơ kiểm định theo đúng phạm vi được giao.",
+    steps: ["Tiếp nhận", "Thực hiện", "Phát hành"],
   },
   {
-    title: "Chốt chặn nghiệp vụ thực thi ở máy chủ",
-    body: "Không tự thẩm xét hồ sơ của chính mình, không phê duyệt khi chưa đủ điều kiện, không sửa dữ liệu sau khi đã ký số. Ẩn nút chỉ là lớp ngoài — máy chủ mới là nơi chặn thật.",
+    icon: "calibrate",
+    code: "HC",
+    title: "Hiệu chuẩn",
+    body: "Liên kết phương pháp, chuẩn sử dụng, kết quả đo và bằng chứng kỹ thuật trong một hồ sơ.",
+    steps: ["Phương pháp", "Kết quả", "Truy xuất"],
   },
   {
-    title: "Trạng thái hồ sơ đi đúng thủ tục đã ban hành",
-    body: "Vòng đời Nháp → Trình → Soát xét → Phê duyệt → Công bố được mã hóa theo đúng thủ tục ETV.Pxx, thay vì tùy nghi theo thói quen từng người.",
+    icon: "flask",
+    code: "TN",
+    title: "Thử nghiệm",
+    body: "Theo dõi mẫu, phép thử, dữ liệu kết quả và quá trình soát xét trước khi phát hành.",
+    steps: ["Mẫu", "Phép thử", "Báo cáo"],
   },
   {
-    title: "Vai trò theo từng module, không dùng chung một quyền",
-    body: "Một người có thể là nhân viên thực hiện ở module này và lãnh đạo phòng ở module khác. Quyền gán theo từng module đúng vốn từ vai trò của thủ tục đó.",
+    icon: "leaf",
+    code: "QT",
+    title: "Quan trắc môi trường",
+    body: "Quản lý kế hoạch, hiện trường, mẫu, kết quả và hồ sơ quan trắc theo chuỗi công việc.",
+    steps: ["Kế hoạch", "Hiện trường", "Kết quả"],
+  },
+];
+
+const WORKFLOW = [
+  { number: "01", title: "Tiếp nhận", body: "Ghi nhận yêu cầu, đối tượng, phạm vi và người phụ trách." },
+  { number: "02", title: "Thực hiện", body: "Làm việc theo phương pháp, biểu mẫu và căn cứ đang có hiệu lực." },
+  { number: "03", title: "Kiểm soát", body: "Soát xét điều kiện, dữ liệu và thẩm quyền trước quyết định." },
+  { number: "04", title: "Phát hành", body: "Phê duyệt và công bố hồ sơ theo đúng vòng đời đã ban hành." },
+  { number: "05", title: "Truy vết", body: "Giữ bằng chứng ai làm, lúc nào và dựa trên căn cứ nào." },
+];
+
+const CONTROL_POINTS: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: "document",
+    title: "Một nguồn dữ liệu",
+    body: "Biểu mẫu, chuẩn mực và hồ sơ dùng chung một nguồn sự thật, giảm nhầm phiên bản.",
   },
   {
-    title: "Vết kiểm tra sinh ra khi làm, không phải khi bị hỏi",
-    body: "Mỗi lần chuyển trạng thái đều ghi ai làm, lúc nào, lý do gì. Đến kỳ đánh giá là có sẵn bằng chứng, không phải dựng lại hồ sơ.",
+    icon: "shield",
+    title: "Chốt chặn ở máy chủ",
+    body: "Quyền và điều kiện nghiệp vụ được kiểm tra tại nơi xử lý, không chỉ ẩn nút trên màn hình.",
   },
   {
-    title: "AI có kiểm soát theo ISO/IEC 42001",
-    body: "Agent phải qua đánh giá tác động và cổng công cụ mới được chạy. AI không bao giờ tự ra kết luận đo lường cuối cùng hay tự phê duyệt chứng chỉ.",
+    icon: "trace",
+    title: "Bằng chứng sinh ra khi làm",
+    body: "Mỗi lần chuyển trạng thái đều để lại vết kiểm tra phục vụ truy xuất và đánh giá.",
   },
 ];
 
@@ -79,7 +174,7 @@ const AUDIENCE = [
   },
   {
     role: "Nhân viên thực hiện",
-    body: "Nơi làm việc hằng ngày: lập hồ sơ, ghi nhận kết quả, trình duyệt — theo đúng biểu mẫu đã ban hành.",
+    body: "Nơi làm việc hằng ngày: lập hồ sơ, ghi nhận kết quả, trình duyệt theo đúng biểu mẫu đã ban hành.",
   },
   {
     role: "Quản trị hệ thống",
@@ -87,24 +182,8 @@ const AUDIENCE = [
   },
   {
     role: "Đoàn đánh giá · Bên quan tâm",
-    body: "Truy vết từ điều khoản tiêu chuẩn tới thủ tục, tới hồ sơ thật và bằng chứng — theo quyền được cấp.",
+    body: "Truy vết từ điều khoản tiêu chuẩn tới thủ tục, tới hồ sơ thật và bằng chứng, theo quyền được cấp.",
   },
-];
-
-const CONTRIBUTIONS = [
-  "Thủ tục đã ban hành được thực thi thật, không dừng ở tệp văn bản nằm trong thư mục.",
-  "Một nguồn sự thật cho biểu mẫu, chuẩn mực và dữ liệu — hết cảnh mỗi phòng giữ một bản khác nhau.",
-  "Bằng chứng tuân thủ ISO 9001 / 17025 / 17034 / 27001 / 42001 sinh ra trong lúc làm việc.",
-  "Chuỗi truy vết xuyên suốt: năng lực → thủ tục → module → hồ sơ → bằng chứng.",
-  "Việc đến hạn và hồ sơ tồn đọng lộ ra sớm, thay vì phát hiện khi đã trễ.",
-];
-
-const WITHOUT = [
-  "Hồ sơ nằm rải trên Word, Excel, email và ổ chia sẻ — không ai chắc bản nào là bản cuối.",
-  "Thủ tục ban hành xong vẫn bị làm tắt, vì không có gì chặn quy trình sai.",
-  "Đến kỳ đánh giá phải dựng lại bằng chứng bằng tay, tốn tuần lễ và vẫn có lỗ hổng.",
-  "Không truy được ai duyệt, lúc nào, dựa trên căn cứ nào khi có khiếu nại.",
-  "Tri thức vận hành nằm trong đầu vài người; người nghỉ là quy trình đứt.",
 ];
 
 export default async function PublicHomePage() {
@@ -121,275 +200,307 @@ export default async function PublicHomePage() {
   const issued = modules.filter((m) => m.docStatus === "issued").length;
   const signedIn = Boolean(session?.user);
 
-  const kpis = [
-    { label: "Module trong kiến trúc", value: total, tone: "ink" as const },
-    { label: "Đã vận hành trên nền tảng", value: activeCount, tone: "good" as const },
-    { label: "Có thủ tục đã ban hành", value: issued, tone: "ink" as const },
-    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length, tone: "ink" as const },
-  ];
-
   const groups = MENU_GROUPS.map((g) => ({
     ...g,
     count: modules.filter((m) => (m.menuGroup ?? DEFAULT_MENU_GROUP) === g.code).length,
   })).filter((g) => g.count > 0);
 
+  const stats = [
+    { label: "Module kiến trúc", value: total },
+    { label: "Module đang vận hành", value: activeCount },
+    { label: "Thủ tục đã ban hành", value: issued },
+    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length },
+  ];
+
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6 sm:py-14">
-      {/* 1. Mục đích — trang này là gì, dùng để làm gì */}
-      <section className="rounded-2xl border border-border bg-surface p-6 sm:p-10">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent">
-          MANLAB-AIOS · Hệ điều hành doanh nghiệp của Viện ETV
-        </p>
-        <h1 className="max-w-3xl font-head text-3xl font-bold leading-snug text-ink sm:text-4xl">
-          Nơi thủ tục của Viện được đem ra chạy, không phải nơi cất giữ tài liệu
-        </h1>
-        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink-2 sm:text-base">
-          Viện Kiểm định Công nghệ và Môi trường vận hành theo ISO 9001, ISO/IEC 17025, ISO 17034,
-          ISO/IEC 27001 và ISO/IEC 42001. MANLAB-AIOS đưa {total} thủ tục trong hệ thống quản lý đó
-          thành {total} module số hóa dùng chung một cơ sở dữ liệu, một cách đăng nhập và một bộ
-          quy tắc. Mỗi màn hình gắn thẳng với một thủ tục đã ban hành — làm việc trên đây tức là
-          làm đúng thủ tục, và bằng chứng tuân thủ sinh ra ngay trong lúc làm.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          {signedIn ? (
-            <Link
-              href="/dashboard"
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90"
-            >
-              Vào hệ thống
-              <Arrow />
-            </Link>
-          ) : (
-            <>
+    <div className="overflow-hidden">
+      {/* 1. Mục đích — nền tảng này là gì, cho ai, vào bằng đường nào */}
+      <section className="relative border-b border-border bg-surface">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,var(--accent-soft),transparent_32%)]"
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-24">
+          <div className="min-w-0">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent-line bg-accent-soft px-3 py-1.5 text-xs font-semibold text-accent">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-good" />
+              Nền tảng vận hành nghiệp vụ của Viện ETV
+            </p>
+            <h1 className="max-w-4xl font-head text-4xl font-bold leading-[1.13] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
+              Quản lý hoạt động đo lường và quan trắc môi trường
+              <span className="mt-2 block text-accent">trên một nền tảng thống nhất</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-ink-2 sm:text-lg sm:leading-8">
+              Kết nối kiểm định, hiệu chuẩn, thử nghiệm và quan trắc môi trường với quy trình, hồ
+              sơ, vai trò và bằng chứng tuân thủ trong cùng một hệ thống.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/login"
-                className="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90"
+                href={signedIn ? "/dashboard" : "/login"}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-accent px-6 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
               >
-                Đăng nhập
+                {signedIn ? "Vào bảng điều khiển" : "Đăng nhập hệ thống"}
                 <Arrow />
               </Link>
-              <Link
-                href="/dang-ky"
-                className="inline-flex min-h-11 items-center rounded-lg border border-border-strong px-5 text-sm font-semibold text-ink transition-colors hover:bg-sunk"
+              {!signedIn && (
+                <Link
+                  href="/dang-ky"
+                  className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border-strong bg-surface px-6 text-sm font-semibold text-ink transition-colors hover:bg-sunk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  Đăng ký — gửi yêu cầu cấp tài khoản
+                </Link>
+              )}
+            </div>
+            {!signedIn && (
+              <p className="mt-3 text-sm text-ink-3">
+                Tài khoản được cấp theo phân công công việc và phạm vi trách nhiệm.
+              </p>
+            )}
+          </div>
+
+          <div className="min-w-0 rounded-3xl border border-border bg-bg p-3 shadow-[0_24px_60px_rgb(0_0_0/0.10)] sm:p-5">
+            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+              <div className="flex items-center justify-between gap-4 border-b border-border pb-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                    Trung tâm vận hành
+                  </p>
+                  <p className="mt-1 font-head text-lg font-bold text-ink">Chuỗi hồ sơ xuyên suốt</p>
+                </div>
+                <span className="rounded-full bg-good-soft px-3 py-1 text-xs font-semibold text-good">
+                  Đang vận hành
+                </span>
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                {SERVICES.map((s) => (
+                  <div key={s.code} className="min-w-0 rounded-xl border border-border bg-bg p-3 sm:p-4">
+                    <div className="flex min-w-0 items-center gap-2.5">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent-soft text-accent">
+                        <Icon name={s.icon} />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="font-head text-sm font-bold leading-tight text-ink">{s.title}</p>
+                        <p className="mt-0.5 text-[11px] text-ink-3">Nghiệp vụ {s.code}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-xl bg-accent px-4 py-4 text-accent-ink">
+                <div className="flex items-center justify-between gap-3 text-xs font-semibold">
+                  <span>Hồ sơ → Dữ liệu → Bằng chứng</span>
+                  <span>
+                    {activeCount}/{total} module
+                  </span>
+                </div>
+                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/20">
+                  <div
+                    className="h-full rounded-full bg-white"
+                    style={{ width: total ? `${(activeCount / total) * 100}%` : "0%" }}
+                  />
+                </div>
+                <p className="mt-2 text-xs leading-5 opacity-80">
+                  Tiến độ vận hành được lấy từ danh mục module hiện tại.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto flex max-w-7xl flex-col gap-20 px-4 py-16 sm:px-6 sm:py-20">
+        {/* 2. Bốn chuỗi nghiệp vụ chuyên môn */}
+        <section id="linh-vuc" className="scroll-mt-24">
+          <SectionHead
+            eyebrow="Bốn lĩnh vực cốt lõi"
+            title="Một nền tảng, bốn chuỗi nghiệp vụ chuyên môn"
+            lead="Mỗi lĩnh vực giữ đúng thuật ngữ và luồng hồ sơ riêng, nhưng dùng chung nền tảng dữ liệu, phân quyền và truy vết."
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {SERVICES.map((s) => (
+              <article
+                key={s.code}
+                className="flex min-h-72 flex-col rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent-line"
               >
-                Đăng ký — gửi yêu cầu cấp tài khoản
-              </Link>
-            </>
-          )}
-        </div>
-        {!signedIn && (
-          <p className="mt-3 text-sm text-ink-3">
-            Tài khoản do Quản trị hệ thống cấp theo phân công công việc, không mở tự do.
-          </p>
-        )}
-      </section>
-
-      {/* 2. Số liệu thật từ bảng đăng ký module */}
-      <section aria-label="Quy mô nền tảng" className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {kpis.map((kpi) => (
-          <div key={kpi.label} className="rounded-xl border border-border bg-surface p-4 shadow-sm">
-            <p className="text-xs text-ink-2">{kpi.label}</p>
-            <p
-              className={`mt-2 font-head text-3xl font-bold tabular-nums ${
-                kpi.tone === "good" ? "text-good" : "text-ink"
-              }`}
-            >
-              {kpi.value}
-            </p>
-          </div>
-        ))}
-      </section>
-
-      {/* 3. Khác gì những nơi khác */}
-      <section className="flex flex-col gap-5">
-        <SectionHead
-          eyebrow="Khác biệt"
-          title="Khác gì cổng tài liệu và ổ chia sẻ?"
-          lead="Ba nơi cùng nói về một hệ thống quản lý, nhưng giữ ba vai khác nhau. Đừng dùng nhầm vai."
-        />
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-xl border border-border bg-surface p-5">
-            <p className="font-head text-sm font-bold text-ink">Cổng tài liệu</p>
-            <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-ink-3">Để đọc</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-2">
-              Duyệt toàn bộ 12 tầng kiến trúc và mở văn bản gốc: thủ tục, biểu mẫu, tiêu chuẩn.
-              Chỉ đọc, không tạo ra hồ sơ nào.
-            </p>
-            <a
-              href={DOCS_PORTAL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
-            >
-              Mở cổng tài liệu
-              <Arrow />
-            </a>
-          </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
-            <p className="font-head text-sm font-bold text-ink">Ổ chia sẻ · Word · Excel</p>
-            <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-ink-3">Để lưu</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-2">
-              Giữ được tệp nhưng không giữ được quy tắc: không chặn được quy trình sai, không biết
-              bản nào là bản cuối, không nói được ai duyệt lúc nào.
-            </p>
-          </div>
-          <div className="rounded-xl border border-accent-line bg-accent-soft p-5">
-            <p className="font-head text-sm font-bold text-accent">Nền tảng này</p>
-            <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-accent">
-              Để làm và để chứng minh
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-2">
-              Hồ sơ thật chạy trong cơ sở dữ liệu thật, đi đúng vòng đời của thủ tục, có vai trò,
-              có chốt chặn và có vết kiểm tra kèm theo.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Tính năng nổi bật */}
-      <section className="flex flex-col gap-5">
-        <SectionHead
-          eyebrow="Tính năng"
-          title="Làm được ở đây, khó làm được ở nơi khác"
-          lead="Sáu điểm dưới đây là lý do một phần mềm quản lý thông thường không thay thế được nền tảng này trong môi trường kiểm định — hiệu chuẩn — thử nghiệm."
-        />
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {FEATURES.map((f) => (
-            <div key={f.title} className="rounded-xl border border-border bg-surface p-5">
-              <p className="font-head text-sm font-bold text-ink">{f.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-ink-2">{f.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. Đối tượng tham gia */}
-      <section className="flex flex-col gap-5">
-        <SectionHead
-          eyebrow="Đối tượng"
-          title="Ai làm việc trên nền tảng này?"
-          lead="Cùng một hồ sơ đi qua nhiều vai. Mỗi vai chỉ thấy và chỉ làm được phần việc của mình, do quyền gán theo từng module."
-        />
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {AUDIENCE.map((a) => (
-            <div key={a.role} className="rounded-xl border border-border bg-surface p-5">
-              <p className="font-head text-sm font-bold text-ink">{a.role}</p>
-              <p className="mt-2 text-sm leading-relaxed text-ink-2">{a.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. Đóng góp gì — và nếu không có thì sao */}
-      <section className="flex flex-col gap-5">
-        <SectionHead eyebrow="Giá trị" title="Nền tảng đóng góp gì — và thiếu nó thì sao?" />
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-xl border border-good/30 bg-good-soft p-5">
-            <p className="font-head text-sm font-bold text-good">Có nền tảng này</p>
-            <ul className="mt-3 flex flex-col gap-2.5">
-              {CONTRIBUTIONS.map((c) => (
-                <li key={c} className="flex gap-2.5 text-sm leading-relaxed text-ink-2">
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mt-0.5 h-4 w-4 shrink-0 text-good"
-                  >
-                    <path d="m4.5 10.5 3.5 3.5 7.5-8" />
-                  </svg>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-xl border border-crit/30 bg-crit-soft p-5">
-            <p className="font-head text-sm font-bold text-crit">Nếu không có</p>
-            <ul className="mt-3 flex flex-col gap-2.5">
-              {WITHOUT.map((w) => (
-                <li key={w} className="flex gap-2.5 text-sm leading-relaxed text-ink-2">
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mt-0.5 h-4 w-4 shrink-0 text-crit"
-                  >
-                    <path d="M6 6l8 8M14 6l-8 8" />
-                  </svg>
-                  {w}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Phạm vi nghiệp vụ — không liên kết vì các trang đó đòi đăng nhập */}
-      <section className="flex flex-col gap-5">
-        <SectionHead
-          eyebrow="Phạm vi"
-          title="Bảy nhóm nghiệp vụ"
-          lead="Nội dung chi tiết của từng module chỉ mở cho người đã được cấp tài khoản."
-        />
-        <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {groups.map((g) => (
-            <li
-              key={g.code}
-              className="flex items-baseline justify-between gap-2 rounded-xl border border-border bg-surface px-4 py-3"
-            >
-              <span className="font-head text-sm font-bold text-ink">{g.label}</span>
-              <span className="shrink-0 font-mono text-xs text-ink-3">
-                {g.count} <span className="sr-only">module</span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* 8. Nói thẳng tình trạng thật */}
-      <section className="rounded-xl border border-border bg-sunk p-5 text-sm text-ink-2">
-        <p className="font-head font-bold text-ink">Tình trạng hiện tại</p>
-        <p className="mt-1.5 max-w-3xl leading-relaxed">
-          Nền tảng đang xây theo từng bước. {activeCount}/{total} module đã chạy thật, và trong số
-          đó nhiều module mới đạt phần lõi của đặc tả chứ chưa đủ toàn bộ phạm vi. Trang module
-          luôn nói rõ phần nào đã có, phần nào chưa — không quy tròn &ldquo;đã dựng&rdquo; thành
-          &ldquo;đã hoàn thiện&rdquo;.
-        </p>
-      </section>
-
-      {/* 9. Lối vào cuối trang */}
-      {!signedIn && (
-        <section className="flex flex-col items-start gap-4 rounded-2xl border border-accent-line bg-accent-soft p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-          <div>
-            <p className="font-head text-lg font-bold text-ink">Cần truy cập hệ thống?</p>
-            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink-2">
-              Đã được cấp tài khoản thì đăng nhập. Chưa có thì gửi yêu cầu — Quản trị hệ thống xét
-              theo phân công công việc, không cấp tự động.
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Link
-              href="/login"
-              className="inline-flex min-h-11 items-center rounded-lg bg-accent px-5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90"
-            >
-              Đăng nhập
-            </Link>
-            <Link
-              href="/dang-ky"
-              className="inline-flex min-h-11 items-center rounded-lg border border-border-strong bg-surface px-5 text-sm font-semibold text-ink transition-colors hover:bg-sunk"
-            >
-              Đăng ký
-            </Link>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent-soft text-accent">
+                    <Icon name={s.icon} />
+                  </span>
+                  <span className="font-mono text-xs font-semibold text-ink-3">{s.code}</span>
+                </div>
+                <h3 className="mt-5 font-head text-xl font-bold text-ink">{s.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-ink-2">{s.body}</p>
+                <ul className="mt-5 flex flex-wrap gap-1.5" aria-label={`Các bước chính của ${s.title}`}>
+                  {s.steps.map((step) => (
+                    <li
+                      key={step}
+                      className="rounded-full border border-border bg-bg px-2.5 py-1 text-xs text-ink-2"
+                    >
+                      {step}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </section>
-      )}
+
+        {/* 3. Luồng vận hành */}
+        <section
+          id="quy-trinh"
+          aria-labelledby="workflow-title"
+          className="scroll-mt-24 rounded-3xl bg-accent p-6 text-accent-ink sm:p-10"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] opacity-70">Luồng vận hành</p>
+          <h2
+            id="workflow-title"
+            className="mt-2 max-w-3xl font-head text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            Từ yêu cầu ban đầu đến bằng chứng có thể truy xuất
+          </h2>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-2xl bg-white/15 md:grid-cols-5">
+            {WORKFLOW.map((step, i) => (
+              <article key={step.number} className="bg-accent p-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-semibold opacity-60">{step.number}</span>
+                  {i < WORKFLOW.length - 1 && <Arrow />}
+                </div>
+                <h3 className="mt-6 font-head text-base font-bold">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 opacity-75">{step.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. Kiểm soát hệ thống + quy mô thật */}
+        <section id="kiem-soat" className="scroll-mt-24">
+          <SectionHead
+            eyebrow="Kiểm soát hệ thống"
+            title="Không chỉ số hóa biểu mẫu, mà số hóa cả cách làm đúng"
+            lead="Nền tảng liên kết căn cứ, vai trò, dữ liệu và phê duyệt để hồ sơ được tạo đúng ngay trong quá trình thực hiện."
+          />
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {CONTROL_POINTS.map((p) => (
+              <article key={p.title} className="rounded-2xl border border-border bg-surface p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sunk text-accent">
+                  <Icon name={p.icon} />
+                </span>
+                <h3 className="mt-5 font-head text-lg font-bold text-ink">{p.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink-2">{p.body}</p>
+              </article>
+            ))}
+          </div>
+          <div
+            className="mt-4 grid gap-4 rounded-2xl border border-border bg-sunk p-5 sm:grid-cols-2 lg:grid-cols-4 lg:p-6"
+            aria-label="Quy mô nền tảng hiện tại"
+          >
+            {stats.map((item) => (
+              <div key={item.label} className="border-border first:border-l-0 first:pl-0 sm:border-l sm:pl-5">
+                <p className="font-head text-3xl font-bold tabular-nums text-ink">{item.value}</p>
+                <p className="mt-1 text-sm text-ink-2">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. Đối tượng tham gia */}
+        <section id="doi-tuong" className="scroll-mt-24">
+          <SectionHead
+            eyebrow="Đối tượng"
+            title="Ai làm việc trên nền tảng này?"
+            lead="Cùng một hồ sơ đi qua nhiều vai. Mỗi vai chỉ thấy và chỉ làm được phần việc của mình, do quyền gán theo từng module."
+          />
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {AUDIENCE.map((a) => (
+              <article key={a.role} className="rounded-2xl border border-border bg-surface p-5">
+                <h3 className="font-head text-base font-bold text-ink">{a.role}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink-2">{a.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 6. Phạm vi quản lý — không liên kết vì các trang đó đòi đăng nhập */}
+        <section
+          id="pham-vi"
+          className="scroll-mt-24 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
+        >
+          <SectionHead
+            eyebrow="Phạm vi quản lý"
+            title="Bảy nhóm nghiệp vụ kết nối toàn Viện"
+            lead="Nội dung chi tiết chỉ mở theo tài khoản và vai trò được cấp. Số module phản ánh danh mục hiện có của nền tảng."
+          />
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {groups.map((g) => (
+              <li
+                key={g.code}
+                className="flex min-h-16 items-center justify-between gap-4 rounded-xl border border-border bg-surface px-4 py-3"
+              >
+                <span className="font-head text-sm font-bold text-ink">{g.label}</span>
+                <span className="shrink-0 rounded-full bg-sunk px-2.5 py-1 font-mono text-xs text-ink-2">
+                  {g.count}
+                  <span className="sr-only"> module</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* 7. Nói thẳng tình trạng thật — tránh nhầm "đã dựng" với "đã hoàn thiện" */}
+        <section className="rounded-2xl border border-border bg-sunk p-5 text-sm text-ink-2 sm:p-6">
+          <h2 className="font-head text-base font-bold text-ink">Tình trạng hiện tại</h2>
+          <p className="mt-2 max-w-3xl leading-6">
+            Nền tảng đang xây theo từng bước. {activeCount}/{total} module đã chạy thật, và trong số
+            đó nhiều module mới đạt phần lõi của đặc tả chứ chưa đủ toàn bộ phạm vi. Trang module
+            luôn nói rõ phần nào đã có, phần nào chưa — không quy tròn &ldquo;đã dựng&rdquo; thành
+            &ldquo;đã hoàn thiện&rdquo;.
+          </p>
+        </section>
+
+        {/* 8. Lối vào cuối trang */}
+        <section className="rounded-3xl border border-accent-line bg-accent-soft p-6 sm:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                Truy cập nền tảng
+              </p>
+              <h2 className="mt-2 font-head text-2xl font-bold text-ink sm:text-3xl">
+                Bắt đầu công việc theo đúng vai trò được giao
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-ink-2">
+                Đã được cấp tài khoản thì đăng nhập. Chưa có thì gửi yêu cầu — Quản trị hệ thống xét
+                theo phân công công việc, không cấp tự động.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+              <Link
+                href={signedIn ? "/dashboard" : "/login"}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-accent px-6 text-sm font-semibold text-accent-ink hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              >
+                {signedIn ? "Vào bảng điều khiển" : "Đăng nhập"}
+                <Arrow />
+              </Link>
+              {!signedIn && (
+                <Link
+                  href="/dang-ky"
+                  className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border-strong bg-surface px-6 text-sm font-semibold text-ink hover:bg-sunk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  Đăng ký
+                </Link>
+              )}
+              <a
+                href={DOCS_PORTAL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border-strong bg-surface px-6 text-sm font-semibold text-ink hover:bg-sunk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              >
+                Mở cổng tài liệu
+                <Arrow />
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
