@@ -2,7 +2,7 @@ schema: manlab-aios/process@1.1
 code: MP34
 slug: DuLieuSo
 name: Quản lý dữ liệu số
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO27001', 'ISO42001']
 legal: ['NĐ 13/2023/NĐ-CP']

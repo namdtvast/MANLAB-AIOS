@@ -2,7 +2,6 @@
 
 | Thuộc tính | Giá trị |
 |---|---|
-| Mã tài liệu | `AIOS-MD-01` |
 | Loại | Chuẩn kiến trúc dữ liệu (bắt buộc với mọi module) |
 | Trạng thái | Baseline — lần 01, 24/08/2026 |
 | Thủ tục sở hữu | [MP34_DuLieuSo](../../04_PROCESS_LIBRARY/MP34_DuLieuSo) — Quản lý dữ liệu số |
@@ -54,15 +53,15 @@ về sau tăng theo cấp số.
 
 | Mã | Nguyên tắc |
 |---|---|
-| **BR-01** | Một chủ thể chỉ có **một** bản ghi `party`, dù giữ bao nhiêu vai trò. |
-| **BR-02** | `party` (chủ thể là ai) và `party_role` (chủ thể đóng vai gì) là hai khái niệm tách biệt, không gộp. |
-| **BR-03** | Mọi `party_role` phải có `valid_from` / `valid_to`; hết vai trò là đóng hiệu lực, không xóa. |
+| **BR-01** | Một chủ thể chỉ có **một** bản ghi `m34_party`, dù giữ bao nhiêu vai trò. |
+| **BR-02** | `m34_party` (chủ thể là ai) và `m34_party_role` (chủ thể đóng vai gì) là hai khái niệm tách biệt, không gộp. |
+| **BR-03** | Mọi `m34_party_role` phải có `valid_from` / `valid_to`; hết vai trò là đóng hiệu lực, không xóa. |
 | **BR-04** | Giao dịch nghiệp vụ xác định bên tham gia qua `party_role_id`, **không** qua `party_id` trần. |
-| **BR-05** | Giao dịch có giá trị pháp lý (hợp đồng, báo giá đã gửi, chứng chỉ, công bố, biên bản) phải lưu `party_snapshot` bất biến tại thời điểm phát sinh. |
-| **BR-06** | Không hard-delete `party`, `party_role`, `party_relationship` khi đã phát sinh giao dịch — chỉ đổi trạng thái. |
-| **BR-07** | Module **không được tự tạo master khách hàng / NCC / cơ sở / đối tác / chuyên gia**; phải tham chiếu `party_role`. |
+| **BR-05** | Giao dịch có giá trị pháp lý phải lưu `m34_party_snapshot` bất biến tại thời điểm phát sinh: hợp đồng · báo giá đã gửi · **phiếu kết quả đo (PKQ)** · **giấy chứng nhận kiểm định/hiệu chuẩn** · chứng chỉ · công bố · biên bản. |
+| **BR-06** | Không hard-delete `m34_party`, `m34_party_role`, `m34_party_relationship` khi đã phát sinh giao dịch — chỉ đổi trạng thái. |
+| **BR-07** | Module **không được tự tạo master khách hàng / NCC / cơ sở / đối tác / chuyên gia**; phải tham chiếu `m34_party_role`. |
 | **BR-08** | Dữ liệu của thể nhân (`party_type = PERSON`) mặc định là **dữ liệu cá nhân** theo Nghị định 13/2023/NĐ-CP. |
-| **BR-09** | Gộp chủ thể (merge) phải được người có thẩm quyền phê duyệt và ghi `party_merge_log`; AI không được tự gộp. |
+| **BR-09** | Gộp chủ thể (merge) phải được người có thẩm quyền phê duyệt và ghi `m34_party_merge_log`; AI không được tự gộp. |
 | **BR-10** | AI được phép phát hiện, tóm tắt, gợi ý; **không** được tự kết luận tính khách quan, tự phê duyệt NCC, tự quyết khiếu nại hay tự gộp/ẩn danh dữ liệu cá nhân (đồng bộ MP29). |
 
 ### 2.2. Định hướng — chưa bắt buộc
@@ -96,11 +95,21 @@ Hệ quả: `party.tenant_id` hiện chỉ là khóa dự phòng, không đượ
 
 ### 4.1. Quy ước đặt tên
 
-Đây là **nhóm bảng dùng chung đầu tiên không mang tiền tố `Mxx`**. Mọi bảng chủ thể dùng tiền tố
-`party_` (Prisma model: `Party`, `PartyRole`, …). Bảng thuộc riêng một module vẫn giữ tiền tố `Mxx`
-như hiện nay.
+Giữ nguyên quy ước hiện hành của nền tảng: **mọi bảng đều mang tiền tố module**. Nhóm bảng chủ thể
+thuộc module **M34**, đặt tên `m34_party_…` (Prisma model: `M34Party`, `M34PartyRole`, …).
 
-### 4.2. `party` — định danh gốc
+| Đối tượng | Quy tắc | Ví dụ |
+|---|---|---|
+| Bảng chủ thể | `m34_party_…` / model `M34Party…` | `m34_party_role` → `M34PartyRole` |
+| Khóa ngoại trong module khác | **không** mang tiền tố `M34` | `M07Contract.partyRoleId` → `M34PartyRole` |
+| Bảng riêng của một module | giữ tiền tố module của nó | `M12Complaint`, `M25InterestedParty` |
+
+> **Ghi chú quyết định (24/08/2026):** phương án `party_*` không tiền tố cũng đã được cân nhắc và
+> **không chọn**, để không phá quy ước đọc schema hiện tại. Đánh đổi cần biết: tiền tố `M34` dễ gây
+> hiểu lầm rằng nhóm bảng này chỉ phục vụ M34, trong khi **mọi module đều dùng chung**. Vì vậy quy
+> tắc khóa ngoại ở dòng thứ hai là bắt buộc — không đặt tên trường là `m34PartyRoleId`.
+
+### 4.2. `m34_party` — định danh gốc
 
 ```text
 id              PK
@@ -114,7 +123,7 @@ legal_status    ACTIVE | INACTIVE | SUSPENDED | TERMINATED | ARCHIVED
 created_at / updated_at / created_by
 ```
 
-### 4.3. `party_identifier` — định danh chính thức
+### 4.3. `m34_party_identifier` — định danh chính thức
 
 ```text
 id, party_id, identifier_type, value, value_normalized,
@@ -127,7 +136,7 @@ issued_by, valid_from, valid_to, verification_status
 > `NATIONAL_ID` (CCCD) và `PASSPORT` chịu chính sách dữ liệu cá nhân nghiêm ngặt hơn mã số thuế
 > doanh nghiệp — xem mục 8.
 
-### 4.4. `party_role` — vai trò
+### 4.4. `m34_party_role` — vai trò
 
 ```text
 id, party_id, tenant_id, role_type,
@@ -138,7 +147,7 @@ owner_unit, owner_user_id,
 created_at, updated_at
 ```
 
-`role_type` là **master data cấu hình được** (bảng `party_role_type`), không hard-code thành enum
+`role_type` là **master data cấu hình được** (bảng `m34_m34_party_role_type`), không hard-code thành enum
 cố định trong mã nguồn. Bộ giá trị khởi tạo:
 
 ```text
@@ -150,12 +159,13 @@ CO_SO_DUOC_DANH_GIA    (AUDITEE)
 CO_SO_SAN_XUAT
 DOI_TAC                (PARTNER)
 CO_QUAN_QUAN_LY        (REGULATOR)
+TO_CHUC_CONG_NHAN      (ACCREDITATION_BODY — BoA, ILAC; khác cơ quan quản lý nhà nước)
 CHUYEN_GIA             (EXPERT / ASSESSOR)
 NHAN_SU                (EMPLOYEE — nối M03)
 BEN_QUAN_TAM           (INTERESTED_PARTY — nối M25)
 ```
 
-### 4.5. `party_relationship` — quan hệ
+### 4.5. `m34_party_relationship` — quan hệ
 
 ```text
 id, parent_party_id, child_party_id, relationship_type,
@@ -166,7 +176,7 @@ source_document_ref, status
 `relationship_type`: `CONG_TY_ME`, `CONG_TY_CON`, `CHI_NHANH`, `DON_VI_PHU_THUOC`, `SO_HUU`,
 `KIEM_SOAT`, `DAI_DIEN_CHO`, `THANH_VIEN_CUA`, `TU_VAN_CHO`, `BEN_LIEN_QUAN`.
 
-### 4.6. `party_site` — địa điểm
+### 4.6. `m34_party_site` — địa điểm
 
 ```text
 id, party_id, site_type, site_name, address,
@@ -177,14 +187,14 @@ status, valid_from, valid_to
 `site_type`: `TRU_SO`, `CHI_NHANH`, `NHA_MAY`, `PHONG_THI_NGHIEM`, `KHO`, `TRAM_QUAN_TRAC`,
 `DIEM_LAY_MAU`, `DIA_DIEM_DICH_VU`, `KHAC`.
 
-**Khi nào tạo Party riêng, khi nào chỉ là Site** — tạo `party` riêng nếu chi nhánh/đơn vị đó:
+**Khi nào tạo Party riêng, khi nào chỉ là Site** — tạo `m34_party` riêng nếu chi nhánh/đơn vị đó:
 có mã số thuế hoặc mã đơn vị riêng · có thể đứng tên báo giá/hợp đồng · xuất hoặc nhận hóa đơn ·
 là đối tượng kiểm định/đánh giá/chứng nhận độc lập · cần lịch sử nghiệp vụ riêng. Nếu chỉ là nhà
-máy, kho, trạm, điểm lấy mẫu, nơi đặt thiết bị thì dùng `party_site`.
+máy, kho, trạm, điểm lấy mẫu, nơi đặt thiết bị thì dùng `m34_party_site`.
 
-### 4.7. `party_contact` — người liên hệ
+### 4.7. `m34_party_contact` — người liên hệ
 
-Người liên hệ **là một `party` loại `PERSON`**, không phải chuỗi text nhét trong hồ sơ khách hàng.
+Người liên hệ **là một `m34_party` loại `PERSON`**, không phải chuỗi text nhét trong hồ sơ khách hàng.
 
 ```text
 id, person_party_id, organization_party_id, tenant_id,
@@ -194,7 +204,7 @@ valid_from, valid_to, is_primary,
 privacy_classification, purpose_code, retention_until
 ```
 
-### 4.8. `party_snapshot` — bản chụp bất biến
+### 4.8. `m34_party_snapshot` — bản chụp bất biến
 
 ```text
 id, party_role_id, transaction_type, transaction_ref,
@@ -202,10 +212,17 @@ legal_name, tax_code, address, representative, role_type,
 captured_at, captured_by, payload_json
 ```
 
+`transaction_type` bắt buộc chụp: `HOP_DONG`, `BAO_GIA_DA_GUI`, `PKQ` (phiếu kết quả đo),
+`GCN_KIEM_DINH`, `GCN_HIEU_CHUAN`, `CHUNG_CHI`, `CONG_BO`, `BIEN_BAN`.
+
+> Tên và địa chỉ khách hàng **in trên PKQ và giấy chứng nhận** là dữ liệu pháp lý của bản phát hành,
+> phải giữ đúng thời điểm phát hành dù chủ thể đổi thông tin sau đó. Khi đặc tả M11 (Báo cáo/PKQ)
+> được viết, phải nối vào `m34_party_snapshot` thay vì nhập lại danh tính.
+
 Hợp đồng ký năm 2025 phải hiển thị đúng tên pháp nhân, mã số thuế, địa chỉ, người đại diện **của
 năm 2025**, kể cả khi chủ thể đổi thông tin năm 2027.
 
-### 4.9. `party_merge_log`
+### 4.9. `m34_party_merge_log`
 
 ```text
 id, source_party_id, target_party_id, reason,
@@ -257,9 +274,10 @@ danh tính chủ thể.
 | Xem xét yêu cầu, báo giá, hợp đồng, QLKH | [MP07_HopDong](../../04_PROCESS_LIBRARY/MP07_HopDong) — ISO/IEC 17025 §7.1 | `KHACH_HANG_TIEM_NANG`, `KHACH_HANG` |
 | Mua sắm, đánh giá và phê duyệt bên ngoài cung cấp | [MP06_MuaSam](../../04_PROCESS_LIBRARY/MP06_MuaSam) — §6.6 | `NHA_CUNG_CAP`, `BEN_NGOAI_CUNG_CAP` |
 | Nhân sự, chuyên gia, đánh giá viên | [MP03_NhanSu](../../04_PROCESS_LIBRARY/MP03_NhanSu) | `NHAN_SU`, `CHUYEN_GIA` |
-| Khiếu nại, phàn nàn, góp ý | [MP12_KhieuNai](../../04_PROCESS_LIBRARY/MP12_KhieuNai) — §7.9 | bên khiếu nại là `party_role` |
-| Bảo mật thông tin và quyền sở hữu khách hàng | [MP02_BaoMat](../../04_PROCESS_LIBRARY/MP02_BaoMat) — §4.2 | nghĩa vụ bảo mật gắn `party_role` |
+| Khiếu nại, phàn nàn, góp ý | [MP12_KhieuNai](../../04_PROCESS_LIBRARY/MP12_KhieuNai) — §7.9 | bên khiếu nại là `m34_party_role` |
+| Bảo mật thông tin và quyền sở hữu khách hàng | [MP02_BaoMat](../../04_PROCESS_LIBRARY/MP02_BaoMat) — §4.2 | nghĩa vụ bảo mật gắn `m34_party_role` |
 | Bối cảnh và bên quan tâm, tính khách quan | [MP25_BoiCanh](../../04_PROCESS_LIBRARY/MP25_BoiCanh) — §4.1 | `BEN_QUAN_TAM` |
+| Công bố năng lực, công nhận, đăng ký hoạt động | [MP21_CongBoNangLuc](../../04_PROCESS_LIBRARY/MP21_CongBoNangLuc) | `TO_CHUC_CONG_NHAN`, `CO_QUAN_QUAN_LY` |
 | Dữ liệu chủ, vòng đời, audit trail | **[MP34_DuLieuSo](../../04_PROCESS_LIBRARY/MP34_DuLieuSo)** | chủ sở hữu chuẩn này |
 | Phân loại, bảo vệ dữ liệu cá nhân | [MP28_ATTT](../../04_PROCESS_LIBRARY/MP28_ATTT), [MP27_TaiSanTT](../../04_PROCESS_LIBRARY/MP27_TaiSanTT) | — |
 | Nền tảng số, phân quyền | [MP35_NenTangSo](../../04_PROCESS_LIBRARY/MP35_NenTangSo), [MP33_HeThongTT](../../04_PROCESS_LIBRARY/MP33_HeThongTT) | — |
@@ -272,7 +290,7 @@ danh tính chủ thể.
 
 Căn cứ: **Nghị định 13/2023/NĐ-CP** về bảo vệ dữ liệu cá nhân (hiệu lực 01/7/2023).
 
-`party` loại `PERSON`, `party_contact`, số điện thoại, email, CCCD, chữ ký, tài khoản đều là vùng
+`m34_party` loại `PERSON`, `m34_party_contact`, số điện thoại, email, CCCD, chữ ký, tài khoản đều là vùng
 dữ liệu cá nhân.
 
 | Mức | Nội dung điển hình |
@@ -283,7 +301,7 @@ dữ liệu cá nhân.
 | `PERSONAL` | Email, điện thoại, CCCD, chữ ký |
 | `RESTRICTED` | Hồ sơ khiếu nại, xung đột lợi ích, điều tra |
 
-Bản ghi đồng ý (`party_consent`) phải theo **từng mục đích**, không phải một cờ `true/false` chung:
+Bản ghi đồng ý (`m34_party_consent`) phải theo **từng mục đích**, không phải một cờ `true/false` chung:
 
 ```text
 id, person_party_id, purpose_code, data_categories,
@@ -319,15 +337,15 @@ ISO/IEC 17065 chưa thuộc phạm vi. Khi mở rộng phạm vi công nhận th
 | Giai đoạn | Nội dung | Trạng thái |
 |---|---|---|
 | 1 | Ban hành chuẩn này; chốt thuật ngữ QLKH/Chủ thể | Đang thực hiện |
-| 2 | Bổ sung nhóm bảng `party_*` vào `aios-platform`; màn hình Chủ thể 360° tối giản (định danh, vai trò, địa điểm, người liên hệ) | Chưa bắt đầu |
-| 3 | Module mới (MP06, MP07, MP09, MP11…) tham chiếu `party_role` ngay từ đặc tả | Chưa bắt đầu |
-| 4 | Nối các điểm cũ theo thứ tự giá trị: `M21Record` → `party_snapshot`; `M12Complaint` → bên khiếu nại; `M25InterestedParty` → `party_id` | Chưa bắt đầu |
+| 2 | Bổ sung nhóm bảng `m34_party_*` vào `aios-platform`; màn hình Chủ thể 360° tối giản (định danh, vai trò, địa điểm, người liên hệ) | Chưa bắt đầu |
+| 3 | Module mới (MP06, MP07, MP09, MP11…) tham chiếu `m34_party_role` ngay từ đặc tả | Chưa bắt đầu |
+| 4 | Nối các điểm cũ theo thứ tự giá trị: `M21Record` → `m34_party_snapshot`; `M12Complaint` → bên khiếu nại; `M25InterestedParty` → `party_id` | Chưa bắt đầu |
 | 5 | Consent theo mục đích, phân loại dữ liệu, engine hết hạn tài liệu | Chưa bắt đầu |
 | 6 | Đa tenant, RLS, COI engine | Chỉ khi có điều kiện kích hoạt (mục 2.2) |
 
 **Nguyên tắc chuyển tiếp:** module đang làm dở không bị chặn bởi chuẩn này; nhưng mọi đặc tả
 **mới** trong `05_MODULE_LIBRARY` có khái niệm khách hàng / NCC / cơ sở / đối tác / chuyên gia đều
-phải tham chiếu `party_role` thay vì định nghĩa master riêng.
+phải tham chiếu `m34_party_role` thay vì định nghĩa master riêng.
 
 ---
 

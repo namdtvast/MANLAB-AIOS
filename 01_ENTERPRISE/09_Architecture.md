@@ -234,10 +234,10 @@ Khách hàng, khách hàng tiềm năng, nhà cung cấp, bên ngoài cung cấp
 
 Nguyên tắc bắt buộc:
 
-- Một chủ thể - một bản ghi `party`, dù giữ bao nhiêu vai trò.
-- `party` (là ai) và `party_role` (đóng vai gì) là hai khái niệm tách biệt; vai trò luôn có thời hạn hiệu lực.
+- Một chủ thể - một bản ghi `m34_party`, dù giữ bao nhiêu vai trò.
+- `m34_party` (là ai) và `m34_party_role` (đóng vai gì) là hai khái niệm tách biệt; vai trò luôn có thời hạn hiệu lực.
 - Giao dịch nghiệp vụ xác định bên tham gia qua `party_role_id`, không qua `party_id` trần.
-- Giao dịch có giá trị pháp lý phải lưu bản chụp bất biến (`party_snapshot`) tại thời điểm phát sinh.
+- Giao dịch có giá trị pháp lý phải lưu bản chụp bất biến (`m34_party_snapshot`) tại thời điểm phát sinh.
 - Không hard-delete chủ thể, vai trò, quan hệ khi đã phát sinh giao dịch; gộp chủ thể phải được phê duyệt và ghi nhật ký.
 - Dữ liệu của thể nhân mặc định là dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP.
 - AI phát hiện, tóm tắt, gợi ý; không tự gộp chủ thể, không tự kết luận tính khách quan (đồng bộ MP29).
