@@ -1,5 +1,5 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M10_DamBaoKQ
 forms:      ../../06_SHARED_RESOURCES/01_Forms
@@ -8,3 +8,13 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.02_HoSoQCNoiBo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.03_DanhGiaTayNghe.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.04_HoSoPT_ILC.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.05_DongNhatRM_CRM.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.06_OnDinhRM_CRM.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.07_DacTrungAnDinhGiaTri.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.08_XacNhanCongCuSoAI.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.09_CongBoTrangThaiP10.md

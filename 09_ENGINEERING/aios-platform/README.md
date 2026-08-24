@@ -332,6 +332,30 @@ khi thủ tục được ban hành theo MP14.
 - ❌ Chưa test qua UI: nhánh Không soát xét/Không phê duyệt (trả lại kèm lý do), bỏ liên kết M01,
   xóa mong đợi, đóng vấn đề bối cảnh.
 
+## Trạng thái Increment 15 — khung Căn cứ pháp lý trên mọi trang module
+
+Trước đây chỉ trang M25 có một đoạn "Căn cứ:" **viết cứng trong JSX**; 12 trang module còn lại
+không nói người dùng đang thao tác theo văn bản kiểm soát nào. Increment này biến đoạn đó thành
+một thành phần dùng chung lấy dữ liệu từ chính repo:
+
+`04_PROCESS_LIBRARY/MPxx/manifest.yaml` (khối `document` + `forms`) và `links.yaml`
+(`procedure`, `form_files`) → `prisma/seed.ts` → `PlatformModule` → `<CanCuBanner moduleCode="Mxx" />`.
+
+Banner hiển thị 6 nhóm thông tin: mã + tên thủ tục (bấm mở file gốc qua cổng tài liệu) · lần ban
+hành + ngày ban hành · chip trạng thái hiệu lực · chủ sở hữu quy trình · chuẩn mực ISO viện dẫn +
+văn bản pháp luật · biểu mẫu áp dụng (mỗi mã là một link tới biểu mẫu gốc ở `06_SHARED_RESOURCES`).
+
+- ✅ Khối `document` của 12 MP được **trích từ chính văn bản thủ tục** ở `03_MANAGEMENT_SYSTEM/02_P`
+  (`id`/`title`/`revision`/`effective_date`/`iso_clause`/`legal_basis`), không tự đặt số hiệu.
+- ✅ `links.yaml` của MP01/02/03/04/10/14/21 được sửa để `procedure` trỏ đúng file `ETV.Pxx` (trước
+  đó nhiều MP còn trỏ nhầm sang Sổ tay chất lượng) và bổ sung `form_files`.
+- ✅ MP21 chuẩn hóa khối `document` từ lược đồ riêng (`controlled/edition/issued`) về lược đồ chung.
+- ⚠️ **M29 chưa có `ETV.P29`** — banner nói thẳng "chưa ban hành thủ tục" thay vì bịa căn cứ; seed
+  in cảnh báo `[căn cứ] M29: …` mỗi lần chạy.
+- ⚠️ M12/M13/M16/M17/M21 chưa có file biểu mẫu trong `06_SHARED_RESOURCES/01_Forms` (M21 mới có mã
+  F21.01–F21.12 khai trong manifest, chưa có file) — chip mã vẫn hiện nhưng không bấm mở được.
+- ⚠️ Banner chỉ gắn ở **trang chính** của 13 module đang chạy, chưa gắn ở các trang chi tiết.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -437,5 +461,6 @@ src/lib/m12/            Rule engine + actor/actions M12 — Khiếu nại & ph�
 src/lib/m13/            Rule engine + actor/actions M13 — Công việc không phù hợp/CAPA, xây mới (Increment 11)
 src/lib/m14/            Rule engine + actor/actions M14 — Kiểm soát tài liệu, xây mới (Increment 12)
 src/lib/m25/            Rule engine + actor/actions M25 — Bối cảnh & bên quan tâm, xây mới (Increment 14)
+src/components/CanCuBanner.tsx  Khung Căn cứ pháp lý dùng chung cho mọi trang module (Increment 15)
                         (M16 bổ sung năng lực đánh giá viên + liên kết M03/M13 ở Increment 13)
 ```

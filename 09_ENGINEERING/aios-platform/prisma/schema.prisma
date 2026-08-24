@@ -220,6 +220,22 @@ model PlatformModule {
   menuGroup String? // vd "KY_THUAT"
   menuOrder Int? // thứ tự trong nhóm, theo dòng chảy nghiệp vụ
 
+  // Căn cứ pháp lý hiển thị trên đầu mọi trang module (<CanCuBanner>).
+  // Nguồn sự thật là khối document/forms trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
+  // và links.yaml (procedure, form_files) — seed.ts đọc lên, KHÔNG hardcode ở đây.
+  // Null nghĩa là MP đó chưa ban hành thủ tục: banner nói thẳng "chưa ban hành".
+  docId         String? // vd "ETV.P01"
+  docTitle      String? // tên đầy đủ của thủ tục
+  docStatus     String? // "issued" | "draft"
+  docVersion    String? // lần ban hành, vd "03"
+  issuedDate    DateTime? // ngày ban hành / hiệu lực
+  procedurePath String? // đường dẫn tương đối trong repo tới file thủ tục
+  procedureOwner String? // chủ sở hữu quy trình (manifest.owner)
+  standards     String[] // mã chuẩn áp dụng (manifest.standards), vd "ISO17025"
+  isoClauses    String[] // điều khoản ISO viện dẫn, vd "ISO/IEC 17025:2017 §8.5"
+  legalBasis    String[] // văn bản pháp luật viện dẫn
+  forms         Json? // [{ code, title, path }] — biểu mẫu áp dụng
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

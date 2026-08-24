@@ -5,8 +5,40 @@ name: Tuyển dụng và đào tạo
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO9001', 'ISO17025']
-legal: []
+legal:
+  - "Bộ luật Lao động số 45/2019/QH14"
+  - "Nghị định 145/2020/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Bộ luật Lao động về điều kiện lao động và quan hệ lao động"
+  - "Luật Bảo hiểm xã hội số 41/2024/QH15 (hiệu lực từ 01/7/2025)"
+  - "Luật An toàn, vệ sinh lao động số 84/2015/QH13"
 capabilities: [CAP-13,CAP-03]
 module: M03
 menu_group: NGUON_LUC
 menu_order: 1
+document:
+  doc_id: ETV.P03
+  doc_title: "Thủ tục Quản lý Nhân sự"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-20
+  iso_clauses:
+    - "ISO 9001:2015 §7.1.2, §7.2"
+    - "ISO/IEC 17025:2017 §6.2"
+forms:
+  - ETV.P.F03.01
+  - ETV.P.F03.02
+  - ETV.P.F03.03.1
+  - ETV.P.F03.03.2
+  - ETV.P.F03.03.3
+  - ETV.P.F03.04
+  - ETV.P.F03.05.1
+  - ETV.P.F03.05.2
+  - ETV.P.F03.05.3
+  - ETV.P.F03.05.4
+  - ETV.P.F03.06
+  - ETV.P.F03.07
+  - ETV.P.F03.08
+  - ETV.P.F03.09
+  - ETV.P.F03.10
+  - ETV.P.F03.11
+  - ETV.P.F03.12
+  - ETV.P.F03.13

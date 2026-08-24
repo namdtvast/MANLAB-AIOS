@@ -15,6 +15,7 @@ import { can } from "@/lib/m29/model";
 import { maybeSweep } from "@/lib/m29/sweep";
 import { CheckHealthButton } from "./CheckHealthButton";
 import { Badge } from "./ui";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 export default async function M29OverviewPage() {
   const role = await getM29Role();
@@ -48,6 +49,8 @@ export default async function M29OverviewPage() {
           Vai trò M29 của bạn: <strong className="text-ink">{role ? M29_ROLE_LABEL[role] : "Chưa được gán vai trò"}</strong>
         </p>
       </div>
+
+      <CanCuBanner moduleCode="M29" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
         <div className="rounded-xl border border-border bg-surface p-4">

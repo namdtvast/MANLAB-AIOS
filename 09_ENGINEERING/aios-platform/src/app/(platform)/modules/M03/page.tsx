@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM03Role } from "@/lib/m03/actor";
 import { EMPLOYEE_STATUS_LABEL, EMPLOYMENT_TYPE_LABEL, M03_ROLE_LABEL, RECRUITMENT_STATUS_LABEL } from "@/lib/m03/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -54,6 +55,8 @@ export default async function M03ListPage() {
           + Đề xuất tuyển dụng
         </Link>
       </div>
+
+      <CanCuBanner moduleCode="M03" />
 
       <section className="flex flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Đề xuất tuyển dụng</h2>

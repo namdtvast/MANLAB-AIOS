@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM12Role } from "@/lib/m12/actor";
 import { escalateFeedback } from "@/lib/m12/actions";
 import { CHANNEL_LABEL, COMPLAINT_STATUS_LABEL, FEEDBACK_CATEGORY_LABEL, FEEDBACK_ORIGIN_LABEL, M12_ROLE_LABEL } from "@/lib/m12/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -44,6 +45,8 @@ export default async function M12ListPage() {
           <strong className="text-ink">{role ? (M12_ROLE_LABEL[role] ?? role) : "Chưa được gán vai trò"}</strong>
         </p>
       </div>
+
+      <CanCuBanner moduleCode="M12" />
 
       <section className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">

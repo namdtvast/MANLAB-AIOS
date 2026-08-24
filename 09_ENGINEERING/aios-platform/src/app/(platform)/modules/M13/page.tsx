@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM13Role } from "@/lib/m13/actor";
 import { CAP_STATUS_LABEL, M13_ROLE_LABEL, NCW_STATUS_LABEL, SEVERITY_LABEL, SOURCE_TYPE_LABEL } from "@/lib/m13/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -49,6 +50,8 @@ export default async function M13ListPage() {
           <strong className="text-ink">{role ? (M13_ROLE_LABEL[role] ?? role) : "Chưa được gán vai trò"}</strong>
         </p>
       </div>
+
+      <CanCuBanner moduleCode="M13" />
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
         <div className="rounded-xl border border-border bg-surface p-4">

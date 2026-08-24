@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM10Role } from "@/lib/m10/actor";
 import { M10_ROLE_LABEL, RECORD_TYPE_LABEL, RESULT_LABEL, STATUS_LABEL } from "@/lib/m10/labels";
+import { CanCuBanner } from "@/components/CanCuBanner";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -64,6 +65,8 @@ export default async function M10ListPage() {
           + Tạo hồ sơ
         </Link>
       </div>
+
+      <CanCuBanner moduleCode="M10" />
 
       <div className="overflow-x-auto rounded-xl border border-border bg-surface">
         <table className="w-full min-w-[36rem] text-sm">
