@@ -2,6 +2,7 @@ import { auth, signOut } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Sidebar } from "@/components/Sidebar";
 import { SidebarToggle } from "@/components/SidebarToggle";
+import { HomeButton } from "@/components/HomeButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 function initials(label: string) {
@@ -28,6 +29,7 @@ export default async function PlatformLayout({
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 flex items-center justify-between gap-2 border-b border-border bg-surface/85 px-3 py-3 backdrop-blur sm:px-6">
           <SidebarToggle />
+          <HomeButton />
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
             <div className="flex items-center gap-2.5">
