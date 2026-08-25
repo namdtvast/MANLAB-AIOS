@@ -29,7 +29,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## PHẦN I — KẾ HOẠCH DIỄN TẬP NĂM ................
 
-*(QLCL lập trước 31/12 hằng năm, trình LĐV phê duyệt cùng kế hoạch đánh giá nội bộ — ETV.P31 mục 5.4.1)*
+*(QLCL lập trước 31/12 hằng năm, trình LĐV phê duyệt cùng kế hoạch đánh giá nội bộ — ETV.P31 mục 6.4.1)*
 
 | TT | Kịch bản | Hình thức *(Trên giấy / Mô phỏng / Thực tế)* | Thời điểm dự kiến | Thành phần tham gia | Mục tiêu kiểm chứng *(RTO/RPO nào)* | Đã thực hiện |
 |---|---|---|---|---|---|---|
@@ -37,7 +37,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | 2 | KB-...... | | | | | ☐ |
 | 3 | KB-...... | | | | | ☐ |
 
-**Tần suất tối thiểu bắt buộc (ETV.P31 mục 5.4.2):**
+**Tần suất tối thiểu bắt buộc (ETV.P31 mục 6.4.2):**
 
 | Đối tượng | Tần suất | Hình thức tối thiểu |
 |---|---|---|
@@ -90,10 +90,10 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 ☐ **ĐẠT** — Phương án được xác nhận có hiệu lực; gỡ cờ **Chưa kiểm chứng**; ngày kiểm chứng tiếp theo: ..../..../........
 
 ☐ **KHÔNG ĐẠT / VƯỢT RTO-RPO** — Bắt buộc:
-- Lập KPH theo **ETV.MP13** — số phiếu: ............
+- Lập KPH theo **ETV.P13** — số phiếu: ............
 - Cập nhật lại kế hoạch (F31.02) ☐　**hoặc** điều chỉnh RTO/RPO có phê duyệt của LĐV ☐ — lý do: ....................
 
-> **Nghiêm cấm** âm thầm nới lỏng RTO/RPO để hợp thức hóa kết quả diễn tập (ETV.P31 mục 5.4.4, mục 7).
+> **Nghiêm cấm** âm thầm nới lỏng RTO/RPO để hợp thức hóa kết quả diễn tập (ETV.P31 mục 6.4.4 và Phụ lục I).
 
 | Người chủ trì diễn tập | Người ghi biên bản | Người kết luận |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## PHẦN III — KIỂM CHỨNG PHỤC HỒI DỮ LIỆU
 
-*(Chu kỳ: ≤ 06 tháng/lần với dữ liệu của quá trình Trọng yếu cao · ≤ 12 tháng/lần với dữ liệu còn lại — ETV.P31 mục 5.4.3)*
+*(Chu kỳ: ≤ 06 tháng/lần với dữ liệu của quá trình Trọng yếu cao · ≤ 12 tháng/lần với dữ liệu còn lại — ETV.P31 mục 6.4.3)*
 
 **Ngày thực hiện:** ..../..../........　**Đối tượng dữ liệu:** ...........................................................
 
@@ -130,11 +130,11 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ☐ **ĐẠT** — Bản sao lưu được xác nhận dùng được làm phương án khôi phục. Lần kiểm chứng tiếp theo: ..../..../........
 
-☐ **KHÔNG ĐẠT** — Lập KPH theo **ETV.MP13** (số phiếu: ............) và báo cáo LĐV trong **03 ngày làm việc** — ngày báo cáo: ..../..../........
+☐ **KHÔNG ĐẠT** — Lập KPH theo **ETV.P13** (số phiếu: ............) và báo cáo LĐV trong **03 ngày làm việc** — ngày báo cáo: ..../..../........
 
 | Người thực hiện phục hồi | Người xác nhận kết quả |
 | --- | --- |
 | *(QTHT)* | *(PT.ATTT hoặc QLCL — **bắt buộc khác người thực hiện**)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> Sao lưu **chưa từng được kiểm chứng phục hồi** thì **không** được ghi là phương án khôi phục (ETV.P31 mục 1.3, mục 7). Người thực hiện phục hồi đồng thời là người xác nhận → **chặn cứng**. Hồ sơ lưu 05 năm theo ETV.MP15.
+> Sao lưu **chưa từng được kiểm chứng phục hồi** thì **không** được ghi là phương án khôi phục (ETV.P31 mục 2.2 và Phụ lục I). Người thực hiện phục hồi đồng thời là người xác nhận → **chặn cứng**. Hồ sơ lưu 05 năm theo ETV.P15.

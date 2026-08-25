@@ -64,24 +64,24 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 | TT | Nội dung rà soát | Kết quả | Ghi chú |
 |---|---|---|---|
-| 1 | Phát sinh sự không phù hợp, khiếu nại, sai lệch kết quả sau thay đổi? | ☐ Không ☐ Có — số KPH (MP13): ............ | Còn KPH chưa xử lý xong → **không được đóng** |
-| 2 | Tài liệu bị ảnh hưởng đã sửa đổi, ban hành lại, thu hồi bản cũ (MP14)? | ☐ Đủ ☐ Chưa đủ | Chưa đủ → **không được đóng** |
-| 3 | Nhân sự liên quan đã được phổ biến/đào tạo (MP03)? | ☐ Đã ☐ Chưa — hồ sơ số: ............ | |
-| 4 | Rủi ro đã mở tại MP01 nay ở trạng thái nào? | Mã: ............ — ☐ Đã đóng ☐ Còn theo dõi | |
-| 5 | Có nội dung cần ghi bài học kinh nghiệm (MP26)? | ☐ Không ☐ Có — số hồ sơ: ............ | |
-| 6 | Có ảnh hưởng kết quả đã phát hành? | ☐ Không ☐ Có — hồ sơ MP10/MP11 số: ............ | |
+| 1 | Phát sinh sự không phù hợp, khiếu nại, sai lệch kết quả sau thay đổi? | ☐ Không ☐ Có — số KPH (ETV.P13): ............ | Còn KPH chưa xử lý xong → **không được đóng** |
+| 2 | Tài liệu bị ảnh hưởng đã sửa đổi, ban hành lại, thu hồi bản cũ (ETV.P14)? | ☐ Đủ ☐ Chưa đủ | Chưa đủ → **không được đóng** |
+| 3 | Nhân sự liên quan đã được phổ biến/đào tạo (ETV.P03)? | ☐ Đã ☐ Chưa — hồ sơ số: ............ | |
+| 4 | Rủi ro đã mở tại ETV.P01 nay ở trạng thái nào? | Mã: ............ — ☐ Đã đóng ☐ Còn theo dõi | |
+| 5 | Có nội dung cần ghi bài học kinh nghiệm (ETV.P26)? | ☐ Không ☐ Có — số hồ sơ: ............ | |
+| 6 | Có ảnh hưởng kết quả đã phát hành? | ☐ Không ☐ Có — hồ sơ ETV.P10/ETV.P11 số: ............ | |
 
 ## 5. Kết luận
 
 ☐ **ĐẠT** — Thay đổi đạt mục đích, không có hệ quả ngoài mong muốn, đủ điều kiện **đóng thay đổi**.
 
-☐ **KHÔNG ĐẠT** — Xử lý theo ETV.P30 mục 5.5.4:
+☐ **KHÔNG ĐẠT** — Xử lý theo ETV.P30 mục 6.5.4:
 
 - Ngày báo cáo cấp phê duyệt: ..../..../........ *(trong 03 ngày làm việc kể từ ngày có kết luận)*
 - Hướng xử lý do cấp phê duyệt quyết định:
   ☐ Quay lui　☐ Điều chỉnh và triển khai lại *(lập phiên bản mới của phiếu, mã: CR-........-........)*　☐ Chấp nhận có điều kiện
 - Hành động bổ sung và thời hạn: ...........................................................................................
-- Số phiếu KPH (MP13) đã lập: ................................................................................................
+- Số phiếu KPH (ETV.P13) đã lập: ................................................................................................
 
 ---
 
@@ -90,4 +90,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(Chủ trì thay đổi)* | *(QLCL)* | *(QLCL: Mức 1 · Lãnh đạo Viện: Mức 2, 3)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> **Mức 3:** người trực tiếp thực hiện thay đổi **không** được đồng thời là người kết luận xác nhận hiệu lực (ETV.P30 mục 4.6, mục 7). Trợ lý AI **không** được kết luận xác nhận hiệu lực. Hồ sơ lưu 10 năm theo ETV.MP15.
+> **Mức 3:** người trực tiếp thực hiện thay đổi **không** được đồng thời là người kết luận xác nhận hiệu lực (ETV.P30 mục 5.3 và Phụ lục I). Trợ lý AI **không** được kết luận xác nhận hiệu lực. Hồ sơ lưu 10 năm theo ETV.P15.

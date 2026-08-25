@@ -50,24 +50,24 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 3. Đánh giá tác động
 
-*(Mức 1 điền rút gọn; Mức 2 và Mức 3 bắt buộc điền đầy đủ — ETV.P30 mục 5.2.2)*
+*(Mức 1 điền rút gọn; Mức 2 và Mức 3 bắt buộc điền đầy đủ — ETV.P30 mục 6.2.2)*
 
 | Nhóm | Câu hỏi phải trả lời | Trả lời |
 |---|---|---|
 | Đối tượng chịu ảnh hưởng | Tài liệu nào phải sửa? Nhân sự, thiết bị, phương pháp, dữ liệu, khách hàng nào bị ảnh hưởng? | |
-| Hiệu lực kết quả | Ảnh hưởng kết quả **đang thực hiện** hoặc **đã phát hành** không? Nếu có → hành động theo MP10, MP11 | ☐ Có ☐ Không — Số hồ sơ MP10/MP11: ............ |
+| Hiệu lực kết quả | Ảnh hưởng kết quả **đang thực hiện** hoặc **đã phát hành** không? Nếu có → hành động theo ETV.P10, ETV.P11 | ☐ Có ☐ Không — Số hồ sơ ETV.P10/ETV.P11: ............ |
 | Phạm vi được thừa nhận | Chạm tới phạm vi công nhận (BoA), phạm vi chỉ định, phạm vi đăng ký không? | ☐ Có ☐ Không |
-| Năng lực | Nhân sự đã đủ năng lực theo cách mới chưa? Cần đánh giá tay nghề lại không (MP03)? | ☐ Có ☐ Không |
-| Dữ liệu và ATTT | Dữ liệu nào bị di chuyển, đổi định dạng, đổi quyền truy cập? Rủi ro ATTT phát sinh (MP28)? | |
+| Năng lực | Nhân sự đã đủ năng lực theo cách mới chưa? Cần đánh giá tay nghề lại không (ETV.P03)? | ☐ Có ☐ Không |
+| Dữ liệu và ATTT | Dữ liệu nào bị di chuyển, đổi định dạng, đổi quyền truy cập? Rủi ro ATTT phát sinh (ETV.P28)? | |
 | Khách hàng, bên quan tâm | Nghĩa vụ thông báo khách hàng, cơ quan quản lý, tổ chức công nhận? | ☐ Có ☐ Không |
 | Nguồn lực, chi phí | Nhân lực, thời gian, kinh phí, thiết bị cần huy động | |
-| Rủi ro | Rủi ro của việc **thực hiện** và của việc **không thực hiện** | Mã rủi ro MP01: ............ |
+| Rủi ro | Rủi ro của việc **thực hiện** và của việc **không thực hiện** | Mã rủi ro ETV.P01: ............ |
 
 ### 3.1. Danh sách tài liệu bị ảnh hưởng
 
-*(Bắt buộc điền; nếu không có tài liệu nào bị ảnh hưởng phải ghi rõ "Không có" — ETV.P30 mục 5.4.2, 5.4.4)*
+*(Bắt buộc điền; nếu không có tài liệu nào bị ảnh hưởng phải ghi rõ "Không có" — ETV.P30 mục 6.4.2, 5.4.4)*
 
-| TT | Mã tài liệu | Tên tài liệu | Nội dung phải sửa | Xử lý theo MP14 | Ngày hoàn thành | Xác nhận |
+| TT | Mã tài liệu | Tên tài liệu | Nội dung phải sửa | Xử lý theo ETV.P14 | Ngày hoàn thành | Xác nhận |
 |---|---|---|---|---|---|---|
 | 1 | | | | ☐ Sửa đổi ☐ Ban hành lại ☐ Thu hồi | | ☐ |
 | 2 | | | | ☐ Sửa đổi ☐ Ban hành lại ☐ Thu hồi | | ☐ |
@@ -76,16 +76,16 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ### 3.2. Nghĩa vụ thông báo bên ngoài
 
-*(ETV.P30 mục 5.4.3 — LĐV quyết định nội dung và thời hạn gửi)*
+*(ETV.P30 mục 6.4.3 — LĐV quyết định nội dung và thời hạn gửi)*
 
 | Trường hợp | Áp dụng | Đầu mối | Ngày gửi | Số văn bản | Bằng chứng gửi/nhận |
 |---|---|---|---|---|---|
 | Ảnh hưởng phạm vi, địa điểm, nhân sự chủ chốt, thiết bị chính thuộc phạm vi công nhận | ☐ | BoA | | | |
 | Thay đổi so với hồ sơ đã đăng ký, đã chỉ định | ☐ | Cơ quan quản lý nhà nước | | | |
 | Thay đổi so với hồ sơ đăng ký hoạt động đánh giá sự phù hợp | ☐ | Cơ quan quản lý nhà nước | | | |
-| Ảnh hưởng dịch vụ đã ký kết | ☐ | Khách hàng (MP07) | | | |
-| Ảnh hưởng hiệu lực kết quả, chứng chỉ đã phát hành | ☐ | Khách hàng và bên nhận kết quả (MP10, MP11) | | | |
-| Thay đổi cách xử lý dữ liệu cá nhân | ☐ | Chủ thể dữ liệu, cơ quan có thẩm quyền (MP28) | | | |
+| Ảnh hưởng dịch vụ đã ký kết | ☐ | Khách hàng (ETV.P07) | | | |
+| Ảnh hưởng hiệu lực kết quả, chứng chỉ đã phát hành | ☐ | Khách hàng và bên nhận kết quả (ETV.P10, ETV.P11) | | | |
+| Thay đổi cách xử lý dữ liệu cá nhân | ☐ | Chủ thể dữ liệu, cơ quan có thẩm quyền (ETV.P28) | | | |
 
 ☐ **Không thuộc diện phải thông báo bên ngoài**
 
@@ -97,11 +97,11 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Ngày hiệu lực | ..../..../........ |
 | Người thực hiện | |
 | Các bước chính | |
-| Phổ biến/đào tạo trước hiệu lực | ☐ Có *(hồ sơ MP03 số ............)*　☐ Không cần |
+| Phổ biến/đào tạo trước hiệu lực | ☐ Có *(hồ sơ ETV.P03 số ............)*　☐ Không cần |
 
 ## 5. Phương án quay lui
 
-*(Bắt buộc với Mức 2, Mức 3 — ETV.P30 mục 5.4.4)*
+*(Bắt buộc với Mức 2, Mức 3 — ETV.P30 Phụ lục I.1)*
 
 | Trường | Nội dung |
 |---|---|
@@ -113,7 +113,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 6. Tiêu chí xác nhận hiệu lực
 
-*(Phải **đo được** — ETV.P30 mục 5.4.4)*
+*(Phải **đo được** — ETV.P30 Phụ lục I.1)*
 
 | TT | Tiêu chí | Cách đo, nguồn bằng chứng | Thời điểm thu thập |
 |---|---|---|---|
@@ -124,19 +124,19 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 7. Kiểm tra điều kiện chặn cứng trước phê duyệt
 
-*(ETV.P30 mục 5.4.4 — thiếu bất kỳ mục nào áp dụng thì **không được phê duyệt**)*
+*(ETV.P30 Phụ lục I.1 — thiếu bất kỳ mục nào áp dụng thì **không được phê duyệt**)*
 
 | TT | Điều kiện | Áp dụng | Đạt |
 |---|---|---|---|
 | 1 | Có chủ trì thay đổi là người cụ thể đang làm việc tại Viện | Luôn | ☐ |
 | 2 | Có đánh giá tác động tương ứng mức và danh sách tài liệu bị ảnh hưởng (kể cả "Không có") | Luôn | ☐ |
 | 3 | Mức 2, 3: có phương án quay lui và tiêu chí xác nhận hiệu lực đo được | ☐ | ☐ |
-| 4 | Mức 2, 3: có ≥ 01 rủi ro đã mở tại MP01 | ☐ | ☐ |
-| 5 | Chạm phương pháp/dải đo/độ KĐBĐ: có kế hoạch xác nhận giá trị sử dụng theo MP08 | ☐ | ☐ |
-| 6 | Chạm người ký kết quả/ủy quyền kỹ thuật: có hồ sơ năng lực theo MP03 | ☐ | ☐ |
+| 4 | Mức 2, 3: có ≥ 01 rủi ro đã mở tại ETV.P01 | ☐ | ☐ |
+| 5 | Chạm phương pháp/dải đo/độ KĐBĐ: có kế hoạch xác nhận giá trị sử dụng theo ETV.P08 | ☐ | ☐ |
+| 6 | Chạm người ký kết quả/ủy quyền kỹ thuật: có hồ sơ năng lực theo ETV.P03 | ☐ | ☐ |
 | 7 | Chạm phạm vi công nhận/chỉ định/đăng ký: đã xác định nghĩa vụ thông báo (mục 3.2) | ☐ | ☐ |
-| 8 | Có thành phần AI: có hồ sơ AIA theo MP29 | ☐ | ☐ |
-| 9 | Có khả năng ảnh hưởng kết quả đã phát hành: đã dẫn chiếu hành động theo MP10/MP11 | ☐ | ☐ |
+| 8 | Có thành phần AI: có hồ sơ AIA theo ETV.P29 | ☐ | ☐ |
+| 9 | Có khả năng ảnh hưởng kết quả đã phát hành: đã dẫn chiếu hành động theo ETV.P10/ETV.P11 | ☐ | ☐ |
 
 ---
 
@@ -146,4 +146,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 | | | ☐ Đạt ☐ Không đạt — Lý do: ............ | ☐ Phê duyệt ☐ Không phê duyệt — Lý do: ............ |
 
-> Người đề nghị ≠ người soát xét ≠ người phê duyệt. Trợ lý AI **không** được phân loại mức tác động, soát xét hay phê duyệt (ETV.P30 mục 4.6). Hồ sơ lưu 10 năm theo ETV.MP15.
+> Người đề nghị ≠ người soát xét ≠ người phê duyệt. Trợ lý AI **không** được phân loại mức tác động, soát xét hay phê duyệt (ETV.P30 mục 5.3). Hồ sơ lưu 10 năm theo ETV.P15.

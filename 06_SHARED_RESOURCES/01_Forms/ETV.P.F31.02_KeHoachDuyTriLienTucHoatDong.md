@@ -43,7 +43,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Phụ trách hành chính, hậu cần | | | | | |
 | Đầu mối liên hệ khách hàng | | | | | |
 
-> Danh sách liên lạc được kiểm tra thực tế **≤ 06 tháng/lần** (ETV.P31 mục 5.4.2). Dữ liệu cá nhân trong danh sách được bảo vệ theo ETV.MP28.
+> Danh sách liên lạc được kiểm tra thực tế **≤ 06 tháng/lần** (ETV.P31 mục 6.4.2). Dữ liệu cá nhân trong danh sách được bảo vệ theo ETV.P28.
 
 ### A.2. Thứ tự ưu tiên khôi phục
 
@@ -67,7 +67,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## PHẦN B — PHƯƠNG ÁN THEO KỊCH BẢN
 
-*(Lập một phiếu phương án cho mỗi kịch bản bắt buộc KB-01 … KB-09 theo ETV.P31 mục 5.2)*
+*(Lập một phiếu phương án cho mỗi kịch bản bắt buộc KB-01 … KB-09 theo ETV.P31 mục 6.2)*
 
 ### Phương án cho kịch bản: KB-......　.................................................................
 
@@ -80,11 +80,11 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Nguồn lực dự phòng *(địa điểm, thiết bị, dữ liệu, nhà cung cấp, kinh phí)* | |
 | Thông tin liên lạc *(nội bộ · khách hàng · cơ quan quản lý · tổ chức công nhận — ai soạn, ai duyệt, ai gửi)* | |
 | **Tiêu chí kết thúc** *(điều kiện tuyên bố trở lại bình thường)* | |
-| **Điểm không thể phục hồi** *(nếu có — bắt buộc mở rủi ro tại MP01)* | Mã rủi ro: ............ |
+| **Điểm không thể phục hồi** *(nếu có — bắt buộc mở rủi ro tại ETV.P01)* | Mã rủi ro: ............ |
 | Ngày diễn tập gần nhất | ..../..../........ — ☐ Trên giấy ☐ Mô phỏng ☐ Thực tế |
-| **Cờ Chưa kiểm chứng** *(quá hạn diễn tập theo mục 5.4.2)* | ☐ |
+| **Cờ Chưa kiểm chứng** *(quá hạn diễn tập theo ETV.P31 mục 6.4.2)* | ☐ |
 
-> Phương án mang cờ **Chưa kiểm chứng** vẫn ở trạng thái Hiệu lực nhưng **không** được viện dẫn làm bằng chứng đáp ứng yêu cầu liên tục hoạt động cho ETV.MP28, ETV.MP35 hoặc cho đánh giá bên ngoài (ETV.P31 mục 6.1).
+> Phương án mang cờ **Chưa kiểm chứng** vẫn ở trạng thái Đã phê duyệt nhưng **không** được viện dẫn làm bằng chứng đáp ứng yêu cầu liên tục hoạt động cho ETV.P28, ETV.P35 hoặc cho đánh giá bên ngoài (ETV.P31 Phụ lục II.1).
 
 ---
 
@@ -98,7 +98,7 @@ Mức bảo vệ an toàn thông tin **không được hạ thấp**. Trường 
 |---|---|---|---|---|---|---|---|
 | 1 | | | | | | | ☐ |
 
-> Nới lỏng kiểm soát mà không có phê duyệt của LĐV, không có thời hạn, không ghi nhật ký là **vi phạm nghiêm trọng** (ETV.P31 mục 7). Kiểm soát chưa khôi phục nguyên trạng → **chặn tuyên bố trở lại bình thường**.
+> Nới lỏng kiểm soát mà không có phê duyệt của LĐV, không có thời hạn, không ghi nhật ký là **vi phạm nghiêm trọng** (ETV.P31 Phụ lục I). Kiểm soát chưa khôi phục nguyên trạng → **chặn tuyên bố trở lại bình thường**.
 
 ### C.2. Phương án khi hệ thống trí tuệ nhân tạo không khả dụng
 
@@ -106,7 +106,7 @@ Mức bảo vệ an toàn thông tin **không được hạ thấp**. Trường 
 |---|---|---|
 | | | |
 
-> AI không khả dụng **không** được viện dẫn làm lý do chậm trễ hoặc sai sót chuyên môn (ETV.P31 mục 5.3.3).
+> AI không khả dụng **không** được viện dẫn làm lý do chậm trễ hoặc sai sót chuyên môn (ETV.P31 mục 6.3.3).
 
 ### C.3. Bản ngoại tuyến
 
@@ -125,4 +125,4 @@ Mức bảo vệ an toàn thông tin **không được hạ thấp**. Trường 
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 | | ☐ Đạt ☐ Không đạt — Lý do: ............ | ☐ Phê duyệt ☐ Không phê duyệt — Lý do: ............ |
 
-> Kế hoạch lưu **vĩnh viễn** trên ManLab theo ETV.MP15. Cập nhật kế hoạch là thay đổi tài liệu — thực hiện theo ETV.MP14 và ETV.MP30.
+> Kế hoạch lưu **vĩnh viễn** trên ManLab theo ETV.P15. Cập nhật kế hoạch là thay đổi tài liệu — thực hiện theo ETV.P14 và ETV.P30.
