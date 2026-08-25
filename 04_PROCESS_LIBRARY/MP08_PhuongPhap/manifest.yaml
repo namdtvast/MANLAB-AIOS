@@ -1,7 +1,11 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP08
 slug: PhuongPhap
 name: Lựa chọn, xác nhận phương pháp và đánh giá độ không đảm bảo đo
+purpose: >-
+  Lựa chọn, kiểm tra xác nhận và xác nhận giá trị sử dụng phương pháp trước khi áp dụng; chứng
+  minh phương pháp phù hợp mục đích sử dụng, đáp ứng yêu cầu khách hàng và phạm vi năng lực đã
+  công bố.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

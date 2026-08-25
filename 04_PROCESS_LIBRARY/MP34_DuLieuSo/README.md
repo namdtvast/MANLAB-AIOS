@@ -4,21 +4,23 @@
 |---|---|
 | Mã quy trình | MP34 |
 | Tên gọi ngắn | DuLieuSo |
-| Điều khoản/căn cứ | ISO/IEC 27001; ISO/IEC 42001; Nghị định 13/2023/NĐ-CP |
+| Thủ tục ban hành | `ETV.P34` — Thủ tục Quản lý dữ liệu số (lần BH 01, chờ soát xét) |
+| Điều khoản/căn cứ | ISO/IEC 17025 §7.5, §7.11 · ISO 17034 §7.4 · ISO 9001 §7.5 · ISO/IEC 27001 A.5.12–A.5.14, A.5.33, A.8.10–A.8.12 · ISO/IEC 42001 §7.4 · ETV.QM §10.3 |
 | Năng lực liên quan | CAP-28 |
 | Module số hóa | M34_DuLieuSo |
 | Chủ sở hữu | Phụ trách Quản lý chất lượng (QLCL) |
+| Biểu mẫu | F34.01 Danh mục dữ liệu số và từ điển dữ liệu · F34.02 Phiếu đo chất lượng và hiệu chỉnh dữ liệu · F34.03 Phiếu yêu cầu khai thác, chia sẻ dữ liệu |
 
-**Dữ liệu chủ Chủ thể (Party):** MP34 là thủ tục sở hữu chuẩn dữ liệu chủ về chủ thể — định danh,
-vai trò, quan hệ, địa điểm, người liên hệ, bản chụp giao dịch, khử trùng và gộp chủ thể. Chuẩn chi
-tiết: [`09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md`](../../09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md).
+**Nguyên tắc cốt lõi:** một nguồn sự thật · **dữ liệu gốc không bị sửa đè** (hiệu chỉnh bằng bản ghi mới, giữ nguyên giá trị cũ) · chất lượng dữ liệu phải **đo được**, không khẳng định suông.
+
+**Phân biệt với thủ tục lân cận:** ETV.P27 — *có tài sản dữ liệu nào, sao lưu và huỷ ra sao* · **ETV.P34 — *dữ liệu có đúng không, ai được dùng, sống bao lâu*** · ETV.P28 — *bảo vệ bằng biện pháp gì* · ETV.P33 — *nằm trên thiết bị nào* · ETV.P37 — *chảy giữa các hệ thống thế nào*. Ranh giới này do ETV.P35 mục 2.3 (đã ban hành) xác lập.
+
+**Dữ liệu chủ Chủ thể (Party):** nhóm dữ liệu chủ "danh mục khách hàng" (ETV.P34 §2.1 nhóm 3) được
+chuẩn hóa thành mô hình **Chủ thể – Vai trò**: một tổ chức hoặc cá nhân chỉ có một định danh gốc, mang
+nhiều vai trò (khách hàng, nhà cung cấp, bên ngoài cung cấp, cơ sở được đánh giá, chuyên gia, nhân sự,
+bên quan tâm...). Lược đồ, danh mục vai trò, quy tắc khử trùng và gộp:
+[`09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md`](../../09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md).
 Mọi module tham chiếu `m34_party_role`, **không tự tạo master khách hàng / NCC / cơ sở / đối tác /
-chuyên gia**.
-
-**Ranh giới:** MP34 quản lý *dữ liệu số và dữ liệu chủ*. Việc sử dụng chủ thể trong nghiệp vụ thuộc
-về từng thủ tục: khách hàng và hợp đồng → MP07 · bên ngoài cung cấp → MP06 · nhân sự và chuyên gia →
-MP03 · khiếu nại → MP12 · bảo mật thông tin khách hàng → MP02 · bên quan tâm và tính khách quan →
-MP25 · phân loại và bảo vệ dữ liệu → MP27/MP28 · nền tảng và phân quyền → MP33/MP35 · API và hợp
-đồng dữ liệu → MP37 · ràng buộc AI → MP29.
+chuyên gia** — đây là áp dụng Nguyên tắc 1 (một nguồn sự thật) của ETV.P34 §2.2.
 
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.

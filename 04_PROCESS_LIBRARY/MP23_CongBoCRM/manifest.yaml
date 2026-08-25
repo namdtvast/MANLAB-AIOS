@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP23
 slug: CongBoCRM
 name: Công bố giá trị danh định và độ không đảm bảo đo của chất chuẩn
+purpose: >-
+  Xác lập, đánh giá và công bố giá trị danh định cùng độ không đảm bảo đo của chất chuẩn do Viện
+  sản xuất; bảo đảm tính minh bạch, khả năng truy xuất và độ tin cậy khi sử dụng chất chuẩn.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17034']

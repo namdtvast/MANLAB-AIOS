@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP17
 slug: XemXetLanhDao
 name: Xem xét của lãnh đạo
+purpose: >-
+  Tổ chức chương trình xem xét của Lãnh đạo Viện theo định kỳ nhằm đánh giá sự phù hợp, thỏa đáng
+  và hiệu lực liên tục của hệ thống quản lý, chính sách và mục tiêu chất lượng.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

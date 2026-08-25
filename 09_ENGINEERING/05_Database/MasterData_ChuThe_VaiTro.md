@@ -4,7 +4,8 @@
 |---|---|
 | Loại | Chuẩn kiến trúc dữ liệu (bắt buộc với mọi module) |
 | Trạng thái | Baseline — lần 01, 24/08/2026 |
-| Thủ tục sở hữu | [MP34_DuLieuSo](../../04_PROCESS_LIBRARY/MP34_DuLieuSo) — Quản lý dữ liệu số |
+| Thủ tục sở hữu | [MP34_DuLieuSo](../../04_PROCESS_LIBRARY/MP34_DuLieuSo) — thủ tục [`ETV.P34`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md) Quản lý dữ liệu số |
+| Quan hệ với ETV.P34 | Chuẩn này **không thay thế** thủ tục; nó chi tiết hóa nhóm dữ liệu chủ số 3 (danh mục khách hàng) tại ETV.P34 §2.1 thành lược đồ triển khai |
 | Phạm vi | Toàn bộ module M01–M38 chạy trên `09_ENGINEERING/aios-platform` |
 | Tài liệu liên quan | [01_ENTERPRISE/09_Architecture.md §9.2.1](../../01_ENTERPRISE/09_Architecture.md) · [06_SHARED_RESOURCES/04_Master_Data](../../06_SHARED_RESOURCES/04_Master_Data) |
 
@@ -59,9 +60,9 @@ về sau tăng theo cấp số.
 | **BR-04** | Giao dịch nghiệp vụ xác định bên tham gia qua `party_role_id`, **không** qua `party_id` trần. |
 | **BR-05** | Giao dịch có giá trị pháp lý phải lưu `m34_party_snapshot` bất biến tại thời điểm phát sinh: hợp đồng · báo giá đã gửi · **phiếu kết quả đo (PKQ)** · **giấy chứng nhận kiểm định/hiệu chuẩn** · chứng chỉ · công bố · biên bản. |
 | **BR-06** | Không hard-delete `m34_party`, `m34_party_role`, `m34_party_relationship` khi đã phát sinh giao dịch — chỉ đổi trạng thái. |
-| **BR-07** | Module **không được tự tạo master khách hàng / NCC / cơ sở / đối tác / chuyên gia**; phải tham chiếu `m34_party_role`. |
-| **BR-08** | Dữ liệu của thể nhân (`party_type = PERSON`) mặc định là **dữ liệu cá nhân** theo Nghị định 13/2023/NĐ-CP. |
-| **BR-09** | Gộp chủ thể (merge) phải được người có thẩm quyền phê duyệt và ghi `m34_party_merge_log`; AI không được tự gộp. |
+| **BR-07** | Module **không được tự tạo master khách hàng / NCC / cơ sở / đối tác / chuyên gia**; phải tham chiếu `m34_party_role`. Đây là áp dụng **Nguyên tắc 1 — Một nguồn sự thật** của ETV.P34 §2.2. |
+| **BR-08** | Dữ liệu của thể nhân (`party_type = PERSON`) mặc định mang cờ **dữ liệu cá nhân** theo ETV.P34 §7; căn cứ pháp luật xác định tại thời điểm áp dụng, không trích cứng vào lược đồ. |
+| **BR-09** | Gộp chủ thể (merge) là thay đổi dữ liệu chủ ⇒ thẩm quyền phê duyệt theo RACI của **ETV.P34** (Lãnh đạo Viện là A cuối cùng khi công nhận dữ liệu chủ, không ủy quyền); mọi lần gộp ghi `m34_party_merge_log`; AI không được tự gộp. |
 | **BR-10** | AI được phép phát hiện, tóm tắt, gợi ý; **không** được tự kết luận tính khách quan, tự phê duyệt NCC, tự quyết khiếu nại hay tự gộp/ẩn danh dữ liệu cá nhân (đồng bộ MP29). |
 
 ### 2.2. Định hướng — chưa bắt buộc
@@ -135,6 +136,11 @@ issued_by, valid_from, valid_to, verification_status
 
 > `NATIONAL_ID` (CCCD) và `PASSPORT` chịu chính sách dữ liệu cá nhân nghiêm ngặt hơn mã số thuế
 > doanh nghiệp — xem mục 8.
+
+> **Vai trò dữ liệu (ETV.P34 §4.1):** `owner_unit` của bản ghi chủ thể là **chủ sở hữu dữ liệu**
+> (lãnh đạo đơn vị, chịu trách nhiệm về ý nghĩa nghiệp vụ); người theo dõi chất lượng và xử lý trùng
+> lặp là **người quản trị dữ liệu nghiệp vụ**; bộ phận vận hành CSDL là **người giữ dữ liệu**, không
+> quyết định nội dung. Không đặt ra vai trò mới ngoài ba vai trò này.
 
 ### 4.4. `m34_party_role` — vai trò
 
@@ -288,18 +294,23 @@ danh tính chủ thể.
 
 ## 8. Dữ liệu cá nhân và phân loại
 
-Căn cứ: **Nghị định 13/2023/NĐ-CP** về bảo vệ dữ liệu cá nhân (hiệu lực 01/7/2023).
+**Không tạo hệ phân loại riêng.** Nhóm bảng `m34_party_*` dùng đúng bốn mức phân loại thông tin đã ban
+hành của Viện (ETV.P02, ETV.P27, ETV.P28) kèm cờ *có chứa dữ liệu cá nhân hay không* theo ETV.P34 §7:
 
-`m34_party` loại `PERSON`, `m34_party_contact`, số điện thoại, email, CCCD, chữ ký, tài khoản đều là vùng
-dữ liệu cá nhân.
+| Mức phân loại | Áp dụng cho | Dữ liệu cá nhân |
+|---|---|---|
+| **Công khai** | Tên pháp nhân đã công bố, số giấy chứng nhận, số công bố | Không |
+| **Nội bộ** | Mã nội bộ, phân nhóm chủ thể, ghi chú nghiệp vụ | Không |
+| **Hạn chế** | Danh tính khách hàng, hợp đồng, giá, quan hệ sở hữu; **toàn bộ `m34_party_contact`** | Có (với thể nhân) |
+| **Mật** | Hồ sơ khiếu nại, xung đột lợi ích, điều tra | Tùy trường hợp |
 
-| Mức | Nội dung điển hình |
-|---|---|
-| `PUBLIC` | Tên tổ chức đã công khai, số công bố |
-| `INTERNAL` | Mã nội bộ, phân loại khách hàng |
-| `CONFIDENTIAL` | Hợp đồng, giá, kết quả đo của khách hàng |
-| `PERSONAL` | Email, điện thoại, CCCD, chữ ký |
-| `RESTRICTED` | Hồ sơ khiếu nại, xung đột lợi ích, điều tra |
+`m34_party` loại `PERSON`, `m34_party_contact`, điện thoại, email, CCCD, chữ ký, tài khoản đều mang cờ
+dữ liệu cá nhân. Việc hạ mức phân loại dữ liệu khách hàng phải có phê duyệt công bố theo **ETV.P02** —
+ETV.P27 §11 quy định thiếu phê duyệt thì **chặn thao tác**.
+
+Căn cứ pháp luật viết theo đúng cách ETV.P34 §3 đang dùng: **"pháp luật hiện hành về bảo vệ dữ liệu cá
+nhân"** (tại thời điểm viết là Nghị định 13/2023/NĐ-CP), do QLCL phối hợp PT.ATTT xác định văn bản đang
+hiệu lực — không trích cứng số hiệu vào lược đồ.
 
 Bản ghi đồng ý (`m34_party_consent`) phải theo **từng mục đích**, không phải một cờ `true/false` chung:
 
@@ -308,9 +319,6 @@ id, person_party_id, purpose_code, data_categories,
 consent_status, consented_at, withdrawn_at,
 evidence_document_ref, retention_until
 ```
-
-> Trước khi triển khai, đối chiếu lại văn bản hiện hành về bảo vệ dữ liệu cá nhân trong
-> [08_KNOWLEDGE_GRAPH/01_Regulations](../../08_KNOWLEDGE_GRAPH/01_Regulations).
 
 ---
 
@@ -337,6 +345,7 @@ ISO/IEC 17065 chưa thuộc phạm vi. Khi mở rộng phạm vi công nhận th
 | Giai đoạn | Nội dung | Trạng thái |
 |---|---|---|
 | 1 | Ban hành chuẩn này; chốt thuật ngữ QLKH/Chủ thể | Đang thực hiện |
+| 1b | Kiểm kê nhóm bảng `m34_party_*` thành **một bản ghi** trong Danh mục dữ liệu số (ETV.P.F34.01) kèm từ điển dữ liệu | Chưa bắt đầu |
 | 2 | Bổ sung nhóm bảng `m34_party_*` vào `aios-platform`; màn hình Chủ thể 360° tối giản (định danh, vai trò, địa điểm, người liên hệ) | Chưa bắt đầu |
 | 3 | Module mới (MP06, MP07, MP09, MP11…) tham chiếu `m34_party_role` ngay từ đặc tả | Chưa bắt đầu |
 | 4 | Nối các điểm cũ theo thứ tự giá trị: `M21Record` → `m34_party_snapshot`; `M12Complaint` → bên khiếu nại; `M25InterestedParty` → `party_id` | Chưa bắt đầu |

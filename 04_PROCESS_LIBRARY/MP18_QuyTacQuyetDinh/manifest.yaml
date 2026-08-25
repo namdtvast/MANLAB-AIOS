@@ -1,7 +1,11 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP18
 slug: QuyTacQuyetDinh
 name: Quy tắc quyết định và tuyên bố sự phù hợp
+purpose: >-
+  Thiết lập và áp dụng quy tắc quyết định khi tuyên bố sự phù hợp trong hiệu chuẩn, thử nghiệm
+  phương tiện đo, mẫu chuẩn và sản phẩm; bảo đảm tuyên bố nhất quán, có tính đến độ không đảm bảo
+  đo.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

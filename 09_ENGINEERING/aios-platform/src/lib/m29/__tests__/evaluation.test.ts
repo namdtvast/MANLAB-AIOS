@@ -50,6 +50,34 @@ describe("runCases — chấm bộ ca kiểm thử", () => {
   });
 });
 
+// Ca của Copilot tra cứu KHÔNG chấm được bằng luật z-score. Để lọt xuống evaluateCase() thì mọi
+// ca sẽ ra "no_flag", bộ 30 câu hỏi vàng hoá thành 10/30 đúng ngẫu nhiên, và deploymentGate() đọc
+// kết quả rác đó để chặn/mở việc kích hoạt PromptVersion. Phải ném lỗi, không được ghi run rác.
+describe("runCases — chặn ca của Copilot tra cứu", () => {
+  it("ném lỗi thay vì chấm nhầm bằng luật z-score", () => {
+    expect(() =>
+      runCases([{ id: "c1", expected: "refuse", input: { kind: "copilot-tracuu", ma: "BAY-01", cauHoi: "…" } }])
+    ).toThrow(/Copilot tra cứu/);
+  });
+
+  it("chỉ rõ lệnh phải chạy thay thế", () => {
+    expect(() => runCases([{ id: "c1", expected: "cite", input: { kind: "copilot-tracuu" } }])).toThrow(/danh-gia-copilot/);
+  });
+
+  it("một ca Copilot lẫn trong bộ KPI cũng chặn cả bộ, không chấm một nửa", () => {
+    expect(() =>
+      runCases([
+        { id: "c1", expected: "flag_warning", input: { "z-score": 2.4 } },
+        { id: "c2", expected: "cite", input: { kind: "copilot-tracuu" } },
+      ])
+    ).toThrow();
+  });
+
+  it("không đụng tới bộ KPI thuần", () => {
+    expect(runCases([{ id: "c1", expected: "flag_warning", input: { "z-score": 2.4 } }]).status).toBe("PASS");
+  });
+});
+
 describe("deploymentGate — Cổng triển khai", () => {
   it("chặn khi lần đánh giá gần nhất KHÔNG ĐẠT", async () => {
     prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
@@ -69,15 +97,29 @@ describe("deploymentGate — Cổng triển khai", () => {
     expect(prismaMock.aIEvaluationRun.findFirst).toHaveBeenCalledWith(expect.objectContaining({ orderBy: { createdAt: "desc" } }));
   });
 
+  // ĐỔI HÀNH VI so với bản port gốc — bản gốc chỉ chặn khi FAIL, nên "chưa chạy lần nào" và
+  // "chạy xong chưa ai kết luận" đều lọt. ETV.P29 §5.3.1 đòi có báo cáo ĐÃ PHÊ DUYỆT trước khi
+  // vận hành, nên cổng phải fail-closed.
+  it("có bộ đánh giá nhưng CHƯA CHẠY lần nào thì CHẶN (ETV.P29 §5.3.1)", async () => {
+    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
+    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue(null);
+    const r = await deploymentGate("agent-1");
+    expect(r).toMatchObject({ ok: false, code: "DEPLOYMENT_BLOCKED_BY_EVALUATION" });
+    if (!r.ok) expect(r.message).toContain("CHƯA CHẠY");
+  });
+
+  it("chạy xong nhưng CHƯA CÓ NGƯỜI KẾT LUẬN thì CHẶN — phần mềm không tự kết luận (§4.8)", async () => {
+    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
+    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue({ id: "run-11", status: "CHO_KET_LUAN", failCount: 0 });
+    const r = await deploymentGate("agent-1");
+    expect(r).toMatchObject({ ok: false, code: "DEPLOYMENT_BLOCKED_BY_EVALUATION" });
+    if (!r.ok) expect(r.message).toContain("F29.03");
+  });
+
   it("agent chưa có bộ đánh giá nào thì không chặn", async () => {
     prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([]);
     expect(await deploymentGate("agent-moi")).toMatchObject({ ok: true });
     expect(prismaMock.aIEvaluationRun.findFirst).not.toHaveBeenCalled();
   });
 
-  it("có bộ đánh giá nhưng chưa chạy lần nào thì không chặn", async () => {
-    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
-    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue(null);
-    expect(await deploymentGate("agent-1")).toMatchObject({ ok: true });
-  });
 });

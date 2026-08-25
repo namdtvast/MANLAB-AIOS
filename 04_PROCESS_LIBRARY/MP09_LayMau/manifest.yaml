@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP09
 slug: LayMau
 name: Lấy mẫu, xử lý và bảo quản mẫu
+purpose: >-
+  Lấy mẫu, xử lý và bảo quản mẫu môi trường (nước, đất, không khí, khí thải, chất thải); bảo đảm
+  mẫu có tính đại diện, ổn định và truy xuất được trong suốt quá trình quan trắc.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

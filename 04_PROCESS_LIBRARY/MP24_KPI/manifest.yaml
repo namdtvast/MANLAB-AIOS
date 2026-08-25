@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP24
 slug: KPI
 name: Quản lý và đánh giá hiệu suất công việc (KPI)
+purpose: >-
+  Quản lý công nhật, đánh giá hiệu suất công việc (KPI) và chi trả lương-thưởng theo mô hình 3P
+  (vị trí – hiệu quả – năng lực); làm căn cứ hạch toán chi phí và cải tiến liên tục.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO9001']

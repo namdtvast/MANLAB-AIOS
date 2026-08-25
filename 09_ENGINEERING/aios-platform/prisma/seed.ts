@@ -3,15 +3,41 @@
 // (tên module lấy từ manifest.yaml của MPxx tương ứng), không hardcode 2 nơi.
 import "dotenv/config";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
+import { randomBytes } from "node:crypto";
 import { join, relative as relative_ } from "node:path";
 import yaml from "js-yaml";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
 import type { Prisma } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { BO_CAU_HOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
+
+// Mật khẩu của các tài khoản demo — KHÔNG viết cứng trong repo. Repo này công khai trên
+// GitHub, nên một mật khẩu ghi thẳng ở đây là mật khẩu ai cũng đọc được, dùng chung cho
+// khoảng 11 tài khoản, trong đó có một tài khoản quyền ADMIN.
+//
+//   SEED_DEMO_PASSWORD có đặt → dùng đúng giá trị đó (đội dev thống nhất một mật khẩu).
+//   không đặt                 → sinh ngẫu nhiên và in ra một lần ở cuối lần chạy seed.
+//
+// Mọi upsert tài khoản trong file này đều dùng `update: {}`, nên chạy lại seed KHÔNG đổi
+// mật khẩu của tài khoản đã tồn tại — giá trị sinh ngẫu nhiên chỉ áp cho tài khoản mới tạo.
+// Đó cũng là lý do chạy seed lần hai không làm hỏng đăng nhập của môi trường đang chạy.
+const DEMO_PASSWORD_FROM_ENV = process.env.SEED_DEMO_PASSWORD;
+const DEMO_PASSWORD = DEMO_PASSWORD_FROM_ENV ?? randomBytes(12).toString("base64url");
+
+/** In tình trạng mật khẩu demo sau khi seed xong — chỗ duy nhất lộ giá trị sinh ngẫu nhiên. */
+function baoCaoMatKhauDemo() {
+  if (DEMO_PASSWORD_FROM_ENV) {
+    console.log("Tài khoản demo dùng mật khẩu lấy từ biến môi trường SEED_DEMO_PASSWORD.");
+  } else {
+    console.log(`Mật khẩu tài khoản demo (sinh ngẫu nhiên cho lần chạy này): ${DEMO_PASSWORD}`);
+    console.log("Ghi lại ngay — giá trị này không được lưu ở đâu khác. Đặt SEED_DEMO_PASSWORD nếu muốn cố định.");
+  }
+  console.log("Tài khoản demo chỉ dành cho dev/demo — xoá hoặc đổi mật khẩu trước khi đưa ra môi trường thật.");
+}
 
 // aios-platform nằm tại 09_ENGINEERING/aios-platform — lùi 3 cấp để tới gốc repo.
 const REPO_ROOT = join(__dirname, "..", "..", "..");
@@ -30,6 +56,9 @@ const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "
 
 interface MpManifest {
   name?: string;
+  // Mục tiêu cô đọng của thủ tục — chắt từ mục "MỤC ĐÍCH" của chính văn bản ETV.Pxx.
+  // MP chưa ban hành thủ tục thì không khai; banner không bịa mục tiêu hộ.
+  purpose?: string;
   owner?: string;
   capabilities?: string[];
   module?: string;
@@ -61,6 +90,11 @@ interface FormRef {
   code: string;
   title: string;
   path: string | null;
+  // Lần ban hành + ngày ban hành của chính biểu mẫu (khác lần ban hành của thủ tục). Bản xuất
+  // PDF in hai giá trị này lên đầu tờ biểu mẫu — nạp sẵn ở đây để lúc chạy không phải đọc file
+  // trong repo (đọc filesystem động khiến Next đóng gói cả repo vào bundle deploy).
+  revision: string | null;
+  effectiveDate: string | null; // giữ nguyên dạng dd/mm/yyyy như trong file gốc
 }
 
 // Nhóm menu hợp lệ — đối chiếu với _meta/SCHEMA.md (manlab-aios/process@1.1).
@@ -105,14 +139,24 @@ function repoPath(num: string, relative: string): string {
   return relative_(REPO_ROOT, full);
 }
 
-// Tên biểu mẫu lấy từ frontmatter của chính file biểu mẫu (title/doc_name) — không
-// chép tên vào manifest, tránh hai nguồn sự thật lệch nhau.
-function readFormTitle(absPath: string): string | null {
-  if (!existsSync(absPath)) return null;
-  const head = readFileSync(absPath, "utf8").split(/\r?\n/).slice(0, 40);
-  const line = head.find((l) => /^(title|doc_name):/.test(l));
+// Tên/lần ban hành/ngày ban hành của biểu mẫu lấy từ frontmatter của chính file biểu mẫu —
+// không chép vào manifest, tránh hai nguồn sự thật lệch nhau.
+function readFrontmatterField(head: string[], field: string): string | null {
+  const line = head.find((l) => new RegExp(`^${field}:`).test(l));
   if (!line) return null;
-  return line.replace(/^(title|doc_name):\s*/, "").replace(/^"|"$/g, "").trim() || null;
+  return line.replace(new RegExp(`^${field}:\\s*`), "").replace(/^"|"$/g, "").trim() || null;
+}
+
+function readFormFrontmatter(absPath: string): Pick<FormRef, "title" | "revision" | "effectiveDate"> {
+  if (!existsSync(absPath)) return { title: "", revision: null, effectiveDate: null };
+  const head = readFileSync(absPath, "utf8").split(/\r?\n/).slice(0, 40);
+  const revision = readFrontmatterField(head, "revision");
+  return {
+    title: readFrontmatterField(head, "title") ?? readFrontmatterField(head, "doc_name") ?? "",
+    // revision trong YAML có thể là số (3) hoặc chuỗi ("03") — chuẩn hoá về 2 chữ số.
+    revision: revision ? revision.padStart(2, "0") : null,
+    effectiveDate: readFrontmatterField(head, "effective_date"),
+  };
 }
 
 // Ghép mã biểu mẫu (manifest.forms) với file thật (links.form_files). Mã không có
@@ -122,17 +166,20 @@ function buildForms(num: string, manifest: MpManifest | null, links: MpLinks | n
   const byFile: FormRef[] = files.map((rel) => {
     const abs = join(PROCESS_LIB, findMpDir(num) ?? "", rel);
     const base = rel.split("/").pop() ?? rel;
+    const fm = readFormFrontmatter(abs);
     return {
       code: base.split("_")[0].replace(/\.md$/, ""),
-      title: readFormTitle(abs) ?? base.replace(/\.md$/, ""),
+      title: fm.title || base.replace(/\.md$/, ""),
       path: repoPath(num, rel),
+      revision: fm.revision,
+      effectiveDate: fm.effectiveDate,
     };
   });
   const covered = new Set(byFile.map((f) => f.code));
   const declaredOnly = (manifest?.forms ?? [])
     .map(String)
     .filter((code) => !covered.has(code) && !covered.has(`ETV.P.${code}`))
-    .map((code) => ({ code, title: code, path: null }));
+    .map((code) => ({ code, title: code, path: null, revision: null, effectiveDate: null }));
   return [...byFile, ...declaredOnly];
 }
 
@@ -160,6 +207,7 @@ async function main() {
     const canCu = {
       docId: doc?.doc_id ?? null,
       docTitle: doc?.doc_title ?? null,
+      purpose: mpManifest?.purpose?.trim() || null,
       docStatus: doc?.doc_status ?? null,
       docVersion: doc?.doc_version ?? null,
       issuedDate,
@@ -175,6 +223,13 @@ async function main() {
       console.warn(
         `[căn cứ] ${code}: chưa khai khối document trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
           `→ banner sẽ hiển thị "chưa ban hành thủ tục".`,
+      );
+    }
+
+    if (ACTIVE_MODULE_CODES.has(code) && !canCu.purpose) {
+      console.warn(
+        `[căn cứ] ${code}: chưa khai \`purpose\` trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
+          `→ banner sẽ bỏ trống dòng "Mục tiêu".`,
       );
     }
 
@@ -221,18 +276,19 @@ async function main() {
 
   // Tài khoản admin mặc định — CHỈ để login thử ở môi trường dev/demo.
   // Đổi mật khẩu (hoặc xoá user này) trước khi đưa lên môi trường thật.
-  const adminEmail = "admin@manlab.vn";
-  const adminPasswordHash = await bcrypt.hash("DoiMatKhauNgay!2026", 10);
+  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@manlab.vn";
+  const adminPasswordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   await prisma.user.upsert({
     where: { email: adminEmail },
     create: { email: adminEmail, name: "Quản trị viên (demo)", role: "ADMIN", passwordHash: adminPasswordHash },
     update: {},
   });
-  console.log(`Tài khoản demo: ${adminEmail} / DoiMatKhauNgay!2026 (đổi ngay khi triển khai thật)`);
+  console.log(`Tài khoản quản trị demo: ${adminEmail}`);
 
   await seedM10();
   await seedM21();
   await seedM29();
+  await seedCopilot();
   await seedM01();
   await seedM03();
   await seedM02();
@@ -244,11 +300,13 @@ async function main() {
   await seedM14();
   await seedM25();
   await seedM26();
+
+  baoCaoMatKhauDemo();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
 // (hàm seed()) + tài khoản demo cho từng vai trò NTH/LDP/LDV, khớp bản gốc.
-const DEMO_PASSWORD = "DoiMatKhauNgay!2026";
+// Mật khẩu dùng chung DEMO_PASSWORD khai ở đầu file (đọc từ biến môi trường).
 
 const M10_DEMO_USERS = [
   { email: "nth@manlab.vn", name: "Nguyễn Thị H. (NTH)", role: "NTH" },
@@ -356,7 +414,7 @@ async function seedM10() {
   }
 
   console.log(`Đã nạp ${demoRecords.length} hồ sơ M10 demo + ${M10_DEMO_USERS.length} tài khoản vai trò M10.`);
-  console.log(`Tài khoản M10 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M10_DEMO_USERS.map((u) => u.email).join(", ")}`);
+  console.log(`Tài khoản M10 demo: ${M10_DEMO_USERS.map((u) => u.email).join(", ")}`);
 }
 
 // M21 — port state machine/dữ liệu demo từ 05_MODULE_LIBRARY/M21_CongBoNangLuc/08_Source/index.html
@@ -555,8 +613,10 @@ async function seedM29() {
   const model = await prisma.aIModel.create({
     data: {
       providerId: provider.id,
-      modelId: "gemini-2.5-flash",
-      displayName: "Gemini 2.5 Flash",
+      // gemini-2.5-flash đã bị Google ngừng cấp cho người dùng mới (gọi thật trả HTTP 404, kèm
+      // thông báo chuyển sang đời mới) — đo ngày 25/08/2026. Dữ liệu demo phải trỏ model còn sống.
+      modelId: "gemini-3.5-flash",
+      displayName: "Gemini 3.5 Flash",
       purpose: "Phân tích chỉ số, cảnh báo bất thường",
       temperature: 0.2,
       maxTokens: 2048,
@@ -705,7 +765,284 @@ async function seedM29() {
   });
 
   console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
-  console.log(`Tài khoản M29 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
+  console.log(`Tài khoản M29 demo: ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
+}
+
+// ---------------------------------------------------------------------------
+// M29 Copilot tra cứu — Increment 1: HỒ SƠ QUẢN TRỊ TRƯỚC, tính năng sau.
+// Đặc tả: 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/{spec.md,plan.md}.
+//
+// Tách khỏi seedM29() có chủ đích: seedM29() tự dừng khi đã có dữ liệu mẫu (`existing > 0`) nên
+// môi trường đã seed từ trước sẽ không bao giờ nhận được Copilot. Hàm này upsert theo `code` nên
+// chạy lại bao nhiêu lần cũng cho cùng một kết quả.
+//
+// Thứ tự bắt buộc (nguyên tắc 1 của plan.md): Provider → Model → Platform → Agent → Prompt →
+// AIA đã phê duyệt → Guardrail → Policy. Chưa có AIA APPROVED thì gateway.chat() chặn mọi lượt
+// hỏi, kể cả khi Agent đã ACTIVE.
+const COPILOT_AGENT_CODE = "AGENT_COPILOT_TRACUU";
+
+// Prompt hệ thống — NGUỒN SỰ THẬT nằm ở đây (AIPromptVersion), không viết cứng trong gateway.
+// Sửa prompt = tạo phiên bản mới có người phê duyệt, không phải sửa mã nguồn (spec §1).
+const COPILOT_SYSTEM_PROMPT = `Bạn là trợ lý tra cứu tài liệu nội bộ của Viện Kiểm định Công nghệ và Môi trường (ETV).
+
+NHIỆM VỤ
+Trả lời câu hỏi về thủ tục ETV.Pxx, quy trình, biểu mẫu, tiêu chuẩn và module số hóa của Viện,
+CHỈ dựa trên các trích đoạn tài liệu được cung cấp trong phần "NGỮ CẢNH ĐƯỢC PHÉP DÙNG".
+
+QUY TẮC BẮT BUỘC
+1. Chỉ dùng thông tin có trong ngữ cảnh. Không suy đoán, không bổ sung kiến thức ngoài.
+2. Mỗi ý trả lời phải dẫn nguồn bằng ĐÚNG đường dẫn ghi ở dòng "NGUỒN:" của trích đoạn, đặt
+   trong ngoặc đơn ngay sau ý đó. Ví dụ: (03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md).
+   Chép nguyên văn đường dẫn, không rút gọn, không đổi dấu gạch chéo.
+3. Ngữ cảnh không đủ căn cứ để trả lời thì trả lời đúng một câu:
+   "Không tìm thấy căn cứ trong hệ thống tài liệu của Viện."
+   Không kèm phỏng đoán, không kèm lời khuyên chung chung.
+4. KHÔNG đưa ra kết luận đo lường, hiệu chuẩn, thử nghiệm; KHÔNG kết luận đạt/không đạt;
+   KHÔNG phê duyệt hoặc đề nghị coi như đã phê duyệt bất kỳ hồ sơ, kết quả hay chứng chỉ nào.
+   Gặp câu hỏi loại này thì nói rõ đây là thẩm quyền của người có năng lực theo thủ tục, và chỉ
+   ra thủ tục/biểu mẫu tương ứng.
+5. Trả lời bằng tiếng Việt, ngắn gọn, đi thẳng vào thủ tục và biểu mẫu cần dùng.
+6. Không nhắc tới sự tồn tại của tài liệu không có trong ngữ cảnh.
+
+ĐỊNH DẠNG
+- Câu trả lời trực tiếp trước, tối đa 5-6 câu.
+- Nếu có các bước, dùng danh sách đánh số ngắn.
+- Nêu rõ mã thủ tục (ETV.Pxx) và mã biểu mẫu (ETV.P.Fxx.xx) khi ngữ cảnh có.`;
+
+async function seedCopilot() {
+  const admin = await prisma.user.findUnique({ where: { email: "ai-admin@manlab.vn" } });
+  if (!admin) {
+    console.log("Bỏ qua Copilot: chưa có tài khoản ai-admin@manlab.vn (chạy seedM29 trước).");
+    return;
+  }
+
+  const provider = await prisma.aIProvider.upsert({
+    where: { code: "ANTHROPIC" },
+    create: { code: "ANTHROPIC", name: "Anthropic" },
+    update: {},
+  });
+
+  // costPer1kTokens là MỘT cột duy nhất trong khi bảng giá thật tách đầu vào/đầu ra
+  // (Claude Opus 5: 5 USD/triệu token vào, 25 USD/triệu token ra). Dùng giá pha trộn 0.0075
+  // USD/1k token theo tỉ lệ điển hình của tra cứu RAG (~4000 token vào : ~500 token ra) — đây là
+  // ƯỚC TÍNH phục vụ trang Chi phí và hạn mức, KHÔNG phải hóa đơn của nhà cung cấp.
+  // AIModel không có ràng buộc duy nhất trên modelId (bản port giữ nguyên cấu trúc gốc), nên
+  // tìm-rồi-tạo thay vì upsert.
+  const model =
+    (await prisma.aIModel.findFirst({ where: { providerId: provider.id, modelId: "claude-opus-5" } })) ??
+    (await prisma.aIModel.create({
+      data: {
+        providerId: provider.id,
+        modelId: "claude-opus-5",
+        displayName: "Claude Opus 5",
+        purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
+        maxTokens: 4096,
+        costPer1kTokens: 0.0075,
+      },
+    }));
+
+  // ---- Nhà cung cấp mô hình thứ hai: Google Gemini ----
+  // Có mặt để chứng minh nguyên tắc kiến trúc #2: đổi nhà cung cấp chỉ là thêm adapter + đổi bản
+  // ghi AIPlatform, không đụng gateway/guardrail/truy hồi/bộ đánh giá.
+  //
+  // CẢNH BÁO TUÂN THỦ gắn liền với bản ghi này: bậc MIỄN PHÍ của Gemini API dùng dữ liệu để cải
+  // thiện sản phẩm, tức KHÔNG bảo đảm được điều khoản "không dùng dữ liệu để huấn luyện lại" của
+  // ETV.P29 §5.5. Khi đó chỉ được gửi tài liệu mức Công khai — cưỡng chế bằng biến
+  // COPILOT_MUC_BAO_MAT_TOI_DA, mặc định fail-closed ở "Cong-khai".
+  const providerGemini = await prisma.aIProvider.upsert({
+    where: { code: "GEMINI" },
+    create: { code: "GEMINI", name: "Google Gemini" },
+    update: {},
+  });
+  const modelGemini =
+    (await prisma.aIModel.findFirst({ where: { providerId: providerGemini.id, modelId: "gemini-3.5-flash" } })) ??
+    (await prisma.aIModel.create({
+      data: {
+        providerId: providerGemini.id,
+        modelId: "gemini-3.5-flash",
+        displayName: "Gemini 3.5 Flash",
+        purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
+        maxTokens: 4096,
+        // Bậc miễn phí không tính phí — đổi lại là không có cam kết về dữ liệu. Đây chính là cái
+        // giá thật của "miễn phí" trong ngữ cảnh ISO/IEC 42001, không phải 0.
+        costPer1kTokens: 0,
+      },
+    }));
+  const platformGemini = await prisma.aIPlatform.upsert({
+    where: { code: "GEMINI_API" },
+    create: {
+      code: "GEMINI_API",
+      name: "Google Gemini API (dịch vụ mô hình ngoài Viện)",
+      baseUrl: "https://aistudio.google.com",
+      apiBaseUrl: "https://generativelanguage.googleapis.com",
+      environment: "EXTERNAL",
+      owner: "Dương Thành Nam",
+      adapterType: "GeminiPlatformAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+    update: {},
+  });
+
+  const platform = await prisma.aIPlatform.upsert({
+    where: { code: "ANTHROPIC_API" },
+    create: {
+      code: "ANTHROPIC_API",
+      name: "Anthropic API (dịch vụ mô hình ngoài Viện)",
+      baseUrl: "https://platform.claude.com",
+      apiBaseUrl: "https://api.anthropic.com",
+      environment: "EXTERNAL",
+      owner: "Dương Thành Nam",
+      adapterType: "AnthropicAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+    update: {},
+  });
+
+  const agent = await prisma.aIAgent.upsert({
+    where: { code: COPILOT_AGENT_CODE },
+    create: {
+      platformId: platform.id,
+      code: COPILOT_AGENT_CODE,
+      name: "Copilot tra cứu",
+      purpose:
+        "Hỏi–đáp về thủ tục ETV.Pxx, tiêu chuẩn, biểu mẫu và module; bắt buộc trích dẫn nguồn; không ghi dữ liệu nghiệp vụ",
+      modelId: model.id,
+      riskLevel: "MEDIUM",
+      owner: "Dương Thành Nam",
+    },
+    update: {},
+  });
+
+  const prompt = await prisma.aIPrompt.upsert({
+    where: { code: "PROMPT_COPILOT_TRACUU" },
+    create: { code: "PROMPT_COPILOT_TRACUU", agentId: agent.id },
+    update: {},
+  });
+  let promptVersion = await prisma.aIPromptVersion.findFirst({ where: { promptId: prompt.id, content: COPILOT_SYSTEM_PROMPT } });
+  if (!promptVersion) {
+    promptVersion = await prisma.aIPromptVersion.create({
+      data: {
+        promptId: prompt.id,
+        content: COPILOT_SYSTEM_PROMPT,
+        status: "ACTIVE",
+        createdBy: admin.id,
+        approvedBy: admin.id,
+        effectiveFrom: new Date(),
+      },
+    });
+  }
+  // Nhà cung cấp đang dùng: chọn theo khoá API thực sự có trên máy chủ. Đổi nhà cung cấp là sự
+  // kiện bắt buộc đánh giá lại (ETV.P29 §5.3.3) — cổng triển khai fail-closed đã tự chặn vì bộ
+  // đánh giá chưa có lần chạy nào được kết luận.
+  const dungGemini = Boolean(process.env.GEMINI_API_KEY) && !process.env.ANTHROPIC_API_KEY;
+  await prisma.aIAgent.update({
+    where: { id: agent.id },
+    data: {
+      activePromptVersionId: promptVersion.id,
+      platformId: dungGemini ? platformGemini.id : platform.id,
+      modelId: dungGemini ? modelGemini.id : model.id,
+    },
+  });
+  console.log(`Copilot đang trỏ nhà cung cấp: ${dungGemini ? "Google Gemini (gemini-3.5-flash)" : "Anthropic (claude-opus-5)"}.`);
+
+  // Hồ sơ đánh giá tác động AI (ETV.P.F29.02). Trạng thái APPROVED ở dữ liệu mẫu để đường dây
+  // chạy được; ở môi trường thật, hồ sơ này do LĐV phê duyệt theo ETV.P29 §4.1 — KHÔNG được coi
+  // bản seed này là hồ sơ đã phê duyệt hợp lệ.
+  const aiaCode = "AIA-2026-003";
+  const existingAia = await prisma.aIImpactAssessment.findUnique({ where: { code: aiaCode } });
+  if (!existingAia) {
+    await prisma.aIImpactAssessment.create({
+      data: {
+        code: aiaCode,
+        agentId: agent.id,
+        purpose: "Tra cứu thủ tục/tiêu chuẩn/biểu mẫu đã ban hành, trả lời kèm trích dẫn nguồn",
+        dataUsed:
+          "Trích đoạn tài liệu mức Công khai/Nội bộ đã phê duyệt (ETV.P29 §5.5). Không có dữ liệu khách hàng, kết quả đo hay hồ sơ nhân sự.",
+        affectedUsers: "Toàn bộ cán bộ, nhân viên đã đăng nhập nền tảng",
+        risk: "MEDIUM",
+        humanOversight:
+          "Chỉ-đọc, không ghi dữ liệu nghiệp vụ. Người dùng chịu trách nhiệm kiểm chứng nguồn trước khi sử dụng; nhãn cảnh báo hiển thị cố định.",
+        controls:
+          "Lọc mức bảo mật trước khi dựng prompt (E1-E6); guardrail GR-PII-OUT/GR-SCOPE/GR-NO-SOURCE cưỡng chế lúc chạy; mọi lượt hỏi ghi AIRequest; hạn mức chi phí tháng. Điều khoản nhà cung cấp về không dùng dữ liệu API để huấn luyện lại phải được trích vào F29.02 trước khi mở cho người dùng thật.",
+        residualRisk: "LOW",
+        status: "APPROVED",
+        reviewDate: new Date(Date.now() + 180 * 24 * 60 * 60 * 1000),
+      },
+    });
+  }
+
+  // Ba guardrail của spec §6. Mã phải khớp DETECTORS trong src/lib/m29/guardrails.ts — mã lạ thì
+  // không có phép phát hiện nào chạy.
+  const guardrails = [
+    {
+      code: "GR-PII-OUT",
+      description: "Chặn câu hỏi chứa dữ liệu cá nhân (CCCD/CMND, điện thoại, thư điện tử) trước khi gửi ra dịch vụ mô hình bên ngoài",
+      severity: "HIGH",
+    },
+    {
+      code: "GR-SCOPE",
+      description: "Chặn câu hỏi yêu cầu AI kết luận đo lường hoặc phê duyệt hồ sơ/chứng chỉ (ISO/IEC 42001)",
+      severity: "HIGH",
+    },
+    {
+      code: "GR-NO-SOURCE",
+      description: "Chặn câu trả lời không dẫn được đường dẫn tài liệu trong hệ thống của Viện",
+      severity: "HIGH",
+    },
+  ] as const;
+  for (const g of guardrails) {
+    await prisma.aIGuardrail.upsert({
+      where: { code: g.code },
+      create: { ...g, scope: "AGENT", scopeRef: agent.id, action: "BLOCK", approvalStatus: "APPROVED", approvedBy: admin.id },
+      update: {},
+    });
+  }
+
+  // Hạn mức chi phí là THAM SỐ VẬN HÀNH (Q3): bản ghi này là hồ sơ quản trị của hạn mức, con số
+  // thực thi đọc từ biến môi trường COPILOT_MONTHLY_BUDGET_USD để đổi hạn mức không phải ban
+  // hành lại thủ tục. Con số cụ thể do LĐV ấn định và khai trong ETV.P.F29.01.
+  const policyName = "Hạn mức và phạm vi sử dụng Copilot tra cứu";
+  const existingPolicy = await prisma.aIPolicy.findFirst({ where: { name: policyName } });
+  if (!existingPolicy) {
+    await prisma.aIPolicy.create({
+      data: {
+        name: policyName,
+        owner: "Dương Thành Nam",
+        approver: "Lãnh đạo Viện",
+        effectiveDate: new Date(),
+        approvalStatus: "APPROVED",
+        approvedBy: admin.id,
+        reference: "ETV.P29 §5.5; ETV.P.F29.01; biến COPILOT_MONTHLY_BUDGET_USD",
+      },
+    });
+  }
+
+  // Bản ghi đăng ký khóa API — CHỈ maskedValue, giá trị thật nằm ở biến môi trường (spec §9).
+  const existingSecret = await prisma.aISecret.findFirst({ where: { platformId: platform.id, name: "ANTHROPIC_API_KEY" } });
+  if (!existingSecret) {
+    await prisma.aISecret.create({
+      data: { platformId: platform.id, name: "ANTHROPIC_API_KEY", maskedValue: "sk-ant-****", status: "ACTIVE" },
+    });
+  }
+
+  // Bộ đánh giá chất lượng — Increment 5 của plan.md. Nguồn sự thật của 30 ca là
+  // src/lib/m29/copilot/bo-cau-hoi-vang.ts (bản duyệt được, có lý do từng ca); seed chỉ chép vào
+  // CSDL để danh mục M29 nhìn thấy. Seed KHÔNG tạo AIEvaluationRun — bộ này chưa chạy thật thì
+  // chưa có kết quả, và không có đường nào để phần mềm tự chấm mình đạt.
+  const suite =
+    (await prisma.aIEvaluationSuite.findFirst({ where: { agentId: agent.id } })) ??
+    (await prisma.aIEvaluationSuite.create({ data: { name: BO_CAU_HOI.ten, agentId: agent.id } }));
+  await prisma.aIEvaluationSuite.update({ where: { id: suite.id }, data: { name: BO_CAU_HOI.ten } });
+  // Chép lại toàn bộ: bộ câu hỏi sửa ở file dữ liệu thì CSDL phải theo, không giữ ca cũ đã bỏ.
+  await prisma.aIEvaluationCase.deleteMany({ where: { suiteId: suite.id } });
+  await prisma.aIEvaluationCase.createMany({
+    data: TAT_CA_CA.map((c) => ({ suiteId: suite.id, input: c as unknown as Prisma.InputJsonValue, expected: c.kyVong })),
+  });
+  console.log(`Đã nạp ${TAT_CA_CA.length} ca của bộ "${BO_CAU_HOI.ten}" (${BO_CAU_HOI.trangThai}).`);
+
+  console.log("Đã khai Copilot tra cứu trong danh mục M29 (Platform→Model→Agent→Prompt→AIA→3 Guardrail→Policy→Secret).");
 }
 
 // M01 — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (không có 08_Source
@@ -2376,7 +2713,7 @@ async function seedM26() {
     `Đã nạp 5 mục tri thức (2 đã phê duyệt + 1 quá hạn rà soát + 1 Mật + 1 chờ soát xét), 2 bài học, 2 nhu cầu, 1 hoạt động chia sẻ demo M26 ` +
       `+ vai trò M26 cho ${Object.keys(userByRole).length} tài khoản.`,
   );
-  console.log(`Tài khoản M26 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${Object.values(M26_ROLE_EMAILS).join(", ")}`);
+  console.log(`Tài khoản M26 demo: ${Object.values(M26_ROLE_EMAILS).join(", ")}`);
 }
 
 main()

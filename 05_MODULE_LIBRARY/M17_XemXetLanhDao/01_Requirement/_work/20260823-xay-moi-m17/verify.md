@@ -22,7 +22,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt TP (`ldp@manlab.vn`), LĐV (`ldv@manlab.vn`, cùng mật khẩu
-`DoiMatKhauNgay!2026`), thao tác qua UI thật.
+tài khoản demo), thao tác qua UI thật.
 
 ### 1. Gate đồng phê duyệt `ReviewPlan` (quy tắc 2 ETV.P17) — PASS, đúng cả 2 chiều
 

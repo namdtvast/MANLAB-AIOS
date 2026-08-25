@@ -21,7 +21,7 @@
 
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
-Đăng nhập TP (`ldp@manlab.vn`, mật khẩu `DoiMatKhauNgay!2026` — vai trò trung tâm của module này
+Đăng nhập TP (`ldp@manlab.vn`, mật khẩu tài khoản demo — vai trò trung tâm của module này
 theo bảng gate spec.md), thao tác qua UI thật.
 
 ### 1. FK thật với M03Employee (thay cho `securityCommitmentRef` tự do) — PASS

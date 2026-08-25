@@ -14,6 +14,13 @@ Evaluation để ở Phase 2/3 (chỉ mô tả kiến trúc, chưa triển khai)
 **Không nhầm lẫn** với `07_AI_OPERATING_SYSTEM` (cấu hình Skill/Agent/Guardrail cho *Claude
 Code vận hành trên chính repo này*) — M29_AI là phần mềm quản trị AI của **sản phẩm** ETV/ManLab.
 
+**Copilot tra cứu nằm TRONG phạm vi M29, không phải tính năng đứng ngoài.** Trợ lý hỏi–đáp chỉ-đọc
+gắn trên nền tảng là một `AIAgent` (mã `AGENT_COPILOT_TRACUU`) đăng ký trong chính control plane
+này: prompt là `AIPromptVersion` đã phê duyệt, hồ sơ tác động là `AIImpactAssessment`, mọi lượt hỏi
+là một `AIRequest`. Không có route nào gọi thẳng dịch vụ mô hình bên ngoài — làm vậy là vô hiệu hóa
+AIA Gate và biến M29 thành sổ sách trang trí. Đặc tả đầy đủ:
+[`_work/20260825-copilot-tra-cuu/`](_work/20260825-copilot-tra-cuu/spec.md).
+
 ## 2. Nguyên tắc kiến trúc bắt buộc
 
 1. Agent **không bao giờ** gọi thẳng DB/API của một nền tảng — mọi lời gọi đi qua **Tool
@@ -108,6 +115,43 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
 15. `AIUnregisteredSighting` đóng bằng `REGISTERED` bắt buộc trỏ tới Agent thật; `DISCONTINUED`
     bắt buộc lý do; bản ghi có `sensitiveData=true` không đóng được khi chưa gắn phiếu sự cố.
 
+**Quy tắc riêng cho Copilot tra cứu (Increment 5):**
+
+16. Chỉ mục tri thức của Copilot chỉ nhận tài liệu có **mức bảo mật ∈ {Công khai, Nội bộ}** *và*
+    **trạng thái Đã phê duyệt** (ETV.P29 §5.5 + ETV.P26 §5.5). Thiếu mức, mức không hợp lệ, hoặc
+    thuộc lớp tài liệu chưa được rà mức ⇒ **bỏ qua** — không có nhánh mặc định cho qua. Tài liệu
+    ngoài chỉ mục không được nhắc tới dưới bất kỳ hình thức nào, kể cả tiêu đề.
+17. **Mọi lượt hỏi sinh đúng một `AIRequest`**, kể cả lượt bị guardrail chặn, lượt vượt hạn mức,
+    lượt không tìm được căn cứ và lượt lỗi mạng. Không có lượt nào đi ngoài sổ trace.
+18. `AIGuardrail` được **đọc và cưỡng chế lúc chạy**, không còn là bản ghi khai báo: bản ghi trong
+    CSDL quyết định guardrail nào có hiệu lực và hành động (`BLOCK`/`WARN`); mã guardrail không có
+    phép phát hiện tương ứng trong mã nguồn phải lộ ra là *không cưỡng chế được*, không im lặng bỏ
+    qua. Câu trả lời không dẫn được nguồn bị thay bằng câu từ chối cố định.
+19. Bộ kiểm thử của Copilot bám **đúng 7 nhóm của biểu mẫu ban hành ETV.P.F29.03** (nhóm 3, 4, 5, 7
+    bắt buộc đạt), không tự đặt cơ cấu riêng — cơ cấu song song thì hồ sơ chạy ra không điền được
+    vào phiếu và cổng triển khai §5.3.2 mất căn cứ.
+20. **Phần mềm ĐO, người KẾT LUẬN.** ETV.P29 §4.8 và ghi chú cuối F29.03: trợ lý AI được chạy tình
+    huống kiểm thử theo kịch bản nhưng **không** kết luận Đạt/Không đạt và **không** phê duyệt
+    phiếu. Hệ quả bắt buộc trong mã: trình chạy ghi `AIEvaluationRun.status = CHO_KET_LUAN` và xuất
+    bản nháp F29.03 với ô Kết luận **để trống**; chỉ hành động của người có quyền, kèm số phiếu
+    F29.03 đã ký, mới chuyển được sang `PASS`/`FAIL` (ghi vết ở `AIAuditLog`).
+21. **Cổng triển khai fail-closed** (ETV.P29 §5.3.1): chỉ mở khi lần đánh giá gần nhất có kết luận
+    Đạt. "Chưa chạy lần nào" và "chạy xong chưa ai kết luận" đều **chặn** — khác bản port gốc vốn
+    chỉ chặn khi Không đạt.
+22. Bộ kiểm thử Copilot **không chấm được bằng trình chấm đồng bộ** của M29 (luật z-score): "đúng"
+    của nó là *có dẫn đúng nguồn hay không*, phải gọi mô hình thật mới biết. `runCases()` ném lỗi
+    khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác. Cùng lý do: lượt đánh giá gặp lỗi hạ
+    tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành "100% đạt".
+
+23. **Trần mức bảo mật gửi ra ngoài** (ETV.P29 §5.5): mức tối đa được đưa vào ngữ cảnh gửi tới dịch
+    vụ mô hình bên ngoài do biến `COPILOT_MUC_BAO_MAT_TOI_DA` quyết định, **mặc định fail-closed ở
+    `Cong-khai`**. Nới lên `Noi-bo` là hành động có chủ đích, gắn với việc đã trích điều khoản
+    "không dùng dữ liệu để huấn luyện lại" của nhà cung cấp vào F29.02. **Không** suy ra trần từ
+    tên nhà cung cấp — cùng một nhà cung cấp có bậc cam kết và bậc không cam kết.
+24. Lượt chạy bộ đánh giá **dưới trần thu hẹp không được ghi** thành `AIEvaluationRun`: §5.3.1 đánh
+    giá hệ thống đúng như nó sẽ vận hành, nên hồ sơ chạy trên phạm vi hẹp hơn là hồ sơ nói về một
+    hệ thống khác.
+
 ## 6. Liên kết
 
 Quy trình: MP29 · Năng lực: CAP-29_AIOffice · Căn cứ: ISO/IEC 42001 · Platform Registry:
@@ -140,6 +184,31 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   `test-aios-platform.yml`. Đã kiểm chứng bằng 5 đột biến gieo vào mã sản phẩm, xem
   [`_work/20260824-m29-bo-test-logic/verify.md`](_work/20260824-m29-bo-test-logic/verify.md).
   Chưa có test tích hợp trên DB thật, test `actions.ts` và test giao diện.
+- ✅ **Increment 5 — Copilot tra cứu** (2026-08-25): `AnthropicAdapter` + `gateway.chat()` (đường
+  gọi mô hình ngôn ngữ **duy nhất**, dùng lại AIA Gate và chốt trạng thái Agent của `callTool()`),
+  điểm cưỡng chế guardrail lúc chạy (`GR-PII-OUT`/`GR-SCOPE`/`GR-NO-SOURCE`), chỉ mục toàn văn
+  Postgres có lọc mức bảo mật (`CopilotDocChunk`), hội thoại (`CopilotThread`/`CopilotMessage`),
+  khay Copilot trên mọi trang nền tảng. Verify qua Browser thật (AIA Gate chặn thật, tạm dừng Agent
+  ẩn khay thật, guardrail PII chặn thật, trace ghi thật) — xem
+  [`_work/20260825-copilot-tra-cuu/verify.md`](_work/20260825-copilot-tra-cuu/verify.md).
+  **Chưa chạy được lượt hỏi thật** vì môi trường chưa có `ANTHROPIC_API_KEY`.
+- ✅ **Bộ kiểm thử theo ETV.P.F29.03** (2026-08-25, Increment 5): **42 tình huống** phủ đủ 7 nhóm của
+  biểu mẫu, gồm cả 3 nhóm bắt buộc đạt mà bản đầu còn thiếu (tiêm lệnh · rò rỉ · giới hạn quyền);
+  kiểm thử tiêm lệnh phủ cả véc-tơ chỉ dẫn ẩn **trong tài liệu được nạp chỉ mục** bằng tài liệu mồi
+  chèn–xoá trong cùng lượt chạy. Trình chạy xuất **bản nháp phiếu F29.03** với ô Kết luận để trống.
+  Đo được ngay: **24/24** nguồn kỳ vọng có thật; truy hồi **19/20**; **5/42** tình huống chạy trọn
+  vẹn và đều đạt — trong đó có trọn **nhóm 5** và **nhóm 7** (hai nhóm bắt buộc đạt). Nhờ bộ này
+  phát hiện và sửa khiếm khuyết truy hồi (6 đoạn chỉ trải trên 3,35 tài liệu → 4,65).
+  ❌ **37/42 tình huống chưa chạy** (thiếu khóa API) và **bộ kiểm thử chưa được soát xét** —
+  trạng thái `DU_THAO_CHUA_SOAT_XET`, chưa phải căn cứ mở Copilot cho toàn Viện.
+- ✅ **Chạy thật lần đầu** (2026-08-25, Google Gemini `gemini-3.5-flash`): đổi nhà cung cấp chỉ cần
+  thêm một adapter + đổi bản ghi `AIPlatform`, **không sửa một dòng nghiệp vụ nào** — đúng như
+  nguyên tắc kiến trúc #2 dự kiến. 3 câu hỏi chạy trọn đường dây, token thật đã vào sổ trace.
+  Khoá hiện có là bậc **miễn phí**, không bảo đảm điều khoản không huấn luyện lại, nên theo
+  ETV.P29 §5.5 chỉ được gửi mức **Công khai**: chỉ mục dùng được co từ 1.865 xuống **12 đoạn**.
+- ❌ **Chưa làm**: rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục (và bổ sung
+  câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); trang Trace chưa hiện cột
+  `guardrailResult`; chưa có UI chạy đánh giá.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ

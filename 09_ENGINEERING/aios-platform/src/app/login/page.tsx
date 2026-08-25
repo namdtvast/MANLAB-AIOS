@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LoginForm } from "./LoginForm";
 
@@ -25,10 +26,14 @@ export default async function LoginPage({
             </p>
           </div>
         </div>
-        <LoginForm callbackUrl={callbackUrl ?? "/"} />
+        <LoginForm callbackUrl={callbackUrl ?? "/dashboard"} />
       </div>
-      <p className="text-xs text-ink-3">
-        Tài khoản demo: admin@manlab.vn / DoiMatKhauNgay!2026 — đổi trước khi triển khai thật.
+      <p className="max-w-sm text-center text-xs text-ink-3">
+        Tài khoản do Quản trị hệ thống cấp theo phân công công việc. Chưa có tài khoản?{" "}
+        <Link href="/dang-ky" className="font-semibold text-accent hover:underline">
+          Gửi yêu cầu cấp tài khoản
+        </Link>
+        .
       </p>
     </div>
   );

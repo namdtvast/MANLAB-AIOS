@@ -427,6 +427,37 @@ export async function runEvaluationSuite(suiteId: string) {
   return { run, results: result.results };
 }
 
+/**
+ * Ghi KẾT LUẬN Đạt/Không đạt cho một lượt đánh giá — việc của NGƯỜI, không của phần mềm.
+ *
+ * ETV.P.F29.03 (cuối phiếu) và ETV.P29 §4.8: trợ lý AI có thể chạy tình huống kiểm thử theo kịch
+ * bản nhưng không kết luận Đạt/Không đạt và không phê duyệt phiếu. Vì vậy trình chạy tự động chỉ
+ * ghi trạng thái CHO_KET_LUAN; chỉ hàm này — chạy dưới danh nghĩa một tài khoản người dùng có
+ * quyền — mới chuyển được sang PASS/FAIL, và bắt buộc dẫn số phiếu F29.03 đã ký.
+ *
+ * Ai kết luận, lúc nào, dẫn phiếu nào: ghi ở AIAuditLog (không thêm cột vào bảng AI*).
+ */
+export async function ghiKetLuanDanhGia(runId: string, ketLuan: "PASS" | "FAIL", soPhieuF2903: string) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "evaluations", "write")) throw new Error("Không đủ quyền ghi kết luận đánh giá.");
+  const soPhieu = soPhieuF2903.trim();
+  if (!soPhieu) throw new Error("Phải dẫn số phiếu ETV.P.F29.03 đã ký — kết luận không có hồ sơ là kết luận không có căn cứ.");
+
+  const run = await prisma.aIEvaluationRun.findUniqueOrThrow({ where: { id: runId } });
+  if (run.status !== "CHO_KET_LUAN")
+    throw new Error(`Lượt đánh giá này đã ở trạng thái ${run.status} — chỉ ghi kết luận cho lượt đang chờ kết luận.`);
+
+  const sau = await prisma.aIEvaluationRun.update({ where: { id: runId }, data: { status: ketLuan } });
+  await logAudit(actor, "AIEvaluationRun", runId, {
+    field: "status",
+    before: { status: run.status },
+    after: { status: ketLuan },
+    reason: `Kết luận theo phiếu ETV.P.F29.03 số ${soPhieu}`,
+  });
+  revalidateM29();
+  return sau;
+}
+
 // ---------- Secrets — chỉ nhận rồi mask ngay, KHÔNG lưu giá trị thật (spec.md #3) ----------
 
 function maskValue(value: string) {

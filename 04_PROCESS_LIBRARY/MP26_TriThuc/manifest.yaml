@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP26
 slug: TriThuc
 name: Quản lý tri thức tổ chức
+purpose: >-
+  Đăng ký, phân loại, giao chủ sở hữu và duy trì hiệu lực tri thức tổ chức; bảo đảm tri thức luôn
+  sẵn có, đúng phiên bản, đúng người, đúng mức bảo mật và không mất đi khi nhân sự thay đổi.
 owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
@@ -12,6 +15,7 @@ menu_group: NGUON_LUC
 menu_order: 5
 document:
   doc_id: ETV.P26
+  doc_title: "Thủ tục Quản lý tri thức tổ chức"
   doc_status: issued
   doc_version: "01"
   issued_date: 2026-08-23

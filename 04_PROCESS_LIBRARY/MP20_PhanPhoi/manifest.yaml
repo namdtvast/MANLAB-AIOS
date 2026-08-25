@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP20
 slug: PhanPhoi
 name: Phân phối và truy xuất nguồn gốc
+purpose: >-
+  Kiểm soát việc phân phối, lưu trữ và truy xuất mẫu chuẩn, phương tiện đo, giấy chứng nhận và kết
+  quả thử nghiệm; bảo đảm giao đúng đối tượng, đúng điều kiện bảo quản và truy vết được.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17034']

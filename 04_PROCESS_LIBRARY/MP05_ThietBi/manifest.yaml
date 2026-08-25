@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP05
 slug: ThietBi
 name: Kiểm soát thiết bị, chuẩn và chất chuẩn
+purpose: >-
+  Sử dụng, duy trì và bảo quản chuẩn đo lường, phương tiện đo dùng cho kiểm định, hiệu chuẩn, thử
+  nghiệm; bảo đảm chuẩn luôn được chứng nhận, còn hiệu lực và truy xuất được về chuẩn quốc gia.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

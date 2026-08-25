@@ -1,12 +1,26 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP33
 slug: HeThongTT
 name: Quản lý hệ thống thông tin
-owner: "(cập nhật)"
+purpose: >-
+  Quản lý, vận hành, khai thác và bảo trì hạ tầng công nghệ thông tin của Viện (máy chủ, mạng,
+  thiết bị đầu cuối, tài khoản người dùng); bảo đảm hệ thống hoạt động ổn định, an toàn, hiệu quả
+  (QM §10.2).
+owner: "Chánh Văn phòng (đơn vị chủ trì quản trị hệ thống thông tin)"
 status: active
-standards: ['ISO27001']
+standards: ['ISO9001', 'ISO17025', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-28]
 module: M33
 menu_group: CONG_NGHE
 menu_order: 1
+document:
+  doc_id: ETV.P33
+  doc_status: Cho-soat-xet
+  doc_version: "01"
+  issued_date: 2026-08-25
+forms:
+  - ETV.P.F33.01
+  - ETV.P.F33.02
+  - ETV.P.F33.03
+  - ETV.P.F33.04

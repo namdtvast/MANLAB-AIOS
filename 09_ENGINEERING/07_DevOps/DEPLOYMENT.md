@@ -4,12 +4,16 @@ Bộ tài liệu này dành cho coder/DevOps triển khai **MANLAB-AIOS Platform
 (`09_ENGINEERING/aios-platform`) lên VPS riêng, gắn với tên miền
 **aios.manlab.vn**.
 
-> Bản trước của file này mô tả kiến trúc nhiều subdomain (mỗi module một
-> app/domain riêng). Sau khi thảo luận lại, kiến trúc đã đổi sang **một
-> app Next.js + Prisma + PostgreSQL duy nhất**, gộp toàn bộ kiến trúc 12
-> tầng vào một codebase/DB — xem RECON/OUTCOME đầy đủ tại
+> Kiến trúc: **một app Next.js + Prisma + PostgreSQL duy nhất**, gộp toàn
+> bộ kiến trúc 12 tầng vào một codebase/DB — không phải nhiều subdomain
+> như bản đầu tiên của tài liệu này. RECON/OUTCOME đầy đủ tại
 > [`_meta/specs/20260822-aios-platform-increment0/`](../../_meta/specs/20260822-aios-platform-increment0/).
-> File này viết lại hoàn toàn cho kiến trúc mới, không phải bản vá.
+>
+> **Cập nhật 24/08/2026** — mục 0 (trạng thái), 0bis (ranh giới công
+> khai/riêng tư), 7 (tài khoản demo), 10 (kiểm tra sau triển khai), 11
+> (migrate) và Ghi chú quan trọng đã viết lại cho khớp hiện trạng. Bản
+> trước còn ghi "chưa có RBAC, chưa có test, M10/M29 chưa di trú" và dặn
+> kiểm tra `/` phải ra trang đăng nhập — cả bốn điều đó nay đều sai.
 
 ## 0. Kiến trúc triển khai — đọc trước khi làm
 
@@ -25,24 +29,54 @@ App đóng vai trò **cổng duy nhất** cho toàn bộ 38 module (M01–M38): 
 liệt kê đủ 38 mục (dữ liệu quét từ `05_MODULE_LIBRARY/` lúc seed, không
 hardcode), mỗi mục dẫn tới trang chi tiết module.
 
-**Trạng thái thật tại thời điểm viết (Increment 0 — xem
-[`aios-platform/README.md`](../aios-platform/README.md) để cập nhật mới
-nhất):**
+**Trạng thái thật — cập nhật 24/08/2026** (nguồn cập nhật nhất vẫn là
+[`aios-platform/README.md`](../aios-platform/README.md)):
 
-- Chỉ có **khung**: auth thật + đăng ký 38 module + trang chi tiết tĩnh.
-- **M10, M21, M29** — 3 module duy nhất đã có `08_Source` chạy thật —
-  **chưa được di trú** vào app/DB này (đó là Increment 1). Trang chi tiết
-  của 3 module này trong app mới chỉ hiển thị thông báo "đã có prototype
-  riêng", **không** gọi API/hiển thị dữ liệu nghiệp vụ thật của chúng.
-- Nếu bạn cần 3 module đó hoạt động đầy đủ ngay bây giờ, chúng vẫn chạy
-  độc lập như trước (xem `.claude/launch.json` các mục `m10-api`,
-  `m10-webapp`, `aios-api`) — **không nằm trong phạm vi tài liệu này**,
-  vì mục tiêu của domain `aios.manlab.vn` là nền tảng hợp nhất, không
-  phải lộ lại kiến trúc rời rạc cũ ra production.
-- **Chưa gate quyền theo `User.role`** ở tầng UI/route — mọi tài khoản đã
-  đăng nhập hiện thấy được toàn bộ. **Không đưa domain này ra công khai
-  cho người dùng thật cho tới khi hoàn thiện RBAC** (xem mục "Ghi chú
-  quan trọng" cuối file).
+- **14/38 module đã vận hành thật** trên nền tảng hợp nhất (khai trong
+  `ACTIVE_MODULE_CODES` của `prisma/seed.ts`): M01, M02, M03, M04, M10,
+  M12, M13, M14, M16, M17, M21, M25, M26, M29. Các module còn lại mở trang
+  giới thiệu và trỏ về đặc tả nghiệp vụ.
+- **M10, M21, M29 đã di trú** vào app/DB này (Increment 1–3). Bản
+  `08_Source` cũ của chúng vẫn còn trong repo và **chưa deprecate** —
+  không triển khai các service rời đó ra production; domain
+  `aios.manlab.vn` chỉ phục vụ nền tảng hợp nhất.
+- **Đã có gate quyền theo vai trò**, chặn ở server chứ không chỉ ẩn nút:
+  quyền nghiệp vụ gán theo **từng module** (`ModuleRoleAssignment`, mỗi
+  module một bộ vốn từ vai trò riêng), quyền quản trị nền tảng theo
+  `User.role` (`PlatformRole`). Chặn theo route nằm ở `src/proxy.ts`.
+- **Đã có test tự động và build gác cổng ở CI**: workflow
+  `.github/workflows/test-aios-platform.yml` chạy `npm test` (vitest) và
+  `npm run build` cho mọi thay đổi chạm `09_ENGINEERING/aios-platform/**`.
+- ⚠️ Nhiều module trong số 14 module trên **mới đạt phần lõi của đặc tả**,
+  chưa đủ toàn bộ phạm vi `DacTa.md`. Không quảng bá là đã hoàn thiện —
+  README của từng module và trang module trong app đều nói rõ phần nào
+  còn thiếu.
+
+## 0bis. Ranh giới công khai / riêng tư — xác nhận trước khi trỏ DNS
+
+Từ 24/08/2026 nền tảng có **trang công khai không cần đăng nhập**. Đây là
+quyết định về phạm vi công bố, không phải chi tiết kỹ thuật — xác nhận với
+chủ repo trước khi mở domain ra internet.
+
+| Đường dẫn | Ai xem được | Nội dung |
+|---|---|---|
+| `/` | **Bất kỳ ai** | Trang giới thiệu: mục đích nền tảng, 7 nhóm nghiệp vụ, tổng số module, số module đã vận hành, số thủ tục đã ban hành |
+| `/dang-ky` | **Bất kỳ ai** | Form gửi yêu cầu cấp tài khoản (chỉ ghi nhận đề nghị, không tạo tài khoản) |
+| `/login` | Bất kỳ ai | Đăng nhập |
+| `/dashboard` | Đã đăng nhập | Bảng điều khiển |
+| `/modules/**` | Đã đăng nhập + đúng vai trò module | Nghiệp vụ thật |
+| `/admin/access-requests` | `PlatformRole.ADMIN` | Hàng chờ yêu cầu cấp tài khoản |
+
+Hai điều cần cân nhắc trước khi công bố:
+
+1. Trang `/` **để lộ có chủ đích** quy mô và cấu trúc nghiệp vụ của Viện
+   (số module, số thủ tục đã ban hành, tên 7 nhóm nghiệp vụ). Đó là nội
+   dung giới thiệu, không phải dữ liệu hồ sơ — nhưng vẫn là thông tin về
+   tổ chức, cần chủ repo đồng ý mới đưa ra internet.
+2. `/dang-ky` là **điểm nhận dữ liệu từ người lạ**. Hiện chỉ có chống
+   trùng theo email và giới hạn độ dài trường, **chưa có captcha hay giới
+   hạn tần suất theo IP** — nếu mở ra internet công cộng, cân nhắc đặt
+   rate limit ở tầng Nginx (`limit_req`) cho riêng đường dẫn này.
 
 ## 1. Tóm tắt nhanh (checklist)
 
@@ -56,8 +90,10 @@ nhất):**
       chỉ nghe trên `localhost`.
 - [ ] Biến môi trường production tự tạo `.env` theo mục 5 — **không commit
       `.env` thật lên git** (đã gitignore sẵn trong `aios-platform/.gitignore`).
-- [ ] Sau khi seed, **đổi ngay** mật khẩu tài khoản demo `admin@manlab.vn`
-      (hoặc xoá, tạo tài khoản admin thật) — xem mục 7.
+- [ ] Sau khi seed, **đổi hoặc xoá TOÀN BỘ tài khoản demo** — không chỉ
+      `admin@manlab.vn`. Seed tạo khoảng 11 tài khoản dùng chung một mật khẩu;
+      mật khẩu nay lấy từ `SEED_DEMO_PASSWORD` hoặc sinh ngẫu nhiên, nhưng
+      11 tài khoản đó vẫn là 11 đường vào hệ thống — xem mục 7.
 
 ## 2. Chuẩn bị VPS
 
@@ -123,6 +159,16 @@ NEXTAUTH_URL="https://aios.manlab.vn"
 EOF
 ```
 
+Hai biến tùy chọn chỉ ảnh hưởng tới lệnh seed, không ảnh hưởng lúc chạy app:
+
+| Biến | Tác dụng |
+|---|---|
+| `SEED_DEMO_PASSWORD` | Mật khẩu cho các tài khoản demo do seed tạo. **Không đặt** trên production — khi đó seed tự sinh mật khẩu ngẫu nhiên và in ra một lần, không ai đoán được. |
+| `SEED_ADMIN_EMAIL` | Email tài khoản quản trị demo (mặc định `admin@manlab.vn`). |
+
+Mật khẩu tài khoản demo **không còn nằm trong mã nguồn** — trước đây nó ghi thẳng trong
+`prisma/seed.ts`, tức công khai trên GitHub.
+
 Sinh `AUTH_SECRET` ngẫu nhiên đủ mạnh:
 
 ```bash
@@ -149,8 +195,36 @@ chính checkout này để nạp 38 module — **luôn chạy lại sau mỗi l�
 pull`** nếu danh sách/tên module có thay đổi (idempotent, dùng `upsert`,
 an toàn khi chạy lại nhiều lần).
 
-Lệnh này **cũng tạo tài khoản demo** `admin@manlab.vn` với mật khẩu cố
-định trong `prisma/seed.ts` — **PHẢI đổi ngay** trên production:
+Lệnh này **cũng tạo khoảng 11 tài khoản demo** — `admin@manlab.vn`, `nth@`,
+`ldp@`, `ldv@`, `qlcl@`, `qtht@` và 5 tài khoản vai trò AI — tất cả dùng
+chung một mật khẩu. Mật khẩu đó **lấy từ biến `SEED_DEMO_PASSWORD`**, hoặc
+**sinh ngẫu nhiên và in ra một lần** ở cuối lần chạy seed nếu biến không được
+đặt. Trên production thì đừng đặt biến đó: để seed tự sinh.
+
+Chạy lại seed **không** đổi mật khẩu của tài khoản đã tồn tại (mọi upsert tài
+khoản dùng `update: {}`), nên seed lại sau mỗi lần `git pull` là an toàn.
+
+> Dù mật khẩu không còn nằm trong mã nguồn, **mọi tài khoản demo vẫn là một
+> đường vào hệ thống** (một môi trường seed đầy đủ có khoảng 18 tài khoản).
+> Trước khi trỏ DNS: xoá hết tài khoản demo và tạo tài khoản thật, hoặc ít nhất
+> đổi mật khẩu từng tài khoản. Kiểm tra lại bằng cách liệt kê `User` sau khi dọn
+> — đừng tin là đã xong khi chưa nhìn danh sách.
+
+**Môi trường đã seed trước ngày 25/08/2026** dùng mật khẩu từng ghi thẳng trong
+`prisma/seed.ts`, tức đã công khai trên GitHub. Gỡ nó khỏi mã nguồn không đổi
+được mật khẩu đã nằm trong database. Chạy script đổi hàng loạt:
+
+```bash
+# Xem trước sẽ đụng vào những tài khoản nào — không ghi gì:
+npm run doi-mat-khau-demo
+
+# Thực hiện thật (đặt qua biến môi trường để không lọt vào lịch sử shell):
+NEW_DEMO_PASSWORD='...' npm run doi-mat-khau-demo -- --yes
+```
+
+Script chỉ đụng tài khoản có email thuộc miền `@manlab.vn`; nêu đích danh bằng
+`--emails=a@…,b@…` nếu muốn giới hạn. Đổi mật khẩu **không** cắt phiên đang mở
+vì session dùng JWT — muốn cắt ngay thì đổi `AUTH_SECRET` rồi khởi động lại app.
 
 ```bash
 # Cách nhanh nhất: xoá tài khoản demo, tạo tài khoản admin thật qua Prisma Studio
@@ -193,12 +267,42 @@ Certbot sẽ tự sửa file Nginx để bật HTTPS và cấu hình gia hạn c
 
 ## 10. Kiểm tra sau triển khai
 
-- Truy cập `https://aios.manlab.vn` — phải thấy trang đăng nhập, đăng
-  nhập được, thấy sidebar đủ 38 module.
-- Truy cập `https://aios.manlab.vn/modules/M10` khi chưa đăng nhập →
-  phải bị redirect về `/login` (kiểm tra `proxy.ts` hoạt động đúng, không
-  lộ dữ liệu trước khi xác thực).
-- Kiểm tra chứng chỉ SSL hợp lệ (khóa xanh trên trình duyệt).
+**Bước quan trọng nhất — kiểm tra ranh giới công khai/riêng tư.** Chạy khi
+CHƯA đăng nhập, kết quả phải đúng từng dòng:
+
+```bash
+for p in / /dang-ky /login /dashboard /modules/M10 /admin/access-requests; do
+  curl -s -o /dev/null -w "$p -> %{http_code} %{redirect_url}\n" "https://aios.manlab.vn$p"
+done
+```
+
+| Đường dẫn | Kết quả đúng |
+|---|---|
+| `/` | `200` — trang giới thiệu công khai |
+| `/dang-ky` | `200` — form yêu cầu cấp tài khoản |
+| `/login` | `200` |
+| `/dashboard` | `307` → `/login?callbackUrl=%2Fdashboard` |
+| `/modules/M10` | `307` → `/login?callbackUrl=%2Fmodules%2FM10` |
+| `/admin/access-requests` | `307` → `/login?...` |
+
+Bất kỳ đường dẫn `/modules/**` nào trả `200` khi chưa đăng nhập là **sự cố
+lộ dữ liệu**, dừng triển khai và kiểm tra `src/proxy.ts` ngay. Nguyên nhân
+hay gặp nhất: đưa `"/"` vào danh sách khớp **tiền tố** thay vì khớp
+**đúng** — vì mọi đường dẫn đều bắt đầu bằng `/`, làm vậy sẽ mở toang toàn
+hệ thống.
+
+Kiểm tra tiếp sau khi đăng nhập:
+
+- Đăng nhập được bằng tài khoản thật đã tạo ở mục 7; vào thẳng
+  `/dashboard`, sidebar đủ 38 module.
+- Mở một module **không** được gán vai trò → bị chặn ở server (không phải
+  chỉ ẩn nút).
+- Tài khoản không phải `ADMIN` mở `/admin/access-requests` → hiện "Không
+  có quyền truy cập".
+- Gửi thử form `/dang-ky`, rồi đăng nhập bằng tài khoản `ADMIN` xem yêu
+  cầu có vào hàng chờ không. Lưu ý: **duyệt không tạo tài khoản**, chỉ ghi
+  nhận "đồng ý cấp".
+- Chứng chỉ SSL hợp lệ (khóa xanh trên trình duyệt).
 - `sudo journalctl -u manlab-aios-platform -f` để xem log runtime khi cần
   debug.
 
@@ -211,27 +315,42 @@ git pull origin main
 cd 09_ENGINEERING/aios-platform
 npm ci
 npx prisma generate
-npx prisma migrate deploy
+npx prisma migrate deploy   # BẮT BUỘC — bỏ qua là app đổ khi chạm bảng mới
 npx prisma db seed          # cập nhật lại danh sách module nếu có thay đổi
 npm run build
 
 sudo systemctl restart manlab-aios-platform
 ```
 
+`migrate deploy` không phải bước tùy chọn: schema vẫn đang thay đổi theo
+từng đợt (tính tới 24/08/2026 đã có 24 migration, mới nhất là
+`20260824141847_yeu_cau_cap_tai_khoan` thêm bảng `AccessRequest` cho form
+`/dang-ky`). Kéo mã mới mà quên migrate thì app build xong vẫn chạy, nhưng
+đổ ngay khi người dùng chạm vào tính năng mới.
+
 ## Ghi chú quan trọng
 
-- Đây là hạ tầng cho **Increment 0** (khung nền tảng) theo lộ trình đã
-  thống nhất — xem trạng thái/giới hạn đầy đủ tại
-  [`aios-platform/README.md`](../aios-platform/README.md) và
-  [`_meta/specs/20260822-aios-platform-increment0/verify.md`](../../_meta/specs/20260822-aios-platform-increment0/verify.md)
-  (kết quả verify: `PASS WITH WARNINGS`, không phải `PASS` thuần).
-- **Chưa có RBAC ở tầng UI/route** (chỉ có cột `role` trong DB) và **chưa
-  có test tự động** — hai điều này là điều kiện cần trước khi coi nền
-  tảng "sẵn sàng production" cho người dùng thật ngoài đội triển khai.
-- **M10/M29 chưa di trú** — dữ liệu nghiệp vụ thật của 2 module này vẫn
-  nằm ở file JSON trong service riêng, chưa có trong Postgres của app
-  này. Không quảng bá `aios.manlab.vn` là nơi thao tác nghiệp vụ M10/M29
-  cho tới khi Increment 1 hoàn tất.
-- Trước khi công bố `aios.manlab.vn` rộng rãi ra ngoài Viện, xác nhận lại
-  với chủ repo về phạm vi công bố (nội bộ hay công khai) — cổng này phơi
-  bày toàn bộ cấu trúc quản trị/kiến trúc 12 tầng của Viện.
+Ba điều kiện dưới đây đã đạt so với bản trước của tài liệu này, ghi lại để
+người triển khai không dựa vào thông tin cũ:
+
+- ✅ **Đã có gate quyền** ở tầng route và server action — không còn tình
+  trạng "mọi tài khoản đăng nhập là thấy hết".
+- ✅ **Đã có test tự động** (vitest) và **build gác cổng ở CI**.
+- ✅ **M10/M21/M29 đã di trú** vào Postgres của app này.
+
+Còn lại những điều **chưa** đạt — cân nhắc trước khi coi là sẵn sàng cho
+người dùng thật:
+
+- **Phạm vi đặc tả chưa đủ**: nhiều module trong 14 module đang vận hành
+  mới đạt phần lõi `DacTa.md`. Xem README của từng module.
+- **Chưa dọn bản `08_Source` cũ**: M10/M21/M29 vẫn còn prototype rời trong
+  repo, chưa deprecate. Không triển khai chúng ra production.
+- **Trang công khai chưa có chống lạm dụng**: `/dang-ky` chưa có captcha
+  hay rate limit — xem mục 0bis.
+- **Chưa có sao lưu định kỳ Postgres** trong tài liệu này. Nền tảng đã giữ
+  hồ sơ nghiệp vụ thật, nên đặt lịch `pg_dump` và kiểm tra khôi phục được
+  trước khi đưa vào dùng chính thức.
+- **Phạm vi công bố phải do chủ repo quyết**: từ 24/08/2026 `/` là trang
+  công khai, ai vào domain cũng đọc được phần giới thiệu và các con số
+  tổng hợp về Viện. Xác nhận lại trước khi trỏ DNS ra internet — xem mục
+  0bis.

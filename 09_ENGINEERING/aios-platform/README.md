@@ -356,6 +356,58 @@ văn bản pháp luật · biểu mẫu áp dụng (mỗi mã là một link t�
   F21.01–F21.12 khai trong manifest, chưa có file) — chip mã vẫn hiện nhưng không bấm mở được.
 - ⚠️ Banner chỉ gắn ở **trang chính** của 13 module đang chạy, chưa gắn ở các trang chi tiết.
 
+## Trạng thái Increment 16 — xuất biểu mẫu ra PDF có dữ liệu (M03: F03.01 + F03.08)
+
+Trước đây bản xuất biểu mẫu duy nhất là trang in HTML của M26 (`window.print()` — người dùng tự
+"Lưu thành PDF", không đặt được tên file, không xuất hàng loạt). Increment này làm ra **file PDF
+thật tải thẳng về máy**, làm trên hai biểu mẫu M03 **có bản chất khác nhau** để kiểm chứng khung
+dùng chung có thật sự tổng quát.
+
+Tại `/modules/M03`, chọn dòng trong bảng Nhân sự rồi bấm nút xuất tương ứng:
+
+| Biểu mẫu | Bản chất | Kết quả | Chọn dòng |
+|---|---|---|---|
+| **F03.01** Sơ yếu lý lịch | Hồ sơ **cá nhân**, khổ dọc | 1 người → `F03.01_SoYeuLyLich_NS-2026-0002_TranThiBich.pdf`; nhiều người → `.zip`, mỗi người một file riêng (mỗi tờ là hồ sơ độc lập theo ETV.MP15, không gộp) | Bắt buộc, tối đa 100 người/lần |
+| **F03.08** Danh sách nhân sự | Biểu mẫu **tổng hợp**, khổ ngang 11 cột | Luôn đúng **một** file `F03.08_DanhSachNhanSu_3NhanSu.pdf` — gói `.zip` ở đây là sai bản chất biểu mẫu | Không chọn = xuất **toàn bộ** danh sách |
+
+Kiến trúc — cố ý dựng để dùng lại cho ~100 biểu mẫu còn lại của Viện, không phải chỉ cho F03.01:
+
+| Lớp | File | Vai trò |
+|---|---|---|
+| Khung biểu mẫu | `src/lib/forms/layout.ts` | Khung A4 dùng chung theo NĐ 30/2020/NĐ-CP (Times New Roman 13pt, lề 20/20/30/15mm), khổ dọc/ngang, bảng mã số, quốc hiệu, hàng chữ ký, bảng danh sách dài (đầu bảng lặp mỗi trang), ô trống điền tay, escape dữ liệu |
+| Metadata biểu mẫu | `src/lib/forms/meta.ts` | Đọc mã số/lần ban hành/ngày ban hành từ `PlatformModule.forms` |
+| Nội dung từng biểu mẫu | `src/lib/m03/forms/f03-01.ts`, `f03-08.ts` | Bố cục 6 mục I–VI của F03.01 / 11 cột của F03.08 + quy tắc đặt tên file |
+| Sinh PDF | `src/lib/pdf/render.ts` | Chromium headless (Puppeteer) render HTML → PDF, dùng lại một tiến trình |
+| Điểm gọi | `src/app/api/m03/export/{f03-01,f03-08}/route.ts` | `GET ?ids=a,b,c` → PDF hoặc ZIP tuỳ bản chất biểu mẫu |
+
+**Vì sao render từ HTML chứ không dựng PDF bằng thư viện vẽ**: mỗi biểu mẫu chỉ mô tả bố cục
+**một lần** dưới dạng HTML, dùng chung cho cả bản xem trên web lẫn file PDF. Dựng bằng thư viện vẽ
+thì mỗi biểu mẫu phải viết hai lần — với ~100 biểu mẫu của Viện là không kham nổi.
+
+- ✅ Metadata biểu mẫu đi đúng đường sẵn có: frontmatter file biểu mẫu ở `06_SHARED_RESOURCES` →
+  `prisma/seed.ts` → `PlatformModule.forms` → bản xuất. Biểu mẫu ban hành lại thì chạy lại seed,
+  bản xuất tự đổi theo — **không viết cứng mã số/lần ban hành trong template**.
+- ✅ Lúc chạy **không đọc file trong repo**: truy cập filesystem động khiến Next trace và đóng gói
+  toàn bộ repo vào bundle deploy (Next cảnh báo thẳng khi build).
+- ✅ `next.config.ts` khai `serverExternalPackages: ["puppeteer"]` — Puppeteer nạp Chromium từ ổ
+  đĩa lúc chạy, gói vào bundle sẽ hỏng đường dẫn thực thi.
+- ✅ **Khung dùng chung đã được kiểm chứng là tổng quát**: thêm biểu mẫu thứ hai (F03.08 — bản
+  chất khác hẳn) chỉ cần bổ sung khổ ngang + kiểu bảng danh sách vào `layout.ts`; bảng mã số,
+  quốc hiệu, hàng chữ ký, escape, tra metadata dùng lại nguyên vẹn.
+- ✅ 25 test ở `src/lib/forms/__tests__/{f03-01,f03-08}.test.ts` (Prisma giả lập, không cần
+  Postgres lẫn Chromium). Đã kiểm chứng end-to-end trên trình duyệt thật: F03.01 PDF đơn (`%PDF`,
+  297KB) + ZIP 3 file đúng tên đúng thứ tự; F03.08 toàn bộ danh sách (200KB), lọc theo dòng đã
+  chọn, và `ids` không tồn tại → 404 chứ không im lặng trả bảng rỗng.
+- ⚠️ **`M03Employee` mới có 6 trường, F03.01 có ~20** — bản xuất giữ đủ 6 mục của biểu mẫu gốc,
+  phần chưa số hoá in dòng chấm để điền tay (không bỏ mục, vì đoàn đánh giá đối chiếu bản in với
+  biểu mẫu đã ban hành). Muốn PDF điền đầy đủ phải mở rộng `M03Employee` — **cần LĐP quyết định**,
+  đó là mở rộng phạm vi module chứ không thuộc việc xuất biểu mẫu.
+- ⚠️ Quyền xuất = quyền xem: chỉ yêu cầu phiên đăng nhập, **không** siết theo vai trò M03, vì trang
+  `/modules/M03` hiện cho mọi người đã đăng nhập xem chính những dữ liệu này. Khi siết quyền xem
+  theo module thì phải siết đồng thời cả trang lẫn route xuất, không để lệch.
+- ⚠️ Mới làm 2/18 biểu mẫu của M03 và 2/~100 biểu mẫu toàn Viện. Cách làm đã đứng vững qua hai
+  bản chất biểu mẫu khác nhau, có thể nhân rộng sang module khác.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -374,11 +426,15 @@ createdb aios_platform_dev   # 1 lần, nếu chưa có DB
 npm install
 npx prisma migrate dev       # tạo bảng
 npx prisma db seed           # nạp 38 module + tài khoản demo
+npm run nap-chi-muc-copilot  # nạp chỉ mục tri thức cho Copilot tra cứu (xem bên dưới)
 npm run dev                  # http://localhost:3000
 ```
 
+Biến môi trường: xem [`.env.example`](.env.example). File `.env` bị `.gitignore` chặn — không commit.
+
 Tài khoản demo (chỉ dev/demo — đổi/xoá trước khi triển khai thật):
-`admin@manlab.vn` / `DoiMatKhauNgay!2026`.
+`admin@manlab.vn`; mật khẩu lấy từ biến môi trường `SEED_DEMO_PASSWORD`, hoặc do lệnh
+seed sinh ngẫu nhiên và in ra một lần nếu biến đó không được đặt.
 
 Hoặc dùng cấu hình preview có sẵn của repo: `.claude/launch.json` →
 `aios-platform` (port mặc định 3000).
@@ -438,6 +494,71 @@ test đã được kiểm chứng thế nào.
 CI chạy bộ test này ở mọi push/PR chạm `09_ENGINEERING/aios-platform/**`
 (`.github/workflows/test-aios-platform.yml`).
 
+## Copilot tra cứu (M29)
+
+Trợ lý hỏi–đáp **chỉ-đọc** gắn ở góc dưới mọi trang nền tảng: trả lời về thủ tục ETV.Pxx, biểu mẫu,
+tiêu chuẩn và module, **bắt buộc dẫn đường dẫn tài liệu gốc**, không ghi bất kỳ dữ liệu nghiệp vụ nào.
+
+Copilot **không phải tính năng đứng ngoài** — nó là một `AIAgent` (`AGENT_COPILOT_TRACUU`) đăng ký
+trong chính control plane M29, nên chịu nguyên các chốt đã có: chưa có hồ sơ AIA `APPROVED` thì
+không trả lời được, Agent chuyển `SUSPENDED` thì khay biến mất ngay, và **mọi lượt hỏi sinh đúng một
+`AIRequest`** ở trang Trace — kể cả lượt bị guardrail chặn, lượt vượt hạn mức và lượt lỗi.
+`gateway.chat()` là đường gọi mô hình ngôn ngữ **duy nhất**.
+
+Chuẩn bị để chạy:
+
+```bash
+# Một trong hai nhà cung cấp — Copilot chọn Gemini khi chỉ có khoá Gemini:
+echo 'ANTHROPIC_API_KEY="sk-ant-..."' >> .env
+echo 'GEMINI_API_KEY="..."'           >> .env
+npm run nap-chi-muc-copilot                     # nạp lại mỗi khi tài liệu trong repo thay đổi
+```
+
+Không có khoá thì khay vẫn hiện, mọi lượt hỏi báo `NO_API_KEY` và trang đang mở không bị ảnh hưởng.
+Đổi nhà cung cấp **không sửa một dòng nghiệp vụ nào** — chỉ thêm adapter trong `src/lib/m29/adapters.ts`
+và đổi `adapterType` của bản ghi `AIPlatform`; nhưng theo ETV.P29 §5.3.3 đó là sự kiện **bắt buộc
+đánh giá lại**.
+
+**Trần mức bảo mật gửi ra ngoài (ETV.P29 §5.5)** — `COPILOT_MUC_BAO_MAT_TOI_DA`, mặc định
+**fail-closed** ở `Cong-khai`. Chỉ nới lên `Noi-bo` khi đã trích được điều khoản của nhà cung cấp về
+việc **không dùng dữ liệu để huấn luyện lại** vào hồ sơ AIA (F29.02) — điều khoản này khác nhau giữa
+các bậc dịch vụ của cùng một nhà cung cấp, bậc miễn phí thường không có. Với chỉ mục hiện tại:
+`Cong-khai` = **12 đoạn**, `Noi-bo` = **1.865 đoạn**. Chạy bộ đánh giá dưới trần thu hẹp sẽ **không**
+được ghi thành `AIEvaluationRun`.
+
+Chỉ mục **fail-closed** theo ETV.P29 §5.5 + ETV.P26 §5.5: chỉ nạp tài liệu mức Công khai/Nội bộ
+**và** đã phê duyệt, thuộc lớp tài liệu đã được duyệt trong
+[`q1-anh-xa-muc-bao-mat.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/q1-anh-xa-muc-bao-mat.md).
+Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đánh giá, toàn văn tiêu chuẩn có bản quyền và
+84 SOP `03_MANAGEMENT_SYSTEM/03_M` (chưa rà mức từng file) **không** vào chỉ mục — lần chạy script
+in ra đầy đủ số file bị bỏ và lý do.
+
+Bộ kiểm thử chất lượng — **42 tình huống theo đúng 7 nhóm của biểu mẫu ban hành
+[ETV.P.F29.03](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md)**
+(nhóm 3, 4, 5, 7 bắt buộc đạt). Nguồn sự thật: `src/lib/m29/copilot/bo-cau-hoi-vang.ts`.
+
+```bash
+npm run danh-gia-copilot -- --kiem-nguon     # nguồn kỳ vọng có thật trong chỉ mục? (không gọi mô hình)
+npm run danh-gia-copilot -- --chi-truy-hoi   # truy hồi lấy được nguồn đúng không? (điều kiện cần)
+npm run danh-gia-copilot                     # đánh giá thật, ghi AIEvaluationRun — cần ANTHROPIC_API_KEY
+```
+
+**Phần mềm đo, người kết luận.** Trình chạy chỉ ghi `AIEvaluationRun.status = CHO_KET_LUAN` và xuất
+bản nháp phiếu F29.03 với ô Kết luận **để trống** — ETV.P29 §4.8: trợ lý AI không kết luận Đạt/Không
+đạt và không phê duyệt phiếu. Chuyển sang Đạt/Không đạt bằng `ghiKetLuanDanhGia()` dưới danh nghĩa
+người có quyền, bắt buộc dẫn số phiếu F29.03 đã ký.
+
+**Cổng triển khai fail-closed** (ETV.P29 §5.3.1): không kích hoạt được phiên bản lời nhắc mới nếu lần
+đánh giá gần nhất chưa có kết luận Đạt — kể cả khi chưa chạy lần nào. Lượt đánh giá gặp lỗi hạ tầng bị
+huỷ và không ghi kết quả: sự cố mạng không được hoá trang thành "đạt".
+
+Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật cho sự cố) hoặc chuyển Agent sang
+`SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).
+
+Đặc tả và bằng chứng verify:
+[`M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/spec.md)
+— spec · plan · q1 · verify.
+
 ## Cấu trúc chính
 
 ```
@@ -451,6 +572,8 @@ src/app/(platform)/     Layout có sidebar + trang dashboard + /modules/[code]
 src/lib/m10/            Rule engine + actor/actions M10 (Increment 1)
 src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
 src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
+src/lib/m29/copilot/    Copilot tra cứu: truy hồi + chuẩn hóa văn bản + server action
+scripts/nap-chi-muc-copilot.ts  Nạp chỉ mục tri thức cho Copilot (lọc mức bảo mật fail-closed)
 src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
 src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
 src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)

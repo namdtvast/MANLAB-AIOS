@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { CanCuBanner } from "@/components/CanCuBanner";
 import { getViewer } from "@/lib/m26/actor";
 import { isDueForReview, visibleConfidentiality } from "@/lib/m26/rules";
 import {
@@ -57,10 +58,11 @@ export default async function M26ListPage() {
         </p>
       </div>
 
-      <p className="max-w-3xl rounded-lg border border-border bg-surface px-3 py-2 text-xs text-ink-2">
-        Vận hành theo <strong>Thủ tục ETV.P26</strong> (ban hành lần 01, ngày 23/08/2026) và biểu mẫu F26.01–F26.04. Danh mục này là{" "}
-        <strong>sổ đăng ký</strong>: chỉ lưu tóm tắt và đường dẫn tới nội dung gốc — nội dung thật nằm ở 08_KNOWLEDGE_GRAPH, M14 (tài liệu),
-        M15 (hồ sơ), M05 (thiết bị).
+      <CanCuBanner moduleCode="M26" />
+
+      <p className="rounded-lg border border-border bg-surface px-3 py-2 text-xs text-ink-2">
+        Danh mục này là <strong>sổ đăng ký</strong>: chỉ lưu tóm tắt và đường dẫn tới nội dung gốc — nội dung thật nằm ở
+        08_KNOWLEDGE_GRAPH, M14 (tài liệu), M15 (hồ sơ), M05 (thiết bị).
       </p>
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">

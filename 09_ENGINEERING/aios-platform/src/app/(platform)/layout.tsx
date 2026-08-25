@@ -4,6 +4,8 @@ import { Sidebar } from "@/components/Sidebar";
 import { SidebarToggle } from "@/components/SidebarToggle";
 import { HomeButton } from "@/components/HomeButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CopilotDrawer } from "@/components/CopilotDrawer";
+import { copilotAvailable } from "@/lib/m29/copilot/availability";
 
 function initials(label: string) {
   return label
@@ -20,12 +22,17 @@ export default async function PlatformLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  const modules = await prisma.platformModule.findMany({ orderBy: { order: "asc" } });
+  const isAdmin = session?.user?.role === "ADMIN";
+  const [modules, pendingAccessRequests, showCopilot] = await Promise.all([
+    prisma.platformModule.findMany({ orderBy: { order: "asc" } }),
+    isAdmin ? prisma.accessRequest.count({ where: { status: "PENDING" } }) : Promise.resolve(0),
+    copilotAvailable(),
+  ]);
   const displayName = session?.user?.name ?? session?.user?.email ?? "";
 
   return (
     <div className="flex flex-1">
-      <Sidebar modules={modules} />
+      <Sidebar modules={modules} isAdmin={isAdmin} pendingAccessRequests={pendingAccessRequests} />
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 flex items-center justify-between gap-2 border-b border-border bg-surface/85 px-3 py-3 backdrop-blur sm:px-6">
           <SidebarToggle />
@@ -69,6 +76,7 @@ export default async function PlatformLayout({
         </header>
         <main className="flex-1 overflow-y-auto p-4 sm:p-6">{children}</main>
       </div>
+      {showCopilot && <CopilotDrawer />}
     </div>
   );
 }

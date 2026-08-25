@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP36
 slug: ChungChiSo
 name: Quản lý chứng chỉ số và truy xuất nguồn gốc
+purpose: >-
+  Phát hành, quản lý, xác thực và truy xuất nguồn gốc chứng chỉ số, báo cáo điện tử và hồ sơ điện
+  tử; bảo đảm tính xác thực, toàn vẹn và khả năng kiểm chứng của thông tin (QM §10.5).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO17025']
