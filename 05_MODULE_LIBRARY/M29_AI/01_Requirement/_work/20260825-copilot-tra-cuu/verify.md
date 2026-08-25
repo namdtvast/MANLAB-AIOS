@@ -314,6 +314,14 @@ cam kết thì không.
 
 10 ca test mới (`copilot-ranh-gioi.test.ts`); tổng **237** ca.
 
+> **Ghi chú digital thread — thay đổi này nằm ở HAI commit.** Cây làm việc dùng chung giữa các
+> phiên Claude Code; một phiên khác chạy `git add` diện rộng trong lúc phần này đang sửa dở, nên
+> `actions.ts`, `gateway.ts`, `copilot/ranh-gioi.ts` và `copilot/retrieval.ts` bị cuốn vào commit
+> `65f6d87` ("thẻ chỉ số căn giữa…"), còn `0b1016c` chỉ mang phần lược đồ, seed, test và tài liệu.
+> Mã không mất gì — 237 test xanh, tsc sạch, build xanh trên HEAD. Không viết lại lịch sử vì cả hai
+> commit đã đẩy lên `origin/main`. Ghi lại ở đây để người truy vết sau không mất công tìm chốt an
+> ninh §5.5 trong một commit về giao diện.
+
 > **Sau khi di trú:** mọi `AIPlatform` đã có nhận mặc định `EXTERNAL_NO_COMMITMENT`, tức bị siết
 > xuống Công khai — fail-closed đúng ý đồ, nhưng Copilot sẽ đột ngột "quên" gần hết tài liệu. Chạy
 > lại `npx prisma db seed` hoặc gọi `datRanhGioiDuLieu()` cho từng nền tảng.
