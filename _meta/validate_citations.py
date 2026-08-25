@@ -47,7 +47,15 @@ BO_QUA = {"node_modules", ".git", ".next", "src", "docs", "Output_Codex", ".venv
 # người viết ra nó.
 TRICH_DAN = re.compile(r"ETV\.(?:MP|P)(\d{2})[`*_]*\s*(?:§|mục)\s*(\d+(?:\.\d+)*)")
 # Lối viết song song bằng số La Mã: "ETV.P14 VI.2". Ít dùng nhưng có thật, kiểm riêng.
-TRICH_DAN_LAMA = re.compile(r"ETV\.(?:MP|P)(\d{2})[`*_]*\s+([IVXLC]{1,5})((?:\.\d+)*)\b")
+#
+# DÙNG `[ \t]+` CHỨ KHÔNG PHẢI `\s+`: phải là dấu cách trên CÙNG MỘT DÒNG. Cho phép xuống dòng thì
+# một câu trắc nghiệm trong giáo trình đào tạo bị nhận nhầm thành trích dẫn —
+#     A. `ETV.P01`
+#     B. `ETV.P02`
+#     C. `ETV.P10`
+# mẫu đọc "ETV.P02" + xuống dòng + "C" ra thành "ETV.P02 C". Trích dẫn thật không xuống dòng giữa
+# mã thủ tục và số mục.
+TRICH_DAN_LAMA = re.compile(r"ETV\.(?:MP|P)(\d{2})[`*_]*[ \t]+([IVXLC]{1,5})((?:\.\d+)*)\b")
 
 # `[\`*_]*` Ở ĐÂY CŨNG VẬY, nhưng cho phía CHỈ MỤC chứ không phải phía trích dẫn. ETV.P10 đánh tiêu
 # đề dạng `### **6.3. Lập kế hoạch...**` — dấu in đậm đứng trước số mục làm mẫu trượt, khiến công cụ

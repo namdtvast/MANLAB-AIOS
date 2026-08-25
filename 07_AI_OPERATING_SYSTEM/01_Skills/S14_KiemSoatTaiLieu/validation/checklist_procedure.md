@@ -6,5 +6,5 @@
 - [ ] Biểu mẫu dẫn chiếu đã tồn tại tại `06_SHARED_RESOURCES/01_Forms/` — không tạo trùng
 - [ ] Mã số, lần ban hành, ngày ban hành nhất quán giữa trang bìa, footer và bảng lịch sử thay đổi
 - [ ] Nếu thay thế thủ tục cũ: đã ghi `supersedes` và có kế hoạch cập nhật `superseded_by` của bản cũ
-- [ ] Nếu có sửa đổi cấu trúc so với bản trước: có tài liệu giải thích lý do (như `ETV.P14_PhanTich_ThietKeLai.md` làm ví dụ)
+- [ ] Nếu có sửa đổi cấu trúc so với bản trước: có ghi rõ lý do trong bảng "Những thay đổi đã có" của chính văn bản (ETV.P14 §6.6)
 - [ ] Đã kiểm tra không trùng phạm vi với thủ tục/quy trình khác đang áp dụng

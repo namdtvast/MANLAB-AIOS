@@ -1,6 +1,6 @@
 # Checklist — Ban hành văn bản (Document Release)
 
-Dùng ngay trước khi chuyển văn bản sang `Đã phê duyệt` và phân phối (tương ứng `ETV.P14` VI.5 — Vòng đời, bước Ban hành/Phân phối).
+Dùng ngay trước khi chuyển văn bản sang `Đã phê duyệt` và phân phối (tương ứng ETV.P14 §6.6 — Vòng đời, bước Ban hành/Phân phối).
 
 - [ ] Đã qua đủ bước Soát xét (LĐP) và Phê duyệt (LĐV) — không bỏ bước
 - [ ] Đã chạy `checklist_document_review.md`, `checklist_legal_compliance.md`, `checklist_iso_compliance.md` phù hợp loại văn bản
