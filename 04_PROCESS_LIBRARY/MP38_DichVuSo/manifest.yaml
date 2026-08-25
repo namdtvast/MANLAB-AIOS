@@ -6,11 +6,20 @@ purpose: >-
   Quản lý việc cung cấp dịch vụ số, dịch vụ trực tuyến và dịch vụ điện tử nhằm nâng cao chất lượng
   phục vụ, tăng khả năng tương tác với khách hàng và hỗ trợ chuyển đổi số hoạt động đo lường, thử
   nghiệm, hiệu chuẩn (QM §10.7).
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
-standards: ['(none)']
+standards: ['ISO9001', 'ISO17025', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-29]
 module: M38
 menu_group: DU_LIEU_SO
 menu_order: 5
+document:
+  doc_id: ETV.P38
+  doc_status: Cho-soat-xet
+  doc_version: "01"
+  issued_date: 2026-08-25
+forms:
+  - ETV.P.F38.01
+  - ETV.P.F38.02
+  - ETV.P.F38.03

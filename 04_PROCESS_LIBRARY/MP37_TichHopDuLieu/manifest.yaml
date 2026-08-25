@@ -6,11 +6,20 @@ purpose: >-
   Kết nối, trao đổi, chia sẻ và tích hợp dữ liệu giữa các hệ thống thông tin, thiết bị đo, phần
   mềm chuyên ngành và hệ thống bên ngoài; bảo đảm tính thống nhất, đồng bộ và khả năng khai thác
   dữ liệu (QM §10.6).
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
-standards: ['(none)']
+standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-28,CAP-29]
 module: M37
 menu_group: DU_LIEU_SO
 menu_order: 3
+document:
+  doc_id: ETV.P37
+  doc_status: Cho-soat-xet
+  doc_version: "01"
+  issued_date: 2026-08-25
+forms:
+  - ETV.P.F37.01
+  - ETV.P.F37.02
+  - ETV.P.F37.03
