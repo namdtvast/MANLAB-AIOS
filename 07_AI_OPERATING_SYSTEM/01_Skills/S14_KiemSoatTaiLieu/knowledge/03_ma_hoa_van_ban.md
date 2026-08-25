@@ -1,6 +1,6 @@
 # Tri thức — Mã hoá & thể thức văn bản
 
-> Quy định gốc: `ETV.P14` VI.1 (Phân loại văn bản) và VI.3 (Thể thức trình bày). File này là tra cứu nhanh cho AI, không thay thế thủ tục.
+> Quy định gốc: `ETV.P14` VI.1 (Phân loại văn bản & quy tắc mã hoá) và VI.4 (Thể thức trình bày). File này là tra cứu nhanh cho AI, không thay thế thủ tục.
 
 ## Bảng mã hoá
 
