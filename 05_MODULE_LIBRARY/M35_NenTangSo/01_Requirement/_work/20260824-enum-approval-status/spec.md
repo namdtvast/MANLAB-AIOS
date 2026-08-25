@@ -55,8 +55,8 @@ trong thay đổi này không? → **Không**, xem PLAN mục "Ngoài phạm vi"
 **Business rules** — chưa kích hoạt trong thay đổi này, ghi để bước BUILD sau thực thi:
 
 - `APPROVED → ACTIVE` chỉ khi `health_check_enabled = true` với nền tảng PRODUCTION hoặc
-  `criticality ∈ {Cao, Trung bình}` (ETV.P35 mục 5.1.7 bước 6).
-- `CANCELLED` chỉ đến từ các trạng thái **trước** phê duyệt, bắt buộc lý do (ETV.P35 mục 6).
+  `criticality ∈ {Cao, Trung bình}` (ETV.P35 §6.1.7 bước 6).
+- `CANCELLED` chỉ đến từ các trạng thái **trước** phê duyệt, bắt buộc lý do (ETV.P35 Phụ lục II).
 - `ARCHIVED` giữ nguyên nghĩa *Hết hiệu lực*; nhãn hiện tại "Hết hiệu lực/Hủy" **không đổi** trong
   thay đổi này để không lệch hành vi đang chạy của `AIGuardrail`/`AIPolicy`.
 

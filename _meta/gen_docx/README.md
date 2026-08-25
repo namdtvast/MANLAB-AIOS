@@ -1,6 +1,6 @@
 # gen_docx — Dựng bản Word phát hành từ thủ tục ETV
 
-Công cụ tái tạo bản **`.docx` phát hành** (để in, trình ký, lưu kho ISO) từ nội dung thủ tục, theo đúng **thể thức tài liệu HTQL của ETV** (ETV.P14 §8): A4, Times New Roman 12, lề trên/dưới 2cm–trái 2,5cm–phải 2cm, header (tên tài liệu) + footer (mã số | lần BH | ngày BH | trang/tổng), trang bìa + bảng "Những thay đổi đã có".
+Công cụ tái tạo bản **`.docx` phát hành** (để in, trình ký, lưu kho ISO) từ nội dung thủ tục, theo đúng **thể thức tài liệu HTQL của ETV** (ETV.P14 §6.4): A4, Times New Roman 12, lề trên/dưới 2cm–trái 2,5cm–phải 2cm, header (tên tài liệu) + footer (mã số | lần BH | ngày BH | trang/tổng), trang bìa + bảng "Những thay đổi đã có".
 
 > **Nguồn sự thật vẫn là bản `.md`** trong `03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/`. File `.docx` chỉ là bản xuất — không sửa trực tiếp Word.
 

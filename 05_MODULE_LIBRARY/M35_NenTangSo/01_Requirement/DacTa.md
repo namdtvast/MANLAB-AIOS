@@ -17,13 +17,13 @@
 Số hóa MP35 — **đăng ký, đánh giá trước vận hành, phê duyệt, giám sát tình trạng, kiểm soát thay
 đổi và ngừng vận hành** nền tảng số của Viện, để mọi nền tảng đang được dùng cho công việc đều
 **có danh tính rõ ràng, có chủ sở hữu, đúng môi trường, đúng mức bảo mật và được giám sát**
-(ETV.P35 mục 1.1).
+(ETV.P35 mục I, điểm 1).
 
 M35 là **sổ đăng ký (registry) nền tảng, không phải kho cấu hình và không phải kho tài liệu kỹ
 thuật**. Bản ghi chỉ giữ **định danh + metadata + đường dẫn** tới hồ sơ gốc: tài liệu kiến trúc ở
 thư viện module, hồ sơ nhà cung cấp ở M06, tài sản thông tin ở M27, hồ sơ an toàn thông tin ở M28.
 **Nghiêm cấm** lưu mật khẩu, khóa API, chứng thư số trong bản ghi — chỉ ghi *nơi lưu giữ* và
-*người có quyền cấp phát* (ETV.P35 mục 1.3).
+*người có quyền cấp phát* (ETV.P35 §2.2 nguyên tắc 2).
 
 M35 đồng thời là **nền cho mọi bộ lọc** của trang quản trị AI M29: chọn nền tảng ở đây sẽ lọc toàn
 bộ Agent/Tool/Prompt/Trace/Usage hiển thị bên M29.
@@ -141,7 +141,7 @@ Giữ **nguyên tên** thực thể và các trường đã triển khai; phần
 ### 2.5. `HealthCheckResult` — Kết quả kiểm tra sức khỏe
 
 `platform_id` · `checked_at` · `result` (HEALTHY/DEGRADED/DOWN/UNKNOWN) · `latency_ms` · `error`.
-Append-only, lưu **02 năm** (ETV.P35 mục 9). Là nguồn tính bảng nhật ký giám sát F35.03 phần B.
+Append-only, lưu **02 năm** (ETV.P35 mục VIII — Lưu hồ sơ). Là nguồn tính bảng nhật ký giám sát F35.03 phần B.
 
 ### 2.6. `PlatformIncident` — Sự cố nền tảng
 
@@ -196,7 +196,7 @@ xét, **không** phê duyệt (ISO/IEC 42001; ràng buộc MP29).
 
 ## 4. Danh mục chuẩn
 
-### 4.1. Nhóm nền tảng (`category`) — ETV.P35 mục 5.1.1
+### 4.1. Nhóm nền tảng (`category`) — ETV.P35 §6.1.1
 
 | # | Nhóm | Ví dụ |
 |---|---|---|
@@ -240,7 +240,7 @@ nền tảng thay đổi nhanh hoặc nền tảng AI.
 
 1. **`code` là định danh vĩnh viễn**: duy nhất toàn hệ thống, in hoa không dấu, **không sửa** sau
    khi phê duyệt và **không cấp lại** cho nền tảng khác kể cả khi bản ghi cũ đã Hủy/Hết hiệu lực —
-   giữ giá trị truy vết của `AIAuditLog` (ETV.P35 mục 5.1.8).
+   giữ giá trị truy vết của `AIAuditLog` (ETV.P35 §6.1.8).
 2. **Mỗi môi trường một bản ghi**: cùng một phần mềm chạy ở PRODUCTION và STAGING là **hai** bản
    ghi, không gộp (mục 5.1.2).
 3. **Adapter phải có thật**: `adapter_type` phải khớp một `IAIPlatformAdapter` đã triển khai. Nền

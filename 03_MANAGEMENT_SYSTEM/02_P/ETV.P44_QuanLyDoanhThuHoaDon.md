@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P44
 title: "Thủ tục Quản lý Doanh thu & Hóa đơn"
 type: Thu-tuc

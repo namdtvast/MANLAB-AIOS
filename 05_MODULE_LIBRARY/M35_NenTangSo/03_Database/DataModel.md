@@ -24,7 +24,7 @@
 - Cùng một phần mềm ở hai môi trường ⇒ **hai** bản ghi riêng, không gộp.
 - Thay đổi lớn (đổi `environment`, nâng `criticality` lên Cao, nâng `data_classification` lên Hạn chế/Mật, đổi nhà cung cấp) ⇒ `version + 1` và `supersedes_ref` trỏ bản cũ; không sửa đè.
 
-**Điều kiện chặn cứng khi phê duyệt** (ETV.P35 mục 5.2.3 — validate ở tầng application)
+**Điều kiện chặn cứng khi phê duyệt** (ETV.P35 §6.2.3 — validate ở tầng application)
 - `owner` và `technical_contact` bắt buộc, phải là người cụ thể đang làm việc tại Viện.
 - `data_classification` bắt buộc và nhất quán với `PreOpAssessment`.
 - `environment = PRODUCTION` ⇒ bắt buộc `PreOpAssessment.status = Đã phê duyệt` **và** `health_check_enabled = true`.
