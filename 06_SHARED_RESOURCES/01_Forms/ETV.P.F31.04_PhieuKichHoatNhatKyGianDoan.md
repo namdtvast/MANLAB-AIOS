@@ -27,7 +27,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 **Số nhật ký:** ...................　**Kịch bản áp dụng:** KB-......
 
-> **Nhật ký này phải được ghi LIÊN TỤC trong khi ứng phó**, không được lập lại sau khi sự việc kết thúc (ETV.P31 mục 5.5.3, mục 7). Khi ManLab không khả dụng: ghi trên bản giấy này và nhập bù trong **03 ngày làm việc** kể từ khi hệ thống trở lại; **giữ nguyên bản giấy làm hồ sơ gốc**.
+> **Nhật ký này phải được ghi LIÊN TỤC trong khi ứng phó**, không được lập lại sau khi sự việc kết thúc (ETV.P31 mục 6.5.3 và Phụ lục I). Khi ManLab không khả dụng: ghi trên bản giấy này và nhập bù trong **03 ngày làm việc** kể từ khi hệ thống trở lại; **giữ nguyên bản giấy làm hồ sơ gốc**.
 
 ## 1. Phát hiện và phân mức
 
@@ -39,7 +39,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Quá trình bị ảnh hưởng | |
 | Nguyên nhân sơ bộ | |
 | **Mức gián đoạn** | ☐ A *(TP quyết định)*　☐ B *(LĐV — thông báo ≤ 04 giờ)*　☐ C *(LĐV — ngay lập tức)* |
-| Đồng thời là sự cố ATTT? | ☐ Không　☐ Có → mở phiếu F28.03, số: ............ *(xử lý song song theo ETV.MP28)* |
+| Đồng thời là sự cố ATTT? | ☐ Không　☐ Có → mở phiếu F28.03, số: ............ *(xử lý song song theo ETV.P28)* |
 
 ## 2. Quyết định kích hoạt
 
@@ -64,7 +64,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 4. Kiểm soát an toàn thông tin bị nới lỏng
 
-*(ETV.P31 mục 5.3.2 — không có phê duyệt của LĐV, không có thời hạn, không ghi nhật ký là **vi phạm nghiêm trọng**)*
+*(ETV.P31 mục 6.3.2 — không có phê duyệt của LĐV, không có thời hạn, không ghi nhật ký là **vi phạm nghiêm trọng**)*
 
 | TT | Kiểm soát bị nới lỏng | Biện pháp bù đắp | Thời hạn | LĐV phê duyệt ngày | Ngày khôi phục nguyên trạng | Xác nhận |
 |---|---|---|---|---|---|---|
@@ -74,16 +74,16 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 5. Thông báo bên ngoài
 
-*(ETV.P31 mục 5.5.4 — không cá nhân nào được tự phát ngôn khi chưa được LĐV cho phép)*
+*(ETV.P31 mục 6.5.4 — không cá nhân nào được tự phát ngôn khi chưa được LĐV cho phép)*
 
 | Trường hợp | Áp dụng | Đầu mối | Ngày gửi | Số văn bản | Bằng chứng gửi/nhận |
 |---|---|---|---|---|---|
-| Ảnh hưởng tiến độ, phạm vi, cách thức thực hiện dịch vụ đã ký kết | ☐ | Khách hàng (MP07) | | | |
-| Ảnh hưởng hiệu lực kết quả, chứng chỉ đã phát hành | ☐ | Khách hàng, bên nhận kết quả (MP10, MP11) | | | |
+| Ảnh hưởng tiến độ, phạm vi, cách thức thực hiện dịch vụ đã ký kết | ☐ | Khách hàng (ETV.P07) | | | |
+| Ảnh hưởng hiệu lực kết quả, chứng chỉ đã phát hành | ☐ | Khách hàng, bên nhận kết quả (ETV.P10, ETV.P11) | | | |
 | Viện tạm thời không còn đáp ứng điều kiện đã đăng ký, đã chỉ định | ☐ | Cơ quan quản lý nhà nước | | | |
 | Ảnh hưởng điều kiện duy trì phạm vi công nhận | ☐ | Tổ chức công nhận (BoA) | | | |
-| Sự cố ATTT thuộc diện phải báo cáo | ☐ | Theo ETV.MP28 | | | |
-| Vi phạm dữ liệu cá nhân | ☐ | Theo NĐ 13/2023/NĐ-CP và ETV.MP28 | | | |
+| Sự cố ATTT thuộc diện phải báo cáo | ☐ | Theo ETV.P28 | | | |
+| Vi phạm dữ liệu cá nhân | ☐ | Theo NĐ 13/2023/NĐ-CP và ETV.P28 | | | |
 
 ## 6. Khôi phục
 
@@ -92,27 +92,27 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | | | | | ☐ | | ☐ |
 | | | | | ☐ | | ☐ |
 
-☐ Có quá trình **vượt RTO hoặc RPO** → bắt buộc lập KPH theo **ETV.MP13**, số phiếu: ............
+☐ Có quá trình **vượt RTO hoặc RPO** → bắt buộc lập KPH theo **ETV.P13**, số phiếu: ............
 
 ## 7. Rà soát hiệu lực công việc thực hiện trong thời gian gián đoạn
 
-*(**Bước bắt buộc, không được bỏ qua** — ETV.P31 mục 5.6.2. QLCL chủ trì cùng TP liên quan.)*
+*(**Bước bắt buộc, không được bỏ qua** — ETV.P31 mục 6.6.2. QLCL chủ trì cùng TP liên quan.)*
 
 | TT | Nội dung rà soát | Áp dụng | Kết quả | Xử lý |
 |---|---|---|---|---|
-| 1 | Phép đo thực hiện trên thiết bị dự phòng hoặc trong điều kiện môi trường ngoài quy định | ☐ | | Kích hoạt **MP10** — số hồ sơ: ............　Chưa kết luận thì **không phát hành** kết quả liên quan |
-| 2 | Kết quả đã phát hành trong thời gian gián đoạn | ☐ | | Rà soát theo **MP11**; thu hồi/phát hành lại theo quyết định LĐV |
-| 3 | Phép thử chuyển cho nhà thầu phụ | ☐ | | Kiểm tra năng lực và phạm vi công nhận (MP06); ghi rõ trên báo cáo kết quả (MP11) |
-| 4 | Công việc do người thay thế thực hiện | ☐ | | Kiểm tra phạm vi ủy quyền và hồ sơ năng lực (MP03) |
+| 1 | Phép đo thực hiện trên thiết bị dự phòng hoặc trong điều kiện môi trường ngoài quy định | ☐ | | Kích hoạt **ETV.P10** — số hồ sơ: ............　Chưa kết luận thì **không phát hành** kết quả liên quan |
+| 2 | Kết quả đã phát hành trong thời gian gián đoạn | ☐ | | Rà soát theo **ETV.P11**; thu hồi/phát hành lại theo quyết định LĐV |
+| 3 | Phép thử chuyển cho nhà thầu phụ | ☐ | | Kiểm tra năng lực và phạm vi công nhận (ETV.P06); ghi rõ trên báo cáo kết quả (ETV.P11) |
+| 4 | Công việc do người thay thế thực hiện | ☐ | | Kiểm tra phạm vi ủy quyền và hồ sơ năng lực (ETV.P03) |
 | 5 | Dữ liệu nhập bù từ bản giấy | ☐ | | Đối chiếu **100%** với bản gốc đối với quá trình Trọng yếu cao |
-| 6 | Mẫu, chất chuẩn bảo quản trong điều kiện không đạt | ☐ | | Đánh giá theo MP09, MP19; hủy hoặc lấy lại mẫu nếu không bảo đảm |
+| 6 | Mẫu, chất chuẩn bảo quản trong điều kiện không đạt | ☐ | | Đánh giá theo ETV.P09, ETV.P19; hủy hoặc lấy lại mẫu nếu không bảo đảm |
 
 **Công việc không đủ độ tin cậy đã phát hiện:** ................................................................................
-**Xử lý theo ETV.MP13 — số phiếu KPH:** ......................　**Theo ETV.MP11 (công việc không phù hợp):** ......................
+**Xử lý theo ETV.P13 — số phiếu KPH:** ......................　**Theo ETV.P11 (công việc không phù hợp):** ......................
 
 ## 8. Tuyên bố trở lại bình thường
 
-*(Chỉ tuyên bố khi **đồng thời** đủ các điều kiện dưới đây — ETV.P31 mục 5.6.1)*
+*(Chỉ tuyên bố khi **đồng thời** đủ các điều kiện dưới đây — ETV.P31 mục 6.6.1)*
 
 | TT | Điều kiện | Đạt |
 |---|---|---|
@@ -128,7 +128,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 9. Rút kinh nghiệm
 
-*(Trong **15 ngày làm việc** kể từ khi tuyên bố trở lại bình thường — ETV.P31 mục 5.6.3)*
+*(Trong **15 ngày làm việc** kể từ khi tuyên bố trở lại bình thường — ETV.P31 mục 6.6.3)*
 
 **Ngày họp rút kinh nghiệm:** ..../..../........　**Thành phần:** ...................................................
 
@@ -144,8 +144,8 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | 2 | | | | ☐ |
 
 **Gián đoạn Mức B, Mức C — bắt buộc:**
-- ☐ Lập **bài học kinh nghiệm** theo ETV.MP26 — số hồ sơ: ............ *(chưa lập → **chặn thao tác đóng**)*
-- ☐ Cập nhật lại kế hoạch F31.02 theo ETV.MP14 và ETV.MP30 — mã thay đổi: CR-........-........
+- ☐ Lập **bài học kinh nghiệm** theo ETV.P26 — số hồ sơ: ............ *(chưa lập → **chặn thao tác đóng**)*
+- ☐ Cập nhật lại kế hoạch F31.02 theo ETV.P14 và ETV.P30 — mã thay đổi: CR-........-........
 
 ---
 
@@ -154,4 +154,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(CHUP)* | *(QLCL)* | *(Lãnh đạo Viện)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> Trợ lý AI **không** được quyết định kích hoạt, kết luận hiệu lực kết quả bị ảnh hưởng, hay tự thao tác khôi phục (ETV.P31 mục 5.7). Hồ sơ — kể cả **bản giấy gốc** — lưu 10 năm theo ETV.MP15.
+> Trợ lý AI **không** được quyết định kích hoạt, kết luận hiệu lực kết quả bị ảnh hưởng, hay tự thao tác khôi phục (ETV.P31 mục 6.7). Hồ sơ — kể cả **bản giấy gốc** — lưu 10 năm theo ETV.P15.

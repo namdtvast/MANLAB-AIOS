@@ -18,7 +18,7 @@ document:
   doc_id: ETV.P31
   doc_status: Cho-soat-xet
   doc_version: "01"
-  issued_date: 2026-08-25
+  issued_date: ""
 forms:
   - ETV.P.F31.01
   - ETV.P.F31.02
