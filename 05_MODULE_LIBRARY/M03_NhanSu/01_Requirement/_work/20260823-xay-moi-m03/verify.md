@@ -29,7 +29,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt 4 tài khoản demo (`nth`=NGUOIHUONGDAN, `ldp`=TP, `ldv`=LDV,
-`vanphong`=VANPHONG @manlab.vn, cùng mật khẩu `DoiMatKhauNgay!2026`), thao tác qua UI thật.
+`vanphong`=VANPHONG @manlab.vn, cùng mật khẩu tài khoản demo), thao tác qua UI thật.
 
 ### 1. Luồng RecruitmentPlan đầy đủ (TD-2026-0002) — PASS
 

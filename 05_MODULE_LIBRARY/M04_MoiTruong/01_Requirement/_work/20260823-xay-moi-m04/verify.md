@@ -22,7 +22,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt NV (`nth@manlab.vn`), TP (`ldp@manlab.vn`), LĐV (`ldv@manlab.vn`, cùng mật
-khẩu `DoiMatKhauNgay!2026`), thao tác qua UI thật.
+khẩu tài khoản demo), thao tác qua UI thật.
 
 ### 1. Gate `M04ConditionLog` — vượt ngưỡng bắt buộc biện pháp xử lý (quy tắc 2 ETV.P04) — PASS
 

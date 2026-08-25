@@ -31,7 +31,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt LĐV (`ldv@manlab.vn`), LĐP=PHUTRACH (`ldp@manlab.vn`), cùng mật khẩu
-`DoiMatKhauNgay!2026`, thao tác qua UI thật (form/nút thật, không gọi thẳng server action).
+tài khoản demo, thao tác qua UI thật (form/nút thật, không gọi thẳng server action).
 
 ### 1. Gate bắt buộc F14.03 trước khi phân công (quy tắc 1-2 ETV.P12) — PASS
 

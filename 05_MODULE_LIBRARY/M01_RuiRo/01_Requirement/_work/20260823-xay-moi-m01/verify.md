@@ -27,7 +27,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt 3 tài khoản demo (`nth@manlab.vn`=NV, `ldp@manlab.vn`=TP_QLCL,
-`ldv@manlab.vn`=LDV, cùng mật khẩu `DoiMatKhauNgay!2026`), thao tác qua UI thật (không gọi thẳng
+`ldv@manlab.vn`=LDV, cùng mật khẩu tài khoản demo), thao tác qua UI thật (không gọi thẳng
 Server Action), quan sát qua `get_page_text`/`read_network_requests`/`preview_logs`.
 
 ### 1. Luồng Cơ hội đầy đủ (CH-2026-0001) — PASS
