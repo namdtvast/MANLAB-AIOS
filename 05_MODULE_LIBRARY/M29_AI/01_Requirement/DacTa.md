@@ -235,6 +235,15 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   [`_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md`](_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md).
   **Chưa kiểm được lượt bấm nút thật trên giao diện** — công cụ trình duyệt không kích hoạt được
   server action; logic đã phủ bằng test đơn vị. Trạng thái `CANCELLED` vẫn chưa có chuyển tiếp.
+- ✅ **Đăng ký nền tảng và công cụ trên giao diện** (2026-08-25): trang danh mục có form tạo mới cho
+  `AIPlatform` và `AITool` — trước đó `createPlatform`/`createTool` đã có đủ kiểm quyền và ghi nhật ký
+  kiểm toán nhưng **không thành phần giao diện nào gọi tới**, nên đăng ký một nền tảng phải sửa
+  `prisma/seed.ts`. Form cố ý không phơi `dataBoundary` và `approvalStatus`: bản ghi mới luôn ra ở
+  `DRAFT` + ranh giới siết nhất, muốn nới vẫn phải qua `datRanhGioiDuLieu()` kèm số hồ sơ F29.02.
+  Bổ sung chặn `adapterType` không có thật ở `createPlatform` (trước đây rơi âm thầm về
+  `PlaceholderPlatformAdapter`). Kiểm trên trình duyệt thật đủ 3 vai trò và cả hai luồng tạo — xem
+  [`_work/20260825-form-dang-ky-nen-tang-cong-cu/verify.md`](_work/20260825-form-dang-ky-nen-tang-cong-cu/verify.md).
+  ❌ **Chưa làm**: form cho Provider/Model/Skill/Agent, và sửa/xóa bản ghi đã có.
 - ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa deprecate. Tool Gateway
   của Agent mẫu gọi thật ra `http://localhost:8010` (server M10 standalone cũ) — cần server đó
   chạy để demo Tool Gateway/health check thành công.
