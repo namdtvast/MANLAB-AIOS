@@ -23,6 +23,18 @@ export interface Passage {
 export const MAX_PASSAGES = 6;
 export const MAX_PASSAGE_CHARS = 1800;
 
+/**
+ * Số đoạn tối đa lấy từ CÙNG MỘT tài liệu.
+ *
+ * Không có hạn mức này, một tài liệu dài khớp tốt sẽ chiếm trọn 6 chỗ và mô hình chỉ được nhìn
+ * đúng một nguồn — đo trên bộ 30 câu hỏi vàng: 6 đoạn chỉ trải trên 3,35 tài liệu, cá biệt có câu
+ * dồn cả 6 đoạn vào 1 tài liệu. Hệ quả là nguồn đúng nằm ở hạng 7-8 không bao giờ tới được prompt.
+ */
+export const MAX_PASSAGES_PER_DOC = 2;
+
+/** Lấy dư rồi mới áp hạn mức — nếu chỉ lấy đúng MAX_PASSAGES thì cắt bớt xong sẽ hụt chỗ. */
+const CANDIDATE_FACTOR = 4;
+
 export async function retrieve(question: string, limit: number = MAX_PASSAGES): Promise<Passage[]> {
   const q = tsQuery(question);
   if (!q) return [];
@@ -37,10 +49,22 @@ export async function retrieve(question: string, limit: number = MAX_PASSAGES): 
     WHERE c."tsv" @@ query
       AND c."securityLevel" IN ('Cong-khai', 'Noi-bo')
     ORDER BY rank DESC, c."path" ASC
-    LIMIT ${limit}
+    LIMIT ${limit * CANDIDATE_FACTOR}
   `;
 
-  return rows.map((r) => ({
+  // Áp hạn mức đoạn/tài liệu theo đúng thứ tự xếp hạng: đoạn tốt nhất của mỗi tài liệu luôn được
+  // giữ, chỉ đoạn thứ ba trở đi của cùng tài liệu mới bị nhường chỗ cho tài liệu khác.
+  const demTheoTaiLieu = new Map<string, number>();
+  const chon: typeof rows = [];
+  for (const r of rows) {
+    const dem = demTheoTaiLieu.get(r.path) ?? 0;
+    if (dem >= MAX_PASSAGES_PER_DOC) continue;
+    demTheoTaiLieu.set(r.path, dem + 1);
+    chon.push(r);
+    if (chon.length >= limit) break;
+  }
+
+  return chon.map((r) => ({
     ...r,
     content: r.content.length > MAX_PASSAGE_CHARS ? `${r.content.slice(0, MAX_PASSAGE_CHARS)}…` : r.content,
     rank: Number(r.rank),

@@ -50,6 +50,34 @@ describe("runCases — chấm bộ ca kiểm thử", () => {
   });
 });
 
+// Ca của Copilot tra cứu KHÔNG chấm được bằng luật z-score. Để lọt xuống evaluateCase() thì mọi
+// ca sẽ ra "no_flag", bộ 30 câu hỏi vàng hoá thành 10/30 đúng ngẫu nhiên, và deploymentGate() đọc
+// kết quả rác đó để chặn/mở việc kích hoạt PromptVersion. Phải ném lỗi, không được ghi run rác.
+describe("runCases — chặn ca của Copilot tra cứu", () => {
+  it("ném lỗi thay vì chấm nhầm bằng luật z-score", () => {
+    expect(() =>
+      runCases([{ id: "c1", expected: "refuse", input: { kind: "copilot-tracuu", ma: "BAY-01", cauHoi: "…" } }])
+    ).toThrow(/Copilot tra cứu/);
+  });
+
+  it("chỉ rõ lệnh phải chạy thay thế", () => {
+    expect(() => runCases([{ id: "c1", expected: "cite", input: { kind: "copilot-tracuu" } }])).toThrow(/danh-gia-copilot/);
+  });
+
+  it("một ca Copilot lẫn trong bộ KPI cũng chặn cả bộ, không chấm một nửa", () => {
+    expect(() =>
+      runCases([
+        { id: "c1", expected: "flag_warning", input: { "z-score": 2.4 } },
+        { id: "c2", expected: "cite", input: { kind: "copilot-tracuu" } },
+      ])
+    ).toThrow();
+  });
+
+  it("không đụng tới bộ KPI thuần", () => {
+    expect(runCases([{ id: "c1", expected: "flag_warning", input: { "z-score": 2.4 } }]).status).toBe("PASS");
+  });
+});
+
 describe("deploymentGate — Cổng triển khai", () => {
   it("chặn khi lần đánh giá gần nhất KHÔNG ĐẠT", async () => {
     prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);

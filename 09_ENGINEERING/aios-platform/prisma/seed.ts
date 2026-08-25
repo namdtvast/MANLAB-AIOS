@@ -10,6 +10,7 @@ import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
 import type { Prisma } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { BO_CAU_HOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -969,12 +970,20 @@ async function seedCopilot() {
     });
   }
 
-  // Bộ đánh giá chất lượng — Increment 5 của plan.md. Seed KHUNG RỖNG có chủ đích: 30 ca hỏi
-  // vàng phải do người soạn và duyệt, không được sinh máy rồi tự chấm mình đạt.
-  const existingSuite = await prisma.aIEvaluationSuite.findFirst({ where: { agentId: agent.id } });
-  if (!existingSuite) {
-    await prisma.aIEvaluationSuite.create({ data: { name: "Copilot tra cứu v1 (chưa soạn ca kiểm thử)", agentId: agent.id } });
-  }
+  // Bộ đánh giá chất lượng — Increment 5 của plan.md. Nguồn sự thật của 30 ca là
+  // src/lib/m29/copilot/bo-cau-hoi-vang.ts (bản duyệt được, có lý do từng ca); seed chỉ chép vào
+  // CSDL để danh mục M29 nhìn thấy. Seed KHÔNG tạo AIEvaluationRun — bộ này chưa chạy thật thì
+  // chưa có kết quả, và không có đường nào để phần mềm tự chấm mình đạt.
+  const suite =
+    (await prisma.aIEvaluationSuite.findFirst({ where: { agentId: agent.id } })) ??
+    (await prisma.aIEvaluationSuite.create({ data: { name: BO_CAU_HOI.ten, agentId: agent.id } }));
+  await prisma.aIEvaluationSuite.update({ where: { id: suite.id }, data: { name: BO_CAU_HOI.ten } });
+  // Chép lại toàn bộ: bộ câu hỏi sửa ở file dữ liệu thì CSDL phải theo, không giữ ca cũ đã bỏ.
+  await prisma.aIEvaluationCase.deleteMany({ where: { suiteId: suite.id } });
+  await prisma.aIEvaluationCase.createMany({
+    data: TAT_CA_CA.map((c) => ({ suiteId: suite.id, input: c as unknown as Prisma.InputJsonValue, expected: c.kyVong })),
+  });
+  console.log(`Đã nạp ${TAT_CA_CA.length} ca của bộ "${BO_CAU_HOI.ten}" (${BO_CAU_HOI.trangThai}).`);
 
   console.log("Đã khai Copilot tra cứu trong danh mục M29 (Platform→Model→Agent→Prompt→AIA→3 Guardrail→Policy→Secret).");
 }

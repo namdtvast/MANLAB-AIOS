@@ -6,6 +6,11 @@ import { getAdapter, type ChatMessage } from "./adapters";
 import { hasToolPermission } from "./rules";
 import { enforceInput, enforceOutput, loadActiveGuardrails } from "./guardrails";
 import { buildContextBlock, retrieve, type Passage } from "./copilot/retrieval";
+// Câu từ chối và mã Agent nằm ở module thuần để trình chấm đánh giá dùng lại được mà không
+// phải kéo theo Prisma. Re-export để nơi gọi cũ không phải đổi đường dẫn nhập.
+import { COPILOT_AGENT_CODE, NO_SOURCE_ANSWER } from "./copilot/hang-so";
+
+export { COPILOT_AGENT_CODE, NO_SOURCE_ANSWER };
 import type { M29Role } from "./model";
 
 export type GatewayResult =
@@ -121,8 +126,6 @@ export async function getTrace(id: string) {
 // Bất biến: MỖI lượt hỏi sinh ĐÚNG MỘT AIRequest — kể cả lượt bị guardrail chặn, lượt vượt hạn
 // mức, lượt không tìm thấy căn cứ và lượt lỗi mạng (AC-03). Không có lượt nào đi ngoài sổ.
 
-/** Mã Agent Copilot trong registry M29 — khai ở prisma/seed.ts, không tạo bằng tay. */
-export const COPILOT_AGENT_CODE = "AGENT_COPILOT_TRACUU";
 
 /**
  * Độ sâu suy luận cho Copilot. Tra cứu tài liệu đã có sẵn trích đoạn là việc nhẹ; "low" giữ độ
@@ -131,8 +134,6 @@ export const COPILOT_AGENT_CODE = "AGENT_COPILOT_TRACUU";
  */
 const COPILOT_EFFORT = "low" as const;
 
-/** Câu từ chối cố định khi không dẫn được nguồn (spec §2.3). */
-export const NO_SOURCE_ANSWER = "Không tìm thấy căn cứ trong hệ thống tài liệu của Viện.";
 
 export interface Citation {
   path: string;

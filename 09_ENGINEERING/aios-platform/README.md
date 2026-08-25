@@ -519,6 +519,19 @@ Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đán
 84 SOP `03_MANAGEMENT_SYSTEM/03_M` (chưa rà mức từng file) **không** vào chỉ mục — lần chạy script
 in ra đầy đủ số file bị bỏ và lý do.
 
+Bộ đánh giá chất lượng (30 câu hỏi vàng — 20 câu thật + 10 câu bẫy, nguồn sự thật ở
+`src/lib/m29/copilot/bo-cau-hoi-vang.ts`):
+
+```bash
+npm run danh-gia-copilot -- --kiem-nguon     # nguồn kỳ vọng có thật trong chỉ mục? (không gọi mô hình)
+npm run danh-gia-copilot -- --chi-truy-hoi   # truy hồi lấy được nguồn đúng không? (điều kiện cần)
+npm run danh-gia-copilot                     # đánh giá thật, ghi AIEvaluationRun — cần ANTHROPIC_API_KEY
+```
+
+Ngưỡng mở cho toàn Viện: **≥90% dẫn đúng nguồn** và **100% từ chối đúng ở câu bẫy**. Không đạt thì
+sửa truy hồi/prompt, **không nới ngưỡng**. Lượt đánh giá gặp lỗi hạ tầng bị huỷ và không ghi kết
+quả — sự cố mạng không được hoá trang thành "từ chối đúng".
+
 Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật cho sự cố) hoặc chuyển Agent sang
 `SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).
 

@@ -127,6 +127,12 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
     CSDL quyết định guardrail nào có hiệu lực và hành động (`BLOCK`/`WARN`); mã guardrail không có
     phép phát hiện tương ứng trong mã nguồn phải lộ ra là *không cưỡng chế được*, không im lặng bỏ
     qua. Câu trả lời không dẫn được nguồn bị thay bằng câu từ chối cố định.
+19. Bộ đánh giá của Copilot **không chấm được bằng trình chấm đồng bộ** của M29 (luật z-score):
+    "đúng" của nó là *có dẫn đúng nguồn hay không*, phải gọi mô hình thật mới biết. `runCases()`
+    ném lỗi khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác — vì `deploymentGate()` đọc
+    lần chạy gần nhất để chặn/mở việc kích hoạt PromptVersion. Cùng lý do: lượt đánh giá gặp lỗi
+    hạ tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành
+    "100% từ chối đúng".
 
 ## 6. Liên kết
 
@@ -168,10 +174,16 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   ẩn khay thật, guardrail PII chặn thật, trace ghi thật) — xem
   [`_work/20260825-copilot-tra-cuu/verify.md`](_work/20260825-copilot-tra-cuu/verify.md).
   **Chưa chạy được lượt hỏi thật** vì môi trường chưa có `ANTHROPIC_API_KEY`.
-- ❌ **Chưa làm**: bộ đánh giá 30 câu hỏi vàng và ngưỡng mở cho toàn Viện (Increment 5 của
-  [plan.md](_work/20260825-copilot-tra-cuu/plan.md)); rà mức bảo mật 84 SOP
-  `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục; phát trả lời theo luồng (streaming); trang Trace
-  chưa hiện cột `guardrailResult`.
+- ✅ **Bộ 30 câu hỏi vàng** (2026-08-25, Increment 5): 20 câu hỏi thật trải đủ 5 lớp tài liệu + 10
+  câu bẫy trải 5 cơ chế từ chối, mỗi ca khai lý do; trình chấm thuần + hai ngưỡng của spec §11;
+  trình chạy 3 chế độ. Đo được ngay: **24/24** nguồn kỳ vọng có thật trong chỉ mục, truy hồi lấy
+  đúng nguồn **19/20**. Nhờ bộ này phát hiện và sửa khiếm khuyết truy hồi (6 đoạn chỉ trải trên
+  3,35 tài liệu → 4,65 sau khi thêm hạn mức đoạn/tài liệu).
+  ❌ **Chưa chạy lượt đánh giá thật** (thiếu khóa API) và **bộ câu hỏi chưa được soát xét** —
+  trạng thái `DU_THAO_CHUA_SOAT_XET`, chưa phải căn cứ mở Copilot cho toàn Viện.
+- ❌ **Chưa làm**: rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục (và bổ sung
+  câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); trang Trace chưa hiện cột
+  `guardrailResult`; chưa có UI chạy đánh giá.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
