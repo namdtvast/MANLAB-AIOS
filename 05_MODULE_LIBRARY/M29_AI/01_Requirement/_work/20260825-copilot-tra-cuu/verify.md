@@ -212,8 +212,19 @@ luận ăn hết, trả về rỗng với `finishReason=MAX_TOKENS`).
 
 #### Trần mức bảo mật — ETV.P29 §5.5 cưỡng chế bằng máy
 
-Bậc miễn phí của Gemini API dùng dữ liệu để cải thiện sản phẩm, tức **không** bảo đảm được điều
-khoản *"không dùng dữ liệu để huấn luyện lại"*. §5.5: khi đó **chỉ được gửi dữ liệu mức Công khai**.
+Chủ sở hữu cho biết khoá đang dùng thuộc **bậc miễn phí AI Studio**.
+
+> **Đính chính về cách lập luận (bổ sung sau).** Bản đầu của mục này viết *"bậc miễn phí của Gemini
+> API dùng dữ liệu để cải thiện sản phẩm"* như một sự thật đã kiểm — nhưng tôi **chưa đối chiếu điều
+> khoản từ nguồn của nhà cung cấp**, đó là kiến thức sẵn có chứ không phải bằng chứng. Viết một
+> khẳng định về bên thứ ba vào hồ sơ mà không dẫn nguồn là đúng loại lỗi mà chính bộ kiểm soát này
+> đang chống.
+>
+> Điều quan trọng: **kết luận không đổi, và không phụ thuộc vào khẳng định đó.** Trần Công khai
+> không đến từ phán đoán về điều khoản của Google, mà từ một sự thật kiểm được — **chưa có hồ sơ
+> F29.02 nào trích điều khoản đó cho nền tảng này**. ETV.P29 §5.5 đòi bằng chứng, nên không có bằng
+> chứng thì siết, bất kể nhà cung cấp thực tế cam kết gì. Ai muốn nới thì phải đi tra điều khoản,
+> trích vào F29.02 và dẫn số hồ sơ — đúng thứ tự.
 
 Đã thêm `mucBaoMatToiDa()` trong `retrieval.ts`, đọc `COPILOT_MUC_BAO_MAT_TOI_DA`, **mặc định
 fail-closed ở `Cong-khai`**. Nới lên `Noi-bo` là một hành động có chủ đích của người vận hành — và

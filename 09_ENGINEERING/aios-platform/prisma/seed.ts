@@ -880,8 +880,12 @@ async function seedCopilot() {
       environment: "EXTERNAL",
       owner: "Dương Thành Nam",
       adapterType: "GeminiPlatformAdapter",
-      // Khoá đang dùng thuộc bậc MIỄN PHÍ — bậc này dùng dữ liệu để cải thiện sản phẩm, tức không
-      // bảo đảm được điều khoản "không huấn luyện lại" của ETV.P29 §5.5. Trần: chỉ Công khai.
+      // Trạng thái siết nhất KHÔNG dựa trên một phán đoán về điều khoản của Google, mà dựa trên
+      // một sự thật kiểm được: CHƯA CÓ hồ sơ F29.02 nào trích điều khoản "không dùng dữ liệu để
+      // huấn luyện lại" cho nền tảng này. ETV.P29 §5.5 đòi bằng chứng; không có bằng chứng thì chỉ
+      // được gửi mức Công khai, bất kể nhà cung cấp thực tế cam kết gì.
+      // (Chủ sở hữu cho biết khoá đang dùng thuộc bậc miễn phí AI Studio — chưa đối chiếu điều
+      // khoản từ nguồn của nhà cung cấp, và cũng không cần: kết luận không phụ thuộc vào việc đó.)
       dataBoundary: "EXTERNAL_NO_COMMITMENT",
       approvalStatus: "APPROVED",
       approvedBy: admin.id,
