@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP33_HeThongTT
 module: M33_HeThongTT
 revision: "01"
-effective_date: "25/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
@@ -18,7 +18,7 @@ related_documents: [ETV.P33, ETV.P.F33.01, ETV.P.F33.02, ETV.P.F33.03]
 | --- | --- |
 | **Mã số** | ETV.P.F 33.04 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | 25/08/2026 |
+| **Ngày ban hành** | ..../..../........ |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/2 |
 

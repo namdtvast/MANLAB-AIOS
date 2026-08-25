@@ -40,9 +40,20 @@ Xem bảng đối chiếu 8 câu hỏi ở [`../../DacTa.md`](../../DacTa.md) m�
 
 ## 4. Lỗi trích dẫn đã sửa
 
-Đặc tả cũ dẫn **`ETV.P35` mục 1.4** ở 3 chỗ trong `DacTa.md` và 2 chỗ trong `README.md`. **`ETV.P35`
-không có mục 1.4** — điều khoản giao phạm vi cho ETV.P33 nằm ở **§2.3 (Ngoài phạm vi)**; chính
-`ETV.P33` §2.2 cũng dẫn đúng là "ETV.P35 mục 2.3". Đã sửa toàn bộ sang **mục 2.3**.
+Đặc tả cũ dẫn **`ETV.P35` mục 1.4** ở 3 chỗ trong `DacTa.md` và 2 chỗ trong `README.md`. Đã sửa sang
+**mục 2.3** cho khớp file trên đĩa và khớp chính `ETV.P33` §2.2.
+
+> **Đính chính (26/08/2026, khi soát xét P33).** Bản đầu của mục này viết "`ETV.P35` không có mục
+> 1.4" — **nói vậy là chưa đúng**. Mục 1.4 *có tồn tại* ở **lần ban hành 01 của P35**, là bản **đang
+> áp dụng** (ban hành 24/08/2026, `git show eda11df` — §1.4 "Ngoài phạm vi"). File P35 trên đĩa hiện
+> là **lần ban hành 02, đang `Cho-soat-xet`**, đã đưa về khung I–IX nên nội dung đó chuyển thành
+> §2.3. Nói cách khác: **cả hai số mục đều đúng, tùy đọc bản nào**.
+>
+> Việc sửa sang 2.3 vẫn là kết luận đúng — trích dẫn phải trỏ tới file trên đĩa, và `ETV.P33` cũng
+> dẫn 2.3 — nhưng lý do phải nêu cho chính xác. Rủi ro thật nằm ở chỗ khác và đã được ghi thành
+> **L4** trong [`soat-xet-p33.md`](soat-xet-p33.md): khi một thủ tục được đánh số lại ở bản dự thảo,
+> mọi trích dẫn trỏ tới nó âm thầm đổi nghĩa, còn `validate_citations.py` thì đối chiếu với bản trên
+> đĩa chứ không phải bản đang có hiệu lực.
 
 Vì sao `validate_citations.py` không bắt được: mẫu nhận dạng là
 `ETV\.(?:MP|P)(\d{2})\s*(?:§|mục)\s*(\d+...)` — giữa mã thủ tục và chữ "mục" chỉ chấp nhận khoảng
