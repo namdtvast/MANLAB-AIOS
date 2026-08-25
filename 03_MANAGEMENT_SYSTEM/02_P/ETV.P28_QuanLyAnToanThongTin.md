@@ -1,8 +1,10 @@
 ---
 doc_id: ETV.P28
 doc_name: Thủ tục Quản lý an toàn thông tin
-doc_status: issued
-doc_version: 01
+# Lần BH 02 (làm rõ ranh giới kiểm kê thiết bị với ETV.MP33) đang chờ soát xét;
+# lần BH 01 ban hành 24/08/2026 vẫn là bản đang áp dụng cho tới khi 02 được phê duyệt.
+doc_status: Cho-soat-xet
+doc_version: 02
 issued_date: 2026-08-24
 responsibility:
   author: Dương Thành Nam
@@ -21,14 +23,17 @@ applicable_standard:
 **Procedure For Information Security Management**
 
 **Mã số:** ETV.MP 28  
-**Lần ban hành:** 01  
-**Ngày ban hành:** 24/08/2026
+**Lần ban hành:** 02  
+**Ngày ban hành:** ..../..../........
+
+> **Tình trạng bản này: CHỜ SOÁT XÉT** — lần ban hành 02, chưa có hiệu lực. **Lần ban hành 01 (24/08/2026) vẫn là bản đang áp dụng** cho tới khi bản này được Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
 
 ## THEO DÕI SỬA ĐỔI TÀI LIỆU
 
 | Ngày soát xét | Lý do soát xét, ban hành lại | Lần ban hành |
 |---|---|---|
 | 24/08/2026 | Ban hành lần thứ 01 | 01 |
+| 26/08/2026 | Làm rõ **ranh giới kiểm kê** giữa thủ tục này và ETV.MP33: thiết bị đầu cuối đăng ký trong danh mục **tài sản công nghệ thông tin (ETV.MP33)**, dữ liệu nằm trên thiết bị kiểm kê theo **ETV.MP27** — sửa mục 5.7.2, bổ sung 01 dòng và 01 ghi chú ranh giới tại mục 1.4. **Yêu cầu kỹ thuật, thẩm quyền và mọi kiểm soát khác không thay đổi so với lần ban hành 01.** | 02 |
 
 ---
 
@@ -70,7 +75,8 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 | Nội dung | Thuộc thủ tục |
 |---|---|
 | Nghĩa vụ bảo mật đối với khách hàng, cam kết bảo mật, khách tham quan, công bố thông tin khách hàng cho bên thứ ba | ETV.MP02 – Bảo mật |
-| Kiểm kê, phân loại, gán chủ sở hữu tài sản thông tin; sao lưu, phục hồi, vòng đời dữ liệu | ETV.MP27 – Quản trị dữ liệu và tài sản thông tin |
+| Kiểm kê, phân loại, gán chủ sở hữu **tài sản thông tin (dữ liệu)**; sao lưu, phục hồi, vòng đời dữ liệu | ETV.MP27 – Quản trị dữ liệu và tài sản thông tin |
+| Kiểm kê **thiết bị, máy chủ, mạng, phần mềm và dịch vụ CNTT thuê ngoài**; vận hành, bảo trì, vá lỗi; danh mục tài khoản kỹ thuật trên hệ thống | ETV.MP33 – Quản lý hệ thống thông tin |
 | Phương pháp luận chung về đánh giá, xử lý rủi ro và cơ hội của toàn hệ thống quản lý | ETV.MP01 – Quản lý rủi ro và cơ hội |
 | Kế hoạch liên tục hoạt động, phục hồi sau thảm họa, diễn tập | ETV.MP31 – Quản lý liên tục hoạt động |
 | Rủi ro và kiểm soát đặc thù của hệ thống trí tuệ nhân tạo, hồ sơ đánh giá tác động AI (AIA) | ETV.MP29 – Quản lý hệ thống trí tuệ nhân tạo |
@@ -84,6 +90,8 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 | Kết tinh bài học kinh nghiệm sau sự cố thành tri thức tổ chức | ETV.MP26 – Quản lý tri thức tổ chức |
 
 > **Ranh giới với ETV.MP02:** ETV.MP02 quy định **nghĩa vụ bảo mật** của Viện đối với thông tin khách hàng (cam kết, công bố, khách tham quan) theo ISO/IEC 17025 §4.2. ETV.MP28 quy định **hệ thống quản lý và biện pháp kỹ thuật – tổ chức** để thực thi nghĩa vụ đó theo ISO/IEC 27001. Một sự việc lộ lọt thông tin khách hàng được xử lý **đồng thời**: nghĩa vụ thông báo và quan hệ với khách hàng theo ETV.MP02 mục 6.4, 6.9; điều tra kỹ thuật, khống chế, hồ sơ sự cố và bài học theo ETV.MP28 mục 5.8. Không lập hai bộ hồ sơ sự cố song song — hồ sơ gốc là **Phiếu sự cố an toàn thông tin (ETV.P.F28.03)**, ETV.MP02 dẫn chiếu tới phiếu này.
+
+> **Ranh giới với ETV.MP27 và ETV.MP33 — kiểm kê một lần, không hai nơi.** **ETV.MP33** kiểm kê **thiết bị, hệ thống, phần mềm** (danh mục tài sản công nghệ thông tin); **ETV.MP27** kiểm kê **dữ liệu và tài sản thông tin** nằm trên các thiết bị đó và trỏ xuống bằng tham chiếu hệ thống. Báo cáo kiểm kê tài sản phục vụ ISO/IEC 27001 A.5.9 là **hợp của hai danh mục**, không lập hai danh mục thiết bị song song. Thủ tục này **đặt yêu cầu** an toàn cho thiết bị (mục 5.7.2, 5.7.3); ETV.MP33 **vận hành hạ tầng đáp ứng yêu cầu đó và giữ bằng chứng**. Lần ban hành 01 của thủ tục này viết thiết bị đầu cuối đăng ký trong danh mục tài sản của ETV.MP27 — câu chữ đó được **thay bằng cách hiểu nêu ở đây** kể từ lần ban hành 02, thống nhất với ETV.P33 mục 2.2 và ETV.P35 mục 2.3.
 
 ---
 
@@ -383,7 +391,9 @@ Các kiểm soát dưới đây là **mức tối thiểu bắt buộc** của V
 
 #### 5.7.2. Thiết bị đầu cuối và thiết bị di động
 
-Máy tính, máy tính xách tay, thiết bị di động và thiết bị lưu trữ di động dùng cho công việc phải: được đăng ký trong danh mục tài sản (ETV.MP27) · có khóa màn hình tự động và mật khẩu/mã PIN · được cập nhật bản vá và có phần mềm phòng chống mã độc đang hoạt động · mã hóa ổ đĩa đối với thiết bị lưu thông tin mức Hạn chế/Mật · được xóa dữ liệu an toàn trước khi thanh lý, chuyển giao hoặc sửa chữa bên ngoài.
+Máy tính, máy tính xách tay, thiết bị di động và thiết bị lưu trữ di động dùng cho công việc phải: được đăng ký trong **danh mục tài sản công nghệ thông tin (ETV.MP33)** · có khóa màn hình tự động và mật khẩu/mã PIN · được cập nhật bản vá và có phần mềm phòng chống mã độc đang hoạt động · mã hóa ổ đĩa đối với thiết bị lưu thông tin mức Hạn chế/Mật · được xóa dữ liệu an toàn trước khi thanh lý, chuyển giao hoặc sửa chữa bên ngoài.
+
+**Dữ liệu và tài sản thông tin** nằm trên các thiết bị đó được kiểm kê, phân loại và gán chủ sở hữu theo **ETV.MP27** — hai danh mục bổ sung cho nhau, không lập song song (xem ghi chú ranh giới tại mục 1.4). Yêu cầu an toàn nêu tại mục này do thủ tục này quy định; việc **thực thi, kiểm chứng và lưu bằng chứng** trên từng thiết bị thực hiện theo ETV.MP33.
 
 Việc sử dụng thiết bị cá nhân để xử lý thông tin mức **Hạn chế/Mật** phải được **LĐV phê duyệt** và ghi nhận rủi ro tương ứng trong F28.01.
 

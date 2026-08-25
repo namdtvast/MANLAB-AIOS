@@ -54,6 +54,13 @@ rõ ai điền, điền khi nào — theo đúng cách `MP35_NenTangSo/manifest.
 
 ### L2 — Xung đột với `ETV.P28` mục 5.7.2 (mức: **Cao**, chặn phê duyệt)
 
+> **Cập nhật 26/08/2026 — đã chọn phương án A và có dự thảo xử lý.** `ETV.P28` **lần ban hành 02**
+> đã được soạn: sửa mục 5.7.2 (thiết bị đầu cuối đăng ký trong danh mục tài sản CNTT của ETV.MP33,
+> dữ liệu trên thiết bị theo ETV.MP27), bổ sung 01 dòng vào bảng "Ngoài phạm vi" mục 1.4 và 01 ghi
+> chú ranh giới MP27 ↔ MP33. **Yêu cầu kỹ thuật, thẩm quyền và mọi kiểm soát khác không đổi.** Bản
+> này đang `Cho-soat-xet`; lần BH 01 vẫn là bản đang áp dụng. Điểm chặn chỉ được gỡ khi **LĐV phê
+> duyệt P28 lần BH 02** — khi đó P33 mới đủ điều kiện phê duyệt (xem L4 về thứ tự).
+
 `ETV.P28` **đang có hiệu lực** (`doc_status: issued`, ban hành 24/08/2026) viết thiết bị đầu cuối
 "được đăng ký trong danh mục tài sản (ETV.MP27)". `ETV.P33` §2.2 Nguyên tắc 1 chốt cách hiểu **ngược
 lại**: thiết bị đăng ký tại P33, dữ liệu trên thiết bị đăng ký tại P27.
