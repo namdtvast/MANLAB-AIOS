@@ -290,7 +290,11 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
         ? // Tên biến môi trường giữ khóa khác nhau theo từng nền tảng mô hình, nên KHÔNG ghi cứng
           // một tên vào đây — nêu tên nền tảng để quản trị biết phải cấu hình khóa cho cái nào.
           `Copilot chưa được cấu hình khóa API trên máy chủ cho nền tảng "${agent.platform.name}".`
-        : `Không gọi được dịch vụ mô hình (${result.errorCode}). Vui lòng thử lại sau.`;
+        : result.errorCode === "RATE_LIMITED"
+          ? // Bậc dịch vụ miễn phí giới hạn số lượt rất chặt — người dùng gặp lỗi này thường xuyên,
+            // nên nói đúng nguyên nhân thay vì một mã lỗi kỹ thuật họ không làm gì được.
+            "Dịch vụ mô hình đang giới hạn số lượt hỏi. Thử lại sau ít phút, hoặc liên hệ quản trị AI nếu lặp lại nhiều lần."
+          : `Không gọi được dịch vụ mô hình (${result.errorCode}). Vui lòng thử lại sau.`;
     return { ok: false, requestId: r.id, answer: message, citations: [], code: result.errorCode };
   }
 
