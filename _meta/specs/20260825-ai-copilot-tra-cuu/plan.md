@@ -14,7 +14,7 @@ Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dù
 
 ## Increment 1 — Hồ sơ quản trị Copilot (chưa có tính năng nào cho người dùng)
 
-- Trả lời **Q1–Q4** của spec §RECON; ghi câu trả lời vào spec §13.
+- Q2 và Q4 đã đóng bằng dẫn chiếu ETV.P29 §4.1/§9. Còn lại: **rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M`** (Q1) và **LĐV ấn định hạn mức chi phí** (Q3, khai trong F29.01).
 - Cập nhật `05_MODULE_LIBRARY/M29_AI/01_Requirement/DacTa.md`: Copilot là AI system trong phạm vi M29.
 - Khai dữ liệu trong registry M29 (qua seed, không nhập tay): `AIProvider` Anthropic → `AIModel` → `AIPrompt` + `AIPromptVersion` (nội dung prompt hệ thống, trạng thái duyệt) → `AIAgent` mã `COPILOT` (chưa `ACTIVE`).
 - Lập `AIImpactAssessment` cho Copilot, đưa qua luồng soát xét → phê duyệt theo ETV.P29.
@@ -33,7 +33,7 @@ Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dù
 
 ## Increment 3 — Chỉ mục tri thức và truy hồi có trích dẫn
 
-- Script nạp chỉ mục full-text (tái dùng phép quét của `_meta/build_site.py`), lọc theo danh mục phân loại của Q1.
+- Script nạp chỉ mục full-text (tái dùng phép quét của `_meta/build_site.py`); chỉ nạp `mức ∈ {Công khai, Nội bộ}` **và** `doc_status = issued` theo ETV.P29 §5.5, thiếu mức ⇒ bỏ qua.
 - Hàm truy hồi trả về trích đoạn **kèm đường dẫn repo**; prompt dựng theo spec §3 bước 6.
 - Cưỡng chế `GR-NO-SOURCE`: đầu ra không có nguồn ⇒ thay bằng câu từ chối.
 
@@ -58,7 +58,7 @@ Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dù
 
 | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|
-| Tài liệu mật lọt ra ngoài qua ngữ cảnh prompt | **Cao** | Danh mục phân loại (Q1) lọc **trước** khi dựng prompt; guardrail PII; Increment 3 không chạm bảng nghiệp vụ nào |
+| Tài liệu Hạn chế/Mật lọt ra ngoài qua ngữ cảnh prompt | **Cao** | Lọc theo mức bảo mật **trước** khi dựng prompt (E1–E6); guardrail PII; Increment 3 không chạm bảng nghiệp vụ nào. Nếu xảy ra: gỡ ngay + sự cố theo ETV.P28 §5.8 + KPH theo ETV.P13 |
 | Copilot bịa căn cứ, người dùng dùng nhầm vào hồ sơ ISO | **Cao** | Bắt buộc trích dẫn; `GR-NO-SOURCE`; 10 câu bẫy trong eval; nhãn cảnh báo cố định |
 | Bỏ qua Gateway để "làm nhanh" | **Cao** | AC-08 kiểm bằng grep trong verify; review PR chặn |
 | Chi phí API vượt dự toán | Trung bình | `AIPolicy` hạn mức + kiểm tra trước mỗi lượt + trang Usage |
@@ -67,4 +67,4 @@ Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dù
 
 ## Điều kiện dừng
 
-Dừng và báo cáo nếu: AIA không được phê duyệt, Q1 chưa có danh mục phân loại tài liệu, hoặc eval ở Increment 5 không đạt ngưỡng sau 2 vòng cải tiến prompt/truy hồi.
+Dừng và báo cáo nếu: AIA không được phê duyệt, mức bảo mật chưa được gán đủ cho lớp tài liệu định nạp, nhà cung cấp mô hình không bảo đảm điều khoản không huấn luyện lại (ETV.P29 §5.5), hoặc eval ở Increment 5 không đạt ngưỡng sau 2 vòng cải tiến prompt/truy hồi.

@@ -44,10 +44,10 @@ Quyết định phạm vi đã chốt với chủ sở hữu ngày 2026-08-25: *
 
 ### [QUESTION] Chưa chốt — phải trả lời trước khi bật cho người dùng thật
 
-- **Q1** — Danh mục phân loại tài liệu được phép đưa vào ngữ cảnh gửi ra ngoài: **đã có dự thảo tại [q1-phan-loai-tai-lieu.md](q1-phan-loai-tai-lieu.md)** (trường `ai_external` với 3 mức `allow`/`index-only`/`deny`, fail-closed). Còn chờ PT.ATTT soát xét và LĐV phê duyệt, ban hành thành phụ lục ETV.P29 theo MP14.
-- **Q2** — Ai ký duyệt `AIImpactAssessment` cho Copilot (theo ETV.P29 là cấp nào)?
-- **Q3** — Hạn mức chi phí tháng và hành vi khi chạm trần (chặn hẳn hay hạ cấp mô hình)?
-- **Q4** — Lưu lịch sử hội thoại bao lâu, ai được đọc lại (liên quan MP15 hồ sơ và quyền riêng tư người dùng)?
+- **Q1** — Mức bảo mật của từng tài liệu để nạp chỉ mục. **Quy tắc đã có sẵn**: ETV.P29 §5.5 + ETV.P26 §5.5 + ETV.P28 §5.13 — chỉ mức **Công khai/Nội bộ** vào chỉ mục AI, hệ 4 mức gốc thuộc ETV.P02/P27. Việc còn lại là gán mức cho từng tài liệu, xem [q1-anh-xa-muc-bao-mat.md](q1-anh-xa-muc-bao-mat.md). **Chưa xong:** rà 84 SOP `03_MANAGEMENT_SYSTEM/03_M`.
+- **Q2 — ĐÃ ĐÓNG.** ETV.P29 §4.1: **LĐV phê duyệt hồ sơ AIA**; §4.2: PT.AI chủ trì lập và soát xét cùng CSH; §4.8: tách vai trò đề xuất ≠ soát xét ≠ phê duyệt. Hồ sơ AIA của Copilot lập trên **F29.02**.
+- **Q3** — Hạn mức chi phí tháng: là **tham số vận hành**, không đưa vào thủ tục (đổi hạn mức không được kéo theo ban hành lại thủ tục). Khai trong **F29.01** khi đăng ký hệ thống AI + bản ghi `AIPolicy` trong CSDL M29. Còn chờ LĐV ấn định con số.
+- **Q4 — ĐÃ ĐÓNG.** ETV.P29 §9: hội thoại Copilot là *nhật ký suy luận (Trace)* — QTHT lưu, **05 năm**; trường hợp liên quan chứng chỉ đã phát hành thì theo thời hạn lưu của hồ sơ chứng chỉ. Quyền đọc lại theo `ETV.P.F14.06` và RBAC M29.
 
 ---
 
@@ -127,7 +127,9 @@ Nguồn (chỉ tài liệu, không chạm bảng nghiệp vụ):
 
 Cách làm ở Increment 1: chỉ mục full-text trên Postgres đang dùng, nạp bằng script tái dùng phép quét của `_meta/build_site.py`. **Chưa dựng vector DB riêng** — chỉ nâng cấp khi đo được là full-text không đủ (§11).
 
-Mỗi trích đoạn đưa vào prompt phải mang theo đường dẫn repo; câu trả lời hiển thị đúng các đường dẫn đó. Trích đoạn giới hạn độ dài, và **lọc theo danh mục phân loại của Q1 trước khi gửi đi**.
+Mỗi trích đoạn đưa vào prompt phải mang theo đường dẫn repo; câu trả lời hiển thị đúng các đường dẫn đó. Trích đoạn giới hạn độ dài.
+
+**Điều kiện nạp chỉ mục (ETV.P29 §5.5, ETV.P26 §5.5):** chỉ nạp tài liệu có `mức bảo mật ∈ {Công khai, Nội bộ}` **và** `doc_status = issued`; thiếu mức ⇒ bỏ qua (fail-closed). Chi tiết ánh xạ theo lớp tài liệu: [q1-anh-xa-muc-bao-mat.md](q1-anh-xa-muc-bao-mat.md).
 
 ### 6. Guardrail phải cưỡng chế thật
 
@@ -170,9 +172,9 @@ Theo F5, `AISecret` **không** lưu khóa thật. Khóa Anthropic đặt ở bi�
 | AC-07 | Guardrail PII chặn được đầu vào chứa CCCD/điện thoại | Ca kiểm thử tự động |
 | AC-08 | Không có đường gọi Anthropic nào ngoài `gateway.chat()` | `grep -rn "anthropic" src` chỉ ra `adapters.ts` |
 | AC-09 | `python3 _meta/validate_links.py` = 0 vấn đề; `npm run build` + `npm run test` xanh | Lệnh |
-| AC-11 | Tài liệu nhãn `deny` ⇒ Copilot không trả lời được và **không nhắc tới sự tồn tại** của nó | Đặt 1 tài liệu `deny`, hỏi đúng nội dung |
-| AC-12 | Tài liệu nhãn `index-only` ⇒ chỉ trả về đường dẫn, không trích câu chữ nội dung | Ca kiểm thử |
-| AC-13 | File thiếu nhãn `ai_external` ⇒ không xuất hiện trong chỉ mục (fail-closed) | Ca kiểm thử |
+| AC-11 | Tài liệu mức **Hạn chế** ⇒ Copilot không trả lời được và **không nhắc tới sự tồn tại** của nó | Đặt 1 tài liệu Hạn chế, hỏi đúng nội dung |
+| AC-12 | Tài liệu **thiếu mức bảo mật** ⇒ không vào chỉ mục (fail-closed) | Ca kiểm thử |
+| AC-13 | Hạ mức tài liệu đang trong chỉ mục ⇒ biến mất khỏi câu trả lời ngay lượt hỏi kế tiếp (P29 §5.5) | Ca kiểm thử |
 
 ### 11. Đánh giá trước khi mở rộng
 
@@ -192,4 +194,5 @@ Soạn `AIEvaluationSuite` "Copilot tra cứu v1" gồm ≥30 `AIEvaluationCase`
 | 2 | Gọi Anthropic API, không mock, không tự host | Có bản chạy thật sớm; adapter đúng interface sẵn có nên đổi nhà cung cấp sau này không phải sửa nghiệp vụ |
 | 3 | Không dựng vector DB ở increment này | Full-text trên Postgres sẵn có đủ cho tra cứu thủ tục; chỉ nâng cấp khi eval chứng minh là thiếu |
 | 4 | Không thêm cột vào bảng `AI*` | Giữ nguyên control plane đã port 1:1 từ `08_Source`, tránh lệch hai bản |
-| 5 | Phân loại "được gửi ra ngoài" tách khỏi trường `permission` sẵn có | `permission` trả lời "ai trong Viện được đọc" — 194/209 file đều là `Noi-bo` nên không phân biệt được gì cho mục đích này |
+| 5 | **Không tạo hệ phân loại riêng cho AI** — dùng nguyên 4 mức Công khai/Nội bộ/Hạn chế/Mật đã ban hành | ETV.P28 §2 quy định 4 mức là thống nhất toàn Viện, các thủ tục khác *sử dụng nguyên, không định nghĩa lại*; P29 §5.5 đã quy định sẵn mức nào vào được chỉ mục AI |
+| 6 | Điều khoản "không dùng dữ liệu để huấn luyện lại" của nhà cung cấp phải được trích vào hồ sơ AIA (F29.02) | ETV.P29 §5.5: không bảo đảm được điều khoản này thì chỉ được gửi mức Công khai — phạm vi Copilot phụ thuộc trực tiếp vào đó |
