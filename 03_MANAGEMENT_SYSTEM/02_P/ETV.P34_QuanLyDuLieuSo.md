@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 VI.3)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 §6.3)
 id: ETV.P34
 title: "Thủ tục Quản lý dữ liệu số"
 type: Thu-tuc

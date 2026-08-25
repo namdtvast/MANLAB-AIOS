@@ -1,6 +1,19 @@
 # Tri thức — Mã hoá & thể thức văn bản
 
-> Quy định gốc: `ETV.P14` VI.1 (Phân loại văn bản & quy tắc mã hoá) và VI.4 (Thể thức trình bày). File này là tra cứu nhanh cho AI, không thay thế thủ tục.
+> Quy định gốc: `ETV.P14` §6.1 (Phân loại văn bản & quy tắc mã hoá) và §6.4 (Thể thức trình bày). File này là tra cứu nhanh cho AI, không thay thế thủ tục.
+
+## Lối trích dẫn điều khoản — chốt một lối
+
+Dẫn điều khoản của thủ tục ETV theo **đúng cách thủ tục đó đánh số**:
+
+| Cấp | P14 đánh số | Viết là | Ví dụ |
+|---|---|---|---|
+| Mục cấp trên | La Mã | `III`, `VI` | RACI ở `ETV.P14` III |
+| Mục cấp dưới | Ả Rập | `§x.y` | Metadata ở `ETV.P14` §6.3 |
+
+**Không** viết `VI.3` để chỉ mục `6.3` — đó là lối cũ, đã chuyển hết sang `§6.3` (2026-08-25). Hai lối song song buộc bộ kiểm `_meta/validate_citations.py` phải nuôi hai bộ quy tắc, và người đọc phải tự quy đổi.
+
+Trước khi ghi một trích dẫn điều khoản, **mở thủ tục ra đối chiếu tiêu đề mục** — đừng suy từ trí nhớ. Chạy `python3 _meta/validate_citations.py` để soát; lưu ý công cụ **không** bắt được trích dẫn trỏ tới mục có thật nhưng sai mục.
 
 ## Bảng mã hoá
 

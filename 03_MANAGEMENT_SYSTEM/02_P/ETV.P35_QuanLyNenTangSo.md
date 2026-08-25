@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 VI.3)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 §6.3)
 id: ETV.P35
 title: "Thủ tục Quản lý nền tảng số"
 type: Thu-tuc
@@ -46,7 +46,7 @@ superseded_by: null
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
 | 24/08/2026 | Ban hành lần thứ nhất | 01 |
-| 25/08/2026 | Ban hành lại: đưa về đúng khung thủ tục I–IX của ETV.P14 (khối metadata chuẩn theo ETV.P14 VI.3, trang bìa Biên soạn–Soát xét–Phê duyệt, bổ sung §V Ma trận RACI, §IX Các phụ lục); bổ sung mục Văn bản pháp luật viện dẫn; §VIII dẫn chiếu thời hạn lưu về ETV.P.F 14.06 thay vì tự quy định; thống nhất cách dẫn chiếu thủ tục theo mã `ETV.P xx` (ETV.P14 §6.2). **Nội dung yêu cầu kỹ thuật và thẩm quyền không thay đổi so với lần ban hành 01.** | 02 |
+| 25/08/2026 | Ban hành lại: đưa về đúng khung thủ tục I–IX của ETV.P14 (khối metadata chuẩn theo ETV.P14 §6.3, trang bìa Biên soạn–Soát xét–Phê duyệt, bổ sung §V Ma trận RACI, §IX Các phụ lục); bổ sung mục Văn bản pháp luật viện dẫn; §VIII dẫn chiếu thời hạn lưu về ETV.P.F 14.06 thay vì tự quy định; thống nhất cách dẫn chiếu thủ tục theo mã `ETV.P xx` (ETV.P14 §6.2). **Nội dung yêu cầu kỹ thuật và thẩm quyền không thay đổi so với lần ban hành 01.** | 02 |
 
 ---
 
