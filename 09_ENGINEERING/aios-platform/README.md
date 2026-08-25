@@ -508,9 +508,23 @@ không trả lời được, Agent chuyển `SUSPENDED` thì khay biến mất n
 Chuẩn bị để chạy:
 
 ```bash
-echo 'ANTHROPIC_API_KEY="sk-ant-..."' >> .env   # không có khóa thì khay vẫn hiện, mọi lượt hỏi báo NO_API_KEY
+# Một trong hai nhà cung cấp — Copilot chọn Gemini khi chỉ có khoá Gemini:
+echo 'ANTHROPIC_API_KEY="sk-ant-..."' >> .env
+echo 'GEMINI_API_KEY="..."'           >> .env
 npm run nap-chi-muc-copilot                     # nạp lại mỗi khi tài liệu trong repo thay đổi
 ```
+
+Không có khoá thì khay vẫn hiện, mọi lượt hỏi báo `NO_API_KEY` và trang đang mở không bị ảnh hưởng.
+Đổi nhà cung cấp **không sửa một dòng nghiệp vụ nào** — chỉ thêm adapter trong `src/lib/m29/adapters.ts`
+và đổi `adapterType` của bản ghi `AIPlatform`; nhưng theo ETV.P29 §5.3.3 đó là sự kiện **bắt buộc
+đánh giá lại**.
+
+**Trần mức bảo mật gửi ra ngoài (ETV.P29 §5.5)** — `COPILOT_MUC_BAO_MAT_TOI_DA`, mặc định
+**fail-closed** ở `Cong-khai`. Chỉ nới lên `Noi-bo` khi đã trích được điều khoản của nhà cung cấp về
+việc **không dùng dữ liệu để huấn luyện lại** vào hồ sơ AIA (F29.02) — điều khoản này khác nhau giữa
+các bậc dịch vụ của cùng một nhà cung cấp, bậc miễn phí thường không có. Với chỉ mục hiện tại:
+`Cong-khai` = **12 đoạn**, `Noi-bo` = **1.865 đoạn**. Chạy bộ đánh giá dưới trần thu hẹp sẽ **không**
+được ghi thành `AIEvaluationRun`.
 
 Chỉ mục **fail-closed** theo ETV.P29 §5.5 + ETV.P26 §5.5: chỉ nạp tài liệu mức Công khai/Nội bộ
 **và** đã phê duyệt, thuộc lớp tài liệu đã được duyệt trong

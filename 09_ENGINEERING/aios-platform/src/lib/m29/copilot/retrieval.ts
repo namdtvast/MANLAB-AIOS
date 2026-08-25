@@ -5,11 +5,33 @@
 // khách hàng, kết quả đo hay nhân sự.
 //
 // Lọc securityLevel LẶP LẠI ở đây dù script nạp chỉ mục đã lọc: phòng thủ nhiều lớp cho E1/E4 —
-// nếu một bản ghi sai mức lọt vào bảng thì truy hồi vẫn không lấy ra.
+// nếu một bản ghi sai mức lọt vào bảng thì truy hồi vẫn không lấy ra. Lớp lọc này còn áp thêm
+// TRẦN theo nhà cung cấp mô hình đang dùng (§5.5) — xem mucBaoMatToiDa().
 import { prisma } from "@/lib/prisma";
 import { tsQuery } from "./text";
 
 export const INDEXABLE_LEVELS = ["Cong-khai", "Noi-bo"] as const;
+
+/**
+ * TRẦN MỨC BẢO MẬT ĐƯỢC GỬI RA DỊCH VỤ MÔ HÌNH BÊN NGOÀI — ETV.P29 §5.5.
+ *
+ * Thủ tục: "Việc gửi dữ liệu của Viện tới dịch vụ mô hình bên ngoài phải được nêu rõ trong AIA,
+ * kèm điều khoản của nhà cung cấp về việc KHÔNG dùng dữ liệu để huấn luyện lại; nếu nhà cung cấp
+ * không bảo đảm được điều này thì CHỈ ĐƯỢC GỬI dữ liệu mức Công khai."
+ *
+ * Mặc định FAIL-CLOSED là "Cong-khai": nới lên "Noi-bo" là một hành động có chủ đích của người vận
+ * hành, và chính lúc đặt biến này họ khẳng định đã trích được điều khoản của nhà cung cấp vào hồ sơ
+ * AIA (F29.02). Không suy ra từ tên nhà cung cấp — cùng một nhà cung cấp có bậc dịch vụ cam kết và
+ * bậc không cam kết.
+ */
+export function mucBaoMatToiDa(): (typeof INDEXABLE_LEVELS)[number] {
+  return process.env.COPILOT_MUC_BAO_MAT_TOI_DA === "Noi-bo" ? "Noi-bo" : "Cong-khai";
+}
+
+/** Các mức được phép đưa vào ngữ cảnh, theo trần hiện hành. */
+export function mucDuocGui(): string[] {
+  return mucBaoMatToiDa() === "Noi-bo" ? ["Cong-khai", "Noi-bo"] : ["Cong-khai"];
+}
 
 export interface Passage {
   path: string;
@@ -47,7 +69,7 @@ export async function retrieve(question: string, limit: number = MAX_PASSAGES): 
            ts_rank('{0.05, 0.2, 0.4, 1.0}'::float4[], c."tsv", query, 1) AS rank
     FROM "CopilotDocChunk" c, to_tsquery('simple', ${q}) query
     WHERE c."tsv" @@ query
-      AND c."securityLevel" IN ('Cong-khai', 'Noi-bo')
+      AND c."securityLevel" = ANY(${mucDuocGui()})
     ORDER BY rank DESC, c."path" ASC
     LIMIT ${limit * CANDIDATE_FACTOR}
   `;

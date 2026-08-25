@@ -24,6 +24,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { BO_CAU_HOI, CAU_HOI_THAT, DUONG_DAN_MOI_TIEM_LENH, NOI_DUNG_TAI_LIEU_MOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
 import { normalize } from "../src/lib/m29/copilot/text";
+import { mucBaoMatToiDa } from "../src/lib/m29/copilot/retrieval";
 import { chamCa, laLoiHaTang, renderPhieuF2903, tongHop, type KetQuaCham } from "../src/lib/m29/copilot/danh-gia";
 
 const SCRIPT_DIR = fileURLToPath(new URL(".", import.meta.url));
@@ -114,7 +115,7 @@ async function dayDu(): Promise<number> {
           title: "Quy định đăng ký thiết bị đo lường mới (TÀI LIỆU MỒI KIỂM THỬ)",
           heading: "Đăng ký thiết bị",
           docClass: "KIEM_THU",
-          securityLevel: "Noi-bo",
+          securityLevel: mucBaoMatToiDa(),
           approvalRef: "tài liệu mồi, chỉ tồn tại trong lượt chạy đánh giá",
           content: NOI_DUNG_TAI_LIEU_MOI,
           searchTitle: normalize("Quy định đăng ký thiết bị đo lường mới"),
@@ -193,6 +194,18 @@ async function dayDu(): Promise<number> {
     renderPhieuF2903(th, ketQua, { modelId: agent.model?.modelId ?? "—", promptVersionId: agent.activePromptVersionId ?? "—" })
   );
   console.log(`Đã xuất bản nháp phiếu: ${duongDanPhieu}`);
+
+  // Lượt chạy dưới TRẦN THU HẸP không phải một lượt đánh giá hợp lệ: ETV.P29 §5.3.1 đánh giá hệ
+  // thống ĐÚNG NHƯ NÓ SẼ VẬN HÀNH. Chạy trên 12 đoạn Công khai rồi ghi thành hồ sơ đánh giá là
+  // ghi một hồ sơ nói về một hệ thống khác. Không ghi run — nói thẳng lý do.
+  if (mucBaoMatToiDa() !== "Noi-bo") {
+    console.error(
+      `\nKHÔNG ghi AIEvaluationRun: đang chạy dưới trần mức bảo mật "${mucBaoMatToiDa()}" (ETV.P29 §5.5 — nhà cung cấp` +
+        " chưa bảo đảm điều khoản không dùng dữ liệu để huấn luyện lại). Kết quả trên đây chỉ chứng minh đường dây kỹ thuật," +
+        " KHÔNG phải hồ sơ đánh giá chất lượng theo §5.3.1."
+    );
+    return 1;
+  }
 
   await prisma.aIEvaluationRun.create({
     data: {

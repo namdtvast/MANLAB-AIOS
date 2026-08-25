@@ -613,8 +613,10 @@ async function seedM29() {
   const model = await prisma.aIModel.create({
     data: {
       providerId: provider.id,
-      modelId: "gemini-2.5-flash",
-      displayName: "Gemini 2.5 Flash",
+      // gemini-2.5-flash đã bị Google ngừng cấp cho người dùng mới (gọi thật trả HTTP 404, kèm
+      // thông báo chuyển sang đời mới) — đo ngày 25/08/2026. Dữ liệu demo phải trỏ model còn sống.
+      modelId: "gemini-3.5-flash",
+      displayName: "Gemini 3.5 Flash",
       purpose: "Phân tích chỉ số, cảnh báo bất thường",
       temperature: 0.2,
       maxTokens: 2048,
@@ -839,6 +841,49 @@ async function seedCopilot() {
       },
     }));
 
+  // ---- Nhà cung cấp mô hình thứ hai: Google Gemini ----
+  // Có mặt để chứng minh nguyên tắc kiến trúc #2: đổi nhà cung cấp chỉ là thêm adapter + đổi bản
+  // ghi AIPlatform, không đụng gateway/guardrail/truy hồi/bộ đánh giá.
+  //
+  // CẢNH BÁO TUÂN THỦ gắn liền với bản ghi này: bậc MIỄN PHÍ của Gemini API dùng dữ liệu để cải
+  // thiện sản phẩm, tức KHÔNG bảo đảm được điều khoản "không dùng dữ liệu để huấn luyện lại" của
+  // ETV.P29 §5.5. Khi đó chỉ được gửi tài liệu mức Công khai — cưỡng chế bằng biến
+  // COPILOT_MUC_BAO_MAT_TOI_DA, mặc định fail-closed ở "Cong-khai".
+  const providerGemini = await prisma.aIProvider.upsert({
+    where: { code: "GEMINI" },
+    create: { code: "GEMINI", name: "Google Gemini" },
+    update: {},
+  });
+  const modelGemini =
+    (await prisma.aIModel.findFirst({ where: { providerId: providerGemini.id, modelId: "gemini-3.5-flash" } })) ??
+    (await prisma.aIModel.create({
+      data: {
+        providerId: providerGemini.id,
+        modelId: "gemini-3.5-flash",
+        displayName: "Gemini 3.5 Flash",
+        purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
+        maxTokens: 4096,
+        // Bậc miễn phí không tính phí — đổi lại là không có cam kết về dữ liệu. Đây chính là cái
+        // giá thật của "miễn phí" trong ngữ cảnh ISO/IEC 42001, không phải 0.
+        costPer1kTokens: 0,
+      },
+    }));
+  const platformGemini = await prisma.aIPlatform.upsert({
+    where: { code: "GEMINI_API" },
+    create: {
+      code: "GEMINI_API",
+      name: "Google Gemini API (dịch vụ mô hình ngoài Viện)",
+      baseUrl: "https://aistudio.google.com",
+      apiBaseUrl: "https://generativelanguage.googleapis.com",
+      environment: "EXTERNAL",
+      owner: "Dương Thành Nam",
+      adapterType: "GeminiPlatformAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+    update: {},
+  });
+
   const platform = await prisma.aIPlatform.upsert({
     where: { code: "ANTHROPIC_API" },
     create: {
@@ -888,7 +933,19 @@ async function seedCopilot() {
       },
     });
   }
-  await prisma.aIAgent.update({ where: { id: agent.id }, data: { activePromptVersionId: promptVersion.id } });
+  // Nhà cung cấp đang dùng: chọn theo khoá API thực sự có trên máy chủ. Đổi nhà cung cấp là sự
+  // kiện bắt buộc đánh giá lại (ETV.P29 §5.3.3) — cổng triển khai fail-closed đã tự chặn vì bộ
+  // đánh giá chưa có lần chạy nào được kết luận.
+  const dungGemini = Boolean(process.env.GEMINI_API_KEY) && !process.env.ANTHROPIC_API_KEY;
+  await prisma.aIAgent.update({
+    where: { id: agent.id },
+    data: {
+      activePromptVersionId: promptVersion.id,
+      platformId: dungGemini ? platformGemini.id : platform.id,
+      modelId: dungGemini ? modelGemini.id : model.id,
+    },
+  });
+  console.log(`Copilot đang trỏ nhà cung cấp: ${dungGemini ? "Google Gemini (gemini-3.5-flash)" : "Anthropic (claude-opus-5)"}.`);
 
   // Hồ sơ đánh giá tác động AI (ETV.P.F29.02). Trạng thái APPROVED ở dữ liệu mẫu để đường dây
   // chạy được; ở môi trường thật, hồ sơ này do LĐV phê duyệt theo ETV.P29 §4.1 — KHÔNG được coi

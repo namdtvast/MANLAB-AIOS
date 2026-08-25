@@ -184,6 +184,65 @@ Thêm một lỗi do chính test bắt được và đã sửa: `tongHop([])` tr
 Hàm dựng bản nháp F29.03 được chuyển vào module thuần và có test riêng: nếu để nó nằm trong script,
 nó có thể hỏng suốt nhiều tháng mà chỉ lộ ra đúng lúc vừa tiêu tốn một lượt gọi mô hình đầy đủ.
 
+### 2.4b Chạy thật trên Google Gemini (25/08/2026)
+
+Chủ sở hữu cung cấp khoá **Google Gemini bậc miễn phí (AI Studio)**. Đây là lần đầu Copilot gọi
+được mô hình thật.
+
+**Đổi nhà cung cấp không đụng một dòng nghiệp vụ nào** — đúng như Quyết định #2 của spec dự kiến:
+thêm `GeminiPlatformAdapter` (~100 dòng) + đổi bản ghi `AIPlatform`. Gateway, guardrail, truy hồi,
+bộ đánh giá, giao diện: không sửa.
+
+Chốt model bằng đo thực tế, không theo tên gọi:
+
+| Model | Kết quả |
+|---|---|
+| **`gemini-3.5-flash`** | ✅ 1,19s — **đã chọn** |
+| `gemini-3.1-flash-lite` | ✅ 0,8–8,9s (dao động lớn) |
+| `gemini-3.6-flash` | ❌ timeout 30s — không nhận `thinkingBudget: 0` |
+| `gemini-2.5-flash` | ❌ **HTTP 404 — Google đã ngừng cấp cho người dùng mới** |
+
+Dòng cuối là một lỗi tồn đọng phát hiện ngoài lề: bản ghi `AIModel` demo của *"Trợ lý AI (M29)"*
+trong `prisma/seed.ts` đang trỏ vào model đã chết. Đã sửa sang `gemini-3.5-flash`.
+
+Adapter thử `thinkingConfig: { thinkingBudget: 0 }` trước và **chỉ khi gặp đúng lỗi 400** mới gọi
+lại không kèm tham số đó — vì không phải model Gemini nào cũng nhận tham số này, và tra cứu tài
+liệu đã có sẵn trích đoạn thì không cần suy luận sâu (để mặc định thì ngân sách token bị phần suy
+luận ăn hết, trả về rỗng với `finishReason=MAX_TOKENS`).
+
+#### Trần mức bảo mật — ETV.P29 §5.5 cưỡng chế bằng máy
+
+Bậc miễn phí của Gemini API dùng dữ liệu để cải thiện sản phẩm, tức **không** bảo đảm được điều
+khoản *"không dùng dữ liệu để huấn luyện lại"*. §5.5: khi đó **chỉ được gửi dữ liệu mức Công khai**.
+
+Đã thêm `mucBaoMatToiDa()` trong `retrieval.ts`, đọc `COPILOT_MUC_BAO_MAT_TOI_DA`, **mặc định
+fail-closed ở `Cong-khai`**. Nới lên `Noi-bo` là một hành động có chủ đích của người vận hành — và
+chính lúc đặt biến đó họ khẳng định đã trích được điều khoản nhà cung cấp vào F29.02. **Không** suy
+ra từ tên nhà cung cấp: cùng một nhà cung cấp có bậc cam kết và bậc không cam kết.
+
+Hệ quả đo được: chỉ mục dùng được co từ **1.865 xuống 12 đoạn** (2 tài liệu).
+
+#### Ba câu hỏi chạy thật qua Tool Gateway
+
+| Câu hỏi | Kết quả | Trace |
+|---|---|---|
+| *"Chính sách bảo mật thông tin khách hàng trên website của Viện quy định những gì?"* | ✅ trả lời đúng, dẫn `ETV.P.F02.05_ChinhSachBaoMat_Website.md` | `PASS` · 1207/195 token · 2,1s |
+| *"Thông báo kế hoạch tuyển dụng gồm những nội dung nào?"* | ✅ trả lời đúng, dẫn `ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md` | `PASS` · 1241/595 token · 5,2s |
+| *"Phát hiện công việc không phù hợp thì xử lý theo thủ tục nào?"* | ✅ **từ chối đúng** — ETV.P13 ở mức Nội bộ, trên trần | `BLOCK:GR-NO-SOURCE` · 1250/14 token |
+
+Câu thứ ba là bằng chứng giá trị nhất: trần §5.5 cưỡng chế **thật**. Truy hồi vẫn trả về vài đoạn
+Công khai khớp yếu, mô hình theo quy tắc 3 của prompt đã không dẫn nguồn nào, và `GR-NO-SOURCE`
+thay câu trả lời bằng câu từ chối cố định. Ba lớp phòng thủ khớp nhau đúng thiết kế.
+
+Token thật đã vào sổ trace kèm mã model — lần đầu tiên cột token khác 0.
+
+#### Lượt chạy dưới trần thu hẹp KHÔNG được ghi thành hồ sơ đánh giá
+
+Trình chạy bộ 42 tình huống nay **từ chối ghi `AIEvaluationRun`** khi trần dưới `Noi-bo`, kèm lý do.
+ETV.P29 §5.3.1 đánh giá hệ thống **đúng như nó sẽ vận hành**; chạy trên 12 đoạn Công khai rồi ghi
+thành hồ sơ đánh giá là ghi một hồ sơ nói về một hệ thống khác. Đo lại truy hồi dưới trần này:
+**0/20** — mọi nguồn kỳ vọng của bộ câu hỏi đều là tài liệu Nội bộ.
+
 ### 2.5 Đối chiếu tiêu chí nghiệm thu của spec §10
 
 | Mã | Trạng thái | Ghi chú |

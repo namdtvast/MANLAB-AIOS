@@ -143,6 +143,15 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
     khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác. Cùng lý do: lượt đánh giá gặp lỗi hạ
     tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành "100% đạt".
 
+23. **Trần mức bảo mật gửi ra ngoài** (ETV.P29 §5.5): mức tối đa được đưa vào ngữ cảnh gửi tới dịch
+    vụ mô hình bên ngoài do biến `COPILOT_MUC_BAO_MAT_TOI_DA` quyết định, **mặc định fail-closed ở
+    `Cong-khai`**. Nới lên `Noi-bo` là hành động có chủ đích, gắn với việc đã trích điều khoản
+    "không dùng dữ liệu để huấn luyện lại" của nhà cung cấp vào F29.02. **Không** suy ra trần từ
+    tên nhà cung cấp — cùng một nhà cung cấp có bậc cam kết và bậc không cam kết.
+24. Lượt chạy bộ đánh giá **dưới trần thu hẹp không được ghi** thành `AIEvaluationRun`: §5.3.1 đánh
+    giá hệ thống đúng như nó sẽ vận hành, nên hồ sơ chạy trên phạm vi hẹp hơn là hồ sơ nói về một
+    hệ thống khác.
+
 ## 6. Liên kết
 
 Quy trình: MP29 · Năng lực: CAP-29_AIOffice · Căn cứ: ISO/IEC 42001 · Platform Registry:
@@ -192,6 +201,11 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   phát hiện và sửa khiếm khuyết truy hồi (6 đoạn chỉ trải trên 3,35 tài liệu → 4,65).
   ❌ **37/42 tình huống chưa chạy** (thiếu khóa API) và **bộ kiểm thử chưa được soát xét** —
   trạng thái `DU_THAO_CHUA_SOAT_XET`, chưa phải căn cứ mở Copilot cho toàn Viện.
+- ✅ **Chạy thật lần đầu** (2026-08-25, Google Gemini `gemini-3.5-flash`): đổi nhà cung cấp chỉ cần
+  thêm một adapter + đổi bản ghi `AIPlatform`, **không sửa một dòng nghiệp vụ nào** — đúng như
+  nguyên tắc kiến trúc #2 dự kiến. 3 câu hỏi chạy trọn đường dây, token thật đã vào sổ trace.
+  Khoá hiện có là bậc **miễn phí**, không bảo đảm điều khoản không huấn luyện lại, nên theo
+  ETV.P29 §5.5 chỉ được gửi mức **Công khai**: chỉ mục dùng được co từ 1.865 xuống **12 đoạn**.
 - ❌ **Chưa làm**: rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục (và bổ sung
   câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); trang Trace chưa hiện cột
   `guardrailResult`; chưa có UI chạy đánh giá.
