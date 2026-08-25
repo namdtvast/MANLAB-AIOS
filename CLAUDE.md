@@ -80,6 +80,17 @@ python3 _meta/validate_links.py
 
 Kiểm tra: (1) mọi link tương đối trong `links.yaml`/`capability.yaml` phải trỏ tới đường dẫn có thật, (2) mọi Hub `MPxx` phải đủ 3 file bắt buộc, (3) mọi module `Mxx` phải có `README.md`. Thoát với mã lỗi khác 0 nếu có vấn đề. Kiểm tra này cũng chạy trong CI (`.github/workflows/validate-links.yml`) ở mỗi lần push/PR.
 
+Bộ kiểm thứ hai, ở mức **điều khoản** thay vì mức đường dẫn file:
+
+```bash
+python3 _meta/validate_citations.py          # cảnh báo, luôn thoát 0 (đang dùng trong CI)
+python3 _meta/validate_citations.py --chan   # thoát khác 0 nếu có lỗi, dùng khi đã dọn sạch
+```
+
+Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ tới một mục **có thật** trong file thủ tục tương ứng. Cần bộ kiểm này vì lập luận tuân thủ không đứng trên tên tài liệu mà đứng trên điều khoản: không ai viết "theo ETV.P28" rồi dừng, người ta viết "ETV.P28 §5.13" và xây kết luận trên đúng mục đó. Đo lần đầu 25/08/2026: **0** trích dẫn hỏng ở mức tên tài liệu, **11** ở mức điều khoản — trong đó 2 nằm trong một phiếu trình Lãnh đạo Viện.
+
+**Giới hạn phải biết:** công cụ bắt được "mục không tồn tại", **không** bắt được "mục có thật nhưng sai mục" (vd dẫn RACI vào mục Thuật ngữ). Lớp lỗi đó nguy hơn vì người đọc mở ra thấy một mục hợp lệ nên tin luôn; nó cần đối chiếu ngữ nghĩa, cố ý không làm. Quét sạch **không** đồng nghĩa với trích dẫn đúng.
+
 ## Cổng thông tin GitHub Pages (`docs/`)
 
 Một trang duyệt tương tác gồm một file duy nhất (`docs/index.html`, không cần build, không phụ thuộc ngoài) giúp nhân sự và đoàn đánh giá duyệt toàn bộ repo và mở tài liệu qua liên kết sâu (`#/p/<đường-dẫn>`). Dữ liệu lấy từ `docs/data.json`, sinh ra bằng cách quét repo:
