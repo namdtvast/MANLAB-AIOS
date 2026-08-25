@@ -6,12 +6,12 @@
 | Ngày ban hành | 05/03/2020 |
 | Cơ quan ban hành | Chính phủ |
 | Hiệu lực | Đang có hiệu lực |
-| Dùng cho | `ETV.P14` §3, §8 |
+| Dùng cho | ETV.P14 IV và §6.4 |
 
 ## Nội dung liên quan tới ETV.P14
 
 - **Điều 8 & Phụ lục I**: thể thức và kỹ thuật trình bày văn bản hành chính (Quốc hiệu — Tiêu ngữ, tên cơ quan ban hành, số/ký hiệu, địa danh — ngày tháng, nơi nhận...) — áp dụng bắt buộc cho nhóm **Quyết định, Công văn, Thông báo, Biên bản, Báo cáo** do ETV ban hành.
-- Quy định về tiếp nhận, đăng ký văn bản đến (đóng dấu đến, sổ ngày/giờ đến) — áp dụng tại `ETV.P14` §10.2 (văn bản bên ngoài).
+- Quy định về tiếp nhận, đăng ký văn bản đến (đóng dấu đến, sổ ngày/giờ đến) — áp dụng tại ETV.P14 §6.6.2 (văn bản bên ngoài).
 - Quy định về lập hồ sơ và nộp lưu hồ sơ, tài liệu vào lưu trữ cơ quan.
 
 ## Không áp dụng cho

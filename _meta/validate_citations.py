@@ -38,12 +38,23 @@ BO_QUA = {"node_modules", ".git", ".next", "src", "docs", "Output_Codex", ".venv
 # viết cho cùng một ý, và một lỗi thật đã lọt qua đúng khe đó: một file chỉ dùng dạng "§y.z" hợp lệ
 # nên nhìn qua tưởng sạch, trong khi chỗ hỏng nằm ở một dòng viết "ETV.P35 mục 6". Tách hai dạng
 # thành hai bộ đếm riêng sẽ khiến lỗi kiểu này không bao giờ hiện ra khi rà theo file.
-TRICH_DAN = re.compile(r"ETV\.(?:MP|P)(\d{2})\s*(?:§|mục)\s*(\d+(?:\.\d+)*)")
+#
+# `[\`*_]*` SAU MÃ THỦ TỤC LÀ BẮT BUỘC, ĐỪNG BỎ. Repo viết mã thủ tục trong dấu nháy ngược hoặc in
+# đậm — "`ETV.P33` §6.3.3", "**ETV.P28** mục 5.7.2" — và bản đầu của mẫu này chỉ chấp nhận khoảng
+# trắng, nên dấu nháy đóng chen vào giữa làm mẫu trượt. Hậu quả đo được ngày 26/08/2026: 90 trích dẫn
+# nhìn thì đầy đủ tiền tố mà chưa từng được kiểm lần nào, trong đó 23 chỗ dẫn ETV.P14 theo lối đánh
+# số cũ (§12, §15, §16...) đã chết từ lâu. Một trích dẫn bị che thì không ai kiểm được nó, kể cả
+# người viết ra nó.
+TRICH_DAN = re.compile(r"ETV\.(?:MP|P)(\d{2})[`*_]*\s*(?:§|mục)\s*(\d+(?:\.\d+)*)")
 # Lối viết song song bằng số La Mã: "ETV.P14 VI.2". Ít dùng nhưng có thật, kiểm riêng.
-TRICH_DAN_LAMA = re.compile(r"ETV\.(?:MP|P)(\d{2})\s+([IVXLC]{1,5})((?:\.\d+)*)\b")
+TRICH_DAN_LAMA = re.compile(r"ETV\.(?:MP|P)(\d{2})[`*_]*\s+([IVXLC]{1,5})((?:\.\d+)*)\b")
 
-MUC_SO = re.compile(r"^#{1,6}\s*(\d+(?:\.\d+)*)[.\s]", re.M)
-MUC_LAMA = re.compile(r"^#{1,6}\s*([IVXLC]{1,5})\.\s", re.M)
+# `[\`*_]*` Ở ĐÂY CŨNG VẬY, nhưng cho phía CHỈ MỤC chứ không phải phía trích dẫn. ETV.P10 đánh tiêu
+# đề dạng `### **6.3. Lập kế hoạch...**` — dấu in đậm đứng trước số mục làm mẫu trượt, khiến công cụ
+# lập chỉ mục ra 0 mục cho cả thủ tục và báo hỏng 18 trích dẫn ĐÚNG. Lỗi ở phía chỉ mục nguy hơn lỗi
+# ở phía trích dẫn: nó không bỏ sót, nó tố oan — và người sửa sẽ đi sửa những trích dẫn vốn không sai.
+MUC_SO = re.compile(r"^#{1,6}\s*[`*_]*\s*(\d+(?:\.\d+)*)[.\s]", re.M)
+MUC_LAMA = re.compile(r"^#{1,6}\s*[`*_]*\s*([IVXLC]{1,5})\.\s", re.M)
 
 
 def doc_thu_tuc():

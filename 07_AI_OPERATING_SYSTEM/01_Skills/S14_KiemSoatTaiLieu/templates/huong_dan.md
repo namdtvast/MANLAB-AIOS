@@ -1,6 +1,6 @@
 # Template — Hướng dẫn
 
-> Nhóm 2 — thể thức ETV tự quy định. Mã hoá: `ETV.Gb xx` — xem `knowledge/03_ma_hoa_van_ban.md`. Văn bản ngắn gọn có thể không cần trang bìa riêng nhưng vẫn phải có header/footer đầy đủ (§`ETV.P14` §8).
+> Nhóm 2 — thể thức ETV tự quy định. Mã hoá: `ETV.Gb xx` — xem `knowledge/03_ma_hoa_van_ban.md`. Văn bản ngắn gọn có thể không cần trang bìa riêng nhưng vẫn phải có header/footer đầy đủ (ETV.P14 §6.4).
 
 ```yaml
 id: ""            # ETV.Gb xx
