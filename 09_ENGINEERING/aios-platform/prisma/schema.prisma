@@ -533,6 +533,7 @@ model AIPlatform {
   tools     AITool[]
   agents    AIAgent[]
   incidents AIIncident[]
+  providers AIProvider[]
 }
 
 model AIProvider {
@@ -540,11 +541,20 @@ model AIProvider {
   code   String     @unique
   name   String
   status AIOpStatus @default(ACTIVE)
+  // Nền tảng phơi API của nhà cung cấp này. CÓ THỂ RỖNG một cách có chủ ý: dịch vụ mô hình ngoài
+  // Viện (Anthropic, Gemini) chạy được mà không cần bản ghi nền tảng riêng, nên ép NOT NULL sẽ
+  // buộc nạp lại dữ liệu cũ. Bắt buộc điền với nhà cung cấp TỰ VẬN HÀNH (máy chủ GPU nội bộ) —
+  // đó là nơi duy nhất giữ apiBaseUrl và trạng thái kiểm tra sức khoẻ (ETV.GAI 01 §3.6).
+  // KHÔNG nhân đôi baseUrl sang đây: một endpoint chỉ có một nguồn sự thật là AIPlatform.
+  platformId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  models AIModel[]
+  models   AIModel[]
+  // Restrict, không SetNull: xoá nền tảng mà âm thầm gỡ liên kết của Provider là mất dấu vết
+  // đăng ký. Chặn xoá để buộc gỡ Provider trước — thống nhất với các quan hệ khác trong M29.
+  platform AIPlatform? @relation(fields: [platformId], references: [id], onDelete: Restrict)
 }
 
 model AIModel {
