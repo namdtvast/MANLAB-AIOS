@@ -83,11 +83,11 @@ Kiểm tra: (1) mọi link tương đối trong `links.yaml`/`capability.yaml` p
 Bộ kiểm thứ hai, ở mức **điều khoản** thay vì mức đường dẫn file:
 
 ```bash
-python3 _meta/validate_citations.py          # cảnh báo, luôn thoát 0 (đang dùng trong CI)
-python3 _meta/validate_citations.py --chan   # thoát khác 0 nếu có lỗi, dùng khi đã dọn sạch
+python3 _meta/validate_citations.py          # cảnh báo, luôn thoát 0
+python3 _meta/validate_citations.py --chan   # thoát khác 0 nếu có lỗi — CI đang chạy chế độ này
 ```
 
-Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ tới một mục **có thật** trong file thủ tục tương ứng. Cần bộ kiểm này vì lập luận tuân thủ không đứng trên tên tài liệu mà đứng trên điều khoản: không ai viết "theo ETV.P28" rồi dừng, người ta viết "ETV.P28 §5.13" và xây kết luận trên đúng mục đó. Đo lần đầu 25/08/2026: **0** trích dẫn hỏng ở mức tên tài liệu, **11** ở mức điều khoản — trong đó 2 nằm trong một phiếu trình Lãnh đạo Viện.
+Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ tới một mục **có thật** trong file thủ tục tương ứng. Cần bộ kiểm này vì lập luận tuân thủ không đứng trên tên tài liệu mà đứng trên điều khoản: không ai viết "theo ETV.P28" rồi dừng, người ta viết "ETV.P28 §5.13" và xây kết luận trên đúng mục đó. Đo lần đầu 25/08/2026: **0** trích dẫn hỏng ở mức tên tài liệu, **11** ở mức điều khoản — trong đó 2 nằm trong một phiếu trình Lãnh đạo Viện. Đã sửa hết trong ngày; CI nay chạy chế độ **chặn** để lỗi mới không tích lại.
 
 **Giới hạn phải biết:** công cụ bắt được "mục không tồn tại", **không** bắt được "mục có thật nhưng sai mục" (vd dẫn RACI vào mục Thuật ngữ). Lớp lỗi đó nguy hơn vì người đọc mở ra thấy một mục hợp lệ nên tin luôn; nó cần đối chiếu ngữ nghĩa, cố ý không làm. Quét sạch **không** đồng nghĩa với trích dẫn đúng.
 

@@ -20,8 +20,9 @@ jobs:
       - name: Kiểm tra toàn vẹn link giữa các tầng (manifest/links/capability)
         run: python3 _meta/validate_links.py
 
-      # Chế độ CẢNH BÁO, cố ý không chặn merge: repo đang có sẵn một số trích dẫn hỏng thuộc nhiều
-      # chủ sở hữu khác nhau. Bật chặn ngay sẽ khoá merge của người không liên quan tới việc này.
-      # Khi đã dọn sạch thì đổi thành `python3 _meta/validate_citations.py --chan`.
-      - name: Kiểm tra trích dẫn điều khoản ETV.Pxx §y.z (cảnh báo, không chặn)
-        run: python3 _meta/validate_citations.py
+      # Chế độ CHẶN. Bật được vì repo đã về 0 trích dẫn hỏng (11 chỗ tồn đọng đã sửa ngày
+      # 25/08/2026). Giữ ở mức chặn thì lỗi mới không tích lại thành một đợt dọn khác.
+      # LƯU Ý: bộ kiểm chỉ bắt "mục không tồn tại"; trích dẫn trỏ tới mục CÓ THẬT nhưng SAI mục
+      # vẫn lọt — CI xanh KHÔNG đồng nghĩa với trích dẫn đúng.
+      - name: Kiểm tra trích dẫn điều khoản ETV.Pxx §y.z
+        run: python3 _meta/validate_citations.py --chan
