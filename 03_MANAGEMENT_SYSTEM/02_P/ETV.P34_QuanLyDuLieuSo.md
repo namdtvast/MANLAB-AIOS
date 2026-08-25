@@ -12,7 +12,7 @@ effective_date: ""
 revision: "01"
 status: Cho-soat-xet
 keywords: [dữ liệu số, từ điển dữ liệu, chất lượng dữ liệu, dữ liệu chủ, chủ sở hữu dữ liệu, truy xuất nguồn gốc dữ liệu, ISO/IEC 17025 §7.11]
-related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P08, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P33, ETV.P35, ETV.P36, ETV.P37, ETV.P38]
+related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P08, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P26, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P33, ETV.P35, ETV.P36, ETV.P37, ETV.P38]
 iso_clause: ["ISO 9001:2015 §7.1.6, §7.5, §9.1", "ISO/IEC 17025:2017 §7.5, §7.11, §8.4", "ISO 17034:2016 §7.4", "ISO/IEC 27001:2022 §8.1, A.5.12, A.5.13, A.5.14, A.5.33, A.8.10, A.8.11, A.8.12", "ISO/IEC 42001:2023 §7.4, §8.1, A.7 (dữ liệu cho hệ thống AI)"]
 legal_basis: ["Luật Giao dịch điện tử 20/2023/QH15", "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân", "Pháp luật hiện hành về an toàn thông tin mạng"]
 ai_tags: [data-catalog, data-quality, master-data, data-lineage]
@@ -143,7 +143,8 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 - Sổ tay quản lý chất lượng (ETV.QM) §10.3 và §7.11
 - ETV.P01 – Quản lý rủi ro và cơ hội · ETV.P02 – Bảo mật thông tin · ETV.P08 – Phương pháp · ETV.P10 – Đảm bảo giá trị sử dụng kết quả
 - ETV.P11 – Báo cáo kết quả · ETV.P13 – Khắc phục, cải tiến · ETV.P14 – Kiểm soát tài liệu · ETV.P15 – Kiểm soát hồ sơ
-- ETV.P17 – Xem xét của lãnh đạo · ETV.P27 – Quản trị dữ liệu và tài sản thông tin · ETV.P28 – Quản lý an toàn thông tin
+- ETV.P17 – Xem xét của lãnh đạo · ETV.P26 – Quản lý tri thức tổ chức · ETV.P27 – Quản trị dữ liệu và tài sản thông tin
+- ETV.P28 – Quản lý an toàn thông tin
 - ETV.P29 – Quản lý hệ thống trí tuệ nhân tạo · ETV.P30 – Quản lý thay đổi · ETV.P31 – Quản lý tính liên tục hoạt động
 - ETV.P33 – Quản lý hệ thống thông tin · ETV.P35 – Quản lý nền tảng số · ETV.P36 – Quản lý chứng chỉ số và truy xuất nguồn gốc
 - ETV.P37 – Tích hợp dữ liệu · ETV.P38 – Quản lý dịch vụ số
