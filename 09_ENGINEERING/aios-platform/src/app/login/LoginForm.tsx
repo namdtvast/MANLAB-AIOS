@@ -1,11 +1,17 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { loginAction } from "./actions";
 
 export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
-  const [error, formAction, isPending] = useActionState(loginAction, undefined);
+  const [state, formAction, isPending] = useActionState(loginAction, undefined);
   const [showPassword, setShowPassword] = useState(false);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  // Đăng nhập sai thì email vẫn còn (defaultValue bên dưới) — đưa con trỏ về ngay ô mật khẩu.
+  useEffect(() => {
+    if (state?.error) passwordRef.current?.focus();
+  }, [state]);
 
   return (
     <form action={formAction} className="flex w-full flex-col gap-4">
@@ -17,6 +23,7 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
           type="email"
           name="email"
           required
+          defaultValue={state?.email ?? ""}
           autoComplete="email"
           className="rounded-lg border border-border bg-bg px-3 py-2 text-ink outline-none transition-colors focus:border-accent-line"
         />
@@ -27,6 +34,7 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
         <div className="relative">
           <input
             id="password"
+            ref={passwordRef}
             type={showPassword ? "text" : "password"}
             name="password"
             required
@@ -78,9 +86,9 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
         </div>
       </div>
 
-      {error && (
-        <p className="rounded-lg border border-crit/30 bg-crit-soft px-3 py-2 text-sm text-crit">
-          {error}
+      {state?.error && (
+        <p role="alert" className="rounded-lg border border-crit/30 bg-crit-soft px-3 py-2 text-sm text-crit">
+          {state.error}
         </p>
       )}
 
