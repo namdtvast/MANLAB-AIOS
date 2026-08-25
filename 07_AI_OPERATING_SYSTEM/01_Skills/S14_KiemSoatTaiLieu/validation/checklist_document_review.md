@@ -1,6 +1,6 @@
 # Checklist — Soát xét văn bản (Document Review)
 
-Dùng khi LĐP soát xét văn bản trước khi trình phê duyệt (tương ứng `ETV.P14` VI.5 — Vòng đời, bước Soát xét).
+Dùng khi LĐP soát xét văn bản trước khi trình phê duyệt (tương ứng ETV.P14 §6.6 — Vòng đời, bước Soát xét).
 
 - [ ] Loại văn bản đã được xác định đúng (`knowledge/03_ma_hoa_van_ban.md`)
 - [ ] Mã số theo đúng quy tắc mã hoá, không trùng với văn bản hiện hành

@@ -1,6 +1,6 @@
 # Workflow — Thu hồi, Thanh lý, Hủy bỏ
 
-Áp dụng khi văn bản hết hiệu lực/cần loại khỏi kiểm soát (`ETV.P14` VI.10).
+Áp dụng khi văn bản hết hiệu lực/cần loại khỏi kiểm soát (ETV.P14 §6.11).
 
 1. **Xác định loại xử lý** — quan trọng, không nhầm lẫn:
    - **Thanh lý** = chuyển `status → Hết hiệu lực`, văn bản vẫn được lưu, có thể giữ tham khảo với dấu "TÀI LIỆU KHÔNG KIỂM SOÁT". Thẩm quyền: LĐP.

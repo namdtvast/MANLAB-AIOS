@@ -12,7 +12,7 @@ tags: [document-governance, quality-management, compliance, etv-procedure, vietn
 
 Skill quản trị vòng đời tài liệu, dữ liệu, thông tin của ETV — bản triển khai AI của thủ tục **`ETV.P14 — Kiểm soát tài liệu, dữ liệu, thông tin`**. **Không** quản lý vòng đời hợp đồng (thuộc P03/P07); khi gặp hợp đồng, skill chỉ nhận diện và định tuyến về thủ tục chuyên trách.
 
-> **Quan hệ với ETV.P14**: Skill này **không** thay thế hay định nghĩa lại quy định — mọi luật chơi (metadata bắt buộc, quy tắc mã hoá, RACI, vòng đời) đã được quy định tại `03_MANAGEMENT_SYSTEM/03_ISO17025/procedures/ETV.P14_KiemSoatTaiLieu.md`. Skill chỉ **vận hành hoá** quy định đó thành hành vi AI có thể lặp lại, kiểm tra được.
+> **Quan hệ với ETV.P14**: Skill này **không** thay thế hay định nghĩa lại quy định — mọi luật chơi (metadata bắt buộc, quy tắc mã hoá, RACI, vòng đời) đã được quy định tại `03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md`. Skill chỉ **vận hành hoá** quy định đó thành hành vi AI có thể lặp lại, kiểm tra được.
 
 ## Khi nào dùng skill này
 

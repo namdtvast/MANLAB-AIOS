@@ -1,6 +1,6 @@
 # Workflow — Ban hành văn bản mới
 
-Áp dụng khi có nhu cầu xây dựng văn bản mới (không phải soát xét văn bản hiện có). Tương ứng `ETV.P14` VI.5 (Vòng đời văn bản — quy trình thực hiện).
+Áp dụng khi có nhu cầu xây dựng văn bản mới (không phải soát xét văn bản hiện có). Tương ứng ETV.P14 §6.6 (Vòng đời văn bản — quy trình thực hiện).
 
 1. **Đề xuất**: lập `ETV.P.F 14.01`. AI hỗ trợ: gợi ý loại văn bản, mã số dự kiến (`knowledge/03_ma_hoa_van_ban.md`), điều khoản ISO/pháp lý liên quan (`knowledge/01_phap_luat.md`, `knowledge/02_iso.md`).
 2. **Thẩm định** (LĐP): AI không tham gia quyết định "cần thiết hay không" — chỉ tóm tắt đề xuất để LĐP quyết định.
