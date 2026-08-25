@@ -41,5 +41,5 @@ Mục 7. Logic chuyển tiếp đã được phủ bằng ca test đơn vị (`a
 
 ## Việc còn lại — không thuộc phạm vi lần này
 
-1. **Trạng thái `CANCELLED`** có trong enum kèm chú thích dẫn ETV.P35 mục 6 trạng thái 9, nhưng cũng **không có chuyển tiếp nào** tới nó — cùng loại lỗi vừa sửa, chưa xử lý.
+1. **Trạng thái `CANCELLED`** có trong enum kèm chú thích dẫn ETV.P35 Phụ lục II trạng thái 9, nhưng cũng **không có chuyển tiếp nào** tới nó — cùng loại lỗi vừa sửa, chưa xử lý.
 2. **`actions.ts` chưa có test.** Bộ test hiện chỉ phủ `rules.ts` và các mô-đun logic thuần; tầng hành động (phân quyền, ghi audit, revalidate) chưa có ca nào — đây là lý do lỗi vòng dò sức khoẻ sống sót qua CI.
