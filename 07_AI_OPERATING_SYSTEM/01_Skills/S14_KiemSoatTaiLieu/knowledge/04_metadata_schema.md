@@ -1,6 +1,6 @@
 # Tri thức — Metadata Schema
 
-> Định nghĩa gốc và duy nhất: `ETV.P14` VI.3 (Metadata chuẩn của văn bản). File này chỉ là bản tra cứu nhanh + khối YAML mẫu để AI chèn vào đầu văn bản khi soạn thảo. **Không sửa ý nghĩa trường tại đây** — mọi thay đổi định nghĩa phải sửa `ETV.P14` trước.
+> Định nghĩa gốc và duy nhất: `ETV.P14` §6.3 (Metadata chuẩn của văn bản). File này chỉ là bản tra cứu nhanh + khối YAML mẫu để AI chèn vào đầu văn bản khi soạn thảo. **Không sửa ý nghĩa trường tại đây** — mọi thay đổi định nghĩa phải sửa `ETV.P14` trước.
 
 ## Khối YAML mẫu (chèn ở đầu văn bản Markdown khi soạn thảo)
 
