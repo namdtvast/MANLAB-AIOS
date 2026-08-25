@@ -41,9 +41,9 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | Người phát hiện | ☐ Hệ thống kiểm tra sức khỏe　☐ Người dùng: ...................... |
 | Thời điểm thông báo CSH/LĐV | ..../..../........ giờ: ......... |
 | Tổng thời gian ngừng/suy giảm | ......... giờ ......... phút |
-| Có dấu hiệu mất an toàn thông tin | ☐ Không　☐ Có → **bắt buộc** xử lý đồng thời theo ETV.MP28, số phiếu: ............ |
-| Ảnh hưởng tới dịch vụ khách hàng (MP38) | ☐ Không　☐ Có: ...................................................... |
-| Ảnh hưởng tới tác tử/công cụ AI (MP29) | ☐ Không　☐ Có: ...................................................... |
+| Có dấu hiệu mất an toàn thông tin | ☐ Không　☐ Có → **bắt buộc** xử lý đồng thời theo ETV.P28, số phiếu: ............ |
+| Ảnh hưởng tới dịch vụ khách hàng (ETV.P38) | ☐ Không　☐ Có: ...................................................... |
+| Ảnh hưởng tới tác tử/công cụ AI (ETV.P29) | ☐ Không　☐ Có: ...................................................... |
 
 ### A2. Xử lý
 
@@ -59,11 +59,11 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 |---|---|
 | Nguyên nhân xác định | |
 | Thời điểm nền tảng trở lại Hoạt động tốt | ..../..../........ giờ: ......... |
-| Đây là lần thứ mấy trong 90 ngày gần nhất | ......... *(≥ 03 lần → **bắt buộc** lập KPH theo ETV.MP13, số: ............)* |
-| Cần lập bài học kinh nghiệm (ETV.MP26) | ☐ Không　☐ Có → số phiếu F26.02: ............ |
-| Cần thay đổi cấu hình nền tảng | ☐ Không　☐ Có → xử lý theo ETV.P35 mục 5.4 |
+| Đây là lần thứ mấy trong 90 ngày gần nhất | ......... *(≥ 03 lần → **bắt buộc** lập KPH theo ETV.P13, số: ............)* |
+| Cần lập bài học kinh nghiệm (ETV.P26) | ☐ Không　☐ Có → số phiếu F26.02: ............ |
+| Cần thay đổi cấu hình nền tảng | ☐ Không　☐ Có → xử lý theo ETV.P35 §6.4 |
 
-> Phiếu chỉ được **đóng** khi có đủ: nguyên nhân, biện pháp đã thực hiện, xác nhận nền tảng trở lại Hoạt động tốt, và kết luận về bài học kinh nghiệm (ETV.P35 mục 5.3.3).
+> Phiếu chỉ được **đóng** khi có đủ: nguyên nhân, biện pháp đã thực hiện, xác nhận nền tảng trở lại Hoạt động tốt, và kết luận về bài học kinh nghiệm (ETV.P35 §6.3.3).
 
 ## PHẦN B — NHẬT KÝ GIÁM SÁT TRONG KỲ
 
@@ -75,7 +75,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## PHẦN C — NHẬT KÝ THAY ĐỔI CẤU HÌNH TRONG KỲ
 
-*(Bắt buộc ghi mọi thay đổi địa chỉ gốc API, loại bộ chuyển đổi, điểm tích hợp của nền tảng đang có tác tử/công cụ hoạt động — ETV.P35 mục 5.4.2)*
+*(Bắt buộc ghi mọi thay đổi địa chỉ gốc API, loại bộ chuyển đổi, điểm tích hợp của nền tảng đang có tác tử/công cụ hoạt động — ETV.P35 §6.4.2)*
 
 | TT | Ngày | Mã nền tảng | Nội dung thay đổi | Loại (Nhỏ/Cấu hình kết nối/Lớn) | Người đề xuất | Người soát xét | Người phê duyệt | Số phiếu MP30 (nếu có) |
 |---|---|---|---|---|---|---|---|---|
@@ -89,4 +89,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(Đầu mối kỹ thuật)* | *(QLCL)* | *(Chủ sở hữu nền tảng)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> Sự cố có dấu hiệu mất an toàn thông tin **không** được đóng trước khi ETV.MP28 kết luận (ETV.P35 mục 5.3.2). Hồ sơ lưu theo ETV.MP15.
+> Sự cố có dấu hiệu mất an toàn thông tin **không** được đóng trước khi ETV.P28 kết luận (ETV.P35 §6.3.2). Hồ sơ lưu theo ETV.P15.

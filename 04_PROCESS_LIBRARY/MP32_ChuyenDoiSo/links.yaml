@@ -1,5 +1,6 @@
 schema: manlab-aios/links@1.0
-procedure:  ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P32_ChuyenDoiSo.md
+qm:         ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
 iso:        ../../03_MANAGEMENT_SYSTEM
 module:     ../../05_MODULE_LIBRARY/M32_ChuyenDoiSo
 forms:      ../../06_SHARED_RESOURCES/01_Forms
@@ -8,3 +9,8 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F32.01_SoDangKySangKien.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F32.02_PhieuDeXuatSangLocSangKien.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F32.03_BienBanXacNhanHieuQuaChuanHoa.md
+  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F32.04_KeHoachChuyenDoiSoHangNam.md
