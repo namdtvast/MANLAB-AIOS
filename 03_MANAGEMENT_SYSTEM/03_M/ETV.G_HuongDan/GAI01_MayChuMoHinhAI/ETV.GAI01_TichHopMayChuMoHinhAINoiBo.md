@@ -11,8 +11,8 @@ module: M29_AI
 effective_date: ""
 revision: "01"
 status: Nhap
-keywords: [máy chủ mô hình AI, GPU, vLLM, AI Model Provider, self-hosted LLM, định tuyến mô hình, dự phòng]
-related_documents: [ETV.P14, ETV.P28, ETV.P29, ETV.P33, ETV.P34, ETV.P35, ETV.P.F29.01, ETV.P.F29.02, ETV.P.F29.03, ETV.P.F29.04, ETV.P.F33.01, ETV.P.F33.02, ETV.P.F35.01, ETV.P.F35.02, ETV.P.F35.03, ETV.P.F35.04, ETV.P.F28.01, ETV.P.F28.03, ETV.P.F28.04]
+keywords: [máy chủ mô hình AI, GPU, vLLM, AI Model Provider, self-hosted LLM, định tuyến mô hình, dự phòng, chuỗi cung ứng phần mềm, mức phân loại dữ liệu]
+related_documents: [ETV.P01, ETV.P06, ETV.P13, ETV.P14, ETV.P15, ETV.P26, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P33, ETV.P34, ETV.P35, ETV.P.F34.01, ETV.P.F34.03, ETV.P.F29.01, ETV.P.F29.02, ETV.P.F29.03, ETV.P.F29.04, ETV.P.F33.01, ETV.P.F33.02, ETV.P.F35.01, ETV.P.F35.02, ETV.P.F35.03, ETV.P.F35.04, ETV.P.F28.01, ETV.P.F28.03, ETV.P.F28.04]
 iso_clause: ["ISO/IEC 42001:2023 §6.1.4, §8.1, §8.4", "ISO/IEC 27001:2022 A.5.9, A.5.19–A.5.23, A.8.9, A.8.16, A.8.31", "ISO/IEC 17025:2017 §7.11", "ISO 9001:2015 §7.1.3, §8.5.1"]
 legal_basis: ["Luật Giao dịch điện tử 20/2023/QH15", "Pháp luật hiện hành về an toàn thông tin mạng", "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân"]
 ai_tags: [model-provider, local-llm, gpu-server, routing-policy, fallback]
@@ -49,6 +49,7 @@ superseded_by: null
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | --- | --- | --- |
 | 25/08/2026 | Dự thảo lần đầu | 01 |
+| 25/08/2026 | Soát xét nội bộ trước khi trình: chặn dữ liệu mức Hạn chế do xung đột ETV.P29–P26–P34 chưa giải quyết (§3.7); siết điều kiện dùng đường hầm của bên thứ ba (§3.4 Bước 3); thêm kiểm soát chuỗi cung ứng mô hình/image (Bước 2) và kiểm soát nhật ký, dữ liệu tạm (Bước 3b); §3.6 chuyển thành bảng hiện trạng; bổ sung Gate và hồ sơ P01/P06/P30/P31/P34. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 
 ---
 
@@ -93,8 +94,8 @@ Người dùng → aios.manlab.vn (ManLab AIOS)
            Tool Gateway / AI Control Plane (M29)
                  ↓   tra AIAgent → AIModel → AIProvider → AIPlatform
            Platform Adapter
-                 ↓ HTTPS + API key
-           llm.manlab.vn  (reverse proxy / tunnel)
+                 ↓ TLS + API key
+           Điểm cuối của máy chủ mô hình  (§3.4 Bước 3 — nội bộ, hoặc reverse proxy)
                  ↓ 127.0.0.1:8000
            Inference engine (vLLM)
                  ↓
@@ -162,12 +163,26 @@ docker run --rm --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
 
 Chọn mô hình theo §3.3 (7B–14B, ưu tiên bản lượng tử hoá INT4). Việc chọn mô hình căn cứ tác vụ thật của Viện — phân loại, bóc tách tài liệu, hỏi–đáp tiếng Việt, RAG, gọi công cụ, trả JSON có cấu trúc — **không** căn cứ bảng xếp hạng chung của nhà phát hành mô hình.
 
+**Kiểm soát chuỗi cung ứng — bắt buộc trước khi nạp (ETV.P28, ETV.P33).** Mô hình và image là phần mềm bên ngoài đưa vào hạ tầng Viện, áp cùng yêu cầu như mọi phần mềm khác:
+
+| Đối tượng | Phải có trước khi chạy |
+| --- | --- |
+| Image | Ghim **phiên bản + digest**, không dùng `latest`; nguồn phát hành, giấy phép, kết quả quét lỗ hổng |
+| Mô hình | Nguồn phát hành tin cậy, phiên bản chính xác, **checksum** của tệp đã tải, giấy phép cho phép dùng nội bộ/thương mại |
+| Thành phần | Danh sách thành phần và phiên bản (image, driver, CUDA, vLLM, thư viện) |
+
+Nghiêm cấm bật `--trust-remote-code`: tham số này cho phép chạy mã tuỳ ý kèm theo kho mô hình. Nếu một mô hình bắt buộc phải có nó thì **đổi mô hình**, không mở tham số.
+
+Cấm tự động cập nhật image, driver hoặc mô hình đang vận hành. Mọi cập nhật đi lại đủ Bước 5–6. Khi image hoặc mô hình bị thu hồi hoặc phát hiện lỗ hổng: lập phiếu theo **F33.04**, quay về phiên bản trước theo §3.8.
+
 `docker-compose.yml` mẫu:
 
 ```yaml
 services:
   vllm:
-    image: vllm/vllm-openai:latest
+    # Ghim phiên bản + digest. KHÔNG dùng :latest — pull lại sẽ đổi phần mềm
+    # ngoài kiểm soát, trái yêu cầu quản lý cấu hình của ETV.P33.
+    image: vllm/vllm-openai:v<phien-ban>@sha256:<digest>
     restart: unless-stopped
     ports:
       - "127.0.0.1:8000:8000"      # KHÔNG bỏ 127.0.0.1
@@ -206,16 +221,44 @@ curl -s -H "Authorization: Bearer $VLLM_API_KEY" http://127.0.0.1:8000/v1/models
 
 #### Bước 3 — Công bố endpoint an toàn (ETV.P28, ETV.P35)
 
-Endpoint chính thức: `https://llm.manlab.vn`. Hai phương án:
+**Câu hỏi phải trả lời trước:** ManLab AIOS gọi máy chủ này từ đâu? Nếu cả hai cùng nằm trong hạ tầng của Viện thì **không cần endpoint công khai** — dùng địa chỉ nội bộ và tường lửa là đủ, và giữ nguyên được lập luận "dữ liệu không rời hạ tầng" của §3.7. Chỉ khi ManLab đặt ngoài mới cần phương án B hoặc C dưới đây.
 
-- **Phương án A (khuyến nghị):** Cloudflare Tunnel — không cần mở cổng vào, không phụ thuộc IP tĩnh, TLS do nhà cung cấp đảm nhiệm.
-- **Phương án B:** IP tĩnh + tường lửa + Nginx/Caddy làm reverse proxy + TLS.
+| PA | Cách làm | Điều kiện áp dụng |
+| --- | --- | --- |
+| **A** | Địa chỉ nội bộ + tường lửa, không phơi ra Internet | **Ưu tiên.** Khi ManLab chạy trong hạ tầng Viện |
+| **B** | IP tĩnh + tường lửa + Nginx/Caddy + TLS do Viện quản lý | Khi cần truy cập từ ngoài mà vẫn giữ toàn bộ đường truyền trong tầm kiểm soát của Viện |
+| **C** | Đường hầm của nhà cung cấp (Cloudflare Tunnel hoặc tương đương) | **Chỉ khi A và B không khả thi**, và phải qua các điều kiện dưới đây |
 
-Yêu cầu tối thiểu của endpoint: HTTPS (TLS 1.2 trở lên), xác thực bằng API key hoặc JWT, giới hạn tần suất, giới hạn kích thước yêu cầu, timeout, nhật ký truy cập.
+**Phương án C làm thay đổi ranh giới "nội bộ" — không phải lựa chọn kỹ thuật thuần tuý.** Đường hầm kết thúc TLS tại hạ tầng của nhà cung cấp, nghĩa là nội dung lời nhắc và phản hồi **đi qua bên thứ ba dưới dạng rõ**. Khi đó máy chủ không còn thoả điều kiện "dữ liệu không rời hạ tầng của Viện", và trần mức bảo mật ở §3.7 phải hạ theo. Trước khi dùng, bắt buộc:
+
+1. Xác định và ghi lại **luồng dữ liệu thật**: nơi kết thúc TLS, vị trí xử lý, nhà cung cấp có ghi nhật ký nội dung hay không, lưu ở đâu và bao lâu.
+2. Đăng ký nhà cung cấp đường hầm là **nền tảng thuê ngoài và điểm tích hợp** theo ETV.P35; đánh giá nhà cung cấp theo ETV.P06; đối chiếu điều khoản bảo mật, DPA/SLA và phương án khi nhà cung cấp ngừng dịch vụ.
+3. Ghi rủi ro vào **F28.01** và hạ trần §3.7 tương ứng.
+
+TLS do nhà cung cấp cấu hình **không** chuyển trách nhiệm bảo mật sang họ — Viện vẫn chịu trách nhiệm đánh giá và giám sát.
+
+Yêu cầu tối thiểu của endpoint ở mọi phương án: TLS 1.2 trở lên, xác thực bằng API key hoặc JWT, giới hạn tần suất, giới hạn kích thước yêu cầu, timeout, nhật ký truy cập.
 
 Khoá API: sinh khoá đủ mạnh, lưu trong kho bí mật/biến môi trường theo ETV.P28; bản ghi `AISecret` trong M29 **chỉ lưu `maskedValue`**, không bao giờ lưu giá trị thật. Nghiêm cấm đặt khoá trong mã nguồn, kho Git, nhật ký hoặc frontend. Rủi ro ATTT của máy chủ ghi tại **F28.01**.
 
-**Gate 3 —** `https://llm.manlab.vn/v1/models` trả 200 khi có khoá đúng và 401 khi sai khoá; cổng của engine không truy cập được từ ngoài; F28.01 đã cập nhật.
+**Gate 3 —** endpoint trả 200 khi có khoá đúng và 401 khi sai khoá; cổng của engine không truy cập được từ ngoài; F28.01 đã cập nhật; nếu dùng phương án C thì đã có đủ 3 điều kiện trên.
+
+#### Bước 3b — Kiểm soát nhật ký và dữ liệu tạm (ETV.P28, ETV.P29, ETV.P34)
+
+Máy chủ mô hình nhận toàn văn lời nhắc, nên mọi chỗ ghi lại lời nhắc đều là bản sao dữ liệu nằm ngoài hệ thống. Phải xác lập trước khi có lượt gọi thật:
+
+| Hạng mục | Yêu cầu |
+| --- | --- |
+| Nhật ký engine và reverse proxy | **Không ghi thân yêu cầu** mặc định; kiểm chứng bằng cách gửi một chuỗi mồi rồi tìm lại trong toàn bộ nhật ký — phải không tìm thấy |
+| Bí mật xác thực | Không xuất hiện trong nhật ký, kể cả tiêu đề `Authorization` |
+| Dữ liệu tạm | Xác định lời nhắc và KV cache nằm ở RAM hay tràn xuống đĩa/swap; nếu có tràn xuống đĩa thì đĩa phải được mã hoá |
+| Kết xuất sự cố | Tắt core dump và crash dump của tiến trình engine, hoặc bảo đảm chúng không ghi ra vùng không kiểm soát |
+| Vòng đời nhật ký | Có xoay vòng, đồng bộ thời gian, phân quyền truy cập, thời hạn lưu theo ETV.P.F 14.06 |
+| Xoá khi dừng | Xoá mô hình, nhật ký và dữ liệu tạm khi ngừng vận hành hoặc chuyển giao máy chủ (§3.8) |
+
+Nhật ký nghiệp vụ của lượt gọi nằm ở `AIRequest` trong ManLab, lưu theo thời hạn của ETV.P29 §9 — **không** thay bằng nhật ký của máy chủ mô hình.
+
+**Gate 3b —** đã chạy phép thử chuỗi mồi và không tìm thấy trong nhật ký; core dump đã xử lý; thời hạn lưu và quyền truy cập nhật ký đã xác lập.
 
 #### Bước 4 — Đăng ký trong AIOS (ETV.P35 → ETV.P29)
 
@@ -275,7 +318,7 @@ Thẩm quyền phê duyệt theo **mức tác động của Agent sử dụng m�
 
 | Tham số | Giá trị dùng cho máy chủ hiện tại | Ghi chú |
 | --- | --- | --- |
-| Endpoint công khai | `https://llm.manlab.vn` | Bước 3 |
+| Điểm cuối máy chủ mô hình | Theo phương án chọn ở Bước 3; `https://llm.manlab.vn` chỉ áp dụng nếu buộc phải phơi ra ngoài | Bước 3 |
 | Cổng nội bộ của engine | `127.0.0.1:8000` | Không publish |
 | Mã nền tảng (`AIPlatform.code`) | `MANLAB_LOCAL_LLM` | Bước 4a |
 | Mã provider (`AIProvider.code`) | `MANLAB_LOCAL` | Bước 4b |
@@ -287,25 +330,22 @@ Thẩm quyền phê duyệt theo **mức tác động của Agent sử dụng m�
 | Timeout gọi mô hình | 30 000 ms | Bằng ngưỡng đang áp cho nền tảng mô hình hiện có |
 | Số lần thử lại | 1 | Tránh dồn tải lên một GPU duy nhất |
 
-### 3.6. Phần việc phía ManLab AIOS (dành cho người lập trình)
+### 3.6. Hiện trạng phía ManLab AIOS (dành cho người lập trình)
 
-Nền tảng đã có sẵn khung `IAIPlatformAdapter`; việc tích hợp là **thêm một adapter mới**, không sửa logic nghiệp vụ.
+Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc bảng này trước khi viết mã để không làm lại.
 
-**(a) Adapter mới** trong `09_ENGINEERING/aios-platform/src/lib/m29/adapters.ts`: cài đặt `PlatformAdapter` với tên `LocalOpenAIPlatformAdapter`, đăng ký vào bảng `ADAPTERS`, và:
+| Hạng mục | Hiện trạng | Bằng chứng nghiệm thu |
+| --- | --- | --- |
+| `AIProvider.platformId` → `AIPlatform` (tùy chọn, `onDelete: Restrict`) | **Đã có** | `prisma/schema.prisma`, di trú `20260825141357_m29_provider_platform_link` |
+| `LocalOpenAIPlatformAdapter` (`health` + `chat`, đã đăng ký trong `ADAPTERS`) | **Đã có** | `src/lib/m29/adapters.ts`; 14 ca test tại `__tests__/adapters-local.test.ts` |
+| Biến môi trường `LOCAL_LLM_API_KEY` | **Đã có** | `.env.example` |
+| Ghi `AIRequest` mỗi lượt gọi và `AIAuditLog` mỗi thay đổi cấu hình | **Đã có** | `src/lib/m29/gateway.ts`, `actions.ts` |
+| Trần mức bảo mật **theo từng nền tảng** | **Còn thiếu** — hiện là biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA`, áp chung cho mọi nền tảng | Phải có trước khi nới trần cho máy chủ nội bộ (§3.7) |
+| Quy tắc định tuyến theo loại tác vụ và mức phân loại dữ liệu | **Còn thiếu** — nền tảng gắn cứng ở `AIAgent.platformId` | Tối thiểu cần: loại tác vụ, mức phân loại, đích, thứ tự ưu tiên, dự phòng, cờ bật/tắt |
+| Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Còn thiếu** — `checkHealthAction()` chỉ quét `APPROVED`, bỏ sót `ACTIVE` | Nền tảng chuyển Hiệu lực theo Bước 6 vẫn phải được dò |
+| Màn hình tạo Provider kèm chọn nền tảng | **Còn thiếu** — danh mục hiện chỉ đọc | — |
 
-- `health(platform)` — gọi `GET {apiBaseUrl}/models`, trả `ok` khi mã trạng thái < 400.
-- `chat(platform, req)` — gọi `POST {apiBaseUrl}/chat/completions` theo lược đồ OpenAI; `model` lấy từ `req.modelId`; ánh xạ `usage.prompt_tokens`/`completion_tokens` về `inputTokens`/`outputTokens`; giữ đúng bộ mã lỗi đang dùng (`AUTH_FAILED`, `RATE_LIMITED`, `TIMEOUT`, `HTTP_<mã>`, `CONNECTION_ERROR`, `EMPTY_RESPONSE`) để phần giám sát không phải sửa.
-- `call()` — trả `NOT_A_TOOL_PLATFORM`: nền tảng mô hình không phơi công cụ nghiệp vụ nào.
-- Khoá API đọc từ biến môi trường của tiến trình AIOS, **không** đọc từ bảng `AISecret` (bảng này cố ý chỉ lưu `maskedValue`) — giữ đúng cách `AnthropicAdapter` hiện đang làm.
-
-**(b) Thay đổi lược đồ cơ sở dữ liệu.** Bảng `AIProvider` hiện chỉ có `id`, `code`, `name`, `status` — **chưa đủ** để trỏ tới một máy chủ tự vận hành. Cần một trong hai cách, chốt trước khi viết mã:
-
-- Thêm `platformId` (khoá ngoại tới `AIPlatform`) vào `AIProvider` — dùng lại `apiBaseUrl`, `health`, `lastHealthCheckAt` đã có sẵn của `AIPlatform`; **cách này được khuyến nghị** vì không nhân đôi thông tin endpoint và giữ được một nguồn sự thật cho kiểm tra sức khoẻ.
-- Hoặc thêm thẳng `baseUrl`, `authType`, `secretRef`, `priority` vào `AIProvider` — nhanh hơn nhưng sinh hai nơi giữ endpoint.
-
-**(c) Định tuyến.** Hiện chưa có thực thể quy tắc định tuyến. Khi bổ sung, tối thiểu cần: loại tác vụ, mức phân loại dữ liệu, provider/model đích, thứ tự ưu tiên, chính sách dự phòng, cờ bật/tắt — và phải thực thi đúng §3.7 dưới đây.
-
-**(d) Nhật ký.** Mỗi lượt gọi ghi một `AIRequest` với đủ `platformId`, `agentId`, `modelId`, `promptVersionId`, số token vào/ra, độ trễ. **Không** ghi mặc định toàn bộ nội dung prompt chứa dữ liệu nhạy cảm vào nhật ký. Mọi thay đổi Provider/Model/khoá/định tuyến ghi `AIAuditLog` (ai — sửa gì — lúc nào — giá trị cũ — giá trị mới — lý do).
+**Quyết định kiến trúc đã chốt, không mở lại:** endpoint chỉ có **một** nguồn sự thật là `AIPlatform.apiBaseUrl`; không nhân đôi `baseUrl` sang `AIProvider`. Khoá API đọc từ biến môi trường, **không** từ `AISecret` (bảng đó cố ý chỉ lưu `maskedValue`).
 
 ### 3.7. Định tuyến theo mức phân loại dữ liệu và dự phòng
 
@@ -315,17 +355,32 @@ Nền tảng đã có sẵn khung `IAIPlatformAdapter`; việc tích hợp là *
 | --- | --- | --- |
 | Công khai | Được | Được |
 | Nội bộ | Được | Chỉ khi chính sách cho phép |
-| Hạn chế | Được | **Không** |
-| Mật | **Không đưa vào AI** (ETV.P29 §1.3.6) | **Không** |
+| Hạn chế | **Chưa được phép** — xem dưới | **Không** |
+| Mật | **Không đưa vào AI** (ETV.P29 §5.1.5) | **Không** |
+
+> **Dữ liệu mức Hạn chế: chưa được phép đưa vào hệ thống AI, kể cả mô hình nội bộ.**
+>
+> Lý do là một **xung đột chưa được giải quyết ở cấp thủ tục**, không phải hạn chế kỹ thuật:
+>
+> - **ETV.P29 §5.1.5** liệt kê "truy cập **hoặc** lập chỉ mục dữ liệu mức Hạn chế, Mật" vào **Điều cấm tuyệt đối**, vi phạm là sự cố AI mức nghiêm trọng. **ETV.P26** cấm đưa tri thức Hạn chế/Mật vào chỉ mục trợ lý AI.
+> - **ETV.P34 §6.8** lại cho phép dữ liệu Hạn chế "dùng trên nền tảng AI đã đăng ký và đã phê duyệt theo ETV.P35, không đưa lên dịch vụ AI công cộng".
+>
+> Hướng dẫn này **không có thẩm quyền chọn bên nào** (§1). Cho tới khi ETV.P29, ETV.P26 và ETV.P34 được thống nhất, áp bản cấm chặt hơn.
+>
+> Trường hợp dự kiến cho phép phải hội đủ: **phê duyệt của LĐV** cho mục đích sử dụng, **ý kiến PT.ATTT**, hồ sơ **AIA** đã phê duyệt (F29.02), và kiểm soát kỹ thuật đã được xác nhận (§3.6 trần theo từng nền tảng, §3.4 Bước 3b nhật ký) — theo ETV.P34 §6.8.
+>
+> Ghi chú diễn giải: cách hiểu "P29 chỉ cấm lập chỉ mục, còn truy xuất trực tiếp theo yêu cầu thì được" **không dùng được** với câu chữ hiện tại, vì §5.1.5 cấm cả *truy cập*. Nếu ý định thật là chỉ cấm lập chỉ mục thì phải sửa câu chữ của P29, không diễn giải tại đây.
 
 **Quy tắc dự phòng khi máy chủ nội bộ mất khả dụng:**
 
 ```text
-NẾU mức phân loại dữ liệu là Hạn chế hoặc Mật
+NẾU mức phân loại dữ liệu cao hơn mức mà nền tảng dự phòng được phép nhận
    VÀ máy chủ nội bộ đang DOWN
-THÌ  KHÔNG chuyển sang dịch vụ bên ngoài
+THÌ  KHÔNG chuyển sang nền tảng đó
      Trả lỗi có kiểm soát cho người dùng và ghi nhật ký
 ```
+
+Không có ngoại lệ vì lý do khả dụng: mất dịch vụ là sự cố chấp nhận được, gửi dữ liệu vượt trần thì không.
 
 Với dữ liệu Công khai và Nội bộ, việc chuyển sang dịch vụ bên ngoài chỉ được thực hiện **theo chính sách đã phê duyệt**, không phải mặc định của hệ thống. Máy chủ GPU hỏng **không được phép** làm sập toàn bộ ManLab AIOS: mất mô hình nội bộ chỉ làm mất tính năng AI của các luồng liên quan.
 
@@ -352,8 +407,16 @@ Chỉ đánh dấu hoàn thành khi **toàn bộ** các mục sau đạt:
 - [ ] Đã có định tuyến, timeout, số lần thử lại và chính sách dự phòng theo mức phân loại dữ liệu.
 - [ ] Mỗi lượt gọi sinh `AIRequest`; mọi thay đổi cấu hình sinh `AIAuditLog`.
 - [ ] TC01–TC05 đạt; đo hiệu năng và kiểm thử chức năng hoàn thành; AIA đã phê duyệt.
-- [ ] Đã lập đủ hồ sơ: F33.01, F35.01, F35.02, F28.01, F29.01, F29.02, F29.03.
-- [ ] Đã thử nghiệm quay lại bản mô hình trước đó.
+- [ ] Nhật ký không chứa lời nhắc và bí mật xác thực (phép thử chuỗi mồi, Gate 3b); thời hạn lưu và quyền truy cập đã xác lập.
+- [ ] Chuỗi cung ứng: image ghim phiên bản + digest, mô hình có checksum và giấy phép hợp lệ, đã quét lỗ hổng, `--trust-remote-code` **không** bật.
+- [ ] **LĐV phê duyệt** việc dùng dữ liệu của Viện cho AI, có ý kiến PT.ATTT (ETV.P34 §6.8); tập dữ liệu đã có bản ghi trong **F34.01**, yêu cầu khai thác ghi tại **F34.03**.
+- [ ] Dữ liệu thật dùng trong bộ kiểm thử đã được ẩn danh hoặc loại dữ liệu cá nhân.
+- [ ] Đã mở hồ sơ rủi ro **ETV.P01**; nếu nền tảng ở mức trọng yếu Cao thì có phương án liên tục theo **ETV.P31**.
+- [ ] Nếu AI tham gia xử lý dữ liệu kỹ thuật: đã **xác nhận giá trị sử dụng** theo ISO/IEC 17025 §7.11 (ETV.P35).
+- [ ] Nếu dùng thành phần dịch vụ bên ngoài (đường hầm, hosting): đã đánh giá nhà cung cấp theo **ETV.P06** và đăng ký điểm tích hợp theo **ETV.P35**.
+- [ ] Nếu tích hợp ảnh hưởng liên phòng: đã phê duyệt thay đổi theo **ETV.P30**.
+- [ ] Đã lập đủ hồ sơ: F33.01, F35.01, F35.02, F28.01, F29.01, F29.02, F29.03, F34.01, F34.03.
+- [ ] Đã thử nghiệm quay lại bản trước — cả **image, driver, CUDA và mô hình**, không chỉ mô hình.
 
 **Định nghĩa hoàn thành:** một lượt hỏi từ người dùng đi trọn vòng `ManLab AIOS → Control Plane → MANLAB_LOCAL → llm.manlab.vn → vLLM → RTX 3090 → phản hồi → nhật ký/chi phí/sức khoẻ`, và khi tắt máy chủ GPU thì AIOS nhận biết trạng thái `DOWN`, không sập, xử lý đúng chính sách dự phòng §3.7.
 
@@ -380,6 +443,8 @@ Hướng dẫn này **không lập biểu mẫu mới** — dùng lại toàn b�
 | ETV.P.F 29.02 — Phiếu đánh giá tác động AI (AIA) | Bước 5a |
 | ETV.P.F 29.03 — Phiếu kiểm thử và đánh giá chất lượng hệ thống AI | Bước 5b–5d |
 | ETV.P.F 29.04 — Phiếu sự cố trí tuệ nhân tạo | §3.8 |
+| ETV.P.F 34.01 — Danh mục dữ liệu số, từ điển dữ liệu | Bước 5, §3.9 |
+| ETV.P.F 34.03 — Phiếu khai thác, chia sẻ dữ liệu | Bước 5, §3.9 |
 
 ---
 
