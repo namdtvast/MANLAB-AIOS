@@ -17,13 +17,13 @@
 | POST | `/hethongtt/{id}/approve` | **LĐV** | Đạt → Đang vận hành — **chặn** theo `ETV.P33` Phụ lục I.1: thiếu chủ quản trị (R1), thiếu cấu hình an toàn cơ sở hoặc mã hóa ổ đĩa (R3), `criticality = Cao` thiếu RTO/`failover_plan`/rủi ro, phần mềm thiếu giấy phép hợp lệ (R21), BYOD Hạn chế–Mật thiếu phê duyệt LĐV, gán dữ liệu khách hàng vào môi trường không phải Vận hành khi chưa duyệt (R5) |
 | POST | `/hethongtt/{id}/handover` | QTHT, TP | Ghi nhận bàn giao thiết bị cho đơn vị sử dụng (`handover_record_ref`) |
 | POST | `/hethongtt/{id}/suspend` · `/resume` | QTHT | Tạm ngừng khi bảo trì/sự cố (**bắt buộc lý do**) → quay lại Đang vận hành |
-| POST | `/hethongtt/{id}/retire` | QTHT | → Ngừng vận hành (**bắt buộc lý do**); **chặn** khi còn đối tượng phụ thuộc: nền tảng Hiệu lực (M35), tài sản thông tin còn lưu (M27), **thiết bị đo còn được phục vụ (M05)** — `ETV.P33` §6.6.1 bước 2 |
-| POST | `/hethongtt/{id}/dispose` | **LĐV** | → Đã thanh lý (**bắt buộc lý do**) — **chặn nếu thiếu bằng chứng xóa dữ liệu an toàn** (biên bản hủy ← M27, R10) hoặc chưa thu hồi hết tài khoản, quyền, chứng thư số gắn với tài sản (§6.6.1 bước 4) |
-| POST | `/hethongtt/{id}/isolate` | QTHT, PT.ATTT | Ngắt tài sản khỏi mạng của Viện khi không đạt cấu hình an toàn cơ sở (`ETV.P33` §6.7 bước 3) |
-| POST | `/hethongtt/{id}/mark-reviewed` | QTHT | Xác nhận rà soát định kỳ: bản ghi còn đúng và còn cần thiết (§6.1.4 bước 6) |
+| POST | `/hethongtt/{id}/retire` | QTHT | → Ngừng vận hành (**bắt buộc lý do**); **chặn** khi còn đối tượng phụ thuộc: nền tảng Hiệu lực (M35), tài sản thông tin còn lưu (M27), **thiết bị đo còn được phục vụ (M05)** — ETV.P33 §6.6.1 bước 2 |
+| POST | `/hethongtt/{id}/dispose` | **LĐV** | → Đã thanh lý (**bắt buộc lý do**) — **chặn nếu thiếu bằng chứng xóa dữ liệu an toàn** (biên bản hủy ← M27, R10) hoặc chưa thu hồi hết tài khoản, quyền, chứng thư số gắn với tài sản (ETV.P33 §6.6.1 bước 4) |
+| POST | `/hethongtt/{id}/isolate` | QTHT, PT.ATTT | Ngắt tài sản khỏi mạng của Viện khi không đạt cấu hình an toàn cơ sở (ETV.P33 §6.7 bước 3) |
+| POST | `/hethongtt/{id}/mark-reviewed` | QTHT | Xác nhận rà soát định kỳ: bản ghi còn đúng và còn cần thiết (ETV.P33 §6.1.4 bước 6) |
 | POST | `/hethongtt/{id}/cancel` | LĐV | → Hủy bản ghi (chỉ khi chưa phê duyệt, **bắt buộc lý do**) |
 | GET | `/hethongtt/due` | QTHT, VP, LĐV | 7 nhóm đến hạn: rà soát · bảo trì · vá lỗi quá hạn · bản quyền–bảo hành–EOL · quá hạn phản hồi sự cố · tài sản chưa kiểm kê quá 30 ngày · ngoài kế hoạch bảo trì năm |
-| GET | `/hethongtt/undiscovered` | QTHT, PT.ATTT | Hàng chờ xử lý hạ tầng chưa kiểm kê (§6.7) |
+| GET | `/hethongtt/undiscovered` | QTHT, PT.ATTT | Hàng chờ xử lý hạ tầng chưa kiểm kê (ETV.P33 §6.7) |
 | GET | `/hethongtt/inventory` | QLCL, PT.ATTT, LĐV | **Báo cáo kiểm kê hợp nhất M33 + M27** (ISO/IEC 27001 A.5.9, R2) |
 | GET | `/hethongtt/{id}/audit` | Quản trị | Nhật ký thao tác |
 
@@ -41,7 +41,7 @@
 | Method | Endpoint | Vai trò | Mô tả |
 |---|---|---|---|
 | GET/POST | `/hethongtt/maintenance` | QTHT | Công việc bảo trì theo kế hoạch hoặc đột xuất; `task_type = Vá lỗi bảo mật` bắt buộc `severity` (quyết định mốc 07/30/90 ngày) |
-| POST | `/hethongtt/maintenance/{id}/notify` | QTHT | Thông báo trước cho đơn vị sử dụng với công việc gây gián đoạn (§6.3.2 bước 3) |
+| POST | `/hethongtt/maintenance/{id}/notify` | QTHT | Thông báo trước cho đơn vị sử dụng với công việc gây gián đoạn (ETV.P33 §6.3.2 bước 3) |
 | POST | `/hethongtt/maintenance/{id}/perform` | QTHT | Ghi nhận đã thực hiện + `evidence_ref` → **Chờ nghiệm thu**; **chặn** khi thiếu `change_ref` → M30 (R5) hoặc thiếu `measurement_impact_ref` → M10 với máy tính điều khiển thiết bị đo (R4) |
 | POST | `/hethongtt/maintenance/{id}/accept` | **TP hoặc QTHT khác người thực hiện** | Nghiệm thu → Hoàn thành — **chặn khi `accepted_by = performed_by`** (R15); cập nhật `last_maintained_at` và hạn kế tiếp trên bản ghi tài sản |
 | POST | `/hethongtt/maintenance/{id}/defer` | QTHT · **LĐV** khi vá lỗi Nghiêm trọng | Hoãn (**bắt buộc lý do**); quá hạn ⇒ cảnh báo LĐV, mở KPH ← M13 |
@@ -54,7 +54,7 @@
 | POST | `/hethongtt/accounts` | QTHT | Ghi nhận tài khoản đã tạo — **bắt buộc `access_request_ref` là phiếu F28.04 đã phê duyệt ở M28** (R6); từ chối mọi trường chứa bí mật xác thực, chỉ nhận `secret_location` và `secret_issuer` (R7) |
 | POST | `/hethongtt/accounts/{id}/lock` · `/revoke` | QTHT | Tạm khóa / thu hồi theo phiếu M28; thu hồi bắt buộc `revoked_at` |
 | GET | `/hethongtt/accounts/pending-revocation` | QTHT, PT.ATTT | Hàng chờ thu hồi theo biến động nhân sự (← M03), hạn **cuối ngày làm việc** (R16) |
-| POST | `/hethongtt/accounts/{id}/flag-orphan` | QTHT, PT.ATTT | Đánh dấu tài khoản bất thường ⇒ **khóa tạm ngay** + mở sự cố ở M28; **không có đường xóa** trước khi PT.ATTT xem xét (§6.4.3) |
+| POST | `/hethongtt/accounts/{id}/flag-orphan` | QTHT, PT.ATTT | Đánh dấu tài khoản bất thường ⇒ **khóa tạm ngay** + mở sự cố ở M28; **không có đường xóa** trước khi PT.ATTT xem xét (ETV.P33 §6.4.3) |
 
 ## Kỳ đối chiếu tài khoản (`AccountReconciliation`)
 
@@ -79,7 +79,7 @@
 | Method | Endpoint | Vai trò | Mô tả |
 |---|---|---|---|
 | GET | `/hethongtt/export/{F33.01\|F33.02\|F33.03\|F33.04}` | QLCL, QTHT | Xuất biểu mẫu (chỉ bản ghi đã phê duyệt/đã nghiệm thu) |
-| GET | `/hethongtt/report/semiannual` | VP, QLCL, LĐV | Báo cáo tình hình hệ thống thông tin 06 tháng/lần — đủ 8 nội dung `ETV.P33` §6.9 |
+| GET | `/hethongtt/report/semiannual` | VP, QLCL, LĐV | Báo cáo tình hình hệ thống thông tin 06 tháng/lần — đủ 8 nội dung ETV.P33 §6.9 |
 | GET | `/hethongtt/report/m31` · `/report/m17` | QLCL, LĐV | Hạ tầng trọng yếu + RTO cho kế hoạch liên tục; tình hình hạ tầng cho xem xét lãnh đạo |
 
 > Mọi thao tác đổi trạng thái ghi `AuditLog`; vi phạm quy tắc → **409** kèm mã lỗi **và điều khoản

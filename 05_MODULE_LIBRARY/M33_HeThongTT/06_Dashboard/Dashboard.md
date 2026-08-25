@@ -1,21 +1,21 @@
 # M33_HeThongTT — Bảng điều khiển
 
 > Nguồn sự thật: [`../01_Requirement/DacTa.md`](../01_Requirement/DacTa.md) mục 7. Bộ chỉ số bám
-> đúng tám nội dung báo cáo bắt buộc của `ETV.P33` §6.9 — bảng điều khiển là bản *xem liên tục* của
+> đúng tám nội dung báo cáo bắt buộc của ETV.P33 §6.9 — bảng điều khiển là bản *xem liên tục* của
 > chính báo cáo 06 tháng, không phải một bộ chỉ số song song.
 
 ## 1. Nguyên tắc
 
 - Mọi chỉ số **tính khi đọc** từ bản ghi nghiệp vụ, không có bảng tổng hợp riêng — số trên bảng điều
-  khiển và số trong báo cáo `ETV.P33` §6.9 **luôn là một**.
+  khiển và số trong báo cáo ETV.P33 §6.9 **luôn là một**.
 - Bảng điều khiển **không** là công cụ giám sát kỹ thuật: không có chỉ số CPU, băng thông, uptime đo
-  bằng máy. M33 giữ **hồ sơ quản trị** (`ETV.P33` §2.2 Nguyên tắc 3) — số liệu sẵn sàng lấy từ phiếu
+  bằng máy. M33 giữ **hồ sơ quản trị** (ETV.P33 §2.2 Nguyên tắc 3) — số liệu sẵn sàng lấy từ phiếu
   sự cố, không từ hệ thống monitoring.
 - Mỗi ô chỉ số dẫn thẳng tới danh sách bản ghi phía sau; không có con số nào không mở ra được.
 
 ## 2. Bộ chỉ số
 
-| # | Chỉ số | Cách tính | Ngưỡng cảnh báo | Nội dung §6.9 |
+| # | Chỉ số | Cách tính | Ngưỡng cảnh báo | Nội dung ETV.P33 §6.9 |
 |---|---|---|---|---|
 | 1 | Tổng tài sản theo **lớp · môi trường · vùng mạng · mức trọng yếu** | Đếm `ITAsset` ở trạng thái Đang vận hành, cắt theo 4 chiều | — | (1) |
 | 2 | Tiến độ **kiểm kê kỳ đầu** | Tỷ lệ tài sản đợt 1 (hạn 90 ngày) và đợt 2 (hạn 180 ngày) đã Đang vận hành | Quá hạn đợt ⇒ đỏ | (1) |
