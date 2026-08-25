@@ -341,7 +341,7 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 | `LocalOpenAIPlatformAdapter` (`health` + `chat`, đã đăng ký trong `ADAPTERS`) | **Đã có** | `src/lib/m29/adapters.ts`; 14 ca test tại `__tests__/adapters-local.test.ts` |
 | Biến môi trường `LOCAL_LLM_API_KEY` | **Đã có** | `.env.example` |
 | Ghi `AIRequest` mỗi lượt gọi và `AIAuditLog` mỗi thay đổi cấu hình | **Đã có** | `src/lib/m29/gateway.ts`, `actions.ts` |
-| Trần mức bảo mật **theo từng nền tảng** | **Đã có** | `AIPlatform.dataBoundary` (enum `AIDataBoundary`), mặc định fail-closed ở `EXTERNAL_NO_COMMITMENT`; di trú `20260825161823_m29_ranh_gioi_du_lieu_nen_tang`. Biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA` đã gỡ. Nới trần phải đi qua `datRanhGioiDuLieu()` và **dẫn số hồ sơ** F29.02, quyền thuộc AI_SECURITY_ADMIN/SUPER_ADMIN — người đăng ký nền tảng không tự nới được |
+| Trần mức bảo mật **theo từng nền tảng** | **Đã có** | `AIPlatform.dataBoundary` (enum `AIDataBoundary`), mặc định fail-closed ở `EXTERNAL_NO_COMMITMENT`; di trú `20260825161823_m29_ranh_gioi_du_lieu_nen_tang`. Biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA` đã gỡ. Nới trần phải đi qua `datRanhGioiDuLieu()` và **dẫn số hồ sơ** F29.02, quyền thuộc AI_SECURITY_ADMIN/SUPER_ADMIN — người đăng ký nền tảng không tự nới được. 10 ca test tại `__tests__/copilot-ranh-gioi.test.ts` |
 | Quy tắc định tuyến theo loại tác vụ và mức phân loại dữ liệu | **Còn thiếu** — nền tảng gắn cứng ở `AIAgent.platformId` | Tối thiểu cần: loại tác vụ, mức phân loại, đích, thứ tự ưu tiên, dự phòng, cờ bật/tắt |
 | Chuyển nền tảng sang trạng thái **Hiệu lực** (Bước 6) | **Đã có** | `approvalTransitions.activate()` + nút "Đưa vào vận hành" trên trang danh mục; ngừng vận hành được từ `ACTIVE` — `src/lib/m29/rules.ts`, `RegistryActions.tsx` |
 | Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Đã có** | `checkHealthAction()` lọc `{ in: ["APPROVED", "ACTIVE"] }` — `src/lib/m29/actions.ts`. Bộ lọc cũ chỉ quét `APPROVED` nên nền tảng vừa đưa vào vận hành rơi khỏi vòng dò |
@@ -363,6 +363,8 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 > **Dữ liệu mức Hạn chế và Mật: không đưa vào hệ thống AI dưới bất kỳ hình thức nào** — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp.
 >
 > Căn cứ là **hai thủ tục đang có hiệu lực**: **ETV.P28 mục 5.13** ("Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức Công khai và Nội bộ") và **ETV.P26 mục 5.5** (Hạn chế/Mật không bao giờ vào chỉ mục AI). Câu cho phép trước đây tại ETV.P34 mục 6.8 đã được sửa cho khớp (dự thảo 25/08/2026, phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe`).
+>
+> **Phần mềm cưỡng chế điều này ở tầng kiểu dữ liệu, không chỉ bằng câu chữ:** hàm tính trần trong `copilot/retrieval.ts` có kiểu trả về là `"Cong-khai" | "Noi-bo"`, nên mức Hạn chế **không biểu diễn được** — một thay đổi mã vô ý cũng không nới lên tới đó mà qua được kiểm kiểu. Có ca test duyệt toàn bộ enum ranh giới để khoá lại.
 >
 > **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 được viết khi Viện chưa có năng lực suy luận nội bộ; muốn đổi thì phải **ban hành lại ETV.P28** — là đề nghị riêng, đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
 
