@@ -19,8 +19,14 @@
 import "dotenv/config";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { BO_CAU_HOI, CAU_HOI_THAT, NGUONG, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
-import { chamCa, laLoiHaTang, tongHop, type KetQuaCham } from "../src/lib/m29/copilot/danh-gia";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { BO_CAU_HOI, CAU_HOI_THAT, DUONG_DAN_MOI_TIEM_LENH, NOI_DUNG_TAI_LIEU_MOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
+import { normalize } from "../src/lib/m29/copilot/text";
+import { chamCa, laLoiHaTang, renderPhieuF2903, tongHop, type KetQuaCham } from "../src/lib/m29/copilot/danh-gia";
+
+const SCRIPT_DIR = fileURLToPath(new URL(".", import.meta.url));
 
 const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }) });
 
@@ -74,14 +80,20 @@ async function chiTruyHoi(): Promise<number> {
   return CAU_HOI_THAT.length - dat;
 }
 
-/** Chạy thật qua Tool Gateway và ghi AIEvaluationRun. */
+/** Chạy thật qua Tool Gateway, xuất bản nháp F29.03 và ghi AIEvaluationRun. */
 async function dayDu(): Promise<number> {
-  const { chat } = await import("../src/lib/m29/gateway");
-  const suite = await prisma.aIEvaluationSuite.findFirst({ where: { name: { contains: BO_CAU_HOI.ten } } });
+  const { chat, callTool, COPILOT_AGENT_CODE } = await import("../src/lib/m29/gateway");
+  const suite = await prisma.aIEvaluationSuite.findFirst({ where: { name: { contains: "Copilot tra cứu v1" } } });
   if (!suite) {
     console.error(`Chưa có bộ "${BO_CAU_HOI.ten}" trong CSDL. Chạy: npx prisma db seed`);
     return 1;
   }
+  const agent = await prisma.aIAgent.findUnique({ where: { code: COPILOT_AGENT_CODE }, select: { id: true, activePromptVersionId: true, model: { select: { modelId: true } } } });
+  if (!agent) {
+    console.error("Chưa khai Agent Copilot trong danh mục M29.");
+    return 1;
+  }
+  const toolThu = await prisma.aITool.findFirst({ select: { id: true } });
 
   const ketQua: KetQuaCham[] = [];
   const loiHaTang: string[] = [];
@@ -89,17 +101,73 @@ async function dayDu(): Promise<number> {
   // nhầm các lượt này với lượt hỏi thật của người dùng.
   const user = { id: `EVAL:${suite.id}` };
 
-  for (const ca of TAT_CA_CA) {
-    const r = await chat({ question: ca.cauHoi, history: [], user });
-    const kq = { answer: r.answer, citations: r.citations, code: r.code };
-    if (laLoiHaTang(kq)) {
-      loiHaTang.push(`${ca.ma}: ${r.code}`);
-      console.log(`! ${ca.ma}  LỖI HẠ TẦNG ${r.code} — ${r.answer}`);
-      continue;
+  // Tài liệu mồi cho kiểm thử tiêm lệnh: chèn trước, xoá trong finally. Xoá cả ở đầu để một lượt
+  // chạy trước bị ngắt giữa chừng không để lại rác trong chỉ mục.
+  const xoaTaiLieuMoi = () => prisma.copilotDocChunk.deleteMany({ where: { path: DUONG_DAN_MOI_TIEM_LENH } });
+  await xoaTaiLieuMoi();
+
+  try {
+    if (TAT_CA_CA.some((c) => c.dungTaiLieuMoi)) {
+      await prisma.copilotDocChunk.create({
+        data: {
+          path: DUONG_DAN_MOI_TIEM_LENH,
+          title: "Quy định đăng ký thiết bị đo lường mới (TÀI LIỆU MỒI KIỂM THỬ)",
+          heading: "Đăng ký thiết bị",
+          docClass: "KIEM_THU",
+          securityLevel: "Noi-bo",
+          approvalRef: "tài liệu mồi, chỉ tồn tại trong lượt chạy đánh giá",
+          content: NOI_DUNG_TAI_LIEU_MOI,
+          searchTitle: normalize("Quy định đăng ký thiết bị đo lường mới"),
+          searchText: normalize(NOI_DUNG_TAI_LIEU_MOI),
+        },
+      });
+      await prisma.$executeRawUnsafe(
+        `UPDATE "CopilotDocChunk" SET "tsv" = setweight(to_tsvector('simple', "searchTitle"), 'A') || setweight(to_tsvector('simple', "searchText"), 'D') WHERE "path" = $1`,
+        DUONG_DAN_MOI_TIEM_LENH
+      );
+      console.log(`Đã chèn tài liệu mồi ${DUONG_DAN_MOI_TIEM_LENH} cho kiểm thử tiêm lệnh (sẽ xoá khi xong).\n`);
     }
-    const cham = chamCa(ca, kq);
-    ketQua.push(cham);
-    console.log(`${cham.dat ? "✓" : "✗"} ${cham.ma} [${cham.hanhVi}] ${cham.ghiChu}`);
+
+    for (const ca of TAT_CA_CA) {
+      if (ca.phepThu === "goi-cong-cu") {
+        if (!toolThu) {
+          loiHaTang.push(`${ca.ma}: KHONG_CO_TOOL_DE_THU`);
+          continue;
+        }
+        const r = await callTool({
+          toolId: toolThu.id,
+          agentId: ca.ma === "QUYEN-02" ? undefined : agent.id,
+          input: {},
+          user: { id: user.id, role: "SUPER_ADMIN" },
+        });
+        const cham = chamCa(ca, { loai: "goi-cong-cu", goi: { ok: r.ok, code: r.ok ? null : r.code } });
+        ketQua.push(cham);
+        console.log(`${cham.dat ? "✓" : "✗"} ${cham.ma} [${cham.hanhVi}] ${cham.ghiChu}`);
+        continue;
+      }
+
+      const soLan = ca.phepThu === "lap-lai" ? (ca.soLanLap ?? 3) : 1;
+      const luot = [];
+      let hong = false;
+      for (let i = 0; i < soLan; i++) {
+        const r = await chat({ question: ca.cauHoi, history: [], user });
+        const kq = { answer: r.answer, citations: r.citations, code: r.code };
+        if (laLoiHaTang(kq)) {
+          loiHaTang.push(`${ca.ma}: ${r.code}`);
+          console.log(`! ${ca.ma}  LỖI HẠ TẦNG ${r.code} — ${r.answer}`);
+          hong = true;
+          break;
+        }
+        luot.push(kq);
+      }
+      if (hong) continue;
+
+      const cham = chamCa(ca, ca.phepThu === "lap-lai" ? { loai: "lap-lai", luot } : { loai: "hoi", luot: luot[0] });
+      ketQua.push(cham);
+      console.log(`${cham.dat ? "✓" : "✗"} ${cham.ma} [${cham.hanhVi}] ${cham.ghiChu}`);
+    }
+  } finally {
+    await xoaTaiLieuMoi();
   }
 
   if (loiHaTang.length) {
@@ -109,15 +177,41 @@ async function dayDu(): Promise<number> {
   }
 
   const th = tongHop(ketQua);
-  console.log(`\nCâu hỏi thật dẫn đúng nguồn: ${th.soCauThatDat}/${th.soCauThat} = ${pct(th.tiLeDanDungNguon)} (ngưỡng ${pct(NGUONG.danDungNguon)})`);
-  console.log(`Câu bẫy từ chối đúng:        ${th.soCauBayDat}/${th.soCauBay} = ${pct(th.tiLeTuChoiCauBay)} (ngưỡng ${pct(NGUONG.tuChoiCauBay)})`);
-  console.log(`KẾT LUẬN: ${th.status}${th.datNguong ? "" : " — KHÔNG đạt ngưỡng, không được mở cho người dùng thật"}`);
+  console.log("\nKết quả theo nhóm kiểm thử của ETV.P.F29.03:");
+  for (const d of th.theoNhom)
+    console.log(
+      `  ${d.nhom}. ${d.soDat}/${d.soTinhHuong} (${pct(d.tiLe)}) · ngưỡng ${pct(d.nguong)} · ${d.datNguong ? "đạt ngưỡng" : "CHƯA đạt"}${d.batBuocDat ? " · BẮT BUỘC ĐẠT" : ""} — ${d.ten}`
+    );
+
+  // KHÔNG in "Đạt/Không đạt": F29.03 giao việc kết luận cho người ký (ETV.P29 §4.8).
+  console.log(
+    `\nĐo được: ${th.soDat}/${th.soCa} tình huống đạt · các nhóm bắt buộc ${th.dungMoiNguongBatBuoc ? "ĐỀU đạt ngưỡng" : "CÓ NHÓM CHƯA đạt ngưỡng"}.`
+  );
+  console.log("Kết luận Đạt/Không đạt KHÔNG do phần mềm ghi — người thực hiện và người soát xét điền vào phiếu F29.03.");
+
+  const duongDanPhieu = ghiPhieuF2903(
+    renderPhieuF2903(th, ketQua, { modelId: agent.model?.modelId ?? "—", promptVersionId: agent.activePromptVersionId ?? "—" })
+  );
+  console.log(`Đã xuất bản nháp phiếu: ${duongDanPhieu}`);
 
   await prisma.aIEvaluationRun.create({
-    data: { suiteId: suite.id, passCount: ketQua.filter((r) => r.dat).length, failCount: ketQua.filter((r) => !r.dat).length, status: th.status },
+    data: {
+      suiteId: suite.id,
+      passCount: th.soDat,
+      failCount: th.soCa - th.soDat,
+      // CHO_KET_LUAN, không phải PASS/FAIL: cổng triển khai chỉ mở khi có người ghi kết luận Đạt.
+      status: "CHO_KET_LUAN",
+    },
   });
-  console.log("Đã ghi AIEvaluationRun — xem M29 → Agent Copilot tra cứu.");
-  return th.datNguong ? 0 : 1;
+  console.log("Đã ghi AIEvaluationRun ở trạng thái CHO_KET_LUAN — cổng triển khai vẫn đóng cho tới khi có người kết luận Đạt.");
+  return 0;
+}
+
+/** Ghi bản nháp ETV.P.F29.03 xuống đĩa. Nội dung phiếu do renderPhieuF2903() (thuần, có test) dựng. */
+function ghiPhieuF2903(noiDung: string): string {
+  const duongDan = join(SCRIPT_DIR, "..", "..", "..", "05_MODULE_LIBRARY", "M29_AI", "01_Requirement", "_work", "20260825-copilot-tra-cuu", "F29.03_ban-nhap.md");
+  writeFileSync(duongDan, noiDung, "utf8");
+  return duongDan;
 }
 
 async function main() {

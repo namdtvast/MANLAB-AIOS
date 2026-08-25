@@ -519,8 +519,9 @@ Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đán
 84 SOP `03_MANAGEMENT_SYSTEM/03_M` (chưa rà mức từng file) **không** vào chỉ mục — lần chạy script
 in ra đầy đủ số file bị bỏ và lý do.
 
-Bộ đánh giá chất lượng (30 câu hỏi vàng — 20 câu thật + 10 câu bẫy, nguồn sự thật ở
-`src/lib/m29/copilot/bo-cau-hoi-vang.ts`):
+Bộ kiểm thử chất lượng — **42 tình huống theo đúng 7 nhóm của biểu mẫu ban hành
+[ETV.P.F29.03](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md)**
+(nhóm 3, 4, 5, 7 bắt buộc đạt). Nguồn sự thật: `src/lib/m29/copilot/bo-cau-hoi-vang.ts`.
 
 ```bash
 npm run danh-gia-copilot -- --kiem-nguon     # nguồn kỳ vọng có thật trong chỉ mục? (không gọi mô hình)
@@ -528,9 +529,14 @@ npm run danh-gia-copilot -- --chi-truy-hoi   # truy hồi lấy được nguồn
 npm run danh-gia-copilot                     # đánh giá thật, ghi AIEvaluationRun — cần ANTHROPIC_API_KEY
 ```
 
-Ngưỡng mở cho toàn Viện: **≥90% dẫn đúng nguồn** và **100% từ chối đúng ở câu bẫy**. Không đạt thì
-sửa truy hồi/prompt, **không nới ngưỡng**. Lượt đánh giá gặp lỗi hạ tầng bị huỷ và không ghi kết
-quả — sự cố mạng không được hoá trang thành "từ chối đúng".
+**Phần mềm đo, người kết luận.** Trình chạy chỉ ghi `AIEvaluationRun.status = CHO_KET_LUAN` và xuất
+bản nháp phiếu F29.03 với ô Kết luận **để trống** — ETV.P29 §4.8: trợ lý AI không kết luận Đạt/Không
+đạt và không phê duyệt phiếu. Chuyển sang Đạt/Không đạt bằng `ghiKetLuanDanhGia()` dưới danh nghĩa
+người có quyền, bắt buộc dẫn số phiếu F29.03 đã ký.
+
+**Cổng triển khai fail-closed** (ETV.P29 §5.3.1): không kích hoạt được phiên bản lời nhắc mới nếu lần
+đánh giá gần nhất chưa có kết luận Đạt — kể cả khi chưa chạy lần nào. Lượt đánh giá gặp lỗi hạ tầng bị
+huỷ và không ghi kết quả: sự cố mạng không được hoá trang thành "đạt".
 
 Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật cho sự cố) hoặc chuyển Agent sang
 `SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).

@@ -97,15 +97,29 @@ describe("deploymentGate — Cổng triển khai", () => {
     expect(prismaMock.aIEvaluationRun.findFirst).toHaveBeenCalledWith(expect.objectContaining({ orderBy: { createdAt: "desc" } }));
   });
 
+  // ĐỔI HÀNH VI so với bản port gốc — bản gốc chỉ chặn khi FAIL, nên "chưa chạy lần nào" và
+  // "chạy xong chưa ai kết luận" đều lọt. ETV.P29 §5.3.1 đòi có báo cáo ĐÃ PHÊ DUYỆT trước khi
+  // vận hành, nên cổng phải fail-closed.
+  it("có bộ đánh giá nhưng CHƯA CHẠY lần nào thì CHẶN (ETV.P29 §5.3.1)", async () => {
+    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
+    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue(null);
+    const r = await deploymentGate("agent-1");
+    expect(r).toMatchObject({ ok: false, code: "DEPLOYMENT_BLOCKED_BY_EVALUATION" });
+    if (!r.ok) expect(r.message).toContain("CHƯA CHẠY");
+  });
+
+  it("chạy xong nhưng CHƯA CÓ NGƯỜI KẾT LUẬN thì CHẶN — phần mềm không tự kết luận (§4.8)", async () => {
+    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
+    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue({ id: "run-11", status: "CHO_KET_LUAN", failCount: 0 });
+    const r = await deploymentGate("agent-1");
+    expect(r).toMatchObject({ ok: false, code: "DEPLOYMENT_BLOCKED_BY_EVALUATION" });
+    if (!r.ok) expect(r.message).toContain("F29.03");
+  });
+
   it("agent chưa có bộ đánh giá nào thì không chặn", async () => {
     prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([]);
     expect(await deploymentGate("agent-moi")).toMatchObject({ ok: true });
     expect(prismaMock.aIEvaluationRun.findFirst).not.toHaveBeenCalled();
   });
 
-  it("có bộ đánh giá nhưng chưa chạy lần nào thì không chặn", async () => {
-    prismaMock.aIEvaluationSuite.findMany.mockResolvedValue([{ id: "s1" }]);
-    prismaMock.aIEvaluationRun.findFirst.mockResolvedValue(null);
-    expect(await deploymentGate("agent-1")).toMatchObject({ ok: true });
-  });
 });

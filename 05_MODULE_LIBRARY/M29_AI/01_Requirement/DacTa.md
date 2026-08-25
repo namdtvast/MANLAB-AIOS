@@ -127,12 +127,21 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
     CSDL quyết định guardrail nào có hiệu lực và hành động (`BLOCK`/`WARN`); mã guardrail không có
     phép phát hiện tương ứng trong mã nguồn phải lộ ra là *không cưỡng chế được*, không im lặng bỏ
     qua. Câu trả lời không dẫn được nguồn bị thay bằng câu từ chối cố định.
-19. Bộ đánh giá của Copilot **không chấm được bằng trình chấm đồng bộ** của M29 (luật z-score):
-    "đúng" của nó là *có dẫn đúng nguồn hay không*, phải gọi mô hình thật mới biết. `runCases()`
-    ném lỗi khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác — vì `deploymentGate()` đọc
-    lần chạy gần nhất để chặn/mở việc kích hoạt PromptVersion. Cùng lý do: lượt đánh giá gặp lỗi
-    hạ tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành
-    "100% từ chối đúng".
+19. Bộ kiểm thử của Copilot bám **đúng 7 nhóm của biểu mẫu ban hành ETV.P.F29.03** (nhóm 3, 4, 5, 7
+    bắt buộc đạt), không tự đặt cơ cấu riêng — cơ cấu song song thì hồ sơ chạy ra không điền được
+    vào phiếu và cổng triển khai §5.3.2 mất căn cứ.
+20. **Phần mềm ĐO, người KẾT LUẬN.** ETV.P29 §4.8 và ghi chú cuối F29.03: trợ lý AI được chạy tình
+    huống kiểm thử theo kịch bản nhưng **không** kết luận Đạt/Không đạt và **không** phê duyệt
+    phiếu. Hệ quả bắt buộc trong mã: trình chạy ghi `AIEvaluationRun.status = CHO_KET_LUAN` và xuất
+    bản nháp F29.03 với ô Kết luận **để trống**; chỉ hành động của người có quyền, kèm số phiếu
+    F29.03 đã ký, mới chuyển được sang `PASS`/`FAIL` (ghi vết ở `AIAuditLog`).
+21. **Cổng triển khai fail-closed** (ETV.P29 §5.3.1): chỉ mở khi lần đánh giá gần nhất có kết luận
+    Đạt. "Chưa chạy lần nào" và "chạy xong chưa ai kết luận" đều **chặn** — khác bản port gốc vốn
+    chỉ chặn khi Không đạt.
+22. Bộ kiểm thử Copilot **không chấm được bằng trình chấm đồng bộ** của M29 (luật z-score): "đúng"
+    của nó là *có dẫn đúng nguồn hay không*, phải gọi mô hình thật mới biết. `runCases()` ném lỗi
+    khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác. Cùng lý do: lượt đánh giá gặp lỗi hạ
+    tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành "100% đạt".
 
 ## 6. Liên kết
 
@@ -174,12 +183,14 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   ẩn khay thật, guardrail PII chặn thật, trace ghi thật) — xem
   [`_work/20260825-copilot-tra-cuu/verify.md`](_work/20260825-copilot-tra-cuu/verify.md).
   **Chưa chạy được lượt hỏi thật** vì môi trường chưa có `ANTHROPIC_API_KEY`.
-- ✅ **Bộ 30 câu hỏi vàng** (2026-08-25, Increment 5): 20 câu hỏi thật trải đủ 5 lớp tài liệu + 10
-  câu bẫy trải 5 cơ chế từ chối, mỗi ca khai lý do; trình chấm thuần + hai ngưỡng của spec §11;
-  trình chạy 3 chế độ. Đo được ngay: **24/24** nguồn kỳ vọng có thật trong chỉ mục, truy hồi lấy
-  đúng nguồn **19/20**. Nhờ bộ này phát hiện và sửa khiếm khuyết truy hồi (6 đoạn chỉ trải trên
-  3,35 tài liệu → 4,65 sau khi thêm hạn mức đoạn/tài liệu).
-  ❌ **Chưa chạy lượt đánh giá thật** (thiếu khóa API) và **bộ câu hỏi chưa được soát xét** —
+- ✅ **Bộ kiểm thử theo ETV.P.F29.03** (2026-08-25, Increment 5): **42 tình huống** phủ đủ 7 nhóm của
+  biểu mẫu, gồm cả 3 nhóm bắt buộc đạt mà bản đầu còn thiếu (tiêm lệnh · rò rỉ · giới hạn quyền);
+  kiểm thử tiêm lệnh phủ cả véc-tơ chỉ dẫn ẩn **trong tài liệu được nạp chỉ mục** bằng tài liệu mồi
+  chèn–xoá trong cùng lượt chạy. Trình chạy xuất **bản nháp phiếu F29.03** với ô Kết luận để trống.
+  Đo được ngay: **24/24** nguồn kỳ vọng có thật; truy hồi **19/20**; **5/42** tình huống chạy trọn
+  vẹn và đều đạt — trong đó có trọn **nhóm 5** và **nhóm 7** (hai nhóm bắt buộc đạt). Nhờ bộ này
+  phát hiện và sửa khiếm khuyết truy hồi (6 đoạn chỉ trải trên 3,35 tài liệu → 4,65).
+  ❌ **37/42 tình huống chưa chạy** (thiếu khóa API) và **bộ kiểm thử chưa được soát xét** —
   trạng thái `DU_THAO_CHUA_SOAT_XET`, chưa phải căn cứ mở Copilot cho toàn Viện.
 - ❌ **Chưa làm**: rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục (và bổ sung
   câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); trang Trace chưa hiện cột
