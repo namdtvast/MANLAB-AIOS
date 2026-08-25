@@ -44,7 +44,7 @@ Quyết định phạm vi đã chốt với chủ sở hữu ngày 2026-08-25: *
 
 ### [QUESTION] Chưa chốt — phải trả lời trước khi bật cho người dùng thật
 
-- **Q1** — Danh mục phân loại tài liệu "được phép gửi ra ngoài / không được": ai lập, duyệt theo MP02 hay MP28?
+- **Q1** — Danh mục phân loại tài liệu được phép đưa vào ngữ cảnh gửi ra ngoài: **đã có dự thảo tại [q1-phan-loai-tai-lieu.md](q1-phan-loai-tai-lieu.md)** (trường `ai_external` với 3 mức `allow`/`index-only`/`deny`, fail-closed). Còn chờ PT.ATTT soát xét và LĐV phê duyệt, ban hành thành phụ lục ETV.P29 theo MP14.
 - **Q2** — Ai ký duyệt `AIImpactAssessment` cho Copilot (theo ETV.P29 là cấp nào)?
 - **Q3** — Hạn mức chi phí tháng và hành vi khi chạm trần (chặn hẳn hay hạ cấp mô hình)?
 - **Q4** — Lưu lịch sử hội thoại bao lâu, ai được đọc lại (liên quan MP15 hồ sơ và quyền riêng tư người dùng)?
@@ -170,6 +170,9 @@ Theo F5, `AISecret` **không** lưu khóa thật. Khóa Anthropic đặt ở bi�
 | AC-07 | Guardrail PII chặn được đầu vào chứa CCCD/điện thoại | Ca kiểm thử tự động |
 | AC-08 | Không có đường gọi Anthropic nào ngoài `gateway.chat()` | `grep -rn "anthropic" src` chỉ ra `adapters.ts` |
 | AC-09 | `python3 _meta/validate_links.py` = 0 vấn đề; `npm run build` + `npm run test` xanh | Lệnh |
+| AC-11 | Tài liệu nhãn `deny` ⇒ Copilot không trả lời được và **không nhắc tới sự tồn tại** của nó | Đặt 1 tài liệu `deny`, hỏi đúng nội dung |
+| AC-12 | Tài liệu nhãn `index-only` ⇒ chỉ trả về đường dẫn, không trích câu chữ nội dung | Ca kiểm thử |
+| AC-13 | File thiếu nhãn `ai_external` ⇒ không xuất hiện trong chỉ mục (fail-closed) | Ca kiểm thử |
 
 ### 11. Đánh giá trước khi mở rộng
 
@@ -189,3 +192,4 @@ Soạn `AIEvaluationSuite` "Copilot tra cứu v1" gồm ≥30 `AIEvaluationCase`
 | 2 | Gọi Anthropic API, không mock, không tự host | Có bản chạy thật sớm; adapter đúng interface sẵn có nên đổi nhà cung cấp sau này không phải sửa nghiệp vụ |
 | 3 | Không dựng vector DB ở increment này | Full-text trên Postgres sẵn có đủ cho tra cứu thủ tục; chỉ nâng cấp khi eval chứng minh là thiếu |
 | 4 | Không thêm cột vào bảng `AI*` | Giữ nguyên control plane đã port 1:1 từ `08_Source`, tránh lệch hai bản |
+| 5 | Phân loại "được gửi ra ngoài" tách khỏi trường `permission` sẵn có | `permission` trả lời "ai trong Viện được đọc" — 194/209 file đều là `Noi-bo` nên không phân biệt được gì cho mục đích này |
