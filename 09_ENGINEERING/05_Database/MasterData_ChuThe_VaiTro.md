@@ -61,7 +61,7 @@ về sau tăng theo cấp số.
 | **BR-05** | Giao dịch có giá trị pháp lý phải lưu `m34_party_snapshot` bất biến tại thời điểm phát sinh: hợp đồng · báo giá đã gửi · **phiếu kết quả đo (PKQ)** · **giấy chứng nhận kiểm định/hiệu chuẩn** · chứng chỉ · công bố · biên bản. |
 | **BR-06** | Không hard-delete `m34_party`, `m34_party_role`, `m34_party_relationship` khi đã phát sinh giao dịch — chỉ đổi trạng thái. |
 | **BR-07** | Module **không được tự tạo master khách hàng / NCC / cơ sở / đối tác / chuyên gia**; phải tham chiếu `m34_party_role`. Đây là áp dụng **Nguyên tắc 1 — Một nguồn sự thật** của ETV.P34 §2.2. |
-| **BR-08** | Dữ liệu của thể nhân (`party_type = PERSON`) mặc định mang cờ **dữ liệu cá nhân** theo ETV.P34 §7; căn cứ pháp luật xác định tại thời điểm áp dụng, không trích cứng vào lược đồ. |
+| **BR-08** | Dữ liệu của thể nhân (`party_type = PERSON`) mặc định mang cờ **dữ liệu cá nhân** theo ETV.P34 §6.1.1; căn cứ pháp luật xác định tại thời điểm áp dụng, không trích cứng vào lược đồ. |
 | **BR-09** | Gộp chủ thể (merge) là thay đổi dữ liệu chủ ⇒ thẩm quyền phê duyệt theo RACI của **ETV.P34** (Lãnh đạo Viện là A cuối cùng khi công nhận dữ liệu chủ, không ủy quyền); mọi lần gộp ghi `m34_party_merge_log`; AI không được tự gộp. |
 | **BR-10** | AI được phép phát hiện, tóm tắt, gợi ý; **không** được tự kết luận tính khách quan, tự phê duyệt NCC, tự quyết khiếu nại hay tự gộp/ẩn danh dữ liệu cá nhân (đồng bộ MP29). |
 
@@ -295,7 +295,7 @@ danh tính chủ thể.
 ## 8. Dữ liệu cá nhân và phân loại
 
 **Không tạo hệ phân loại riêng.** Nhóm bảng `m34_party_*` dùng đúng bốn mức phân loại thông tin đã ban
-hành của Viện (ETV.P02, ETV.P27, ETV.P28) kèm cờ *có chứa dữ liệu cá nhân hay không* theo ETV.P34 §7:
+hành của Viện (ETV.P02, ETV.P27, ETV.P28) kèm cờ *có chứa dữ liệu cá nhân hay không* theo ETV.P34 §6.1.1:
 
 | Mức phân loại | Áp dụng cho | Dữ liệu cá nhân |
 |---|---|---|
@@ -306,9 +306,9 @@ hành của Viện (ETV.P02, ETV.P27, ETV.P28) kèm cờ *có chứa dữ liệu
 
 `m34_party` loại `PERSON`, `m34_party_contact`, điện thoại, email, CCCD, chữ ký, tài khoản đều mang cờ
 dữ liệu cá nhân. Việc hạ mức phân loại dữ liệu khách hàng phải có phê duyệt công bố theo **ETV.P02** —
-ETV.P27 §11 quy định thiếu phê duyệt thì **chặn thao tác**.
+ETV.P27 Phụ lục I quy định thiếu phê duyệt thì **chặn thao tác**.
 
-Căn cứ pháp luật viết theo đúng cách ETV.P34 §3 đang dùng: **"pháp luật hiện hành về bảo vệ dữ liệu cá
+Căn cứ pháp luật viết theo đúng cách ETV.P34 §3.2 đang dùng: **"pháp luật hiện hành về bảo vệ dữ liệu cá
 nhân"** (tại thời điểm viết là Nghị định 13/2023/NĐ-CP), do QLCL phối hợp PT.ATTT xác định văn bản đang
 hiệu lực — không trích cứng số hiệu vào lược đồ.
 
