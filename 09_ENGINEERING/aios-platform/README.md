@@ -356,6 +356,52 @@ văn bản pháp luật · biểu mẫu áp dụng (mỗi mã là một link t�
   F21.01–F21.12 khai trong manifest, chưa có file) — chip mã vẫn hiện nhưng không bấm mở được.
 - ⚠️ Banner chỉ gắn ở **trang chính** của 13 module đang chạy, chưa gắn ở các trang chi tiết.
 
+## Trạng thái Increment 16 — xuất biểu mẫu ra PDF có dữ liệu (thử nghiệm trên M03/F03.01)
+
+Trước đây bản xuất biểu mẫu duy nhất là trang in HTML của M26 (`window.print()` — người dùng tự
+"Lưu thành PDF", không đặt được tên file, không xuất hàng loạt). Increment này làm ra **file PDF
+thật tải thẳng về máy**, thử nghiệm trên biểu mẫu `ETV.P.F 03.01 — Sơ yếu lý lịch` của M03.
+
+Tại `/modules/M03`, chọn một hoặc nhiều dòng trong bảng Nhân sự rồi bấm **Xuất PDF F03.01**:
+
+- 1 nhân sự → `F03.01_SoYeuLyLich_NS-2026-0002_TranThiBich.pdf`;
+- nhiều nhân sự → một `.zip`, **mỗi người một file PDF riêng** (mỗi tờ là một hồ sơ độc lập theo
+  ETV.MP15, không gộp chung), tối đa 100 nhân sự mỗi lần.
+
+Kiến trúc — cố ý dựng để dùng lại cho ~100 biểu mẫu còn lại của Viện, không phải chỉ cho F03.01:
+
+| Lớp | File | Vai trò |
+|---|---|---|
+| Khung biểu mẫu | `src/lib/forms/layout.ts` | Khung A4 dùng chung theo NĐ 30/2020/NĐ-CP (Times New Roman 13pt, lề 20/20/30/15mm), bảng mã số, quốc hiệu, hàng chữ ký, ô trống điền tay, escape dữ liệu |
+| Metadata biểu mẫu | `src/lib/forms/meta.ts` | Đọc mã số/lần ban hành/ngày ban hành từ `PlatformModule.forms` |
+| Nội dung một biểu mẫu | `src/lib/m03/forms/f03-01.ts` | Bố cục 6 mục I–VI của F03.01 + quy tắc đặt tên file |
+| Sinh PDF | `src/lib/pdf/render.ts` | Chromium headless (Puppeteer) render HTML → PDF, dùng lại một tiến trình |
+| Điểm gọi | `src/app/api/m03/export/f03-01/route.ts` | `GET ?ids=a,b,c` → 1 PDF hoặc 1 ZIP |
+
+**Vì sao render từ HTML chứ không dựng PDF bằng thư viện vẽ**: mỗi biểu mẫu chỉ mô tả bố cục
+**một lần** dưới dạng HTML, dùng chung cho cả bản xem trên web lẫn file PDF. Dựng bằng thư viện vẽ
+thì mỗi biểu mẫu phải viết hai lần — với ~100 biểu mẫu của Viện là không kham nổi.
+
+- ✅ Metadata biểu mẫu đi đúng đường sẵn có: frontmatter file biểu mẫu ở `06_SHARED_RESOURCES` →
+  `prisma/seed.ts` → `PlatformModule.forms` → bản xuất. Biểu mẫu ban hành lại thì chạy lại seed,
+  bản xuất tự đổi theo — **không viết cứng mã số/lần ban hành trong template**.
+- ✅ Lúc chạy **không đọc file trong repo**: truy cập filesystem động khiến Next trace và đóng gói
+  toàn bộ repo vào bundle deploy (Next cảnh báo thẳng khi build).
+- ✅ `next.config.ts` khai `serverExternalPackages: ["puppeteer"]` — Puppeteer nạp Chromium từ ổ
+  đĩa lúc chạy, gói vào bundle sẽ hỏng đường dẫn thực thi.
+- ✅ 13 test ở `src/lib/forms/__tests__/f03-01.test.ts` (Prisma giả lập, không cần Postgres lẫn
+  Chromium). Đã kiểm chứng end-to-end trên trình duyệt thật: PDF đơn (`%PDF`, 297KB) và ZIP 3 file
+  đúng tên, đúng thứ tự hiển thị trên bảng.
+- ⚠️ **`M03Employee` mới có 6 trường, F03.01 có ~20** — bản xuất giữ đủ 6 mục của biểu mẫu gốc,
+  phần chưa số hoá in dòng chấm để điền tay (không bỏ mục, vì đoàn đánh giá đối chiếu bản in với
+  biểu mẫu đã ban hành). Muốn PDF điền đầy đủ phải mở rộng `M03Employee` — **cần LĐP quyết định**,
+  đó là mở rộng phạm vi module chứ không thuộc việc xuất biểu mẫu.
+- ⚠️ Quyền xuất = quyền xem: chỉ yêu cầu phiên đăng nhập, **không** siết theo vai trò M03, vì trang
+  `/modules/M03` hiện cho mọi người đã đăng nhập xem chính những dữ liệu này. Khi siết quyền xem
+  theo module thì phải siết đồng thời cả trang lẫn route xuất, không để lệch.
+- ⚠️ Mới làm 1/18 biểu mẫu của M03 và 1/~100 biểu mẫu toàn Viện — đây là bản thử nghiệm để đánh
+  giá cách làm trước khi nhân rộng.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất

@@ -89,6 +89,11 @@ interface FormRef {
   code: string;
   title: string;
   path: string | null;
+  // Lần ban hành + ngày ban hành của chính biểu mẫu (khác lần ban hành của thủ tục). Bản xuất
+  // PDF in hai giá trị này lên đầu tờ biểu mẫu — nạp sẵn ở đây để lúc chạy không phải đọc file
+  // trong repo (đọc filesystem động khiến Next đóng gói cả repo vào bundle deploy).
+  revision: string | null;
+  effectiveDate: string | null; // giữ nguyên dạng dd/mm/yyyy như trong file gốc
 }
 
 // Nhóm menu hợp lệ — đối chiếu với _meta/SCHEMA.md (manlab-aios/process@1.1).
@@ -133,14 +138,24 @@ function repoPath(num: string, relative: string): string {
   return relative_(REPO_ROOT, full);
 }
 
-// Tên biểu mẫu lấy từ frontmatter của chính file biểu mẫu (title/doc_name) — không
-// chép tên vào manifest, tránh hai nguồn sự thật lệch nhau.
-function readFormTitle(absPath: string): string | null {
-  if (!existsSync(absPath)) return null;
-  const head = readFileSync(absPath, "utf8").split(/\r?\n/).slice(0, 40);
-  const line = head.find((l) => /^(title|doc_name):/.test(l));
+// Tên/lần ban hành/ngày ban hành của biểu mẫu lấy từ frontmatter của chính file biểu mẫu —
+// không chép vào manifest, tránh hai nguồn sự thật lệch nhau.
+function readFrontmatterField(head: string[], field: string): string | null {
+  const line = head.find((l) => new RegExp(`^${field}:`).test(l));
   if (!line) return null;
-  return line.replace(/^(title|doc_name):\s*/, "").replace(/^"|"$/g, "").trim() || null;
+  return line.replace(new RegExp(`^${field}:\\s*`), "").replace(/^"|"$/g, "").trim() || null;
+}
+
+function readFormFrontmatter(absPath: string): Pick<FormRef, "title" | "revision" | "effectiveDate"> {
+  if (!existsSync(absPath)) return { title: "", revision: null, effectiveDate: null };
+  const head = readFileSync(absPath, "utf8").split(/\r?\n/).slice(0, 40);
+  const revision = readFrontmatterField(head, "revision");
+  return {
+    title: readFrontmatterField(head, "title") ?? readFrontmatterField(head, "doc_name") ?? "",
+    // revision trong YAML có thể là số (3) hoặc chuỗi ("03") — chuẩn hoá về 2 chữ số.
+    revision: revision ? revision.padStart(2, "0") : null,
+    effectiveDate: readFrontmatterField(head, "effective_date"),
+  };
 }
 
 // Ghép mã biểu mẫu (manifest.forms) với file thật (links.form_files). Mã không có
@@ -150,17 +165,20 @@ function buildForms(num: string, manifest: MpManifest | null, links: MpLinks | n
   const byFile: FormRef[] = files.map((rel) => {
     const abs = join(PROCESS_LIB, findMpDir(num) ?? "", rel);
     const base = rel.split("/").pop() ?? rel;
+    const fm = readFormFrontmatter(abs);
     return {
       code: base.split("_")[0].replace(/\.md$/, ""),
-      title: readFormTitle(abs) ?? base.replace(/\.md$/, ""),
+      title: fm.title || base.replace(/\.md$/, ""),
       path: repoPath(num, rel),
+      revision: fm.revision,
+      effectiveDate: fm.effectiveDate,
     };
   });
   const covered = new Set(byFile.map((f) => f.code));
   const declaredOnly = (manifest?.forms ?? [])
     .map(String)
     .filter((code) => !covered.has(code) && !covered.has(`ETV.P.${code}`))
-    .map((code) => ({ code, title: code, path: null }));
+    .map((code) => ({ code, title: code, path: null, revision: null, effectiveDate: null }));
   return [...byFile, ...declaredOnly];
 }
 

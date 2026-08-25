@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getM03Role } from "@/lib/m03/actor";
-import { EMPLOYEE_STATUS_LABEL, EMPLOYMENT_TYPE_LABEL, M03_ROLE_LABEL, RECRUITMENT_STATUS_LABEL } from "@/lib/m03/labels";
+import { M03_ROLE_LABEL, RECRUITMENT_STATUS_LABEL } from "@/lib/m03/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { EmployeeTable } from "./EmployeeTable";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -101,46 +102,7 @@ export default async function M03ListPage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
-        <h2 className="font-head text-sm font-bold text-ink">Nhân sự</h2>
-        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[36rem] text-sm">
-            <thead>
-              <tr>
-                <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Mã</th>
-                <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Họ tên</th>
-                <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Vị trí</th>
-                <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Loại</th>
-                <th className="border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3">Trạng thái</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employees.map((e) => (
-                <tr key={e.id} className="border-b border-border last:border-0 hover:bg-sunk">
-                  <td className="px-3 py-2.5">
-                    <Link href={`/modules/M03/employee/${e.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
-                      {e.code}
-                    </Link>
-                  </td>
-                  <td className="px-3 py-2.5 text-ink">{e.fullName}</td>
-                  <td className="px-3 py-2.5 text-ink-2">{e.position}</td>
-                  <td className="px-3 py-2.5 text-ink-2">{EMPLOYMENT_TYPE_LABEL[e.employmentType]}</td>
-                  <td className="px-3 py-2.5">
-                    <Badge label={EMPLOYEE_STATUS_LABEL[e.status]} tone={STATUS_TONE[e.status] ?? "neutral"} />
-                  </td>
-                </tr>
-              ))}
-              {employees.length === 0 && (
-                <tr>
-                  <td colSpan={5} className="px-3 py-8 text-center text-sm text-ink-3">
-                    Chưa có hồ sơ nhân sự nào — tạo từ đề xuất tuyển dụng đã duyệt.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <EmployeeTable rows={employees} />
     </div>
   );
 }
