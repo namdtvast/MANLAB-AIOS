@@ -389,3 +389,7 @@ const ADAPTERS: Record<string, PlatformAdapter> = {
   LocalOpenAIPlatformAdapter,
 };
 export const getAdapter = (adapterType: string): PlatformAdapter => ADAPTERS[adapterType] ?? PlaceholderPlatformAdapter;
+
+// Danh sách bộ chuyển đổi có thật, cho form đăng ký nền tảng và cho kiểm tra ở tầng hành động.
+// Đọc từ chính ADAPTERS để thêm adapter mới không phải nhớ cập nhật thêm chỗ nào khác.
+export const ADAPTER_TYPES = Object.keys(ADAPTERS);

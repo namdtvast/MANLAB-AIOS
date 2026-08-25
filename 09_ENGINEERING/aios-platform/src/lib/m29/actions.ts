@@ -33,7 +33,7 @@ import { deploymentGate, runCases } from "./evaluation";
 import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
 import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
-import { getAdapter } from "./adapters";
+import { ADAPTER_TYPES, getAdapter } from "./adapters";
 
 function forbidden(): TxResult {
   return { ok: false, code: "FORBIDDEN", message: "Không đủ quyền truy cập tài nguyên này." };
@@ -172,6 +172,11 @@ export async function updateAgentToolsSkills(id: string, input: { skillIds?: str
 export async function createPlatform(input: { code: string; name: string; baseUrl?: string; apiBaseUrl?: string; environment?: string; adapterType: string; owner?: string }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "platforms", "write")) throw new Error("Không đủ quyền.");
+  // getAdapter() rơi về PlaceholderPlatformAdapter khi không nhận ra adapterType — im lặng và
+  // đúng cho lời gọi lúc chạy, nhưng ở bước ĐĂNG KÝ thì đó là bẫy: bản ghi trông như đã nối
+  // nền tảng mà thực ra mọi lời gọi trả NOT_INTEGRATED. Chặn ngay tại đây, không để lệch âm thầm.
+  if (!ADAPTER_TYPES.includes(input.adapterType))
+    throw new Error(`Bộ chuyển đổi "${input.adapterType}" không có thật. Chọn một trong: ${ADAPTER_TYPES.join(", ")}.`);
   const rec = await prisma.aIPlatform.create({ data: input });
   await logAudit(actor, "platforms", rec.id, { after: rec, reason: "create" });
   revalidateM29();

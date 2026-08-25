@@ -2,7 +2,10 @@ import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import { APPROVAL_STATUS_LABEL, APPROVAL_STATUS_TONE, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m29/labels";
+import { ADAPTER_TYPES } from "@/lib/m29/adapters";
 import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { NewPlatformForm } from "./NewPlatformForm";
+import { NewToolForm } from "./NewToolForm";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -33,6 +36,7 @@ export default async function M29RegistryPage() {
 
       <section id="platform" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
+        {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
@@ -69,6 +73,12 @@ export default async function M29RegistryPage() {
 
       <section id="tool" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
+        {canWriteRegistry && (
+          <NewToolForm
+            platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            existingCodes={tools.map((t) => t.code)}
+          />
+        )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
