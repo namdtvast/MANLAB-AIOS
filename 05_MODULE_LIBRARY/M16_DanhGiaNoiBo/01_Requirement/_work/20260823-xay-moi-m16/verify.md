@@ -24,7 +24,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Đăng nhập lần lượt QLCL (`nth@manlab.vn`), LĐP (`ldp@manlab.vn`), LĐV (`ldv@manlab.vn`), Trưởng
-đoàn (`truongdoan@manlab.vn`, cùng mật khẩu `DoiMatKhauNgay!2026`), thao tác qua UI thật.
+đoàn (`truongdoan@manlab.vn`, cùng mật khẩu tài khoản demo), thao tác qua UI thật.
 
 ### 1. Gate duyệt `AuditPlan` 2 cấp (mirror M10) — PASS đầy đủ cả 2 bước
 

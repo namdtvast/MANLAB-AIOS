@@ -134,7 +134,7 @@ GIVEN chưa đăng nhập, WHEN truy cập "/" hoặc "/modules/M10" bằng curl
   không cookie, THEN nhận HTTP 307 redirect tới /login?callbackUrl=...
   — verified: xem verify.md.
 
-GIVEN đã đăng nhập bằng admin@manlab.vn/DoiMatKhauNgay!2026, WHEN vào
+GIVEN đã đăng nhập bằng admin@manlab.vn (mật khẩu tài khoản demo), WHEN vào
   trang chủ, THEN thấy sidebar đủ 38 mục, thẻ thống kê 38/3/35 — verified
   bằng screenshot trong verify.md.
 

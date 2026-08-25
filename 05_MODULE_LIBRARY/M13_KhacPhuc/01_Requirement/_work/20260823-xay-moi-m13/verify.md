@@ -14,7 +14,7 @@
 ## VERIFY qua Browser — bằng chứng thật (không suy luận)
 
 Thao tác qua UI thật, đăng nhập/đăng xuất đổi vai trò giữa NHANVIEN (`nth@`), QLCL (`qlcl@`),
-QLKT (`qlkt@`), LĐV (`ldv@`), cùng mật khẩu `DoiMatKhauNgay!2026`.
+QLKT (`qlkt@`), LĐV (`ldv@`), cùng mật khẩu tài khoản demo.
 
 ### 1. Gate căn cứ + vai trò khi đánh giá mức độ (quy tắc 2) — PASS, cả 3 nhánh
 

@@ -59,7 +59,7 @@ Evidence:
   → `status=307 redirect=http://localhost:3000/login?callbackUrl=%2Fmodules%2FM10`
   `curl ... http://localhost:3000/`
   → `status=307 redirect=http://localhost:3000/login?callbackUrl=%2F`
-  Đăng nhập bằng admin@manlab.vn/DoiMatKhauNgay!2026 qua form thật trong
+  Đăng nhập bằng admin@manlab.vn (mật khẩu tài khoản demo) qua form thật trong
   Browser pane → vào được dashboard (screenshot đã xem trực tiếp trong
   phiên). Đăng xuất → quay lại /login (screenshot đã xem trực tiếp).
 
