@@ -204,10 +204,27 @@ chung một mật khẩu. Mật khẩu đó **lấy từ biến `SEED_DEMO_PASSW
 Chạy lại seed **không** đổi mật khẩu của tài khoản đã tồn tại (mọi upsert tài
 khoản dùng `update: {}`), nên seed lại sau mỗi lần `git pull` là an toàn.
 
-> Dù mật khẩu không còn nằm trong mã nguồn, **11 tài khoản demo vẫn là 11
-> đường vào hệ thống**. Trước khi trỏ DNS: xoá hết tài khoản demo và tạo tài
-> khoản thật, hoặc ít nhất đổi mật khẩu từng tài khoản. Kiểm tra lại bằng cách
-> liệt kê `User` sau khi dọn — đừng tin là đã xong khi chưa nhìn danh sách.
+> Dù mật khẩu không còn nằm trong mã nguồn, **mọi tài khoản demo vẫn là một
+> đường vào hệ thống** (một môi trường seed đầy đủ có khoảng 18 tài khoản).
+> Trước khi trỏ DNS: xoá hết tài khoản demo và tạo tài khoản thật, hoặc ít nhất
+> đổi mật khẩu từng tài khoản. Kiểm tra lại bằng cách liệt kê `User` sau khi dọn
+> — đừng tin là đã xong khi chưa nhìn danh sách.
+
+**Môi trường đã seed trước ngày 25/08/2026** dùng mật khẩu từng ghi thẳng trong
+`prisma/seed.ts`, tức đã công khai trên GitHub. Gỡ nó khỏi mã nguồn không đổi
+được mật khẩu đã nằm trong database. Chạy script đổi hàng loạt:
+
+```bash
+# Xem trước sẽ đụng vào những tài khoản nào — không ghi gì:
+npm run doi-mat-khau-demo
+
+# Thực hiện thật (đặt qua biến môi trường để không lọt vào lịch sử shell):
+NEW_DEMO_PASSWORD='...' npm run doi-mat-khau-demo -- --yes
+```
+
+Script chỉ đụng tài khoản có email thuộc miền `@manlab.vn`; nêu đích danh bằng
+`--emails=a@…,b@…` nếu muốn giới hạn. Đổi mật khẩu **không** cắt phiên đang mở
+vì session dùng JWT — muốn cắt ngay thì đổi `AUTH_SECRET` rồi khởi động lại app.
 
 ```bash
 # Cách nhanh nhất: xoá tài khoản demo, tạo tài khoản admin thật qua Prisma Studio
