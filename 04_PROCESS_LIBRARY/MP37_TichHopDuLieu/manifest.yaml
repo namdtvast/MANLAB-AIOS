@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP37
 slug: TichHopDuLieu
 name: Quản lý tích hợp dữ liệu

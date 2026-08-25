@@ -1,7 +1,11 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP14
 slug: TaiLieu
 name: Kiểm soát tài liệu
+purpose: >-
+  Kiểm soát tài liệu, dữ liệu và thông tin trong suốt vòng đời — nhận diện, xem xét, phê duyệt,
+  ban hành, phân phối, lưu trữ và kiểm soát thay đổi — bảo đảm mọi nơi sử dụng đều dùng đúng phiên
+  bản hiệu lực.
 owner: "(cập nhật — chức danh LĐP phụ trách Hệ thống quản lý)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']

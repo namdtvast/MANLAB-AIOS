@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP16
 slug: DanhGiaNoiBo
 name: Đánh giá nội bộ và đánh giá bên ngoài
+purpose: >-
+  Tổ chức đánh giá nội bộ và tiếp nhận đánh giá bên ngoài theo chương trình định kỳ, xác nhận hệ
+  thống quản lý tiếp tục tuân thủ ISO/IEC 17025:2017 và vận hành có hiệu lực.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

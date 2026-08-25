@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP21
 slug: CongBoNangLuc
 name: Công bố, thông báo và kiểm soát năng lực hoạt động
+purpose: >-
+  Công bố, thông báo và kiểm soát năng lực đo lường, quan trắc môi trường của Viện; bảo đảm phạm
+  vi năng lực công khai luôn chính xác, cập nhật và tuân thủ quy định pháp lý hiện hành.
 owner: "Trần Thị Hoa (biên soạn) – Lãnh đạo Viện (phê duyệt)"
 status: active
 standards: [ISO17025]

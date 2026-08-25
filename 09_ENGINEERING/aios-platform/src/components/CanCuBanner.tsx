@@ -1,6 +1,6 @@
 // Khung "Căn cứ pháp lý" hiển thị ở đầu mọi trang module.
 //
-// Nguồn sự thật là khối document/forms trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
+// Nguồn sự thật là các khóa purpose/document/forms trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
 // + links.yaml (procedure, form_files), nạp vào PlatformModule qua prisma/seed.ts —
 // KHÔNG viết cứng căn cứ trong từng trang. Module chưa ban hành thủ tục thì banner
 // nói thẳng "chưa ban hành", không suy diễn hộ.
@@ -61,6 +61,7 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
       mpCode: true,
       docId: true,
       docTitle: true,
+      purpose: true,
       docStatus: true,
       docVersion: true,
       issuedDate: true,
@@ -121,7 +122,15 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
         )}
       </div>
 
-      {/* 4–5. Chủ sở hữu quy trình + chuẩn mực/pháp luật áp dụng */}
+      {/* 4. Mục tiêu — thủ tục (module) này dùng để làm gì, chắt từ mục MỤC ĐÍCH của ETV.Pxx */}
+      {mod.purpose && (
+        <p className="mt-1.5">
+          <span className="text-ink-3">Mục tiêu:</span>{" "}
+          <span className="text-ink-2">{mod.purpose}</span>
+        </p>
+      )}
+
+      {/* 5–6. Chủ sở hữu quy trình + chuẩn mực/pháp luật áp dụng */}
       {(mod.procedureOwner || standards.length > 0 || mod.legalBasis.length > 0) && (
         <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
           {mod.procedureOwner && (
@@ -141,7 +150,7 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
         </div>
       )}
 
-      {/* 6. Biểu mẫu áp dụng — mã bấm mở được file gốc ở 06_SHARED_RESOURCES */}
+      {/* 7. Biểu mẫu áp dụng — mã bấm mở được file gốc ở 06_SHARED_RESOURCES */}
       {forms.length > 0 && (
         <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="text-ink-3">Biểu mẫu áp dụng:</span>

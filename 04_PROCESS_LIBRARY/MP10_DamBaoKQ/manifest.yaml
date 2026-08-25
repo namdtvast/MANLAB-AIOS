@@ -1,7 +1,11 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP10
 slug: DamBaoKQ
 name: Đảm bảo giá trị sử dụng của kết quả
+purpose: >-
+  Hoạch định, theo dõi và đánh giá các hoạt động bảo đảm hiệu lực kết quả kiểm định, hiệu chuẩn,
+  thử nghiệm; phát hiện sớm sai lệch và chỉ phát hành kết quả sau khi dữ liệu kiểm soát chất lượng
+  được soát xét, phê duyệt.
 owner: "Trần Thị Hoa (Lãnh đạo phòng phụ trách)"
 status: active
 standards: ['ISO17025']

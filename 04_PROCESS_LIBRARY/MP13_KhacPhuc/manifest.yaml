@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP13
 slug: KhacPhuc
 name: Hành động khắc phục và kiểm soát công việc không phù hợp
+purpose: >-
+  Kiểm soát công việc không phù hợp: nhận diện, khoanh vùng ảnh hưởng, xử lý và thực hiện hành
+  động khắc phục nhằm loại bỏ nguyên nhân gốc, ngăn tái diễn.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

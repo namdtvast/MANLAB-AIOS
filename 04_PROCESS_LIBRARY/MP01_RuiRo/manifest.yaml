@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP01
 slug: RuiRo
 name: Giải quyết rủi ro và cơ hội
+purpose: >-
+  Nhận diện, đánh giá và xử lý rủi ro – cơ hội trong hoạt động kiểm định, hiệu chuẩn, thử nghiệm;
+  bảo vệ tính khách quan và bảo đảm hệ thống quản lý đạt kết quả dự kiến.
 owner: "LĐP Trần Thị Hoa"
 status: active
 standards: ['ISO9001', 'ISO17025']
