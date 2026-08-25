@@ -16,6 +16,7 @@ import { maybeSweep } from "@/lib/m29/sweep";
 import { CheckHealthButton } from "./CheckHealthButton";
 import { Badge } from "./ui";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { StatCard } from "@/components/StatCard";
 
 export default async function M29OverviewPage() {
   const role = await getM29Role();
@@ -53,33 +54,35 @@ export default async function M29OverviewPage() {
       <CanCuBanner moduleCode="M29" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-2">Platform</p>
-          <p className="mt-2 font-head text-3xl font-bold tabular-nums text-ink">{platforms.length}</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-2">Agent</p>
-          <p className="mt-2 font-head text-3xl font-bold tabular-nums text-ink">{agents.length}</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-2">AIA chưa Đã phê duyệt</p>
-          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${pendingAia > 0 ? "text-warn" : "text-good"}`}>{pendingAia}</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-2">Tool đang Vô hiệu hóa</p>
-          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${disabledTools > 0 ? "text-crit" : "text-good"}`}>{disabledTools}</p>
-        </div>
-        <Link href="/modules/M29/incidents" className="rounded-xl border border-border bg-surface p-4 transition-colors hover:border-accent-line">
-          <p className="text-xs text-ink-2">Sự cố AI đang mở</p>
-          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${openIncidents > 0 ? "text-crit" : "text-good"}`}>{openIncidents}</p>
-        </Link>
-        <Link href="/modules/M29/unregistered" className="rounded-xl border border-border bg-surface p-4 transition-colors hover:border-accent-line">
-          <p className="text-xs text-ink-2">AI chưa đăng ký quá hạn</p>
-          <p className={`mt-2 font-head text-3xl font-bold tabular-nums ${overdueSightings > 0 ? "text-crit" : "text-good"}`}>{overdueSightings}</p>
-        </Link>
+        <StatCard label="Platform" value={platforms.length} href="#platform" />
+        <StatCard label="Agent" value={agents.length} href="#agent" />
+        <StatCard
+          label="AIA chưa Đã phê duyệt"
+          value={pendingAia}
+          tone={pendingAia > 0 ? "warn" : "good"}
+          href="#agent"
+        />
+        <StatCard
+          label="Tool đang Vô hiệu hóa"
+          value={disabledTools}
+          tone={disabledTools > 0 ? "crit" : "good"}
+          href="/modules/M29/registry#tool"
+        />
+        <StatCard
+          label="Sự cố AI đang mở"
+          value={openIncidents}
+          tone={openIncidents > 0 ? "crit" : "good"}
+          href="/modules/M29/incidents"
+        />
+        <StatCard
+          label="AI chưa đăng ký quá hạn"
+          value={overdueSightings}
+          tone={overdueSightings > 0 ? "crit" : "good"}
+          href="/modules/M29/unregistered"
+        />
       </div>
 
-      <div>
+      <div id="platform" className="scroll-mt-24">
         <div className="mb-2 flex items-center justify-between">
           <h2 className="font-head text-sm font-bold text-ink">Platform</h2>
           {can(role, "health") && <CheckHealthButton />}
@@ -114,7 +117,7 @@ export default async function M29OverviewPage() {
         </div>
       </div>
 
-      <div>
+      <div id="agent" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Agent</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">

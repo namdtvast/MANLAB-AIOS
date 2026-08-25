@@ -1,6 +1,6 @@
 # Tri thức — Chữ ký số & chữ ký điện tử
 
-> Căn cứ pháp lý đầy đủ: `knowledge/01_phap_luat.md`, `08_KNOWLEDGE_GRAPH/01_Regulations/`. Quy định nội bộ gốc: `ETV.P14` VI.6 (Chữ ký số & chữ ký điện tử).
+> Căn cứ pháp lý đầy đủ: `knowledge/01_phap_luat.md`, `08_KNOWLEDGE_GRAPH/01_Regulations/`. Quy định nội bộ gốc: `ETV.P14` §6.7 (Chữ ký số & chữ ký điện tử).
 
 ## Nguyên tắc
 
@@ -13,7 +13,7 @@
 ## AI cần kiểm tra khi gặp văn bản có yêu cầu ký số
 
 - Người ký đề xuất có đúng thẩm quyền theo `ETV.P.F 14.06` cho loại văn bản này không? Nếu không chắc → hỏi lại, không tự suy đoán.
-- Văn bản đã qua đủ bước Soát xét/Phê duyệt trước khi tới bước ký số chưa (đối chiếu `status` tại `knowledge/05_vong_doi_van_ban.md` và `ETV.P14` VI.5)?
+- Văn bản đã qua đủ bước Soát xét/Phê duyệt trước khi tới bước ký số chưa (đối chiếu `status` tại `knowledge/05_vong_doi_van_ban.md` và `ETV.P14` §6.6)?
 - Nếu đối tác/bên ngoài chưa có hạ tầng chữ ký số tương thích, đề xuất phương án ký tay + số hóa bản scan có xác thực.
 
 ## AI KHÔNG được làm

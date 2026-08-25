@@ -36,4 +36,4 @@
 
 - Chỉ dùng đúng tên trạng thái ở trên khi mô tả tình trạng văn bản — không dịch/diễn giải khác đi.
 - Không đề xuất bỏ qua bước (vd. từ Nháp thẳng lên Đã phê duyệt).
-- Khi gợi ý "văn bản này nên chuyển sang trạng thái X", luôn kèm câu: "cần [LĐP/LĐV] xác nhận theo đúng RACI tại ETV.P14 §5".
+- Khi gợi ý "văn bản này nên chuyển sang trạng thái X", luôn kèm câu: "cần [LĐP/LĐV] xác nhận theo đúng RACI tại `ETV.P14` III".

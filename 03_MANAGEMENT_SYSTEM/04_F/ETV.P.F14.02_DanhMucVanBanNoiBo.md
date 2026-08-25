@@ -1,6 +1,6 @@
 # ETV.P.F 14.02 — Danh mục văn bản nội bộ
 
-> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §6.1, §10.1 bước 6. Danh sách sống thực tế quản lý trên ManLab; file này là cấu trúc cột chuẩn để nhân bản (Excel/ManLab), không lưu dữ liệu thật tại đây.
+> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §6.1, §6.6.1 bước 6. Danh sách sống thực tế quản lý trên ManLab; file này là cấu trúc cột chuẩn để nhân bản (Excel/ManLab), không lưu dữ liệu thật tại đây.
 
 | Mã số (`id`) | Tên văn bản (`title`) | Loại (`type`) | Chủ sở hữu (`owner`) | Phòng/bộ phận (`department`) | Quy trình (`process`) | Lần ban hành (`revision`) | Ngày hiệu lực (`effective_date`) | Trạng thái (`status`) | Điều khoản ISO (`iso_clause`) | Căn cứ pháp lý (`legal_basis`) | Thay thế (`supersedes`) | Được thay thế bởi (`superseded_by`) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

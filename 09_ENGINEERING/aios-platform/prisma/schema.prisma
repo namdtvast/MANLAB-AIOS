@@ -463,9 +463,9 @@ enum AIApprovalStatus {
   PENDING_APPROVAL
   REJECTED
   APPROVED
-  ACTIVE // Hiệu lực — đã phê duyệt VÀ đã bật giám sát/kết nối (ETV.P35 mục 6, trạng thái 7)
+  ACTIVE // Hiệu lực — đã phê duyệt VÀ đã bật giám sát/kết nối (ETV.P35 Phụ lục II, trạng thái 7)
   ARCHIVED // Hết hiệu lực
-  CANCELLED // Hủy — bỏ bản ghi trước khi phê duyệt (ETV.P35 mục 6, trạng thái 9)
+  CANCELLED // Hủy — bỏ bản ghi trước khi phê duyệt (ETV.P35 Phụ lục II, trạng thái 9)
 }
 
 enum AIPromptStatus {
@@ -512,13 +512,38 @@ enum AIAStatus {
   REVIEW_REQUIRED
 }
 
+/// Ranh giới dữ liệu của một nền tảng mô hình — ETV.P29 §5.5.
+///
+/// §5.5 không hỏi MỘT câu mà hai câu lồng nhau: dữ liệu có rời hạ tầng của Viện không, và NẾU CÓ
+/// thì nhà cung cấp có cam kết không dùng dữ liệu để huấn luyện lại không. Cam kết đó khác nhau
+/// giữa các BẬC DỊCH VỤ của cùng một nhà cung cấp (bậc miễn phí thường không có), nên không suy
+/// được từ tên nhà cung cấp, cũng không suy được từ `environment` — trường đó trả lời câu hỏi khác
+/// (môi trường triển khai) và chưa từng được kiểm bởi bất kỳ nhánh logic nào.
+///
+/// Mặc định là trạng thái SIẾT NHẤT: khai thiếu thì bị siết, không được nới.
+enum AIDataBoundary {
+  NO_EXTERNAL_TRANSFER /// Dữ liệu không rời hạ tầng của Viện (mô hình tự vận hành) — trần Nội bộ
+  EXTERNAL_WITH_COMMITMENT /// Rời hạ tầng, nhà cung cấp cam kết không huấn luyện lại, đã trích vào F29.02 — trần Nội bộ
+  EXTERNAL_NO_COMMITMENT /// Rời hạ tầng, không có cam kết — chỉ được gửi mức Công khai
+}
+
 model AIPlatform {
-  id                String           @id @default(cuid())
-  code              String           @unique
-  name              String
-  baseUrl           String?
-  apiBaseUrl        String?
-  environment       String           @default("INTERNAL")
+  id          String  @id @default(cuid())
+  code        String  @unique
+  name        String
+  baseUrl     String?
+  apiBaseUrl  String?
+  environment String  @default("INTERNAL")
+
+  // Ranh giới dữ liệu (ETV.P29 §5.5). KHÔNG suy từ `environment` ngay phía trên: hai trường trả
+  // lời hai câu hỏi khác nhau, và `environment` mặc định "INTERNAL" — giá trị dễ dãi nhất — nên
+  // dựng chốt an ninh lên nó là fail-OPEN.
+  dataBoundary      AIDataBoundary   @default(EXTERNAL_NO_COMMITMENT)
+  // Số hồ sơ chứng minh cam kết của nhà cung cấp (AIA/F29.02). BẮT BUỘC khi đặt
+  // EXTERNAL_WITH_COMMITMENT — nới trần mà không có hồ sơ chống lưng thì enum này chỉ là ô tích.
+  // Cưỡng chế ở tầng hành động (datRanhGioiDuLieu), không ràng buộc quan hệ ở lược đồ vì
+  // AIImpactAssessment gắn với Agent chứ không gắn với Platform.
+  dataBoundaryRef   String?
   health            AIHealth         @default(UNKNOWN)
   lastError         String?
   lastHealthCheckAt DateTime?
@@ -533,18 +558,28 @@ model AIPlatform {
   tools     AITool[]
   agents    AIAgent[]
   incidents AIIncident[]
+  providers AIProvider[]
 }
 
 model AIProvider {
-  id     String     @id @default(cuid())
-  code   String     @unique
-  name   String
-  status AIOpStatus @default(ACTIVE)
+  id         String     @id @default(cuid())
+  code       String     @unique
+  name       String
+  status     AIOpStatus @default(ACTIVE)
+  // Nền tảng phơi API của nhà cung cấp này. CÓ THỂ RỖNG một cách có chủ ý: dịch vụ mô hình ngoài
+  // Viện (Anthropic, Gemini) chạy được mà không cần bản ghi nền tảng riêng, nên ép NOT NULL sẽ
+  // buộc nạp lại dữ liệu cũ. Bắt buộc điền với nhà cung cấp TỰ VẬN HÀNH (máy chủ GPU nội bộ) —
+  // đó là nơi duy nhất giữ apiBaseUrl và trạng thái kiểm tra sức khoẻ (ETV.GAI 01 §3.6).
+  // KHÔNG nhân đôi baseUrl sang đây: một endpoint chỉ có một nguồn sự thật là AIPlatform.
+  platformId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  models AIModel[]
+  models   AIModel[]
+  // Restrict, không SetNull: xoá nền tảng mà âm thầm gỡ liên kết của Provider là mất dấu vết
+  // đăng ký. Chặn xoá để buộc gỡ Provider trước — thống nhất với các quan hệ khác trong M29.
+  platform AIPlatform? @relation(fields: [platformId], references: [id], onDelete: Restrict)
 }
 
 model AIModel {

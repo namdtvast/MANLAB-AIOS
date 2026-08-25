@@ -59,6 +59,23 @@ describe("approvalTransitions — vòng đời phê duyệt dùng chung (Platfor
     expectErr(approvalTransitions.archive({ approvalStatus: "APPROVED" }), "REASON_REQUIRED");
     expect(approvalTransitions.archive({ approvalStatus: "APPROVED" }, { reason: "thay bằng bản mới" }).ok).toBe(true);
   });
+
+  // ETV.P35 §6.1.7 bước 6 / StateMachine.md trạng thái 7: phê duyệt xong CÒN một bước đưa vào vận
+  // hành. Thiếu bước này thì ACTIVE là trạng thái không bao giờ tới được, và vòng dò sức khoẻ
+  // (checkHealthAction) lọc theo APPROVED+ACTIVE sẽ không bao giờ thấy nền tảng đang vận hành.
+  it("đưa vào vận hành chỉ từ Đã phê duyệt, và chuyển sang Hiệu lực", () => {
+    expect(approvalTransitions.activate({ approvalStatus: "APPROVED" })).toMatchObject({ ok: true, status: "ACTIVE" });
+    for (const from of ["DRAFT", "PENDING_REVIEW", "PENDING_APPROVAL", "RETURNED", "REJECTED", "ACTIVE", "ARCHIVED"] as const)
+      expectErr(approvalTransitions.activate({ approvalStatus: from }), "BAD_STATE");
+  });
+
+  it("nền tảng đang Hiệu lực vẫn ngừng vận hành được", () => {
+    expectErr(approvalTransitions.archive({ approvalStatus: "ACTIVE" }), "REASON_REQUIRED");
+    expect(approvalTransitions.archive({ approvalStatus: "ACTIVE" }, { reason: "thay bằng máy chủ mới" })).toMatchObject({
+      ok: true,
+      status: "ARCHIVED",
+    });
+  });
 });
 
 describe("aiaTransitions — hồ sơ đánh giá tác động AI (ISO/IEC 42001, ETV.P29 mục 5.2)", () => {

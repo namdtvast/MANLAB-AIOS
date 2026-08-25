@@ -30,8 +30,10 @@ import {
 } from "./rules";
 import { callTool as gatewayCallTool } from "./gateway";
 import { deploymentGate, runCases } from "./evaluation";
+import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
+import type { AIDataBoundary } from "@/generated/prisma/enums";
 import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
-import { getAdapter } from "./adapters";
+import { ADAPTER_TYPES, getAdapter } from "./adapters";
 
 function forbidden(): TxResult {
   return { ok: false, code: "FORBIDDEN", message: "Không đủ quyền truy cập tài nguyên này." };
@@ -65,7 +67,10 @@ function revalidateM29() {
 // ---------- Registry CRUD đơn giản (Provider/Model/Skill/Tool/Agent) ----------
 // Port `simpleCrud()` trong server.js — create/update đều ghi AIAuditLog.
 
-export async function createProvider(input: { code: string; name: string }) {
+// platformId là TÙY CHỌN: nhà cung cấp dịch vụ ngoài Viện không cần bản ghi nền tảng riêng. Với
+// nhà cung cấp tự vận hành (máy chủ GPU nội bộ) thì bắt buộc phải có, vì apiBaseUrl và trạng thái
+// kiểm tra sức khoẻ chỉ nằm ở AIPlatform — xem ETV.GAI 01 §3.6.
+export async function createProvider(input: { code: string; name: string; platformId?: string }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
   const rec = await prisma.aIProvider.create({ data: input });
@@ -167,10 +172,47 @@ export async function updateAgentToolsSkills(id: string, input: { skillIds?: str
 export async function createPlatform(input: { code: string; name: string; baseUrl?: string; apiBaseUrl?: string; environment?: string; adapterType: string; owner?: string }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "platforms", "write")) throw new Error("Không đủ quyền.");
+  // getAdapter() rơi về PlaceholderPlatformAdapter khi không nhận ra adapterType — im lặng và
+  // đúng cho lời gọi lúc chạy, nhưng ở bước ĐĂNG KÝ thì đó là bẫy: bản ghi trông như đã nối
+  // nền tảng mà thực ra mọi lời gọi trả NOT_INTEGRATED. Chặn ngay tại đây, không để lệch âm thầm.
+  if (!ADAPTER_TYPES.includes(input.adapterType))
+    throw new Error(`Bộ chuyển đổi "${input.adapterType}" không có thật. Chọn một trong: ${ADAPTER_TYPES.join(", ")}.`);
   const rec = await prisma.aIPlatform.create({ data: input });
   await logAudit(actor, "platforms", rec.id, { after: rec, reason: "create" });
   revalidateM29();
   return rec;
+}
+
+/**
+ * Đặt RANH GIỚI DỮ LIỆU của một nền tảng mô hình — quyết định tài liệu mức nào được gửi tới đó
+ * (ETV.P29 §5.5). Đây là chốt an ninh, không phải một thuộc tính mô tả.
+ *
+ * Quyền đặt ở "governance" chứ KHÔNG ở "platforms": người đăng ký nền tảng (AI_ADMIN có
+ * platforms:r, registry:rw) không được tự nới ranh giới dữ liệu của chính nền tảng mình vừa tạo.
+ * Chỉ AI_SECURITY_ADMIN và SUPER_ADMIN có governance:rw. Tách vai trò theo tinh thần ETV.P29 §4.8.
+ *
+ * Ai nới, lúc nào, dẫn hồ sơ nào: ghi ở AIAuditLog.
+ */
+export async function datRanhGioiDuLieu(platformId: string, ranhGioi: AIDataBoundary, soHoSo?: string) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "governance", "write")) throw new Error("Không đủ quyền đặt ranh giới dữ liệu của nền tảng.");
+
+  const kiem = kiemTraDatRanhGioi(ranhGioi, soHoSo);
+  if (!kiem.ok) throw new Error(kiem.loi);
+
+  const truoc = await prisma.aIPlatform.findUniqueOrThrow({ where: { id: platformId } });
+  const sau = await prisma.aIPlatform.update({
+    where: { id: platformId },
+    data: { dataBoundary: ranhGioi, dataBoundaryRef: chuanHoaSoHoSo(ranhGioi, soHoSo) },
+  });
+  await logAudit(actor, "platforms", platformId, {
+    field: "dataBoundary",
+    before: { dataBoundary: truoc.dataBoundary, dataBoundaryRef: truoc.dataBoundaryRef },
+    after: { dataBoundary: sau.dataBoundary, dataBoundaryRef: sau.dataBoundaryRef },
+    reason: `Đặt ranh giới dữ liệu theo ETV.P29 §5.5${sau.dataBoundaryRef ? ` — hồ sơ ${sau.dataBoundaryRef}` : ""}`,
+  });
+  revalidateM29();
+  return sau;
 }
 
 // ---------- Vòng đời phê duyệt dùng chung (Platform/Guardrail/Policy) ----------
@@ -192,7 +234,7 @@ async function updateApprovable(kind: ApprovalKind, id: string, data: { approval
 export async function approvalAction(
   kind: ApprovalKind,
   id: string,
-  action: "submit" | "review" | "approve" | "archive",
+  action: "submit" | "review" | "approve" | "activate" | "archive",
   extra: { decision?: "return" | "approve" | "reject"; reason?: string } = {}
 ): Promise<TxResult> {
   const actor = await getActor();
@@ -207,7 +249,9 @@ export async function approvalAction(
         ? approvalTransitions.review(rec, { decision: extra.decision === "return" ? "return" : "approve", reason: extra.reason })
         : action === "approve"
           ? approvalTransitions.approve(rec, actor, { decision: extra.decision === "reject" ? "reject" : "approve", reason: extra.reason })
-          : approvalTransitions.archive(rec, extra);
+          : action === "activate"
+            ? approvalTransitions.activate(rec)
+            : approvalTransitions.archive(rec, extra);
   if (!result.ok) return result;
 
   const before = rec.approvalStatus;
@@ -382,7 +426,10 @@ export async function callToolAction(input: { toolId: string; agentId: string; i
 export async function checkHealthAction() {
   const actor = await getActor();
   if (!can(actor.m29Role, "health", "read")) throw new Error("Không đủ quyền.");
-  const platforms = await prisma.aIPlatform.findMany({ where: { approvalStatus: "APPROVED" } });
+  // Gồm cả ACTIVE ("Hiệu lực"): theo ETV.P35 §6.1.7 bước 6, nền tảng đang vận hành thật nằm ở
+  // ACTIVE chứ không phải APPROVED. Lọc riêng APPROVED sẽ bỏ sót đúng những nền tảng cần dò nhất.
+  // Cùng cách lọc với loadActiveGuardrails() trong guardrails.ts.
+  const platforms = await prisma.aIPlatform.findMany({ where: { approvalStatus: { in: ["APPROVED", "ACTIVE"] } } });
   for (const platform of platforms) {
     const adapter = getAdapter(platform.adapterType);
     const r = await adapter.health(platform);

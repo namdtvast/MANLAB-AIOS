@@ -292,5 +292,104 @@ const GeminiPlatformAdapter: PlatformAdapter = {
   },
 };
 
-const ADAPTERS: Record<string, PlatformAdapter> = { ManlabPlatformAdapter, PlaceholderPlatformAdapter, AnthropicAdapter, GeminiPlatformAdapter };
+// Nền tảng mô hình TỰ VẬN HÀNH của Viện: máy chủ GPU nội bộ phơi API tương thích OpenAI qua
+// vLLM/TGI/Ollama. Trình tự đưa một máy chủ vào đây: ETV.GAI 01 — Hướng dẫn Tích hợp máy chủ mô
+// hình AI nội bộ vào ManLab AIOS.
+//
+// Khác hai adapter trên ở một điểm về tuân thủ, không phải kỹ thuật: dữ liệu KHÔNG rời hạ tầng
+// của Viện. Điều đó KHÔNG đồng nghĩa được nhận tài liệu mức Hạn chế — ETV.P29 §5.1.5 xếp "truy
+// cập hoặc lập chỉ mục" dữ liệu Hạn chế/Mật vào Điều cấm tuyệt đối, trong khi ETV.P34 §6.8 lại
+// cho phép có điều kiện. Xung đột đó chưa được giải quyết ở cấp thủ tục, nên ETV.GAI 01 §3.7 áp
+// bản cấm chặt hơn: trần thực tế của nền tảng này hiện là Nội bộ. Bù lại chỉ có MỘT GPU: mất máy
+// chủ là mất toàn bộ năng lực suy luận nội bộ. Vì vậy adapter cố ý
+// KHÔNG tự thử lại và KHÔNG tự chuyển sang nhà cung cấp khác — quyết định chuyển hay trả lỗi có
+// kiểm soát thuộc về chính sách định tuyến, không thuộc về adapter.
+//
+// Endpoint đọc từ AIPlatform.apiBaseUrl (một nguồn sự thật duy nhất cho endpoint — xem chú thích
+// tại AIProvider.platformId trong schema.prisma); khóa đọc từ biến môi trường như các adapter mô
+// hình khác, KHÔNG lấy từ AISecret vì bảng đó chỉ lưu maskedValue.
+const LOCAL_LLM_ENV_KEY = "LOCAL_LLM_API_KEY";
+// 30 s, không thử lại — theo ETV.GAI 01 §3.5. Đặt hằng riêng thay vì dùng lại hằng của Anthropic
+// để ngưỡng của máy chủ nội bộ đổi được độc lập với dịch vụ ngoài.
+const LOCAL_LLM_TIMEOUT_MS = 30_000;
+
+interface OpenAIChatResponse {
+  choices?: { message?: { content?: string }; finish_reason?: string }[];
+  usage?: { prompt_tokens?: number; completion_tokens?: number };
+}
+
+const LocalOpenAIPlatformAdapter: PlatformAdapter = {
+  async call() {
+    return { status: 501, output: null, latencyMs: 0, errorCode: "NOT_A_TOOL_PLATFORM" };
+  },
+  async health(platform) {
+    if (!platform.apiBaseUrl) return { ok: false, error: "NO_API_BASE_URL" };
+    const key = process.env[LOCAL_LLM_ENV_KEY];
+    if (!key) return { ok: false, error: "NO_API_KEY" };
+    try {
+      const r = await callWithTimeout(`${platform.apiBaseUrl}/models`, { headers: { authorization: `Bearer ${key}` } }, 5000);
+      return { ok: r.status < 400, error: r.status >= 400 ? `HTTP ${r.status}` : null };
+    } catch (e) {
+      return { ok: false, error: e instanceof Error && e.name === "AbortError" ? "TIMEOUT" : String(e) };
+    }
+  },
+  async chat(platform, req) {
+    const started = Date.now();
+    // Thiếu endpoint hoặc thiếu khóa thì dừng TRƯỚC khi phát HTTP — gọi mù ra mạng không giúp gì
+    // mà còn làm nhiễu nhật ký truy cập của máy chủ.
+    if (!platform.apiBaseUrl) return chatError("NO_API_BASE_URL", 0);
+    const key = process.env[LOCAL_LLM_ENV_KEY];
+    if (!key) return chatError("NO_API_KEY", 0);
+
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), LOCAL_LLM_TIMEOUT_MS);
+    try {
+      const res = await fetch(`${platform.apiBaseUrl}/chat/completions`, {
+        method: "POST",
+        headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
+        body: JSON.stringify({
+          model: req.modelId,
+          max_tokens: req.maxTokens,
+          // Lược đồ OpenAI đặt lời nhắc hệ thống là message đầu danh sách, không phải một trường
+          // riêng như Anthropic (system) hay Gemini (systemInstruction).
+          messages: [{ role: "system", content: req.system }, ...req.messages],
+        }),
+        signal: ctrl.signal,
+      });
+      const latencyMs = Date.now() - started;
+      const body = (await res.json().catch(() => null)) as OpenAIChatResponse | null;
+
+      if (!res.ok)
+        return chatError(res.status === 401 || res.status === 403 ? "AUTH_FAILED" : res.status === 429 ? "RATE_LIMITED" : `HTTP_${res.status}`, latencyMs);
+
+      const choice = body?.choices?.[0];
+      const text = (choice?.message?.content ?? "").trim();
+      const inputTokens = body?.usage?.prompt_tokens ?? 0;
+      const outputTokens = body?.usage?.completion_tokens ?? 0;
+
+      // Máy chủ dừng vì lý do của chính nó (cạn max_tokens, bộ lọc nội dung) — tách mã riêng để
+      // đọc trace không nhầm với lỗi hạ tầng, giống cách GeminiPlatformAdapter đang làm.
+      if (!text && choice?.finish_reason && choice.finish_reason !== "stop")
+        return { text: "", inputTokens, outputTokens, latencyMs, errorCode: `PROVIDER_${choice.finish_reason.toUpperCase()}` };
+
+      return { text, inputTokens, outputTokens, latencyMs, errorCode: text ? null : "EMPTY_RESPONSE" };
+    } catch (e) {
+      return chatError(e instanceof Error && e.name === "AbortError" ? "TIMEOUT" : "CONNECTION_ERROR", Date.now() - started);
+    } finally {
+      clearTimeout(timer);
+    }
+  },
+};
+
+const ADAPTERS: Record<string, PlatformAdapter> = {
+  ManlabPlatformAdapter,
+  PlaceholderPlatformAdapter,
+  AnthropicAdapter,
+  GeminiPlatformAdapter,
+  LocalOpenAIPlatformAdapter,
+};
 export const getAdapter = (adapterType: string): PlatformAdapter => ADAPTERS[adapterType] ?? PlaceholderPlatformAdapter;
+
+// Danh sách bộ chuyển đổi có thật, cho form đăng ký nền tảng và cho kiểm tra ở tầng hành động.
+// Đọc từ chính ADAPTERS để thêm adapter mới không phải nhớ cập nhật thêm chỗ nào khác.
+export const ADAPTER_TYPES = Object.keys(ADAPTERS);

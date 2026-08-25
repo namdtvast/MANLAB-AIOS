@@ -12,7 +12,8 @@ Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng c
 
 ## **Biểu mẫu P14 (Kiểm soát tài liệu)**
 
-- `ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md` — Phiếu đề nghị soát xét/ban hành văn bản | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
+- `ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md` — Phiếu đề nghị soát xét/ban hành văn bản
+- `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md` — **Đã điền:** đề nghị thống nhất ETV.P29 và ETV.P34 về dữ liệu mức Hạn chế (phân định lập chỉ mục với truy xuất trực tiếp) — chờ LĐV phê duyệt | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
 - `ETV.P.F14.02_DanhMucVanBanNoiBo.md` — Danh mục văn bản nội bộ | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md)
 - `ETV.P.F14.03_DanhMucVanBanBenNgoai.md` — Danh mục văn bản bên ngoài | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md)
 - `ETV.P.F14.04_GiaoNhanVanBan.md` — Phiếu giao nhận/thu hồi văn bản | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md)

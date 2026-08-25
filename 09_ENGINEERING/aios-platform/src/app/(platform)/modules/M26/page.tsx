@@ -16,10 +16,12 @@ import {
   REVIEW_CYCLE_LABEL,
 } from "@/lib/m26/labels";
 import { Badge, fmtDate, th } from "./_ui";
+import { StatCard } from "@/components/StatCard";
 
 const navLink = "rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk";
 
-export default async function M26ListPage() {
+export default async function M26ListPage({ searchParams }: { searchParams: Promise<{ loc?: string }> }) {
+  const { loc } = await searchParams;
   const viewer = await getViewer();
   const allowed = visibleConfidentiality(viewer.role);
 
@@ -47,6 +49,10 @@ export default async function M26ListPage() {
   ).length;
   const indexedCount = items.filter((i) => i.aiIndexed).length;
 
+  // Bộ lọc nông từ thẻ chỉ số: chỉ giữ mục đã đưa vào chỉ mục trợ lý AI.
+  const aiOnly = loc === "ai";
+  const listed = aiOnly ? items.filter((i) => i.aiIndexed) : items;
+
   return (
     <div className="flex flex-col gap-8">
       <div>
@@ -66,25 +72,27 @@ export default async function M26ListPage() {
       </p>
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {[
-          { label: "Mục tri thức hiển thị", value: items.length, href: null },
-          { label: "Đến hạn rà soát", value: dueCount, href: "/modules/M26/review-due" },
-          { label: "Rủi ro mất tri thức", value: atRiskCount, href: "/modules/M26/knowledge-risk" },
-          { label: "Trong chỉ mục trợ lý AI", value: indexedCount, href: null },
-        ].map((c) => (
-          <div key={c.label} className="rounded-xl border border-border bg-surface px-4 py-3">
-            <p className="text-xs text-ink-3">{c.label}</p>
-            <p className="mt-1 font-head text-xl font-bold text-ink">{c.value}</p>
-            {c.href && (
-              <Link href={c.href} className="text-xs text-accent hover:underline">
-                Xem chi tiết
-              </Link>
-            )}
-          </div>
-        ))}
+        <StatCard label="Mục tri thức hiển thị" value={items.length} href="/modules/M26#muc-tri-thuc" />
+        <StatCard
+          label="Đến hạn rà soát"
+          value={dueCount}
+          tone={dueCount > 0 ? "warn" : "good"}
+          href="/modules/M26/review-due"
+        />
+        <StatCard
+          label="Rủi ro mất tri thức"
+          value={atRiskCount}
+          tone={atRiskCount > 0 ? "crit" : "good"}
+          href="/modules/M26/knowledge-risk"
+        />
+        <StatCard
+          label="Trong chỉ mục trợ lý AI"
+          value={indexedCount}
+          href="/modules/M26?loc=ai#muc-tri-thuc"
+        />
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="muc-tri-thuc" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Mục tri thức</h2>
           <div className="flex flex-wrap gap-2">
@@ -114,6 +122,15 @@ export default async function M26ListPage() {
           </div>
         </div>
 
+        {aiOnly && (
+          <p className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
+            Đang lọc: <strong className="text-ink">Trong chỉ mục trợ lý AI</strong> ({listed.length} mục)
+            <Link href="/modules/M26#muc-tri-thuc" className="font-medium text-accent hover:underline">
+              Bỏ lọc
+            </Link>
+          </p>
+        )}
+
         {hiddenCount > 0 && (
           <p className="text-xs text-ink-3">
             {hiddenCount} mục không hiển thị do vượt mức bảo mật của vai trò hiện tại (ETV.P26 mục 5.1.4).
@@ -136,7 +153,7 @@ export default async function M26ListPage() {
               </tr>
             </thead>
             <tbody>
-              {items.map((i) => {
+              {listed.map((i) => {
                 const due = i.status === "APPROVED" && isDueForReview(i.reviewCycle, i.lastReviewedAt ?? i.approvedAt);
                 return (
                   <tr key={i.id} className="border-b border-border last:border-0 hover:bg-sunk">
@@ -174,10 +191,12 @@ export default async function M26ListPage() {
                   </tr>
                 );
               })}
-              {items.length === 0 && (
+              {listed.length === 0 && (
                 <tr>
                   <td colSpan={9} className="px-3 py-6 text-center text-sm text-ink-3">
-                    Chưa có mục tri thức nào hiển thị với vai trò hiện tại.
+                    {aiOnly
+                      ? "Chưa có mục tri thức nào nằm trong chỉ mục trợ lý AI."
+                      : "Chưa có mục tri thức nào hiển thị với vai trò hiện tại."}
                   </td>
                 </tr>
               )}

@@ -16,8 +16,8 @@ Các tầng đánh số `01_` … `12_` và đọc theo thứ tự — mỗi t�
 |---|---|---|---|
 | `02_CAPABILITIES` ⭐ | Viện làm được gì? | `CAP-xx_Slug/` = `capability.yaml` + `README.md`, link tới MP hiện thực năng lực đó | Chi tiết triển khai |
 | `03_MANAGEMENT_SYSTEM` | Theo luật chơi nào? | Chuẩn mực kiểm soát ISO: `01_QM` (sổ tay chất lượng), `02_P` (thủ tục ETV.Pxx), `03_M` (quy trình kỹ thuật/SOP), `04_F` (biểu mẫu gốc), `05_R` (hồ sơ) | Nội dung thủ tục MP, biểu mẫu đã điền |
-| `04_PROCESS_LIBRARY` ⭐ | Làm thế nào? | 38 thư mục `MPxx_Slug/` **Hub** — xem Mẫu Hub bên dưới | Nội dung thủ tục đầy đủ, bản copy biểu mẫu |
-| `05_MODULE_LIBRARY` ⭐ | Số hóa bằng gì? | 38 đặc tả module `Mxx_Slug/`, ánh xạ 1–1 với MPxx — xem Mẫu Module bên dưới | Dữ liệu nghiệp vụ/sản xuất thật |
+| `04_PROCESS_LIBRARY` ⭐ | Làm thế nào? | 46 thư mục `MPxx_Slug/` **Hub** — xem Mẫu Hub bên dưới | Nội dung thủ tục đầy đủ, bản copy biểu mẫu |
+| `05_MODULE_LIBRARY` ⭐ | Số hóa bằng gì? | 38 đặc tả module `Mxx_Slug/`, ánh xạ 1–1 với MPxx (MP44–51 Kế toán chưa số hóa) — xem Mẫu Module bên dưới | Dữ liệu nghiệp vụ/sản xuất thật |
 | `06_SHARED_RESOURCES` ⭐ | Tài nguyên dùng chung | Biểu mẫu gốc chưa điền, template, master data, branding — một nguồn sự thật | Hồ sơ đã điền/đã phát hành |
 | `07_AI_OPERATING_SYSTEM` ⭐ | AI vận hành ra sao | Skill (`01_Skills`), Agent, Guardrail, Policy, cấu hình MCP | Dữ liệu mật trong prompt |
 | `08_KNOWLEDGE_GRAPH` ⭐ | AI đọc ở đâu | Quy định pháp luật, tiêu chuẩn ISO/TCVN/QCVN, ontology, vector DB, `Wiki/` (tóm tắt có biên soạn từ `00_RAW_DATA/`) | Chuẩn mực kiểm soát nội bộ (thuộc tầng 03) |
@@ -80,6 +80,17 @@ python3 _meta/validate_links.py
 
 Kiểm tra: (1) mọi link tương đối trong `links.yaml`/`capability.yaml` phải trỏ tới đường dẫn có thật, (2) mọi Hub `MPxx` phải đủ 3 file bắt buộc, (3) mọi module `Mxx` phải có `README.md`. Thoát với mã lỗi khác 0 nếu có vấn đề. Kiểm tra này cũng chạy trong CI (`.github/workflows/validate-links.yml`) ở mỗi lần push/PR.
 
+Bộ kiểm thứ hai, ở mức **điều khoản** thay vì mức đường dẫn file:
+
+```bash
+python3 _meta/validate_citations.py          # cảnh báo, luôn thoát 0
+python3 _meta/validate_citations.py --chan   # thoát khác 0 nếu có lỗi — CI đang chạy chế độ này
+```
+
+Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ tới một mục **có thật** trong file thủ tục tương ứng. Cần bộ kiểm này vì lập luận tuân thủ không đứng trên tên tài liệu mà đứng trên điều khoản: không ai viết "theo ETV.P28" rồi dừng, người ta viết "ETV.P28 §5.13" và xây kết luận trên đúng mục đó. Đo lần đầu 25/08/2026: **0** trích dẫn hỏng ở mức tên tài liệu, **11** ở mức điều khoản — trong đó 2 nằm trong một phiếu trình Lãnh đạo Viện. Đã sửa hết trong ngày; CI nay chạy chế độ **chặn** để lỗi mới không tích lại.
+
+**Giới hạn phải biết:** công cụ bắt được "mục không tồn tại", **không** bắt được "mục có thật nhưng sai mục" (vd dẫn RACI vào mục Thuật ngữ). Lớp lỗi đó nguy hơn vì người đọc mở ra thấy một mục hợp lệ nên tin luôn; nó cần đối chiếu ngữ nghĩa, cố ý không làm. Quét sạch **không** đồng nghĩa với trích dẫn đúng.
+
 ## Cổng thông tin GitHub Pages (`docs/`)
 
 Một trang duyệt tương tác gồm một file duy nhất (`docs/index.html`, không cần build, không phụ thuộc ngoài) giúp nhân sự và đoàn đánh giá duyệt toàn bộ repo và mở tài liệu qua liên kết sâu (`#/p/<đường-dẫn>`). Dữ liệu lấy từ `docs/data.json`, sinh ra bằng cách quét repo:
@@ -120,3 +131,14 @@ Mỗi thư mục skill cần `SKILL.md` với frontmatter `name:` kebab-case —
 - Commit message: theo phong cách Conventional Commits, gắn scope là tầng/module bị chỉnh sửa, viết tiếng Việt: `feat(M10): ...`, `docs(P01): ...`, `chore(M21): ...`, `refactor(P01): ...`.
 - Luồng chuẩn: tạo nhánh mới → commit → PR vào `main` → merge (`--merge --delete-branch`) → đồng bộ `main` cục bộ. Có hook `post-commit` tự động push.
 - File PDF lớn hơn giới hạn 100MB của GitHub bị loại trừ qua `.gitignore` và chỉ giữ ở local (xem hai dòng dưới `08_KNOWLEDGE_GRAPH/14_Technical_References/`) — không cố force-add các file này.
+
+## Quy tắc mở phiên mới (bắt buộc)
+
+Mỗi phiên Claude Code mới (`+ New`) chỉ tách riêng **ngữ cảnh hội thoại** — thư mục làm việc, cây git và nhánh đang checkout vẫn **dùng chung** cho mọi phiên. Vì vậy hai phiên chạy song song trên cùng thư mục sẽ commit đè lên nhánh của nhau. Trước khi đụng bất kỳ file nào:
+
+1. **Kiểm tra chỗ đứng**: `git branch --show-current`, `git status -s`, `git worktree list`, và `ListAgents` (xem có phiên nào đang chạy).
+2. **Nếu không đứng trên `main` sạch** — đang ở nhánh dở dang của phiên khác, hoặc working tree còn thay đổi chưa commit không phải của mình — **dừng lại và báo người dùng**, không commit tiếp vào nhánh đó.
+3. **Một yêu cầu = một nhánh.** Đặt tên nhánh theo yêu cầu đang làm, không tái sử dụng nhánh cũ cho việc mới.
+4. **Chạy song song thì phải tách vật lý**: nếu buộc phải làm khi phiên khác đang mở, tạo `git worktree` riêng (thư mục riêng + nhánh riêng) thay vì dùng chung cây làm việc chính.
+5. **Dứt điểm trước khi mở phiên mới**: PR → merge → `git checkout main && git pull` → **xóa nhánh** (cả local và remote). Không để nhánh sống qua đêm — nhánh đã merge còn sót lại là nguồn nhầm lẫn chính giữa các phiên.
+

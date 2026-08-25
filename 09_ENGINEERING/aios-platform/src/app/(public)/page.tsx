@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { MENU_GROUPS, DEFAULT_MENU_GROUP } from "@/lib/menu";
+import { StatCard } from "@/components/StatCard";
 
 // Trang chủ CÔNG KHAI — người đọc chưa đăng nhập và có thể chưa biết ETV là gì.
 // Không đặt liên kết vào /modules/* ở đây: những đường dẫn đó bị middleware chặn,
@@ -205,11 +206,22 @@ export default async function PublicHomePage() {
     count: modules.filter((m) => (m.menuGroup ?? DEFAULT_MENU_GROUP) === g.code).length,
   })).filter((g) => g.count > 0);
 
+  // Khách chưa đăng nhập chỉ được dẫn tới mục "Phạm vi quản lý" ngay trên trang này —
+  // bản đồ nghiệp vụ chi tiết nằm sau đăng nhập, không mời người ta bấm vào chỗ bị chặn.
   const stats = [
-    { label: "Module kiến trúc", value: total },
-    { label: "Module đang vận hành", value: activeCount },
-    { label: "Thủ tục đã ban hành", value: issued },
-    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length },
+    { label: "Module kiến trúc", value: total, href: signedIn ? "/dashboard#ban-do-nghiep-vu" : "#pham-vi" },
+    {
+      label: "Module đang vận hành",
+      value: activeCount,
+      tone: "good" as const,
+      href: signedIn ? "/dashboard?xem=active#ban-do-nghiep-vu" : "#pham-vi",
+    },
+    {
+      label: "Thủ tục đã ban hành",
+      value: issued,
+      href: signedIn ? "/dashboard?xem=issued#ban-do-nghiep-vu" : "#kiem-soat",
+    },
+    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length, href: "#pham-vi" },
   ];
 
   return (
@@ -390,15 +402,16 @@ export default async function PublicHomePage() {
               </article>
             ))}
           </div>
-          <div
-            className="mt-4 grid gap-4 rounded-2xl border border-border bg-sunk p-5 sm:grid-cols-2 lg:grid-cols-4 lg:p-6"
-            aria-label="Quy mô nền tảng hiện tại"
-          >
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Quy mô nền tảng hiện tại">
             {stats.map((item) => (
-              <div key={item.label} className="border-border first:border-l-0 first:pl-0 sm:border-l sm:pl-5">
-                <p className="font-head text-3xl font-bold tabular-nums text-ink">{item.value}</p>
-                <p className="mt-1 text-sm text-ink-2">{item.label}</p>
-              </div>
+              <StatCard
+                key={item.label}
+                label={item.label}
+                value={item.value}
+                tone={item.tone}
+                href={item.href}
+                linkLabel={item.href.startsWith("#") ? "Xem chi tiết" : "Mở bảng điều khiển"}
+              />
             ))}
           </div>
         </section>

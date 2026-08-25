@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { usePathname } from "next/navigation";
 import { askCopilot } from "@/lib/m29/copilot/actions";
+import { goiYTheoModule, goiYTiepTheo, maModuleTuDuongDan, type ModuleGoiY } from "@/lib/m29/copilot/goi-y";
 
 interface Citation {
   path: string;
@@ -25,12 +26,6 @@ interface Msg {
 // Cổng tài liệu để mở file gốc trong repo — dùng lại đúng biến của CanCuBanner.
 const DOCS_PORTAL = process.env.NEXT_PUBLIC_DOCS_PORTAL_URL ?? "https://namdtvast.github.io/MANLAB-AIOS/";
 const portalHref = (repoPath: string) => `${DOCS_PORTAL.replace(/\/$/, "")}/#/p/${repoPath}`;
-
-const GOI_Y = [
-  "Phát hiện công việc không phù hợp thì làm theo thủ tục nào, biểu mẫu gì?",
-  "Thủ tục kiểm soát tài liệu quy định gì về ban hành lại?",
-  "Module nào số hóa thủ tục đảm bảo giá trị sử dụng kết quả?",
-];
 
 /** Tách đường dẫn repo trong câu trả lời thành liên kết mở được. */
 function renderAnswer(text: string) {
@@ -52,7 +47,20 @@ function renderAnswer(text: string) {
   });
 }
 
-export function CopilotDrawer() {
+function ChipGoiY({ text, onPick, disabled }: { text: string; onPick: (t: string) => void; disabled: boolean }) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      onClick={() => onPick(text)}
+      className="block w-full cursor-pointer rounded-lg border border-border bg-surface px-3 py-2 text-left text-xs text-ink-2 transition-colors hover:border-border-strong hover:text-ink disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      {text}
+    </button>
+  );
+}
+
+export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [threadId, setThreadId] = useState<string | null>(null);
@@ -60,12 +68,41 @@ export function CopilotDrawer() {
   const [draft, setDraft] = useState("");
   const [isPending, startTransition] = useTransition();
   const endRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isPending]);
 
-  const moduleContext = /\/modules\/(M\d{2})/.exec(pathname ?? "")?.[1] ?? null;
+  // Đóng khi bấm ra ngoài khay hoặc bấm Esc.
+  //
+  // CỐ Ý KHÔNG dùng mouseleave: người dùng chỉ cần đưa chuột ra ngoài để đọc trang là khay đóng,
+  // mất luôn câu đang gõ dở. Bấm-ra-ngoài là hành vi có chủ đích, đúng thói quen của mọi hộp thoại.
+  // Trạng thái hội thoại giữ nguyên khi đóng — mở lại vẫn thấy đủ lượt hỏi cũ.
+  useEffect(() => {
+    if (!open) return;
+    const ngoaiKhay = (e: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const phimEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", ngoaiKhay);
+    document.addEventListener("keydown", phimEsc);
+    return () => {
+      document.removeEventListener("mousedown", ngoaiKhay);
+      document.removeEventListener("keydown", phimEsc);
+    };
+  }, [open]);
+
+  const maModule = maModuleTuDuongDan(pathname);
+  const moduleHienTai = maModule ? (modules.find((m) => m.code === maModule) ?? null) : null;
+  const goiYMoDau = goiYTheoModule(moduleHienTai);
+
+  // Gợi ý tiếp theo sinh từ nguồn mà câu trả lời CUỐI CÙNG đã dẫn — chỉ hiện khi không đang chờ.
+  const cuoi = messages[messages.length - 1];
+  const daHoi = messages.filter((m) => m.role === "user").map((m) => m.content);
+  const goiYTiep = !isPending && cuoi?.role === "assistant" && !cuoi.refused ? goiYTiepTheo(cuoi.citations, daHoi) : [];
 
   const send = (text: string) => {
     const question = text.trim();
@@ -74,7 +111,7 @@ export function CopilotDrawer() {
     setMessages((m) => [...m, { role: "user", content: question, citations: [] }]);
     startTransition(async () => {
       try {
-        const r = await askCopilot({ threadId, question, moduleContext });
+        const r = await askCopilot({ threadId, question, moduleContext: maModule });
         setThreadId(r.threadId);
         setMessages((m) => [...m, { role: "assistant", content: r.answer, citations: r.citations, refused: !r.ok }]);
       } catch {
@@ -102,17 +139,25 @@ export function CopilotDrawer() {
     );
 
   return (
-    <aside className="fixed bottom-0 right-0 z-30 flex h-[min(38rem,100dvh)] w-full flex-col border-l border-t border-border bg-surface shadow-2xl sm:bottom-4 sm:right-4 sm:h-[min(38rem,calc(100dvh-2rem))] sm:w-[24rem] sm:rounded-xl sm:border">
+    // Nền dùng bg-bg — ĐÚNG nền của nền tảng, không phải bg-surface. Khay nổi trên vùng nội dung
+    // chính (vốn là bg-bg); dùng surface làm cả tấm khay khiến nó sáng hơn hẳn trang và trông như
+    // một cửa sổ của ứng dụng khác. Chiều sâu tạo bằng viền + đổ bóng, không bằng đổi màu nền.
+    <aside
+      ref={panelRef}
+      className="fixed bottom-0 right-0 z-30 flex h-[min(38rem,100dvh)] w-full flex-col border-l border-t border-border bg-bg shadow-2xl sm:bottom-4 sm:right-4 sm:h-[min(38rem,calc(100dvh-2rem))] sm:w-[24rem] sm:rounded-xl sm:border"
+    >
       <header className="flex items-center justify-between border-b border-border px-4 py-3">
-        <div>
+        <div className="min-w-0">
           <p className="text-sm font-semibold text-ink">Copilot tra cứu</p>
-          <p className="text-[11px] text-ink-3">Chỉ đọc tài liệu đã ban hành · M29</p>
+          <p className="truncate text-[11px] text-ink-3">
+            Chỉ đọc tài liệu đã ban hành · {moduleHienTai ? `${moduleHienTai.code} · ${moduleHienTai.name}` : "M29"}
+          </p>
         </div>
         <button
           type="button"
           onClick={() => setOpen(false)}
           aria-label="Đóng Copilot"
-          className="cursor-pointer rounded-lg border border-border px-2 py-1 text-sm text-ink-2 transition-colors hover:border-border-strong hover:text-ink"
+          className="shrink-0 cursor-pointer rounded-lg border border-border px-2 py-1 text-sm text-ink-2 transition-colors hover:border-border-strong hover:text-ink"
         >
           ✕
         </button>
@@ -122,17 +167,12 @@ export function CopilotDrawer() {
         {messages.length === 0 && (
           <div className="space-y-2">
             <p className="text-xs text-ink-2">
-              Hỏi về thủ tục ETV.Pxx, biểu mẫu, tiêu chuẩn hoặc module. Câu trả lời luôn kèm đường dẫn tài liệu gốc.
+              {moduleHienTai
+                ? `Hỏi về ${moduleHienTai.name}${moduleHienTai.docId ? ` (${moduleHienTai.docId})` : ""}, biểu mẫu hoặc module khác. Câu trả lời luôn kèm đường dẫn tài liệu gốc.`
+                : "Hỏi về thủ tục ETV.Pxx, biểu mẫu, tiêu chuẩn hoặc module. Câu trả lời luôn kèm đường dẫn tài liệu gốc."}
             </p>
-            {GOI_Y.map((g) => (
-              <button
-                key={g}
-                type="button"
-                onClick={() => send(g)}
-                className="block w-full cursor-pointer rounded-lg border border-border px-3 py-2 text-left text-xs text-ink-2 transition-colors hover:border-border-strong hover:text-ink"
-              >
-                {g}
-              </button>
+            {goiYMoDau.map((g) => (
+              <ChipGoiY key={g} text={g} onPick={send} disabled={isPending} />
             ))}
           </div>
         )}
@@ -143,7 +183,7 @@ export function CopilotDrawer() {
               className={
                 m.role === "user"
                   ? "max-w-[85%] rounded-xl rounded-br-sm bg-accent-soft px-3 py-2 text-sm text-ink"
-                  : `max-w-full rounded-xl rounded-bl-sm border px-3 py-2 text-sm ${m.refused ? "border-warn-soft bg-warn-soft text-ink" : "border-border bg-sunk text-ink"}`
+                  : `max-w-full rounded-xl rounded-bl-sm border px-3 py-2 text-sm ${m.refused ? "border-warn-soft bg-warn-soft text-ink" : "border-border bg-surface text-ink"}`
               }
             >
               <p className="whitespace-pre-wrap">{m.role === "assistant" ? renderAnswer(m.content) : m.content}</p>
@@ -163,6 +203,15 @@ export function CopilotDrawer() {
             </div>
           </div>
         ))}
+
+        {goiYTiep.length > 0 && (
+          <div className="space-y-1.5 pt-1">
+            <p className="text-[11px] text-ink-3">Hỏi tiếp:</p>
+            {goiYTiep.map((g) => (
+              <ChipGoiY key={g} text={g} onPick={send} disabled={isPending} />
+            ))}
+          </div>
+        )}
 
         {isPending && <p className="text-xs text-ink-3">Đang tra cứu…</p>}
         <div ref={endRef} />
@@ -187,7 +236,7 @@ export function CopilotDrawer() {
             }}
             rows={2}
             placeholder="Hỏi về thủ tục, biểu mẫu, tiêu chuẩn…"
-            className="min-h-[2.5rem] flex-1 resize-none rounded-lg border border-border bg-bg px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-3 focus:border-border-strong"
+            className="min-h-[2.5rem] flex-1 resize-none rounded-lg border border-border bg-surface px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-3 focus:border-border-strong"
           />
           <button
             type="submit"

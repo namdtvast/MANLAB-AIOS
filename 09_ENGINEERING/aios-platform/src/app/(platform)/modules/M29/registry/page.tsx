@@ -2,7 +2,10 @@ import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import { APPROVAL_STATUS_LABEL, APPROVAL_STATUS_TONE, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m29/labels";
+import { ADAPTER_TYPES } from "@/lib/m29/adapters";
 import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { NewPlatformForm } from "./NewPlatformForm";
+import { NewToolForm } from "./NewToolForm";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -18,7 +21,7 @@ export default async function M29RegistryPage() {
 
   const [platforms, providers, models, skills, tools] = await Promise.all([
     prisma.aIPlatform.findMany({ orderBy: { code: "asc" } }),
-    prisma.aIProvider.findMany({ orderBy: { code: "asc" } }),
+    prisma.aIProvider.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
     prisma.aIModel.findMany({ orderBy: { modelId: "asc" }, include: { provider: true } }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" } }),
     prisma.aITool.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
@@ -31,8 +34,9 @@ export default async function M29RegistryPage() {
         <h1 className="font-head text-2xl font-bold text-ink">Provider · Model · Skill · Tool · Platform</h1>
       </div>
 
-      <section>
+      <section id="platform" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
+        {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
@@ -67,8 +71,14 @@ export default async function M29RegistryPage() {
         </div>
       </section>
 
-      <section>
+      <section id="tool" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
+        {canWriteRegistry && (
+          <NewToolForm
+            platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            existingCodes={tools.map((t) => t.code)}
+          />
+        )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
@@ -112,6 +122,9 @@ export default async function M29RegistryPage() {
             {providers.map((p) => (
               <li key={p.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
                 {p.name} <span className="text-xs text-ink-3">({OP_STATUS_LABEL[p.status]})</span>
+                {/* Nhà cung cấp tự vận hành phải gắn nền tảng — đó là nơi giữ endpoint và trạng
+                    thái kiểm tra sức khoẻ. Dịch vụ ngoài Viện để trống là bình thường. */}
+                <span className="text-xs text-ink-3">{p.platform ? ` · nền tảng ${p.platform.code}` : " · không gắn nền tảng"}</span>
               </li>
             ))}
           </ul>

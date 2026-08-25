@@ -76,7 +76,9 @@ export default async function PlatformLayout({
         </header>
         <main className="flex-1 overflow-y-auto p-4 sm:p-6">{children}</main>
       </div>
-      {showCopilot && <CopilotDrawer />}
+      {/* Gợi ý câu hỏi bám dữ liệu module thật (PlatformModule, seed từ manifest.yaml) — không
+          viết cứng 38 × 3 câu ở giao diện. Chỉ truyền 3 trường cần dùng, không truyền cả bản ghi. */}
+      {showCopilot && <CopilotDrawer modules={modules.map((m) => ({ code: m.code, name: m.name, docId: m.docId }))} />}
     </div>
   );
 }

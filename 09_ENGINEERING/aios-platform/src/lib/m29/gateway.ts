@@ -262,7 +262,8 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     return refuse("QUOTA_EXCEEDED", `Copilot đã dùng hết hạn mức chi phí tháng (${budget} USD). Liên hệ quản trị AI để xem xét.`);
 
   // (6) Truy hồi ngữ cảnh. Không có trích đoạn ⇒ từ chối, KHÔNG gọi API, vẫn ghi trace.
-  const passages = await retrieve(question);
+  // Trần mức bảo mật lấy từ CHÍNH nền tảng sẽ nhận dữ liệu, không phải một cài đặt toàn cục.
+  const passages = await retrieve(question, agent.platform.dataBoundary);
   if (passages.length === 0) return refuse("NO_SOURCE", NO_SOURCE_ANSWER, "BLOCK:GR-NO-SOURCE");
 
   // (7) Gọi nhà cung cấp mô hình qua adapter.
@@ -287,8 +288,14 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     });
     const message =
       result.errorCode === "NO_API_KEY"
-        ? "Copilot chưa được cấu hình khóa API (ANTHROPIC_API_KEY) trên máy chủ."
-        : `Không gọi được dịch vụ mô hình (${result.errorCode}). Vui lòng thử lại sau.`;
+        ? // Tên biến môi trường giữ khóa khác nhau theo từng nền tảng mô hình, nên KHÔNG ghi cứng
+          // một tên vào đây — nêu tên nền tảng để quản trị biết phải cấu hình khóa cho cái nào.
+          `Copilot chưa được cấu hình khóa API trên máy chủ cho nền tảng "${agent.platform.name}".`
+        : result.errorCode === "RATE_LIMITED"
+          ? // Bậc dịch vụ miễn phí giới hạn số lượt rất chặt — người dùng gặp lỗi này thường xuyên,
+            // nên nói đúng nguyên nhân thay vì một mã lỗi kỹ thuật họ không làm gì được.
+            "Dịch vụ mô hình đang giới hạn số lượt hỏi. Thử lại sau ít phút, hoặc liên hệ quản trị AI nếu lặp lại nhiều lần."
+          : `Không gọi được dịch vụ mô hình (${result.errorCode}). Vui lòng thử lại sau.`;
     return { ok: false, requestId: r.id, answer: message, citations: [], code: result.errorCode };
   }
 

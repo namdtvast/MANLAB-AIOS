@@ -1,6 +1,6 @@
 # ETV.P.F 14.01 — Phiếu đề nghị soát xét, sửa đổi, ban hành văn bản
 
-> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §10.1 bước 1–2. Không điền dữ liệu thật vào file này; nhân bản để sử dụng trong ManLab hoặc bản in.
+> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §6.6.1 bước 1–2. Không điền dữ liệu thật vào file này; nhân bản để sử dụng trong ManLab hoặc bản in.
 
 | Trường | Nội dung |
 |---|---|

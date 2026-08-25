@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 VI.3)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (ETV.P14 §6.3)
 id: ETV.P31
 title: "Thủ tục Quản lý tính liên tục hoạt động"
 type: Thu-tuc

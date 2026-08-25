@@ -30,7 +30,7 @@
 | UNKNOWN | Chưa bật kiểm tra sức khỏe hoặc kiểm tra không chạy | Tiến trình tự động |
 
 Chỉ áp dụng cho bản ghi ở trạng thái **Hiệu lực**. Health đổi **không** đưa bản ghi quay lại quy
-trình soát xét/phê duyệt. Ngưỡng sinh sự cố (ETV.P35 mục 5.3.2): mức Cao DOWN ⇒ báo trong 01 giờ ·
+trình soát xét/phê duyệt. Ngưỡng sinh sự cố (ETV.P35 §6.3.2): mức Cao DOWN ⇒ báo trong 01 giờ ·
 mức Cao DEGRADED > 24 giờ · mức Trung bình DOWN > 24 giờ · UNKNOWN > 07 ngày = **mất giám sát**.
 
 ## 3. Trạng thái thực thể phụ
