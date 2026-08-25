@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP34
 slug: DuLieuSo
 name: Quản lý dữ liệu số
+purpose: >-
+  Quản lý dữ liệu số trong toàn bộ vòng đời — tạo lập, thu thập, xử lý, lưu trữ, khai thác, chia
+  sẻ, cập nhật, hủy bỏ; bảo đảm tính chính xác, toàn vẹn, khả năng truy xuất và bảo mật thông tin
+  (QM §10.3).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO27001', 'ISO42001']

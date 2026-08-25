@@ -2,6 +2,9 @@ schema: manlab-aios/process@1.2
 code: MP06
 slug: MuaSam
 name: Mua sản phẩm và dịch vụ do bên ngoài cung cấp
+purpose: >-
+  Lựa chọn, đánh giá và kiểm soát nhà cung cấp; bảo đảm sản phẩm, dịch vụ mua ngoài đáp ứng yêu
+  cầu kỹ thuật và chất lượng theo ISO/IEC 17025:2017 và ISO 17034:2016.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

@@ -2,6 +2,9 @@ schema: manlab-aios/process@1.2
 code: MP15
 slug: HoSo
 name: Kiểm soát hồ sơ
+purpose: >-
+  Kiểm soát, lưu trữ và bảo quản hồ sơ, dữ liệu đo lường, dữ liệu kỹ thuật thô và chứng chỉ trong
+  suốt vòng đời; bảo đảm toàn vẹn, chính xác, bảo mật, truy cập được và lưu trữ lâu dài.
 owner: "(cập nhật)"
 status: active
 standards: ['ISO17025']

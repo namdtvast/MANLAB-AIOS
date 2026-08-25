@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP30
 slug: ThayDoi
 name: Quản lý thay đổi
+purpose: >-
+  Kiểm soát mọi thay đổi ảnh hưởng tới hệ thống quản lý, hoạt động kỹ thuật, nhân sự, thiết bị,
+  phương pháp, phần mềm và dữ liệu — xem xét, đánh giá rủi ro, phê duyệt, triển khai và đánh giá
+  hiệu lực trước khi áp dụng chính thức (QM §9.7).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO9001']

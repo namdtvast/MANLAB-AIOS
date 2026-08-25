@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP28
 slug: ATTT
 name: Quản lý an toàn thông tin
+purpose: >-
+  Thiết lập, vận hành, duy trì và cải tiến Hệ thống quản lý an toàn thông tin (ISMS); bảo đảm tính
+  bí mật, toàn vẹn, sẵn sàng của thông tin và xử lý rủi ro, sự cố an toàn thông tin theo ISO/IEC
+  27001.
 owner: "Người phụ trách an toàn thông tin (PT.ATTT)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']

@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP35
 slug: NenTangSo
 name: Quản lý nền tảng số
+purpose: >-
+  Đăng ký, đánh giá, phê duyệt vận hành, giám sát, thay đổi và ngừng vận hành nền tảng số của
+  Viện; bảo đảm mọi nền tảng đều có chủ sở hữu, đúng môi trường, đúng mức bảo mật, không có nền
+  tảng dùng chui.
 owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']

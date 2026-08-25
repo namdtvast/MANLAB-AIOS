@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP27
 slug: TaiSanTT
 name: Quản trị dữ liệu và tài sản thông tin
+purpose: >-
+  Quản trị dữ liệu và tài sản thông tin trong toàn bộ vòng đời — tạo lập, sử dụng, lưu giữ, chia
+  sẻ, sao lưu, hủy bỏ; bảo đảm dữ liệu chính xác, đầy đủ, bảo mật, toàn vẹn, truy xuất nguồn gốc
+  và sẵn sàng (QM §9.4).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO27001']
