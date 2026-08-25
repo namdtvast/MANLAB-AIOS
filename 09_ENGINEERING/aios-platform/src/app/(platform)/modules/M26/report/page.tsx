@@ -13,9 +13,10 @@ import {
   SHARING_FORM_LABEL,
 } from "@/lib/m26/labels";
 import { fmtDate, th } from "../_ui";
+import { StatCard } from "@/components/StatCard";
 
-const Section = ({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) => (
-  <section className="flex flex-col gap-2">
+const Section = ({ id, title, note, children }: { id: string; title: string; note?: string; children: React.ReactNode }) => (
+  <section id={id} className="flex scroll-mt-24 flex-col gap-2">
     <h2 className="font-head text-sm font-bold text-ink">{title}</h2>
     {note && <p className="text-xs text-ink-3">{note}</p>}
     <div className="overflow-x-auto rounded-xl border border-border bg-surface">{children}</div>
@@ -108,23 +109,30 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {[
-          { label: "Tri thức mới phê duyệt", value: approvedInPeriod.length },
-          { label: "Mục hết hiệu lực", value: retiredInPeriod.length },
-          { label: "Quá hạn rà soát", value: due.length },
-          { label: "Quá 2 chu kỳ — báo LĐV", value: overdue2.length },
-          { label: "Bài học đã kết tinh", value: approvedLessons.length },
-          { label: "Bài học đang xử lý", value: pendingLessons.length },
-          { label: "Nhu cầu chưa đáp ứng", value: needs.length },
-          { label: "Rủi ro mất tri thức", value: singlePoint.length },
+          { label: "Tri thức mới phê duyệt", value: approvedInPeriod.length, href: "#tri-thuc-moi" },
+          { label: "Mục hết hiệu lực", value: retiredInPeriod.length, href: "#het-hieu-luc" },
+          { label: "Quá hạn rà soát", value: due.length, tone: due.length > 0 ? ("warn" as const) : ("good" as const), href: "#qua-han" },
+          {
+            label: "Quá 2 chu kỳ — báo LĐV",
+            value: overdue2.length,
+            tone: overdue2.length > 0 ? ("crit" as const) : ("good" as const),
+            href: "#qua-han",
+          },
+          { label: "Bài học đã kết tinh", value: approvedLessons.length, href: "#bai-hoc" },
+          { label: "Bài học đang xử lý", value: pendingLessons.length, href: "#bai-hoc" },
+          { label: "Nhu cầu chưa đáp ứng", value: needs.length, href: "#nhu-cau" },
+          {
+            label: "Rủi ro mất tri thức",
+            value: singlePoint.length,
+            tone: singlePoint.length > 0 ? ("crit" as const) : ("good" as const),
+            href: "#rui-ro",
+          },
         ].map((c) => (
-          <div key={c.label} className="rounded-xl border border-border bg-surface px-4 py-3">
-            <p className="text-xs text-ink-3">{c.label}</p>
-            <p className="mt-1 font-head text-xl font-bold text-ink">{c.value}</p>
-          </div>
+          <StatCard key={c.label} label={c.label} value={c.value} tone={c.tone} href={c.href} linkLabel="Xem mục" />
         ))}
       </section>
 
-      <Section title="1. Tri thức mới được phê duyệt trong kỳ">
+      <Section id="tri-thuc-moi" title="1. Tri thức mới được phê duyệt trong kỳ">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -158,7 +166,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="2. Mục hết hiệu lực trong kỳ" note="Mục hết hiệu lực tự rời chỉ mục trợ lý AI trong cùng giao dịch (ETV.P26 mục 5.5).">
+      <Section id="het-hieu-luc" title="2. Mục hết hiệu lực trong kỳ" note="Mục hết hiệu lực tự rời chỉ mục trợ lý AI trong cùng giao dịch (ETV.P26 mục 5.5).">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -190,7 +198,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="3. Mục quá hạn rà soát" note="Quá 2 chu kỳ liên tiếp phải nêu đích danh trước Lãnh đạo Viện (ETV.P26 mục 5.1.5).">
+      <Section id="qua-han" title="3. Mục quá hạn rà soát" note="Quá 2 chu kỳ liên tiếp phải nêu đích danh trước Lãnh đạo Viện (ETV.P26 mục 5.1.5).">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -224,7 +232,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="4. Bài học kinh nghiệm trong kỳ">
+      <Section id="bai-hoc" title="4. Bài học kinh nghiệm trong kỳ">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -256,7 +264,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="5. Nhu cầu tri thức chưa đáp ứng" note={`${lateNeeds.length} phiếu đã quá hạn — thuộc nội dung phải báo cáo Lãnh đạo Viện.`}>
+      <Section id="nhu-cau" title="5. Nhu cầu tri thức chưa đáp ứng" note={`${lateNeeds.length} phiếu đã quá hạn — thuộc nội dung phải báo cáo Lãnh đạo Viện.`}>
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -290,7 +298,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="6. Hoạt động chia sẻ tri thức đã thực hiện">
+      <Section id="chia-se" title="6. Hoạt động chia sẻ tri thức đã thực hiện">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>
@@ -326,7 +334,7 @@ export default async function KnowledgeReportPage({ searchParams }: { searchPara
         </table>
       </Section>
 
-      <Section title="7. Rủi ro mất tri thức trọng yếu" note="Đầu vào của ETV.MP01 — tri thức ẩn mức Cao đang phụ thuộc một người.">
+      <Section id="rui-ro" title="7. Rủi ro mất tri thức trọng yếu" note="Đầu vào của ETV.MP01 — tri thức ẩn mức Cao đang phụ thuộc một người.">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>
             <tr>

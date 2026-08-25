@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM13Role } from "@/lib/m13/actor";
 import { CAP_STATUS_LABEL, M13_ROLE_LABEL, NCW_STATUS_LABEL, SEVERITY_LABEL, SOURCE_TYPE_LABEL } from "@/lib/m13/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { StatCard } from "@/components/StatCard";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -28,7 +29,13 @@ const NCW_TONE: Record<string, string> = {
 
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M13ListPage() {
+const LOC_LABEL: Record<string, string> = {
+  "chua-dong": "Hồ sơ chưa đóng",
+  "dung-viec": "Đang dừng công việc",
+};
+
+export default async function M13ListPage({ searchParams }: { searchParams: Promise<{ loc?: string }> }) {
+  const { loc } = await searchParams;
   const [items, role] = await Promise.all([
     prisma.m13NonconformingWork.findMany({
       orderBy: { createdAt: "desc" },
@@ -39,6 +46,15 @@ export default async function M13ListPage() {
 
   const stoppedCount = items.filter((n) => n.stoppedWork).length;
   const openCount = items.filter((n) => n.status !== "DA_KHAC_PHUC").length;
+
+  // Bộ lọc nông từ thẻ chỉ số — bấm vào con số thì thấy đúng những hồ sơ làm nên con số đó.
+  const filter = loc && LOC_LABEL[loc] ? loc : null;
+  const listed =
+    filter === "chua-dong"
+      ? items.filter((n) => n.status !== "DA_KHAC_PHUC")
+      : filter === "dung-viec"
+        ? items.filter((n) => n.stoppedWork)
+        : items;
 
   return (
     <div className="flex flex-col gap-8">
@@ -54,27 +70,33 @@ export default async function M13ListPage() {
       <CanCuBanner moduleCode="M13" />
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-3">Hồ sơ chưa đóng</p>
-          <p className="font-head text-2xl font-bold text-ink">{openCount}</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-3">Đang dừng công việc</p>
-          <p className={`font-head text-2xl font-bold ${stoppedCount > 0 ? "text-crit" : "text-ink"}`}>{stoppedCount}</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-4">
-          <p className="text-xs text-ink-3">Tổng hồ sơ</p>
-          <p className="font-head text-2xl font-bold text-ink">{items.length}</p>
-        </div>
+        <StatCard label="Hồ sơ chưa đóng" value={openCount} href="/modules/M13?loc=chua-dong#so-theo-doi" />
+        <StatCard
+          label="Đang dừng công việc"
+          value={stoppedCount}
+          tone={stoppedCount > 0 ? "crit" : "ink"}
+          href="/modules/M13?loc=dung-viec#so-theo-doi"
+        />
+        <StatCard label="Tổng hồ sơ" value={items.length} href="/modules/M13#so-theo-doi" />
       </div>
 
-      <section className="flex flex-col gap-2">
+      <section id="so-theo-doi" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sổ theo dõi công việc không phù hợp (F13.01)</h2>
           <Link href="/modules/M13/ncw/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
             + Ghi nhận không phù hợp
           </Link>
         </div>
+
+        {filter && (
+          <p className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
+            Đang lọc: <strong className="text-ink">{LOC_LABEL[filter]}</strong> ({listed.length}/{items.length} hồ sơ)
+            <Link href="/modules/M13#so-theo-doi" className="font-medium text-accent hover:underline">
+              Bỏ lọc
+            </Link>
+          </p>
+        )}
+
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
@@ -88,7 +110,7 @@ export default async function M13ListPage() {
               </tr>
             </thead>
             <tbody>
-              {items.map((n) => (
+              {listed.map((n) => (
                 <tr key={n.id} className="border-b border-border last:border-0 hover:bg-sunk">
                   <td className="px-3 py-2">
                     <Link href={`/modules/M13/ncw/${n.id}`} className="whitespace-nowrap font-mono text-xs font-medium text-accent hover:underline">
@@ -110,9 +132,11 @@ export default async function M13ListPage() {
                   <td className="px-3 py-2 text-ink-2">{n.detectedBy.name}</td>
                 </tr>
               ))}
-              {items.length === 0 && (
+              {listed.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-3 py-6 text-center text-sm text-ink-3">Chưa có hồ sơ không phù hợp nào.</td>
+                  <td colSpan={6} className="px-3 py-6 text-center text-sm text-ink-3">
+                    {filter ? `Không có hồ sơ nào thuộc nhóm “${LOC_LABEL[filter]}”.` : "Chưa có hồ sơ không phù hợp nào."}
+                  </td>
                 </tr>
               )}
             </tbody>
