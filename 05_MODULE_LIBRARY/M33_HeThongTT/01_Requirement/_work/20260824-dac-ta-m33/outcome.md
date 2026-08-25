@@ -15,7 +15,8 @@ thái, liên thông cross-module M05/M10/M13/M27/M28/M30/M31/M35, sẽ kéo theo
 ## WHAT
 Có một đặc tả đủ để lập trình được cho M33 — số hóa QM §10.2: **kiểm kê – vận hành – bảo trì – kiểm
 soát tài khoản kỹ thuật – xử lý sự cố** đối với hạ tầng CNTT (máy chủ, mạng, thiết bị đầu cuối, phần
-mềm, dịch vụ thuê ngoài), đúng phạm vi mà `ETV.P35` mục 1.4 đã giao cho ETV.MP33.
+mềm, dịch vụ thuê ngoài), đúng phạm vi mà ETV.P35 lần BH 01 mục 1.4 đã giao cho ETV.MP33
+(lần BH 02 trên đĩa đánh số lại thành mục 2.3).
 
 ## WHY
 - QM §10.2 dẫn chiếu Thủ tục ETV.MP33 nhưng **thủ tục và biểu mẫu chưa tồn tại**.
@@ -25,7 +26,7 @@ mềm, dịch vụ thuê ngoài), đúng phạm vi mà `ETV.P35` mục 1.4 đã 
   SoA của M28 có kiểm soát "Áp dụng" mà không chứng minh được.
 - `ETV.P35` (đã ban hành) mục 1.4 giao rõ hạ tầng, máy chủ, mạng, thiết bị đầu cuối và tài khoản
   người dùng cho **ETV.MP33** — nghĩa là M35 đang trỏ xuống một module chưa có nội dung.
-- Rủi ro đặc thù của Viện: **máy tính điều khiển và thu thập dữ liệu của thiết bị đo**. `ETV.P28`
+- Rủi ro đặc thù của Viện: **máy tính điều khiển và thu thập dữ liệu của thiết bị đo**. ETV.P28
   mục 5.7.3 buộc mọi thay đổi trên nhóm này phải qua MP30 và phải đánh giá ảnh hưởng tới hiệu lực
   kết quả đo (MP10). Không có nơi ghi nhận, ràng buộc này chỉ tồn tại trên giấy.
 

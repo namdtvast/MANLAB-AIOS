@@ -16,9 +16,9 @@
 | 6 | Kỳ đối chiếu tài khoản | `/modules/M33/accounts/reconciliation` | QTHT, PT.ATTT, LĐV | Mở kỳ 06 tháng / kỳ đặc quyền – dịch vụ, chốt kỳ thành hồ sơ bất biến (R20) |
 | 7 | Sự cố và hỗ trợ | `/modules/M33/incidents` | Tất cả (báo) · QTHT (xử lý) | Danh sách theo `priority`, đồng hồ **thời hạn phản hồi** và thời hạn xử lý, định tuyến 5 đích, cảnh báo sự cố lặp |
 | 8 | Bảng đến hạn | `/modules/M33/due` | QTHT, VP, LĐV | 7 tab: rà soát · bảo trì · vá lỗi quá hạn · bản quyền–bảo hành–EOL · quá hạn phản hồi sự cố · tài sản chưa kiểm kê quá 30 ngày · ngoài kế hoạch bảo trì năm |
-| 9 | Hạ tầng chưa kiểm kê | `/modules/M33/undiscovered` | QTHT, PT.ATTT | Hàng chờ xử lý theo `ETV.P33` §6.7: lập bản ghi, hạn 30 ngày, cờ đã ngắt mạng, KPH khi có dữ liệu Hạn chế/Mật |
+| 9 | Hạ tầng chưa kiểm kê | `/modules/M33/undiscovered` | QTHT, PT.ATTT | Hàng chờ xử lý theo ETV.P33 §6.7: lập bản ghi, hạn 30 ngày, cờ đã ngắt mạng, KPH khi có dữ liệu Hạn chế/Mật |
 | 10 | Kiểm kê hợp nhất | `/modules/M33/inventory` | QLCL, PT.ATTT, LĐV | Hợp M33 (thiết bị) + M27 (dữ liệu) cho ISO/IEC 27001 A.5.9 (R2) |
-| 11 | Báo cáo 06 tháng | `/modules/M33/report` | VP, QLCL, LĐV | Tám nội dung bắt buộc của `ETV.P33` §6.9 |
+| 11 | Báo cáo 06 tháng | `/modules/M33/report` | VP, QLCL, LĐV | Tám nội dung bắt buộc của ETV.P33 §6.9 |
 
 ## 2. Quy ước hiển thị
 
@@ -30,7 +30,7 @@
 - Bảy cờ cảnh báo **tính khi đọc**, không lưu cột — hiển thị dạng chip trên hàng, đồng thời gom
   thành các tab của màn hình 8.
 - Nút thao tác bị chặn phải nêu **lý do chặn dẫn đúng điều khoản** (vd "Chặn: thiếu bằng chứng xóa
-  dữ liệu an toàn — `ETV.P33` §6.6.2"), không hiện thông báo chung chung.
+  dữ liệu an toàn — ETV.P33 §6.6.2"), không hiện thông báo chung chung.
 
 ## 3. Tiêu chí chấp nhận (AC)
 
@@ -64,7 +64,7 @@
 ## 4. NFR
 
 - **Ghi vết**: `AuditLog` append-only; module **không** thay thế nhật ký hệ thống, chỉ trỏ tới bằng
-  `evidence_ref`/`system_log_ref` (`ETV.P28` mục 5.7.5).
+  `evidence_ref`/`system_log_ref` (ETV.P28 mục 5.7.5).
 - **Không lưu bí mật**: schema không có trường mật khẩu/khóa/token; kiểm tra mẫu (regex) trên trường
   tự do của `ITAsset`, `SystemAccount` và `ITIncident`.
 - **Không xóa**: tầng dữ liệu không có thao tác xóa `ITAsset`; tài khoản bất thường **khóa tạm,

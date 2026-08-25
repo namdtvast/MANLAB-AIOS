@@ -10,13 +10,13 @@
 | `ETV.P.F 33.03` — Danh mục tài khoản hệ thống | PDF/Excel | Tài khoản theo hệ thống, loại, MFA, phiếu F28.04 tương ứng, nơi lưu bí mật xác thực |
 | `ETV.P.F 33.04` — Phiếu sự cố và yêu cầu hỗ trợ CNTT | PDF | Sự cố, mức ưu tiên, thời hạn phản hồi/xử lý, cách xử lý, định tuyến sang M28/M35/M10–M11/M31/M13 |
 | Báo cáo kiểm kê tài sản hợp nhất (M33 + M27) | PDF/Excel | Phục vụ ISO/IEC 27001 A.5.9 — quy tắc R2 |
-| **Báo cáo tình hình hệ thống thông tin 06 tháng/lần** | PDF | `ETV.P33` §6.9 — tám nội dung bắt buộc, xem bên dưới |
+| **Báo cáo tình hình hệ thống thông tin 06 tháng/lần** | PDF | ETV.P33 §6.9 — tám nội dung bắt buộc, xem bên dưới |
 | Hồ sơ kỳ đối chiếu tài khoản (`AccountReconciliation`) | PDF | Bốn nhóm bất thường, chốt kỳ là bất biến, lưu 05 năm — quy tắc R20 |
 | Bảng đến hạn (7 nhóm) | Màn hình | Tính khi đọc |
 | Trích xuất hạ tầng trọng yếu và RTO cho M31 | Dữ liệu/PDF | Đầu vào kế hoạch liên tục hoạt động |
 | Trích xuất tình hình hạ tầng cho M17 | Dữ liệu/PDF | Sự cố lớn, mức sẵn sàng, hạ tầng EOL, nhu cầu thay thế |
 
-## Báo cáo 06 tháng — tám nội dung bắt buộc (`ETV.P33` §6.9)
+## Báo cáo 06 tháng — tám nội dung bắt buộc (ETV.P33 §6.9)
 
 1. Tổng số tài sản theo lớp, môi trường, vùng mạng và mức trọng yếu.
 2. Tài sản đến hạn/quá hạn rà soát và bảo trì.
@@ -66,4 +66,4 @@ thường, *gợi ý* phân loại và định tuyến sự cố, *soạn dự t
 phê duyệt danh mục, **không** phê duyệt hay thực hiện cấp/thu hồi quyền, **không** tự thực hiện thay
 đổi cấu hình trên hệ thống vận hành, **không** kết luận sự cố an toàn thông tin và **không** kết luận
 hiệu lực kết quả đo. Mọi tính năng AI phải có hồ sơ AIA theo MP29 (ISO/IEC 42001; `ETV.P29`;
-`ETV.P33` §6.8).
+ETV.P33 §6.8).

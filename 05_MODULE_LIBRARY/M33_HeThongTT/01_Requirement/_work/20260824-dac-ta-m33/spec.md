@@ -3,8 +3,9 @@
 > ⚠ **BẢN NÀY ĐÃ ĐƯỢC THAY THẾ (26/08/2026).** Màn hình, tiêu chí chấp nhận và NFR đã chuyển thành
 > tài liệu thường trực tại [`../../../04_UI/Screens.md`](../../../04_UI/Screens.md) và được cập nhật
 > theo thủ tục `ETV.P33` (soạn sau bản này). Giữ file làm vết lịch sử của đợt đặc tả gốc — **không
-> dùng làm căn cứ lập trình**. Hai điểm đã lỗi thời cụ thể: (1) mục 1 dẫn "`ETV.P35` mục 1.4", đúng
-> phải là **mục 2.3**; (2) 8 câu hỏi để ngỏ nay đã được `ETV.P33` chốt — xem
+> dùng làm căn cứ lập trình**. Hai điểm đã lỗi thời cụ thể: (1) mục 1 dẫn P35 theo số mục của **lần
+> BH 01**; file trên đĩa nay là lần BH 02, mục tương ứng là **2.3**; (2) 8 câu hỏi để ngỏ nay đã được
+> `ETV.P33` chốt — xem
 > [`../20260826-dong-bo-p33/verify.md`](../20260826-dong-bo-p33/verify.md).
 
 > Nghiệp vụ (nguồn sự thật): [`../../DacTa.md`](../../DacTa.md). File này chỉ bổ sung phần **kỹ
@@ -89,7 +90,7 @@ Vi phạm gate ⇒ lỗi nghiệp vụ có mã (`409` + mã lỗi). **Không có
 ## 5. NFR
 
 - **Ghi vết**: `AuditLog` append-only; module **không** thay thế nhật ký hệ thống, chỉ trỏ tới bằng
-  `evidence_ref`/`system_log_ref` (`ETV.P28` mục 5.7.5).
+  `evidence_ref`/`system_log_ref` (ETV.P28 mục 5.7.5).
 - **Không lưu bí mật**: schema không có trường mật khẩu/khóa/token; kiểm tra mẫu (regex) trên trường
   tự do của `SystemAccount` và `ITIncident` để chặn dán bí mật vào mô tả.
 - **Không xóa**: tầng dữ liệu không có thao tác xóa `ITAsset`.
