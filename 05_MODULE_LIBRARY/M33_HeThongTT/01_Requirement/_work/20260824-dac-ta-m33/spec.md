@@ -1,5 +1,12 @@
 # M33_HeThongTT — SPEC kỹ thuật (work-id 20260824-dac-ta-m33)
 
+> ⚠ **BẢN NÀY ĐÃ ĐƯỢC THAY THẾ (26/08/2026).** Màn hình, tiêu chí chấp nhận và NFR đã chuyển thành
+> tài liệu thường trực tại [`../../../04_UI/Screens.md`](../../../04_UI/Screens.md) và được cập nhật
+> theo thủ tục `ETV.P33` (soạn sau bản này). Giữ file làm vết lịch sử của đợt đặc tả gốc — **không
+> dùng làm căn cứ lập trình**. Hai điểm đã lỗi thời cụ thể: (1) mục 1 dẫn "`ETV.P35` mục 1.4", đúng
+> phải là **mục 2.3**; (2) 8 câu hỏi để ngỏ nay đã được `ETV.P33` chốt — xem
+> [`../20260826-dong-bo-p33/verify.md`](../20260826-dong-bo-p33/verify.md).
+
 > Nghiệp vụ (nguồn sự thật): [`../../DacTa.md`](../../DacTa.md). File này chỉ bổ sung phần **kỹ
 > thuật** cần cho BUILD: màn hình, API, tiêu chí chấp nhận, NFR. Nền tảng đích:
 > `09_ENGINEERING/aios-platform` (Next.js App Router + Prisma + server actions), khuôn M16/M17/M25.
