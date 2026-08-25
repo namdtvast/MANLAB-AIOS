@@ -1,6 +1,6 @@
 # ETV.P.F 14.06 — Danh mục phân quyền tài khoản & thời hạn lưu
 
-> Biểu mẫu gốc — cấu trúc cột chuẩn. Thuộc `ETV.P14` §7 (`permission`, `retention`), §13. Dữ liệu đầy đủ (theo từng menu/quy trình MP01–MP38) quản lý trong bảng tính vận hành của ManLab — file này quy định **cấu trúc cột bắt buộc**, tránh mỗi lần cập nhật lại định nghĩa lại cấu trúc khác nhau.
+> Biểu mẫu gốc — cấu trúc cột chuẩn. Thuộc ETV.P14 §6.3 (`permission`, `retention`) và §6.8. Dữ liệu đầy đủ (theo từng menu/quy trình MP01–MP38) quản lý trong bảng tính vận hành của ManLab — file này quy định **cấu trúc cột bắt buộc**, tránh mỗi lần cập nhật lại định nghĩa lại cấu trúc khác nhau.
 
 ## Bảng 1 — Phân quyền truy cập menu (theo nhóm tài khoản)
 
@@ -28,4 +28,4 @@ Giá trị ô: `Có`/`Không`.
 
 Giá trị ô: `Y`/`N`.
 
-> Mọi thay đổi phân quyền phải cập nhật bảng này **trước**, sau đó mới cấu hình trên ManLab (một nguồn sự thật — xem `ETV.P14` §13). Thay đổi phân quyền là một dạng sửa đổi văn bản, phải qua `ETV.P.F 14.01`.
+> Mọi thay đổi phân quyền phải cập nhật bảng này **trước**, sau đó mới cấu hình trên ManLab (một nguồn sự thật — xem ETV.P14 §6.8). Thay đổi phân quyền là một dạng sửa đổi văn bản, phải qua `ETV.P.F 14.01`.

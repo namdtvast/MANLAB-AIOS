@@ -5,7 +5,7 @@
 | Method | Endpoint | Vai trò | Mô tả |
 |---|---|---|---|
 | POST | `/documents` | Người lập | Tạo bản ghi (`Nháp`), sinh `id` theo `ETV.P14` §6.2 |
-| GET | `/documents/{id}` | Theo `permission` | Xem chi tiết + metadata (`ETV.P14` §7) |
+| GET | `/documents/{id}` | Theo `permission` | Xem chi tiết + metadata (ETV.P14 §6.3) |
 | PUT | `/documents/{id}` | Người lập | Sửa (chỉ khi `Nháp`/`Không soát xét`/`Không phê duyệt`) |
 | POST | `/documents/{id}/submit-review` | Người lập | → `Chờ soát xét` |
 | POST | `/documents/{id}/review` | LĐP | `decision=approve\|reject` (+`reason` nếu reject) |
@@ -16,7 +16,7 @@
 | GET | `/documents/{id}/audit` | Quản trị/Đánh giá viên | Nhật ký thao tác |
 | GET | `/documents/search` | Theo `permission` | Tìm theo `keywords`/`ai_tags`/`embeddings` (semantic search) |
 | POST | `/ai/suggest-metadata` | AI Agent (M29) | Gợi ý `type`, `iso_clause`, `legal_basis`, `ai_tags` từ nội dung soạn thảo — **chỉ trả gợi ý**, không ghi thẳng vào `Document` |
-| GET | `/ai/conflicts` | AI Agent (M29) | Danh sách cảnh báo trùng phạm vi/mâu thuẫn để LĐP xử lý (`ETV.P14` §15) |
+| GET | `/ai/conflicts` | AI Agent (M29) | Danh sách cảnh báo trùng phạm vi/mâu thuẫn để LĐP xử lý (ETV.P14 §6.10) |
 
 ### Quy ước phản hồi
 

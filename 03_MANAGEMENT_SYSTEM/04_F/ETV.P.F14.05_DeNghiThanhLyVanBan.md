@@ -1,6 +1,6 @@
 # ETV.P.F 14.05 — Phiếu đề nghị thanh lý/hủy văn bản, hồ sơ
 
-> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §16. **Thanh lý** (chuyển Hết hiệu lực, có thể giữ tham khảo) khác **Hủy bỏ** (loại khỏi phạm vi kiểm soát) — chọn đúng loại đề nghị.
+> Biểu mẫu gốc — bản trắng. Thuộc ETV.P14 §6.11. **Thanh lý** (chuyển Hết hiệu lực, có thể giữ tham khảo) khác **Hủy bỏ** (loại khỏi phạm vi kiểm soát) — chọn đúng loại đề nghị.
 
 | Trường | Nội dung |
 |---|---|
