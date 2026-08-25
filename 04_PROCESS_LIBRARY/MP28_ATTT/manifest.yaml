@@ -21,8 +21,10 @@ menu_group: CONG_NGHE
 menu_order: 2
 document:
   doc_id: ETV.P28
-  doc_status: issued
-  doc_version: "01"
+  # Lần BH 02 (làm rõ ranh giới kiểm kê thiết bị với ETV.MP33) đang chờ soát xét;
+  # lần BH 01 ban hành 24/08/2026 vẫn là bản đang áp dụng cho tới khi 02 được phê duyệt.
+  doc_status: Cho-soat-xet
+  doc_version: "02"
   issued_date: 2026-08-24
 forms:
   - ETV.P.F28.01

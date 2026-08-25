@@ -326,10 +326,12 @@ Thiếu một trong hai ⇒ **không cho lưu**, không chỉ chặn phê duyệ
 **R2. Kiểm kê một lần, không hai nơi** — M33 kiểm kê **thiết bị, hệ thống, phần mềm**; M27 kiểm kê
 **dữ liệu** và trỏ xuống bằng `system_ref`. Báo cáo kiểm kê tài sản theo ISO/IEC 27001 A.5.9 là
 **hợp của M33 + M27**, xuất từ một màn hình chung; **không lập hai danh mục thiết bị song song**.
-Điểm lệch câu chữ giữa `ETV.P28` mục 5.7.2 ("đăng ký trong danh mục tài sản ETV.MP27") và
-`ETV.P35` mục 2.3 (giao thiết bị đầu cuối cho ETV.P33) **đã được chốt** tại `ETV.P33` §2.2 Nguyên
-tắc 1: **thiết bị đăng ký tại P33, dữ liệu trên thiết bị đăng ký tại P27**; yêu cầu cấu hình an toàn
-của `ETV.P28` mục 5.7.2 vẫn áp dụng nguyên và được kiểm chứng tại `ETV.P33` §6.2.3.
+Điểm lệch câu chữ giữa `ETV.P28` **lần BH 01** mục 5.7.2 ("đăng ký trong danh mục tài sản ETV.MP27")
+và `ETV.P35` mục 2.3 (giao thiết bị đầu cuối cho ETV.P33) **đã được chốt** tại `ETV.P33` §2.2 Nguyên
+tắc 1 — và đã được **đưa vào chính `ETV.P28` lần BH 02** (mục 5.7.2 + ghi chú ranh giới tại mục 1.4,
+đang chờ soát xét), nên kết luận không chỉ nằm trong một thủ tục: **thiết bị đăng ký tại P33, dữ liệu
+trên thiết bị đăng ký tại P27**. Yêu cầu cấu hình an toàn của `ETV.P28` mục 5.7.2 vẫn áp dụng nguyên
+và được kiểm chứng tại `ETV.P33` §6.2.3.
 
 **R2b. Dịch vụ thuê ngoài vừa là hạ tầng vừa có thể là nền tảng** (`ETV.P33` §2.1) — dịch vụ đám
 mây, hosting, thư điện tử, tên miền, chứng thư số máy chủ được kiểm kê tại M33 với tư cách **hạ
@@ -611,9 +613,10 @@ Tám câu hỏi mà bản đặc tả đầu tiên (24/08/2026) để ngỏ **đ
 3. **Ánh xạ `impact` (4 giá trị) → `priority` (3 mức SLA)** ở mục 4.6 là **diễn giải của đặc tả**,
    `ETV.P33` §6.5.2 không nêu bảng ánh xạ. Cần xác nhận: "Không ảnh hưởng vận hành" xếp mức **Thấp**
    (đề xuất hiện tại) hay tách thành mức thứ tư không có SLA?
-4. **`ETV.P28` mục 5.7.2 vẫn viết thiết bị đầu cuối đăng ký tại ETV.MP27.** `ETV.P33` §2.2 đã chốt
-   cách hiểu ngược lại. Câu chữ của P28 nên được **hiệu đính theo MP14** khi P28 tới kỳ soát xét —
-   nếu không, người đọc P28 đơn lẻ vẫn hiểu sai. Đây là việc của tầng 03, không phải của module.
+4. **Thứ tự phê duyệt `ETV.P28` lần BH 02 ↔ `ETV.P33`.** Câu chữ mục 5.7.2 của P28 đã được hiệu
+   đính theo MP14 (lần BH 02, đang chờ soát xét) để không còn đọc ngược với P33. **P33 chỉ nên được
+   phê duyệt sau hoặc cùng đợt với P28 lần BH 02** — nếu P33 có hiệu lực trước, hai thủ tục vẫn mâu
+   thuẫn trong thời gian chờ. Đây là việc của tầng 03, không phải của module.
 5. **Phụ thuộc M27, M28, M30, M31, M35 chưa lên nền tảng** — giai đoạn đầu dùng tham chiếu mềm kèm
    cảnh báo (vd bằng chứng xóa dữ liệu là tệp đính kèm), chuyển thành FK thật khi các module đó
    ACTIVE. Không được nới lỏng **điều kiện chặn cứng** chỉ vì module đích chưa có.

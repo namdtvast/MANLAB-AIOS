@@ -93,7 +93,9 @@ Dữ liệu được quản lý thống nhất trên phần mềm ManLab (Module
 
 **Nguyên tắc 1 — Kiểm kê một lần, không hai nơi.** Thủ tục này kiểm kê **thiết bị, hệ thống, phần mềm**; ETV.P27 kiểm kê **dữ liệu và tài sản thông tin** nằm trên các thiết bị đó và trỏ xuống bằng tham chiếu hệ thống. Báo cáo kiểm kê tài sản phục vụ ISO/IEC 27001 A.5.9 là **hợp của hai danh mục**, xuất từ một màn hình chung; không lập hai danh mục thiết bị song song.
 
-> **Chốt điểm lệch câu chữ:** ETV.P28 mục 5.7.2 viết thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)", trong khi ETV.P35 mục 2.3 giao "thiết bị đầu cuối" cho ETV.P33. Cách hiểu thống nhất kể từ thủ tục này: **thiết bị đăng ký tại ETV.P33**, **dữ liệu trên thiết bị đăng ký tại ETV.P27**. Yêu cầu cấu hình an toàn của ETV.P28 mục 5.7.2 vẫn áp dụng nguyên, được thực thi và kiểm chứng tại §6.2.3 của thủ tục này.
+> **Chốt điểm lệch câu chữ:** ETV.P28 **lần ban hành 01** mục 5.7.2 viết thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)", trong khi ETV.P35 mục 2.3 giao "thiết bị đầu cuối" cho ETV.P33. Cách hiểu thống nhất: **thiết bị đăng ký tại ETV.P33**, **dữ liệu trên thiết bị đăng ký tại ETV.P27**. Cách hiểu này **đã được đưa vào chính ETV.P28 lần ban hành 02** (mục 5.7.2 và ghi chú ranh giới tại mục 1.4, đang chờ soát xét) — không dừng ở một ghi chú trong thủ tục này. Yêu cầu cấu hình an toàn của ETV.P28 mục 5.7.2 vẫn áp dụng nguyên, được thực thi và kiểm chứng tại §6.2.3 của thủ tục này.
+>
+> **Điều kiện phê duyệt:** ETV.P33 chỉ nên được phê duyệt **sau hoặc cùng đợt với ETV.P28 lần ban hành 02**. Nếu phê duyệt trước, hai thủ tục sẽ đọc ngược nhau trong thời gian chờ.
 
 **Nguyên tắc 2 — Thực thi, không phê duyệt.** Đối với quyền truy cập, thủ tục này giữ vai trò **người thực hiện**: cấp, thay đổi, thu hồi tài khoản theo phiếu **F28.04 đã được phê duyệt** tại ETV.P28. Quản trị hệ thống **không** phê duyệt quyền cho chính mình hoặc cho người khác.
 
