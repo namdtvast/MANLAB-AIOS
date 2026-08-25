@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP02
 slug: BaoMat
 name: Bảo mật thông tin và quyền sở hữu của khách hàng
+purpose: >-
+  Kiểm soát bảo mật mọi thông tin hình thành hoặc thu nhận trong hoạt động của phòng thử nghiệm;
+  bảo vệ quyền sở hữu, dữ liệu và lợi ích hợp pháp của khách hàng.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025', 'ISO27001']

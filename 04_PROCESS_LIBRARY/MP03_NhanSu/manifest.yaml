@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP03
 slug: NhanSu
 name: Tuyển dụng và đào tạo
+purpose: >-
+  Quản lý tuyển dụng, đào tạo, đánh giá năng lực và hợp đồng lao động của nhân sự; bảo đảm mọi vị
+  trí ảnh hưởng tới kết quả kỹ thuật đều do người đủ năng lực đảm nhiệm.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO9001', 'ISO17025']

@@ -1,7 +1,10 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP12
 slug: KhieuNai
 name: Giải quyết khiếu nại, phàn nàn, góp ý
+purpose: >-
+  Tiếp nhận, xem xét và giải quyết khiếu nại, phàn nàn, góp ý của khách hàng và nội bộ một cách
+  khách quan, có truy vết, theo ISO/IEC 17025:2017 §7.9.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']

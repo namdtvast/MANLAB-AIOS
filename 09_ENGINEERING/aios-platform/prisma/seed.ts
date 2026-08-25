@@ -55,6 +55,9 @@ const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "
 
 interface MpManifest {
   name?: string;
+  // Mục tiêu cô đọng của thủ tục — chắt từ mục "MỤC ĐÍCH" của chính văn bản ETV.Pxx.
+  // MP chưa ban hành thủ tục thì không khai; banner không bịa mục tiêu hộ.
+  purpose?: string;
   owner?: string;
   capabilities?: string[];
   module?: string;
@@ -185,6 +188,7 @@ async function main() {
     const canCu = {
       docId: doc?.doc_id ?? null,
       docTitle: doc?.doc_title ?? null,
+      purpose: mpManifest?.purpose?.trim() || null,
       docStatus: doc?.doc_status ?? null,
       docVersion: doc?.doc_version ?? null,
       issuedDate,
@@ -200,6 +204,13 @@ async function main() {
       console.warn(
         `[căn cứ] ${code}: chưa khai khối document trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
           `→ banner sẽ hiển thị "chưa ban hành thủ tục".`,
+      );
+    }
+
+    if (ACTIVE_MODULE_CODES.has(code) && !canCu.purpose) {
+      console.warn(
+        `[căn cứ] ${code}: chưa khai \`purpose\` trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
+          `→ banner sẽ bỏ trống dòng "Mục tiêu".`,
       );
     }
 

@@ -11,7 +11,7 @@ export default async function ModuleDetailPage({
   if (!mod) notFound();
 
   return (
-    <div className="flex max-w-2xl flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <div>
         <p className="text-xs font-medium text-ink-3">
           {mod.code} · {mod.mpCode} · {mod.capabilityCode ?? "—"}

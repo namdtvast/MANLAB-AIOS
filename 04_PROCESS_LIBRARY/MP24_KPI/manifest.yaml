@@ -1,4 +1,4 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP24
 slug: KPI
 name: Quản lý và đánh giá hiệu suất công việc (KPI)

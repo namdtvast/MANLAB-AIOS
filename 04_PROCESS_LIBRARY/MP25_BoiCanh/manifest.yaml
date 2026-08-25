@@ -1,7 +1,11 @@
-schema: manlab-aios/process@1.1
+schema: manlab-aios/process@1.2
 code: MP25
 slug: BoiCanh
 name: Quản lý bối cảnh tổ chức và các bên quan tâm
+purpose: >-
+  Xác định, theo dõi và lưu bằng chứng về vấn đề nội bộ, vấn đề bên ngoài và các bên quan tâm ảnh
+  hưởng tới hệ thống quản lý; làm đầu vào bắt buộc cho quản lý rủi ro, xem xét lãnh đạo và thiết
+  lập mục tiêu chất lượng.
 owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']

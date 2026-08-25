@@ -228,6 +228,7 @@ model PlatformModule {
   // Null nghĩa là MP đó chưa ban hành thủ tục: banner nói thẳng "chưa ban hành".
   docId         String? // vd "ETV.P01"
   docTitle      String? // tên đầy đủ của thủ tục
+  purpose       String? // mục tiêu cô đọng của thủ tục (manifest.purpose) — MP chưa ban hành thủ tục thì null
   docStatus     String? // "issued" | "draft"
   docVersion    String? // lần ban hành, vd "03"
   issuedDate    DateTime? // ngày ban hành / hiệu lực
