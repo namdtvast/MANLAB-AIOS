@@ -36,7 +36,7 @@ File MD nguồn thường viết cho màn hình (giọng liệt kê, câu rời,
 | Dấu hai chấm giữa câu | Hạn chế | Chỉ giữ khi có từ dẫn nhập liệt kê (gồm, như sau, bao gồm) hoặc trích dẫn; còn lại thay bằng "là", "rằng", "trong đó", hoặc dấu phẩy |
 | Oxford comma `, và` | CẤM | Bỏ dấu phẩy trước "và"; nếu gây nhập nhằng (chuỗi đã có "và" bên trong) thì thay bằng "cùng" hoặc viết lại |
 
-Sau khi generate, chạy vòng kiểm tra tự động trên text bóc từ file xuất ra: đếm `—`, `, và ` và `:` trong heading phải bằng 0. Kiểm tra sâu hơn dùng skill `kiem-tra-bai-viet` (quy trình SCAN 8 tầng).
+Sau khi generate, chạy vòng kiểm tra tự động trên text bóc từ file xuất ra: đếm `—`, `, và ` và `:` trong heading phải bằng 0. Kiểm tra sâu hơn (giọng văn, nhịp câu, lặp ý) **hiện chưa có skill chuyên trách** — soát tay theo bảng quy tắc ở trên.
 
 ---
 
