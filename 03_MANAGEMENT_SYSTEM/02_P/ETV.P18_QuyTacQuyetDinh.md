@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P18
 title: "Thủ tục Quy tắc Quyết định và Tuyên bố Sự phù hợp"
 type: Thu-tuc

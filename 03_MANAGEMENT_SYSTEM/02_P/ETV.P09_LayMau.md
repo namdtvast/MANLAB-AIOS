@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P09
 title: "Thủ tục Lấy mẫu, Xử lý và Bảo quản mẫu"
 type: Thu-tuc

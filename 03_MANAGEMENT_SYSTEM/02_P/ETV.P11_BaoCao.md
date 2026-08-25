@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P11
 title: "Thủ tục Báo cáo Kết quả (Quản lý Nhãn, Tem, Giấy chứng nhận)"
 type: Thu-tuc

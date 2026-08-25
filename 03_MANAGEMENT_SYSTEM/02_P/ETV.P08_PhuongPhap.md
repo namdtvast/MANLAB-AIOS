@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P08
 title: "Thủ tục Lựa chọn Phương pháp, Kiểm tra Xác nhận, Xác nhận Giá trị Sử dụng và Đánh giá Độ không đảm bảo đo"
 type: Thu-tuc

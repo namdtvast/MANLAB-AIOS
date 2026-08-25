@@ -1,5 +1,5 @@
 ---
-# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem §7)
+# Khối metadata AI — bắt buộc cho mọi văn bản kiểm soát (xem ETV.P14 §6.3)
 id: ETV.P23
 title: "Thủ tục Công bố Giá trị Danh định và Độ không đảm bảo đo của Chất chuẩn"
 type: Thu-tuc
