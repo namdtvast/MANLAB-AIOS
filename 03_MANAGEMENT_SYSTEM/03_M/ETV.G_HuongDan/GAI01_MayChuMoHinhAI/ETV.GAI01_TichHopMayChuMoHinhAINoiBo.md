@@ -366,7 +366,7 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 >
 > **Phần mềm cưỡng chế điều này ở tầng kiểu dữ liệu, không chỉ bằng câu chữ:** hàm tính trần trong `copilot/retrieval.ts` có kiểu trả về là `"Cong-khai" | "Noi-bo"`, nên mức Hạn chế **không biểu diễn được** — một thay đổi mã vô ý cũng không nới lên tới đó mà qua được kiểm kiểu. Có ca test duyệt toàn bộ enum ranh giới để khoá lại.
 >
-> **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 được viết khi Viện chưa có năng lực suy luận nội bộ; muốn đổi thì phải **ban hành lại ETV.P28** — là đề nghị riêng, đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
+> **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 mục 5.13 **không phân biệt** nơi mô hình vận hành — câu chữ áp cho mọi trợ lý AI và agent của Viện. Muốn đổi thì phải **ban hành lại ETV.P28**, là đề nghị riêng đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
 
 **Quy tắc dự phòng khi máy chủ nội bộ mất khả dụng:**
 

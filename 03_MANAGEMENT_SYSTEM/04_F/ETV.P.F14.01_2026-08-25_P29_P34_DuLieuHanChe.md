@@ -81,7 +81,9 @@ Việc sửa ở mục 3 **gỡ được mâu thuẫn**, nhưng để lại mộ
 
 > Máy chủ mô hình AI nội bộ vừa đầu tư — nơi dữ liệu **không rời khỏi hạ tầng của Viện** — có nên được phép xử lý tài liệu mức **Hạn chế** hay không?
 
-Lập luận của ETV.P28 mục 5.13 và ETV.P26 mục 5.5 được viết khi Viện **chưa có** năng lực suy luận nội bộ, tức khi mọi lượt gọi AI đều đồng nghĩa với gửi dữ liệu ra ngoài. Tiền đề đó nay đã thay đổi.
+Điều kiểm được: **ETV.P28 mục 5.13 không phân biệt** mô hình chạy trong hay ngoài hạ tầng của Viện — câu chữ chỉ nêu "trợ lý AI và các agent của Viện", không đặt điều kiện về nơi mô hình vận hành. Hai thủ tục cùng mới: ETV.P26 ban hành 23/08/2026, ETV.P28 ban hành 24/08/2026.
+
+Điều **không** kiểm được, và vì vậy không nêu ở đây như một căn cứ: liệu việc không phân biệt đó là **có chủ ý** (cấm bất kể mô hình chạy ở đâu) hay là **chưa xét tới** trường hợp mô hình nội bộ. Chỉ người biên soạn và người phê duyệt ETV.P28 trả lời được. Đó chính là câu hỏi đề nghị LĐV quyết.
 
 Nếu LĐV muốn cho phép, đây là **một đề nghị riêng**, không gộp vào phiếu này, và phải:
 
