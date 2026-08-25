@@ -1,6 +1,6 @@
 # M35_NenTangSo — Đầu ra
 
-> Đồng bộ với **`ETV.P35`** mục 8 và 9 (ban hành lần 01 ngày 24/08/2026). Bản xuất phải khớp bố cục
+> Đồng bộ với **`ETV.P35`** mục VII và VIII (ban hành lần 01 ngày 24/08/2026). Bản xuất phải khớp bố cục
 > và danh mục chuẩn của biểu mẫu gốc tại `06_SHARED_RESOURCES/01_Forms/`.
 
 ## Biểu mẫu ban hành

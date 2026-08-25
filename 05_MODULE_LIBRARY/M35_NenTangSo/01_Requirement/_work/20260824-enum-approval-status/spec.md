@@ -35,10 +35,10 @@ trong thay đổi này không? → **Không**, xem PLAN mục "Ngoài phạm vi"
 - **WHO**: đội xây M35 (bước BUILD tiếp theo) và M29 (dùng chung enum).
 - **WHAT**: `AIApprovalStatus` có thêm `ACTIVE` (Hiệu lực) và `CANCELLED` (Hủy); migration áp được
   trên CSDL hiện có; nhãn tiếng Việt hiển thị đúng cho hai giá trị mới.
-- **WHY**: `ETV.P35` mục 6 quy định **09** trạng thái, tách riêng *Đã phê duyệt* (được chấp thuận,
+- **WHY**: `ETV.P35` Phụ lục II quy định **09** trạng thái, tách riêng *Đã phê duyệt* (được chấp thuận,
   chưa chạy) và *Hiệu lực* (đã bật giám sát/kết nối). Gộp *Hiệu lực* vào `APPROVED` thì không phân
   biệt được nền tảng đã duyệt nhưng **chưa** bật kiểm tra sức khỏe ⇒ không thực thi được điều kiện
-  chặn cứng (c) tại mục 5.2.3 của thủ tục.
+  chặn cứng (c) tại ETV.P35 §6.2.3 của thủ tục.
 - **SUCCESS CRITERIA**: `prisma validate` PASS · `prisma generate` sinh đủ 9 giá trị ·
   `tsc --noEmit` PASS · `next build` PASS · `eslint` sạch · `validate_links.py` PASS ·
   migration SQL đúng cú pháp PostgreSQL và **không** làm mất dữ liệu hiện có.

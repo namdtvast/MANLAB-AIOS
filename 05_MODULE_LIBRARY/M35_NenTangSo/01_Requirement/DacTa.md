@@ -122,7 +122,7 @@ Giữ **nguyên tên** thực thể và các trường đã triển khai; phần
 | `platform_id` | ref `AIPlatform` | có | |
 | `sections[]` | 9 mục đánh giá | có | Nhu cầu · Dữ liệu · ATTT · Nhà cung cấp · Xác nhận giá trị sử dụng · Tính liên tục · Tích hợp · AI · Rủi ro (F35.02 §2) |
 | `validation_ref` | link | có **khi** nền tảng xử lý dữ liệu kiểm định/hiệu chuẩn/thử nghiệm | Bằng chứng xác nhận giá trị sử dụng theo ISO/IEC 17025 §7.11 — quy tắc 10 |
-| `gate_checks[]` | 7 điều kiện chặn cứng | có | Kết quả từng điều kiện tại mục 5.2.3 của thủ tục — quy tắc 5 |
+| `gate_checks[]` | 7 điều kiện chặn cứng | có | Kết quả từng điều kiện tại ETV.P35 §6.2.3 — quy tắc 5 |
 | `conclusion` | enum: Đủ điều kiện / Chưa đủ điều kiện / Đề nghị ngoại lệ | có | |
 | `status` | enum | tự quản lý | Nháp → Chờ soát xét → Chờ phê duyệt → Đã phê duyệt / Không phê duyệt |
 
@@ -151,7 +151,7 @@ Append-only, lưu **02 năm** (ETV.P35 mục VIII — Lưu hồ sơ). Là nguồ
 | `platform_id` | ref `AIPlatform` | có | |
 | `incident_type` | enum: Ngừng hoạt động / Suy giảm / Mất giám sát / Khác | có | Mất giám sát = UNKNOWN > 07 ngày |
 | `detected_at` / `detected_by` | datetime / enum (Hệ thống / Người dùng) | có | |
-| `notified_at` | datetime | có **khi** `criticality = Cao` và loại Ngừng | Trong vòng **01 giờ** — mục 5.3.2 |
+| `notified_at` | datetime | có **khi** `criticality = Cao` và loại Ngừng | Trong vòng **01 giờ** — ETV.P35 §6.3.2 |
 | `downtime_minutes` | int | tự tính | Từ mốc phát hiện tới mốc trở lại HEALTHY |
 | `security_flag` | bool | có | Có dấu hiệu mất ATTT — quy tắc 13 |
 | `security_ref` | ref → M28 | có **khi** `security_flag = true` | |
@@ -164,7 +164,7 @@ Append-only, lưu **02 năm** (ETV.P35 mục VIII — Lưu hồ sơ). Là nguồ
 
 `platform_id` · `change_type` (Nhỏ / Cấu hình kết nối / Lớn) · `before` / `after` (chỉ trường thay
 đổi) · `proposed_by` · `reviewed_by` · `approved_by` · `m30_ref` (khi ảnh hưởng liên phòng) ·
-`changed_at`. Thẩm quyền theo mục 4.6; ràng buộc theo quy tắc 8 và 9.
+`changed_at`. Thẩm quyền theo ETV.P35 §6.4.1; ràng buộc theo quy tắc 8 và 9.
 
 ### 2.8. `DecommissionRecord` — Ngừng vận hành
 
@@ -208,7 +208,7 @@ xét, **không** phê duyệt (ISO/IEC 42001; ràng buộc MP29).
 | 6 | Trí tuệ nhân tạo | Dịch vụ mô hình ngôn ngữ, cổng công cụ AI |
 | 7 | Phát triển và vận hành | Kho mã nguồn, CI, môi trường thử nghiệm |
 
-### 4.2. Môi trường (`environment`) — mục 5.1.2
+### 4.2. Môi trường (`environment`) — ETV.P35 §6.1.2
 
 | Giá trị | Yêu cầu bắt buộc |
 |---|---|
@@ -216,7 +216,7 @@ xét, **không** phê duyệt (ISO/IEC 42001; ràng buộc MP29).
 | `STAGING` | Ghi rõ dữ liệu thật hay giả lập; nếu **dữ liệu thật** ⇒ áp nguyên yêu cầu của PRODUCTION |
 | `INTERNAL` | Có `owner` và `data_classification` |
 
-### 4.3. Mức trọng yếu (`criticality`) — mục 5.1.3
+### 4.3. Mức trọng yếu (`criticality`) — ETV.P35 §6.1.3
 
 | Mức | Hành động bắt buộc |
 |---|---|
@@ -231,7 +231,7 @@ Thang này chỉ **sàng lọc mức ưu tiên**; đánh giá và xử lý rủi
 Kế thừa nguyên thang của Viện: **Công khai · Nội bộ · Hạn chế · Mật** (M02/M27/M28), ghi theo mức
 **cao nhất** nền tảng xử lý hoặc lưu trữ. M35 **không** định nghĩa thang riêng.
 
-### 4.5. Chu kỳ rà soát (`review_cycle`) — mục 5.1.5
+### 4.5. Chu kỳ rà soát (`review_cycle`) — ETV.P35 §6.1.5
 
 Mặc định: Cao ≤ 01 năm · Trung bình 02 năm · Thấp theo sự kiện. Cho phép rút xuống 06 tháng với
 nền tảng thay đổi nhanh hoặc nền tảng AI.
@@ -242,13 +242,13 @@ nền tảng thay đổi nhanh hoặc nền tảng AI.
    khi phê duyệt và **không cấp lại** cho nền tảng khác kể cả khi bản ghi cũ đã Hủy/Hết hiệu lực —
    giữ giá trị truy vết của `AIAuditLog` (ETV.P35 §6.1.8).
 2. **Mỗi môi trường một bản ghi**: cùng một phần mềm chạy ở PRODUCTION và STAGING là **hai** bản
-   ghi, không gộp (mục 5.1.2).
+   ghi, không gộp (ETV.P35 §6.1.2).
 3. **Adapter phải có thật**: `adapter_type` phải khớp một `IAIPlatformAdapter` đã triển khai. Nền
    tảng dùng `PlaceholderPlatformAdapter` **không được** làm căn cứ cho bất kỳ nghiệp vụ tự động
-   nào; adapter trả lỗi `501` rõ ràng thay vì suy đoán hành vi (mục 5.1.6 và 7).
+   nào; adapter trả lỗi `501` rõ ràng thay vì suy đoán hành vi (ETV.P35 §6.1.6 và §6.1.7).
 4. **Bảo mật kế thừa, không tự định nghĩa**: `data_classification` lấy theo thang M02/M27/M28 và
-   phải **nhất quán** với mô tả dữ liệu trong `PreOpAssessment` (mục 5.1.4).
-5. **Bảy điều kiện chặn cứng trước khi phê duyệt** (mục 5.2.3) — hệ thống **từ chối** thao tác phê
+   phải **nhất quán** với mô tả dữ liệu trong `PreOpAssessment` (ETV.P35 §6.1.4).
+5. **Bảy điều kiện chặn cứng trước khi phê duyệt** (ETV.P35 §6.2.3) — hệ thống **từ chối** thao tác phê
    duyệt khi thiếu: (a) `owner` và `technical_contact` là người cụ thể đang làm việc tại Viện ·
    (b) có `data_classification` nhất quán với F35.02 · (c) PRODUCTION có `PreOpAssessment` đã phê
    duyệt và `health_check_enabled = true` · (d) `criticality = Cao` có `risk_refs[] ≥ 1` và
@@ -257,44 +257,44 @@ nền tảng thay đổi nhanh hoặc nền tảng AI.
    Ngoại lệ chỉ do **LĐV** duyệt, bắt buộc `reason` + `risk_ref` (M01) + `deadline ≤ 90 ngày`.
 6. **Sức khỏe tách khỏi phê duyệt**: `health` do tiến trình kiểm tra sức khỏe cập nhật, chỉ áp dụng
    cho bản ghi ở trạng thái **Hiệu lực**, và **không** kéo bản ghi quay lại soát xét/phê duyệt
-   (mục 5.3.1 và 6.2).
+   (ETV.P35 §6.3.1 và Phụ lục II).
 7. **Đến hạn rà soát là cờ, không phải trạng thái**: tính khi đọc theo `last_reviewed_at +
    review_cycle`. Quá hạn ⇒ cảnh báo CSH; quá **02 chu kỳ** ⇒ cảnh báo LĐV. Hệ thống **không** tự
-   chuyển bản ghi sang Hết hiệu lực (mục 5.1.5).
+   chuyển bản ghi sang Hết hiệu lực (ETV.P35 §6.1.5).
 8. **Đổi kết nối phải ghi vết**: mọi thay đổi `api_base_url`, `adapter_type` hoặc `IntegrationPoint`
    của nền tảng **đang có Agent/Tool hoạt động** (M29) bắt buộc ghi `AIAuditLog` — không ghi vết
-   thì không cho lưu (mục 5.4.2).
+   thì không cho lưu (ETV.P35 §6.4.2).
 9. **Thay đổi lớn không sửa đè**: đổi `environment`, nâng `criticality` lên Cao, nâng
    `data_classification` lên Hạn chế/Mật, đổi nhà cung cấp ⇒ lập **phiên bản mới**
    (`version + 1`, `supersedes_ref` trỏ bản cũ), lập/soát xét lại `PreOpAssessment` và trình
-   **LĐV**; ảnh hưởng liên phòng thì áp dụng thêm M30 (mục 5.4).
+   **LĐV**; ảnh hưởng liên phòng thì áp dụng thêm M30 (ETV.P35 §6.4).
 10. **Xác nhận giá trị sử dụng**: nền tảng tham gia xử lý dữ liệu kiểm định/hiệu chuẩn/thử nghiệm
     phải có `validation_ref` trong `PreOpAssessment` theo ISO/IEC 17025 §7.11 trước khi lên
-    PRODUCTION (mục 5.2.2).
+    PRODUCTION (ETV.P35 §6.2.2).
 11. **Không bí mật trong registry**: mọi trường của `AIPlatform` và `IntegrationPoint` bị cấm chứa
     mật khẩu, khóa API, chứng thư số. Chỉ ghi `secret_location_ref` trỏ nơi lưu theo M28. Phát hiện
-    vi phạm ⇒ thu hồi bí mật ngay + lập KPH ở M13 (mục 1.3 và 7).
+    vi phạm ⇒ thu hồi bí mật ngay + lập KPH ở M13 (ETV.P35 §2.2 nguyên tắc 2 và §6.6 điểm 4).
 12. **Tách vai trò**: `created_by ≠ approved_by`; `reviewed_by` là ĐMKT/TP khác người lập; **mọi**
-    bản ghi nền tảng do **LĐV** phê duyệt. AI không lập/soát xét/phê duyệt (mục 4 và 5.1.7).
+    bản ghi nền tảng do **LĐV** phê duyệt. AI không lập/soát xét/phê duyệt (ETV.P35 §5.3 và §6.1.7).
 13. **Sự cố ATTT không đóng một mình**: `PlatformIncident` có `security_flag = true` **không được**
-    đóng trước khi M28 kết luận (mục 5.3.2).
+    đóng trước khi M28 kết luận (ETV.P35 §6.3.2).
 14. **Điều kiện đóng phiếu sự cố**: đủ `root_cause` + `actions[]` + `recovered_at` (đã trở lại
-    HEALTHY) + kết luận có/không lập bài học kinh nghiệm ở M26 (mục 5.3.3).
+    HEALTHY) + kết luận có/không lập bài học kinh nghiệm ở M26 (ETV.P35 §6.3.3).
 15. **Sự cố lặp lại sinh KPH**: cùng một `platform_id` có ≥ **03** phiếu sự cố trong **90 ngày** ⇒
-    bắt buộc `capa_ref` (M13) mới đóng được phiếu thứ ba (mục 5.3.2).
+    bắt buộc `capa_ref` (M13) mới đóng được phiếu thứ ba (ETV.P35 §6.3.2).
 16. **Không ngừng vận hành khi còn phụ thuộc**: chặn chuyển sang **Hết hiệu lực** khi còn Agent,
     Tool, Prompt (M29) hoặc dịch vụ số (M38) đang hoạt động trỏ tới nền tảng; hệ thống trả về
-    **danh sách** đối tượng còn phụ thuộc thay vì lỗi chung chung (mục 5.5.3).
+    **danh sách** đối tượng còn phụ thuộc thay vì lỗi chung chung (ETV.P35 §6.5.3).
 17. **Dữ liệu đi trước, cắt truy cập đi sau**: `data_disposition[]` phải hoàn tất theo M27/M34 và
-    có biên bản kèm theo **trước khi** thực hiện `access_revocations[]` (mục 5.5.3).
+    có biên bản kèm theo **trước khi** thực hiện `access_revocations[]` (ETV.P35 §6.5.3).
 18. **Nền tảng chưa đăng ký là không phù hợp**: khi phát hiện, QLCL lập bản ghi Nháp và xác định
     CSH; cần thiết ⇒ đăng ký trong **30 ngày**; không cần thiết ⇒ ngừng dùng ngay và xử lý dữ liệu
-    theo M27/M34; đã đưa dữ liệu Hạn chế/Mật lên ⇒ lập KPH ở M13 và xử lý sự cố ở M28 (mục 5.6).
+    theo M27/M34; đã đưa dữ liệu Hạn chế/Mật lên ⇒ lập KPH ở M13 và xử lý sự cố ở M28 (ETV.P35 §6.6).
 19. **Registry là khóa lọc của M29**: đăng ký `AIAgent`/`AITool`/`AIRequest` trỏ tới `platform_id`
     không tồn tại, chưa phê duyệt, Hết hiệu lực hoặc đã Hủy là **lỗi ràng buộc** — validate ở tầng
-    application khi ghi (mục 5.7).
+    application khi ghi (ETV.P35 §6.7).
 20. **Dịch vụ số bám nền tảng Hiệu lực**: M38 không được công bố dịch vụ nếu nền tảng vận hành dịch
-    vụ đó chưa ở trạng thái **Hiệu lực** (mục 5.7).
+    vụ đó chưa ở trạng thái **Hiệu lực** (ETV.P35 §6.7).
 
 ## 6. Trạng thái `AIPlatform`
 
@@ -310,7 +310,7 @@ nền tảng thay đổi nhanh hoặc nền tảng AI.
 | 8 | Hết hiệu lực | Đã ngừng vận hành hoặc bị thay thế | LĐV (qua F35.04) | (kết thúc — vẫn tra cứu được làm bằng chứng) | **Có** |
 | 9 | Hủy | Bỏ bản ghi trước khi phê duyệt | LĐV | (kết thúc) | **Có** |
 
-**Không phải trạng thái hồ sơ**: `health` (mục 4.2 của StateMachine), cờ **Đến hạn rà soát**
+**Không phải trạng thái hồ sơ**: `health` (mục 2 của StateMachine), cờ **Đến hạn rà soát**
 (quy tắc 7), cờ **Ngoại lệ quá hạn khắc phục** (quy tắc 5).
 
 Trạng thái thực thể phụ: `PreOpAssessment` (Nháp → Chờ soát xét → Chờ phê duyệt → Đã phê duyệt /
@@ -327,7 +327,7 @@ dừng / Đã cắt). Mọi nhánh Hủy/Không phê duyệt bắt buộc lý do
 | F35.02 — Phiếu đánh giá trước vận hành | PDF | 9 mục đánh giá + bảng 7 điều kiện chặn cứng + kết luận |
 | F35.03 — Phiếu sự cố và nhật ký giám sát | PDF | Phần A sự cố · phần B nhật ký giám sát · phần C nhật ký thay đổi |
 | F35.04 — Phiếu ngừng vận hành | PDF | Phụ thuộc · xử lý dữ liệu · thu hồi truy cập · kết luận |
-| Báo cáo tình hình nền tảng số phục vụ M17 | Dữ liệu/PDF | 06 tháng/lần và trước mỗi kỳ xem xét lãnh đạo (mục 5.8) |
+| Báo cáo tình hình nền tảng số phục vụ M17 | Dữ liệu/PDF | 06 tháng/lần và trước mỗi kỳ xem xét lãnh đạo (ETV.P35 §6.8) |
 | Bảng nền tảng đến hạn rà soát | Màn hình | Tính khi đọc theo `review_cycle` (quy tắc 7) |
 | Bảng **ngoại lệ quá hạn khắc phục** | Màn hình/PDF | Đầu vào cảnh báo LĐV và M01 |
 | Bảng phụ thuộc nền tảng | Màn hình | Agent/Tool/Prompt (M29) + dịch vụ số (M38) theo `platform_id` — dùng khi ngừng vận hành |

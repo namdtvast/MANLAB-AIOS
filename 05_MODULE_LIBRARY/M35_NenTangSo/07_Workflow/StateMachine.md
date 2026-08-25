@@ -1,6 +1,6 @@
 # M35_NenTangSo — Bảng trạng thái
 
-> Đồng bộ với **`ETV.P35`** mục 6 (ban hành lần 01 ngày 24/08/2026).
+> Đồng bộ với **`ETV.P35`** Phụ lục II (ban hành lần 01 ngày 24/08/2026).
 
 ## 1. Vòng đời bản ghi nền tảng (`AIPlatform.approval_status`)
 
@@ -18,7 +18,7 @@
 
 > Nguyên tắc: ít trạng thái nhưng đủ kiểm soát; hồ sơ chưa phê duyệt không dùng làm căn cứ tiếp theo.
 > **Đã phê duyệt** và **Hiệu lực** tách riêng để phân biệt nền tảng đã được duyệt nhưng chưa bật
-> kiểm tra sức khỏe — nếu gộp thì không thực thi được điều kiện chặn cứng (c) của mục 5.2.3.
+> kiểm tra sức khỏe — nếu gộp thì không thực thi được điều kiện chặn cứng (c) của ETV.P35 §6.2.3.
 
 ## 2. Tình trạng vận hành (`health`) — không phải trạng thái hồ sơ
 
