@@ -32,8 +32,14 @@ export function formatDate(d: Date | null | undefined): string {
   return `${dd}/${mm}/${d.getUTCFullYear()}`;
 }
 
+// Lề theo NĐ 30/2020/NĐ-CP: trên 20 / dưới 20 / trái 30 / phải 15 (mm). Biểu mẫu khổ ngang
+// (bảng nhiều cột như F03.08) đổi lề trái xuống 20mm — giữ 30mm ở khổ ngang thì bảng bị bóp.
+const pageCss = (landscape: boolean) =>
+  landscape
+    ? "@page { size: A4 landscape; margin: 15mm 15mm 15mm 20mm; }"
+    : "@page { size: A4 portrait; margin: 20mm 15mm 20mm 30mm; }";
+
 const BASE_CSS = `
-@page { size: A4 portrait; margin: 20mm 15mm 20mm 30mm; }
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -76,12 +82,24 @@ table.grid th { background: #f0f0f0; font-weight: bold; text-align: center; }
 table.grid td.label { width: 52mm; font-weight: normal; }
 table.grid td.empty-row { height: 8mm; }
 
+/* Bảng danh sách dài (F03.08…): KHÔNG cấm ngắt trang như table.grid — danh sách phải tràn được
+   sang trang sau; đổi lại đầu bảng tự lặp lại ở mỗi trang để đọc bản in không mất tên cột. */
+table.list { border-collapse: collapse; width: 100%; font-size: 10pt; }
+table.list thead { display: table-header-group; }
+table.list tr { page-break-inside: avoid; }
+table.list th, table.list td { border: 1px solid #000; padding: 1.2mm 1.5mm; vertical-align: top; }
+table.list th { background: #f0f0f0; font-weight: bold; text-align: center; }
+table.list td.num { text-align: center; }
+table.list td.mid { text-align: center; white-space: nowrap; }
+
 /* Ô chưa có dữ liệu trong hệ thống: kẻ dòng chấm để điền tay khi in. */
 .blank {
   display: inline-block; min-width: 30mm; width: 92%;
   border-bottom: 1px dotted #666; height: 1em; vertical-align: baseline;
 }
 p.commit { margin: 3mm 0; text-align: justify; }
+/* Ghi chú in ngay dưới bảng, thuộc chính biểu mẫu gốc (khác .footnote là dòng do hệ thống thêm). */
+p.note { margin: 3mm 0 0; font-size: 10pt; font-style: italic; }
 table.sign { border-collapse: collapse; width: 100%; margin-top: 6mm; page-break-inside: avoid; }
 table.sign td { width: 33.33%; text-align: center; vertical-align: top; padding: 2mm; font-size: 12pt; }
 table.sign td .role { font-weight: bold; text-transform: uppercase; font-size: 11pt; }
@@ -144,15 +162,27 @@ export function signatureRow(roles: { role: string; hint?: string }[]): string {
   return `<table class="sign"><tbody><tr>${cells}</tr></tbody></table>`;
 }
 
+export interface DocumentOptions {
+  /** Khổ ngang cho biểu mẫu bảng nhiều cột (F03.08). Mặc định khổ dọc. */
+  landscape?: boolean;
+}
+
 /**
  * Gói nhiều "tờ" biểu mẫu thành một tài liệu HTML hoàn chỉnh.
  * Mỗi phần tử của `sheets` chiếm trang riêng khi in.
+ *
+ * Khổ giấy do `@page` trong chính tài liệu quyết định (htmlToPdf đặt preferCSSPageSize), nên
+ * truyền `landscape` ở đây là đủ — không phải khai lại lúc render PDF.
  */
-export function formDocument(docTitle: string, sheets: string[]): string {
+export function formDocument(
+  docTitle: string,
+  sheets: string[],
+  options: DocumentOptions = {},
+): string {
   return `<!doctype html>
 <html lang="vi"><head><meta charset="utf-8" />
 <title>${esc(docTitle)}</title>
-<style>${BASE_CSS}</style>
+<style>${pageCss(options.landscape ?? false)}${BASE_CSS}</style>
 </head><body>
 ${sheets.map((s) => `<section class="sheet">${s}</section>`).join("\n")}
 </body></html>`;
