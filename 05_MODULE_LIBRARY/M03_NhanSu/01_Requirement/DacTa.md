@@ -106,3 +106,49 @@ Vai trò module: `NV`(chưa dùng ở Increment 5), `TP`, `QLCL`(chưa dùng), `
 `VANPHONG`, `NGUOIHUONGDAN`, `LDV` — dùng lại 3 tài khoản demo M01/M10 (nth→NGUOIHUONGDAN,
 ldp→TP, ldv→LDV) + 1 tài khoản mới `vanphong@manlab.vn`.
 41/2024/QH15.
+
+## 7. Xuất biểu mẫu ra PDF
+
+Từ bảng Nhân sự tại `/modules/M03`, chọn dòng rồi bấm nút xuất tương ứng. Hai biểu mẫu, hai bản
+chất khác nhau — quyết định cách xuất:
+
+| Biểu mẫu | Bản chất | Kết quả | Chọn dòng |
+|---|---|---|---|
+| **F03.01** Sơ yếu lý lịch | Hồ sơ **cá nhân**, khổ dọc | 1 người → `F03.01_SoYeuLyLich_<mã NS>_<HọTên>.pdf`; nhiều người → `.zip`, mỗi người một file riêng (mỗi tờ là một hồ sơ độc lập theo ETV.MP15, không gộp) | Bắt buộc, tối đa 100 người/lần |
+| **F03.08** Danh sách nhân sự | Biểu mẫu **tổng hợp**, khổ ngang 11 cột | Luôn đúng **một** file `F03.08_DanhSachNhanSu_<n>NhanSu.pdf`, bao nhiêu người cũng nằm trong một bảng — gói `.zip` ở đây là sai bản chất biểu mẫu | Không chọn = xuất **toàn bộ** danh sách |
+
+F03.08 giữ nguyên cột tick ba trạng thái (☐ Thử việc / ☐ Chính thức / ☐ Đã nghỉ) của biểu mẫu
+gốc và đánh dấu ô đúng theo dữ liệu, thay vì thay bằng một chữ — bản in vẫn tick tay được nếu
+cần sửa. Đầu bảng tự lặp lại ở mỗi trang khi danh sách tràn sang trang sau.
+
+**Trường chưa số hoá.** `M03Employee` mới có 6 trường (họ tên, vị trí, bộ phận, hình thức làm
+việc, ngày tiếp nhận, trạng thái), trong khi F03.01 có ~20 trường và F03.08 có 11 cột. Bản xuất
+**giữ nguyên đủ 6 mục I–VI của F03.01 và đủ 11 cột của F03.08**, phần chưa có dữ liệu in ra dòng
+chấm/ô trống để điền tay — không bỏ mục, không bỏ cột, vì đoàn đánh giá đối chiếu bản in với biểu
+mẫu đã ban hành. Cụ thể còn trống: F03.01 thiếu ngày sinh, CCCD, nguyên quán, trình độ, quan hệ
+gia đình…; F03.08 thiếu cột Ngày sinh và Ghi chú. Muốn PDF điền đầy đủ thì phải mở rộng
+`M03Employee` — **chưa làm, cần LĐP quyết định** vì đó là mở rộng phạm vi module chứ không thuộc
+việc xuất biểu mẫu.
+
+**Nguồn sự thật của metadata biểu mẫu.** Mã số / lần ban hành / ngày ban hành in trên đầu bản
+xuất bắt nguồn từ frontmatter của chính `06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md`;
+`prisma/seed.ts` đọc lên và nạp vào `PlatformModule.forms` (cùng đường với danh sách biểu mẫu mà
+`<CanCuBanner>` hiển thị), lúc chạy chỉ đọc lại từ DB (`src/lib/forms/meta.ts`). Biểu mẫu ban hành
+lại thì chạy lại seed, bản xuất tự đổi theo, không sửa code. Cố tình KHÔNG đọc file trong repo lúc
+chạy: truy cập filesystem động khiến Next đóng gói toàn bộ repo vào bundle deploy. Danh sách biểu
+mẫu áp dụng cho MP03 cũng lấy từ đó, không suy ra bằng cách quét tên file theo tiền tố.
+
+**Kỹ thuật.** Biểu mẫu được mô tả **một lần** bằng HTML (`src/lib/forms/layout.ts` — khung A4
+dùng chung theo NĐ 30/2020/NĐ-CP, hỗ trợ cả khổ dọc và khổ ngang; `src/lib/m03/forms/f03-01.ts`
+và `f03-08.ts` — nội dung từng biểu mẫu), rồi Chromium headless render thành PDF
+(`src/lib/pdf/render.ts`). Cách này để dùng lại cho ~100 biểu mẫu còn lại của Viện mà không phải
+viết bố cục hai lần cho bản web và bản PDF. Biểu mẫu thứ hai (F03.08) đã kiểm chứng khung dùng
+chung tổng quát thật: chỉ thêm khổ ngang + kiểu bảng danh sách vào `layout.ts`, phần còn lại
+(bảng mã số, quốc hiệu, hàng chữ ký, escape, tra metadata) dùng lại nguyên vẹn.
+
+**Quyền.** Yêu cầu phiên đăng nhập (`src/proxy.ts` chặn mọi request ẩn danh). KHÔNG siết thêm
+theo vai trò M03, vì trang `/modules/M03` hiện cho mọi người đã đăng nhập xem chính những dữ liệu
+này — khi siết quyền xem theo module thì siết đồng thời cả trang lẫn route xuất, không để lệch.
+
+Test: `src/lib/forms/__tests__/{f03-01,f03-08}.test.ts` (25 test, Prisma giả lập — không cần
+Postgres lẫn Chromium).
