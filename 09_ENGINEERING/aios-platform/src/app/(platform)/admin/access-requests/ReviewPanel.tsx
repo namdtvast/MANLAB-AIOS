@@ -27,6 +27,7 @@ export function ReviewPanel({ id }: { id: string }) {
         id={noteId}
         name="reviewNote"
         rows={2}
+        defaultValue={state?.reviewNote ?? ""}
         maxLength={FIELD_LIMITS.reviewNote}
         className="w-full resize-y rounded-lg border border-border bg-bg px-2.5 py-1.5 text-sm text-ink outline-none transition-colors focus:border-accent-line"
       />

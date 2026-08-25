@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import {
+  FIELD_LIMITS,
   reviewAccessRequest,
   validateAccessRequest,
   type AccessRequestField,
@@ -15,6 +16,9 @@ import {
 export interface SubmitState {
   ok?: boolean;
   errors?: Partial<Record<AccessRequestField, string>>;
+  // Dữ liệu người dùng đã nhập, trả lại nguyên văn để form dựng lại khi có lỗi —
+  // người gửi chỉ phải sửa ô sai, không nhập lại từ đầu. Chỉ kèm khi ok = false.
+  values?: Record<AccessRequestField, string>;
   message?: string;
 }
 
@@ -24,18 +28,33 @@ export interface SubmitState {
 const NEUTRAL_CONFIRMATION =
   "Đã tiếp nhận đề nghị. Quản trị hệ thống sẽ liên hệ lại qua email nếu được cấp tài khoản. Nếu email này đã có tài khoản, hãy đăng nhập bình thường.";
 
+// Giá trị trả ngược về form để người gửi không phải nhập lại. Cắt theo giới hạn từng trường:
+// form đã chặn bằng maxLength, đây là chặn cho trường hợp gửi thẳng lên server — không dội một
+// payload lớn ngược về trình duyệt. Cắt sau khi validate nên vẫn giữ nguyên lỗi "quá N ký tự".
+function keepForRetry(values: Record<AccessRequestField, string>): Record<AccessRequestField, string> {
+  return {
+    fullName: values.fullName.slice(0, FIELD_LIMITS.fullName),
+    email: values.email.slice(0, FIELD_LIMITS.email),
+    organization: values.organization.slice(0, FIELD_LIMITS.organization),
+    phone: values.phone.slice(0, FIELD_LIMITS.phone),
+    purpose: values.purpose.slice(0, FIELD_LIMITS.purpose),
+  };
+}
+
 export async function submitAccessRequest(
   _prev: SubmitState | undefined,
   formData: FormData,
 ): Promise<SubmitState> {
-  const parsed = validateAccessRequest({
+  const submitted: Record<AccessRequestField, string> = {
     fullName: String(formData.get("fullName") ?? ""),
     email: String(formData.get("email") ?? ""),
     organization: String(formData.get("organization") ?? ""),
     phone: String(formData.get("phone") ?? ""),
     purpose: String(formData.get("purpose") ?? ""),
-  });
-  if (!parsed.ok) return { ok: false, errors: parsed.errors };
+  };
+
+  const parsed = validateAccessRequest(submitted);
+  if (!parsed.ok) return { ok: false, errors: parsed.errors, values: keepForRetry(submitted) };
 
   const { value } = parsed;
 
@@ -67,31 +86,41 @@ export async function submitAccessRequest(
 export interface ReviewState {
   ok?: boolean;
   message?: string;
+  // Ghi chú đã gõ, trả lại để người duyệt không phải viết lại khi thao tác bị chặn.
+  reviewNote?: string;
 }
 
 export async function reviewAccessRequestAction(
   _prev: ReviewState | undefined,
   formData: FormData,
 ): Promise<ReviewState> {
+  const reviewNote = String(formData.get("reviewNote") ?? "");
+  // Mọi lối thoát lỗi đều trả lại ghi chú đã gõ (cắt theo giới hạn khi trả về, không cắt
+  // trước khi kiểm tra — rule vẫn là nơi quyết định ghi chú có quá dài hay không).
+  const fail = (message: string): ReviewState => ({
+    ok: false,
+    message,
+    reviewNote: reviewNote.slice(0, FIELD_LIMITS.reviewNote),
+  });
+
   const session = await auth();
   const actorId = session?.user?.id;
   const role = session?.user?.role;
   // R6 — chặn ở server, không dựa vào việc trang có hiện nút hay không.
-  if (!actorId || !role) return { ok: false, message: "Phiên đăng nhập không hợp lệ." };
+  if (!actorId || !role) return fail("Phiên đăng nhập không hợp lệ.");
 
   const id = String(formData.get("id") ?? "");
   const decision = String(formData.get("decision") ?? "") as ReviewDecision;
-  if (decision !== "APPROVED" && decision !== "REJECTED")
-    return { ok: false, message: "Quyết định không hợp lệ." };
+  if (decision !== "APPROVED" && decision !== "REJECTED") return fail("Quyết định không hợp lệ.");
 
   const request = await prisma.accessRequest.findUnique({
     where: { id },
     select: { status: true },
   });
-  if (!request) return { ok: false, message: "Không tìm thấy yêu cầu." };
+  if (!request) return fail("Không tìm thấy yêu cầu.");
 
-  const result = reviewAccessRequest(request, { role }, decision, String(formData.get("reviewNote") ?? ""));
-  if (!result.ok) return { ok: false, message: result.message };
+  const result = reviewAccessRequest(request, { role }, decision, reviewNote);
+  if (!result.ok) return fail(result.message);
 
   await prisma.accessRequest.update({
     where: { id },

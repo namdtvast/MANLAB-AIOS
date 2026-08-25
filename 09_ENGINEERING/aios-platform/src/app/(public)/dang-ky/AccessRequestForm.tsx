@@ -78,6 +78,7 @@ export function AccessRequestForm() {
           <input
             id={id}
             name="fullName"
+            defaultValue={state?.values?.fullName ?? ""}
             type="text"
             autoComplete="name"
             maxLength={FIELD_LIMITS.fullName}
@@ -99,6 +100,7 @@ export function AccessRequestForm() {
           <input
             id={id}
             name="email"
+            defaultValue={state?.values?.email ?? ""}
             type="email"
             inputMode="email"
             autoComplete="email"
@@ -121,6 +123,7 @@ export function AccessRequestForm() {
           <input
             id={id}
             name="organization"
+            defaultValue={state?.values?.organization ?? ""}
             type="text"
             autoComplete="organization"
             maxLength={FIELD_LIMITS.organization}
@@ -136,6 +139,7 @@ export function AccessRequestForm() {
           <input
             id={id}
             name="phone"
+            defaultValue={state?.values?.phone ?? ""}
             type="tel"
             inputMode="tel"
             autoComplete="tel"
@@ -158,6 +162,7 @@ export function AccessRequestForm() {
           <textarea
             id={id}
             name="purpose"
+            defaultValue={state?.values?.purpose ?? ""}
             rows={4}
             maxLength={FIELD_LIMITS.purpose}
             aria-invalid={invalid || undefined}
