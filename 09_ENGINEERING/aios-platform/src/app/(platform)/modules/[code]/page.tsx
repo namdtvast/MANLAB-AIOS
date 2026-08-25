@@ -19,6 +19,14 @@ export default async function ModuleDetailPage({
         <h1 className="font-head text-2xl font-bold text-ink">{mod.name}</h1>
       </div>
 
+      {/* Mục tiêu của thủ tục — nguồn: khóa purpose trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml.
+          Module chưa dựng thì chưa có khung Căn cứ đầy đủ, nhưng mục tiêu thì đã xác định được. */}
+      {mod.purpose && (
+        <p className="rounded-lg border border-border bg-sunk px-3 py-2.5 text-xs text-ink-2">
+          <span className="text-ink-3">Mục tiêu:</span> {mod.purpose}
+        </p>
+      )}
+
       {mod.status === "ACTIVE" ? (
         <div className="rounded-xl border border-good/30 bg-good-soft p-4 text-sm">
           <p className="font-semibold text-good">

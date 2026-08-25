@@ -2,6 +2,9 @@ schema: manlab-aios/process@1.2
 code: MP22
 slug: DamBaoDoLuongDN
 name: Đảm bảo đo lường tại doanh nghiệp
+purpose: >-
+  Xây dựng, phê duyệt, triển khai và đánh giá Chương trình đảm bảo đo lường tại doanh nghiệp do
+  Viện tư vấn hoặc tự triển khai, theo Quyết định 510/QĐ-BKHCN và pháp luật đo lường hiện hành.
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['(none)']

@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP33
 slug: HeThongTT
 name: Quản lý hệ thống thông tin
+purpose: >-
+  Quản lý, vận hành, khai thác và bảo trì hạ tầng công nghệ thông tin của Viện (máy chủ, mạng,
+  thiết bị đầu cuối, tài khoản người dùng); bảo đảm hệ thống hoạt động ổn định, an toàn, hiệu quả
+  (QM §10.2).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO27001']

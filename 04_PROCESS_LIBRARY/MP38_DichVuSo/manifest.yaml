@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP38
 slug: DichVuSo
 name: Quản lý dịch vụ số
+purpose: >-
+  Quản lý việc cung cấp dịch vụ số, dịch vụ trực tuyến và dịch vụ điện tử nhằm nâng cao chất lượng
+  phục vụ, tăng khả năng tương tác với khách hàng và hỗ trợ chuyển đổi số hoạt động đo lường, thử
+  nghiệm, hiệu chuẩn (QM §10.7).
 owner: "(cập nhật)"
 status: active
 standards: ['(none)']

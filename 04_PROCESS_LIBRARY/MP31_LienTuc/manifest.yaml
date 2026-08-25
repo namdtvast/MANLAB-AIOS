@@ -2,6 +2,10 @@ schema: manlab-aios/process@1.2
 code: MP31
 slug: LienTuc
 name: Quản lý tính liên tục hoạt động
+purpose: >-
+  Bảo đảm khả năng duy trì hoặc khôi phục hoạt động khi xảy ra sự cố với con người, hạ tầng, thiết
+  bị, công nghệ thông tin hay dữ liệu — bằng biện pháp phòng ngừa, sao lưu, phục hồi và ứng phó sự
+  cố (QM §9.8).
 owner: "(cập nhật)"
 status: active
 standards: ['ISO27001']
