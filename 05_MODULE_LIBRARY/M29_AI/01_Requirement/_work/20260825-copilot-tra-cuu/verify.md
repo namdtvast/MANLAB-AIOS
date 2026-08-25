@@ -296,9 +296,17 @@ audit log đã cho.
 #### Trần tối đa vẫn là Nội bộ — kể cả mô hình nội bộ
 
 `ETV.P28 §5.13` cấm ở mức **truy cập**, không chỉ lập chỉ mục: *"Trợ lý AI và các agent của Viện chỉ
-được truy cập nguồn dữ liệu ở mức Công khai và Nội bộ"*. Kiểu của `mucBaoMatToiDa()` chỉ trả về
-`"Cong-khai" | "Noi-bo"` nên **Hạn chế là bất khả biểu diễn**, không phải chỉ là chưa dùng tới. Có ca
-test duyệt toàn bộ enum để khoá điều đó.
+được truy cập nguồn dữ liệu ở mức Công khai và Nội bộ"*.
+
+Kiểu trả về của `mucBaoMatToiDa()` là `"Cong-khai" | "Noi-bo"`, nên **mức Hạn chế không biểu diễn
+được** — không phải chỉ là "chưa dùng tới". Một thay đổi mã vô ý nới lên tới Hạn chế sẽ **không qua
+được kiểm kiểu**, tức là hỏng lúc biên dịch chứ không phải hỏng trong lúc chạy trước mặt người dùng.
+
+Điểm này đáng nêu riêng khi làm việc với đoàn đánh giá: đó là khác biệt giữa **"có quy định cấm"** và
+**"có kiểm soát kỹ thuật cưỡng chế điều cấm đó"**. Chỉ loại thứ hai mới là bằng chứng về kiểm soát
+vận hành theo ISO/IEC 42001; một dòng cấm trong thủ tục mà phần mềm vẫn làm được thì chỉ chứng minh
+được ý định, không chứng minh được năng lực. Bổ sung thêm ca test duyệt **toàn bộ** giá trị của enum
+(không liệt kê tay từng cái) để khoá cả các trạng thái thêm về sau.
 
 #### Kiểm chứng trên dữ liệu thật
 
