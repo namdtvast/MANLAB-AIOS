@@ -275,6 +275,7 @@ Bản ghi `AIPlatform` (M29/M35) điền như sau:
 | `apiBaseUrl` | `https://llm.manlab.vn/v1` |
 | `environment` | `INTERNAL` (máy chủ nằm trong hạ tầng của Viện) |
 | `adapterType` | `LocalOpenAIPlatformAdapter` (xem §3.6) |
+| `dataBoundary` | `NO_EXTERNAL_TRANSFER` — dữ liệu không rời hạ tầng Viện. Trần tối đa là mức **Nội bộ** (§3.7) |
 | `owner` | Người quản trị hệ thống được giao |
 | `approvalStatus` | `DRAFT` khi đăng ký → `APPROVED` khi được phê duyệt → `ACTIVE` khi đã bật giám sát và kết nối (Bước 6) |
 
@@ -340,7 +341,7 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 | `LocalOpenAIPlatformAdapter` (`health` + `chat`, đã đăng ký trong `ADAPTERS`) | **Đã có** | `src/lib/m29/adapters.ts`; 14 ca test tại `__tests__/adapters-local.test.ts` |
 | Biến môi trường `LOCAL_LLM_API_KEY` | **Đã có** | `.env.example` |
 | Ghi `AIRequest` mỗi lượt gọi và `AIAuditLog` mỗi thay đổi cấu hình | **Đã có** | `src/lib/m29/gateway.ts`, `actions.ts` |
-| Trần mức bảo mật **theo từng nền tảng** | **Còn thiếu** — hiện là biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA`, áp chung cho mọi nền tảng | Phải có trước khi nới trần cho máy chủ nội bộ (§3.7) |
+| Trần mức bảo mật **theo từng nền tảng** | **Đã có** | `AIPlatform.dataBoundary` (enum `AIDataBoundary`), mặc định fail-closed ở `EXTERNAL_NO_COMMITMENT`; di trú `20260825161823_m29_ranh_gioi_du_lieu_nen_tang`. Biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA` đã gỡ. Nới trần phải đi qua `datRanhGioiDuLieu()` và **dẫn số hồ sơ** F29.02, quyền thuộc AI_SECURITY_ADMIN/SUPER_ADMIN — người đăng ký nền tảng không tự nới được |
 | Quy tắc định tuyến theo loại tác vụ và mức phân loại dữ liệu | **Còn thiếu** — nền tảng gắn cứng ở `AIAgent.platformId` | Tối thiểu cần: loại tác vụ, mức phân loại, đích, thứ tự ưu tiên, dự phòng, cờ bật/tắt |
 | Chuyển nền tảng sang trạng thái **Hiệu lực** (Bước 6) | **Đã có** | `approvalTransitions.activate()` + nút "Đưa vào vận hành" trên trang danh mục; ngừng vận hành được từ `ACTIVE` — `src/lib/m29/rules.ts`, `RegistryActions.tsx` |
 | Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Đã có** | `checkHealthAction()` lọc `{ in: ["APPROVED", "ACTIVE"] }` — `src/lib/m29/actions.ts`. Bộ lọc cũ chỉ quét `APPROVED` nên nền tảng vừa đưa vào vận hành rơi khỏi vòng dò |
