@@ -6,11 +6,20 @@ purpose: >-
   Quản lý dữ liệu số trong toàn bộ vòng đời — tạo lập, thu thập, xử lý, lưu trữ, khai thác, chia
   sẻ, cập nhật, hủy bỏ; bảo đảm tính chính xác, toàn vẹn, khả năng truy xuất và bảo mật thông tin
   (QM §10.3).
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
-standards: ['ISO27001', 'ISO42001']
+standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-28]
 module: M34
 menu_group: DU_LIEU_SO
 menu_order: 1
+document:
+  doc_id: ETV.P34
+  doc_status: Cho-soat-xet
+  doc_version: "01"
+  issued_date: 2026-08-25
+forms:
+  - ETV.P.F34.01
+  - ETV.P.F34.02
+  - ETV.P.F34.03
