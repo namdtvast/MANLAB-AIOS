@@ -120,3 +120,14 @@ Mỗi thư mục skill cần `SKILL.md` với frontmatter `name:` kebab-case —
 - Commit message: theo phong cách Conventional Commits, gắn scope là tầng/module bị chỉnh sửa, viết tiếng Việt: `feat(M10): ...`, `docs(P01): ...`, `chore(M21): ...`, `refactor(P01): ...`.
 - Luồng chuẩn: tạo nhánh mới → commit → PR vào `main` → merge (`--merge --delete-branch`) → đồng bộ `main` cục bộ. Có hook `post-commit` tự động push.
 - File PDF lớn hơn giới hạn 100MB của GitHub bị loại trừ qua `.gitignore` và chỉ giữ ở local (xem hai dòng dưới `08_KNOWLEDGE_GRAPH/14_Technical_References/`) — không cố force-add các file này.
+
+## Quy tắc mở phiên mới (bắt buộc)
+
+Mỗi phiên Claude Code mới (`+ New`) chỉ tách riêng **ngữ cảnh hội thoại** — thư mục làm việc, cây git và nhánh đang checkout vẫn **dùng chung** cho mọi phiên. Vì vậy hai phiên chạy song song trên cùng thư mục sẽ commit đè lên nhánh của nhau. Trước khi đụng bất kỳ file nào:
+
+1. **Kiểm tra chỗ đứng**: `git branch --show-current`, `git status -s`, `git worktree list`, và `ListAgents` (xem có phiên nào đang chạy).
+2. **Nếu không đứng trên `main` sạch** — đang ở nhánh dở dang của phiên khác, hoặc working tree còn thay đổi chưa commit không phải của mình — **dừng lại và báo người dùng**, không commit tiếp vào nhánh đó.
+3. **Một yêu cầu = một nhánh.** Đặt tên nhánh theo yêu cầu đang làm, không tái sử dụng nhánh cũ cho việc mới.
+4. **Chạy song song thì phải tách vật lý**: nếu buộc phải làm khi phiên khác đang mở, tạo `git worktree` riêng (thư mục riêng + nhánh riêng) thay vì dùng chung cây làm việc chính.
+5. **Dứt điểm trước khi mở phiên mới**: PR → merge → `git checkout main && git pull` → **xóa nhánh** (cả local và remote). Không để nhánh sống qua đêm — nhánh đã merge còn sót lại là nguồn nhầm lẫn chính giữa các phiên.
+
