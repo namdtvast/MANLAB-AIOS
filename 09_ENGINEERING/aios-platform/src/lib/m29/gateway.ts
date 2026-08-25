@@ -262,7 +262,8 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     return refuse("QUOTA_EXCEEDED", `Copilot đã dùng hết hạn mức chi phí tháng (${budget} USD). Liên hệ quản trị AI để xem xét.`);
 
   // (6) Truy hồi ngữ cảnh. Không có trích đoạn ⇒ từ chối, KHÔNG gọi API, vẫn ghi trace.
-  const passages = await retrieve(question);
+  // Trần mức bảo mật lấy từ CHÍNH nền tảng sẽ nhận dữ liệu, không phải một cài đặt toàn cục.
+  const passages = await retrieve(question, agent.platform.dataBoundary);
   if (passages.length === 0) return refuse("NO_SOURCE", NO_SOURCE_ANSWER, "BLOCK:GR-NO-SOURCE");
 
   // (7) Gọi nhà cung cấp mô hình qua adapter.

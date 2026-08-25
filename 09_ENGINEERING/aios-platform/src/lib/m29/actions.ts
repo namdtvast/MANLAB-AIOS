@@ -30,6 +30,8 @@ import {
 } from "./rules";
 import { callTool as gatewayCallTool } from "./gateway";
 import { deploymentGate, runCases } from "./evaluation";
+import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
+import type { AIDataBoundary } from "@/generated/prisma/enums";
 import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
 import { getAdapter } from "./adapters";
 
@@ -174,6 +176,38 @@ export async function createPlatform(input: { code: string; name: string; baseUr
   await logAudit(actor, "platforms", rec.id, { after: rec, reason: "create" });
   revalidateM29();
   return rec;
+}
+
+/**
+ * Đặt RANH GIỚI DỮ LIỆU của một nền tảng mô hình — quyết định tài liệu mức nào được gửi tới đó
+ * (ETV.P29 §5.5). Đây là chốt an ninh, không phải một thuộc tính mô tả.
+ *
+ * Quyền đặt ở "governance" chứ KHÔNG ở "platforms": người đăng ký nền tảng (AI_ADMIN có
+ * platforms:r, registry:rw) không được tự nới ranh giới dữ liệu của chính nền tảng mình vừa tạo.
+ * Chỉ AI_SECURITY_ADMIN và SUPER_ADMIN có governance:rw. Tách vai trò theo tinh thần ETV.P29 §4.8.
+ *
+ * Ai nới, lúc nào, dẫn hồ sơ nào: ghi ở AIAuditLog.
+ */
+export async function datRanhGioiDuLieu(platformId: string, ranhGioi: AIDataBoundary, soHoSo?: string) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "governance", "write")) throw new Error("Không đủ quyền đặt ranh giới dữ liệu của nền tảng.");
+
+  const kiem = kiemTraDatRanhGioi(ranhGioi, soHoSo);
+  if (!kiem.ok) throw new Error(kiem.loi);
+
+  const truoc = await prisma.aIPlatform.findUniqueOrThrow({ where: { id: platformId } });
+  const sau = await prisma.aIPlatform.update({
+    where: { id: platformId },
+    data: { dataBoundary: ranhGioi, dataBoundaryRef: chuanHoaSoHoSo(ranhGioi, soHoSo) },
+  });
+  await logAudit(actor, "platforms", platformId, {
+    field: "dataBoundary",
+    before: { dataBoundary: truoc.dataBoundary, dataBoundaryRef: truoc.dataBoundaryRef },
+    after: { dataBoundary: sau.dataBoundary, dataBoundaryRef: sau.dataBoundaryRef },
+    reason: `Đặt ranh giới dữ liệu theo ETV.P29 §5.5${sau.dataBoundaryRef ? ` — hồ sơ ${sau.dataBoundaryRef}` : ""}`,
+  });
+  revalidateM29();
+  return sau;
 }
 
 // ---------- Vòng đời phê duyệt dùng chung (Platform/Guardrail/Policy) ----------

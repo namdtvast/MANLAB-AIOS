@@ -9,28 +9,31 @@
 // TRẦN theo nhà cung cấp mô hình đang dùng (§5.5) — xem mucBaoMatToiDa().
 import { prisma } from "@/lib/prisma";
 import { tsQuery } from "./text";
+import type { AIDataBoundary } from "@/generated/prisma/enums";
 
 export const INDEXABLE_LEVELS = ["Cong-khai", "Noi-bo"] as const;
 
 /**
- * TRẦN MỨC BẢO MẬT ĐƯỢC GỬI RA DỊCH VỤ MÔ HÌNH BÊN NGOÀI — ETV.P29 §5.5.
+ * TRẦN MỨC BẢO MẬT ĐƯỢC GỬI RA NGOÀI — ETV.P29 §5.5, suy từ RANH GIỚI DỮ LIỆU của chính nền tảng
+ * đang phục vụ lượt hỏi, không phải từ một biến toàn cục.
  *
- * Thủ tục: "Việc gửi dữ liệu của Viện tới dịch vụ mô hình bên ngoài phải được nêu rõ trong AIA,
- * kèm điều khoản của nhà cung cấp về việc KHÔNG dùng dữ liệu để huấn luyện lại; nếu nhà cung cấp
- * không bảo đảm được điều này thì CHỈ ĐƯỢC GỬI dữ liệu mức Công khai."
+ * Vì sao theo từng nền tảng: một cấu hình có thể có nhiều nền tảng mô hình cùng lúc — mô hình tự
+ * vận hành trong hạ tầng của Viện, và dịch vụ ngoài. Một trần toàn cục buộc phải chọn con số thấp
+ * nhất cho tất cả (mô hình nội bộ mất tài liệu Nội bộ dù dữ liệu không hề rời Viện), hoặc nới cho
+ * tất cả (tài liệu Nội bộ chảy ra dịch vụ ngoài). Cả hai đều sai.
  *
- * Mặc định FAIL-CLOSED là "Cong-khai": nới lên "Noi-bo" là một hành động có chủ đích của người vận
- * hành, và chính lúc đặt biến này họ khẳng định đã trích được điều khoản của nhà cung cấp vào hồ sơ
- * AIA (F29.02). Không suy ra từ tên nhà cung cấp — cùng một nhà cung cấp có bậc dịch vụ cam kết và
- * bậc không cam kết.
+ * Ánh xạ thẳng từ §5.5, không suy diễn:
+ *   không rời hạ tầng          → Nội bộ
+ *   rời, CÓ cam kết (F29.02)   → Nội bộ
+ *   rời, KHÔNG cam kết         → chỉ Công khai
  */
-export function mucBaoMatToiDa(): (typeof INDEXABLE_LEVELS)[number] {
-  return process.env.COPILOT_MUC_BAO_MAT_TOI_DA === "Noi-bo" ? "Noi-bo" : "Cong-khai";
+export function mucBaoMatToiDa(ranhGioi: AIDataBoundary): (typeof INDEXABLE_LEVELS)[number] {
+  return ranhGioi === "NO_EXTERNAL_TRANSFER" || ranhGioi === "EXTERNAL_WITH_COMMITMENT" ? "Noi-bo" : "Cong-khai";
 }
 
-/** Các mức được phép đưa vào ngữ cảnh, theo trần hiện hành. */
-export function mucDuocGui(): string[] {
-  return mucBaoMatToiDa() === "Noi-bo" ? ["Cong-khai", "Noi-bo"] : ["Cong-khai"];
+/** Các mức được phép đưa vào ngữ cảnh, theo ranh giới dữ liệu của nền tảng. */
+export function mucDuocGui(ranhGioi: AIDataBoundary): string[] {
+  return mucBaoMatToiDa(ranhGioi) === "Noi-bo" ? ["Cong-khai", "Noi-bo"] : ["Cong-khai"];
 }
 
 export interface Passage {
@@ -57,7 +60,7 @@ export const MAX_PASSAGES_PER_DOC = 2;
 /** Lấy dư rồi mới áp hạn mức — nếu chỉ lấy đúng MAX_PASSAGES thì cắt bớt xong sẽ hụt chỗ. */
 const CANDIDATE_FACTOR = 4;
 
-export async function retrieve(question: string, limit: number = MAX_PASSAGES): Promise<Passage[]> {
+export async function retrieve(question: string, ranhGioi: AIDataBoundary, limit: number = MAX_PASSAGES): Promise<Passage[]> {
   const q = tsQuery(question);
   if (!q) return [];
 
@@ -69,7 +72,7 @@ export async function retrieve(question: string, limit: number = MAX_PASSAGES): 
            ts_rank('{0.05, 0.2, 0.4, 1.0}'::float4[], c."tsv", query, 1) AS rank
     FROM "CopilotDocChunk" c, to_tsquery('simple', ${q}) query
     WHERE c."tsv" @@ query
-      AND c."securityLevel" = ANY(${mucDuocGui()})
+      AND c."securityLevel" = ANY(${mucDuocGui(ranhGioi)})
     ORDER BY rank DESC, c."path" ASC
     LIMIT ${limit * CANDIDATE_FACTOR}
   `;

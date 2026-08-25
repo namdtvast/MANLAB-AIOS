@@ -31,7 +31,7 @@ export default async function M29RegistryPage() {
         <h1 className="font-head text-2xl font-bold text-ink">Provider · Model · Skill · Tool · Platform</h1>
       </div>
 
-      <section>
+      <section id="platform" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
@@ -67,7 +67,7 @@ export default async function M29RegistryPage() {
         </div>
       </section>
 
-      <section>
+      <section id="tool" className="scroll-mt-24">
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">

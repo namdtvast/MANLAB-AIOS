@@ -2,12 +2,19 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { MENU_GROUPS, DEFAULT_MENU_GROUP } from "@/lib/menu";
+import { StatCard } from "@/components/StatCard";
 
 // Bảng điều khiển của người ĐÃ đăng nhập. Phần giới thiệu nền tảng (mục đích, đối
 // tượng, giá trị) nằm ở trang chủ công khai "/" — người đã vào tới đây không cần
 // đọc lại, cái họ cần là vào việc.
 
-export default async function DashboardPage() {
+const MAP_FILTER: Record<string, string> = {
+  active: "Đã vận hành trên nền tảng",
+  issued: "Có thủ tục đã ban hành",
+};
+
+export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ xem?: string }> }) {
+  const { xem } = await searchParams;
   const [session, modules] = await Promise.all([
     auth(),
     prisma.platformModule.findMany({
@@ -30,18 +37,36 @@ export default async function DashboardPage() {
   const displayName = session?.user?.name ?? session?.user?.email ?? "";
 
   const kpis = [
-    { label: "Module trong kiến trúc", value: total, tone: "ink" as const },
-    { label: "Đã vận hành trên nền tảng", value: activeModules.length, tone: "good" as const },
-    { label: "Có thủ tục đã ban hành", value: issued, tone: "ink" as const },
-    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length, tone: "ink" as const },
+    { label: "Module trong kiến trúc", value: total, tone: "ink" as const, href: "/dashboard#ban-do-nghiep-vu" },
+    {
+      label: "Đã vận hành trên nền tảng",
+      value: activeModules.length,
+      tone: "good" as const,
+      href: "/dashboard?xem=active#ban-do-nghiep-vu",
+    },
+    {
+      label: "Có thủ tục đã ban hành",
+      value: issued,
+      tone: "ink" as const,
+      href: "/dashboard?xem=issued#ban-do-nghiep-vu",
+    },
+    { label: "Nhóm nghiệp vụ", value: MENU_GROUPS.length, tone: "ink" as const, href: "/dashboard#ban-do-nghiep-vu" },
   ];
+
+  // Bấm vào thẻ chỉ số sẽ lọc chính bản đồ nghiệp vụ bên dưới, thay vì chỉ cuộn tới đó.
+  const mapFilter = xem && MAP_FILTER[xem] ? xem : null;
+  const matchesFilter = (m: (typeof modules)[number]) =>
+    mapFilter === "active" ? m.status === "ACTIVE" : mapFilter === "issued" ? m.docStatus === "issued" : true;
 
   const groups = MENU_GROUPS.map((g) => {
     const items = modules
       .filter((m) => (m.menuGroup ?? DEFAULT_MENU_GROUP) === g.code)
+      .filter(matchesFilter)
       .sort((a, b) => (a.menuOrder ?? a.order) - (b.menuOrder ?? b.order));
     return { ...g, items, active: items.filter((m) => m.status === "ACTIVE") };
   }).filter((g) => g.items.length > 0);
+
+  const shownModules = groups.reduce((n, g) => n + g.items.length, 0);
 
   return (
     <div className="flex flex-col gap-8">
@@ -60,25 +85,24 @@ export default async function DashboardPage() {
 
       <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {kpis.map((kpi) => (
-          <div key={kpi.label} className="rounded-xl border border-border bg-surface p-4 shadow-sm">
-            <p className="text-xs text-ink-2">{kpi.label}</p>
-            <p
-              className={`mt-2 font-head text-3xl font-bold tabular-nums ${
-                kpi.tone === "good" ? "text-good" : "text-ink"
-              }`}
-            >
-              {kpi.value}
-            </p>
-          </div>
+          <StatCard key={kpi.label} label={kpi.label} value={kpi.value} tone={kpi.tone} href={kpi.href} />
         ))}
       </section>
 
-      <section className="flex flex-col gap-4">
+      <section id="ban-do-nghiep-vu" className="flex scroll-mt-24 flex-col gap-4">
         <div>
           <h2 className="font-head text-lg font-bold text-ink">Bản đồ nghiệp vụ</h2>
           <p className="mt-1 max-w-3xl text-sm text-ink-2">
             Module chưa vận hành mở trang giới thiệu và trỏ về đặc tả nghiệp vụ tương ứng.
           </p>
+          {mapFilter && (
+            <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-ink-2">
+              Đang lọc: <strong className="text-ink">{MAP_FILTER[mapFilter]}</strong> ({shownModules}/{total} module)
+              <Link href="/dashboard#ban-do-nghiep-vu" className="font-medium text-accent hover:underline">
+                Bỏ lọc
+              </Link>
+            </p>
+          )}
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {groups.map((g) => (
