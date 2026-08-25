@@ -378,7 +378,8 @@ npm run dev                  # http://localhost:3000
 ```
 
 Tài khoản demo (chỉ dev/demo — đổi/xoá trước khi triển khai thật):
-`admin@manlab.vn` / `DoiMatKhauNgay!2026`.
+`admin@manlab.vn`; mật khẩu lấy từ biến môi trường `SEED_DEMO_PASSWORD`, hoặc do lệnh
+seed sinh ngẫu nhiên và in ra một lần nếu biến đó không được đặt.
 
 Hoặc dùng cấu hình preview có sẵn của repo: `.claude/launch.json` →
 `aios-platform` (port mặc định 3000).

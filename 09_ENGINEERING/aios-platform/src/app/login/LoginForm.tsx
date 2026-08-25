@@ -16,7 +16,7 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
           type="email"
           name="email"
           required
-          defaultValue="admin@manlab.vn"
+          autoComplete="email"
           className="rounded-lg border border-border bg-bg px-3 py-2 text-ink outline-none transition-colors focus:border-accent-line"
         />
       </label>

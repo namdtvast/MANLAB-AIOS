@@ -91,9 +91,9 @@ Hai điều cần cân nhắc trước khi công bố:
 - [ ] Biến môi trường production tự tạo `.env` theo mục 5 — **không commit
       `.env` thật lên git** (đã gitignore sẵn trong `aios-platform/.gitignore`).
 - [ ] Sau khi seed, **đổi hoặc xoá TOÀN BỘ tài khoản demo** — không chỉ
-      `admin@manlab.vn`. Seed tạo khoảng 11 tài khoản dùng **chung một mật
-      khẩu ghi thẳng trong `prisma/seed.ts`**, tức mật khẩu đó công khai
-      trên GitHub — xem mục 7.
+      `admin@manlab.vn`. Seed tạo khoảng 11 tài khoản dùng chung một mật khẩu;
+      mật khẩu nay lấy từ `SEED_DEMO_PASSWORD` hoặc sinh ngẫu nhiên, nhưng
+      11 tài khoản đó vẫn là 11 đường vào hệ thống — xem mục 7.
 
 ## 2. Chuẩn bị VPS
 
@@ -159,6 +159,16 @@ NEXTAUTH_URL="https://aios.manlab.vn"
 EOF
 ```
 
+Hai biến tùy chọn chỉ ảnh hưởng tới lệnh seed, không ảnh hưởng lúc chạy app:
+
+| Biến | Tác dụng |
+|---|---|
+| `SEED_DEMO_PASSWORD` | Mật khẩu cho các tài khoản demo do seed tạo. **Không đặt** trên production — khi đó seed tự sinh mật khẩu ngẫu nhiên và in ra một lần, không ai đoán được. |
+| `SEED_ADMIN_EMAIL` | Email tài khoản quản trị demo (mặc định `admin@manlab.vn`). |
+
+Mật khẩu tài khoản demo **không còn nằm trong mã nguồn** — trước đây nó ghi thẳng trong
+`prisma/seed.ts`, tức công khai trên GitHub.
+
 Sinh `AUTH_SECRET` ngẫu nhiên đủ mạnh:
 
 ```bash
@@ -185,14 +195,19 @@ chính checkout này để nạp 38 module — **luôn chạy lại sau mỗi l�
 pull`** nếu danh sách/tên module có thay đổi (idempotent, dùng `upsert`,
 an toàn khi chạy lại nhiều lần).
 
-Lệnh này **cũng tạo khoảng 11 tài khoản demo** — `admin@manlab.vn`,
-`nth@`, `ldp@`, `ldv@`, `qlcl@`, `qtht@` và 5 tài khoản vai trò AI — tất cả
-dùng **chung một mật khẩu ghi thẳng trong `prisma/seed.ts`**. File đó nằm
-trong repo công khai, nên mật khẩu này coi như ai cũng biết.
+Lệnh này **cũng tạo khoảng 11 tài khoản demo** — `admin@manlab.vn`, `nth@`,
+`ldp@`, `ldv@`, `qlcl@`, `qtht@` và 5 tài khoản vai trò AI — tất cả dùng
+chung một mật khẩu. Mật khẩu đó **lấy từ biến `SEED_DEMO_PASSWORD`**, hoặc
+**sinh ngẫu nhiên và in ra một lần** ở cuối lần chạy seed nếu biến không được
+đặt. Trên production thì đừng đặt biến đó: để seed tự sinh.
 
-> **PHẢI xử lý toàn bộ trước khi trỏ DNS**, không chỉ tài khoản admin. Một
-> tài khoản demo còn sót lại là một đường vào hệ thống với mật khẩu công
-> khai. Kiểm tra lại bằng cách liệt kê `User` sau khi dọn.
+Chạy lại seed **không** đổi mật khẩu của tài khoản đã tồn tại (mọi upsert tài
+khoản dùng `update: {}`), nên seed lại sau mỗi lần `git pull` là an toàn.
+
+> Dù mật khẩu không còn nằm trong mã nguồn, **11 tài khoản demo vẫn là 11
+> đường vào hệ thống**. Trước khi trỏ DNS: xoá hết tài khoản demo và tạo tài
+> khoản thật, hoặc ít nhất đổi mật khẩu từng tài khoản. Kiểm tra lại bằng cách
+> liệt kê `User` sau khi dọn — đừng tin là đã xong khi chưa nhìn danh sách.
 
 ```bash
 # Cách nhanh nhất: xoá tài khoản demo, tạo tài khoản admin thật qua Prisma Studio

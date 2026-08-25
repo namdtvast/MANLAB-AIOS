@@ -3,6 +3,7 @@
 // (tên module lấy từ manifest.yaml của MPxx tương ứng), không hardcode 2 nơi.
 import "dotenv/config";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
+import { randomBytes } from "node:crypto";
 import { join, relative as relative_ } from "node:path";
 import yaml from "js-yaml";
 import bcrypt from "bcryptjs";
@@ -12,6 +13,30 @@ import { PrismaPg } from "@prisma/adapter-pg";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
+
+// Mật khẩu của các tài khoản demo — KHÔNG viết cứng trong repo. Repo này công khai trên
+// GitHub, nên một mật khẩu ghi thẳng ở đây là mật khẩu ai cũng đọc được, dùng chung cho
+// khoảng 11 tài khoản, trong đó có một tài khoản quyền ADMIN.
+//
+//   SEED_DEMO_PASSWORD có đặt → dùng đúng giá trị đó (đội dev thống nhất một mật khẩu).
+//   không đặt                 → sinh ngẫu nhiên và in ra một lần ở cuối lần chạy seed.
+//
+// Mọi upsert tài khoản trong file này đều dùng `update: {}`, nên chạy lại seed KHÔNG đổi
+// mật khẩu của tài khoản đã tồn tại — giá trị sinh ngẫu nhiên chỉ áp cho tài khoản mới tạo.
+// Đó cũng là lý do chạy seed lần hai không làm hỏng đăng nhập của môi trường đang chạy.
+const DEMO_PASSWORD_FROM_ENV = process.env.SEED_DEMO_PASSWORD;
+const DEMO_PASSWORD = DEMO_PASSWORD_FROM_ENV ?? randomBytes(12).toString("base64url");
+
+/** In tình trạng mật khẩu demo sau khi seed xong — chỗ duy nhất lộ giá trị sinh ngẫu nhiên. */
+function baoCaoMatKhauDemo() {
+  if (DEMO_PASSWORD_FROM_ENV) {
+    console.log("Tài khoản demo dùng mật khẩu lấy từ biến môi trường SEED_DEMO_PASSWORD.");
+  } else {
+    console.log(`Mật khẩu tài khoản demo (sinh ngẫu nhiên cho lần chạy này): ${DEMO_PASSWORD}`);
+    console.log("Ghi lại ngay — giá trị này không được lưu ở đâu khác. Đặt SEED_DEMO_PASSWORD nếu muốn cố định.");
+  }
+  console.log("Tài khoản demo chỉ dành cho dev/demo — xoá hoặc đổi mật khẩu trước khi đưa ra môi trường thật.");
+}
 
 // aios-platform nằm tại 09_ENGINEERING/aios-platform — lùi 3 cấp để tới gốc repo.
 const REPO_ROOT = join(__dirname, "..", "..", "..");
@@ -221,14 +246,14 @@ async function main() {
 
   // Tài khoản admin mặc định — CHỈ để login thử ở môi trường dev/demo.
   // Đổi mật khẩu (hoặc xoá user này) trước khi đưa lên môi trường thật.
-  const adminEmail = "admin@manlab.vn";
-  const adminPasswordHash = await bcrypt.hash("DoiMatKhauNgay!2026", 10);
+  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@manlab.vn";
+  const adminPasswordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   await prisma.user.upsert({
     where: { email: adminEmail },
     create: { email: adminEmail, name: "Quản trị viên (demo)", role: "ADMIN", passwordHash: adminPasswordHash },
     update: {},
   });
-  console.log(`Tài khoản demo: ${adminEmail} / DoiMatKhauNgay!2026 (đổi ngay khi triển khai thật)`);
+  console.log(`Tài khoản quản trị demo: ${adminEmail}`);
 
   await seedM10();
   await seedM21();
@@ -244,11 +269,13 @@ async function main() {
   await seedM14();
   await seedM25();
   await seedM26();
+
+  baoCaoMatKhauDemo();
 }
 
 // M10 — port dữ liệu demo từ 05_MODULE_LIBRARY/M10_DamBaoKQ/08_Source/api/model.mjs
 // (hàm seed()) + tài khoản demo cho từng vai trò NTH/LDP/LDV, khớp bản gốc.
-const DEMO_PASSWORD = "DoiMatKhauNgay!2026";
+// Mật khẩu dùng chung DEMO_PASSWORD khai ở đầu file (đọc từ biến môi trường).
 
 const M10_DEMO_USERS = [
   { email: "nth@manlab.vn", name: "Nguyễn Thị H. (NTH)", role: "NTH" },
@@ -356,7 +383,7 @@ async function seedM10() {
   }
 
   console.log(`Đã nạp ${demoRecords.length} hồ sơ M10 demo + ${M10_DEMO_USERS.length} tài khoản vai trò M10.`);
-  console.log(`Tài khoản M10 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M10_DEMO_USERS.map((u) => u.email).join(", ")}`);
+  console.log(`Tài khoản M10 demo: ${M10_DEMO_USERS.map((u) => u.email).join(", ")}`);
 }
 
 // M21 — port state machine/dữ liệu demo từ 05_MODULE_LIBRARY/M21_CongBoNangLuc/08_Source/index.html
@@ -705,7 +732,7 @@ async function seedM29() {
   });
 
   console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
-  console.log(`Tài khoản M29 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
+  console.log(`Tài khoản M29 demo: ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
 }
 
 // M01 — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (không có 08_Source
@@ -2376,7 +2403,7 @@ async function seedM26() {
     `Đã nạp 5 mục tri thức (2 đã phê duyệt + 1 quá hạn rà soát + 1 Mật + 1 chờ soát xét), 2 bài học, 2 nhu cầu, 1 hoạt động chia sẻ demo M26 ` +
       `+ vai trò M26 cho ${Object.keys(userByRole).length} tài khoản.`,
   );
-  console.log(`Tài khoản M26 demo (mật khẩu chung: ${DEMO_PASSWORD}): ${Object.values(M26_ROLE_EMAILS).join(", ")}`);
+  console.log(`Tài khoản M26 demo: ${Object.values(M26_ROLE_EMAILS).join(", ")}`);
 }
 
 main()
