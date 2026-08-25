@@ -1,6 +1,6 @@
 # ETV.P.F 14.04 — Phiếu giao nhận văn bản
 
-> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §10.1 bước 7 (phân phối, thu hồi bản cũ).
+> Biểu mẫu gốc — bản trắng. Thuộc `ETV.P14` §6.6.1 bước 7 (phân phối, thu hồi bản cũ).
 
 | Trường | Nội dung |
 |---|---|
