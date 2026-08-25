@@ -767,7 +767,7 @@ async function seedM29() {
 
 // ---------------------------------------------------------------------------
 // M29 Copilot tra cứu — Increment 1: HỒ SƠ QUẢN TRỊ TRƯỚC, tính năng sau.
-// Đặc tả: _meta/specs/20260825-ai-copilot-tra-cuu/{spec.md,plan.md}.
+// Đặc tả: 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/{spec.md,plan.md}.
 //
 // Tách khỏi seedM29() có chủ đích: seedM29() tự dừng khi đã có dữ liệu mẫu (`existing > 0`) nên
 // môi trường đã seed từ trước sẽ không bao giờ nhận được Copilot. Hàm này upsert theo `code` nên

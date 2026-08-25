@@ -1,7 +1,7 @@
 // Nạp chỉ mục tri thức cho Copilot tra cứu — Increment 3 của
-// _meta/specs/20260825-ai-copilot-tra-cuu/plan.md.
+// 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/plan.md.
 //
-// NGUYÊN TẮC FAIL-CLOSED (E1 trong q1-anh-xa-muc-bao-mat.md): một tài liệu chỉ vào chỉ mục khi
+// NGUYÊN TẮC FAIL-CLOSED (E1 trong q1-anh-xa-muc-bao-mat.md cùng thư mục đặc tả): một tài liệu chỉ vào chỉ mục khi
 // khớp một LỚP ĐƯỢC PHÉP ở bảng dưới VÀ nhãn mức bảo mật của chính nó (nếu có) thuộc
 // {Công khai, Nội bộ} VÀ trạng thái là Đã phê duyệt (với lớp yêu cầu). Mọi trường hợp còn lại —
 // kể cả "chưa gán mức" — đều BỊ BỎ QUA, không có nhánh mặc định cho qua.

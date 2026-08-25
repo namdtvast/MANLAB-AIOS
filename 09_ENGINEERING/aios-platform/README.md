@@ -514,7 +514,7 @@ npm run nap-chi-muc-copilot                     # nạp lại mỗi khi tài li�
 
 Chỉ mục **fail-closed** theo ETV.P29 §5.5 + ETV.P26 §5.5: chỉ nạp tài liệu mức Công khai/Nội bộ
 **và** đã phê duyệt, thuộc lớp tài liệu đã được duyệt trong
-[`q1-anh-xa-muc-bao-mat.md`](../../_meta/specs/20260825-ai-copilot-tra-cuu/q1-anh-xa-muc-bao-mat.md).
+[`q1-anh-xa-muc-bao-mat.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/q1-anh-xa-muc-bao-mat.md).
 Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đánh giá, toàn văn tiêu chuẩn có bản quyền và
 84 SOP `03_MANAGEMENT_SYSTEM/03_M` (chưa rà mức từng file) **không** vào chỉ mục — lần chạy script
 in ra đầy đủ số file bị bỏ và lý do.
@@ -523,8 +523,8 @@ Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật 
 `SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).
 
 Đặc tả và bằng chứng verify:
-[`_meta/specs/20260825-ai-copilot-tra-cuu/`](../../_meta/specs/20260825-ai-copilot-tra-cuu/spec.md) ·
-[`M29_AI/.../20260825-copilot-tra-cuu/verify.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/verify.md).
+[`M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/spec.md)
+— spec · plan · q1 · verify.
 
 ## Cấu trúc chính
 

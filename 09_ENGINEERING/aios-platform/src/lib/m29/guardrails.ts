@@ -2,7 +2,7 @@
 //
 // Trước increment này, AIGuardrail chỉ là bản ghi khai báo: Tool Gateway gán cứng
 // guardrailResult = "PASS" mà không đọc bảng nào (RECON F8 trong
-// _meta/specs/20260825-ai-copilot-tra-cuu/spec.md). File này bổ sung phần còn thiếu: bản ghi
+// 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/spec.md). File này bổ sung phần còn thiếu: bản ghi
 // AIGuardrail quyết định guardrail nào CÓ HIỆU LỰC và hành động ra sao; mã nguồn chỉ cung cấp
 // phép phát hiện tương ứng với từng mã.
 //

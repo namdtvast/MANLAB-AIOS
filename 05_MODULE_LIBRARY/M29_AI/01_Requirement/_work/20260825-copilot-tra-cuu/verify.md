@@ -1,9 +1,9 @@
 # Verification Report — Copilot tra cứu (Increment 1–4)
 
-Hiện thực hóa [`_meta/specs/20260825-ai-copilot-tra-cuu/`](../../../../../_meta/specs/20260825-ai-copilot-tra-cuu/spec.md).
+Hiện thực hóa [spec.md](spec.md) trong chính thư mục này.
 Tier **L**. Ngày 25/08/2026.
 
-Phạm vi đã làm: **Increment 1–4** của [plan.md](../../../../../_meta/specs/20260825-ai-copilot-tra-cuu/plan.md)
+Phạm vi đã làm: **Increment 1–4** của [plan.md](plan.md)
 (hồ sơ quản trị → adapter + `gateway.chat()` → chỉ mục tri thức → giao diện).
 **Increment 5 chưa làm** — xem mục "Chưa verify được".
 

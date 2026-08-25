@@ -1,13 +1,22 @@
-# Feature Spec — 20260825-ai-copilot-tra-cuu
+# Feature Spec — 20260825-copilot-tra-cuu
 
 Bổ sung **AI Copilot tra cứu (chỉ-đọc)** cho nền tảng ManLab (`09_ENGINEERING/aios-platform`):
 trợ lý hỏi–đáp về thủ tục ETV.Pxx, tiêu chuẩn ISO/TCVN, biểu mẫu và mục tiêu module, **bắt buộc
 trích dẫn nguồn**, **không ghi bất kỳ dữ liệu nghiệp vụ nào**.
 
 Tier: **L** — mở một đường gọi API ra ngoài Viện lần đầu tiên, chạm ranh giới bảo mật thông tin
-(ISO/IEC 27001, MP02/MP28) và ranh giới quản trị AI (ISO/IEC 42001, MP29), là hạ tầng dùng chung
-cho cả 38 module. Phạm vi không gắn một module nghiệp vụ đơn lẻ → artifact lưu tại `_meta/specs/`
-theo mục 10 của `06_S_LapTrinhTheoDacTa/SKILL.md`.
+(ISO/IEC 27001, MP02/MP28) và ranh giới quản trị AI (ISO/IEC 42001, MP29).
+
+**Chỗ lưu artifact:** thư mục này, `05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/`,
+theo mục 10 của `06_S_LapTrinhTheoDacTa/SKILL.md` — thay đổi **thuộc một module số hóa** thì artifact
+nằm trong `_work/` của module đó. Copilot phục vụ người dùng của cả 38 module, nhưng *người dùng* không
+phải *chủ sở hữu*: chủ sở hữu là **M29**, đúng như §1 của chính đặc tả này khẳng định (Copilot là một
+`AIAgent` trong control plane M29, không phải tính năng đứng ngoài). Mọi mã nguồn của nó nằm trong
+`src/lib/m29/`. `_meta/specs/` chỉ dành cho hạ tầng dùng chung **không** gắn module nào — `_meta/*.py`,
+`.github/workflows/`, cổng `docs/index.html`, layout/menu nền tảng.
+
+Bản đầu (25/08/2026, chế độ ANALYZE) đặt nhầm ở `_meta/specs/20260825-ai-copilot-tra-cuu/`; đã chuyển
+về đây để một work-id chỉ có một chỗ lưu, cùng chỗ với 4 increment M29 trước.
 
 Chế độ: **ANALYZE** — tài liệu này là đặc tả, chưa hiện thực hóa. Không sửa `adapters.ts`,
 `gateway.ts`, `schema.prisma` hay layout nền tảng cho tới khi PLAN được duyệt.

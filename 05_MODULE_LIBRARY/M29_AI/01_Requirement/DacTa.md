@@ -19,7 +19,7 @@ gắn trên nền tảng là một `AIAgent` (mã `AGENT_COPILOT_TRACUU`) đăng
 này: prompt là `AIPromptVersion` đã phê duyệt, hồ sơ tác động là `AIImpactAssessment`, mọi lượt hỏi
 là một `AIRequest`. Không có route nào gọi thẳng dịch vụ mô hình bên ngoài — làm vậy là vô hiệu hóa
 AIA Gate và biến M29 thành sổ sách trang trí. Đặc tả đầy đủ:
-[`_meta/specs/20260825-ai-copilot-tra-cuu/`](../../../_meta/specs/20260825-ai-copilot-tra-cuu/spec.md).
+[`_work/20260825-copilot-tra-cuu/`](_work/20260825-copilot-tra-cuu/spec.md).
 
 ## 2. Nguyên tắc kiến trúc bắt buộc
 
@@ -169,7 +169,7 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   [`_work/20260825-copilot-tra-cuu/verify.md`](_work/20260825-copilot-tra-cuu/verify.md).
   **Chưa chạy được lượt hỏi thật** vì môi trường chưa có `ANTHROPIC_API_KEY`.
 - ❌ **Chưa làm**: bộ đánh giá 30 câu hỏi vàng và ngưỡng mở cho toàn Viện (Increment 5 của
-  [plan.md](../../../_meta/specs/20260825-ai-copilot-tra-cuu/plan.md)); rà mức bảo mật 84 SOP
+  [plan.md](_work/20260825-copilot-tra-cuu/plan.md)); rà mức bảo mật 84 SOP
   `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục; phát trả lời theo luồng (streaming); trang Trace
   chưa hiện cột `guardrailResult`.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy

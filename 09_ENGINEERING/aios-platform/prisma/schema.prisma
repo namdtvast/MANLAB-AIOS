@@ -932,7 +932,7 @@ model AIUnregisteredSighting {
 }
 
 // ---------- M29 Copilot tra cứu (chỉ-đọc) ----------
-// Đặc tả: _meta/specs/20260825-ai-copilot-tra-cuu/{spec.md,plan.md,q1-anh-xa-muc-bao-mat.md}.
+// Đặc tả: 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/{spec.md,plan.md,q1-anh-xa-muc-bao-mat.md}.
 // Copilot KHÔNG có bảng cấu hình riêng — nó là một `AIAgent` trong control plane M29, nên
 // prompt/AIA/guardrail/policy/trace đều nằm ở các bảng AI* sẵn có (spec §1, Quyết định #4).
 // Ba bảng dưới đây chỉ giữ phần control plane không có chỗ chứa: chỉ mục tri thức và hội thoại.
