@@ -342,7 +342,8 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 | Ghi `AIRequest` mỗi lượt gọi và `AIAuditLog` mỗi thay đổi cấu hình | **Đã có** | `src/lib/m29/gateway.ts`, `actions.ts` |
 | Trần mức bảo mật **theo từng nền tảng** | **Còn thiếu** — hiện là biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA`, áp chung cho mọi nền tảng | Phải có trước khi nới trần cho máy chủ nội bộ (§3.7) |
 | Quy tắc định tuyến theo loại tác vụ và mức phân loại dữ liệu | **Còn thiếu** — nền tảng gắn cứng ở `AIAgent.platformId` | Tối thiểu cần: loại tác vụ, mức phân loại, đích, thứ tự ưu tiên, dự phòng, cờ bật/tắt |
-| Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Còn thiếu** — `checkHealthAction()` chỉ quét `APPROVED`, bỏ sót `ACTIVE` | Nền tảng chuyển Hiệu lực theo Bước 6 vẫn phải được dò |
+| Chuyển nền tảng sang trạng thái **Hiệu lực** (Bước 6) | **Đã có** | `approvalTransitions.activate()` + nút "Đưa vào vận hành" trên trang danh mục; ngừng vận hành được từ `ACTIVE` — `src/lib/m29/rules.ts`, `RegistryActions.tsx` |
+| Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Đã có** | `checkHealthAction()` lọc `{ in: ["APPROVED", "ACTIVE"] }` — `src/lib/m29/actions.ts`. Bộ lọc cũ chỉ quét `APPROVED` nên nền tảng vừa đưa vào vận hành rơi khỏi vòng dò |
 | Màn hình tạo Provider kèm chọn nền tảng | **Còn thiếu** — danh mục hiện chỉ đọc | — |
 
 **Quyết định kiến trúc đã chốt, không mở lại:** endpoint chỉ có **một** nguồn sự thật là `AIPlatform.apiBaseUrl`; không nhân đôi `baseUrl` sang `AIProvider`. Khoá API đọc từ biến môi trường, **không** từ `AISecret` (bảng đó cố ý chỉ lưu `maskedValue`).
