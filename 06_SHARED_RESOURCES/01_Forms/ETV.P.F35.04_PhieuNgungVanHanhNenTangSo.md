@@ -51,25 +51,25 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## 3. Kiểm tra đối tượng còn phụ thuộc
 
-*(Điều kiện chặn cứng — ETV.P35 mục 5.5.3: không chuyển Hết hiệu lực khi còn đối tượng đang hoạt động trỏ tới nền tảng này)*
+*(Điều kiện chặn cứng — ETV.P35 §6.5.3: không chuyển Hết hiệu lực khi còn đối tượng đang hoạt động trỏ tới nền tảng này)*
 
 | TT | Loại đối tượng | Thủ tục | Số lượng còn hoạt động | Hướng xử lý (Chuyển hướng/Dừng) | Đã hoàn thành |
 |---|---|---|---|---|---|
-| 1 | Tác tử (Agent) | ETV.MP29 | | | ☐ |
-| 2 | Công cụ (Tool) | ETV.MP29 | | | ☐ |
-| 3 | Lời nhắc (Prompt) | ETV.MP29 | | | ☐ |
-| 4 | Dịch vụ số cho khách hàng | ETV.MP38 | | | ☐ |
-| 5 | Điểm tích hợp | ETV.MP37 | | | ☐ |
+| 1 | Tác tử (Agent) | ETV.P29 | | | ☐ |
+| 2 | Công cụ (Tool) | ETV.P29 | | | ☐ |
+| 3 | Lời nhắc (Prompt) | ETV.P29 | | | ☐ |
+| 4 | Dịch vụ số cho khách hàng | ETV.P38 | | | ☐ |
+| 5 | Điểm tích hợp | ETV.P37 | | | ☐ |
 
 ## 4. Phương án xử lý dữ liệu
 
-*(Phải hoàn tất **trước khi** chấm dứt quyền truy cập — ETV.P35 mục 5.5.3)*
+*(Phải hoàn tất **trước khi** chấm dứt quyền truy cập — ETV.P35 §6.5.3)*
 
 | TT | Loại dữ liệu | Mức phân loại | Cách xử lý (Trích xuất/Di chuyển/Hủy có kiểm soát) | Nơi lưu sau xử lý | Thủ tục áp dụng | Người thực hiện | Ngày hoàn thành | Xác nhận |
 |---|---|---|---|---|---|---|---|---|
-| 1 | | | | | MP27 / MP34 | | | ☐ |
-| 2 | | | | | MP27 / MP34 | | | ☐ |
-| 3 | | | | | MP27 / MP34 | | | ☐ |
+| 1 | | | | | ETV.P27 / ETV.P34 | | | ☐ |
+| 2 | | | | | ETV.P27 / ETV.P34 | | | ☐ |
+| 3 | | | | | ETV.P27 / ETV.P34 | | | ☐ |
 
 **Biên bản xử lý dữ liệu kèm theo:** số ................ ngày ..../..../........
 
@@ -78,7 +78,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | TT | Nội dung | Người thực hiện | Ngày thực hiện | Xác nhận |
 |---|---|---|---|---|
 | 1 | Cắt các điểm tích hợp | | | ☐ |
-| 2 | Thu hồi bí mật xác thực (khóa API, chứng thư) theo MP28 | | | ☐ |
+| 2 | Thu hồi bí mật xác thực (khóa API, chứng thư) theo ETV.P28 | | | ☐ |
 | 3 | Thu hồi tài khoản người dùng | | | ☐ |
 | 4 | Tắt kiểm tra sức khỏe | | | ☐ |
 | 5 | Kết thúc hợp đồng/dịch vụ với nhà cung cấp (nếu có) | | | ☐ |
@@ -87,7 +87,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ☐ **Đủ điều kiện** chuyển bản ghi sang **Hết hiệu lực**　　☐ **Chưa đủ điều kiện** — nội dung còn thiếu: ....................
 
-**Ngày chuyển Hết hiệu lực:** ..../..../........　**Mã nền tảng không được cấp lại cho nền tảng khác** (ETV.P35 mục 5.1.8).
+**Ngày chuyển Hết hiệu lực:** ..../..../........　**Mã nền tảng không được cấp lại cho nền tảng khác** (ETV.P35 §6.1.8).
 
 ---
 
@@ -96,4 +96,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(Chủ sở hữu nền tảng)* | *(Đầu mối kỹ thuật)* | *(QLCL)* | *(Lãnh đạo Viện)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> Việc ngừng vận hành do **Lãnh đạo Viện** phê duyệt, bắt buộc ghi lý do (ETV.P35 mục 6.1). Hồ sơ lưu 10 năm theo ETV.MP15.
+> Việc ngừng vận hành do **Lãnh đạo Viện** phê duyệt, bắt buộc ghi lý do (ETV.P35 Phụ lục II.1). Hồ sơ lưu 10 năm theo ETV.P15.

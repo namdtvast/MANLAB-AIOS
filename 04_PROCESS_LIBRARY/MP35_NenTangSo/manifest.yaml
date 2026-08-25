@@ -16,8 +16,10 @@ menu_group: CONG_NGHE
 menu_order: 4
 document:
   doc_id: ETV.P35
-  doc_status: issued
-  doc_version: "01"
+  # Lần BH 02 (đưa về khung I-IX của ETV.P14) đang chờ soát xét;
+  # lần BH 01 ban hành 24/08/2026 vẫn là bản đang áp dụng cho tới khi 02 được phê duyệt.
+  doc_status: Cho-soat-xet
+  doc_version: "02"
   issued_date: 2026-08-24
 forms:
   - ETV.P.F35.01

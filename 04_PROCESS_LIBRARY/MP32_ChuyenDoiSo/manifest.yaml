@@ -6,11 +6,21 @@ purpose: >-
   Thúc đẩy chuyển đổi số trong toàn bộ hoạt động quản lý và chuyên môn, triển khai đồng bộ với cải
   tiến liên tục hệ thống quản lý nhằm nâng cao hiệu quả, năng suất, khả năng truy xuất nguồn gốc
   và chất lượng dịch vụ (QM §9.9).
-owner: "(cập nhật)"
+owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
-standards: ['ISO9001']
+standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
 legal: []
 capabilities: [CAP-16]
 module: M32
 menu_group: DIEU_HANH
 menu_order: 8
+document:
+  doc_id: ETV.P32
+  doc_status: Cho-soat-xet
+  doc_version: "01"
+  issued_date: 2026-08-25
+forms:
+  - ETV.P.F32.01
+  - ETV.P.F32.02
+  - ETV.P.F32.03
+  - ETV.P.F32.04

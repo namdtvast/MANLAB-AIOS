@@ -27,7 +27,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 **Số phiếu:** ...................　**Ngày lập:** ..../..../........
 
-> Bắt buộc lập khi: đăng ký mới nền tảng PRODUCTION · nền tảng STAGING có dữ liệu thật · nền tảng thuê ngoài xử lý dữ liệu Hạn chế/Mật · chuyển nền tảng từ STAGING/INTERNAL lên PRODUCTION (ETV.P35 mục 5.2.1).
+> Bắt buộc lập khi: đăng ký mới nền tảng PRODUCTION · nền tảng STAGING có dữ liệu thật · nền tảng thuê ngoài xử lý dữ liệu Hạn chế/Mật · chuyển nền tảng từ STAGING/INTERNAL lên PRODUCTION (ETV.P35 §6.2.1).
 
 ## 1. Thông tin nền tảng
 
@@ -51,26 +51,26 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 |---|---|---|---|---|
 | 1 | Nhu cầu nghiệp vụ | Phục vụ quá trình nào? Có trùng lặp nền tảng đã có không? | | |
 | 2 | Dữ liệu | Xử lý dữ liệu gì, mức phân loại, lưu ở đâu, ai truy cập được? | | |
-| 3 | An toàn thông tin | Xác thực, phân quyền, mã hóa, nhật ký; bí mật xác thực lưu ở đâu (MP28)? | | |
-| 4 | Nhà cung cấp | Đã đánh giá theo MP06 chưa? Cam kết bảo mật, mức dịch vụ, điều khoản trả lại dữ liệu? | | |
+| 3 | An toàn thông tin | Xác thực, phân quyền, mã hóa, nhật ký; bí mật xác thực lưu ở đâu (ETV.P28)? | | |
+| 4 | Nhà cung cấp | Đã đánh giá theo ETV.P06 chưa? Cam kết bảo mật, mức dịch vụ, điều khoản trả lại dữ liệu? | | |
 | 5 | Xác nhận giá trị sử dụng | Nếu tham gia xử lý dữ liệu kiểm định/hiệu chuẩn/thử nghiệm: đã xác nhận theo ISO/IEC 17025 §7.11 chưa? | | |
-| 6 | Tính liên tục | Phương án khi nền tảng ngừng hoạt động; sao lưu và khả năng phục hồi (MP31)? | | |
+| 6 | Tính liên tục | Phương án khi nền tảng ngừng hoạt động; sao lưu và khả năng phục hồi (ETV.P31)? | | |
 | 7 | Tích hợp | Các điểm tích hợp phát sinh; ảnh hưởng tới nền tảng đang chạy? | | |
-| 8 | Trí tuệ nhân tạo | Có thành phần AI không? Nếu có, hồ sơ AIA theo MP29 số bao nhiêu? | | |
-| 9 | Rủi ro | Rủi ro đã nhận diện và mã rủi ro đã mở tại MP01? | | |
+| 8 | Trí tuệ nhân tạo | Có thành phần AI không? Nếu có, hồ sơ AIA theo ETV.P29 số bao nhiêu? | | |
+| 9 | Rủi ro | Rủi ro đã nhận diện và mã rủi ro đã mở tại ETV.P01? | | |
 
 ## 3. Kiểm tra điều kiện chặn cứng
 
-*(Theo ETV.P35 mục 5.2.3 — thiếu bất kỳ mục nào, hệ thống ManLab từ chối phê duyệt)*
+*(Theo ETV.P35 §6.2.3 — thiếu bất kỳ mục nào, hệ thống ManLab từ chối phê duyệt)*
 
 | TT | Điều kiện | Đạt | Không áp dụng | Bằng chứng/Ghi chú |
 |---|---|---|---|---|
 | 1 | Có chủ sở hữu và đầu mối kỹ thuật là người cụ thể đang làm việc tại Viện | ☐ | — | |
 | 2 | Có mức phân loại dữ liệu, nhất quán với mô tả dữ liệu tại mục 2 | ☐ | — | |
 | 3 | Nền tảng PRODUCTION: đã bật kiểm tra sức khỏe | ☐ | ☐ | |
-| 4 | Mức trọng yếu Cao: có ≥ 01 rủi ro tại MP01 và phương án liên tục MP31 | ☐ | ☐ | Mã rủi ro: |
-| 5 | Thuê ngoài xử lý dữ liệu Hạn chế/Mật: có hồ sơ đánh giá nhà cung cấp MP06 còn hiệu lực | ☐ | ☐ | Số hồ sơ: |
-| 6 | Có thành phần AI: có hồ sơ AIA theo MP29 | ☐ | ☐ | Số hồ sơ AIA: |
+| 4 | Mức trọng yếu Cao: có ≥ 01 rủi ro tại ETV.P01 và phương án liên tục ETV.P31 | ☐ | ☐ | Mã rủi ro: |
+| 5 | Thuê ngoài xử lý dữ liệu Hạn chế/Mật: có hồ sơ đánh giá nhà cung cấp ETV.P06 còn hiệu lực | ☐ | ☐ | Số hồ sơ: |
+| 6 | Có thành phần AI: có hồ sơ AIA theo ETV.P29 | ☐ | ☐ | Số hồ sơ AIA: |
 | 7 | Bản ghi không chứa mật khẩu, khóa API, chứng thư số | ☐ | — | |
 
 ## 4. Kết luận đánh giá
@@ -79,9 +79,9 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ☐ **Chưa đủ điều kiện** — nội dung phải bổ sung: ...........................................................................
 
-☐ **Đề nghị phê duyệt ngoại lệ có thời hạn** *(chỉ LĐV phê duyệt; thời hạn khắc phục không quá 90 ngày và phải mở rủi ro tại MP01)*
+☐ **Đề nghị phê duyệt ngoại lệ có thời hạn** *(chỉ LĐV phê duyệt; thời hạn khắc phục không quá 90 ngày và phải mở rủi ro tại ETV.P01)*
 
-| Điều kiện còn thiếu | Lý do cấp bách | Mã rủi ro (MP01) | Hạn khắc phục |
+| Điều kiện còn thiếu | Lý do cấp bách | Mã rủi ro (ETV.P01) | Hạn khắc phục |
 |---|---|---|---|
 | | | | ..../..../........ |
 
@@ -92,4 +92,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(CSH/ĐMKT)* | *(ĐMKT/TP, khác người lập)* | *(Lãnh đạo Viện)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> Người lập ≠ người phê duyệt. Trợ lý AI không lập, không soát xét, không phê duyệt phiếu này (ETV.P35 mục 4). Hồ sơ lưu theo ETV.MP15.
+> Người lập ≠ người phê duyệt. Trợ lý AI không lập, không soát xét, không phê duyệt phiếu này (ETV.P35 §V). Hồ sơ lưu theo ETV.P15.
