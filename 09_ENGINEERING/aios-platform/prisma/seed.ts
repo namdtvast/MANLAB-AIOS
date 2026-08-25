@@ -900,6 +900,53 @@ async function seedCopilot() {
     update: {},
   });
 
+  // ---- Nhà cung cấp mô hình TỰ VẬN HÀNH: máy chủ GPU nội bộ của Viện ----
+  // Bản ghi mẫu theo ETV.GAI 01 §3.5. Cố ý để ở trạng thái CHƯA phê duyệt và model DISABLED: máy
+  // chủ thật chưa qua nghiệm thu Bước 1–6 của hướng dẫn, mà `checkHealthAction()` chỉ dò nền tảng
+  // đã APPROVED — để DRAFT thì danh mục vẫn thể hiện đúng thiết kế mà không sinh báo động DOWN giả.
+  //
+  // Đây là nhà cung cấp duy nhất mà dữ liệu KHÔNG rời hạ tầng của Viện. Trần mức bảo mật hiện là
+  // biến toàn cục (COPILOT_MUC_BAO_MAT_TOI_DA) chứ chưa gắn theo từng nền tảng, nên chưa thể nới
+  // riêng cho nền tảng này — xem ghi chú "Việc còn lại" trong _work/20260825-local-model-provider.
+  const platformLocal = await prisma.aIPlatform.upsert({
+    where: { code: "MANLAB_LOCAL_LLM" },
+    create: {
+      code: "MANLAB_LOCAL_LLM",
+      name: "Máy chủ mô hình AI nội bộ ETV",
+      baseUrl: "https://llm.manlab.vn",
+      apiBaseUrl: "https://llm.manlab.vn/v1",
+      environment: "INTERNAL",
+      owner: "(chưa phân công — điền khi kiểm kê theo ETV.P.F 33.01)",
+      adapterType: "LocalOpenAIPlatformAdapter",
+      approvalStatus: "DRAFT",
+    },
+    update: {},
+  });
+  const providerLocal = await prisma.aIProvider.upsert({
+    where: { code: "MANLAB_LOCAL" },
+    create: { code: "MANLAB_LOCAL", name: "ManLab Local AI (RTX 3090, tự vận hành)", platformId: platformLocal.id },
+    update: { platformId: platformLocal.id },
+  });
+  if (!(await prisma.aIModel.findFirst({ where: { providerId: providerLocal.id, modelId: "manlab-local-14b" } })))
+    await prisma.aIModel.create({
+      data: {
+        providerId: providerLocal.id,
+        modelId: "manlab-local-14b", // phải TRÙNG --served-model-name của vLLM (ETV.GAI 01 §3.5)
+        displayName: "ManLab Local 14B (lượng tử hoá INT4)",
+        purpose: "Tra cứu, phân loại, bóc tách tài liệu — chạy trên hạ tầng của Viện",
+        // Chưa qua Bước 5–6 của ETV.GAI 01 nên chưa được phép dùng cho vận hành.
+        status: "DISABLED",
+        maxTokens: 4096,
+        // Mô hình nội bộ không tính phí theo token; điện và khấu hao theo dõi ở ETV.P.F 33.01.
+        costPer1kTokens: 0,
+      },
+    });
+
+  // Gắn nhà cung cấp với nền tảng phơi API của nó. Phải làm sau khi cả hai đã tồn tại vì bản ghi
+  // Provider được tạo trước Platform ở trên. Không nhân đôi apiBaseUrl sang Provider.
+  await prisma.aIProvider.update({ where: { id: provider.id }, data: { platformId: platform.id } });
+  await prisma.aIProvider.update({ where: { id: providerGemini.id }, data: { platformId: platformGemini.id } });
+
   const agent = await prisma.aIAgent.upsert({
     where: { code: COPILOT_AGENT_CODE },
     create: {

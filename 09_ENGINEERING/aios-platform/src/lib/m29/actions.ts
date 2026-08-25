@@ -65,7 +65,10 @@ function revalidateM29() {
 // ---------- Registry CRUD đơn giản (Provider/Model/Skill/Tool/Agent) ----------
 // Port `simpleCrud()` trong server.js — create/update đều ghi AIAuditLog.
 
-export async function createProvider(input: { code: string; name: string }) {
+// platformId là TÙY CHỌN: nhà cung cấp dịch vụ ngoài Viện không cần bản ghi nền tảng riêng. Với
+// nhà cung cấp tự vận hành (máy chủ GPU nội bộ) thì bắt buộc phải có, vì apiBaseUrl và trạng thái
+// kiểm tra sức khoẻ chỉ nằm ở AIPlatform — xem ETV.GAI 01 §3.6.
+export async function createProvider(input: { code: string; name: string; platformId?: string }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
   const rec = await prisma.aIProvider.create({ data: input });

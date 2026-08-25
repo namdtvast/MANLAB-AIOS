@@ -18,7 +18,7 @@ export default async function M29RegistryPage() {
 
   const [platforms, providers, models, skills, tools] = await Promise.all([
     prisma.aIPlatform.findMany({ orderBy: { code: "asc" } }),
-    prisma.aIProvider.findMany({ orderBy: { code: "asc" } }),
+    prisma.aIProvider.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
     prisma.aIModel.findMany({ orderBy: { modelId: "asc" }, include: { provider: true } }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" } }),
     prisma.aITool.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
@@ -112,6 +112,9 @@ export default async function M29RegistryPage() {
             {providers.map((p) => (
               <li key={p.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
                 {p.name} <span className="text-xs text-ink-3">({OP_STATUS_LABEL[p.status]})</span>
+                {/* Nhà cung cấp tự vận hành phải gắn nền tảng — đó là nơi giữ endpoint và trạng
+                    thái kiểm tra sức khoẻ. Dịch vụ ngoài Viện để trống là bình thường. */}
+                <span className="text-xs text-ink-3">{p.platform ? ` · nền tảng ${p.platform.code}` : " · không gắn nền tảng"}</span>
               </li>
             ))}
           </ul>

@@ -287,7 +287,9 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     });
     const message =
       result.errorCode === "NO_API_KEY"
-        ? "Copilot chưa được cấu hình khóa API (ANTHROPIC_API_KEY) trên máy chủ."
+        ? // Tên biến môi trường giữ khóa khác nhau theo từng nền tảng mô hình, nên KHÔNG ghi cứng
+          // một tên vào đây — nêu tên nền tảng để quản trị biết phải cấu hình khóa cho cái nào.
+          `Copilot chưa được cấu hình khóa API trên máy chủ cho nền tảng "${agent.platform.name}".`
         : `Không gọi được dịch vụ mô hình (${result.errorCode}). Vui lòng thử lại sau.`;
     return { ok: false, requestId: r.id, answer: message, citations: [], code: result.errorCode };
   }

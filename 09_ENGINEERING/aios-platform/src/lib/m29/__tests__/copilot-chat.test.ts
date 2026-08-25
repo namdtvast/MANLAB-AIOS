@@ -209,6 +209,10 @@ describe("Mọi lượt hỏi đều vào sổ (AC-03)", () => {
 
   it("thiếu khóa API thì báo đúng nguyên nhân, không báo lỗi chung chung", async () => {
     adapterChat.mockResolvedValue({ text: "", inputTokens: 0, outputTokens: 0, latencyMs: 0, errorCode: "NO_API_KEY" });
-    expect((await ask()).answer).toContain("ANTHROPIC_API_KEY");
+    // Thông báo nêu TÊN NỀN TẢNG chứ không phải tên biến môi trường: mỗi nền tảng mô hình dùng một
+    // biến khác nhau, ghi cứng một tên sẽ chỉ sai chỗ khi Agent chạy trên nền tảng khác.
+    const answer = (await ask()).answer;
+    expect(answer).toContain("khóa API");
+    expect(answer).toContain("Anthropic API");
   });
 });

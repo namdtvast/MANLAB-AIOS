@@ -39,7 +39,7 @@ AIA Gate và biến M29 thành sổ sách trang trí. Đặc tả đầy đủ:
 
 | Thực thể | Ý nghĩa | Khóa/Quan hệ |
 |---|---|---|
-| `AIProvider` | Nhà cung cấp model (Gemini/OpenAI/…) | PK `id`; 1—N `AIModel` |
+| `AIProvider` | Nhà cung cấp model (Anthropic/Gemini/máy chủ nội bộ…) | PK `id`; 1—N `AIModel`; FK tùy chọn `platform_id` → `AIPlatform` (bắt buộc với nhà cung cấp **tự vận hành** — endpoint và kiểm tra sức khoẻ chỉ nằm ở `AIPlatform`, không nhân đôi sang đây) |
 | `AIModel` | Model cụ thể được cấu hình dùng | FK `provider_id`; N—1 `AIProvider` |
 | `AIAgent` | Tác nhân AI vận hành trên một nền tảng | FK `platform_id` (→ M35), `model_id`, `active_prompt_version_id` |
 | `AISkill` | Năng lực/skill Agent có thể dùng | N—N `AIAgent` qua `AIAgentSkill` |
@@ -214,6 +214,14 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
   công; riêng sweep AIA đã tự động từ Increment 4), tích hợp Platform Registry M35/VI-CONNECT
   thật, hạ tầng cron thật gọi `/api/m29/sweep` ở môi trường triển khai.
+- ✅ **Nhà cung cấp mô hình tự vận hành** (2026-08-25): `AIProvider.platformId` (tùy chọn) trỏ tới
+  `AIPlatform` để endpoint và trạng thái kiểm tra sức khoẻ chỉ có **một** nguồn sự thật, cùng
+  `LocalOpenAIPlatformAdapter` gọi API tương thích OpenAI của máy chủ GPU nội bộ. Triển khai theo
+  `ETV.GAI 01` §3.6; 14 ca test phủ đủ bộ mã lỗi và hai đường dừng-trước-khi-phát-HTTP — xem
+  [`_work/20260825-local-model-provider/verify.md`](_work/20260825-local-model-provider/verify.md).
+  **Chưa gọi được máy chủ thật** vì `llm.manlab.vn` chưa dựng; bản ghi mẫu để `DRAFT`/`DISABLED`.
+  Trần mức bảo mật vẫn là biến toàn cục, **chưa gắn theo từng nền tảng** — nên mô hình nội bộ hiện
+  chưa nhận được tài liệu mức Nội bộ dù dữ liệu không rời hạ tầng của Viện (việc còn lại).
 - ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa deprecate. Tool Gateway
   của Agent mẫu gọi thật ra `http://localhost:8010` (server M10 standalone cũ) — cần server đó
   chạy để demo Tool Gateway/health check thành công.
