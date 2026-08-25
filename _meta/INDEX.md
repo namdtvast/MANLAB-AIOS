@@ -67,3 +67,11 @@
 | MP36_ChungChiSo | M36_ChungChiSo | Quản lý chứng chỉ số và truy xuất nguồn gốc |
 | MP37_TichHopDuLieu | M37_TichHopDuLieu | Quản lý tích hợp dữ liệu |
 | MP38_DichVuSo | M38_DichVuSo | Quản lý dịch vụ số |
+| MP44_DoanhThu | — (chưa có) | Quản lý doanh thu & hóa đơn |
+| MP45_CongNo | — (chưa có) | Quản lý công nợ phải thu/phải trả |
+| MP46_ThuChi | — (chưa có) | Quản lý thu – chi, quỹ tiền mặt & ngân hàng |
+| MP47_TaiSanCoDinh | — (chưa có) | Quản lý tài sản cố định & khấu hao |
+| MP48_NganSach | — (chưa có) | Lập & kiểm soát ngân sách |
+| MP49_BaoCaoTaiChinh | — (chưa có) | Báo cáo tài chính & kế toán |
+| MP50_Thue | — (chưa có) | Quản lý thuế |
+| MP51_KiemSoatNoiBo | — (chưa có) | Kiểm soát nội bộ tài chính |

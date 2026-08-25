@@ -2,4 +2,11 @@ schema: manlab-aios/capability@1.0
 code: CAP-15
 name: Kế toán & Tài chính
 processes:
-  []
+  - ../../04_PROCESS_LIBRARY/MP44_DoanhThu
+  - ../../04_PROCESS_LIBRARY/MP45_CongNo
+  - ../../04_PROCESS_LIBRARY/MP46_ThuChi
+  - ../../04_PROCESS_LIBRARY/MP47_TaiSanCoDinh
+  - ../../04_PROCESS_LIBRARY/MP48_NganSach
+  - ../../04_PROCESS_LIBRARY/MP49_BaoCaoTaiChinh
+  - ../../04_PROCESS_LIBRARY/MP50_Thue
+  - ../../04_PROCESS_LIBRARY/MP51_KiemSoatNoiBo
