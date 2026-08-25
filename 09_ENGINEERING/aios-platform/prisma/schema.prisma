@@ -144,6 +144,17 @@ model User {
   accessRequestsReviewed AccessRequest[] @relation("AccessRequestReviewer")
 
   copilotThreads CopilotThread[]
+
+  m34DataSetCreated      M34DataSet[]            @relation("M34DataSetCreated")
+  m34DataSetOwned        M34DataSet[]            @relation("M34DataSetOwned")
+  m34DataSetSteward      M34DataSet[]            @relation("M34DataSetSteward")
+  m34DataSetApproved     M34DataSet[]            @relation("M34DataSetApproved")
+  m34QualityMeasured     M34QualityMeasurement[] @relation("M34QualityMeasured")
+  m34CorrectionRequested M34DataCorrection[]     @relation("M34CorrectionRequested")
+  m34SharingRequested    M34SharingRequest[]     @relation("M34SharingRequested")
+  m34SharingApproved     M34SharingRequest[]     @relation("M34SharingApproved")
+  m34AIApproved          M34AIDataApproval[]     @relation("M34AIApproved")
+  m34AuditEntries        M34AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -3078,4 +3089,515 @@ model AccessRequest {
   // Tra cứu hàng chờ theo email (quy tắc R2 — mỗi email chỉ một yêu cầu đang chờ).
   @@index([email])
   @@index([status, createdAt])
+}
+
+// ---------- M34 — Quản lý dữ liệu số ----------
+// Nguồn: Thủ tục ETV.P34 (DỰ THẢO lần BH 01, trạng thái Chờ soát xét, 25/08/2026) +
+// 05_MODULE_LIBRARY/M34_DuLieuSo/01_Requirement/DacTa.md. Thủ tục CHƯA được phê duyệt —
+// giá trị định lượng (kỳ đo, chu kỳ rà soát, 15 ngày khắc phục) là đề xuất; đổi khi
+// phê duyệt theo MP14 thì sửa rules.ts theo (DacTa M34 mục 10 điểm 1).
+// Nguyên tắc xuyên suốt: bản ghi chỉ MÔ TẢ tập dữ liệu, không chứa dữ liệu thật (R6);
+// không có DELETE trên M34DataSet — tập đã hủy giữ bản ghi để truy vết (Phụ lục II.1).
+
+// Thang phân loại thông tin dùng chung ETV.P02/P27/P28 — KHÔNG prefix M34 vì đây là
+// thang toàn Viện; M27 dùng lại enum này khi lên nền tảng (NFR "thang dùng chung").
+enum Classification {
+  CONG_KHAI
+  NOI_BO
+  HAN_CHE
+  MAT
+}
+
+enum M34DataGroup {
+  DO_KY_THUAT // Dữ liệu đo và dữ liệu kỹ thuật
+  HO_SO_NGHIEP_VU
+  DU_LIEU_CHU
+  QUAN_TRI
+  HE_THONG_QUAN_LY
+  CONG_BO
+  TRI_TUE_NHAN_TAO
+}
+
+enum M34LifecycleStage {
+  HOAT_DONG
+  LUU_TRU
+  DE_NGHI_HUY
+}
+
+enum M34DataSetStatus {
+  DRAFT
+  PENDING_REVIEW
+  REVIEW_REJECTED
+  PENDING_APPROVAL
+  APPROVAL_REJECTED
+  ACTIVE // Hiệu lực — giai đoạn Hoạt động
+  ARCHIVED // Lưu trữ
+  DISPOSAL_PROPOSED // Đề nghị hủy
+  DISPOSED // Đã hủy — bản ghi danh mục vẫn giữ
+  CANCELLED // Hủy bản ghi (khai báo sai/trùng, trước phê duyệt)
+}
+
+enum M34ReviewCycle {
+  THANG_12
+  THANG_06 // khi tập chứa dữ liệu cá nhân (R8)
+}
+
+enum M34DictStatus {
+  DRAFT
+  ACTIVE
+  SUPERSEDED
+}
+
+enum M34MasterStatus {
+  DE_NGHI
+  DA_CONG_NHAN
+  THU_HOI
+}
+
+enum M34FindingStatus {
+  MOI
+  DANG_XU_LY
+  DA_XU_LY
+}
+
+enum M34QualityDimension {
+  CHINH_XAC
+  DAY_DU
+  NHAT_QUAN
+  KIP_THOI
+  DUY_NHAT
+  HOP_LE
+}
+
+enum M34QualityStatus {
+  MOI
+  DANG_DO
+  CO_KET_QUA
+  DAT
+  KHONG_DAT
+}
+
+// Năm tình huống xử lý dưới ngưỡng — ETV.P34 §6.4.4 (bảng mục 4.6 DacTa M34)
+enum M34BelowThresholdCase {
+  MOT_CHIEU_KHONG_ANH_HUONG
+  HAI_KY_LIEN_TIEP
+  ANH_HUONG_KET_QUA_DA_PHAT_HANH
+  TU_TICH_HOP_DONG_BO
+  DU_LIEU_CHU_TRUNG
+}
+
+enum M34Trend {
+  CAI_THIEN
+  GIU_NGUYEN
+  XAU_DI
+}
+
+enum M34PublishedImpact {
+  CHUA_DUNG_PHAT_HANH
+  DA_DUNG_PHAT_HANH
+}
+
+enum M34ValidityConclusion {
+  CON_HIEU_LUC
+  THU_HOI_PHAT_HANH_LAI
+}
+
+enum M34CorrectionStatus {
+  MOI
+  DANG_XEM_XET
+  CHO_KET_LUAN_P10_P11 // chặn cứng R12 — không có đường thẳng sang DA_HIEU_CHINH
+  DA_HIEU_CHINH
+  TU_CHOI
+}
+
+enum M34SharingType {
+  NOI_BO_VUOT_QUYEN // CSHDL phê duyệt
+  RA_NGOAI_VIEN // LĐV phê duyệt, PT.ATTT ý kiến bắt buộc
+  DINH_KY_TU_DONG // chuyển thiết lập điểm tích hợp M37 — không đi luồng phiếu
+}
+
+enum M34SharingStatus {
+  DRAFT
+  CHO_Y_KIEN_ATTT
+  CHO_PHE_DUYET
+  DA_PHE_DUYET
+  DA_THUC_HIEN
+  DA_THU_HOI
+  TU_CHOI
+}
+
+enum M34AIPurpose {
+  DU_LIEU_NGU_CANH
+  TAP_TRI_THUC
+  DANH_GIA_MO_HINH
+}
+
+enum M34AIApprovalStatus {
+  DE_NGHI
+  DA_PHE_DUYET
+  THU_HOI
+}
+
+enum M34ItemType {
+  DATASET
+  DICTIONARY
+  MASTER
+  FINDING
+  QUALITY
+  CORRECTION
+  SHARING
+  AI_APPROVAL
+}
+
+model M34DataSet {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "DS-2026-0001" — không cấp lại, kể cả sau Hủy bản ghi
+
+  name      String
+  dataGroup M34DataGroup
+  purpose   String
+
+  // R1 — không có dữ liệu vô chủ: hai trường NOT NULL, chặn ngay khi tạo
+  ownerId          String // CSHDL — vai trò theo tập dữ liệu (DacTa mục 10 điểm 2)
+  stewardId        String // QTDL
+  primaryEntererId String? // người nhập liệu chính (khai báo) — phục vụ gate R16
+
+  platformRef String? // → M35 (chưa lên nền tảng — mã tham chiếu mềm)
+  infraRef    String? // → M33 (chưa lên nền tảng)
+  copiesNote  String?
+
+  classification       Classification
+  hasPersonalData      Boolean
+  personalDataLegalRef String? // bắt buộc khi hasPersonalData (R2)
+
+  qualityMetricsNote String? // chỉ số + ngưỡng + kỳ đo — bắt buộc trước phê duyệt (R4)
+
+  lifecycleStage  M34LifecycleStage @default(HOAT_DONG)
+  activeRetention String?
+  retentionBasis  String // R5 — ETV.P15 / F14.06 / pháp luật chuyên ngành
+
+  readScope           String?
+  writeScope          String?
+  externalSharingNote String?
+
+  infoAssetRef    String? // → M27
+  recordRef       String? // → M15
+  integrationRefs String[] // → M37
+
+  isMasterData       Boolean @default(false)
+  dictionaryRequired Boolean // true với DO_KY_THUAT / DU_LIEU_CHU / CONG_BO (R3)
+  lineageNote        String? // nguồn phát sinh + phiên bản quy tắc biến đổi (R20)
+
+  aiUsageApproved Boolean @default(false) // có M34AIDataApproval đang DA_PHE_DUYET
+
+  reviewCycle    M34ReviewCycle @default(THANG_12)
+  lastReviewedAt DateTime?
+
+  suspendedUse  Boolean @default(false) // cờ dừng sử dụng (R14/R15)
+  suspendReason String?
+
+  status       M34DataSetStatus @default(DRAFT)
+  reason       String? // lý do trả lại/hủy/lưu trữ gần nhất
+  mergedIntoId String? // R7 — bị đánh dấu trùng, gộp vào tập nào
+
+  // Bốn điều kiện trước khi hủy — ETV.P34 §6.7.2 (R21)
+  disposalRetentionExpired  Boolean @default(false)
+  disposalNotBasis          Boolean @default(false)
+  disposalNoDispute         Boolean @default(false)
+  disposalNoDependent       Boolean @default(false)
+  disposalAtttConfirmedById String? // PT.ATTT xác nhận phương pháp hủy — chữ ký thứ hai
+  disposalRecordRef         String? // biên bản hủy ← M27
+
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M34DataSetCreated", fields: [createdById], references: [id])
+  owner      User  @relation("M34DataSetOwned", fields: [ownerId], references: [id])
+  steward    User  @relation("M34DataSetSteward", fields: [stewardId], references: [id])
+  approvedBy User? @relation("M34DataSetApproved", fields: [approvedById], references: [id])
+
+  dictionaryVersions  M34DictionaryVersion[]
+  masterSources       M34MasterDataSource[]
+  qualityMeasurements M34QualityMeasurement[]
+  corrections         M34DataCorrection[]
+  sharingRequests     M34SharingRequest[]
+  aiApprovals         M34AIDataApproval[]
+
+  @@index([lifecycleStage, status])
+  @@index([lastReviewedAt])
+}
+
+model M34DictionaryVersion {
+  id            String        @id @default(cuid())
+  dataSetId     String
+  version       Int // 1, 2, … — phiên bản cũ giữ nguyên để truy vết
+  effectiveDate DateTime?
+  changeRef     String? // phiếu F30.02 ← M30 — bắt buộc từ version 2 (R3)
+  status        M34DictStatus @default(DRAFT)
+  createdAt     DateTime      @default(now())
+
+  dataSet M34DataSet           @relation(fields: [dataSetId], references: [id], onDelete: Cascade)
+  fields  M34DictionaryField[]
+
+  @@unique([dataSetId, version])
+}
+
+// Một trường trong từ điển — đúng 8 cột của F34.01 phần II
+model M34DictionaryField {
+  id             String  @id @default(cuid())
+  versionId      String
+  fieldName      String
+  meaning        String
+  dataType       String
+  unit           String?
+  validDomain    String?
+  required       Boolean @default(false)
+  validationRule String?
+  example        String?
+
+  version M34DictionaryVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+
+  @@unique([versionId, fieldName])
+}
+
+model M34MasterDataSource {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "DC-2026-0001"
+
+  masterType        String // vd "Danh mục khách hàng"
+  dataSetId         String
+  sourceSystem      String // nguồn sự thật duy nhất — hệ thống, bảng
+  authorizedEditors String
+  syncTargets       String[] // → M37
+
+  status         M34MasterStatus @default(DE_NGHI)
+  reason         String?
+  recognizedById String? // LĐV — không ủy quyền (ETV.P34 §5.1)
+  recognizedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dataSet   M34DataSet                 @relation(fields: [dataSetId], references: [id])
+  findings  M34ParallelLookupFinding[]
+  mergeMaps M34MasterMergeMap[]
+}
+
+// Lịch sử ánh xạ hợp nhất bản ghi dữ liệu chủ trùng — không xóa cứng (§6.4.4)
+model M34MasterMergeMap {
+  id             String   @id @default(cuid())
+  masterSourceId String
+  oldRef         String
+  survivingRef   String
+  note           String?
+  createdAt      DateTime @default(now())
+
+  masterSource M34MasterDataSource @relation(fields: [masterSourceId], references: [id])
+}
+
+model M34ParallelLookupFinding {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "BT-2026-0001"
+
+  masterSourceId String
+  description    String
+  usedBy         String
+  usedFor        String
+  diffNote       String
+  causedError    Boolean
+  capaRef        String? // ← M13 — bắt buộc khi causedError (R10)
+  stoppedAt      DateTime?
+  resolvedAt     DateTime?
+
+  status    M34FindingStatus @default(MOI)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  masterSource M34MasterDataSource @relation(fields: [masterSourceId], references: [id])
+}
+
+model M34QualityMeasurement {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KD-2026-0001"
+
+  dataSetId String
+  period    String // vd "2026-Q3"
+
+  measuredById String?
+  measuredAt   DateTime?
+  trend        M34Trend?
+
+  status             M34QualityStatus       @default(MOI)
+  belowThresholdCase M34BelowThresholdCase?
+  remediationPlan    String?
+  remediationDue     DateTime? // 15 ngày làm việc (đề xuất của dự thảo)
+  capaRef            String? // ← M13 — bắt buộc khi dưới ngưỡng 02 kỳ liên tiếp (R15)
+  validityRef        String? // ← M10/M11 khi có khả năng ảnh hưởng kết quả đã phát hành
+  integrationRef     String? // ← M37 khi sai lệch từ tích hợp
+  reason             String?
+
+  concludedById String?
+  concludedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dataSet    M34DataSet      @relation(fields: [dataSetId], references: [id], onDelete: Cascade)
+  measuredBy User?           @relation("M34QualityMeasured", fields: [measuredById], references: [id])
+  rows       M34QualityRow[]
+
+  @@unique([dataSetId, period])
+  @@index([dataSetId, measuredAt])
+}
+
+model M34QualityRow {
+  id            String              @id @default(cuid())
+  measurementId String
+  dimension     M34QualityDimension
+  metric        String
+  method        String?
+  threshold     String
+  value         String?
+  passed        Boolean?
+
+  measurement M34QualityMeasurement @relation(fields: [measurementId], references: [id], onDelete: Cascade)
+
+  @@unique([measurementId, dimension])
+}
+
+model M34DataCorrection {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HC-2026-0001"
+
+  dataSetId        String
+  recordPointer    String
+  oldValue         String // R11 — giữ nguyên giá trị cũ trong hồ sơ
+  newValue         String
+  correctionReason String
+  evidenceRef      String?
+
+  requestedById String
+  requestedAt   DateTime @default(now())
+
+  publishedImpact    M34PublishedImpact?
+  validityRef        String? // ← M10/M11 — bắt buộc khi DA_DUNG_PHAT_HANH (R12)
+  validityConclusion M34ValidityConclusion?
+
+  correctionRecordId String? // mã bản ghi hiệu chỉnh mới ở hệ thống nghiệp vụ
+  performedById      String?
+  performedAt        DateTime?
+  capaRef            String? // ← M13 khi nguyên nhân hệ thống/lặp lại
+  approvedById       String?
+
+  status M34CorrectionStatus @default(MOI)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dataSet     M34DataSet @relation(fields: [dataSetId], references: [id], onDelete: Cascade)
+  requestedBy User       @relation("M34CorrectionRequested", fields: [requestedById], references: [id])
+}
+
+model M34SharingRequest {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "CS-2026-0001"
+
+  requestType     M34SharingType
+  dataSetId       String
+  hasCustomerData Boolean // nghĩa vụ bảo mật ETV.P02, ISO/IEC 17025 §4.2
+
+  requesterId String
+  recipient   String? // bắt buộc khi RA_NGOAI_VIEN
+  purpose     String
+  scopeNote   String // trường, khoảng thời gian, số lượng bản ghi
+  channel     String
+  useUntil    DateTime?
+  legalBasis  String? // bắt buộc khi RA_NGOAI_VIEN (§6.5.2 bước 2)
+
+  // Biện pháp giảm thiểu — PT.ATTT xác định (§6.5.2 bước 3, R18)
+  minScopeLimited     Boolean @default(false)
+  minAnonymized       Boolean @default(false)
+  minAnonymizeNA      String? // lý do không ẩn danh được
+  minTimeLimited      Boolean @default(false)
+  minProtectedChannel Boolean @default(false)
+  minNdaRef           String?
+  minReturnDelete     Boolean @default(false)
+
+  atttOpinionById String?
+  atttOpinionAt   DateTime?
+  atttOpinionNote String?
+
+  approvedById String? // CSHDL (nội bộ) / LĐV (ra ngoài)
+  approvedAt   DateTime?
+
+  executedById String? // ≠ người phê duyệt (§5.3)
+  executedAt   DateTime?
+  logRef       String?
+
+  revokeDue         DateTime?
+  revokeRequestedAt DateTime?
+  revokeEvidenceRef String? // bằng chứng bên nhận đã xóa/trả
+
+  status M34SharingStatus @default(DRAFT)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dataSet    M34DataSet @relation(fields: [dataSetId], references: [id], onDelete: Cascade)
+  requester  User       @relation("M34SharingRequested", fields: [requesterId], references: [id])
+  approvedBy User?      @relation("M34SharingApproved", fields: [approvedById], references: [id])
+}
+
+model M34AIDataApproval {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "DAI-2026-0001"
+
+  dataSetId   String
+  aiPurpose   M34AIPurpose
+  aiSystemRef String? // mã AIPlatform/AIAgent bên M29
+  aiaRef      String // hồ sơ AIA theo ETV.P29 — bắt buộc (R22)
+  mitigation  String // ẩn danh dữ liệu cá nhân, giới hạn phạm vi truy xuất
+
+  atttOpinionById String?
+  approvedById    String?
+  approvedAt      DateTime?
+
+  status M34AIApprovalStatus @default(DE_NGHI)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dataSet    M34DataSet @relation(fields: [dataSetId], references: [id], onDelete: Cascade)
+  approvedBy User?      @relation("M34AIApproved", fields: [approvedById], references: [id])
+}
+
+model M34AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M34ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([itemType, itemId])
 }

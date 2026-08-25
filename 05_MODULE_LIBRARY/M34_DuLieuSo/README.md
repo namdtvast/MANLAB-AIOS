@@ -9,7 +9,7 @@
 | Phạm vi | **Nội dung dữ liệu số**: đúng không, ai được dùng, dùng thế nào, sống bao lâu (`ETV.P35` mục 2.3 giao cho ETV.P34) — phân biệt với M27 (tài sản, sao lưu, hủy kỹ thuật), M28 (bảo vệ, quyền), M33 (thiết bị), M35 (nền tảng) |
 | Liên thông | → M10/M11 (chặn hiệu chỉnh chưa kết luận, dừng dùng dữ liệu), M36 (lineage cho chứng chỉ số), M37 (điểm tích hợp), M13 (KPH), M15, M17, M29 · ← M28 (phân loại, quyền), M27 (tài sản, biên bản hủy), M30 (F30.02 đổi cấu trúc), M33/M35 (nơi lưu), M29 (AIA), M37 (sự cố đồng bộ) |
 | Nguyên tắc | Một nguồn sự thật · dữ liệu gốc không sửa đè · chất lượng phải đo được (3 nguyên tắc `ETV.P34` §2.2) · bản ghi mô tả không chứa dữ liệu · Hạn chế/Mật không vào AI · hủy cần 2 chữ ký |
-| Triển khai | **Chưa xây** — đã đủ tầng đặc tả (yêu cầu, API, dữ liệu, màn hình, đầu ra, bảng điều khiển, trạng thái); chờ `ETV.P34` được phê duyệt theo MP14 trước khi BUILD |
+| Triển khai | **Đã xây nguyên mẫu trên `09_ENGINEERING/aios-platform`** (26/08/2026): schema `M34*` + gate R1–R22 (`src/lib/m34/rules.ts`, 47 test) + 11 trang `/modules/M34…` + seed demo. Xây theo **dự thảo** `ETV.P34` (Chờ soát xét) theo lệnh chủ sở hữu repo — giá trị định lượng trong gate sửa theo khi thủ tục được phê duyệt MP14 |
 | Nhật ký | Mọi thao tác ghi vết append-only; nhật ký thao tác trên dữ liệu không sửa được, lưu theo `ETV.P28` mục 5.7.5 |
 
 ## Tầng đặc tả
@@ -23,4 +23,4 @@
 | `05_Report` | `Outputs.md` | Biểu mẫu xuất, báo cáo 06 tháng, thời hạn lưu hồ sơ |
 | `06_Dashboard` | `Dashboard.md` | 13 chỉ số bám bảy nội dung báo cáo `ETV.P34` §6.9 |
 | `07_Workflow` | `StateMachine.md` | Bảng trạng thái và thẩm quyền thao tác |
-| `08_Source` | *(trống)* | Chưa xây |
+| `08_Source` | *(xem `09_ENGINEERING/aios-platform`)* | Mã thật trên nền tảng hợp nhất: `prisma/schema.prisma` (khối M34), `src/lib/m34/`, `src/app/(platform)/modules/M34/` |

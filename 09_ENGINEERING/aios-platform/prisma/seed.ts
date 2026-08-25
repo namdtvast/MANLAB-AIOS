@@ -52,7 +52,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
 // M25 xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md (chưa có ETV.P25).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M29"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M29", "M34"]);
 
 interface MpManifest {
   name?: string;
@@ -300,6 +300,7 @@ async function main() {
   await seedM14();
   await seedM25();
   await seedM26();
+  await seedM34();
 
   baoCaoMatKhauDemo();
 }
@@ -3069,5 +3070,279 @@ async function seedM25() {
   console.log(
     `Đã nạp 2 kỳ xem xét bối cảnh (1 đã phê duyệt + 1 nháp), ${4} vấn đề bối cảnh, ${4} bên quan tâm demo M25 + vai trò M25 cho ${Object.keys(userByRole).length} tài khoản. ` +
       `(${issue4.code} cố ý để mức Cao chưa liên kết M01 nhằm minh họa gate quy tắc 3.)`,
+  );
+}
+
+// M34 — Quản lý dữ liệu số. Nguồn: ETV.P34 (DỰ THẢO, Chờ soát xét 25/08/2026) +
+// 05_MODULE_LIBRARY/M34_DuLieuSo/01_Requirement/DacTa.md. Vai trò toàn cục M34:
+// QLCL/ATTT/LDV/QTDL/QTHT (ModuleRoleAssignment); CSHDL là vai trò THEO TẬP — ownerId
+// trên từng bản ghi (DacTa mục 10 điểm 2). Dữ liệu mẫu phủ các nhánh gate chính.
+const M34_DEMO_USERS = [
+  { email: "qlcl@manlab.vn", name: "Phạm Q. (QLCL)", role: "QLCL" },
+  { email: "attt@manlab.vn", name: "Vũ B. (PT.ATTT)", role: "ATTT" },
+  { email: "ldv@manlab.vn", name: "Lê Văn V. (LĐV)", role: "LDV" },
+  { email: "qtdl@manlab.vn", name: "Ngô D. (QTDL)", role: "QTDL" },
+  { email: "qtht@manlab.vn", name: "Đỗ A. (QTHT)", role: "QTHT" },
+] as const;
+
+async function seedM34() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+
+  for (const u of M34_DEMO_USERS) {
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    userByRole[u.role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M34", role: u.role } },
+      create: { userId: user.id, moduleCode: "M34", role: u.role },
+      update: {},
+    });
+  }
+
+  // CSHDL demo: Trưởng phòng (ldp@) sở hữu tập; NTH là người nhập liệu chính (gate R16).
+  const ldp = await prisma.user.upsert({
+    where: { email: "ldp@manlab.vn" },
+    create: { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "MEMBER", passwordHash },
+    update: {},
+  });
+  const nth = await prisma.user.upsert({
+    where: { email: "nth@manlab.vn" },
+    create: { email: "nth@manlab.vn", name: "Nguyễn Thị H. (NTH)", role: "MEMBER", passwordHash },
+    update: {},
+  });
+
+  const existing = await prisma.m34DataSet.count();
+  if (existing > 0) return; // idempotent thô: chỉ seed lần đầu
+
+  const qtdl = userByRole["QTDL"];
+  const attt = userByRole["ATTT"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+
+  // 1) Tập dữ liệu đo — ACTIVE, đủ từ điển v1, có kỳ đo Đạt; nguồn cho gate sàn 100%.
+  const ds1 = await prisma.m34DataSet.create({
+    data: {
+      code: `DS-${year}-0001`,
+      name: "Dữ liệu đo quan trắc khí thải (thô)",
+      dataGroup: "DO_KY_THUAT",
+      purpose: "Lưu giá trị đo thô từ thiết bị quan trắc phục vụ kiểm định, hiệu chuẩn",
+      ownerId: ldp.id,
+      stewardId: qtdl.id,
+      primaryEntererId: nth.id,
+      platformRef: "ManLab (M35: NT-2026-001)",
+      infraRef: "HT-2026-014 (máy chủ dữ liệu đo)",
+      classification: "NOI_BO",
+      hasPersonalData: false,
+      qualityMetricsNote: "Cả 6 chiều; sàn 100% hợp lệ + đầy đủ (trường bắt buộc); kỳ đo 03 tháng",
+      activeRetention: "05 năm",
+      retentionBasis: "ETV.P.F 14.06 — hồ sơ kỹ thuật; pháp luật đo lường chuyên ngành",
+      readScope: "Phòng Kiểm định; QLCL",
+      writeScope: "Hệ thống thu thập tự động; QTDL hiệu chỉnh theo F34.02",
+      externalSharingNote: "Không — trừ yêu cầu cơ quan quản lý, đi phiếu F34.03",
+      infoAssetRef: "TS-DL-012 (M27)",
+      recordRef: "HS-KT-2026 (M15)",
+      dictionaryRequired: true,
+      lineageNote: "Nguồn: đầu đo QT-05 → bộ thu → ManLab; quy tắc quy đổi v1.2 (ETV.P08)",
+      reviewCycle: "THANG_12",
+      status: "ACTIVE",
+      lifecycleStage: "HOAT_DONG",
+      createdById: qtdl.id,
+      reviewedById: attt.id,
+      reviewedAt: new Date(`${year}-08-20T03:00:00Z`),
+      approvedById: ldp.id,
+      approvedAt: new Date(`${year}-08-21T03:00:00Z`),
+      lastReviewedAt: new Date(`${year}-08-21T03:00:00Z`),
+    },
+  });
+  const dict1 = await prisma.m34DictionaryVersion.create({
+    data: {
+      dataSetId: ds1.id,
+      version: 1,
+      status: "ACTIVE",
+      effectiveDate: new Date(`${year}-08-21T03:00:00Z`),
+      fields: {
+        create: [
+          { fieldName: "measured_at", meaning: "Thời điểm đo", dataType: "datetime", required: true, validationRule: "ISO 8601, không tương lai", example: "2026-08-20T10:15:00+07:00" },
+          { fieldName: "parameter", meaning: "Thông số đo", dataType: "enum", validDomain: "SO2, NOx, CO, bụi tổng", required: true, example: "SO2" },
+          { fieldName: "value", meaning: "Giá trị đo", dataType: "decimal", unit: "mg/Nm3", validDomain: "≥ 0", required: true, validationRule: "Số, 3 chữ số lẻ", example: "125.400" },
+          { fieldName: "device_ref", meaning: "Thiết bị đo (M05)", dataType: "string", required: true, validationRule: "Tồn tại trong danh mục thiết bị", example: "TB-2025-031" },
+        ],
+      },
+    },
+  });
+  void dict1;
+  const q1 = await prisma.m34QualityMeasurement.create({
+    data: {
+      code: `KD-${year}-0001`,
+      dataSetId: ds1.id,
+      period: `${year}-Q2`,
+      status: "DAT",
+      trend: "GIU_NGUYEN",
+      measuredById: qtdl.id,
+      measuredAt: new Date(`${year}-07-01T03:00:00Z`),
+      concludedById: qtdl.id,
+      concludedAt: new Date(`${year}-07-02T03:00:00Z`),
+      rows: {
+        create: [
+          { dimension: "CHINH_XAC", metric: "Tỷ lệ sai phát hiện qua đối chiếu mẫu", threshold: "≤ 0,5%", value: "0,2%", passed: true },
+          { dimension: "DAY_DU", metric: "Trường bắt buộc còn trống", threshold: "100% đủ", value: "100%", passed: true },
+          { dimension: "NHAT_QUAN", metric: "Chênh lệch với dữ liệu chủ thiết bị", threshold: "0 bản ghi", value: "0", passed: true },
+          { dimension: "KIP_THOI", metric: "Độ trễ thu nhận trung bình", threshold: "≤ 15 phút", value: "4 phút", passed: true },
+          { dimension: "DUY_NHAT", metric: "Bản ghi trùng trong kỳ", threshold: "0", value: "0", passed: true },
+          { dimension: "HOP_LE", metric: "Vi phạm quy tắc từ điển", threshold: "100% hợp lệ", value: "100%", passed: true },
+        ],
+      },
+    },
+  });
+  void q1;
+
+  // Hiệu chỉnh đang CHỜ KẾT LUẬN P10/P11 — minh họa chặn cứng R12 (ETV.P34 §6.3.2 bước 3).
+  await prisma.m34DataCorrection.create({
+    data: {
+      code: `HC-${year}-0001`,
+      dataSetId: ds1.id,
+      recordPointer: `Bản ghi đo 14/08/${year} 09:12, trường value (SO2)`,
+      oldValue: "1254.00",
+      newValue: "125.40",
+      correctionReason: "Nhập sai vị trí dấu thập phân khi nhập tay lúc mất kết nối bộ thu",
+      evidenceRef: "Biên bản đối chiếu nhật ký thiết bị QT-05",
+      requestedById: nth.id,
+      publishedImpact: "DA_DUNG_PHAT_HANH",
+      status: "CHO_KET_LUAN_P10_P11",
+    },
+  });
+
+  // Phiếu chia sẻ ra ngoài đang chờ ý kiến PT.ATTT — minh họa luồng LĐV + ATTT (R18).
+  await prisma.m34SharingRequest.create({
+    data: {
+      code: `CS-${year}-0001`,
+      requestType: "RA_NGOAI_VIEN",
+      dataSetId: ds1.id,
+      hasCustomerData: true,
+      requesterId: nth.id,
+      recipient: "Sở Tài nguyên và Môi trường (theo yêu cầu bằng văn bản)",
+      purpose: "Cung cấp dữ liệu quan trắc phục vụ thanh tra môi trường",
+      scopeNote: "Trường measured_at, parameter, value; 01/06–30/06; ~4.300 bản ghi",
+      channel: "Cổng trao đổi văn bản điện tử liên thông (mã hóa)",
+      useUntil: new Date(`${year}-12-31T00:00:00Z`),
+      legalBasis: "Yêu cầu của cơ quan quản lý nhà nước có thẩm quyền",
+      revokeDue: new Date(`${year}-12-31T00:00:00Z`),
+      status: "CHO_Y_KIEN_ATTT",
+    },
+  });
+
+  // Đề nghị dùng cho AI đang chờ — đủ AIA, chờ ý kiến ATTT + LĐV (R22).
+  await prisma.m34AIDataApproval.create({
+    data: {
+      code: `DAI-${year}-0001`,
+      dataSetId: ds1.id,
+      aiPurpose: "DANH_GIA_MO_HINH",
+      aiSystemRef: "AGENT_COPILOT_TRACUU (M29)",
+      aiaRef: "AIA-2026-03 (F29.02)",
+      mitigation: "Chỉ dùng giá trị đo tổng hợp theo ngày; không kèm định danh khách hàng; giới hạn truy xuất chỉ đọc",
+      status: "DE_NGHI",
+    },
+  });
+
+  // 2) Dữ liệu chủ — nguồn sự thật đã được LĐV công nhận + 1 bảng tra song song đang xử lý (R9, R10).
+  const ds2 = await prisma.m34DataSet.create({
+    data: {
+      code: `DS-${year}-0002`,
+      name: "Danh mục khách hàng (dữ liệu chủ)",
+      dataGroup: "DU_LIEU_CHU",
+      purpose: "Nguồn tham chiếu duy nhất về khách hàng cho mọi module nghiệp vụ",
+      ownerId: ldp.id,
+      stewardId: qtdl.id,
+      classification: "HAN_CHE",
+      hasPersonalData: true,
+      personalDataLegalRef: "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân (QLCL + PT.ATTT rà soát khi áp dụng)",
+      qualityMetricsNote: "Duy nhất, nhất quán, đầy đủ; kỳ đo 06 tháng",
+      activeRetention: "Theo vòng đời quan hệ khách hàng",
+      retentionBasis: "ETV.P15; nghĩa vụ hợp đồng",
+      readScope: "Bộ phận dịch vụ khách hàng; kế toán",
+      writeScope: "Chỉ tại nguồn — QTDL",
+      externalSharingNote: "Không",
+      isMasterData: true,
+      dictionaryRequired: true,
+      reviewCycle: "THANG_06",
+      status: "ACTIVE",
+      lifecycleStage: "HOAT_DONG",
+      createdById: qtdl.id,
+      reviewedById: attt.id,
+      approvedById: ldp.id,
+      approvedAt: new Date(`${year}-08-22T03:00:00Z`),
+      lastReviewedAt: new Date(`${year}-08-22T03:00:00Z`),
+    },
+  });
+  await prisma.m34DictionaryVersion.create({
+    data: {
+      dataSetId: ds2.id,
+      version: 1,
+      status: "ACTIVE",
+      effectiveDate: new Date(`${year}-08-22T03:00:00Z`),
+      fields: {
+        create: [
+          { fieldName: "customer_code", meaning: "Mã khách hàng — không cấp lại", dataType: "string", required: true, validationRule: "KH-\\d{4}-\\d{4}", example: "KH-2026-0102" },
+          { fieldName: "legal_name", meaning: "Tên pháp lý", dataType: "string", required: true, example: "Công ty TNHH ABC" },
+          { fieldName: "tax_code", meaning: "Mã số thuế", dataType: "string", validDomain: "10 hoặc 13 chữ số", required: true, validationRule: "Duy nhất toàn danh mục", example: "0101234567" },
+        ],
+      },
+    },
+  });
+  const master = await prisma.m34MasterDataSource.create({
+    data: {
+      code: `DC-${year}-0001`,
+      masterType: "Danh mục khách hàng",
+      dataSetId: ds2.id,
+      sourceSystem: "ManLab — bảng Customer (một nguồn duy nhất)",
+      authorizedEditors: "QTDL (Ngô D.) theo phân quyền M28",
+      syncTargets: ["M21 Cổng công bố (đồng bộ tự động — M37)"],
+      status: "DA_CONG_NHAN",
+      recognizedById: ldv.id,
+      recognizedAt: new Date(`${year}-08-23T03:00:00Z`),
+    },
+  });
+  await prisma.m34ParallelLookupFinding.create({
+    data: {
+      code: `BT-${year}-0001`,
+      masterSourceId: master.id,
+      description: "Tệp Excel 'DS khach hang 2025.xlsx' trên máy cá nhân phòng dịch vụ",
+      usedBy: "Nhân viên hợp đồng phòng Dịch vụ khách hàng",
+      usedFor: "Tra mã khách hàng khi lập báo giá",
+      diffNote: "17 bản ghi lệch tên pháp lý; 3 mã không tồn tại trong nguồn",
+      causedError: false,
+      stoppedAt: new Date(`${year}-08-24T03:00:00Z`),
+      status: "DANG_XU_LY",
+    },
+  });
+
+  // 3) Tập chứa dữ liệu cá nhân đang chờ soát xét — minh họa bước QLCL + PT.ATTT (§6.1.3).
+  await prisma.m34DataSet.create({
+    data: {
+      code: `DS-${year}-0003`,
+      name: "Hồ sơ đào tạo và năng lực nhân sự (bản số)",
+      dataGroup: "QUAN_TRI",
+      purpose: "Theo dõi đào tạo, chứng chỉ, phân công năng lực (M03)",
+      ownerId: ldp.id,
+      stewardId: qtdl.id,
+      classification: "NOI_BO",
+      hasPersonalData: true,
+      personalDataLegalRef: "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân",
+      retentionBasis: "ETV.P.F 14.06 — hồ sơ nhân sự",
+      dictionaryRequired: false,
+      reviewCycle: "THANG_06",
+      status: "PENDING_REVIEW",
+      createdById: qtdl.id,
+    },
+  });
+
+  console.log(
+    "Đã nạp M34: 3 tập dữ liệu (1 đo — ACTIVE kèm từ điển + kỳ đo Đạt, 1 dữ liệu chủ Hạn chế — đã công nhận nguồn, 1 chờ soát xét), " +
+      "1 hiệu chỉnh đang chờ kết luận P10/P11 (minh họa chặn R12), 1 phiếu chia sẻ chờ ý kiến ATTT, 1 đề nghị dữ liệu cho AI, " +
+      `1 bảng tra song song đang xử lý + vai trò M34 cho ${Object.keys(userByRole).length} tài khoản (thêm attt@, qtdl@).`,
   );
 }

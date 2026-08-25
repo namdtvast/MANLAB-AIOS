@@ -84,6 +84,7 @@ duyệt**, và bản ghi **chỉ mô tả, không chứa** dữ liệu thật.
 | `purpose` | text | có | Mục đích sử dụng |
 | `owner_ref` | ref User (CSHDL) | **có** | Chủ sở hữu dữ liệu — lãnh đạo đơn vị, quy tắc R1 |
 | `steward_ref` | ref User (QTDL) | **có** | Người quản trị dữ liệu nghiệp vụ — quy tắc R1 |
+| `primary_enterer_ref` | ref User | không | Người nhập liệu chính hiện tại (khai báo) — căn cứ thực thi gate R16 *(bổ sung khi BUILD 26/08/2026: không thể kiểm "người nhập" từ module khác, nên khai trên bản ghi)* |
 | `platform_ref` | ref → M35 | có | Nền tảng số nơi dữ liệu tồn tại |
 | `infra_ref` | ref → M33 | có | Hạ tầng nơi dữ liệu tồn tại |
 | `copies_note` | text | có | Có bản sao ở nơi nào khác không (`ETV.P34` §6.1.1 nhóm Nơi lưu) |
@@ -546,8 +547,14 @@ trúc (M30) · khôi phục dữ liệu khi gián đoạn, RPO (M31).
 
 ## 9. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform` (chưa có trang
-`/modules/M34`, chưa có trong seed). Tầng đặc tả đã đủ để lập trình:
+**Đã xây nguyên mẫu trên `09_ENGINEERING/aios-platform`** (26/08/2026, theo lệnh BUILD của chủ sở
+hữu repo trong khi `ETV.P34` còn `Chờ soát xét` — xem giới hạn ở mục 10 điểm 1): schema Prisma
+(11 model `M34*` + enum `Classification` dùng chung, migration `20260825231424_m34_du_lieu_so`),
+gate thuần `src/lib/m34/rules.ts` (R1–R22, **47 test** `rules.test.ts` PASS), server action +
+audit append-only, **11 trang** `/modules/M34…` đúng danh sách `04_UI/Screens.md`, seed demo
+(3 tập + kỳ đo + hiệu chỉnh chờ P10/P11 + phiếu chia sẻ + hồ sơ AI + bảng tra song song), thêm vai
+trò `ATTT`, `QTDL` và tài khoản demo `attt@`, `qtdl@manlab.vn`. Mọi giá trị định lượng trong gate
+bám dự thảo — Viện phê duyệt thủ tục mà đổi số thì sửa `rules.ts` theo. Tầng đặc tả:
 
 | Tầng | File | Nội dung |
 |---|---|---|
@@ -560,7 +567,7 @@ trúc (M30) · khôi phục dữ liệu khi gián đoạn, RPO (M31).
 | Quy trình | `07_Workflow/StateMachine.md` | Bảng trạng thái và thẩm quyền thao tác |
 
 Hồ sơ làm việc: `01_Requirement/_work/20260826-dac-ta-m34/` (đợt đặc tả đầu tiên, dựng từ dự thảo
-`ETV.P34` 25/08/2026).
+`ETV.P34` 25/08/2026) và `_work/20260826-build-m34/` (đợt BUILD nguyên mẫu lên aios-platform).
 
 ## 10. Đối chiếu với `ETV.P34` — cần chốt trước khi BUILD
 
