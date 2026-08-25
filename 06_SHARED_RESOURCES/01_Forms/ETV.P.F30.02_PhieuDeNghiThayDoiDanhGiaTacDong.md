@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP30_ThayDoi
 module: M30_ThayDoi
 revision: "01"
-effective_date: "25/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
@@ -18,7 +18,7 @@ related_documents: [ETV.P30, ETV.P.F30.01, ETV.P.F30.03]
 | --- | --- |
 | **Mã số** | ETV.P.F 30.02 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | 25/08/2026 |
+| **Ngày ban hành** | ..../..../........ |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/2 |
 

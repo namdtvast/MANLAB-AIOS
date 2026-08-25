@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP38_DichVuSo
 module: M38_DichVuSo
 revision: "01"
-effective_date: "25/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
@@ -18,7 +18,7 @@ related_documents: [ETV.P38, ETV.P.F38.01, ETV.P.F38.03]
 | --- | --- |
 | **Mã số** | ETV.P.F 38.02 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | 25/08/2026 |
+| **Ngày ban hành** | ..../..../........ |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/2 |
 

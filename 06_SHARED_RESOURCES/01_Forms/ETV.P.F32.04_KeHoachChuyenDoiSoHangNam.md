@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP32_ChuyenDoiSo
 module: M32_ChuyenDoiSo
 revision: "01"
-effective_date: "25/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
@@ -18,7 +18,7 @@ related_documents: [ETV.P32, ETV.P.F32.01, ETV.P.F32.02, ETV.P.F32.03]
 | --- | --- |
 | **Mã số** | ETV.P.F 32.04 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | 25/08/2026 |
+| **Ngày ban hành** | ..../..../........ |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/2 |
 

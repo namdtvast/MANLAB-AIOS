@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP29_AI
 module: M29_AI
 revision: "01"
-effective_date: "24/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo

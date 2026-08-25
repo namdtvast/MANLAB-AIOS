@@ -5,7 +5,7 @@ type: Bieu-mau
 process: MP37_TichHopDuLieu
 module: M37_TichHopDuLieu
 revision: "01"
-effective_date: "25/08/2026"
+effective_date: ""
 status: Cho-soat-xet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
@@ -18,7 +18,7 @@ related_documents: [ETV.P37, ETV.P34, ETV.P.F37.01, ETV.P.F37.03]
 | --- | --- |
 | **Mã số** | ETV.P.F 37.02 |
 | **Lần ban hành** | 01 |
-| **Ngày ban hành** | 25/08/2026 |
+| **Ngày ban hành** | ..../..../........ |
 | **Soát xét** | ..../..../.... |
 | **Trang** | 1/3 |
 
