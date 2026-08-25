@@ -15,7 +15,7 @@ related_documents: [ETV.P14, ETV.P26, ETV.P28, ETV.P29, ETV.P34, ETV.GAI01]
 
 # PHIẾU ĐỀ NGHỊ SOÁT XÉT, SỬA ĐỔI VĂN BẢN
 
-Bản đã điền theo `ETV.P.F 14.01` (ETV.P14 §10.1 bước 1–2).
+Bản đã điền theo `ETV.P.F 14.01` (ETV.P14 §6.6.1 bước 1–2).
 
 | Trường | Nội dung |
 |---|---|
@@ -129,4 +129,4 @@ Lần ban hành: ......... Ngày ban hành: ......... Chữ ký LĐV: ..........
 
 ---
 
-*Bản dự thảo do AI hỗ trợ soạn theo ETV.P29 mục 1.3.1 — AI chỉ đề xuất, không tự quyết định.*
+*Bản dự thảo do AI hỗ trợ soạn. Theo ETV.P29 §1.3 nguyên tắc 1 ("Con người quyết định cuối cùng"), AI chỉ đề xuất — không soát xét, không phê duyệt, không tự quyết định.*
