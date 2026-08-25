@@ -91,6 +91,19 @@ Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ t�
 
 **Giới hạn phải biết:** công cụ bắt được "mục không tồn tại", **không** bắt được "mục có thật nhưng sai mục" (vd dẫn RACI vào mục Thuật ngữ). Lớp lỗi đó nguy hơn vì người đọc mở ra thấy một mục hợp lệ nên tin luôn; nó cần đối chiếu ngữ nghĩa, cố ý không làm. Quét sạch **không** đồng nghĩa với trích dẫn đúng.
 
+Bộ kiểm thứ ba, **chỉ chạy được trên máy lập trình viên**:
+
+```bash
+python3 _meta/validate_skill_sync.py          # cảnh báo, luôn thoát 0
+python3 _meta/validate_skill_sync.py --chan   # thoát khác 0 nếu có lệch
+```
+
+Đối chiếu bản skill trong repo (`07_AI_OPERATING_SYSTEM/01_Skills/`) với bản Claude Code **thực sự nạp khi chạy** ở `~/.claude/skills/`. Cần bộ kiểm này vì bản trong repo là bản được review qua PR, còn bản trong `~/.claude` mới là bản quyết định hành vi thật của AI — không có gì canh nên hai bản trôi xa nhau âm thầm. Đo lần đầu 26/08/2026: bản `01-s-kiem-soat-tai-lieu-etv` đang chạy lệch bản repo **76 dòng ở 14 file**, trong đó có trích dẫn trỏ tới mục `VI.5` của ETV.P14 (mục đó là *Dấu hiệu kiểm soát*, trong khi câu trích nói về *Vòng đời văn bản*), mã năng lực `CAP-09` đã đổi thành `CAP-12`, và tên kích hoạt skill không còn khớp skill nào.
+
+Công cụ tự dò cặp theo cấu trúc file (không theo tên thư mục, vì hai bản có thể mang tên khác nhau) và **cố ý không so khối frontmatter** — `name:` phải khớp tên thư mục của chính nó nên hai bản khác nhau ở đó là đúng. File chỉ có ở một bên được nêu ra nhưng không tính là lệch, vì thường là sản phẩm sinh ra lúc chạy skill.
+
+**Giới hạn phải biết:** `~/.claude/skills/` nằm ngoài repo và không tồn tại trên runner CI, nên trên CI công cụ luôn báo "bỏ qua" và thoát 0. **CI xanh không có nghĩa hai bản đã khớp** — phải chạy tay trước khi mở PR đụng tới skill, và đồng bộ tay sau khi merge.
+
 ## Cổng thông tin GitHub Pages (`docs/`)
 
 Một trang duyệt tương tác gồm một file duy nhất (`docs/index.html`, không cần build, không phụ thuộc ngoài) giúp nhân sự và đoàn đánh giá duyệt toàn bộ repo và mở tài liệu qua liên kết sâu (`#/p/<đường-dẫn>`). Dữ liệu lấy từ `docs/data.json`, sinh ra bằng cách quét repo:
