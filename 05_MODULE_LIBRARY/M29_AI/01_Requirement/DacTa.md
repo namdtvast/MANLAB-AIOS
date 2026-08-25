@@ -143,11 +143,16 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
     khi gặp ca Copilot thay vì ghi một `AIEvaluationRun` rác. Cùng lý do: lượt đánh giá gặp lỗi hạ
     tầng bị **huỷ**, không ghi kết quả — một sự cố mạng không được phép hoá trang thành "100% đạt".
 
-23. **Trần mức bảo mật gửi ra ngoài** (ETV.P29 §5.5): mức tối đa được đưa vào ngữ cảnh gửi tới dịch
-    vụ mô hình bên ngoài do biến `COPILOT_MUC_BAO_MAT_TOI_DA` quyết định, **mặc định fail-closed ở
-    `Cong-khai`**. Nới lên `Noi-bo` là hành động có chủ đích, gắn với việc đã trích điều khoản
-    "không dùng dữ liệu để huấn luyện lại" của nhà cung cấp vào F29.02. **Không** suy ra trần từ
-    tên nhà cung cấp — cùng một nhà cung cấp có bậc cam kết và bậc không cam kết.
+23. **Ranh giới dữ liệu theo TỪNG nền tảng** (ETV.P29 §5.5): `AIPlatform.dataBoundary`, ba trạng
+    thái ánh xạ thẳng từ hai câu lồng nhau của §5.5 — không rời hạ tầng Viện · rời nhưng có cam kết
+    đã trích F29.02 · rời không cam kết (**mặc định**, chỉ Công khai). **Không** suy trần từ tên nhà
+    cung cấp (cùng nhà cung cấp có bậc cam kết và bậc không), cũng **không** suy từ
+    `AIPlatform.environment` — trường đó trả lời câu hỏi khác, mặc định ở giá trị dễ dãi nhất và
+    chưa từng được kiểm bởi nhánh logic nào, nên dựng chốt lên nó là fail-open. Trần tối đa là
+    **Nội bộ** kể cả với mô hình nội bộ: ETV.P28 §5.13 cấm AI *truy cập* dữ liệu Hạn chế/Mật.
+    Nới lên trạng thái "có cam kết" phải qua `datRanhGioiDuLieu()` dưới quyền `governance`
+    (không phải `platforms` — người đăng ký nền tảng không tự nới ranh giới của mình), bắt buộc dẫn
+    số hồ sơ F29.02, ghi vết ở `AIAuditLog`.
 24. Lượt chạy bộ đánh giá **dưới trần thu hẹp không được ghi** thành `AIEvaluationRun`: §5.3.1 đánh
     giá hệ thống đúng như nó sẽ vận hành, nên hồ sơ chạy trên phạm vi hẹp hơn là hồ sơ nói về một
     hệ thống khác.

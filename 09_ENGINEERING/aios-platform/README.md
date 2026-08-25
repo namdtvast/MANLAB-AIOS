@@ -519,12 +519,29 @@ Không có khoá thì khay vẫn hiện, mọi lượt hỏi báo `NO_API_KEY` v
 và đổi `adapterType` của bản ghi `AIPlatform`; nhưng theo ETV.P29 §5.3.3 đó là sự kiện **bắt buộc
 đánh giá lại**.
 
-**Trần mức bảo mật gửi ra ngoài (ETV.P29 §5.5)** — `COPILOT_MUC_BAO_MAT_TOI_DA`, mặc định
-**fail-closed** ở `Cong-khai`. Chỉ nới lên `Noi-bo` khi đã trích được điều khoản của nhà cung cấp về
-việc **không dùng dữ liệu để huấn luyện lại** vào hồ sơ AIA (F29.02) — điều khoản này khác nhau giữa
-các bậc dịch vụ của cùng một nhà cung cấp, bậc miễn phí thường không có. Với chỉ mục hiện tại:
-`Cong-khai` = **12 đoạn**, `Noi-bo` = **1.865 đoạn**. Chạy bộ đánh giá dưới trần thu hẹp sẽ **không**
-được ghi thành `AIEvaluationRun`.
+**Ranh giới dữ liệu theo TỪNG nền tảng (ETV.P29 §5.5)** — `AIPlatform.dataBoundary`, ba trạng thái
+ánh xạ thẳng từ thủ tục:
+
+| Ranh giới | Nghĩa | Trần |
+|---|---|---|
+| `NO_EXTERNAL_TRANSFER` | dữ liệu không rời hạ tầng Viện (mô hình tự vận hành) | Nội bộ |
+| `EXTERNAL_WITH_COMMITMENT` | rời, nhà cung cấp cam kết không huấn luyện lại, **đã trích vào F29.02** | Nội bộ |
+| `EXTERNAL_NO_COMMITMENT` | rời, không cam kết — **mặc định** | chỉ Công khai |
+
+Không trạng thái nào mở tới **Hạn chế/Mật**, kể cả mô hình nội bộ: ETV.P28 §5.13 cấm ở mức *truy
+cập* — *"trợ lý AI chỉ được truy cập nguồn dữ liệu mức Công khai và Nội bộ"*.
+
+Đổi ranh giới bằng `datRanhGioiDuLieu()`, quyền `governance` (**AI_SECURITY_ADMIN**, **SUPER_ADMIN**)
+— cố ý **không** phải `platforms`, để người đăng ký nền tảng không tự nới ranh giới của chính nền
+tảng mình vừa tạo. Nới lên trạng thái *có cam kết* **bắt buộc dẫn số hồ sơ F29.02**, để trống là lỗi;
+mọi lần đổi ghi vết ở `AIAuditLog`.
+
+> **Sau khi di trú:** mọi `AIPlatform` đã có trong CSDL nhận giá trị mặc định
+> `EXTERNAL_NO_COMMITMENT`, tức bị siết xuống Công khai — fail-closed đúng ý đồ, nhưng Copilot sẽ
+> đột ngột "quên" gần hết tài liệu. Chạy lại `npx prisma db seed` (khai sẵn ranh giới cho 5 nền tảng
+> mẫu) hoặc gọi `datRanhGioiDuLieu()` cho từng nền tảng.
+
+Chạy bộ đánh giá dưới trần thu hẹp sẽ **không** được ghi thành `AIEvaluationRun`.
 
 Chỉ mục **fail-closed** theo ETV.P29 §5.5 + ETV.P26 §5.5: chỉ nạp tài liệu mức Công khai/Nội bộ
 **và** đã phê duyệt, thuộc lớp tài liệu đã được duyệt trong

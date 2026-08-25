@@ -243,6 +243,81 @@ ETV.P29 §5.3.1 đánh giá hệ thống **đúng như nó sẽ vận hành**; c
 thành hồ sơ đánh giá là ghi một hồ sơ nói về một hệ thống khác. Đo lại truy hồi dưới trần này:
 **0/20** — mọi nguồn kỳ vọng của bộ câu hỏi đều là tài liệu Nội bộ.
 
+### 2.4c Ranh giới dữ liệu theo từng nền tảng (25/08/2026)
+
+Bản trước cưỡng chế trần §5.5 bằng **một biến môi trường toàn cục**. Sai ở chỗ: một cấu hình có
+nhiều nền tảng mô hình cùng lúc — mô hình tự vận hành trong hạ tầng Viện, và dịch vụ ngoài. Biến
+toàn cục buộc phải chọn con số thấp nhất cho tất cả (mô hình nội bộ mất tài liệu Nội bộ dù dữ liệu
+không hề rời Viện), hoặc nới cho tất cả (tài liệu Nội bộ chảy ra dịch vụ ngoài). **Cả hai đều sai.**
+
+Nay là `AIPlatform.dataBoundary`, enum 3 trạng thái ánh xạ thẳng từ §5.5:
+
+| Ranh giới | Trần | Nền tảng mẫu |
+|---|---|---|
+| `NO_EXTERNAL_TRANSFER` | Nội bộ | `MANLAB_LOCAL_LLM`, `MANLAB` |
+| `EXTERNAL_WITH_COMMITMENT` | Nội bộ | *(chưa có — chưa hồ sơ nào)* |
+| `EXTERNAL_NO_COMMITMENT` **(mặc định)** | Công khai | `GEMINI_API`, `ANTHROPIC_API`, `VICONNECT` |
+
+#### Hai đường đã bị loại, và vì sao
+
+**Không suy trần từ `AIPlatform.environment`** — đề xuất đầu của tôi, bị phiên `manlab-aios-87` bác
+và đo lại thấy họ đúng: trường đó là `String` tự do, mặc định `"INTERNAL"` (giá trị **dễ dãi nhất**),
+`createPlatform()` để nó tùy chọn, được đọc **đúng một chỗ** (in ra một ô bảng), **0** nhánh logic,
+**0** ca test. Dựng chốt an ninh lên nó là đổi chiều hỏng từ fail-closed sang **fail-open**: ai tạo
+một nền tảng ngoài mà quên khai environment sẽ nhận trần cao nhất.
+
+**Không đổi mặc định của `environment` sang `"EXTERNAL"`** — cách chữa thứ hai của tôi, cũng bị bác
+và cũng đúng: `environment` trả lời câu *"môi trường triển khai nào"*, §5.5 hỏi *"dữ liệu có rời hạ
+tầng Viện không"*. Sửa mặc định của nó là làm hỏng nghĩa một trường để bảo vệ một chốt rốt cuộc
+không nằm ở đó.
+
+#### Vì sao ba trạng thái, không phải hai
+
+§5.5 hỏi **hai câu lồng nhau**: dữ liệu có rời Viện không, và *nếu có* thì nhà cung cấp có cam kết
+không huấn luyện lại không. Một cờ nhị phân sẽ gộp mất đúng phân biệt vừa gặp trong thực tế: **cùng
+Google Gemini**, bậc trả phí và bậc miễn phí rơi vào hai trạng thái khác nhau.
+
+#### Trạng thái "có cam kết" đòi bằng chứng
+
+Đây là trạng thái **duy nhất** cần chứng minh — §5.5 yêu cầu điều khoản phải được *trích vào F29.02*.
+Nếu ai sửa được nền tảng cũng đặt thẳng được nó thì cái nới trần không có gì chống lưng, và enum chỉ
+là ô tích. Cưỡng chế:
+
+- `datRanhGioiDuLieu()` bắt buộc dẫn số hồ sơ khi đặt `EXTERNAL_WITH_COMMITMENT`; để trống là ném lỗi
+- Quyền đặt ở `governance` (**AI_SECURITY_ADMIN**, **SUPER_ADMIN**), **không** phải `platforms` —
+  người đăng ký nền tảng (`AI_ADMIN`) không tự nới ranh giới của chính nền tảng mình vừa tạo (§4.8)
+- Mọi lần đổi ghi `AIAuditLog`: ai, lúc nào, dẫn hồ sơ nào
+- Siết lại thì **xoá** số hồ sơ cũ — giữ lại sẽ khiến người đọc bản ghi tưởng nền tảng vẫn có cam kết
+
+Ràng buộc đặt ở **tầng hành động**, không phải quan hệ ở lược đồ: `AIImpactAssessment` gắn với
+*Agent* chứ không gắn với *Platform*, nên ép một FK bây giờ là mô hình hoá sai để lấy một bảo đảm mà
+audit log đã cho.
+
+#### Trần tối đa vẫn là Nội bộ — kể cả mô hình nội bộ
+
+`ETV.P28 §5.13` cấm ở mức **truy cập**, không chỉ lập chỉ mục: *"Trợ lý AI và các agent của Viện chỉ
+được truy cập nguồn dữ liệu ở mức Công khai và Nội bộ"*. Kiểu của `mucBaoMatToiDa()` chỉ trả về
+`"Cong-khai" | "Noi-bo"` nên **Hạn chế là bất khả biểu diễn**, không phải chỉ là chưa dùng tới. Có ca
+test duyệt toàn bộ enum để khoá điều đó.
+
+#### Kiểm chứng trên dữ liệu thật
+
+Cùng một câu hỏi *"Phát hiện công việc không phù hợp thì xử lý theo thủ tục nào?"*:
+
+| Nền tảng | Ranh giới | Trần | Truy hồi được |
+|---|---|---|---|
+| `GEMINI_API` | `EXTERNAL_NO_COMMITMENT` | Công khai | 4 đoạn, chỉ 2 biểu mẫu công khai |
+| `MANLAB_LOCAL_LLM` | `NO_EXTERNAL_TRANSFER` | Nội bộ | 6 đoạn, **hạng 1 là `ETV.P13_KhacPhuc.md`** |
+
+Đúng mục đích ban đầu của cả cuộc bàn: mô hình nội bộ nhận được tài liệu Nội bộ, dịch vụ ngoài không
+cam kết thì không.
+
+10 ca test mới (`copilot-ranh-gioi.test.ts`); tổng **237** ca.
+
+> **Sau khi di trú:** mọi `AIPlatform` đã có nhận mặc định `EXTERNAL_NO_COMMITMENT`, tức bị siết
+> xuống Công khai — fail-closed đúng ý đồ, nhưng Copilot sẽ đột ngột "quên" gần hết tài liệu. Chạy
+> lại `npx prisma db seed` hoặc gọi `datRanhGioiDuLieu()` cho từng nền tảng.
+
 ### 2.5 Đối chiếu tiêu chí nghiệm thu của spec §10
 
 | Mã | Trạng thái | Ghi chú |

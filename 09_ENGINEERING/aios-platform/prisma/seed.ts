@@ -593,6 +593,8 @@ async function seedM29() {
       environment: "INTERNAL",
       owner: "Dương Thành Nam",
       adapterType: "ManlabPlatformAdapter",
+      // Nền tảng CÔNG CỤ nội bộ, không nhận prompt bao giờ — khai đúng để trường này không có ô trống.
+      dataBoundary: "NO_EXTERNAL_TRANSFER",
       approvalStatus: "APPROVED",
       approvedBy: admin.id,
     },
@@ -847,8 +849,8 @@ async function seedCopilot() {
   //
   // CẢNH BÁO TUÂN THỦ gắn liền với bản ghi này: bậc MIỄN PHÍ của Gemini API dùng dữ liệu để cải
   // thiện sản phẩm, tức KHÔNG bảo đảm được điều khoản "không dùng dữ liệu để huấn luyện lại" của
-  // ETV.P29 §5.5. Khi đó chỉ được gửi tài liệu mức Công khai — cưỡng chế bằng biến
-  // COPILOT_MUC_BAO_MAT_TOI_DA, mặc định fail-closed ở "Cong-khai".
+  // ETV.P29 §5.5. Khi đó chỉ được gửi tài liệu mức Công khai — cưỡng chế bằng trường
+  // AIPlatform.dataBoundary, mặc định fail-closed ở EXTERNAL_NO_COMMITMENT.
   const providerGemini = await prisma.aIProvider.upsert({
     where: { code: "GEMINI" },
     create: { code: "GEMINI", name: "Google Gemini" },
@@ -878,6 +880,9 @@ async function seedCopilot() {
       environment: "EXTERNAL",
       owner: "Dương Thành Nam",
       adapterType: "GeminiPlatformAdapter",
+      // Khoá đang dùng thuộc bậc MIỄN PHÍ — bậc này dùng dữ liệu để cải thiện sản phẩm, tức không
+      // bảo đảm được điều khoản "không huấn luyện lại" của ETV.P29 §5.5. Trần: chỉ Công khai.
+      dataBoundary: "EXTERNAL_NO_COMMITMENT",
       approvalStatus: "APPROVED",
       approvedBy: admin.id,
     },
@@ -894,6 +899,10 @@ async function seedCopilot() {
       environment: "EXTERNAL",
       owner: "Dương Thành Nam",
       adapterType: "AnthropicAdapter",
+      // GIỮ mức siết nhất dù phân tích ở q1-anh-xa-muc-bao-mat.md nói nhà cung cấp có cam kết:
+      // §5.5 đòi điều khoản đó phải được TRÍCH VÀO một hồ sơ F29.02 cụ thể, mà hồ sơ đó chưa có.
+      // Muốn nới thì đi qua datRanhGioiDuLieu() và dẫn số hồ sơ — bằng chứng, không phải niềm tin.
+      dataBoundary: "EXTERNAL_NO_COMMITMENT",
       approvalStatus: "APPROVED",
       approvedBy: admin.id,
     },
@@ -905,9 +914,9 @@ async function seedCopilot() {
   // chủ thật chưa qua nghiệm thu Bước 1–6 của hướng dẫn, mà `checkHealthAction()` chỉ dò nền tảng
   // đã APPROVED — để DRAFT thì danh mục vẫn thể hiện đúng thiết kế mà không sinh báo động DOWN giả.
   //
-  // Đây là nhà cung cấp duy nhất mà dữ liệu KHÔNG rời hạ tầng của Viện. Trần mức bảo mật hiện là
-  // biến toàn cục (COPILOT_MUC_BAO_MAT_TOI_DA) chứ chưa gắn theo từng nền tảng, nên chưa thể nới
-  // riêng cho nền tảng này — xem ghi chú "Việc còn lại" trong _work/20260825-local-model-provider.
+  // Đây là nhà cung cấp duy nhất mà dữ liệu KHÔNG rời hạ tầng của Viện, nên là nền tảng mô hình
+  // duy nhất hiện nhận được tài liệu mức Nội bộ (dataBoundary = NO_EXTERNAL_TRANSFER). Trần mức
+  // bảo mật đã gắn theo từng nền tảng qua AIPlatform.dataBoundary; biến toàn cục cũ đã bị gỡ.
   const platformLocal = await prisma.aIPlatform.upsert({
     where: { code: "MANLAB_LOCAL_LLM" },
     create: {
@@ -918,6 +927,10 @@ async function seedCopilot() {
       environment: "INTERNAL",
       owner: "(chưa phân công — điền khi kiểm kê theo ETV.P.F 33.01)",
       adapterType: "LocalOpenAIPlatformAdapter",
+      // ETV.P29 §5.5 nói về "dịch vụ mô hình BÊN NGOÀI"; máy chủ này chạy trong hạ tầng của Viện
+      // nên điều khoản đó không áp. Trần trên vẫn là Nội bộ, KHÔNG phải Hạn chế: ETV.P28 §5.13
+      // cấm ở mức TRUY CẬP — "trợ lý AI chỉ được truy cập nguồn dữ liệu mức Công khai và Nội bộ".
+      dataBoundary: "NO_EXTERNAL_TRANSFER",
       approvalStatus: "DRAFT",
     },
     update: {},
@@ -992,6 +1005,18 @@ async function seedCopilot() {
       modelId: dungGemini ? modelGemini.id : model.id,
     },
   });
+  // Ranh giới dữ liệu là quyết định QUẢN TRỊ, không phải dữ liệu mẫu: áp cả cho bản ghi đã tồn tại
+  // (mọi upsert ở trên dùng `update: {}` nên môi trường seed từ trước sẽ mắc kẹt ở mặc định).
+  // Nới lên EXTERNAL_WITH_COMMITMENT thì KHÔNG làm ở đây — phải qua datRanhGioiDuLieu() kèm số hồ sơ.
+  for (const [code, ranhGioi] of [
+    ["MANLAB", "NO_EXTERNAL_TRANSFER"],
+    ["MANLAB_LOCAL_LLM", "NO_EXTERNAL_TRANSFER"],
+    ["ANTHROPIC_API", "EXTERNAL_NO_COMMITMENT"],
+    ["GEMINI_API", "EXTERNAL_NO_COMMITMENT"],
+    ["VICONNECT", "EXTERNAL_NO_COMMITMENT"],
+  ] as const)
+    await prisma.aIPlatform.updateMany({ where: { code }, data: { dataBoundary: ranhGioi } });
+
   console.log(`Copilot đang trỏ nhà cung cấp: ${dungGemini ? "Google Gemini (gemini-3.5-flash)" : "Anthropic (claude-opus-5)"}.`);
 
   // Hồ sơ đánh giá tác động AI (ETV.P.F29.02). Trạng thái APPROVED ở dữ liệu mẫu để đường dây

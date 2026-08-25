@@ -25,6 +25,7 @@ import { fileURLToPath } from "node:url";
 import { BO_CAU_HOI, CAU_HOI_THAT, DUONG_DAN_MOI_TIEM_LENH, NOI_DUNG_TAI_LIEU_MOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
 import { normalize } from "../src/lib/m29/copilot/text";
 import { mucBaoMatToiDa } from "../src/lib/m29/copilot/retrieval";
+import type { AIDataBoundary } from "../src/generated/prisma/enums";
 import { chamCa, laLoiHaTang, renderPhieuF2903, tongHop, type KetQuaCham } from "../src/lib/m29/copilot/danh-gia";
 
 const SCRIPT_DIR = fileURLToPath(new URL(".", import.meta.url));
@@ -55,13 +56,23 @@ async function kiemNguon(): Promise<number> {
 }
 
 /** Truy hồi có lấy được đoạn thuộc nguồn kỳ vọng không (recall@k). Điều kiện CẦN, không phải đủ. */
+/** Ranh giới dữ liệu của nền tảng đang phục vụ Copilot — quyết định trần mức bảo mật. */
+async function ranhGioiCuaCopilot(): Promise<AIDataBoundary> {
+  const agent = await prisma.aIAgent.findUnique({
+    where: { code: "AGENT_COPILOT_TRACUU" },
+    select: { platform: { select: { dataBoundary: true } } },
+  });
+  return agent?.platform.dataBoundary ?? "EXTERNAL_NO_COMMITMENT";
+}
+
 async function chiTruyHoi(): Promise<number> {
   const { retrieve } = await import("../src/lib/m29/copilot/retrieval");
+  const ranhGioi = await ranhGioiCuaCopilot();
   let dat = 0;
   let tongSoTaiLieu = 0;
-  console.log(`Truy hồi ${CAU_HOI_THAT.length} câu hỏi thật (không gọi mô hình):\n`);
+  console.log(`Truy hồi ${CAU_HOI_THAT.length} câu hỏi thật (không gọi mô hình) · trần "${mucBaoMatToiDa(ranhGioi)}":\n`);
   for (const ca of CAU_HOI_THAT) {
-    const doan = await retrieve(ca.cauHoi);
+    const doan = await retrieve(ca.cauHoi, ranhGioi);
     const lay = doan.map((d) => d.path);
     const trung = (ca.nguonKyVong ?? []).filter((p) => lay.includes(p));
     const ok = trung.length > 0;
@@ -115,7 +126,7 @@ async function dayDu(): Promise<number> {
           title: "Quy định đăng ký thiết bị đo lường mới (TÀI LIỆU MỒI KIỂM THỬ)",
           heading: "Đăng ký thiết bị",
           docClass: "KIEM_THU",
-          securityLevel: mucBaoMatToiDa(),
+          securityLevel: mucBaoMatToiDa(await ranhGioiCuaCopilot()),
           approvalRef: "tài liệu mồi, chỉ tồn tại trong lượt chạy đánh giá",
           content: NOI_DUNG_TAI_LIEU_MOI,
           searchTitle: normalize("Quy định đăng ký thiết bị đo lường mới"),
@@ -198,9 +209,10 @@ async function dayDu(): Promise<number> {
   // Lượt chạy dưới TRẦN THU HẸP không phải một lượt đánh giá hợp lệ: ETV.P29 §5.3.1 đánh giá hệ
   // thống ĐÚNG NHƯ NÓ SẼ VẬN HÀNH. Chạy trên 12 đoạn Công khai rồi ghi thành hồ sơ đánh giá là
   // ghi một hồ sơ nói về một hệ thống khác. Không ghi run — nói thẳng lý do.
-  if (mucBaoMatToiDa() !== "Noi-bo") {
+  const ranhGioi = await ranhGioiCuaCopilot();
+  if (mucBaoMatToiDa(ranhGioi) !== "Noi-bo") {
     console.error(
-      `\nKHÔNG ghi AIEvaluationRun: đang chạy dưới trần mức bảo mật "${mucBaoMatToiDa()}" (ETV.P29 §5.5 — nhà cung cấp` +
+      `\nKHÔNG ghi AIEvaluationRun: đang chạy dưới trần mức bảo mật "${mucBaoMatToiDa(ranhGioi)}" (ETV.P29 §5.5 — nhà cung cấp` +
         " chưa bảo đảm điều khoản không dùng dữ liệu để huấn luyện lại). Kết quả trên đây chỉ chứng minh đường dây kỹ thuật," +
         " KHÔNG phải hồ sơ đánh giá chất lượng theo §5.3.1."
     );
