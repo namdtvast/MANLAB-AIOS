@@ -297,8 +297,11 @@ const GeminiPlatformAdapter: PlatformAdapter = {
 // hình AI nội bộ vào ManLab AIOS.
 //
 // Khác hai adapter trên ở một điểm về tuân thủ, không phải kỹ thuật: dữ liệu KHÔNG rời hạ tầng
-// của Viện, nên đây là đường duy nhất được phép nhận tài liệu mức Hạn chế (ETV.GAI 01 §3.7). Bù
-// lại chỉ có MỘT GPU: mất máy chủ là mất toàn bộ năng lực suy luận nội bộ. Vì vậy adapter cố ý
+// của Viện. Điều đó KHÔNG đồng nghĩa được nhận tài liệu mức Hạn chế — ETV.P29 §5.1.5 xếp "truy
+// cập hoặc lập chỉ mục" dữ liệu Hạn chế/Mật vào Điều cấm tuyệt đối, trong khi ETV.P34 §6.8 lại
+// cho phép có điều kiện. Xung đột đó chưa được giải quyết ở cấp thủ tục, nên ETV.GAI 01 §3.7 áp
+// bản cấm chặt hơn: trần thực tế của nền tảng này hiện là Nội bộ. Bù lại chỉ có MỘT GPU: mất máy
+// chủ là mất toàn bộ năng lực suy luận nội bộ. Vì vậy adapter cố ý
 // KHÔNG tự thử lại và KHÔNG tự chuyển sang nhà cung cấp khác — quyết định chuyển hay trả lỗi có
 // kiểm soát thuộc về chính sách định tuyến, không thuộc về adapter.
 //
