@@ -19,6 +19,26 @@ Cấu trúc thư mục có **4 cấp**: Dịch vụ → Lĩnh vực → Số hi�
 | `H` | `ETV.MH_KiemDinhAnToan` | Quy trình kiểm định an toàn và tính năng kỹ thuật |
 | `M` | `ETV.MM_QuanTracMoiTruong` | Quy trình quan trắc môi trường (QTMT) |
 | `E` | `ETV.ME_DaoTao` | Giáo trình, tài liệu đào tạo nội bộ |
+| `G` | `ETV.G_HuongDan` | Hướng dẫn công việc **không thuộc lĩnh vực đo lường** (CNTT, AI, hạ tầng số) — xem quy ước riêng bên dưới |
+
+### Ngoại lệ — thư mục `ETV.G_HuongDan` (Hướng dẫn phi đo lường)
+
+Hướng dẫn công việc mã `ETV.Gb xx` (ETV.P14 §6.2) **không có Lĩnh vực đo lường** nên không áp cấu trúc 4 cấp ở trên. Quy ước riêng, chỉ **2 cấp**:
+
+```
+ETV.G_HuongDan/
+└── G{b}{số hiệu}_{Tên viết tắt đối tượng}/     ← một thư mục cho một hướng dẫn
+    ├── ETV.G{b}{số hiệu}_{TenDayDu}.md          ← văn bản hướng dẫn
+    └── 2. Bieu mau/                             ← chỉ tạo khi hướng dẫn có biểu mẫu riêng
+```
+
+`b` = ký hiệu phân loại của hướng dẫn (vd. `AI` — máy chủ/dịch vụ trí tuệ nhân tạo). Ký hiệu phân loại phi đo lường **chưa có trong bảng tại ETV.P14 §6.2** — khi dùng ký hiệu mới phải ghi rõ là mã đề xuất trong chính văn bản và trình bổ sung vào ETV.P14 ở lần ban hành kế tiếp.
+
+Biểu mẫu **gốc** của hướng dẫn vẫn lưu tại `06_SHARED_RESOURCES/01_Forms/` theo nguyên tắc một nguồn sự thật; thư mục `2. Bieu mau/` chỉ dùng cho phụ lục tính toán/mẫu thao tác không phải biểu mẫu kiểm soát.
+
+| Đường dẫn | Nội dung |
+|---|---|
+| [`ETV.G_HuongDan/GAI01_MayChuMoHinhAI/`](ETV.G_HuongDan/GAI01_MayChuMoHinhAI/) | `ETV.GAI 01` — Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS (chủ trì ETV.P29; liên thủ tục P33/P35/P28/P34; **không lập biểu mẫu mới**) |
 
 ## **Cấp 2 — Thư mục con theo Lĩnh vực**
 

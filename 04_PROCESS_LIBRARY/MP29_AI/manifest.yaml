@@ -24,3 +24,9 @@ forms:
   - ETV.P.F29.02
   - ETV.P.F29.03
   - ETV.P.F29.04
+guidelines:
+  - doc_id: ETV.GAI 01
+    doc_title: "Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS"
+    doc_status: Nhap
+    doc_version: "01"
+    note: "Mã ETV.GAI 01 là mã đề xuất — ký hiệu lĩnh vực AI chưa có trong bảng mã hoá ETV.P14 §6.2"
