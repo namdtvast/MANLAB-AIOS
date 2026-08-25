@@ -355,21 +355,14 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 | --- | --- | --- |
 | Công khai | Được | Được |
 | Nội bộ | Được | Chỉ khi chính sách cho phép |
-| Hạn chế | **Chưa được phép** — xem dưới | **Không** |
-| Mật | **Không đưa vào AI** (ETV.P29 §5.1.5) | **Không** |
+| Hạn chế | **Không** — xem dưới | **Không** |
+| Mật | **Không** | **Không** |
 
-> **Dữ liệu mức Hạn chế: chưa được phép đưa vào hệ thống AI, kể cả mô hình nội bộ.**
+> **Dữ liệu mức Hạn chế và Mật: không đưa vào hệ thống AI dưới bất kỳ hình thức nào** — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp.
 >
-> Lý do là một **xung đột chưa được giải quyết ở cấp thủ tục**, không phải hạn chế kỹ thuật:
+> Căn cứ là **hai thủ tục đang có hiệu lực**: **ETV.P28 mục 5.13** ("Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức Công khai và Nội bộ") và **ETV.P26 mục 5.5** (Hạn chế/Mật không bao giờ vào chỉ mục AI). Câu cho phép trước đây tại ETV.P34 mục 6.8 đã được sửa cho khớp (dự thảo 25/08/2026, phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe`).
 >
-> - **ETV.P29 §5.1.5** liệt kê "truy cập **hoặc** lập chỉ mục dữ liệu mức Hạn chế, Mật" vào **Điều cấm tuyệt đối**, vi phạm là sự cố AI mức nghiêm trọng. **ETV.P26** cấm đưa tri thức Hạn chế/Mật vào chỉ mục trợ lý AI.
-> - **ETV.P34 §6.8** lại cho phép dữ liệu Hạn chế "dùng trên nền tảng AI đã đăng ký và đã phê duyệt theo ETV.P35, không đưa lên dịch vụ AI công cộng".
->
-> Hướng dẫn này **không có thẩm quyền chọn bên nào** (§1). Cho tới khi ETV.P29, ETV.P26 và ETV.P34 được thống nhất, áp bản cấm chặt hơn.
->
-> Trường hợp dự kiến cho phép phải hội đủ: **phê duyệt của LĐV** cho mục đích sử dụng, **ý kiến PT.ATTT**, hồ sơ **AIA** đã phê duyệt (F29.02), và kiểm soát kỹ thuật đã được xác nhận (§3.6 trần theo từng nền tảng, §3.4 Bước 3b nhật ký) — theo ETV.P34 §6.8.
->
-> Ghi chú diễn giải: cách hiểu "P29 chỉ cấm lập chỉ mục, còn truy xuất trực tiếp theo yêu cầu thì được" **không dùng được** với câu chữ hiện tại, vì §5.1.5 cấm cả *truy cập*. Nếu ý định thật là chỉ cấm lập chỉ mục thì phải sửa câu chữ của P29, không diễn giải tại đây.
+> **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 được viết khi Viện chưa có năng lực suy luận nội bộ; muốn đổi thì phải **ban hành lại ETV.P28** — là đề nghị riêng, đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
 
 **Quy tắc dự phòng khi máy chủ nội bộ mất khả dụng:**
 

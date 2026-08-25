@@ -29,6 +29,7 @@ applicable_standard:
 | Ngày soát xét | Lý do soát xét, ban hành lại | Lần ban hành |
 |---|---|---|
 | 24/08/2026 | Dự thảo lần đầu, trình soát xét (chưa ban hành) | 01 |
+| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: dọn câu chữ lệch trong nội bộ về dữ liệu mức Hạn chế. Mục 1.3.6 trước chỉ cấm *lập chỉ mục* trong khi mục 5.1.5 cấm cả *truy cập*; mục 4.7 viết "khi không được phép" ngầm mở một ngoại lệ không có ở đâu. Nay cả ba mục nói cùng một điều, khớp **ETV.MP26 mục 5.5** và **ETV.MP28 mục 5.13** đang có hiệu lực. **Không nới rộng phạm vi cho phép.** | 01 |
 
 ---
 
@@ -67,7 +68,7 @@ Thủ tục này quy định thống nhất cách thức **đăng ký, đánh gi
 3. **Chỉ được làm điều đã cho phép.** AI chỉ gọi được các công cụ đã đăng ký, qua **cổng công cụ**; công cụ không có trong danh sách cho phép thì bị chặn, không phụ thuộc vào nội dung lời nhắc.
 4. **Không sửa đè bản đang hiệu lực.** Lời nhắc, rào chắn, chính sách AI đã ở trạng thái hiệu lực **không sửa trực tiếp** — tạo phiên bản mới và trình duyệt lại.
 5. **Truy vết đầy đủ.** Mọi lượt gọi AI và mọi thay đổi cấu hình AI đều sinh nhật ký **chỉ ghi thêm, không sửa, không xóa**.
-6. **Dữ liệu theo phân loại.** AI chỉ truy cập dữ liệu ở mức **Công khai** và **Nội bộ**; dữ liệu **Hạn chế** và **Mật** không bao giờ được đưa vào chỉ mục AI (thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 5.13).
+6. **Dữ liệu theo phân loại.** AI chỉ truy cập dữ liệu ở mức **Công khai** và **Nội bộ**. Dữ liệu **Hạn chế** và **Mật** **không bao giờ** được đưa vào hệ thống AI — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp (thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 5.13).
 
 ### 1.4. Ngoài phạm vi
 
@@ -264,7 +265,7 @@ Văn bản, hình ảnh, bảng biểu, mã nguồn hoặc bản nháp hồ sơ 
 ### 4.7. Người sử dụng
 
 - Chỉ sử dụng hệ thống AI **đã đăng ký và đang hiệu lực**; không tự ý đưa dữ liệu công việc vào dịch vụ AI bên ngoài chưa được phê duyệt
-- **Không** nhập dữ liệu mức **Hạn chế**, **Mật** hoặc dữ liệu cá nhân của khách hàng vào lời nhắc khi không được phép
+- **Không** nhập dữ liệu mức **Hạn chế** hoặc **Mật** vào lời nhắc trong mọi trường hợp (mục 5.1.5); không nhập dữ liệu cá nhân của khách hàng khi chưa được phép theo mục 5.5
 - **Kiểm tra và chịu trách nhiệm** đối với mọi nội dung do AI hỗ trợ tạo ra trước khi sử dụng vào công việc chính thức
 - Báo cáo ngay khi phát hiện đầu ra sai lệch, vượt quyền hoặc dấu hiệu rò rỉ dữ liệu
 

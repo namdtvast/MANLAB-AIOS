@@ -48,6 +48,7 @@ superseded_by: null
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
 | ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.3 và quy trình MP34; phân định rõ với ETV.P27 (tài sản dữ liệu, sao lưu) và ETV.P28 (biện pháp bảo vệ) | 01 |
+| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: mục 6.8 trước đây cho phép dữ liệu mức **Hạn chế** dùng trên nền tảng AI đã phê duyệt — trái **ETV.P28 mục 5.13** và **ETV.P26 mục 5.5** đang có hiệu lực. Đưa về đúng bộ văn bản hiện hành: Hạn chế và Mật không đưa vào hệ thống AI dưới mọi hình thức; dẫn chiếu quy tắc gốc về ETV.P29 mục 5.5 thay vì quy định song song. | 01 |
 
 ---
 
@@ -411,7 +412,7 @@ Dữ liệu của Viện chỉ được dùng làm dữ liệu ngữ cảnh, t�
 3. Hồ sơ đánh giá tác động AI theo **ETV.P29**;
 4. Biện pháp giảm thiểu tương ứng mức phân loại: loại bỏ hoặc ẩn danh dữ liệu cá nhân, loại trừ dữ liệu mức **Mật**, giới hạn phạm vi truy xuất.
 
-Dữ liệu mức **Hạn chế** chỉ được dùng trên nền tảng AI đã đăng ký và đã phê duyệt theo ETV.P35, **không** được đưa lên dịch vụ trí tuệ nhân tạo công cộng. Kết quả do hệ thống AI sinh ra **không** được ghi đè lên dữ liệu gốc và phải được đánh dấu rõ nguồn gốc khi lưu vào hệ thống.
+Dữ liệu mức **Hạn chế** và **Mật** **không** được đưa vào hệ thống trí tuệ nhân tạo — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp — theo **ETV.P28 mục 5.13** và **ETV.P26 mục 5.5** (hai thủ tục đang có hiệu lực). Quy tắc gốc về dữ liệu cấp cho AI nằm ở **ETV.P29 mục 5.5**; thủ tục này không quy định lại và không nới rộng. Kết quả do hệ thống AI sinh ra **không** được ghi đè lên dữ liệu gốc và phải được đánh dấu rõ nguồn gốc khi lưu vào hệ thống.
 
 ### 6.9. Báo cáo và soát xét
 
