@@ -20,10 +20,10 @@ const REQ: ChatRequest = {
 // Khai đủ tham số của fetch để `mock.calls` giữ được kiểu — vi.fn(async () => …) cho ra tuple
 // rỗng và không đọc được đối số đã gửi.
 function reply(status: number, body: unknown) {
-  return vi.fn(
-    async (_url: string | URL | Request, _init?: RequestInit) =>
-      new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } })
-  );
+  const fn = vi.fn<(url: string | URL | Request, init?: RequestInit) => Promise<Response>>();
+  // Cài đặt không nhận tham số, kiểu lấy từ generic — `mock.calls` vẫn đọc được đối số đã gửi.
+  fn.mockImplementation(async () => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } }));
+  return fn;
 }
 
 const OK_BODY = {

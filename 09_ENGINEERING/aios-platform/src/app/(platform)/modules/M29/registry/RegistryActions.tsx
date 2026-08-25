@@ -13,7 +13,7 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
-  const run = (action: "submit" | "review" | "approve" | "archive", extra?: { reason?: string }) => {
+  const run = (action: "submit" | "review" | "approve" | "activate" | "archive", extra?: { reason?: string }) => {
     setError(null);
     startTransition(async () => {
       const r = await approvalAction("platform", id, action, extra);
@@ -37,6 +37,13 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
       {status === "PENDING_APPROVAL" && (
         <button className={btnSm} disabled={isPending} onClick={() => run("approve", {})}>
           Phê duyệt
+        </button>
+      )}
+      {/* Bước cuối của ETV.P35 §6.1.7: phê duyệt xong vẫn phải đưa vào vận hành thì bản ghi mới
+          Hiệu lực và mới vào vòng dò sức khoẻ. Không gộp vào nút Phê duyệt. */}
+      {status === "APPROVED" && (
+        <button className={btnSm} disabled={isPending} onClick={() => run("activate")}>
+          Đưa vào vận hành
         </button>
       )}
       {error && <span className="text-crit">{error}</span>}

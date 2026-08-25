@@ -56,8 +56,20 @@ export const approvalTransitions = {
     return ok("APPROVED", "Phê duyệt", null, { approvedBy: user.id });
   },
 
+  // ETV.P35 §6.1.7 bước 6: phê duyệt CHƯA phải là đưa vào vận hành. Còn một bước riêng — bật kiểm
+  // tra sức khoẻ, kết nối bộ chuyển đổi — rồi bản ghi mới chuyển Hiệu lực (StateMachine.md trạng
+  // thái 7). Tách khỏi approve() vì hai việc khác người và khác thời điểm: phê duyệt là quyết
+  // định của người có thẩm quyền, đưa vào vận hành là thao tác kỹ thuật.
+  activate(entity: { approvalStatus: AIApprovalStatus }): TxResult {
+    if (entity.approvalStatus !== "APPROVED") return err("BAD_STATE", "Chỉ bản ghi Đã phê duyệt mới đưa vào vận hành được.");
+    return ok("ACTIVE", "Đưa vào vận hành");
+  },
+
   archive(entity: { approvalStatus: AIApprovalStatus }, extra: { reason?: string } = {}): TxResult {
-    if (entity.approvalStatus !== "APPROVED") return err("BAD_STATE", "Chỉ bản ghi Đã phê duyệt mới Hết hiệu lực/Hủy được.");
+    // Nhận cả ACTIVE: nền tảng đang vận hành vẫn phải ngừng vận hành được (ETV.P35 §6.5). Giữ cả
+    // APPROVED vì bản ghi đã duyệt nhưng chưa từng đưa vào vận hành cũng có thể bị bỏ.
+    if (!(["APPROVED", "ACTIVE"] as AIApprovalStatus[]).includes(entity.approvalStatus))
+      return err("BAD_STATE", "Chỉ bản ghi Đã phê duyệt hoặc Hiệu lực mới Hết hiệu lực/Hủy được.");
     if (!extra.reason) return err("REASON_REQUIRED", "Hết hiệu lực/Hủy bắt buộc nhập lý do.");
     return ok("ARCHIVED", "Hết hiệu lực/Hủy", extra.reason);
   },

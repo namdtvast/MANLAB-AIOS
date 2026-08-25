@@ -222,6 +222,14 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   **Chưa gọi được máy chủ thật** vì `llm.manlab.vn` chưa dựng; bản ghi mẫu để `DRAFT`/`DISABLED`.
   Trần mức bảo mật vẫn là biến toàn cục, **chưa gắn theo từng nền tảng** — nên mô hình nội bộ hiện
   chưa nhận được tài liệu mức Nội bộ dù dữ liệu không rời hạ tầng của Viện (việc còn lại).
+- ✅ **Vòng đời Hiệu lực của nền tảng** (2026-08-25): hiện thực trạng thái `ACTIVE` mà
+  `StateMachine.md` (trạng thái 7) và ETV.P35 §6.1.7 bước 6 đã quy định nhưng phần mềm còn thiếu —
+  thêm chuyển tiếp `activate()`, cho ngừng vận hành từ `ACTIVE`, và sửa `checkHealthAction()` lọc
+  `{ in: ["APPROVED", "ACTIVE"] }` (bộ lọc cũ làm nền tảng vừa đưa vào vận hành rơi khỏi vòng dò
+  sức khoẻ). Xem
+  [`_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md`](_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md).
+  **Chưa kiểm được lượt bấm nút thật trên giao diện** — công cụ trình duyệt không kích hoạt được
+  server action; logic đã phủ bằng test đơn vị. Trạng thái `CANCELLED` vẫn chưa có chuyển tiếp.
 - ❌ Bản `08_Source` cũ (`api/` + `webapp/`) **vẫn chạy song song**, chưa deprecate. Tool Gateway
   của Agent mẫu gọi thật ra `http://localhost:8010` (server M10 standalone cũ) — cần server đó
   chạy để demo Tool Gateway/health check thành công.

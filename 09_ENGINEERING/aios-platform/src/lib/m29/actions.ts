@@ -195,7 +195,7 @@ async function updateApprovable(kind: ApprovalKind, id: string, data: { approval
 export async function approvalAction(
   kind: ApprovalKind,
   id: string,
-  action: "submit" | "review" | "approve" | "archive",
+  action: "submit" | "review" | "approve" | "activate" | "archive",
   extra: { decision?: "return" | "approve" | "reject"; reason?: string } = {}
 ): Promise<TxResult> {
   const actor = await getActor();
@@ -210,7 +210,9 @@ export async function approvalAction(
         ? approvalTransitions.review(rec, { decision: extra.decision === "return" ? "return" : "approve", reason: extra.reason })
         : action === "approve"
           ? approvalTransitions.approve(rec, actor, { decision: extra.decision === "reject" ? "reject" : "approve", reason: extra.reason })
-          : approvalTransitions.archive(rec, extra);
+          : action === "activate"
+            ? approvalTransitions.activate(rec)
+            : approvalTransitions.archive(rec, extra);
   if (!result.ok) return result;
 
   const before = rec.approvalStatus;
@@ -385,7 +387,10 @@ export async function callToolAction(input: { toolId: string; agentId: string; i
 export async function checkHealthAction() {
   const actor = await getActor();
   if (!can(actor.m29Role, "health", "read")) throw new Error("Không đủ quyền.");
-  const platforms = await prisma.aIPlatform.findMany({ where: { approvalStatus: "APPROVED" } });
+  // Gồm cả ACTIVE ("Hiệu lực"): theo ETV.P35 §6.1.7 bước 6, nền tảng đang vận hành thật nằm ở
+  // ACTIVE chứ không phải APPROVED. Lọc riêng APPROVED sẽ bỏ sót đúng những nền tảng cần dò nhất.
+  // Cùng cách lọc với loadActiveGuardrails() trong guardrails.ts.
+  const platforms = await prisma.aIPlatform.findMany({ where: { approvalStatus: { in: ["APPROVED", "ACTIVE"] } } });
   for (const platform of platforms) {
     const adapter = getAdapter(platform.adapterType);
     const r = await adapter.health(platform);
