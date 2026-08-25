@@ -64,7 +64,7 @@
 | Method | Endpoint | Quyền | Mô tả |
 |---|---|---|---|
 | GET | `/api/ai/platforms/reports/registry` | AI_VIEWER | Kết xuất F35.01 (6 phần) |
-| GET | `/api/ai/platforms/reports/review-summary` | QLCL | Báo cáo tình hình nền tảng phục vụ M17 (mục 5.8) |
+| GET | `/api/ai/platforms/reports/review-summary` | QLCL | Báo cáo tình hình nền tảng phục vụ M17 (ETV.P35 §6.8) |
 | GET | `/api/ai/platforms/reports/downtime` | AI_VIEWER | Thống kê thời gian ngừng hoạt động theo `criticality` |
 
 > Đây là API duy nhất quản trị *định danh* nền tảng. API quản trị Agent/Tool/Prompt chạy trên từng
