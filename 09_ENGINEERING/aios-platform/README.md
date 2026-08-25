@@ -426,8 +426,11 @@ createdb aios_platform_dev   # 1 lần, nếu chưa có DB
 npm install
 npx prisma migrate dev       # tạo bảng
 npx prisma db seed           # nạp 38 module + tài khoản demo
+npm run nap-chi-muc-copilot  # nạp chỉ mục tri thức cho Copilot tra cứu (xem bên dưới)
 npm run dev                  # http://localhost:3000
 ```
+
+Biến môi trường: xem [`.env.example`](.env.example). File `.env` bị `.gitignore` chặn — không commit.
 
 Tài khoản demo (chỉ dev/demo — đổi/xoá trước khi triển khai thật):
 `admin@manlab.vn`; mật khẩu lấy từ biến môi trường `SEED_DEMO_PASSWORD`, hoặc do lệnh
@@ -491,6 +494,38 @@ test đã được kiểm chứng thế nào.
 CI chạy bộ test này ở mọi push/PR chạm `09_ENGINEERING/aios-platform/**`
 (`.github/workflows/test-aios-platform.yml`).
 
+## Copilot tra cứu (M29)
+
+Trợ lý hỏi–đáp **chỉ-đọc** gắn ở góc dưới mọi trang nền tảng: trả lời về thủ tục ETV.Pxx, biểu mẫu,
+tiêu chuẩn và module, **bắt buộc dẫn đường dẫn tài liệu gốc**, không ghi bất kỳ dữ liệu nghiệp vụ nào.
+
+Copilot **không phải tính năng đứng ngoài** — nó là một `AIAgent` (`AGENT_COPILOT_TRACUU`) đăng ký
+trong chính control plane M29, nên chịu nguyên các chốt đã có: chưa có hồ sơ AIA `APPROVED` thì
+không trả lời được, Agent chuyển `SUSPENDED` thì khay biến mất ngay, và **mọi lượt hỏi sinh đúng một
+`AIRequest`** ở trang Trace — kể cả lượt bị guardrail chặn, lượt vượt hạn mức và lượt lỗi.
+`gateway.chat()` là đường gọi mô hình ngôn ngữ **duy nhất**.
+
+Chuẩn bị để chạy:
+
+```bash
+echo 'ANTHROPIC_API_KEY="sk-ant-..."' >> .env   # không có khóa thì khay vẫn hiện, mọi lượt hỏi báo NO_API_KEY
+npm run nap-chi-muc-copilot                     # nạp lại mỗi khi tài liệu trong repo thay đổi
+```
+
+Chỉ mục **fail-closed** theo ETV.P29 §5.5 + ETV.P26 §5.5: chỉ nạp tài liệu mức Công khai/Nội bộ
+**và** đã phê duyệt, thuộc lớp tài liệu đã được duyệt trong
+[`q1-anh-xa-muc-bao-mat.md`](../../_meta/specs/20260825-ai-copilot-tra-cuu/q1-anh-xa-muc-bao-mat.md).
+Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đánh giá, toàn văn tiêu chuẩn có bản quyền và
+84 SOP `03_MANAGEMENT_SYSTEM/03_M` (chưa rà mức từng file) **không** vào chỉ mục — lần chạy script
+in ra đầy đủ số file bị bỏ và lý do.
+
+Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật cho sự cố) hoặc chuyển Agent sang
+`SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).
+
+Đặc tả và bằng chứng verify:
+[`_meta/specs/20260825-ai-copilot-tra-cuu/`](../../_meta/specs/20260825-ai-copilot-tra-cuu/spec.md) ·
+[`M29_AI/.../20260825-copilot-tra-cuu/verify.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/verify.md).
+
 ## Cấu trúc chính
 
 ```
@@ -504,6 +539,8 @@ src/app/(platform)/     Layout có sidebar + trang dashboard + /modules/[code]
 src/lib/m10/            Rule engine + actor/actions M10 (Increment 1)
 src/lib/m21/            Rule engine + actor/actions M21 (Increment 2)
 src/lib/m29/            Rule engine + actor/actions M29 — AIOS Control Plane (Increment 3)
+src/lib/m29/copilot/    Copilot tra cứu: truy hồi + chuẩn hóa văn bản + server action
+scripts/nap-chi-muc-copilot.ts  Nạp chỉ mục tri thức cho Copilot (lọc mức bảo mật fail-closed)
 src/lib/m01/            Rule engine + actor/actions M01 — Rủi ro & Cơ hội, xây mới (Increment 4)
 src/lib/m03/            Rule engine + actor/actions M03 — Nhân sự, xây mới (Increment 5)
 src/lib/m02/            Rule engine + actor/actions M02 — Bảo mật, xây mới (Increment 6)

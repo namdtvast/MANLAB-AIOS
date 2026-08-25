@@ -3,6 +3,11 @@
 Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dùng được ngay** khi xong và
 **tắt được ngay** nếu có vấn đề.
 
+> **Trạng thái (cập nhật 25/08/2026):** Increment 1–4 đã hiện thực hóa và kiểm chứng —
+> [verify.md](../../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/verify.md),
+> trong đó có mục *Sai khác so với đặc tả* (4 điểm) và mục *Chưa verify được* (7 điểm).
+> Increment 5 (bộ đánh giá 30 ca + mở cho toàn Viện) **chưa làm**.
+
 ## Nguyên tắc xuyên suốt
 
 1. Hồ sơ quản trị đi **trước** tính năng: chưa có AIA duyệt thì không có lượt gọi API nào ra ngoài.

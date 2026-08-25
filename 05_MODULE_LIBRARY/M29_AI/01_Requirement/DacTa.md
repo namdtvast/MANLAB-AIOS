@@ -14,6 +14,13 @@ Evaluation để ở Phase 2/3 (chỉ mô tả kiến trúc, chưa triển khai)
 **Không nhầm lẫn** với `07_AI_OPERATING_SYSTEM` (cấu hình Skill/Agent/Guardrail cho *Claude
 Code vận hành trên chính repo này*) — M29_AI là phần mềm quản trị AI của **sản phẩm** ETV/ManLab.
 
+**Copilot tra cứu nằm TRONG phạm vi M29, không phải tính năng đứng ngoài.** Trợ lý hỏi–đáp chỉ-đọc
+gắn trên nền tảng là một `AIAgent` (mã `AGENT_COPILOT_TRACUU`) đăng ký trong chính control plane
+này: prompt là `AIPromptVersion` đã phê duyệt, hồ sơ tác động là `AIImpactAssessment`, mọi lượt hỏi
+là một `AIRequest`. Không có route nào gọi thẳng dịch vụ mô hình bên ngoài — làm vậy là vô hiệu hóa
+AIA Gate và biến M29 thành sổ sách trang trí. Đặc tả đầy đủ:
+[`_meta/specs/20260825-ai-copilot-tra-cuu/`](../../../_meta/specs/20260825-ai-copilot-tra-cuu/spec.md).
+
 ## 2. Nguyên tắc kiến trúc bắt buộc
 
 1. Agent **không bao giờ** gọi thẳng DB/API của một nền tảng — mọi lời gọi đi qua **Tool
@@ -108,6 +115,19 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
 15. `AIUnregisteredSighting` đóng bằng `REGISTERED` bắt buộc trỏ tới Agent thật; `DISCONTINUED`
     bắt buộc lý do; bản ghi có `sensitiveData=true` không đóng được khi chưa gắn phiếu sự cố.
 
+**Quy tắc riêng cho Copilot tra cứu (Increment 5):**
+
+16. Chỉ mục tri thức của Copilot chỉ nhận tài liệu có **mức bảo mật ∈ {Công khai, Nội bộ}** *và*
+    **trạng thái Đã phê duyệt** (ETV.P29 §5.5 + ETV.P26 §5.5). Thiếu mức, mức không hợp lệ, hoặc
+    thuộc lớp tài liệu chưa được rà mức ⇒ **bỏ qua** — không có nhánh mặc định cho qua. Tài liệu
+    ngoài chỉ mục không được nhắc tới dưới bất kỳ hình thức nào, kể cả tiêu đề.
+17. **Mọi lượt hỏi sinh đúng một `AIRequest`**, kể cả lượt bị guardrail chặn, lượt vượt hạn mức,
+    lượt không tìm được căn cứ và lượt lỗi mạng. Không có lượt nào đi ngoài sổ trace.
+18. `AIGuardrail` được **đọc và cưỡng chế lúc chạy**, không còn là bản ghi khai báo: bản ghi trong
+    CSDL quyết định guardrail nào có hiệu lực và hành động (`BLOCK`/`WARN`); mã guardrail không có
+    phép phát hiện tương ứng trong mã nguồn phải lộ ra là *không cưỡng chế được*, không im lặng bỏ
+    qua. Câu trả lời không dẫn được nguồn bị thay bằng câu từ chối cố định.
+
 ## 6. Liên kết
 
 Quy trình: MP29 · Năng lực: CAP-29_AIOffice · Căn cứ: ISO/IEC 42001 · Platform Registry:
@@ -140,6 +160,18 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   `test-aios-platform.yml`. Đã kiểm chứng bằng 5 đột biến gieo vào mã sản phẩm, xem
   [`_work/20260824-m29-bo-test-logic/verify.md`](_work/20260824-m29-bo-test-logic/verify.md).
   Chưa có test tích hợp trên DB thật, test `actions.ts` và test giao diện.
+- ✅ **Increment 5 — Copilot tra cứu** (2026-08-25): `AnthropicAdapter` + `gateway.chat()` (đường
+  gọi mô hình ngôn ngữ **duy nhất**, dùng lại AIA Gate và chốt trạng thái Agent của `callTool()`),
+  điểm cưỡng chế guardrail lúc chạy (`GR-PII-OUT`/`GR-SCOPE`/`GR-NO-SOURCE`), chỉ mục toàn văn
+  Postgres có lọc mức bảo mật (`CopilotDocChunk`), hội thoại (`CopilotThread`/`CopilotMessage`),
+  khay Copilot trên mọi trang nền tảng. Verify qua Browser thật (AIA Gate chặn thật, tạm dừng Agent
+  ẩn khay thật, guardrail PII chặn thật, trace ghi thật) — xem
+  [`_work/20260825-copilot-tra-cuu/verify.md`](_work/20260825-copilot-tra-cuu/verify.md).
+  **Chưa chạy được lượt hỏi thật** vì môi trường chưa có `ANTHROPIC_API_KEY`.
+- ❌ **Chưa làm**: bộ đánh giá 30 câu hỏi vàng và ngưỡng mở cho toàn Viện (Increment 5 của
+  [plan.md](../../../_meta/specs/20260825-ai-copilot-tra-cuu/plan.md)); rà mức bảo mật 84 SOP
+  `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục; phát trả lời theo luồng (streaming); trang Trace
+  chưa hiện cột `guardrailResult`.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ

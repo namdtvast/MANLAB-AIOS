@@ -287,6 +287,7 @@ async function main() {
   await seedM10();
   await seedM21();
   await seedM29();
+  await seedCopilot();
   await seedM01();
   await seedM03();
   await seedM02();
@@ -762,6 +763,220 @@ async function seedM29() {
 
   console.log(`Đã nạp dữ liệu mẫu M29 (1 Agent đủ đường dây: Platform→Model→Skill→Tool→Prompt→AIA→Evaluation) + vai trò M29 cho ${M29_DEMO_USERS.length} tài khoản.`);
   console.log(`Tài khoản M29 demo: ${M29_DEMO_USERS.map((u) => u.email).join(", ")}`);
+}
+
+// ---------------------------------------------------------------------------
+// M29 Copilot tra cứu — Increment 1: HỒ SƠ QUẢN TRỊ TRƯỚC, tính năng sau.
+// Đặc tả: _meta/specs/20260825-ai-copilot-tra-cuu/{spec.md,plan.md}.
+//
+// Tách khỏi seedM29() có chủ đích: seedM29() tự dừng khi đã có dữ liệu mẫu (`existing > 0`) nên
+// môi trường đã seed từ trước sẽ không bao giờ nhận được Copilot. Hàm này upsert theo `code` nên
+// chạy lại bao nhiêu lần cũng cho cùng một kết quả.
+//
+// Thứ tự bắt buộc (nguyên tắc 1 của plan.md): Provider → Model → Platform → Agent → Prompt →
+// AIA đã phê duyệt → Guardrail → Policy. Chưa có AIA APPROVED thì gateway.chat() chặn mọi lượt
+// hỏi, kể cả khi Agent đã ACTIVE.
+const COPILOT_AGENT_CODE = "AGENT_COPILOT_TRACUU";
+
+// Prompt hệ thống — NGUỒN SỰ THẬT nằm ở đây (AIPromptVersion), không viết cứng trong gateway.
+// Sửa prompt = tạo phiên bản mới có người phê duyệt, không phải sửa mã nguồn (spec §1).
+const COPILOT_SYSTEM_PROMPT = `Bạn là trợ lý tra cứu tài liệu nội bộ của Viện Kiểm định Công nghệ và Môi trường (ETV).
+
+NHIỆM VỤ
+Trả lời câu hỏi về thủ tục ETV.Pxx, quy trình, biểu mẫu, tiêu chuẩn và module số hóa của Viện,
+CHỈ dựa trên các trích đoạn tài liệu được cung cấp trong phần "NGỮ CẢNH ĐƯỢC PHÉP DÙNG".
+
+QUY TẮC BẮT BUỘC
+1. Chỉ dùng thông tin có trong ngữ cảnh. Không suy đoán, không bổ sung kiến thức ngoài.
+2. Mỗi ý trả lời phải dẫn nguồn bằng ĐÚNG đường dẫn ghi ở dòng "NGUỒN:" của trích đoạn, đặt
+   trong ngoặc đơn ngay sau ý đó. Ví dụ: (03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md).
+   Chép nguyên văn đường dẫn, không rút gọn, không đổi dấu gạch chéo.
+3. Ngữ cảnh không đủ căn cứ để trả lời thì trả lời đúng một câu:
+   "Không tìm thấy căn cứ trong hệ thống tài liệu của Viện."
+   Không kèm phỏng đoán, không kèm lời khuyên chung chung.
+4. KHÔNG đưa ra kết luận đo lường, hiệu chuẩn, thử nghiệm; KHÔNG kết luận đạt/không đạt;
+   KHÔNG phê duyệt hoặc đề nghị coi như đã phê duyệt bất kỳ hồ sơ, kết quả hay chứng chỉ nào.
+   Gặp câu hỏi loại này thì nói rõ đây là thẩm quyền của người có năng lực theo thủ tục, và chỉ
+   ra thủ tục/biểu mẫu tương ứng.
+5. Trả lời bằng tiếng Việt, ngắn gọn, đi thẳng vào thủ tục và biểu mẫu cần dùng.
+6. Không nhắc tới sự tồn tại của tài liệu không có trong ngữ cảnh.
+
+ĐỊNH DẠNG
+- Câu trả lời trực tiếp trước, tối đa 5-6 câu.
+- Nếu có các bước, dùng danh sách đánh số ngắn.
+- Nêu rõ mã thủ tục (ETV.Pxx) và mã biểu mẫu (ETV.P.Fxx.xx) khi ngữ cảnh có.`;
+
+async function seedCopilot() {
+  const admin = await prisma.user.findUnique({ where: { email: "ai-admin@manlab.vn" } });
+  if (!admin) {
+    console.log("Bỏ qua Copilot: chưa có tài khoản ai-admin@manlab.vn (chạy seedM29 trước).");
+    return;
+  }
+
+  const provider = await prisma.aIProvider.upsert({
+    where: { code: "ANTHROPIC" },
+    create: { code: "ANTHROPIC", name: "Anthropic" },
+    update: {},
+  });
+
+  // costPer1kTokens là MỘT cột duy nhất trong khi bảng giá thật tách đầu vào/đầu ra
+  // (Claude Opus 5: 5 USD/triệu token vào, 25 USD/triệu token ra). Dùng giá pha trộn 0.0075
+  // USD/1k token theo tỉ lệ điển hình của tra cứu RAG (~4000 token vào : ~500 token ra) — đây là
+  // ƯỚC TÍNH phục vụ trang Chi phí và hạn mức, KHÔNG phải hóa đơn của nhà cung cấp.
+  // AIModel không có ràng buộc duy nhất trên modelId (bản port giữ nguyên cấu trúc gốc), nên
+  // tìm-rồi-tạo thay vì upsert.
+  const model =
+    (await prisma.aIModel.findFirst({ where: { providerId: provider.id, modelId: "claude-opus-5" } })) ??
+    (await prisma.aIModel.create({
+      data: {
+        providerId: provider.id,
+        modelId: "claude-opus-5",
+        displayName: "Claude Opus 5",
+        purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
+        maxTokens: 4096,
+        costPer1kTokens: 0.0075,
+      },
+    }));
+
+  const platform = await prisma.aIPlatform.upsert({
+    where: { code: "ANTHROPIC_API" },
+    create: {
+      code: "ANTHROPIC_API",
+      name: "Anthropic API (dịch vụ mô hình ngoài Viện)",
+      baseUrl: "https://platform.claude.com",
+      apiBaseUrl: "https://api.anthropic.com",
+      environment: "EXTERNAL",
+      owner: "Dương Thành Nam",
+      adapterType: "AnthropicAdapter",
+      approvalStatus: "APPROVED",
+      approvedBy: admin.id,
+    },
+    update: {},
+  });
+
+  const agent = await prisma.aIAgent.upsert({
+    where: { code: COPILOT_AGENT_CODE },
+    create: {
+      platformId: platform.id,
+      code: COPILOT_AGENT_CODE,
+      name: "Copilot tra cứu",
+      purpose:
+        "Hỏi–đáp về thủ tục ETV.Pxx, tiêu chuẩn, biểu mẫu và module; bắt buộc trích dẫn nguồn; không ghi dữ liệu nghiệp vụ",
+      modelId: model.id,
+      riskLevel: "MEDIUM",
+      owner: "Dương Thành Nam",
+    },
+    update: {},
+  });
+
+  const prompt = await prisma.aIPrompt.upsert({
+    where: { code: "PROMPT_COPILOT_TRACUU" },
+    create: { code: "PROMPT_COPILOT_TRACUU", agentId: agent.id },
+    update: {},
+  });
+  let promptVersion = await prisma.aIPromptVersion.findFirst({ where: { promptId: prompt.id, content: COPILOT_SYSTEM_PROMPT } });
+  if (!promptVersion) {
+    promptVersion = await prisma.aIPromptVersion.create({
+      data: {
+        promptId: prompt.id,
+        content: COPILOT_SYSTEM_PROMPT,
+        status: "ACTIVE",
+        createdBy: admin.id,
+        approvedBy: admin.id,
+        effectiveFrom: new Date(),
+      },
+    });
+  }
+  await prisma.aIAgent.update({ where: { id: agent.id }, data: { activePromptVersionId: promptVersion.id } });
+
+  // Hồ sơ đánh giá tác động AI (ETV.P.F29.02). Trạng thái APPROVED ở dữ liệu mẫu để đường dây
+  // chạy được; ở môi trường thật, hồ sơ này do LĐV phê duyệt theo ETV.P29 §4.1 — KHÔNG được coi
+  // bản seed này là hồ sơ đã phê duyệt hợp lệ.
+  const aiaCode = "AIA-2026-003";
+  const existingAia = await prisma.aIImpactAssessment.findUnique({ where: { code: aiaCode } });
+  if (!existingAia) {
+    await prisma.aIImpactAssessment.create({
+      data: {
+        code: aiaCode,
+        agentId: agent.id,
+        purpose: "Tra cứu thủ tục/tiêu chuẩn/biểu mẫu đã ban hành, trả lời kèm trích dẫn nguồn",
+        dataUsed:
+          "Trích đoạn tài liệu mức Công khai/Nội bộ đã phê duyệt (ETV.P29 §5.5). Không có dữ liệu khách hàng, kết quả đo hay hồ sơ nhân sự.",
+        affectedUsers: "Toàn bộ cán bộ, nhân viên đã đăng nhập nền tảng",
+        risk: "MEDIUM",
+        humanOversight:
+          "Chỉ-đọc, không ghi dữ liệu nghiệp vụ. Người dùng chịu trách nhiệm kiểm chứng nguồn trước khi sử dụng; nhãn cảnh báo hiển thị cố định.",
+        controls:
+          "Lọc mức bảo mật trước khi dựng prompt (E1-E6); guardrail GR-PII-OUT/GR-SCOPE/GR-NO-SOURCE cưỡng chế lúc chạy; mọi lượt hỏi ghi AIRequest; hạn mức chi phí tháng. Điều khoản nhà cung cấp về không dùng dữ liệu API để huấn luyện lại phải được trích vào F29.02 trước khi mở cho người dùng thật.",
+        residualRisk: "LOW",
+        status: "APPROVED",
+        reviewDate: new Date(Date.now() + 180 * 24 * 60 * 60 * 1000),
+      },
+    });
+  }
+
+  // Ba guardrail của spec §6. Mã phải khớp DETECTORS trong src/lib/m29/guardrails.ts — mã lạ thì
+  // không có phép phát hiện nào chạy.
+  const guardrails = [
+    {
+      code: "GR-PII-OUT",
+      description: "Chặn câu hỏi chứa dữ liệu cá nhân (CCCD/CMND, điện thoại, thư điện tử) trước khi gửi ra dịch vụ mô hình bên ngoài",
+      severity: "HIGH",
+    },
+    {
+      code: "GR-SCOPE",
+      description: "Chặn câu hỏi yêu cầu AI kết luận đo lường hoặc phê duyệt hồ sơ/chứng chỉ (ISO/IEC 42001)",
+      severity: "HIGH",
+    },
+    {
+      code: "GR-NO-SOURCE",
+      description: "Chặn câu trả lời không dẫn được đường dẫn tài liệu trong hệ thống của Viện",
+      severity: "HIGH",
+    },
+  ] as const;
+  for (const g of guardrails) {
+    await prisma.aIGuardrail.upsert({
+      where: { code: g.code },
+      create: { ...g, scope: "AGENT", scopeRef: agent.id, action: "BLOCK", approvalStatus: "APPROVED", approvedBy: admin.id },
+      update: {},
+    });
+  }
+
+  // Hạn mức chi phí là THAM SỐ VẬN HÀNH (Q3): bản ghi này là hồ sơ quản trị của hạn mức, con số
+  // thực thi đọc từ biến môi trường COPILOT_MONTHLY_BUDGET_USD để đổi hạn mức không phải ban
+  // hành lại thủ tục. Con số cụ thể do LĐV ấn định và khai trong ETV.P.F29.01.
+  const policyName = "Hạn mức và phạm vi sử dụng Copilot tra cứu";
+  const existingPolicy = await prisma.aIPolicy.findFirst({ where: { name: policyName } });
+  if (!existingPolicy) {
+    await prisma.aIPolicy.create({
+      data: {
+        name: policyName,
+        owner: "Dương Thành Nam",
+        approver: "Lãnh đạo Viện",
+        effectiveDate: new Date(),
+        approvalStatus: "APPROVED",
+        approvedBy: admin.id,
+        reference: "ETV.P29 §5.5; ETV.P.F29.01; biến COPILOT_MONTHLY_BUDGET_USD",
+      },
+    });
+  }
+
+  // Bản ghi đăng ký khóa API — CHỈ maskedValue, giá trị thật nằm ở biến môi trường (spec §9).
+  const existingSecret = await prisma.aISecret.findFirst({ where: { platformId: platform.id, name: "ANTHROPIC_API_KEY" } });
+  if (!existingSecret) {
+    await prisma.aISecret.create({
+      data: { platformId: platform.id, name: "ANTHROPIC_API_KEY", maskedValue: "sk-ant-****", status: "ACTIVE" },
+    });
+  }
+
+  // Bộ đánh giá chất lượng — Increment 5 của plan.md. Seed KHUNG RỖNG có chủ đích: 30 ca hỏi
+  // vàng phải do người soạn và duyệt, không được sinh máy rồi tự chấm mình đạt.
+  const existingSuite = await prisma.aIEvaluationSuite.findFirst({ where: { agentId: agent.id } });
+  if (!existingSuite) {
+    await prisma.aIEvaluationSuite.create({ data: { name: "Copilot tra cứu v1 (chưa soạn ca kiểm thử)", agentId: agent.id } });
+  }
+
+  console.log("Đã khai Copilot tra cứu trong danh mục M29 (Platform→Model→Agent→Prompt→AIA→3 Guardrail→Policy→Secret).");
 }
 
 // M01 — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md (không có 08_Source

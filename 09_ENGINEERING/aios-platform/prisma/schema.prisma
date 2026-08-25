@@ -126,22 +126,24 @@ model User {
   m25PartyOwned     M25InterestedParty[] @relation("M25PartyOwner")
   m25AuditEntries   M25AuditEntry[]
 
-  m26ItemCreated      M26KnowledgeItem[]     @relation("M26ItemCreated")
-  m26ItemReviewed     M26KnowledgeItem[]     @relation("M26ItemReviewed")
-  m26ItemApproved     M26KnowledgeItem[]     @relation("M26ItemApproved")
-  m26ItemOwned        M26KnowledgeItem[]     @relation("M26ItemOwner")
+  m26ItemCreated      M26KnowledgeItem[]      @relation("M26ItemCreated")
+  m26ItemReviewed     M26KnowledgeItem[]      @relation("M26ItemReviewed")
+  m26ItemApproved     M26KnowledgeItem[]      @relation("M26ItemApproved")
+  m26ItemOwned        M26KnowledgeItem[]      @relation("M26ItemOwner")
   m26Holders          M26KnowledgeHolder[]
-  m26LessonCreated    M26LessonLearned[]     @relation("M26LessonCreated")
-  m26LessonApproved   M26LessonLearned[]     @relation("M26LessonApproved")
-  m26NeedCreated      M26KnowledgeNeed[]     @relation("M26NeedCreated")
-  m26NeedResponsible  M26KnowledgeNeed[]     @relation("M26NeedResponsible")
-  m26NeedDecided      M26KnowledgeNeed[]     @relation("M26NeedDecided")
-  m26SharingCreated   M26SharingEvent[]      @relation("M26SharingCreated")
-  m26SharingPresented M26SharingEvent[]      @relation("M26SharingPresenter")
+  m26LessonCreated    M26LessonLearned[]      @relation("M26LessonCreated")
+  m26LessonApproved   M26LessonLearned[]      @relation("M26LessonApproved")
+  m26NeedCreated      M26KnowledgeNeed[]      @relation("M26NeedCreated")
+  m26NeedResponsible  M26KnowledgeNeed[]      @relation("M26NeedResponsible")
+  m26NeedDecided      M26KnowledgeNeed[]      @relation("M26NeedDecided")
+  m26SharingCreated   M26SharingEvent[]       @relation("M26SharingCreated")
+  m26SharingPresented M26SharingEvent[]       @relation("M26SharingPresenter")
   m26Participations   M26SharingParticipant[]
   m26AuditEntries     M26AuditEntry[]
 
   accessRequestsReviewed AccessRequest[] @relation("AccessRequestReviewer")
+
+  copilotThreads CopilotThread[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -226,18 +228,18 @@ model PlatformModule {
   // Nguồn sự thật là khối document/forms trong 04_PROCESS_LIBRARY/MPxx/manifest.yaml
   // và links.yaml (procedure, form_files) — seed.ts đọc lên, KHÔNG hardcode ở đây.
   // Null nghĩa là MP đó chưa ban hành thủ tục: banner nói thẳng "chưa ban hành".
-  docId         String? // vd "ETV.P01"
-  docTitle      String? // tên đầy đủ của thủ tục
-  purpose       String? // mục tiêu cô đọng của thủ tục (manifest.purpose) — MP chưa ban hành thủ tục thì null
-  docStatus     String? // "issued" | "draft"
-  docVersion    String? // lần ban hành, vd "03"
-  issuedDate    DateTime? // ngày ban hành / hiệu lực
-  procedurePath String? // đường dẫn tương đối trong repo tới file thủ tục
+  docId          String? // vd "ETV.P01"
+  docTitle       String? // tên đầy đủ của thủ tục
+  purpose        String? // mục tiêu cô đọng của thủ tục (manifest.purpose) — MP chưa ban hành thủ tục thì null
+  docStatus      String? // "issued" | "draft"
+  docVersion     String? // lần ban hành, vd "03"
+  issuedDate     DateTime? // ngày ban hành / hiệu lực
+  procedurePath  String? // đường dẫn tương đối trong repo tới file thủ tục
   procedureOwner String? // chủ sở hữu quy trình (manifest.owner)
-  standards     String[] // mã chuẩn áp dụng (manifest.standards), vd "ISO17025"
-  isoClauses    String[] // điều khoản ISO viện dẫn, vd "ISO/IEC 17025:2017 §8.5"
-  legalBasis    String[] // văn bản pháp luật viện dẫn
-  forms         Json? // [{ code, title, path }] — biểu mẫu áp dụng
+  standards      String[] // mã chuẩn áp dụng (manifest.standards), vd "ISO17025"
+  isoClauses     String[] // điều khoản ISO viện dẫn, vd "ISO/IEC 17025:2017 §8.5"
+  legalBasis     String[] // văn bản pháp luật viện dẫn
+  forms          Json? // [{ code, title, path }] — biểu mẫu áp dụng
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -929,6 +931,72 @@ model AIUnregisteredSighting {
   registeredAgent AIAgent?    @relation(fields: [registeredAgentId], references: [id])
 }
 
+// ---------- M29 Copilot tra cứu (chỉ-đọc) ----------
+// Đặc tả: _meta/specs/20260825-ai-copilot-tra-cuu/{spec.md,plan.md,q1-anh-xa-muc-bao-mat.md}.
+// Copilot KHÔNG có bảng cấu hình riêng — nó là một `AIAgent` trong control plane M29, nên
+// prompt/AIA/guardrail/policy/trace đều nằm ở các bảng AI* sẵn có (spec §1, Quyết định #4).
+// Ba bảng dưới đây chỉ giữ phần control plane không có chỗ chứa: chỉ mục tri thức và hội thoại.
+
+// Một đoạn (chunk) tài liệu đã được phép nạp chỉ mục. Chỉ chứa tài liệu mức Công khai/Nội bộ đã
+// phê duyệt — ETV.P29 §5.5 + ETV.P26 §5.5; quy tắc nạp và danh sách lớp tài liệu ở
+// scripts/nap-chi-muc-copilot.ts. Bảng này KHÔNG bao giờ được chứa mức Hạn chế/Mật (E1, AC-11).
+model CopilotDocChunk {
+  id            String @id @default(cuid())
+  path          String // đường dẫn tương đối tính từ gốc repo, dùng làm trích dẫn
+  title         String // tiêu đề tài liệu
+  heading       String @default("") // tiêu đề mục chứa đoạn này
+  docClass      String // mã lớp tài liệu theo q1-anh-xa-muc-bao-mat.md §3
+  securityLevel String // "Cong-khai" | "Noi-bo" — giá trị khác không được phép tồn tại ở đây
+  approvalRef   String @default("") // trạng thái phê duyệt của nguồn tại thời điểm nạp
+  ordinal       Int    @default(0)
+  content       String
+  // Hai cột tìm kiếm tách riêng để đánh TRỌNG SỐ khác nhau trong tsvector: khớp ở tiêu đề tài
+  // liệu/tiêu đề mục (hạng A) đáng giá hơn hẳn khớp trong thân bài (hạng D). Không tách thì mọi
+  // truy vấn OR đều bị tài liệu dài nuốt mất.
+  searchTitle   String @default("") // tiêu đề + tiêu đề mục, đã bỏ dấu + hạ chữ thường
+  searchText    String // nội dung đoạn, đã bỏ dấu + hạ chữ thường
+
+  // Vector tìm kiếm toàn văn. Prisma không đọc được kiểu tsvector nên khai Unsupported và cập
+  // nhật bằng raw SQL trong script nạp chỉ mục — không dùng cột GENERATED để tránh lệch schema.
+  tsv Unsupported("tsvector")?
+
+  indexedAt DateTime @default(now())
+
+  @@index([path])
+  @@index([securityLevel])
+  @@index([tsv], type: Gin)
+}
+
+model CopilotThread {
+  id            String  @id @default(cuid())
+  userId        String
+  moduleContext String? // mã module người dùng đang mở khi bắt đầu hội thoại (vd "M13")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user     User             @relation(fields: [userId], references: [id])
+  messages CopilotMessage[]
+
+  @@index([userId])
+}
+
+// Mỗi lượt trả lời trỏ về đúng một AIRequest (requestId) — kể cả lượt bị guardrail chặn hoặc lượt
+// lỗi — để không có đường vòng nào thoát khỏi sổ trace của M29 (spec §7, AC-03).
+model CopilotMessage {
+  id        String   @id @default(cuid())
+  threadId  String
+  role      String // "user" | "assistant"
+  content   String
+  citations Json     @default("[]") // [{path, title, heading}]
+  requestId String?
+  createdAt DateTime @default(now())
+
+  thread CopilotThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+
+  @@index([threadId])
+}
+
 // ---------- M01_RuiRo — xây mới từ 05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md ----------
 // Không có 08_Source nguyên mẫu (khác M10/M21/M29 là di trú) — logic state machine port từ
 // ETV.P01_RuiRoCoHoi.md (Đã phê duyệt, lần 03) sang src/lib/m01/rules.ts, xem
@@ -1256,7 +1324,7 @@ model M03TrainingRecord {
 
   m16Qualifications M16AuditorQualification[] @relation("M16QualEvidence") // bằng chứng năng lực M16 (Increment 13)
 
-  m26Needs    M26KnowledgeNeed[] @relation("M26NeedTraining")   // nhu cầu tri thức đáp ứng bằng đào tạo (quy tắc 8 DacTa M26)
+  m26Needs    M26KnowledgeNeed[] @relation("M26NeedTraining") // nhu cầu tri thức đáp ứng bằng đào tạo (quy tắc 8 DacTa M26)
   m26Sharings M26SharingEvent[]  @relation("M26SharingTraining") // hồ sơ đào tạo của hoạt động chia sẻ (quy tắc 12)
 }
 
@@ -2756,18 +2824,18 @@ model M26KnowledgeItem {
   supersedes   M26KnowledgeItem? @relation("M26Supersede", fields: [supersedesId], references: [id])
   supersededBy M26KnowledgeItem? @relation("M26Supersede")
 
-  holders   M26KnowledgeHolder[]
-  riskLinks M26ItemRiskLink[]
-  lessons   M26LessonLearned[]
-  needs     M26KnowledgeNeed[]   @relation("M26NeedResultItem") // nhu cầu có KẾT QUẢ là mục này
-  targetedBy M26KnowledgeNeed[]  @relation("M26NeedTargetItem") // nhu cầu nhằm bổ sung/chuyển giao CHÍNH mục này
-  sharings  M26SharingItem[]
+  holders    M26KnowledgeHolder[]
+  riskLinks  M26ItemRiskLink[]
+  lessons    M26LessonLearned[]
+  needs      M26KnowledgeNeed[]   @relation("M26NeedResultItem") // nhu cầu có KẾT QUẢ là mục này
+  targetedBy M26KnowledgeNeed[]   @relation("M26NeedTargetItem") // nhu cầu nhằm bổ sung/chuyển giao CHÍNH mục này
+  sharings   M26SharingItem[]
 }
 
 // Người đang giữ tri thức ẩn. Tri thức ẩn + trọng yếu CAO + đúng 1 người ⇒ chặn phê duyệt
 // tới khi có riskLinks và nhu cầu chuyển giao (quy tắc 3 / ETV.P26 mục 5.1.6).
 model M26KnowledgeHolder {
-  id     String @id @default(cuid())
+  id     String  @id @default(cuid())
   itemId String
   userId String
   note   String?
@@ -2882,8 +2950,8 @@ model M26SharingEvent {
   evidenceTrainingId String?
   evidenceRef        String?
 
-  handoverNote       String? // dùng khi form = BAN_GIAO_NHAN_SU
-  effectivenessNote  String?
+  handoverNote      String? // dùng khi form = BAN_GIAO_NHAN_SU
+  effectivenessNote String?
 
   status M26SharingStatus @default(KE_HOACH)
   reason String?
@@ -2914,7 +2982,7 @@ model M26SharingItem {
 }
 
 model M26SharingParticipant {
-  id      String @id @default(cuid())
+  id      String  @id @default(cuid())
   eventId String
   userId  String
   note    String?

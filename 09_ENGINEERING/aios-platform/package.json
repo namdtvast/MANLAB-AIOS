@@ -9,9 +9,11 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "doi-mat-khau-demo": "tsx scripts/doi-mat-khau-demo.ts"
+    "doi-mat-khau-demo": "tsx scripts/doi-mat-khau-demo.ts",
+    "nap-chi-muc-copilot": "tsx scripts/nap-chi-muc-copilot.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
     "@auth/prisma-adapter": "^2.11.3",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
