@@ -33,6 +33,11 @@ BO_QUA = {"node_modules", ".git", ".next", "src", "docs", "Output_Codex", ".venv
 # Trích dẫn nội bộ: BẮT BUỘC có tiền tố ETV.Pxx/ETV.MPxx ngay trước dấu § hoặc chữ "mục".
 # Nhờ tiền tố này, điều khoản ISO/TCVN (vd "ISO 9001 §10.1") không bị bắt nhầm — đã đo: "§10.1"
 # xuất hiện 9 lượt trong repo, không lượt nào bị quy về một thủ tục ETV.
+#
+# GỘP "§" VÀ "mục" VÀO CÙNG MỘT MẪU LÀ CÓ CHỦ ĐÍCH, đừng tách ra cho "gọn". Repo dùng lẫn hai lối
+# viết cho cùng một ý, và một lỗi thật đã lọt qua đúng khe đó: một file chỉ dùng dạng "§y.z" hợp lệ
+# nên nhìn qua tưởng sạch, trong khi chỗ hỏng nằm ở một dòng viết "ETV.P35 mục 6". Tách hai dạng
+# thành hai bộ đếm riêng sẽ khiến lỗi kiểu này không bao giờ hiện ra khi rà theo file.
 TRICH_DAN = re.compile(r"ETV\.(?:MP|P)(\d{2})\s*(?:§|mục)\s*(\d+(?:\.\d+)*)")
 # Lối viết song song bằng số La Mã: "ETV.P14 VI.2". Ít dùng nhưng có thật, kiểm riêng.
 TRICH_DAN_LAMA = re.compile(r"ETV\.(?:MP|P)(\d{2})\s+([IVXLC]{1,5})((?:\.\d+)*)\b")
