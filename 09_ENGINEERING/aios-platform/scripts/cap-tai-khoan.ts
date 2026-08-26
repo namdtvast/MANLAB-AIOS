@@ -8,12 +8,20 @@
 // Script KHÔNG bao giờ in mật khẩu ra màn hình hay ghi nó xuống file, và KHÔNG đổi
 // mật khẩu của tài khoản đã tồn tại (dùng scripts/doi-mat-khau-demo.ts cho việc đó).
 //
+// Mật khẩu lấy từ đâu (quy tắc R7): từ 27/08/2026 người đề nghị tự đặt mật khẩu ngay trên
+// form /dang-ky, và script dùng lại đúng hash đó — không phải đặt hộ, không phải báo mật
+// khẩu cho ai qua email hay tin nhắn. Chỉ khi đề nghị không kèm mật khẩu (gửi trước mốc
+// trên, hoặc cấp theo --khong-can-de-nghi) mới cần NEW_USER_PASSWORD.
+//
 // Cách chạy:
 //
 //   # 1. Xem trước — không ghi gì vào database:
 //   npx tsx scripts/cap-tai-khoan.ts --email=nguoidung@donvi.vn --role=MEMBER
 //
-//   # 2. Thực hiện thật (mật khẩu đặt qua biến môi trường để không lọt vào lịch sử shell):
+//   # 2. Thực hiện thật (đề nghị đã kèm mật khẩu do chính người dùng đặt):
+//   npx tsx scripts/cap-tai-khoan.ts --email=nguoidung@donvi.vn --role=MEMBER --yes
+//
+//   # 2b. Đề nghị không kèm mật khẩu — đặt qua biến môi trường để không lọt vào lịch sử shell:
 //   NEW_USER_PASSWORD='...' npx tsx scripts/cap-tai-khoan.ts --email=nguoidung@donvi.vn --role=MEMBER --yes
 //
 //   # Đổi họ tên hiển thị (mặc định lấy theo tên trong đề nghị):
@@ -75,10 +83,12 @@ async function main() {
     where: { email, status: "APPROVED" },
     orderBy: { reviewedAt: "desc" },
     select: {
+      id: true,
       fullName: true,
       organization: true,
       purpose: true,
       reviewedAt: true,
+      passwordHash: true,
       reviewedBy: { select: { email: true, name: true } },
     },
   });
@@ -111,6 +121,9 @@ async function main() {
     console.log(`            đơn vị: ${deNghi.organization}`);
     if (deNghi.reviewedBy)
       console.log(`            người duyệt: ${deNghi.reviewedBy.name ?? deNghi.reviewedBy.email}`);
+    console.log(
+      `  mật khẩu  ${deNghi.passwordHash ? "theo mật khẩu người đề nghị đã tự đặt trên form" : "đề nghị không kèm mật khẩu — cần biến NEW_USER_PASSWORD"}`,
+    );
   } else {
     console.log(`  căn cứ    ngoài hệ thống — ${ghiChu ?? "(chưa nêu, nên ghi bằng --ghi-chu=...)"}`);
   }
@@ -119,27 +132,58 @@ async function main() {
 
   if (!thucHien) {
     console.log("\nĐây mới là xem trước, chưa ghi gì vào database.");
-    console.log("Chạy lại kèm --yes và biến NEW_USER_PASSWORD để thực hiện thật.");
+    console.log(
+      deNghi?.passwordHash
+        ? "Chạy lại kèm --yes để thực hiện thật (mật khẩu lấy theo bản người đề nghị đã đặt)."
+        : "Chạy lại kèm --yes và biến NEW_USER_PASSWORD để thực hiện thật.",
+    );
     return;
   }
 
-  const matKhau = process.env.NEW_USER_PASSWORD;
-  if (!matKhau)
+  // R7 — mật khẩu do chính người đề nghị đặt được ưu tiên tuyệt đối. NEW_USER_PASSWORD chỉ
+  // là lối thoát cho đề nghị không kèm mật khẩu; đưa cả hai vào cùng lúc thì phải dừng chứ
+  // không tự chọn hộ — chọn nhầm nghĩa là người dùng không đăng nhập được bằng mật khẩu họ nhớ.
+  const matKhauTuMoiTruong = process.env.NEW_USER_PASSWORD;
+  const hashCoSan = deNghi?.passwordHash ?? null;
+
+  if (hashCoSan && matKhauTuMoiTruong)
     throw new Error(
-      "Thiếu biến môi trường NEW_USER_PASSWORD. Đặt qua biến môi trường, không truyền qua tham số dòng lệnh.",
+      "Đề nghị đã kèm mật khẩu do người dùng tự đặt, nhưng lệnh lại truyền NEW_USER_PASSWORD. " +
+        "Bỏ biến đó đi để dùng mật khẩu của người dùng; muốn ép đặt mật khẩu khác thì cấp tài khoản " +
+        "trước rồi đổi bằng scripts/doi-mat-khau-demo.ts (và phải báo cho họ biết).",
     );
-  if (matKhau.length < DO_DAI_TOI_THIEU)
-    throw new Error(`Mật khẩu phải dài tối thiểu ${DO_DAI_TOI_THIEU} ký tự.`);
-  if (matKhau === MAT_KHAU_DA_LO)
-    throw new Error("Đây đúng là mật khẩu đã lộ công khai trên GitHub — chọn giá trị khác.");
+
+  let passwordHash: string;
+  if (hashCoSan) {
+    passwordHash = hashCoSan;
+  } else {
+    if (!matKhauTuMoiTruong)
+      throw new Error(
+        "Đề nghị này không kèm mật khẩu (gửi trước 27/08/2026 hoặc cấp ngoài hệ thống). " +
+          "Đặt biến môi trường NEW_USER_PASSWORD, không truyền qua tham số dòng lệnh.",
+      );
+    if (matKhauTuMoiTruong.length < DO_DAI_TOI_THIEU)
+      throw new Error(`Mật khẩu phải dài tối thiểu ${DO_DAI_TOI_THIEU} ký tự.`);
+    if (matKhauTuMoiTruong === MAT_KHAU_DA_LO)
+      throw new Error("Đây đúng là mật khẩu đã lộ công khai trên GitHub — chọn giá trị khác.");
+    passwordHash = await bcrypt.hash(matKhauTuMoiTruong, 10);
+  }
 
   const user = await prisma.user.create({
-    data: { email, name, role, passwordHash: await bcrypt.hash(matKhau, 10) },
+    data: { email, name, role, passwordHash },
     select: { id: true },
   });
 
+  // Hash đã sang User — bản ghi đề nghị không giữ bí mật xác thực nữa (R7).
+  if (deNghi?.id && hashCoSan)
+    await prisma.accessRequest.update({ where: { id: deNghi.id }, data: { passwordHash: null } });
+
   console.log(`\nĐã tạo tài khoản ${email} (${role}), id ${user.id}.`);
-  console.log("Người dùng đăng nhập tại /login bằng email này và mật khẩu vừa đặt.");
+  console.log(
+    hashCoSan
+      ? "Người dùng đăng nhập tại /login bằng email này và MẬT KHẨU HỌ TỰ ĐẶT lúc gửi đề nghị — không cần báo lại mật khẩu cho họ."
+      : "Người dùng đăng nhập tại /login bằng email này và mật khẩu vừa đặt.",
+  );
   console.log("Vai trò theo từng module (nếu cần) gán riêng — vai trò nền tảng không thay được việc đó.");
 }
 

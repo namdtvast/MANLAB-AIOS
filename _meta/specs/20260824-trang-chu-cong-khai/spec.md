@@ -49,6 +49,7 @@ Middleware `src/proxy.ts` phân biệt **khớp đúng** (`/`) với **khớp ti
 | `organization` | String | Đơn vị / tổ chức |
 | `phone` | String? | Điện thoại |
 | `purpose` | String | Lý do cần truy cập, phần việc dự kiến |
+| `passwordHash` | String? | bcrypt hash của mật khẩu **người đề nghị tự đặt** (R7); xóa khi từ chối hoặc khi đã cấp tài khoản |
 | `status` | enum | `PENDING` → `APPROVED` \| `REJECTED` |
 | `reviewNote` | String? | Ghi chú của QTHT, bắt buộc khi từ chối |
 | `reviewedAt` / `reviewedById` | | Ai xử lý, lúc nào |
@@ -68,6 +69,25 @@ Middleware `src/proxy.ts` phân biệt **khớp đúng** (`/`) với **khớp ti
 - **R4** — chuyển trạng thái chỉ đi từ `PENDING`; đã xử lý rồi thì không đổi lại.
 - **R5** — từ chối bắt buộc có lý do (`reviewNote`).
 - **R6** — chỉ `PlatformRole.ADMIN` đọc và xử lý được hàng chờ; chặn ở server, không chỉ ẩn menu.
+- **R7 — mật khẩu do chính người đề nghị đặt** *(bổ sung 27/08/2026)*: form công khai có hai ô
+  mật khẩu (đặt + nhập lại), tối thiểu 12 ký tự — cùng ngưỡng `scripts/cap-tai-khoan.ts` đang áp,
+  tối đa 64 ký tự và ≤ 72 **byte** (quá 72 byte bcrypt cắt âm thầm, tiếng Việt có dấu tốn 3
+  byte/ký tự), phải có cả chữ và số, không trùng mật khẩu đã lộ trong mã nguồn, không chứa phần
+  tên của chính email. Server chỉ lưu **bcrypt hash**; bản rõ không ghi DB, không log, không trả
+  ngược về form khi có lỗi. Băm chạy **vô điều kiện** trước khi kiểm R2/R3 — băm chỉ ở nhánh có
+  ghi bản ghi thì thời gian phản hồi tự tố cáo email nào đã tồn tại, phá chính điều R2+R3 đang giữ.
+
+  R7 **không phá R1**: form vẫn không tạo `User`, không gán vai trò. Mật khẩu là bí mật do chính
+  chủ đặt, giữ tạm cho tới khi QTHT cấp tài khoản; `scripts/cap-tai-khoan.ts` dùng lại đúng hash
+  đó rồi **xóa khỏi bản ghi đề nghị**, và từ chối một đề nghị cũng xóa hash. Nhờ vậy mật khẩu
+  không phải đi qua email/tin nhắn để bàn giao — đúng tinh thần ETV.P02 mục 6.8 (mật khẩu gửi
+  qua kênh khác) khi kênh tốt nhất là *không gửi gì cả*.
+
+  Ranh giới với **ETV.P33 mục 6.4.1** (*nghiêm cấm lưu mật khẩu... trong bản ghi tài khoản dưới
+  bất kỳ dạng nào, kể cả đã mã hoá*): điều đó áp cho **danh mục tài khoản đang tồn tại trên hệ
+  thống** (biểu mẫu F33.03) — nơi chỉ ghi *nơi lưu bí mật xác thực*, không ghi bí mật. `AccessRequest`
+  không phải danh mục đó; nó là bước cấp phát, và hash ở đây có vòng đời ngắn, kết thúc ngay khi
+  `User` được tạo.
 
 ### Chấp nhận (Acceptance)
 
@@ -78,11 +98,20 @@ Middleware `src/proxy.ts` phân biệt **khớp đúng** (`/`) với **khớp ti
 - AC5 — tài khoản không phải ADMIN mở `/admin/access-requests` → bị chặn.
 - AC6 — ADMIN duyệt/từ chối → trạng thái đổi, ghi lại người xử lý và thời điểm; từ chối
   thiếu lý do bị chặn ở server.
+- AC7 — gửi form với mật khẩu không đạt (ngắn, thiếu số, nhập lại không khớp) → bị chặn, báo
+  đúng ô sai, các ô khác giữ nguyên nội dung đã gõ, **hai ô mật khẩu trống lại**.
+- AC8 — đề nghị hợp lệ → cột `passwordHash` là bcrypt hash, không cột nào chứa bản rõ; sau khi
+  `scripts/cap-tai-khoan.ts` cấp tài khoản thì `User.passwordHash` khớp mật khẩu người dùng đã gõ
+  và `AccessRequest.passwordHash` trở về `null`; người dùng đăng nhập được ở `/login`.
 
 ### Ngoài phạm vi
 
 - Duyệt **không** tự tạo tài khoản đăng nhập — đó là thay đổi biên xác thực, cần quyết định
   riêng (cấp mật khẩu tạm, ép đổi lần đầu, khoá phiên). Duyệt ở đây nghĩa là "đồng ý cấp",
-  việc tạo `User` vẫn theo quy trình QTHT hiện hành.
+  việc tạo `User` vẫn theo quy trình QTHT hiện hành. R7 không đổi điều này: người đề nghị đặt
+  trước mật khẩu, nhưng tài khoản vẫn do QTHT tạo bằng `scripts/cap-tai-khoan.ts`.
+- Chưa có luồng **quên mật khẩu / đặt lại mật khẩu** cho người dùng tự làm (cần hạ tầng gửi thư).
+  Quên mật khẩu trước khi được cấp tài khoản thì phải nhờ QTHT xử lý bằng
+  `scripts/doi-mat-khau-demo.ts` sau khi cấp.
 - Không gửi email thông báo (hệ thống chưa có hạ tầng gửi thư).
 - Không có captcha / giới hạn tần suất theo IP.

@@ -3164,6 +3164,13 @@ model AccessRequest {
   purpose      String // Lý do cần truy cập, phần việc dự kiến
   status       AccessRequestStatus @default(PENDING)
 
+  // Mật khẩu do chính người đề nghị đặt lúc gửi form, lưu dưới dạng bcrypt hash để khi
+  // tài khoản được cấp thì họ đăng nhập bằng đúng mật khẩu mình nhớ (R7). KHÔNG lưu bản rõ,
+  // không hiển thị ở bất kỳ giao diện nào, và bị xóa ngay khi đề nghị bị từ chối hoặc khi
+  // scripts/cap-tai-khoan.ts đã dùng nó để tạo User — bản ghi đề nghị không phải nơi giữ bí
+  // mật xác thực lâu dài (tinh thần ETV.P33 mục 6.4.1).
+  passwordHash String?
+
   reviewNote   String? // Ghi chú của QTHT; bắt buộc khi từ chối
   reviewedAt   DateTime?
   reviewedById String?

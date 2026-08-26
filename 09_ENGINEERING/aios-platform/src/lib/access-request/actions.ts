@@ -3,22 +3,28 @@
 // Yêu cầu cấp tài khoản — Server Actions. Quyết định nằm ở "@/lib/access-request/rules";
 // action chỉ gọi rule rồi ghi DB (mirror src/lib/m12/actions.ts).
 import { revalidatePath } from "next/cache";
+import bcrypt from "bcryptjs";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import {
   FIELD_LIMITS,
   reviewAccessRequest,
   validateAccessRequest,
+  type AccessRequestEchoField,
   type AccessRequestField,
   type ReviewDecision,
 } from "./rules";
+
+// Cùng cost với mọi chỗ băm mật khẩu khác của nền tảng (prisma/seed.ts,
+// scripts/cap-tai-khoan.ts) — hash sinh ở đây phải dùng lại được nguyên vẹn khi tạo User.
+const BCRYPT_COST = 10;
 
 export interface SubmitState {
   ok?: boolean;
   errors?: Partial<Record<AccessRequestField, string>>;
   // Dữ liệu người dùng đã nhập, trả lại nguyên văn để form dựng lại khi có lỗi —
   // người gửi chỉ phải sửa ô sai, không nhập lại từ đầu. Chỉ kèm khi ok = false.
-  values?: Record<AccessRequestField, string>;
+  values?: Record<AccessRequestEchoField, string>;
   message?: string;
 }
 
@@ -26,12 +32,15 @@ export interface SubmitState {
 // đã có tài khoản. Trả lời khác nhau sẽ biến form công khai thành công cụ dò xem email nào
 // đang tồn tại trong hệ thống (ISO/IEC 27001 — hạn chế lộ thông tin định danh).
 const NEUTRAL_CONFIRMATION =
-  "Đã tiếp nhận đề nghị. Quản trị hệ thống sẽ liên hệ lại qua email nếu được cấp tài khoản. Nếu email này đã có tài khoản, hãy đăng nhập bình thường.";
+  "Đã tiếp nhận đề nghị. Quản trị hệ thống sẽ liên hệ lại qua email nếu được cấp tài khoản. Nếu được cấp, hãy đăng nhập bằng chính email và mật khẩu vừa đặt — hệ thống không gửi lại mật khẩu cho bạn. Nếu email này đã có tài khoản, hãy đăng nhập bình thường.";
 
 // Giá trị trả ngược về form để người gửi không phải nhập lại. Cắt theo giới hạn từng trường:
 // form đã chặn bằng maxLength, đây là chặn cho trường hợp gửi thẳng lên server — không dội một
 // payload lớn ngược về trình duyệt. Cắt sau khi validate nên vẫn giữ nguyên lỗi "quá N ký tự".
-function keepForRetry(values: Record<AccessRequestField, string>): Record<AccessRequestField, string> {
+function keepForRetry(
+  values: Record<AccessRequestField, string>,
+): Record<AccessRequestEchoField, string> {
+  // Hai ô mật khẩu cố ý không có mặt ở đây — form lỗi thì người gửi gõ lại mật khẩu.
   return {
     fullName: values.fullName.slice(0, FIELD_LIMITS.fullName),
     email: values.email.slice(0, FIELD_LIMITS.email),
@@ -51,12 +60,19 @@ export async function submitAccessRequest(
     organization: String(formData.get("organization") ?? ""),
     phone: String(formData.get("phone") ?? ""),
     purpose: String(formData.get("purpose") ?? ""),
+    password: String(formData.get("password") ?? ""),
+    passwordConfirm: String(formData.get("passwordConfirm") ?? ""),
   };
 
   const parsed = validateAccessRequest(submitted);
   if (!parsed.ok) return { ok: false, errors: parsed.errors, values: keepForRetry(submitted) };
 
   const { value } = parsed;
+
+  // Băm VÔ ĐIỀU KIỆN, trước khi biết có ghi bản ghi hay không. Băm bcrypt tốn cả trăm mili
+  // giây; nếu chỉ băm ở nhánh có tạo bản ghi thì thời gian phản hồi tự nó tố cáo email nào
+  // đã tồn tại — đúng thứ mà thông báo trung tính bên dưới đang cố không tiết lộ.
+  const passwordHash = await bcrypt.hash(value.password, BCRYPT_COST);
 
   // R3 — email đã có tài khoản thì không nhận đề nghị. R2 — mỗi email chỉ một yêu cầu đang chờ.
   const [existingUser, pending] = await Promise.all([
@@ -68,6 +84,8 @@ export async function submitAccessRequest(
   ]);
 
   if (!existingUser && !pending) {
+    // R7 — chỉ lưu hash. Bản rõ không được ghi DB, không log, không trả về giao diện; hash
+    // này bị xóa khi đề nghị bị từ chối hoặc khi scripts/cap-tai-khoan.ts đã dùng xong.
     await prisma.accessRequest.create({
       data: {
         fullName: value.fullName,
@@ -75,6 +93,7 @@ export async function submitAccessRequest(
         organization: value.organization,
         phone: value.phone || null,
         purpose: value.purpose,
+        passwordHash,
       },
     });
     revalidatePath("/admin/access-requests");
@@ -129,6 +148,9 @@ export async function reviewAccessRequestAction(
       reviewNote: result.reviewNote,
       reviewedAt: new Date(),
       reviewedById: actorId,
+      // Từ chối là hết vòng đời của đề nghị — không giữ lại bí mật xác thực của một người
+      // sẽ không có tài khoản. Đồng ý cấp thì giữ tới khi scripts/cap-tai-khoan.ts dùng xong.
+      ...(result.status === "REJECTED" ? { passwordHash: null } : {}),
     },
   });
   revalidatePath("/admin/access-requests");
