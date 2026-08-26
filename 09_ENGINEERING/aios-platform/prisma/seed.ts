@@ -891,17 +891,31 @@ async function seedCopilot() {
     create: { code: "GEMINI", name: "Google Gemini" },
     update: {},
   });
+  // Tách RIÊNG hàng model cho bậc miễn phí, KHÔNG dùng chung với model demo của seedM29().
+  //
+  // Trước đây tìm theo (providerId, modelId) nên khớp luôn hàng demo đã được seedM29() tạo với giá
+  // 0,3/triệu token, và nhánh tạo hàng miễn phí bên dưới KHÔNG BAO GIỜ chạy: Copilot chạy bằng
+  // khoá miễn phí nhưng hệ thống vẫn cộng tiền cho từng lượt hỏi. Hậu quả không chỉ là báo cáo
+  // sai — hạn mức AIBudget có thể chặn Copilot vì số tiền chưa từng bị tiêu.
+  //
+  // Giá phụ thuộc BẬC DỊCH VỤ của khoá, không phụ thuộc tên model: cùng gemini-3.5-flash, bậc
+  // miễn phí và bậc trả phí là hai thực tế thương mại khác nhau. Lược đồ hiện chỉ gắn giá vào
+  // AIModel nên cách biểu diễn đúng là hai hàng model riêng, tên nêu rõ bậc.
+  const TEN_MODEL_COPILOT = "Gemini 3.5 Flash (bậc miễn phí)";
   const modelGemini =
-    (await prisma.aIModel.findFirst({ where: { providerId: providerGemini.id, modelId: "gemini-3.5-flash" } })) ??
+    (await prisma.aIModel.findFirst({ where: { providerId: providerGemini.id, displayName: TEN_MODEL_COPILOT } })) ??
     (await prisma.aIModel.create({
       data: {
         providerId: providerGemini.id,
         modelId: "gemini-3.5-flash",
-        displayName: "Gemini 3.5 Flash",
+        displayName: TEN_MODEL_COPILOT,
         purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
         maxTokens: 4096,
-        // Bậc miễn phí không tính phí — đổi lại là không có cam kết về dữ liệu. Đây chính là cái
-        // giá thật của "miễn phí" trong ngữ cảnh ISO/IEC 42001, không phải 0.
+        // Bậc miễn phí không tính phí — đổi lại là không có cam kết về dữ liệu, nên nền tảng này
+        // ở trạng thái EXTERNAL_NO_COMMITMENT. Đó mới là cái giá thật của "miễn phí" theo
+        // ISO/IEC 42001, không phải con số 0 ở đây.
+        // Chuyển sang khoá trả phí thì cập nhật giá qua M29 → Danh mục (updateModelPricing),
+        // KHÔNG sửa ở đây: giá là dữ liệu vận hành, không phải dữ liệu mẫu.
         costPer1kTokens: 0,
         inputCostPerMillionTokens: 0,
         outputCostPerMillionTokens: 0,
