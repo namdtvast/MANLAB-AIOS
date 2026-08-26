@@ -4,7 +4,9 @@
 // + links.yaml (procedure, form_files), nạp vào PlatformModule qua prisma/seed.ts —
 // KHÔNG viết cứng căn cứ trong từng trang. Module chưa ban hành thủ tục thì banner
 // nói thẳng "chưa ban hành", không suy diễn hộ.
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import type { Hdsd } from "@/lib/hdsd";
 
 // Cổng tài liệu để mở file gốc trong repo (docs/index.html, deep-link "#/p/<đường-dẫn>").
 const DOCS_PORTAL =
@@ -71,11 +73,14 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
       isoClauses: true,
       legalBasis: true,
       forms: true,
+      hdsd: true,
     },
   });
   if (!mod) return null;
 
   const forms = (mod.forms as unknown as FormRef[] | null) ?? [];
+  // Đã được parseHdsd() kiểm tra lược đồ lúc seed — ở đây chỉ đọc.
+  const hdsd = mod.hdsd as unknown as Hdsd | null;
   const status = mod.docStatus ? DOC_STATUS[mod.docStatus] : null;
   const standards = mod.isoClauses.length
     ? mod.isoClauses
@@ -173,6 +178,55 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
             ),
           )}
         </div>
+      )}
+
+      {/* 8. HDSD — trình tự dùng module, nguồn: 05_MODULE_LIBRARY/Mxx/04_UI/HDSD.yaml.
+          Gập sẵn để không đẩy nội dung nghiệp vụ xuống dưới; người mới bấm một lần là thấy
+          đủ trình tự vai trò → thao tác → màn hình, không phải đi hỏi người khác. */}
+      {hdsd && hdsd.steps.length > 0 && (
+        <details className="group mt-2 border-t border-border pt-2">
+          <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-1.5 gap-y-1 [&::-webkit-details-marker]:hidden">
+            <span aria-hidden className="text-ink-3 transition-transform group-open:rotate-90">
+              ▸
+            </span>
+            <span className="font-semibold text-accent">Hướng dẫn sử dụng</span>
+            <span className="text-ink-3">· {hdsd.steps.length} bước</span>
+            {hdsd.summary && <span className="text-ink-3">· {hdsd.summary}</span>}
+          </summary>
+
+          <ol className="mt-2 flex flex-col gap-2">
+            {hdsd.steps.map((step, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-px inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-surface text-[10px] font-semibold text-ink-2">
+                  {i + 1}
+                </span>
+                <span className="min-w-0">
+                  <span className="text-ink-3">{step.role}</span>{" "}
+                  <span className="font-medium text-ink">{step.action}</span>
+                  {step.path && (
+                    <>
+                      {" "}
+                      <Link href={step.path} className="whitespace-nowrap font-medium text-accent hover:underline">
+                        Mở màn hình →
+                      </Link>
+                    </>
+                  )}
+                  {step.note && <span className="mt-0.5 block text-ink-3">{step.note}</span>}
+                </span>
+              </li>
+            ))}
+          </ol>
+
+          {hdsd.tips.length > 0 && (
+            <ul className="mt-2 flex flex-col gap-1 border-t border-border pt-2">
+              {hdsd.tips.map((tip, i) => (
+                <li key={i} className="text-ink-3">
+                  Lưu ý: {tip}
+                </li>
+              ))}
+            </ul>
+          )}
+        </details>
       )}
     </section>
   );

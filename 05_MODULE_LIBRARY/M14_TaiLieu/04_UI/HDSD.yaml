@@ -1,0 +1,32 @@
+# HDSD — hướng dẫn dùng module M14 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M14 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m14/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M14
+summary: "Vòng đời một văn bản kiểm soát: soạn, soát xét, phê duyệt, ban hành, thanh lý"
+
+steps:
+  - role: "Người lập"
+    action: "Soạn thảo văn bản mới"
+    path: "/modules/M14/doc/new"
+    note: "Mã văn bản nội bộ phải theo đúng quy tắc mã hóa, hệ thống kiểm tra ngay khi lưu."
+  - role: "Người lập"
+    action: "Gửi soát xét"
+    note: "Chỉ chính người lập mới gửi được, và chỉ khi văn bản ở Nháp / Không soát xét / Không phê duyệt."
+  - role: "Lãnh đạo Phòng"
+    action: "Soát xét kỹ thuật: đạt hoặc trả lại kèm lý do"
+  - role: "Lãnh đạo Viện (hoặc người được ủy quyền)"
+    action: "Phê duyệt ban hành"
+  - role: "Văn thư / QLCL"
+    action: "Ban hành, cập nhật danh mục và phân phối tới các bộ phận"
+    note: "Chỉ văn bản Đã phê duyệt mới ban hành và phân phối được."
+  - role: "Lãnh đạo Phòng / Lãnh đạo Viện"
+    action: "Thanh lý (chuyển Hết hiệu lực) hoặc hủy bỏ khỏi hệ thống kiểm soát khi văn bản không còn dùng"
+
+tips:
+  - "Gợi ý do AI Agent (M29) tạo chỉ là đề xuất — người có thẩm quyền vẫn phải tự áp dụng và chịu trách nhiệm; AI không được đứng tên soạn, soát xét hay phê duyệt."

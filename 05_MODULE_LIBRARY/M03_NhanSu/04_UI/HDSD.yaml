@@ -1,0 +1,38 @@
+# HDSD — hướng dẫn dùng module M03 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M03 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m03/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M03
+summary: "Tuyển dụng, đào tạo và hợp đồng của một nhân sự, từ đề xuất tới khi đủ năng lực làm việc"
+
+steps:
+  - role: "Trưởng phòng / Văn phòng"
+    action: "Lập đề xuất tuyển dụng"
+    path: "/modules/M03/recruitment/new"
+  - role: "Người lập"
+    action: "Gửi duyệt đề xuất"
+    note: "Chỉ đề xuất Đang soạn mới gửi được."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt đề xuất tuyển dụng"
+  - role: "Văn phòng / Trưởng phòng"
+    action: "Đánh dấu Đã tuyển khi có nhân sự trúng tuyển"
+    note: "Chỉ đề xuất Đã duyệt mới đánh dấu được."
+  - role: "Người hướng dẫn"
+    action: "Mở hồ sơ nhân sự, lập kế hoạch đào tạo và cập nhật tiến độ các điều kiện năng lực"
+    path: "/modules/M03"
+    note: "Phải đạt đủ toàn bộ điều kiện mới trình được kết quả đào tạo."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt kết quả đào tạo — đây là mốc công nhận nhân sự đủ năng lực"
+  - role: "Văn phòng"
+    action: "Lập hợp đồng lao động hoặc hợp đồng dịch vụ trong hồ sơ nhân sự"
+  - role: "Lãnh đạo Viện"
+    action: "Ký, gia hạn hoặc chấm dứt hợp đồng"
+    note: "Chấm dứt hợp đồng đòi thu hồi cam kết bảo mật bên M02 trước khi hoàn tất."
+
+tips:
+  - "Xuất biểu mẫu F03.01 và F03.08 ra PDF có dữ liệu: chọn dòng trong bảng Nhân sự ở trang chính rồi bấm nút xuất tương ứng."

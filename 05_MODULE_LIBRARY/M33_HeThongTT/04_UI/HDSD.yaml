@@ -1,0 +1,39 @@
+# HDSD — hướng dẫn dùng module M33 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M33 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m33/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M33
+summary: "Danh mục hạ tầng công nghệ thông tin: tài sản, bảo trì, tài khoản và sự cố"
+
+steps:
+  - role: "Quản trị hệ thống"
+    action: "Khai báo tài sản công nghệ thông tin"
+    path: "/modules/M33/asset/new"
+    note: "Tuyệt đối không ghi mật khẩu, khóa hay bí mật xác thực vào bản ghi — hệ thống chặn ngay khi lưu."
+  - role: "Quản trị hệ thống"
+    action: "Gửi soát xét bản khai báo"
+    note: "Chỉ bản ghi Nháp, Không soát xét hoặc Không phê duyệt mới gửi được."
+  - role: "Phụ trách an toàn thông tin"
+    action: "Soát xét cấu hình an toàn, vùng mạng và mức phân loại"
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt đưa tài sản vào vận hành"
+  - role: "Quản trị hệ thống"
+    action: "Lập kế hoạch bảo trì năm, trình phê duyệt rồi thực hiện từng công việc bảo trì, vá lỗi"
+    path: "/modules/M33/plan"
+    note: "Công việc bảo trì phải được đơn vị sử dụng nghiệm thu mới coi là hoàn tất."
+  - role: "Quản trị hệ thống / Văn phòng"
+    action: "Quản lý tài khoản hệ thống và chạy kỳ đối chiếu tài khoản định kỳ"
+    path: "/modules/M33/accounts"
+    note: "Tài khoản của nhân sự đã nghỉ việc phải khóa hoặc thu hồi ngay khi có sự kiện nhân sự."
+  - role: "Bất kỳ ai phát hiện"
+    action: "Báo sự cố hoặc yêu cầu hỗ trợ"
+    path: "/modules/M33/incidents"
+    note: "Sự cố có yếu tố an toàn thông tin do Phụ trách ATTT xác nhận kết luận — M33 không tự kết luận."
+  - role: "Quản trị hệ thống"
+    action: "Theo dõi Bảng đến hạn và lập báo cáo tình hình hệ thống 06 tháng"
+    path: "/modules/M33/due"

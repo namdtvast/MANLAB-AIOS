@@ -1,0 +1,34 @@
+# HDSD — hướng dẫn dùng module M13 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M13 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m13/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M13
+summary: "Xử lý một công việc không phù hợp: ghi nhận, đánh giá mức độ, khắc phục, thẩm xét, đóng"
+
+steps:
+  - role: "Nhân viên PTN"
+    action: "Ghi nhận công việc không phù hợp ngay khi phát hiện"
+    path: "/modules/M13/ncw/new"
+  - role: "Lãnh đạo Viện / QLCL / QLKT"
+    action: "Đánh giá mức độ không phù hợp"
+    note: "Chỉ hồ sơ mới ghi nhận mới đánh giá được; mức độ quyết định có phải lập hành động khắc phục hay không."
+  - role: "QLCL"
+    action: "Lập phương án hành động khắc phục"
+    note: "Bắt buộc với mức Nặng; phương án phải nêu nguyên nhân gốc và người thực hiện."
+  - role: "Cán bộ được phân công"
+    action: "Thực hiện và báo hoàn thành hành động khắc phục"
+    note: "Chỉ đúng người được phân công và chỉ khi phương án đang thực hiện."
+  - role: "QLCL"
+    action: "Thẩm xét hiệu lực hành động khắc phục"
+    note: "Chỉ phương án đang chờ thẩm xét mới thẩm xét được."
+  - role: "Lãnh đạo Viện / QLCL / QLKT"
+    action: "Đóng hồ sơ công việc không phù hợp"
+    note: "Chỉ đóng được hồ sơ đang theo dõi hoặc đang khắc phục."
+
+tips:
+  - "Thu hồi báo cáo/chứng chỉ đã phát hành và phát hành bản thay thế phải do Lãnh đạo Viện cho phép ngay trong hồ sơ này."

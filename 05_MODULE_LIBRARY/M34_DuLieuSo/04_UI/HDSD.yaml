@@ -1,0 +1,37 @@
+# HDSD — hướng dẫn dùng module M34 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M34 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m34/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M34
+summary: "Danh mục dữ liệu số: khai báo tập dữ liệu, chất lượng, chia sẻ và dữ liệu cấp cho AI"
+
+steps:
+  - role: "Người quản trị dữ liệu nghiệp vụ"
+    action: "Khai báo tập dữ liệu vào danh mục"
+    path: "/modules/M34/dataset/new"
+    note: "Bản ghi chỉ mô tả tập dữ liệu, tuyệt đối không dán dữ liệu thật vào đây."
+  - role: "QLCL hoặc Phụ trách an toàn thông tin"
+    action: "Soát xét: QLCL kiểm trùng lặp danh mục, PT.ATTT xác nhận mức phân loại"
+  - role: "Chủ sở hữu dữ liệu của tập"
+    action: "Phê duyệt đưa tập dữ liệu vào danh mục"
+  - role: "Người quản trị dữ liệu nghiệp vụ"
+    action: "Lập từ điển dữ liệu cho tập và kích hoạt phiên bản đang dùng"
+    note: "Mở tập dữ liệu rồi vào Quản lý từ điển; chỉ phiên bản Nháp mới kích hoạt được."
+  - role: "Người quản trị dữ liệu nghiệp vụ"
+    action: "Chạy kỳ đo chất lượng dữ liệu và ghi phiếu hiệu chỉnh khi phát hiện sai"
+    path: "/modules/M34/quality"
+  - role: "Người đề nghị khai thác"
+    action: "Lập phiếu khai thác, chia sẻ dữ liệu; PT.ATTT cho ý kiến rồi Lãnh đạo Viện phê duyệt trước khi thực hiện"
+    path: "/modules/M34/sharing"
+  - role: "Người quản trị dữ liệu nghiệp vụ"
+    action: "Lập hồ sơ cấp dữ liệu cho hệ thống AI"
+    path: "/modules/M34/ai-data"
+    note: "Bắt buộc có ý kiến của PT.ATTT và phê duyệt riêng — không dùng chung phê duyệt của phiếu chia sẻ."
+  - role: "QLCL"
+    action: "Quản lý dữ liệu chủ, theo dõi Bảng đến hạn và lập báo cáo 06 tháng"
+    path: "/modules/M34/master-data"

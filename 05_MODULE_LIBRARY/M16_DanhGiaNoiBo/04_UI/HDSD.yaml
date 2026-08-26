@@ -1,0 +1,38 @@
+# HDSD — hướng dẫn dùng module M16 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M16 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m16/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M16
+summary: "Một chu kỳ đánh giá nội bộ: kế hoạch năm, chương trình, phát hiện, khắc phục, đóng"
+
+steps:
+  - role: "QLCL"
+    action: "Lập kế hoạch đánh giá của năm"
+    path: "/modules/M16/plan/new"
+  - role: "QLCL"
+    action: "Gửi kế hoạch để xem xét"
+    note: "Chỉ kế hoạch Đang soạn hoặc bị Từ chối mới gửi được."
+  - role: "Lãnh đạo Phòng"
+    action: "Xem xét kế hoạch"
+    note: "Người xem xét không được là người tạo kế hoạch."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt kế hoạch đánh giá"
+  - role: "QLCL"
+    action: "Lập chương trình đánh giá từ kế hoạch đã phê duyệt và chọn đoàn đánh giá"
+    path: "/modules/M16/auditors"
+    note: "Đánh giá viên phải được QLCL công nhận năng lực trong Sổ năng lực và không đánh giá công việc của chính mình."
+  - role: "QLCL / Lãnh đạo Phòng"
+    action: "Xác nhận chương trình đánh giá"
+    note: "Phải thông báo trước cho bộ phận được đánh giá đủ thời hạn quy định, hệ thống nhắc trước mốc hai tuần."
+  - role: "Trưởng đoàn đánh giá"
+    action: "Ghi phát hiện đánh giá và lập báo cáo tổng hợp"
+  - role: "Trưởng bộ phận được đánh giá"
+    action: "Xác nhận đã nhận kết quả rồi đề xuất hành động khắc phục cho các phát hiện Không phù hợp"
+    note: "Hành động khắc phục chạy tiếp bên M13; có ý kiến bảo lưu thì ghi ngay vào báo cáo."
+  - role: "Lãnh đạo Phòng"
+    action: "Thẩm tra hành động khắc phục rồi đóng chương trình, hoặc đề xuất đánh giá bổ sung"

@@ -421,6 +421,31 @@ thì mỗi biểu mẫu phải viết hai lần — với ~100 biểu mẫu củ
 - ⚠️ Mới làm 2/18 biểu mẫu của M03 và 2/~100 biểu mẫu toàn Viện. Cách làm đã đứng vững qua hai
   bản chất biểu mẫu khác nhau, có thể nhân rộng sang module khác.
 
+## Trạng thái Increment 17 — HDSD: hướng dẫn dùng tuần tự trên mọi trang module
+
+Khung Căn cứ (Increment 15) trả lời "trang này chạy theo văn bản nào", nhưng không trả lời
+"tôi phải bấm gì trước, bấm gì sau, và ai làm bước nào". Người dùng mở một module lạ vẫn phải đi
+hỏi người khác. Increment này thêm mục **Hướng dẫn sử dụng** vào chính khung đó, đi theo
+đúng lối dữ liệu cũ:
+
+`05_MODULE_LIBRARY/Mxx_Slug/04_UI/HDSD.yaml` → `parseHdsd()` → `prisma/seed.ts` →
+`PlatformModule.hdsd` → `<CanCuBanner>`.
+
+Mỗi bước gồm vai trò · việc phải làm · nút "Mở màn hình →" (nếu bước đó có màn hình riêng) ·
+ràng buộc chặn của bước. Mục này **gập sẵn**, bấm một lần là mở — không đẩy nội dung nghiệp vụ
+xuống dưới.
+
+- ✅ 16 module đang vận hành đều đã có HDSD (5–9 bước/module), nội dung chắt từ chính
+  `src/lib/mxx/rules.ts` (điều kiện chặn, tách vai trò) chứ không viết lại theo trí nhớ.
+- ✅ Lược đồ `manlab-aios/hdsd@1.0` kiểm tra bằng `parseHdsd()` — sai lược đồ thì **dừng seed**
+  kèm tên file, không nạp hướng dẫn cụt. Chép nhầm HDSD của module khác và `path` trỏ sang module
+  khác đều bị bắt.
+- ✅ `npm run kiem-tra-hdsd` chạy được trên máy sạch (không cần Postgres) — dùng chính hàm
+  `parseHdsd()` của seed, không viết lại luật kiểm tra ở hai nơi.
+- ⚠️ Module chưa dựng (COMING_SOON) chưa có HDSD — banner ẩn hẳn mục này thay vì hiện khung rỗng.
+- ⚠️ HDSD là văn bản soạn tay: đổi luồng nghiệp vụ trong `rules.ts` mà quên sửa `HDSD.yaml` thì
+  công cụ **không** phát hiện được — nó chỉ kiểm lược đồ và mã module, không đối chiếu ngữ nghĩa.
+
 ## Vì sao đặt ở `09_ENGINEERING/aios-platform` chứ không phải `05_MODULE_LIBRARY/Mxx`
 
 App này không số hóa **một** MPxx cụ thể — nó là lớp nền tảng hợp nhất
@@ -615,5 +640,7 @@ src/lib/m13/            Rule engine + actor/actions M13 — Công việc không 
 src/lib/m14/            Rule engine + actor/actions M14 — Kiểm soát tài liệu, xây mới (Increment 12)
 src/lib/m25/            Rule engine + actor/actions M25 — Bối cảnh & bên quan tâm, xây mới (Increment 14)
 src/components/CanCuBanner.tsx  Khung Căn cứ pháp lý dùng chung cho mọi trang module (Increment 15)
+src/lib/hdsd.ts         Lược đồ + kiểm tra HDSD của module (Increment 17)
+scripts/kiem-tra-hdsd.ts  Kiểm tra mọi 05_MODULE_LIBRARY/Mxx/04_UI/HDSD.yaml, không cần Postgres
                         (M16 bổ sung năng lực đánh giá viên + liên kết M03/M13 ở Increment 13)
 ```

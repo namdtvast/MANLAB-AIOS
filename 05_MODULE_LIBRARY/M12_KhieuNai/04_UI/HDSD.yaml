@@ -1,0 +1,31 @@
+# HDSD — hướng dẫn dùng module M12 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M12 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m12/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M12
+summary: "Tiếp nhận và giải quyết khiếu nại của khách hàng; ghi nhận phàn nàn, góp ý"
+
+steps:
+  - role: "Người tiếp nhận"
+    action: "Tiếp nhận khiếu nại theo đúng kênh khách hàng gửi tới"
+    path: "/modules/M12/complaint/new"
+    note: "Khiếu nại đến bằng văn bản đến phải ghi số văn bản đối chiếu."
+  - role: "Lãnh đạo Viện"
+    action: "Phân công cán bộ phụ trách xử lý"
+    note: "Chỉ khiếu nại ở trạng thái Nháp mới phân công được."
+  - role: "Cán bộ được phân công"
+    action: "Điều tra và trả lời khiếu nại"
+    note: "Chỉ đúng người được phân công mới trả lời được khiếu nại đó."
+  - role: "QLCL / Lãnh đạo Viện"
+    action: "Đóng hồ sơ khi khách hàng chấp nhận kết quả"
+    note: "Khách hàng chưa chấp nhận mà vẫn dừng giải quyết thì chỉ Lãnh đạo Viện được quyết định."
+  - role: "QLCL"
+    action: "Gắn số hồ sơ khắc phục (M13) nếu khiếu nại làm lộ ra công việc không phù hợp"
+  - role: "Người tiếp nhận"
+    action: "Ghi nhận phàn nàn/góp ý không phải khiếu nại; nâng lên thành khiếu nại khi đủ điều kiện"
+    path: "/modules/M12/feedback/new"

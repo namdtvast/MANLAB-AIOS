@@ -1,0 +1,36 @@
+# HDSD — hướng dẫn dùng module M01 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M01 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m01/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M01
+summary: "Ghi nhận và xử lý một rủi ro hoặc cơ hội từ lúc phát hiện tới lúc đóng hồ sơ"
+
+steps:
+  - role: "Nhân viên"
+    action: "Tạo hồ sơ rủi ro (hoặc cơ hội) từ nút + Rủi ro / + Cơ hội"
+    path: "/modules/M01"
+    note: "Chọn mức nghiêm trọng và khả năng xảy ra — hệ thống tự tính điểm và suy ra mức rủi ro, không nhập tay mức."
+  - role: "Nhân viên"
+    action: "Điền biện pháp xử lý, người phụ trách, thời hạn rồi bấm Gửi soát xét"
+    note: "Chỉ hồ sơ Đang soạn mới gửi được; thiếu trường bắt buộc là bị chặn ngay tại bước này."
+  - role: "Trưởng phòng / QLCL"
+    action: "Thẩm xét hồ sơ: chấp nhận hoặc trả lại kèm lý do"
+    note: "Người soát xét phải khác người tạo hồ sơ."
+  - role: "Lãnh đạo Viện"
+    action: "Quyết định đối với rủi ro mức Rất cao"
+    note: "Chỉ mức Rất cao mới cần LĐV quyết định; các mức còn lại dừng ở bước thẩm xét."
+  - role: "Người phụ trách"
+    action: "Nộp bằng chứng đã thực hiện biện pháp"
+    note: "Chỉ đúng người được giao và chỉ khi hồ sơ đang ở trạng thái Đang xử lý."
+  - role: "Trưởng phòng / QLCL"
+    action: "Thẩm xét hiệu lực của biện pháp và đóng hồ sơ"
+    note: "Người thẩm xét phải khác người thực hiện."
+
+tips:
+  - "Vấn đề bối cảnh mức tác động Cao bên M25 bắt buộc liên kết ít nhất một rủi ro/cơ hội ở module này — không có liên kết thì kỳ bối cảnh không gửi soát xét được."
+  - "Mục tri thức ẩn trọng yếu chỉ một người nắm bên M26 cũng phải liên kết rủi ro tại đây trước khi phê duyệt."

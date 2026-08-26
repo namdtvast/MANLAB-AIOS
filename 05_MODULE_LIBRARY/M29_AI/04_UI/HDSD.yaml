@@ -1,0 +1,35 @@
+# HDSD — hướng dẫn dùng module M29 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M29 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m29/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M29
+summary: "Văn phòng AI: đăng ký hệ thống AI, đánh giá tác động, giám sát chi phí và xử lý sự cố AI"
+
+steps:
+  - role: "Quản trị AI"
+    action: "Đăng ký Provider, Model, Skill, Tool và Platform vào danh mục"
+    path: "/modules/M29/registry"
+    note: "AI không nằm trong danh mục là AI chưa đăng ký — không được dùng cho công việc của Viện."
+  - role: "Quản trị AI"
+    action: "Lập hồ sơ đánh giá tác động (AIA) cho từng tác tử rồi trình soát xét, phê duyệt"
+    note: "Chỉ tác tử có AIA đã phê duyệt mới được đưa vào vận hành."
+  - role: "Quản trị bảo mật AI"
+    action: "Đặt ranh giới dữ liệu cho từng nền tảng và cấu hình guardrail, policy"
+    note: "Ranh giới dữ liệu mặc định ở mức siết nhất; nới ra phải dẫn số hồ sơ tương ứng."
+  - role: "Vận hành"
+    action: "Theo dõi nhật ký gọi AI và tổng hợp token, chi phí theo tháng"
+    path: "/modules/M29/traces"
+  - role: "Bất kỳ ai phát hiện"
+    action: "Lập phiếu sự cố AI, chuyển Đang xử lý, trình xác nhận rồi đóng phiếu"
+    path: "/modules/M29/incidents/new"
+  - role: "Kiểm toán AI"
+    action: "Rà soát danh sách AI chưa đăng ký và nhật ký thay đổi cấu hình"
+    path: "/modules/M29/unregistered"
+
+tips:
+  - "AI không bao giờ được tự ra kết luận đo lường cuối cùng hoặc tự phê duyệt chứng chỉ, kết quả — mọi kết luận vẫn do người có thẩm quyền ký."

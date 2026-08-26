@@ -7,3 +7,16 @@
 `links.yaml`: đường dẫn tương đối tới procedure/iso/module/forms/form_files/skill/law/evidence/capabilities. **Chỉ link, không copy.**
 
 Khóa `purpose` + khối `document` + `forms` là nguồn dữ liệu cho khung Căn cứ pháp lý hiển thị trên mọi trang module của aios-platform (`prisma/seed.ts` → `PlatformModule` → `<CanCuBanner>`).
+
+# Lược đồ HDSD của module
+`05_MODULE_LIBRARY/Mxx_Slug/04_UI/HDSD.yaml` (`manlab-aios/hdsd@1.0`): schema, module (Mxx), summary, steps, tips.
+`steps`: danh sách bước theo đúng thứ tự thao tác, mỗi bước gồm `role` (vai trò thực hiện, ghi bằng nhãn đọc được), `action` (việc phải làm, thể mệnh lệnh), `path` (đường dẫn màn hình trong nền tảng — tùy chọn, bắt buộc bắt đầu bằng `/modules/Mxx`), `note` (ràng buộc/điều kiện chặn của bước — tùy chọn).
+`summary`: một câu trả lời cho "module này dùng khi nào". `tips`: lưu ý chung không gắn với bước nào.
+
+HDSD là hướng dẫn thao tác **trên màn hình** nên đặt ở tầng `05` (số hóa), không nằm trong khối `document` của thủ tục ở tầng `04`. Nội dung mỗi bước phải bám đúng luật đã cài trong `src/lib/mxx/rules.ts` và thủ tục `ETV.Pxx` — sửa quy tắc thì sửa thủ tục trước (MP14), rồi `rules.ts`, rồi HDSD.
+
+`prisma/seed.ts` đọc file này, kiểm tra bằng `parseHdsd()` (`src/lib/hdsd.ts`) rồi nạp vào `PlatformModule.hdsd` → mục "Hướng dẫn sử dụng" trong `<CanCuBanner>`. Sai lược đồ thì **dừng seed** kèm tên file. Kiểm tra toàn bộ file mà không cần Postgres:
+
+```bash
+cd 09_ENGINEERING/aios-platform && npm run kiem-tra-hdsd
+```

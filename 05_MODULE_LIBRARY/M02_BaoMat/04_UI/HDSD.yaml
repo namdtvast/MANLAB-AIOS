@@ -1,0 +1,38 @@
+# HDSD — hướng dẫn dùng module M02 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M02 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m02/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M02
+summary: "Bốn việc dùng chung một trang: cam kết bảo mật, sổ khách, công bố thông tin, sự cố bảo mật"
+
+steps:
+  - role: "Văn phòng / Nhân viên"
+    action: "Ghi nhận cam kết bảo mật của từng nhân sự"
+    path: "/modules/M02/commitment/new"
+    note: "Làm trước tiên: cam kết còn hiệu lực là điều kiện của các bước sau."
+  - role: "Nhân viên tiếp đón"
+    action: "Ghi sổ khách vào khu vực hạn chế, khi khách ra thì ghi giờ ra"
+    path: "/modules/M02/visitor/new"
+    note: "Người tiếp đón phải có cam kết bảo mật còn hiệu lực, nếu không hệ thống chặn."
+  - role: "Nhân viên"
+    action: "Soạn hồ sơ công bố thông tin ra bên thứ ba"
+    path: "/modules/M02/disclosure/new"
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt hồ sơ công bố trước khi thông tin ra khỏi Viện"
+    note: "Chỉ hồ sơ Đang soạn mới duyệt được; công bố khi chưa duyệt là vi phạm."
+  - role: "Nhân viên"
+    action: "Báo cáo sự cố hoặc nghi ngờ vi phạm bảo mật ngay khi phát hiện"
+    path: "/modules/M02/incident/new"
+  - role: "Trưởng phòng PTN"
+    action: "Đánh giá mức độ sự cố và biện pháp xử lý"
+    note: "Chỉ TP được đánh giá sự cố bảo mật."
+  - role: "Trưởng phòng PTN / Lãnh đạo Viện"
+    action: "Đóng hồ sơ sự cố sau khi xử lý xong"
+
+tips:
+  - "Nhân sự nghỉ việc: thu hồi cam kết bảo mật ở đây (TP/QLCL) là điều kiện để M03 hoàn tất chấm dứt hợp đồng."

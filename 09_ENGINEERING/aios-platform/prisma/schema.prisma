@@ -278,6 +278,12 @@ model PlatformModule {
   legalBasis     String[] // văn bản pháp luật viện dẫn
   forms          Json? // [{ code, title, path }] — biểu mẫu áp dụng
 
+  // HDSD — hướng dẫn dùng module theo tuần tự, hiển thị trong khung Căn cứ.
+  // Nguồn sự thật là 05_MODULE_LIBRARY/Mxx_Slug/04_UI/HDSD.yaml (lược đồ manlab-aios/hdsd@1.0)
+  // — seed.ts đọc lên qua parseHdsd(), KHÔNG hardcode ở đây và KHÔNG đọc file lúc chạy.
+  // Null nghĩa là module chưa soạn HDSD: banner ẩn hẳn mục này thay vì hiện khung rỗng.
+  hdsd Json? // { summary, steps: [{ role, action, path, note }], tips: [] }
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
