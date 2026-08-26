@@ -71,10 +71,14 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 *(LĐV công nhận — ETV.P34 §6.2.1)*
 
-| TT | Loại dữ liệu chủ | **Nguồn sự thật duy nhất** *(hệ thống, bảng)* | Người được phân quyền thêm/sửa tại nguồn | Hệ thống được đồng bộ từ nguồn (ETV.P37) | Ngày LĐV công nhận |
-|---|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
+| TT | Mã nhóm | Loại dữ liệu chủ | **Nguồn sự thật duy nhất** *(hệ thống, bảng)* | Chủ sở hữu / Người quản trị | Quy tắc định danh và chống trùng | Người được phân quyền thêm/sửa tại nguồn | Hệ thống được đồng bộ từ nguồn (ETV.P37) | Ngày LĐV công nhận |
+|---|---|---|---|---|---|---|---|---|
+| 1 | ☐MD01 ☐MD02 ☐MD03 ☐MD04 ☐MD05 ☐MD06 ☐MD07 ☐MD08 ☐MD09 ☐MD10 ☐MD11 ☐MD12 | | | | | | | |
+| 2 | | | | | | | | |
+
+**Danh mục mã nhóm:** MD01 Tổ chức/Cá nhân và vai trò · MD02 Dịch vụ · MD03 Năng lực kỹ thuật · MD04 Loại đối tượng đo/thử nghiệm · MD05 Đại lượng–thông số–đơn vị đo · MD06 Phương pháp kỹ thuật · MD07 Tiêu chuẩn/tài liệu viện dẫn · MD08 Nhân sự–năng lực–thẩm quyền · MD09 Thiết bị–chuẩn–mẫu chuẩn · MD10 Cơ sở vật chất/địa điểm · MD11 Phạm vi công nhận–chỉ định–đăng ký · MD12 NCC/NTP và phạm vi được phê duyệt.
+
+> Với MD01: chỉ có một danh mục định danh **Tổ chức/Cá nhân**; Khách hàng, NCC, NTP, NSX, Đối tác là **vai trò** của chủ thể. Không lập danh mục khách hàng độc lập làm nguồn cạnh tranh.
 
 ### III.1. Bảng tra song song phát hiện trong kỳ
 

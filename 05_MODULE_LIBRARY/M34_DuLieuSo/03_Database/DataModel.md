@@ -11,7 +11,7 @@
 | `DataSet` | Bản ghi danh mục của một tập dữ liệu (F34.01 phần I) | PK `id`; `code` duy nhất, không cấp lại; ref mềm → M27 (`info_asset_ref`), M33 (`infra_ref`), M35 (`platform_ref`), M15 (`record_ref`) |
 | `DataDictionaryVersion` | Từ điển dữ liệu theo phiên bản (F34.01 phần II) | FK `dataset_id`; duy nhất (`dataset_id`, `version`); tối đa một bản `Hiệu lực`/tập; `change_ref` → M30 từ v02 |
 | `DictionaryField` | Một trường trong từ điển | FK `dictionary_version_id`; duy nhất (`dictionary_version_id`, `field_name`); 8 thuộc tính theo F34.01 phần II |
-| `MasterDataSource` | Loại dữ liệu chủ được LĐV công nhận nguồn sự thật duy nhất (F34.01 phần III) | FK `dataset_id`; duy nhất `master_type` đang `Đã công nhận` — một loại một nguồn (R9) |
+| `MasterDataSource` | Loại dữ liệu chủ được LĐV công nhận nguồn sự thật duy nhất (F34.01 phần III) | FK `dataset_id`; `master_group` thuộc MD01–MD12; duy nhất (`master_group`, `master_type`) đang `Đã công nhận` — một loại một nguồn (R9) |
 | `ParallelLookupFinding` | Bảng tra song song phát hiện trong kỳ (F34.01 phần III.1) | FK `master_source_id`; `capa_ref` → M13 khi `caused_error` |
 | `QualityMeasurement` | Kỳ đo chất lượng của một tập (F34.02 phần A) | FK `dataset_id`; duy nhất (`dataset_id`, `period`); con `QualityMeasurementRow` mỗi chiều một dòng |
 | `DataCorrection` | Hồ sơ hiệu chỉnh dữ liệu đã ghi nhận (F34.02 phần B) | FK `dataset_id`; `validity_ref` → M10/M11 bắt buộc khi `published_impact = Đã dùng phát hành` (R12) |
@@ -34,6 +34,10 @@
   viễn để truy vết, `ETV.P34` Phụ lục II.1); `MasterDataSource` thu hồi công nhận bằng trạng thái,
   không xóa; bản ghi dữ liệu chủ trùng hợp nhất bằng **bảng ánh xạ `MasterMergeMap`**
   (`old_ref` → `surviving_ref`, giữ vĩnh viễn — `ETV.P34` §6.4.4).
+- **Party–Role đối với MD01**: khóa định danh nằm ở hồ sơ `Party`; vai trò CUSTOMER/SUPPLIER/
+  SUBCONTRACTOR/MANUFACTURER/PARTNER là bản ghi có hiệu lực theo thời gian. Không tạo bảng khách
+  hàng, NCC hoặc đối tác làm nguồn định danh cạnh tranh; merge phải có phê duyệt và lịch sử ánh xạ
+  (`ETV.P34` §6.2.4).
 - **Mã không cấp lại**: `DataSet.code` sinh tuần tự toàn hệ thống, kể cả khi bản ghi nguồn đã Hủy
   bản ghi.
 - **Không lưu nội dung dữ liệu thật**: schema không có trường nào chứa bản ghi nghiệp vụ; các

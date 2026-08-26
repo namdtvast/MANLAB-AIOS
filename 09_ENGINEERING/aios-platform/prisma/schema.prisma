@@ -155,6 +155,9 @@ model User {
   m34SharingApproved     M34SharingRequest[]     @relation("M34SharingApproved")
   m34AIApproved          M34AIDataApproval[]     @relation("M34AIApproved")
   m34AuditEntries        M34AuditEntry[]
+  m34PartiesCreated      M34Party[]              @relation("M34PartyCreated")
+  m34PartiesReviewed     M34Party[]              @relation("M34PartyReviewed")
+  m34PartiesApproved     M34Party[]              @relation("M34PartyApproved")
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -3283,6 +3286,95 @@ enum M34ItemType {
   CORRECTION
   SHARING
   AI_APPROVAL
+}
+
+enum M34PartyType {
+  ORGANIZATION
+  PERSON
+}
+
+enum M34PartyStatus {
+  DRAFT
+  PENDING_REVIEW
+  PENDING_APPROVAL
+  ACTIVE
+  REVIEW_REJECTED
+  APPROVAL_REJECTED
+  ARCHIVED
+}
+
+enum M34PartyRoleType {
+  CUSTOMER
+  SUPPLIER
+  SUBCONTRACTOR
+  MANUFACTURER
+  PARTNER
+  REGULATOR
+  ACCREDITATION_BODY
+  EXPERT
+}
+
+model M34Party {
+  id           String         @id @default(cuid())
+  seq          Int            @default(autoincrement())
+  code         String         @unique
+  partyType    M34PartyType
+  legalName    String
+  shortName    String?
+  taxId        String?
+  legacyCode   String?
+  address      String?
+  ward         String?
+  province     String?
+  country      String         @default("Việt Nam")
+  source       String?
+  ownerId      String?
+  status       M34PartyStatus @default(DRAFT)
+  reason       String?
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  createdBy  User              @relation("M34PartyCreated", fields: [createdById], references: [id])
+  reviewedBy User?             @relation("M34PartyReviewed", fields: [reviewedById], references: [id])
+  approvedBy User?             @relation("M34PartyApproved", fields: [approvedById], references: [id])
+  roles      M34PartyRole[]
+  contacts   M34PartyContact[]
+
+  @@index([legalName])
+  @@index([taxId])
+  @@index([status])
+}
+
+model M34PartyRole {
+  id        String           @id @default(cuid())
+  partyId   String
+  roleType  M34PartyRoleType
+  scopeNote String?
+  validFrom DateTime?
+  validTo   DateTime?
+  active    Boolean          @default(true)
+  createdAt DateTime         @default(now())
+  party     M34Party         @relation(fields: [partyId], references: [id], onDelete: Cascade)
+
+  @@unique([partyId, roleType])
+}
+
+model M34PartyContact {
+  id         String   @id @default(cuid())
+  partyId    String
+  fullName   String
+  position   String?
+  email      String?
+  phone      String?
+  isLegalRep Boolean  @default(false)
+  isPrimary  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  party      M34Party @relation(fields: [partyId], references: [id], onDelete: Cascade)
 }
 
 model M34DataSet {

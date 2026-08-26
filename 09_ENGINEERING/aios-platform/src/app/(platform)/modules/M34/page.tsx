@@ -72,6 +72,9 @@ export default async function M34ListPage() {
             Tập dữ liệu ({active.length} hiệu lực / {dataSets.length} bản ghi)
           </h2>
           <div className="flex flex-wrap gap-2">
+            <Link href="/modules/M34/crm" className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk">
+              CRM · Tổ chức/Cá nhân
+            </Link>
             <Link href="/modules/M34/master-data" className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk">
               Dữ liệu chủ
             </Link>

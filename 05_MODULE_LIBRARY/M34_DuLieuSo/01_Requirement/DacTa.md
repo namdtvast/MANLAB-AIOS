@@ -133,13 +133,16 @@ quyền.
 
 | Trường | Kiểu | Bắt buộc | Ghi chú |
 |---|---|---|---|
-| `master_type` | string | có | vd Danh mục khách hàng, thiết bị, phương pháp, nhân sự, đơn vị đo |
+| `master_group` | enum MD01–MD12 | có | Nhóm dữ liệu chủ tối thiểu theo `ETV.P34` §6.2.3 |
+| `master_type` | string | có | Tên loại cụ thể trong nhóm; không được trùng nghĩa với loại đã có |
 | `dataset_ref` | ref `DataSet` | có | Bản ghi danh mục của tập dữ liệu chủ |
 | `source_system` | text | có | **Nguồn sự thật duy nhất** — hệ thống, bảng |
 | `authorized_editors` | text / ref[] | có | Người được phân quyền thêm, sửa tại nguồn |
 | `sync_targets[]` | ref → M37 | không | Hệ thống được đồng bộ từ nguồn |
 | `recognized_by` / `recognized_at` | ref User (**LĐV**) / date | có | LĐV là A, không ủy quyền (`ETV.P34` §5.1) |
 | `status` | enum: Đề nghị / Đã công nhận / Thu hồi công nhận | tự quản lý | Thu hồi bắt buộc lý do |
+
+`MD01` triển khai theo mô hình **Party–Role**: một `Party` (Tổ chức/Cá nhân) có nhiều `PartyRole`; khách hàng, NCC, NTP, NSX và đối tác không tạo các nguồn định danh riêng. Tạo mới phải kiểm tra định danh chính xác và ứng viên tương đồng; merge cần người phê duyệt và `MasterMergeMap`, không tự merge chỉ theo tên (`ETV.P34` §6.2.4).
 
 ### 2.4. `ParallelLookupFinding` — Bảng tra song song phát hiện trong kỳ
 
