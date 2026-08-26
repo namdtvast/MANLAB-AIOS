@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP27_TaiSanTT
 capability: [CAP-28_ATTT]
 module: M27_TaiSanTT
-effective_date: ""
+effective_date: "26/08/2026"
 revision: "01"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [tài sản thông tin, kiểm kê tài sản, phân loại thông tin, chủ sở hữu tài sản, sao lưu, hủy dữ liệu, ISO/IEC 27001 A.5.9, A.5.12]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P03, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P26, ETV.P28, ETV.P29, ETV.P31, ETV.P33, ETV.P34, ETV.P35, ETV.P37]
 iso_clause: ["ISO 9001:2015 §7.5", "ISO/IEC 17025:2017 §4.2, §7.11", "ISO 17034:2016 §7.4", "ISO/IEC 27001:2022 §8.2, A.5.9–A.5.14, A.5.33, A.7.10, A.8.10, A.8.13", "ISO/IEC 42001:2023 §7.4"]
@@ -32,22 +32,20 @@ superseded_by: null
 | ----------------- | ---------------------------------------- |
 | **Mã số**         | ETV.P 27                                 |
 | **Lần ban hành**  | 01                                       |
-| **Ngày ban hành** | ..../..../........                       |
-| **Biên soạn**     | Dương Thành Nam — ..../..../........     |
-| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........ |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........ |
-
-> **Tình trạng bản này: CHỜ SOÁT XÉT** — dự thảo lần đầu, chưa có hiệu lực. Bản này chỉ được áp dụng sau khi Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
+| **Ngày ban hành** | 26/08/2026                               |
+| **Biên soạn**     | Dương Thành Nam                          |
+| **Soát xét**      | Trần Thị Hoa — Lãnh đạo Phòng, ngày 26/08/2026 |
+| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 26/08/2026 |
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú soạn thảo.** Dự thảo lấy đặc tả module `M27_TaiSanTT/01_Requirement/DacTa.md` làm đầu vào và **chốt** các điểm đặc tả để ngỏ: thang phân loại 4 mức (§6.2), ranh giới với ETV.P34 (§2.3), chu kỳ kiểm chứng phục hồi (§6.5.2), thẩm quyền phê duyệt chia sẻ (§6.6), xử lý dữ liệu cá nhân (§6.4), lộ trình kiểm kê kỳ đầu (§6.1.6). **Khác đặc tả ở bộ biểu mẫu:** đặc tả đề xuất 05 biểu mẫu F27.01–F27.05, thủ tục này chỉ lập **03** — luồng chia sẻ dữ liệu dùng `F34.03` của ETV.P34, phiếu kiểm chứng phục hồi dùng `F31.03` của ETV.P31, tránh lập biểu mẫu trùng chức năng (nguyên tắc một nơi duy nhất, ETV.P14). Các **giá trị định lượng** là **đề xuất**, cần Viện xác nhận trước khi ban hành.
+> **Ghi chú soạn thảo.** Dự thảo lấy đặc tả module `M27_TaiSanTT/01_Requirement/DacTa.md` làm đầu vào và **chốt** các điểm đặc tả để ngỏ: thang phân loại 4 mức (§6.2), ranh giới với ETV.P34 (§2.3), chu kỳ kiểm chứng phục hồi (§6.5.2), thẩm quyền phê duyệt chia sẻ (§6.6), xử lý dữ liệu cá nhân (§6.4), lộ trình kiểm kê kỳ đầu (§6.1.6). **Khác đặc tả ở bộ biểu mẫu:** đặc tả đề xuất 05 biểu mẫu F27.01–F27.05, thủ tục này chỉ lập **03** — luồng chia sẻ dữ liệu dùng `F34.03` của ETV.P34, phiếu kiểm chứng phục hồi dùng `F31.03` của ETV.P31, tránh lập biểu mẫu trùng chức năng (nguyên tắc một nơi duy nhất, ETV.P14). Thông tin Biên soạn/Soát xét/Phê duyệt và ngày ban hành do người dùng cung cấp trực tiếp trong phiên làm việc — **AI không tự phê duyệt, không tự ký số, không tự cấp số hiệu chính thức**. Đề nghị LĐV xác nhận bản ký thật được lưu tại hồ sơ theo ETV.P15. File Markdown này là bản số hóa để đồng bộ vào ManLab/tri thức nội bộ, không thay thế bản ký thật.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
-| ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §9.4 và quy trình MP27; xác lập **thang phân loại thông tin chuẩn của Viện** mà ETV.P28 mục 6.3 và các thủ tục khác dẫn chiếu | 01 |
+| 26/08/2026 | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §9.4 và quy trình MP27; xác lập **thang phân loại thông tin chuẩn của Viện** mà ETV.P28 mục 6.3 và các thủ tục khác dẫn chiếu | 01 |
 
 ---
 

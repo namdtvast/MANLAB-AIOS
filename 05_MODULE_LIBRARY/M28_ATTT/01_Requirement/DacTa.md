@@ -408,9 +408,10 @@ từ rủi ro; (3) `SecurityIncident` với các gate liên module R14, R15; (4)
    Nếu kiêm nhiệm, cần rà lại các gate R5/R17: LĐV phải là người phê duyệt cuối để không dồn quyền.
 2. **Phạm vi ISMS kỳ đầu**: toàn Viện ngay từ đầu, hay bắt đầu từ nền tảng ManLab + thư điện tử +
    kho dữ liệu dùng chung rồi mở rộng sang phần mềm thiết bị đo?
-3. **Nguồn dữ liệu tài sản (M27)**: R1 chặn cứng theo danh mục tài sản của M27, nhưng **ETV.P27 chưa
-   ban hành** và M27 chưa xây. Trong giai đoạn quá độ, cho nhập tài sản dạng văn bản tự do rồi
-   chuẩn hóa sau, hay hoãn R1 xuống cảnh báo mềm cho tới khi M27 sẵn sàng?
+3. **Nguồn dữ liệu tài sản (M27)**: `ETV.P27` **đã ban hành lần 01 ngày 26/08/2026** — căn cứ pháp
+   lý cho R1 nay đã đủ. Còn lại là điều kiện kỹ thuật: R1 chỉ chặn cứng được khi danh mục tài sản
+   của M27 có trên nền tảng. Cho tới lúc đó, giữ R1 ở mức **cảnh báo mềm**; không mở đường nhập
+   tài sản dạng văn bản tự do, vì rủi ro không gắn được tài sản thì SoA mất căn cứ A.5.9.
 4. **Nhật ký hệ thống**: module chỉ lưu `system_log_ref`. Có tích hợp đọc nhật ký thật từ nền tảng
    (ManLab, thư điện tử) để phục vụ rà soát hằng quý (P28 §6.7.5), hay giữ nguyên thao tác thủ công
    do QTHT trích xuất?

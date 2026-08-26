@@ -9,18 +9,19 @@ purpose: >-
 owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
-legal: []
+legal:
+  - "Nghị định 13/2023/NĐ-CP"
+  - "Luật Giao dịch điện tử 20/2023/QH15"
 capabilities: [CAP-28]
 module: M27
 menu_group: DU_LIEU_SO
 menu_order: 4
 document:
   doc_id: ETV.P27
-  # Dự thảo lần BH 01 đang chờ soát xét — chưa có ngày ban hành.
-  # LĐV điền issued_date khi chuyển doc_status sang Da-phe-duyet (ETV.P14 §6.6.1 bước 5–6).
-  doc_status: Cho-soat-xet
+  # Lần BH 01: soát xét Trần Thị Hoa, phê duyệt Nguyễn Hoàng Giang ngày 26/08/2026.
+  doc_status: issued
   doc_version: "01"
-  issued_date: ""
+  issued_date: 2026-08-26
 forms:
   - ETV.P.F27.01
   - ETV.P.F27.02
