@@ -1,19 +1,21 @@
 # M27_TaiSanTT — Đặc tả yêu cầu
 
-> **Nguồn và giới hạn nguồn**: **chưa có Thủ tục `ETV.P27`** trong `03_MANAGEMENT_SYSTEM/02_P/` và
-> **chưa có biểu mẫu `F27.xx`** trong `06_SHARED_RESOURCES/01_Forms/` (0/0). Căn cứ đã ban hành gồm:
-> Sổ tay chất lượng **§9.4 Quản trị dữ liệu và tài sản thông tin** (vòng đời tạo lập → sử dụng →
-> lưu giữ → chia sẻ → sao lưu → hủy bỏ) và **§7.11 Kiểm soát dữ liệu và quản lý thông tin**; Thủ tục
-> **`ETV.P02` — Bảo mật** (lần ban hành 03, đã phê duyệt) mục 6.8 (trao đổi và lưu trữ điện tử),
-> 6.9 (sự cố bảo mật), 6.10 (lưu giữ và hủy thông tin); Thủ tục **`ETV.P15`** (kiểm soát hồ sơ, thời
-> hạn lưu). Phần còn lại **suy dẫn** từ ISO/IEC 27001 §8.2 và A.5.9–A.5.14, A.8.10, A.8.13 (kiểm kê
-> tài sản, chủ sở hữu, phân loại, ghi nhãn, xử lý, xóa dữ liệu, sao lưu), ISO/IEC 17025 §7.11,
-> ISO 9001 §7.5, **Nghị định 13/2023/NĐ-CP** (bảo vệ dữ liệu cá nhân), ISO/IEC 42001 §7.4 và khuôn
-> mẫu đã dùng ở M02, M25, M26.
+> **Nguồn**: Thủ tục **`ETV.P27` — Quản trị dữ liệu và tài sản thông tin** đã **ban hành lần 01 ngày
+> 26/08/2026** (`03_MANAGEMENT_SYSTEM/02_P/ETV.P27_QuanTriDuLieuTaiSanTT.md`) cùng bộ biểu mẫu
+> **`ETV.P.F 27.01–F 27.03`** trong `06_SHARED_RESOURCES/01_Forms/`. Căn cứ kèm theo: Sổ tay chất
+> lượng **§9.4** và **§7.11**; **`ETV.P02`** §6.8–§6.10; **`ETV.P15`**; ISO/IEC 27001 §8.2 và
+> A.5.9–A.5.14, A.8.10, A.8.13; ISO/IEC 17025 §7.11; ISO 9001 §7.5; **Nghị định 13/2023/NĐ-CP**;
+> ISO/IEC 42001 §7.4.
 >
-> Mọi quy tắc **không** đọc được trực tiếp từ văn bản đã ban hành đều được đánh dấu `[SUY DẪN]` —
-> phải được LĐV/QLCL xác nhận và **ban hành chính thức `ETV.P27` + bộ biểu mẫu F27.xx theo MP14**
-> trước khi BUILD. Xem danh sách câu hỏi cần chốt ở mục 10.
+> **Thủ tục là nguồn sự thật**: nếu đặc tả lệch thủ tục thì sửa đặc tả, không sửa ngược lại. Mọi số
+> hiệu mục dạng "P27 §x.y" trỏ tới điều khoản của thủ tục lần ban hành 01 (khung I–IX, nội dung
+> nghiệp vụ ở mục VI). Các dấu `[SUY DẪN]` còn lại là phần **thủ tục không quy định**, thuộc quyền
+> quyết định của đặc tả kỹ thuật; phần đã được thủ tục chốt thì ghi rõ điều khoản.
+>
+> **Ba điểm đặc tả đã được thủ tục sửa lại** (so với dự thảo đặc tả ngày 24/08/2026): bộ biểu mẫu
+> còn **03** thay vì 05 (§VII) · luồng **chia sẻ dữ liệu** chuyển sang **ETV.P34 §6.5 / F34.03**,
+> M27 chỉ quyết định ở cấp tài sản (§6.6) · chu kỳ **rà soát** và **kiểm chứng phục hồi** lấy theo
+> §6.8 và §6.5.2. Xem mục 10 để biết câu hỏi nào đã được thủ tục trả lời.
 
 ## 1. Mục tiêu module
 
@@ -45,16 +47,16 @@ nơi dữ liệu thật nằm** (hệ thống CNTT ở M33, hồ sơ ở M15, t�
 
 ## 2. Đối tượng dữ liệu chính
 
-Bốn thực thể nghiệp vụ + nhật ký. Trục chính là `InfoAsset`; `ClassificationRule` là **bảng luật**
-áp lên trục chính; `DataSharing` và `DisposalRecord` là hai **sự kiện vòng đời** phải có phê duyệt.
+**Ba** thực thể nghiệp vụ + nhật ký. Trục chính là `InfoAsset`; `ClassificationRule` là **bảng luật**
+áp lên trục chính; `DisposalRecord` là **sự kiện vòng đời** phải có phê duyệt trước khi thực hiện.
 
-| Đối tượng | Mô tả | Biểu mẫu đề xuất (chưa ban hành) |
+| Đối tượng | Mô tả | Biểu mẫu (đã ban hành 26/08/2026) |
 |---|---|---|
-| `InfoAsset` | Tài sản thông tin/dữ liệu trong danh mục kiểm kê | F27.01 — Danh mục tài sản thông tin |
-| `ClassificationRule` | Quy tắc xử lý bắt buộc theo từng mức phân loại | F27.02 — Bảng quy tắc xử lý theo mức phân loại |
-| `DataSharing` | Việc chia sẻ/cung cấp dữ liệu ra ngoài phạm vi mặc định | F27.03 — Phiếu đề nghị và phê duyệt chia sẻ dữ liệu |
-| `DisposalRecord` | Việc hủy dữ liệu/vật mang tin khi hết thời hạn lưu | F27.04 — Biên bản hủy dữ liệu và vật mang tin |
-| (thuộc tính của `InfoAsset`) | Kiểm tra khôi phục dữ liệu sao lưu | F27.05 — Phiếu kiểm tra khôi phục dữ liệu sao lưu |
+| `InfoAsset` | Tài sản thông tin/dữ liệu trong danh mục kiểm kê | **F27.01** — Danh mục tài sản thông tin |
+| `ClassificationRule` | Quy tắc xử lý bắt buộc theo từng mức phân loại | **F27.02** — Bảng quy tắc xử lý theo mức phân loại |
+| `DisposalRecord` | Việc hủy dữ liệu/vật mang tin khi hết thời hạn lưu | **F27.03** — Phiếu đề nghị và biên bản huỷ dữ liệu, vật mang tin |
+| ~~`DataSharing`~~ | **Không thuộc M27.** Luồng phê duyệt chia sẻ từng lần thực hiện theo **ETV.P34 §6.5 (F34.03)** kèm phê duyệt công bố theo ETV.P02. M27 chỉ quyết định ở **cấp tài sản**: có được phép chia sẻ ra ngoài hay không (`external_sharing_allowed`) và với điều kiện gì theo bảng quy tắc — P27 §6.6 | *(F34.03 của ETV.P34)* |
+| (thuộc tính của `InfoAsset`) | Ngày kiểm chứng phục hồi gần nhất | *(F31.03 của ETV.P31 — P27 §6.5.2)* |
 
 ### 2.1. `InfoAsset` — Tài sản thông tin
 
@@ -82,7 +84,7 @@ Bốn thực thể nghiệp vụ + nhật ký. Trục chính là `InfoAsset`; `C
 | `disposal_method` | enum | có | Mục 4.4 — cách hủy dự kiến khi hết thời hạn |
 | `external_sharing_allowed` | bool | có | Mặc định `false` với mức Hạn chế/Mật (quy tắc 6) |
 | `ai_use_allowed` | bool | có | Được phép dùng làm nguồn cho hệ thống AI hay không — quy tắc 12 |
-| `review_cycle` | enum: 6 tháng / Năm / 2 năm | có | Mặc định 1 năm (quy tắc 11) |
+| `review_cycle` | enum: 6 tháng / 12 tháng | tự tính | **12 tháng** mặc định; **06 tháng** bắt buộc khi `classification = Mật` hoặc `contains_personal_data = true` — P27 §6.8 (quy tắc 11) |
 | `last_reviewed_at` | date | tự ghi | Mốc tính hạn rà soát |
 | `risk_refs[]` | ref → M28 | có **khi** `classification ∈ {Hạn chế, Mật}` hoặc có mức CIA = Cao | Quy tắc 10 |
 | `status` | enum | tự quản lý | Mục 6 |
@@ -102,21 +104,23 @@ Bảng luật có phiên bản, do LĐV phê duyệt; mỗi dòng là một cặ
 | `effective_from` | date | có | |
 | `status` | enum: Nháp / Đã phê duyệt / Hết hiệu lực | tự quản lý | Quy tắc 5 |
 
-### 2.3. `DataSharing` — Chia sẻ dữ liệu ra ngoài
+### 2.3. Chia sẻ dữ liệu ra ngoài — **không phải thực thể của M27**
 
-| Trường | Kiểu | Bắt buộc | Ghi chú |
-|---|---|---|---|
-| `code` | string, duy nhất | tự sinh | |
-| `asset_refs[]` | ref `InfoAsset` | có, ≥ 1 | Chỉ tài sản ở trạng thái Đang sử dụng |
-| `recipient` | string | có | Tổ chức/cá nhân nhận |
-| `recipient_type` | enum: Khách hàng · Cơ quan quản lý · Tổ chức công nhận/chỉ định · Nhà cung cấp – thầu phụ · Đối tác nghiên cứu · Khác | có | |
-| `purpose` | text | có | Mục đích sử dụng dữ liệu |
-| `legal_ground` | enum: Hợp đồng · Yêu cầu của pháp luật · Đồng ý của chủ thể dữ liệu · Nghĩa vụ với tổ chức công nhận · Khác | có | |
-| `disclosure_ref` | ref → M02 | có **khi** dữ liệu liên quan khách hàng hoặc dữ liệu cá nhân | Phê duyệt công bố ở M02 — quy tắc 6 |
-| `method` | enum: Kênh truyền được phê duyệt · Bàn giao vật lý · Tài khoản truy cập có thời hạn | có | Phải phù hợp `ClassificationRule` |
-| `valid_until` | date | có | Hết hạn ⇒ thu hồi quyền truy cập |
-| `approved_by` / `approved_at` | ref User (LĐV) / datetime | có, khi phê duyệt | |
-| `status` | enum: Nháp / Chờ phê duyệt / Đã phê duyệt / Từ chối / Đã thu hồi | tự quản lý | Từ chối/Thu hồi bắt buộc lý do |
+Dự thảo đặc tả ngày 24/08/2026 đề xuất thực thể `DataSharing` trong M27. **Thủ tục đã ban hành quyết
+định khác**: theo **P27 §6.6**, luồng phê duyệt chia sẻ **từng lần** thực hiện theo **ETV.P34 §6.5
+(biểu mẫu F34.03)** kèm phê duyệt công bố theo **ETV.P02** — không lập biểu mẫu và không dựng thực
+thể trùng ở M27 (nguyên tắc một nơi duy nhất, ETV.P14).
+
+M27 chỉ quyết định ở **cấp tài sản**, bằng hai trường của `InfoAsset`:
+
+| Quyết định của M27 | Trường | Quy định |
+|---|---|---|
+| Tài sản này có được phép chia sẻ ra ngoài không | `external_sharing_allowed` | Tài sản mức **Hạn chế** và **Mật** mặc định **không được phép** (P27 §6.6) |
+| Chia sẻ thì phải theo điều kiện gì | `ClassificationRule` của mức tương ứng | Hành động *Chia sẻ với bên thứ ba* trong bảng quy tắc (P27 §6.3) |
+
+Thẩm quyền phê duyệt từng lần (P27 §6.6): **LĐV** với tài sản mức **Hạn chế, Mật** · **chủ sở hữu
+tài sản** với mức **Nội bộ** · mức **Công khai** không cần phiếu. Dữ liệu khách hàng hoặc dữ liệu cá
+nhân bắt buộc thêm phê duyệt công bố theo ETV.P02, thiếu thì chặn phê duyệt chia sẻ.
 
 ### 2.4. `DisposalRecord` — Hủy dữ liệu và vật mang tin
 
@@ -175,7 +179,7 @@ Dữ liệu trên dịch vụ bên thứ ba (đám mây, email) · Dữ liệu �
 | Dữ liệu vận hành CNTT | Nhật ký hệ thống, cấu hình, sao lưu (← M33) | Hạn chế |
 | Dữ liệu phục vụ AI | Tập dữ liệu đầu vào, nhật ký tương tác, chỉ mục ngữ nghĩa (← M29) | Nội bộ — chỉ mục AI chỉ nhận Công khai/Nội bộ (quy tắc 12) |
 
-### 4.3. Thang phân loại thông tin (`classification`) — **nguồn chuẩn của Viện** `[SUY DẪN]`
+### 4.3. Thang phân loại thông tin (`classification`) — **nguồn chuẩn của Viện** (P27 §6.2, đã ban hành)
 
 | Mức | Ai được tiếp cận | Hệ quả chính |
 |---|---|---|
@@ -218,9 +222,10 @@ thứ ba xóa và cung cấp bằng chứng.
    quan khách hàng hoặc dữ liệu cá nhân, bắt buộc thêm `disclosure_ref` sang **M02** — thiếu thì
    chặn phê duyệt. Hết `valid_until` ⇒ nhắc `custodian` thu hồi quyền truy cập.
 7. **Sao lưu phải được chứng minh bằng khôi phục**: `cia_a = Cao` ⇒ `backup_required = true` bắt
-   buộc; mọi tài sản có sao lưu phải có **kiểm tra khôi phục** ít nhất **1 lần/năm**
-   (`last_restore_test_at`), có bằng chứng (F27.05). Quá hạn ⇒ cảnh báo `custodian`, quá 2 chu kỳ ⇒
-   cảnh báo LĐV. Sao lưu chưa từng khôi phục thử **không được coi là biện pháp kiểm soát có hiệu
+   buộc (thiếu sao lưu ⇒ **chặn phê duyệt**, P27 Phụ lục I.1 điều kiện 7). Chu kỳ **kiểm chứng phục
+   hồi** theo P27 §6.5.2 — **≤ 06 tháng** với tài sản `cia_a = Cao`, **≤ 12 tháng** với tài sản còn
+   lại có sao lưu; bằng chứng dùng **F31.03** của ETV.P31, không lập biểu mẫu riêng. Người thực hiện
+   phục hồi ≠ người xác nhận kết quả. Quá hạn ⇒ cảnh báo `custodian`, quá 2 chu kỳ ⇒ cảnh báo LĐV. Sao lưu chưa từng khôi phục thử **không được coi là biện pháp kiểm soát có hiệu
    lực** (ISO/IEC 27001 A.8.13). **Kiểm tra khôi phục thất bại ⇒ bắt buộc mở sự cố an toàn thông
    tin ở M28** và kết quả kiểm tra là bằng chứng bắt buộc cho các kiểm soát tính sẵn sàng trong SoA
    (`ETV.P28` mục 6.7, đã ban hành 26/08/2026).
@@ -238,9 +243,12 @@ thứ ba xóa và cung cấp bằng chứng.
     M28**, nếu không R1 của M28 phải tạm hạ xuống cảnh báo mềm (câu hỏi mở số 3 của M28). Ở chiều
     M27, giai đoạn đầu áp dụng **cảnh báo mềm**, chuyển thành chặn phê duyệt khi M28 lên nền tảng.
     `[SUY DẪN]` (chiều M27) · **đã ban hành** (chiều M28)
-11. **Rà soát định kỳ**: mặc định **1 năm/lần** cho mọi tài sản (`review_cycle`). Cờ **Đến hạn rà
-    soát** tính khi đọc từ `last_reviewed_at` + `review_cycle`, **không** lưu cột riêng. Hệ thống
-    CNTT chứa tài sản bị ngừng sử dụng ở M33 ⇒ tài sản tự gắn cờ cần rà soát. `[SUY DẪN]`
+11. **Rà soát định kỳ** (P27 §6.8): **12 tháng/lần** mặc định; **06 tháng/lần** với tài sản mức
+    **Mật** hoặc có **dữ liệu cá nhân**. Cờ **Đến hạn rà soát** tính khi đọc từ `last_reviewed_at` +
+    `review_cycle`, **không** lưu cột riêng. Hệ thống CNTT chứa tài sản bị ngừng vận hành ở M33 ⇒
+    tài sản tự gắn cờ cần rà soát. **Chuyển giao chủ sở hữu** bắt buộc khi người giữ vai trò nghỉ
+    việc/chuyển công tác và phải hoàn tất **trước khi** hoàn thành thủ tục thôi việc theo ETV.P03;
+    tài sản có chủ sở hữu đã nghỉ việc gắn cờ **Tài sản vô chủ**, cảnh báo QLCL và LĐV.
 12. **Dữ liệu cho AI có kiểm soát (← M29)**: tài sản chỉ được dùng làm nguồn cho hệ thống AI khi
     `ai_use_allowed = true`, `status = Đang sử dụng` và `classification ∈ {Công khai, Nội bộ}` —
     dữ liệu mức **Hạn chế** và **Mật** **không bao giờ** được đưa vào chỉ mục AI; phát hiện vi phạm
@@ -278,19 +286,18 @@ mới) · `DataSharing` (Nháp → Chờ phê duyệt → Đã phê duyệt / T�
 
 | Đầu ra | Định dạng | Ghi chú |
 |---|---|---|
-| F27.01 — Danh mục tài sản thông tin | PDF/Excel | Kiểm kê theo nhóm dữ liệu, mức phân loại, chủ sở hữu, CIA, thời hạn lưu |
-| F27.02 — Bảng quy tắc xử lý theo mức phân loại | PDF | Bảng luật đã phê duyệt (phiên bản hiện hành) |
-| F27.03 — Phiếu đề nghị và phê duyệt chia sẻ dữ liệu | PDF | Bên nhận, mục đích, căn cứ, thời hạn, phê duyệt LĐV |
-| F27.04 — Biên bản hủy dữ liệu và vật mang tin | PDF | Tài sản, phương pháp, người thực hiện, người chứng kiến, bằng chứng |
-| F27.05 — Phiếu kiểm tra khôi phục dữ liệu sao lưu | PDF | Tài sản, ngày kiểm tra, kết quả, người thực hiện |
+| **F27.01** — Danh mục tài sản thông tin | PDF/Excel | Kiểm kê theo nhóm dữ liệu, mức phân loại, chủ sở hữu, CIA, thời hạn lưu |
+| **F27.02** — Bảng quy tắc xử lý theo mức phân loại | PDF | Bảng luật đã phê duyệt (phiên bản hiện hành) |
+| **F27.03** — Phiếu đề nghị và biên bản huỷ dữ liệu, vật mang tin | PDF | Tài sản, phương pháp, người thực hiện, người chứng kiến, bằng chứng |
 | Danh mục tài sản phục vụ đánh giá rủi ro ATTT (M28) | Dữ liệu/PDF | Lọc theo mức phân loại và CIA |
 | Bảng tài sản đến hạn rà soát / đến hạn kiểm tra khôi phục | Màn hình | Tính khi đọc |
 | Bảng tài sản đến hạn hủy | Màn hình | `Ngừng sử dụng` + đã hết thời hạn lưu |
 | Bảng tài sản có dữ liệu cá nhân | Màn hình/PDF | Phục vụ nghĩa vụ theo NĐ 13/2023 |
 
-**Năm biểu mẫu F27.01–F27.05 hiện chưa tồn tại** — phải soạn và ban hành theo MP14 trước khi bản
-xuất được dùng làm hồ sơ chính thức. Việc công bố thông tin khách hàng ra bên thứ ba vẫn dùng luồng
-phê duyệt của **ETV.P02**, không lập biểu mẫu trùng.
+**Ba biểu mẫu F27.01–F27.03 đã ban hành** ngày 26/08/2026 (P27 §VII). Không lập biểu mẫu trùng ở
+module này: chia sẻ dữ liệu dùng **F34.03** (ETV.P34) kèm phê duyệt công bố theo **ETV.P02** ·
+kiểm chứng phục hồi dùng **F31.03** (ETV.P31) · phiếu quyền truy cập dùng **F28.04** · phiếu sự cố
+dùng **F28.03** · phiếu hành động khắc phục dùng biểu mẫu của ETV.P13.
 
 ## 8. Liên kết
 
@@ -320,21 +327,23 @@ thời hạn lưu hồ sơ (M15) · phiên bản tài liệu (M14).
 nhận, NFR) và kế hoạch tăng trưởng theo increment:
 `01_Requirement/_work/20260824-dac-ta-m27/{outcome.md, spec.md, plan.md}`.
 
-## 10. Câu hỏi cần LĐV/QLCL chốt trước khi BUILD
+## 10. Câu hỏi đã được thủ tục trả lời, và phần còn mở
 
-1. **Ban hành `ETV.P27`**: đặc tả này có được dùng làm dự thảo đầu vào để soạn thủ tục chính thức
-   theo MP14 không? (Như đã làm với `ETV.P25`, `ETV.P26`.)
-2. **Thang phân loại**: chốt 4 mức **Công khai · Nội bộ · Hạn chế · Mật** (mục 4.3) làm thang chuẩn
-   toàn Viện? M26 đã tham chiếu thang này — nếu đổi, phải sửa đồng bộ M26.
-3. **Ranh giới M27 ↔ M34_DuLieuSo**: xác nhận M27 giữ quản trị (chủ sở hữu, phân loại, vòng đời) và
-   M34 giữ từ điển/chuẩn kỹ thuật dữ liệu số? Nếu không, hai module sẽ kiểm kê trùng nhau.
-4. **Quy tắc 10** (bắt buộc liên kết rủi ro M28 với tài sản Hạn chế/Mật): giữ **cảnh báo mềm** cho
-   tới khi M28 lên nền tảng, rồi chuyển **chặn cứng** — có đúng ý không?
-5. **Chu kỳ kiểm tra khôi phục sao lưu**: 1 lần/năm (giả định hiện tại) hay 6 tháng/lần với tài sản
-   `cia_a = Cao`?
-6. **Thẩm quyền phê duyệt chia sẻ dữ liệu**: LĐV phê duyệt mọi trường hợp, hay ủy quyền TP với dữ
-   liệu mức **Nội bộ** và LĐV chỉ duyệt mức Hạn chế/Mật?
-7. **Dữ liệu cá nhân**: Viện đã có hồ sơ đánh giá tác động xử lý dữ liệu cá nhân theo NĐ 13/2023
-   chưa, và hồ sơ đó sẽ đặt ở M27, M02 hay M28?
-8. **Kiểm kê kỳ đầu**: bắt đầu từ dữ liệu khách hàng + dữ liệu kết quả đo (nhóm rủi ro cao nhất) hay
-   kiểm kê toàn bộ ngay từ đầu?
+`ETV.P27` ban hành lần 01 ngày 26/08/2026 đã chốt **7/8** câu hỏi của dự thảo đặc tả:
+
+| # | Câu hỏi | Thủ tục trả lời | Điều khoản |
+|---|---|---|---|
+| 1 | Ban hành `ETV.P27` từ đặc tả này? | **Rồi** — ban hành lần 01 ngày 26/08/2026 | toàn văn |
+| 2 | Chốt thang 4 mức làm thang chuẩn toàn Viện? | **Có.** Công khai · Nội bộ · Hạn chế · Mật là **định nghĩa gốc**; đổi thang phải ban hành lại thủ tục | §6.2 |
+| 3 | Ranh giới M27 ↔ M34? | **M27** giữ quản trị tài sản (chủ sở hữu, phân loại, vòng đời); **M34** giữ chất lượng dữ liệu và luồng chia sẻ từng lần | §2.3 · Phụ lục III |
+| 4 | Quy tắc liên kết rủi ro M28: cảnh báo mềm rồi chuyển chặn cứng? | **Đúng.** Cảnh báo trong giai đoạn đầu, chuyển **chặn phê duyệt** kể từ khi M28 vận hành trên nền tảng; mốc chuyển do QLCL trình LĐV và ghi vào biên bản xem xét lãnh đạo | §6.9.1 |
+| 5 | Chu kỳ kiểm chứng phục hồi 1 năm hay 6 tháng? | **≤ 06 tháng** với `cia_a = Cao`, **≤ 12 tháng** với tài sản còn lại; áp theo ETV.P31 §6.4.3, dùng F31.03 | §6.5.2 |
+| 6 | Thẩm quyền phê duyệt chia sẻ? | **LĐV** với mức Hạn chế/Mật · **chủ sở hữu** với mức Nội bộ · mức Công khai không cần phiếu | §6.6 |
+| 8 | Kiểm kê kỳ đầu bắt đầu từ đâu? | **Đợt 1 (90 ngày)**: dữ liệu khách hàng + dữ liệu kết quả đo, kể cả hồ sơ giấy. **Đợt 2 (180 ngày)**: phần còn lại | §6.1.6 |
+
+**Còn mở — cần con người quyết định, không suy ra được từ thủ tục:**
+
+7. **Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân theo NĐ 13/2023** đặt ở module nào? Thủ tục giao
+   QLCL *tổng hợp danh sách tài sản có dữ liệu cá nhân* (§6.4) nhưng không nói hồ sơ đánh giá tác
+   động thuộc M27, M02 hay M28. Cho tới khi chốt, M27 chỉ giữ `contains_personal_data` +
+   `legal_basis` theo §6.4, không dựng hồ sơ đánh giá tác động riêng.

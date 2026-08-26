@@ -9,7 +9,9 @@ purpose: >-
 owner: "Phụ trách Quản lý chất lượng (QLCL)"
 status: active
 standards: ['ISO9001', 'ISO17025', 'ISO17034', 'ISO27001', 'ISO42001']
-legal: []
+legal:
+  - "Nghị định 13/2023/NĐ-CP"
+  - "Luật Giao dịch điện tử 20/2023/QH15"
 capabilities: [CAP-28]
 module: M27
 menu_group: DU_LIEU_SO
