@@ -53,7 +53,7 @@ function ChipGoiY({ text, onPick, disabled }: { text: string; onPick: (t: string
       type="button"
       disabled={disabled}
       onClick={() => onPick(text)}
-      className="block w-full cursor-pointer rounded-lg border border-border bg-surface px-3 py-2 text-left text-xs text-ink-2 transition-colors hover:border-border-strong hover:text-ink disabled:cursor-not-allowed disabled:opacity-50"
+      className="block w-full cursor-pointer rounded-lg border border-border bg-sunk px-3 py-2 text-left text-xs text-ink-2 transition-colors hover:border-border-strong hover:text-ink disabled:cursor-not-allowed disabled:opacity-50"
     >
       {text}
     </button>
@@ -139,12 +139,13 @@ export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
     );
 
   return (
-    // Nền dùng bg-bg — ĐÚNG nền của nền tảng, không phải bg-surface. Khay nổi trên vùng nội dung
-    // chính (vốn là bg-bg); dùng surface làm cả tấm khay khiến nó sáng hơn hẳn trang và trông như
-    // một cửa sổ của ứng dụng khác. Chiều sâu tạo bằng viền + đổ bóng, không bằng đổi màu nền.
+    // Nền dùng bg-surface — đúng token dành cho panel/thẻ nổi, nên khay tách bạch khỏi vùng nội
+    // dung chính (vốn là bg-bg) thay vì chỉ dựa vào viền + đổ bóng. Hệ quả bắt buộc: mọi phần tử
+    // BÊN TRONG khay phải lùi xuống bg-sunk — nếu để bg-surface thì chúng trùng nền khay và biến
+    // mất (bong bóng trả lời, chip gợi ý, ô nhập).
     <aside
       ref={panelRef}
-      className="fixed bottom-0 right-0 z-30 flex h-[min(38rem,100dvh)] w-full flex-col border-l border-t border-border bg-bg shadow-2xl sm:bottom-4 sm:right-4 sm:h-[min(38rem,calc(100dvh-2rem))] sm:w-[24rem] sm:rounded-xl sm:border"
+      className="fixed bottom-0 right-0 z-30 flex h-[min(38rem,100dvh)] w-full flex-col border-l border-t border-border bg-surface shadow-2xl sm:bottom-4 sm:right-4 sm:h-[min(38rem,calc(100dvh-2rem))] sm:w-[24rem] sm:rounded-xl sm:border"
     >
       <header className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="min-w-0">
@@ -183,7 +184,7 @@ export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
               className={
                 m.role === "user"
                   ? "max-w-[85%] rounded-xl rounded-br-sm bg-accent-soft px-3 py-2 text-sm text-ink"
-                  : `max-w-full rounded-xl rounded-bl-sm border px-3 py-2 text-sm ${m.refused ? "border-warn-soft bg-warn-soft text-ink" : "border-border bg-surface text-ink"}`
+                  : `max-w-full rounded-xl rounded-bl-sm border px-3 py-2 text-sm ${m.refused ? "border-warn-soft bg-warn-soft text-ink" : "border-border bg-sunk text-ink"}`
               }
             >
               <p className="whitespace-pre-wrap">{m.role === "assistant" ? renderAnswer(m.content) : m.content}</p>
@@ -236,7 +237,7 @@ export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
             }}
             rows={2}
             placeholder="Hỏi về thủ tục, biểu mẫu, tiêu chuẩn…"
-            className="min-h-[2.5rem] flex-1 resize-none rounded-lg border border-border bg-surface px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-3 focus:border-border-strong"
+            className="min-h-[2.5rem] flex-1 resize-none rounded-lg border border-border bg-sunk px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-3 focus:border-border-strong"
           />
           <button
             type="submit"
