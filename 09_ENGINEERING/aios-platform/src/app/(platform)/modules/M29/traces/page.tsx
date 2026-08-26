@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import Link from "next/link";
 
 export default async function M29TracesPage() {
   const requests = await prisma.aIRequest.findMany({
@@ -23,7 +24,10 @@ export default async function M29TracesPage() {
               <span className="text-xs text-ink-3">{r.createdAt.toLocaleString("vi-VN")}</span>
             </div>
             <p className="mt-1 text-ink">
-              {r.agent?.name ?? "—"} · {r.model?.displayName ?? "—"} · {r.inputTokens + r.outputTokens} token · {r.latencyMs}ms
+              {r.agent?.name ?? "—"} · {r.model?.displayName ?? "—"} · {r.inputTokens.toLocaleString("vi-VN")} token vào · {r.outputTokens.toLocaleString("vi-VN")} token ra · {r.latencyMs}ms
+            </p>
+            <p className="mt-1 text-xs tabular-nums text-ink-2">
+              Chi phí ước tính: {new Intl.NumberFormat("vi-VN", { style: "currency", currency: r.costCurrency, minimumFractionDigits: 6, maximumFractionDigits: 6 }).format(r.estimatedCost)}
             </p>
             {r.toolCalls.map((tc) => (
               <p key={tc.id} className="mt-1 text-xs text-ink-2">
@@ -35,6 +39,10 @@ export default async function M29TracesPage() {
           </div>
         ))}
         {requests.length === 0 && <p className="rounded-xl border border-dashed border-border p-8 text-center text-sm text-ink-3">Chưa có Trace nào — gọi thử 1 Tool ở trang chi tiết Agent.</p>}
+      </div>
+      <div className="flex flex-wrap gap-4 text-sm">
+        <Link href="/modules/M29" className="text-accent hover:underline">← Tổng quan M29</Link>
+        <Link href="/modules/M29/usage" className="text-accent hover:underline">Tổng hợp token & chi phí →</Link>
       </div>
     </div>
   );

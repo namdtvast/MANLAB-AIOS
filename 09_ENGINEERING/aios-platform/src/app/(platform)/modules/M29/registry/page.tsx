@@ -6,6 +6,7 @@ import { ADAPTER_TYPES } from "@/lib/m29/adapters";
 import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
+import { ModelPricingForm } from "./ModelPricingForm";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -130,13 +131,30 @@ export default async function M29RegistryPage() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-2 font-head text-sm font-bold text-ink">Model</h2>
+          <h2 className="mb-2 font-head text-sm font-bold text-ink">Model và bảng giá token</h2>
           <ul className="flex flex-col gap-1.5 text-sm">
             {models.map((m) => (
               <li key={m.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
-                {m.displayName} <span className="text-xs text-ink-3">· {m.provider.name} · ${m.costPer1kTokens}/1K token</span>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span>{m.displayName} <span className="text-xs text-ink-3">· {m.provider.name}</span></span>
+                  <span className="text-xs tabular-nums text-ink-2">
+                    Vào {m.inputCostPerMillionTokens.toLocaleString("vi-VN")} · Ra {m.outputCostPerMillionTokens.toLocaleString("vi-VN")} {m.currency}/1M token
+                  </span>
+                </div>
+                {canWriteRegistry && (
+                  <ModelPricingForm
+                    model={{
+                      id: m.id,
+                      name: m.displayName,
+                      inputRate: m.inputCostPerMillionTokens,
+                      outputRate: m.outputCostPerMillionTokens,
+                      currency: m.currency,
+                    }}
+                  />
+                )}
               </li>
             ))}
+            {models.length === 0 && <li className="rounded-lg border border-dashed border-border p-6 text-center text-ink-3">Chưa có Model nào để thiết lập bảng giá.</li>}
           </ul>
         </div>
         <div className="sm:col-span-2">

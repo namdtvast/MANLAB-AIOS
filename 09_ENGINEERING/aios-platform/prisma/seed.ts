@@ -624,6 +624,9 @@ async function seedM29() {
       temperature: 0.2,
       maxTokens: 2048,
       costPer1kTokens: 0.0003,
+      inputCostPerMillionTokens: 0.3,
+      outputCostPerMillionTokens: 0.3,
+      pricingUpdatedAt: new Date(),
     },
   });
   const skill = await prisma.aISkill.create({
@@ -841,6 +844,9 @@ async function seedCopilot() {
         purpose: "Trợ lý tra cứu thủ tục, tiêu chuẩn, biểu mẫu (chỉ-đọc)",
         maxTokens: 4096,
         costPer1kTokens: 0.0075,
+        inputCostPerMillionTokens: 5,
+        outputCostPerMillionTokens: 25,
+        pricingUpdatedAt: new Date(),
       },
     }));
 
@@ -869,6 +875,9 @@ async function seedCopilot() {
         // Bậc miễn phí không tính phí — đổi lại là không có cam kết về dữ liệu. Đây chính là cái
         // giá thật của "miễn phí" trong ngữ cảnh ISO/IEC 42001, không phải 0.
         costPer1kTokens: 0,
+        inputCostPerMillionTokens: 0,
+        outputCostPerMillionTokens: 0,
+        pricingUpdatedAt: new Date(),
       },
     }));
   const platformGemini = await prisma.aIPlatform.upsert({
@@ -957,6 +966,9 @@ async function seedCopilot() {
         maxTokens: 4096,
         // Mô hình nội bộ không tính phí theo token; điện và khấu hao theo dõi ở ETV.P.F 33.01.
         costPer1kTokens: 0,
+        inputCostPerMillionTokens: 0,
+        outputCostPerMillionTokens: 0,
+        pricingUpdatedAt: new Date(),
       },
     });
 
