@@ -1,5 +1,5 @@
 # HDSD — hướng dẫn dùng module M21 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
-# trang /modules/M21 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+# trang /modules/M21 của aios-platform (mục "Hướng dẫn sử dụng").
 #
 # Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
 # parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.

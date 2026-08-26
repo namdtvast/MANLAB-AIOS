@@ -15,7 +15,7 @@ Khóa `purpose` + khối `document` + `forms` là nguồn dữ liệu cho khung 
 
 HDSD là hướng dẫn thao tác **trên màn hình** nên đặt ở tầng `05` (số hóa), không nằm trong khối `document` của thủ tục ở tầng `04`. Nội dung mỗi bước phải bám đúng luật đã cài trong `src/lib/mxx/rules.ts` và thủ tục `ETV.Pxx` — sửa quy tắc thì sửa thủ tục trước (MP14), rồi `rules.ts`, rồi HDSD.
 
-`prisma/seed.ts` đọc file này, kiểm tra bằng `parseHdsd()` (`src/lib/hdsd.ts`) rồi nạp vào `PlatformModule.hdsd` → mục "HDSD — Hướng dẫn sử dụng" trong `<CanCuBanner>`. Sai lược đồ thì **dừng seed** kèm tên file. Kiểm tra toàn bộ file mà không cần Postgres:
+`prisma/seed.ts` đọc file này, kiểm tra bằng `parseHdsd()` (`src/lib/hdsd.ts`) rồi nạp vào `PlatformModule.hdsd` → mục "Hướng dẫn sử dụng" trong `<CanCuBanner>`. Sai lược đồ thì **dừng seed** kèm tên file. Kiểm tra toàn bộ file mà không cần Postgres:
 
 ```bash
 cd 09_ENGINEERING/aios-platform && npm run kiem-tra-hdsd

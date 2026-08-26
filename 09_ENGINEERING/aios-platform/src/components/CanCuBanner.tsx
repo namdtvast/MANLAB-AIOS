@@ -189,7 +189,7 @@ export async function CanCuBanner({ moduleCode }: { moduleCode: string }) {
             <span aria-hidden className="text-ink-3 transition-transform group-open:rotate-90">
               ▸
             </span>
-            <span className="font-semibold text-accent">HDSD — Hướng dẫn sử dụng</span>
+            <span className="font-semibold text-accent">Hướng dẫn sử dụng</span>
             <span className="text-ink-3">· {hdsd.steps.length} bước</span>
             {hdsd.summary && <span className="text-ink-3">· {hdsd.summary}</span>}
           </summary>

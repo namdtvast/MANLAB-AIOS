@@ -425,7 +425,7 @@ thì mỗi biểu mẫu phải viết hai lần — với ~100 biểu mẫu củ
 
 Khung Căn cứ (Increment 15) trả lời "trang này chạy theo văn bản nào", nhưng không trả lời
 "tôi phải bấm gì trước, bấm gì sau, và ai làm bước nào". Người dùng mở một module lạ vẫn phải đi
-hỏi người khác. Increment này thêm mục **HDSD — Hướng dẫn sử dụng** vào chính khung đó, đi theo
+hỏi người khác. Increment này thêm mục **Hướng dẫn sử dụng** vào chính khung đó, đi theo
 đúng lối dữ liệu cũ:
 
 `05_MODULE_LIBRARY/Mxx_Slug/04_UI/HDSD.yaml` → `parseHdsd()` → `prisma/seed.ts` →
