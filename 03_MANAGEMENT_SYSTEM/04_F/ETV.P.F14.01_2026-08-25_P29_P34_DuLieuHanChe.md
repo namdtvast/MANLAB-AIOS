@@ -87,7 +87,7 @@ Việc sửa ở mục 3 **gỡ được mâu thuẫn**, nhưng để lại mộ
 
 Nếu LĐV muốn cho phép, đây là **một đề nghị riêng**, không gộp vào phiếu này, và phải:
 
-1. **Ban hành lại ETV.P28** (lần ban hành 02) sửa mục 5.13 — đây là thủ tục thuộc phạm vi ISO/IEC 27001, không sửa gọn được;
+1. **Ban hành lại ETV.P28** (lần ban hành 02) sửa mục 6.13 — đây là thủ tục thuộc phạm vi ISO/IEC 27001, không sửa gọn được;
 2. Phân định rõ **lập chỉ mục** (giữ cấm tuyệt đối, thống nhất ETV.P26) với **truy xuất trực tiếp theo từng lượt** (mở có điều kiện);
 3. Đặt điều kiện tối thiểu: nền tảng nội bộ đã phê duyệt theo ETV.P35 · LĐV phê duyệt mục đích, có ý kiến PT.ATTT · AIA đã phê duyệt · nhật ký nền tảng không ghi nội dung lời nhắc · mọi lượt ghi `AIRequest`;
 4. Có sẵn **kiểm soát kỹ thuật** trước khi bật: trần mức bảo mật **theo từng nền tảng** (hiện đang là biến toàn cục, nới lên sẽ nới cho **cả** dịch vụ bên ngoài) và phép thử nhật ký tại `ETV.GAI 01` Gate 3b.

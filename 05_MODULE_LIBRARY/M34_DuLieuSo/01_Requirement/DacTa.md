@@ -521,7 +521,7 @@ hồ sơ dữ liệu cho AI — theo `ETV.P29` · biên bản hủy — theo `ET
 Quy trình: **MP34** — thủ tục `ETV.P34_QuanLyDuLieuSo.md` (**dự thảo lần BH 01, Chờ soát xét**) ·
 Biểu mẫu: `ETV.P.F 34.01`–`34.03` (cùng trạng thái) · Năng lực: **CAP-28_ATTT** (dùng chung với
 MP27, MP28, MP31, MP33, MP37) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §10.3 và §7.11,
-`ETV.P35_QuanLyNenTangSo.md` mục 2.3, `ETV.P28_QuanLyAnToanThongTin.md` (mục 5.7.5, 5.7.9, 5.13),
+`ETV.P35_QuanLyNenTangSo.md` mục 2.3, `ETV.P28_QuanLyAnToanThongTin.md` (mục 6.7.5, 6.7.9, 6.13),
 `ETV.P26` mục 5.5, `ETV.P15` · Tiêu chuẩn: ISO 9001 §7.1.6, §7.5, §9.1; ISO/IEC 17025 §7.5, §7.11,
 §8.4; ISO 17034 §7.4; ISO/IEC 27001 §8.1, A.5.12–A.5.14, A.5.33, A.8.10–A.8.12; ISO/IEC 42001
 §7.4, §8.1, Phụ lục A · Pháp luật: Luật Giao dịch điện tử 20/2023/QH15, pháp luật hiện hành về bảo

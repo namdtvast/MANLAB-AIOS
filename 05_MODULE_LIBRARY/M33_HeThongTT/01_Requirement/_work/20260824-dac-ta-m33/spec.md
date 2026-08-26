@@ -17,7 +17,7 @@
 - `[FACT]` Không có `03_MANAGEMENT_SYSTEM/02_P/ETV.P33*` và không có `ETV.P.F33*`.
 - `[FACT]` `ETV.P35` (ban hành 24/08/2026) mục 1.4 giao cho **ETV.MP33**: "hạ tầng công nghệ thông
   tin, máy chủ, mạng, thiết bị đầu cuối, tài khoản người dùng"; M35 trỏ xuống bằng `infra_ref`.
-- `[FACT]` `ETV.P28` (ban hành 24/08/2026) mục 5.7.1–5.7.5 và 5.9 đặt ra các kiểm soát kỹ thuật bắt
+- `[FACT]` `ETV.P28` (ban hành 24/08/2026) mục 6.7.1–6.7.5 và 6.9 đặt ra các kiểm soát kỹ thuật bắt
   buộc; mục 5.7.2 yêu cầu thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)".
 - `[FACT]` M28 đã có đặc tả và **giữ `AccessRequest`/`AccessReview`** — thẩm quyền phê duyệt quyền
   truy cập thuộc M28, ba vai trò đề nghị/phê duyệt/thực hiện phải khác nhau (M28 quy tắc R18).

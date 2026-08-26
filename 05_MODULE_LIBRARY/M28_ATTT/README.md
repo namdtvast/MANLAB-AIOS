@@ -2,7 +2,7 @@
 
 | Đặc tả | Mô tả |
 |---|---|
-| Số hóa quy trình | **MP28** — `ETV.P28`, ban hành lần 01 ngày 24/08/2026 |
+| Số hóa quy trình | **MP28** — `ETV.P28`, ban hành lần 02 ngày 26/08/2026 |
 | Nguồn sự thật | [`01_Requirement/DacTa.md`](01_Requirement/DacTa.md) |
 | Đối tượng dữ liệu chính | `SecurityRisk` + `RiskTreatment` (rủi ro & RTP) · `SoAVersion` + `SoAControl` (Tuyên bố áp dụng, 93 kiểm soát) · `SecurityIncident` (sự cố) · `AccessRequest` + `AccessReview` (quyền truy cập) |
 | Biểu mẫu | ETV.P.F28.01 (rủi ro + RTP) · F28.02 (SoA) · F28.03 (sự cố) · F28.04 (quyền truy cập) |
