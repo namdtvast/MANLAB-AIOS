@@ -294,7 +294,7 @@ phê duyệt của **ETV.P02**, không lập biểu mẫu trùng.
 
 ## 8. Liên kết
 
-Quy trình: **MP27** (`ETV.P27` chưa ban hành) · Năng lực: **CAP-28_ATTT** (dùng chung với MP28,
+Quy trình: **MP27** (`ETV.P27`, ban hành lần 01 ngày 26/08/2026) · Năng lực: **CAP-28_ATTT** (dùng chung với MP28,
 MP31, MP33, MP34, MP37) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.4 và §7.11,
 `ETV.P02_BaoMat.md` §6.8–§6.10, `ETV.P15`, `ETV.P28_QuanLyAnToanThongTin.md` mục 6.3/6.7 (ban hành 26/08/2026) · Tiêu chuẩn: ISO/IEC 27001 §8.2 và A.5.9–A.5.14, A.8.10,
 A.8.13; ISO/IEC 17025 §7.11; ISO 9001 §7.5; ISO/IEC 42001 §7.4 · Pháp luật: **Nghị định

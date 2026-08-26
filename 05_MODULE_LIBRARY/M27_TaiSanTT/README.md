@@ -2,7 +2,7 @@
 
 | Đặc tả | Mô tả |
 |---|---|
-| Số hóa quy trình | MP27 (Thủ tục `ETV.P27` **chưa ban hành** — căn cứ hiện có: Sổ tay chất lượng §9.4, §7.11 và `ETV.P02` §6.8–§6.10) |
+| Số hóa quy trình | MP27 (Thủ tục `ETV.P27` **ban hành lần 01 ngày 26/08/2026** — kèm căn cứ: Sổ tay chất lượng §9.4, §7.11 và `ETV.P02` §6.8–§6.10) |
 | Đối tượng dữ liệu chính | Tài sản thông tin · Quy tắc xử lý theo mức phân loại · Chia sẻ dữ liệu · Biên bản hủy |
 | Trạng thái | Nháp → Chờ soát xét → Chờ phê duyệt → Đang sử dụng → Ngừng sử dụng → Đã hủy |
 | Vai trò | TP (chủ sở hữu tài sản) · QT hệ thống (quản lý kỹ thuật) · Phụ trách ATTT (soát xét) · LĐV (phê duyệt) · QLCL (danh mục, hồ sơ) |
