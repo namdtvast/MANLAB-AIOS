@@ -218,3 +218,92 @@ describe("Mọi lượt hỏi đều vào sổ (AC-03)", () => {
     expect(answer).toContain("Anthropic API");
   });
 });
+
+// Hạn mức chi phí (AIBudget) là chốt duy nhất ngăn tiền chảy ra ngoài dự toán. Trước khi tiếp
+// quản, phần này KHÔNG có ca test nào — trong khi nó quyết định có gọi nhà cung cấp hay không.
+// Chốt hỏng theo hướng fail-open thì không ai thấy cho tới lúc nhận hóa đơn.
+describe("Hạn mức chi phí tháng (AIBudget)", () => {
+  const hanMuc = (p: Partial<{ code: string; agentId: string | null; monthlyLimit: number }> = {}) => ({
+    code: p.code ?? "NS-M29-2026",
+    agentId: p.agentId === undefined ? null : p.agentId,
+    monthlyLimit: p.monthlyLimit ?? 10,
+  });
+  /** Một lượt đã tiêu `cost` USD, ghi bằng snapshot. */
+  const daTieu = (cost: number) => [{ inputTokens: 0, outputTokens: 0, estimatedCost: cost, inputUnitCostPerMillion: 0, outputUnitCostPerMillion: 0, model: null }];
+
+  it("hạn mức toàn cục bị vượt ⇒ chặn, KHÔNG gọi nhà cung cấp, vẫn ghi trace", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([hanMuc({ monthlyLimit: 10 })]);
+    prismaMock.aIRequest.findMany.mockResolvedValue(daTieu(12));
+
+    const r = await ask();
+
+    expect(r).toMatchObject({ ok: false, code: "QUOTA_EXCEEDED" });
+    expect(r.answer).toContain("NS-M29-2026");
+    expect(adapterChat).not.toHaveBeenCalled();
+    expect(prismaMock.aIRequest.create).toHaveBeenCalledTimes(1);
+  });
+
+  it("chưa chạm hạn mức ⇒ cho qua", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([hanMuc({ monthlyLimit: 10 })]);
+    prismaMock.aIRequest.findMany.mockResolvedValue(daTieu(9.99));
+    expect(await ask()).toMatchObject({ ok: true });
+  });
+
+  // Ranh giới hay bị viết nhầm thành ">": tiêu đúng bằng hạn mức là ĐÃ hết hạn mức.
+  it("chi tiêu BẰNG ĐÚNG hạn mức ⇒ chặn", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([hanMuc({ monthlyLimit: 10 })]);
+    prismaMock.aIRequest.findMany.mockResolvedValue(daTieu(10));
+    expect(await ask()).toMatchObject({ ok: false, code: "QUOTA_EXCEEDED" });
+  });
+
+  it("chỉ xét hạn mức ĐANG hiệu lực và có bật chặn — không để hạn mức 'chỉ cảnh báo' hay đã hết hiệu lực lọt vào", async () => {
+    await ask();
+    const dieuKien = prismaMock.aIBudget.findMany.mock.calls[0][0].where;
+    expect(dieuKien).toMatchObject({ status: "ACTIVE", blockAtLimit: true });
+    expect(dieuKien.effectiveFrom).toHaveProperty("lte");
+    // effectiveTo: hoặc chưa đặt, hoặc còn ở tương lai.
+    expect(JSON.stringify(dieuKien.OR)).toContain("effectiveTo");
+  });
+
+  it("chỉ xét hạn mức thuộc phạm vi: toàn cục hoặc đúng Agent này", async () => {
+    await ask();
+    const dieuKien = prismaMock.aIBudget.findMany.mock.calls[0][0].where;
+    expect(JSON.stringify(dieuKien.AND)).toContain("agent-copilot");
+    expect(JSON.stringify(dieuKien.AND)).toContain("null");
+  });
+
+  it("nhiều hạn mức cùng áp ⇒ nêu đúng mã hạn mức bị vượt", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([
+      hanMuc({ code: "NS-TOAN-VIEN", monthlyLimit: 1000 }),
+      hanMuc({ code: "NS-COPILOT", agentId: "agent-copilot", monthlyLimit: 5 }),
+    ]);
+    prismaMock.aIRequest.findMany.mockResolvedValue(daTieu(6));
+    const r = await ask();
+    expect(r).toMatchObject({ ok: false, code: "QUOTA_EXCEEDED" });
+    expect(r.answer).toContain("NS-COPILOT");
+  });
+
+  // Chi phí lịch sử phải đọc từ SNAPSHOT lúc gọi, không tính lại bằng bảng giá hôm nay — đổi giá
+  // nhà cung cấp không được làm chi tiêu quá khứ tự co giãn.
+  it("tính chi tiêu theo snapshot đã ghi, không tính lại theo bảng giá hiện tại", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([hanMuc({ monthlyLimit: 10 })]);
+    prismaMock.aIRequest.findMany.mockResolvedValue([
+      {
+        inputTokens: 1_000_000,
+        outputTokens: 1_000_000,
+        estimatedCost: 11, // snapshot: đã vượt
+        inputUnitCostPerMillion: 5,
+        outputUnitCostPerMillion: 6,
+        model: { costPer1kTokens: 0, inputCostPerMillionTokens: 0, outputCostPerMillionTokens: 0, currency: "USD" },
+      },
+    ]);
+    // Nếu tính lại theo bảng giá model hiện tại (0/0) thì ra 0 và sẽ KHÔNG chặn.
+    expect(await ask()).toMatchObject({ ok: false, code: "QUOTA_EXCEEDED" });
+  });
+
+  it("không có hạn mức nào và không đặt biến môi trường ⇒ không chặn theo chi phí", async () => {
+    prismaMock.aIBudget.findMany.mockResolvedValue([]);
+    prismaMock.aIRequest.findMany.mockResolvedValue(daTieu(1_000_000));
+    expect(await ask()).toMatchObject({ ok: true });
+  });
+});

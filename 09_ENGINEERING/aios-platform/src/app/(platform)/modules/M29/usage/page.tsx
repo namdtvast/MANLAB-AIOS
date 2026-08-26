@@ -82,7 +82,7 @@ export default async function M29UsagePage() {
           <table className="w-full min-w-[52rem] text-sm">
             <thead><tr><th className={thCls}>Ngày</th><th className={thCls}>Agent</th><th className={thCls}>Model</th><th className={`${thCls} text-right`}>Lượt</th><th className={`${thCls} text-right`}>Token vào</th><th className={`${thCls} text-right`}>Token ra</th><th className={`${thCls} text-right`}>Chi phí</th></tr></thead>
             <tbody>
-              {rows.map((r) => <tr key={`${r.date}-${r.agentId}-${r.modelId}`} className="border-b border-border last:border-0 hover:bg-sunk">
+              {rows.map((r) => <tr key={`${r.date}-${r.platformId}-${r.agentId}-${r.modelId}`} className="border-b border-border last:border-0 hover:bg-sunk">
                 <td className="px-3 py-2.5 tabular-nums text-ink">{new Date(`${r.date}T00:00:00Z`).toLocaleDateString("vi-VN")}</td>
                 <td className="px-3 py-2.5 text-ink">{r.agentName}</td><td className="px-3 py-2.5 text-ink-2">{r.modelName}</td>
                 <td className="px-3 py-2.5 text-right tabular-nums text-ink">{r.requestCount.toLocaleString("vi-VN")}</td>
