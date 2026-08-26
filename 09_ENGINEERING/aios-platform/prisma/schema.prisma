@@ -155,6 +155,21 @@ model User {
   m34SharingApproved     M34SharingRequest[]     @relation("M34SharingApproved")
   m34AIApproved          M34AIDataApproval[]     @relation("M34AIApproved")
   m34AuditEntries        M34AuditEntry[]
+
+  m33AssetUserOwner    M33ITAsset[]               @relation("M33AssetUserOwner")
+  m33AssetCustodian    M33ITAsset[]               @relation("M33AssetCustodian")
+  m33AssetCreated      M33ITAsset[]               @relation("M33AssetCreated")
+  m33AssetApproved     M33ITAsset[]               @relation("M33AssetApproved")
+  m33PlanCreated       M33MaintenancePlan[]       @relation("M33PlanCreated")
+  m33PlanApproved      M33MaintenancePlan[]       @relation("M33PlanApproved")
+  m33TaskCreated       M33MaintenanceTask[]       @relation("M33TaskCreated")
+  m33TaskPerformed     M33MaintenanceTask[]       @relation("M33TaskPerformed")
+  m33TaskAccepted      M33MaintenanceTask[]       @relation("M33TaskAccepted")
+  m33AccountHeld       M33SystemAccount[]         @relation("M33AccountHolder")
+  m33ReconPerformed    M33AccountReconciliation[] @relation("M33ReconPerformed")
+  m33IncidentReported  M33ITIncident[]            @relation("M33IncidentReported")
+  m33IncidentAssigned  M33ITIncident[]            @relation("M33IncidentAssigned")
+  m33AuditEntries      M33AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -3626,6 +3641,474 @@ model M34AIDataApproval {
 model M34AuditEntry {
   id       String      @id @default(cuid())
   itemType M34ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([itemType, itemId])
+}
+
+// ---------- M33 — Quản lý hệ thống thông tin ----------
+// Nguồn: Thủ tục ETV.P33 (DỰ THẢO lần BH 01, Chờ soát xét) + 05_MODULE_LIBRARY/M33_HeThongTT/
+// 01_Requirement/DacTa.md (nguồn sự thật, 22 quy tắc R1–R22) và 03_Database/DataModel.md.
+// Nguyên tắc xuyên suốt: không có DELETE trên M33ITAsset/M33SystemAccount — thiết bị có thể rời
+// Viện, bản ghi kiểm kê thì không; mã tài sản không bao giờ cấp lại (R22); schema KHÔNG có cột nào
+// lưu bí mật xác thực — chỉ nơi lưu + người cấp phát (R7, ETV.P33 Phụ lục I.1 điều kiện 7).
+
+enum M33AssetClass {
+  MAY_CHU // vật lý/ảo
+  THIET_BI_MANG // switch, router, firewall, access point
+  MAY_TRAM // máy trạm – máy tính xách tay
+  THIET_BI_DI_DONG
+  MAY_TINH_DIEU_KHIEN_DO // máy tính điều khiển – thu thập dữ liệu của thiết bị đo (vùng đặc biệt R4)
+  THIET_BI_LUU_TRU // NAS, ổ cứng ngoài, băng từ
+  THIET_BI_NGOAI_VI // máy in, máy quét, UPS
+  PHAN_MEM_BAN_QUYEN
+  DICH_VU_THUE_NGOAI // đám mây, hosting, email, tên miền, chứng thư số máy chủ
+  THIET_BI_KY_SO // USB token
+}
+
+enum M33NetworkZone {
+  QUAN_TRI_VAN_PHONG
+  THIET_BI_DO // vùng thiết bị đo và hệ thống thu thập dữ liệu
+  KHACH_WIFI
+  KHONG_NOI_MANG
+}
+
+enum M33Environment {
+  VAN_HANH
+  KIEM_THU
+  PHAT_TRIEN
+}
+
+enum M33Criticality {
+  THAP
+  TRUNG_BINH
+  CAO // bắt buộc RTO + failover + ≥1 rủi ro; rà soát ≤ 1 năm (ETV.P33 §6.1.3)
+}
+
+enum M33DiscoverySource {
+  KIEM_KE_KY_DAU
+  MUA_SAM_MOI
+  PHAT_HIEN_CHUA_KIEM_KE // R17 — hạn đưa vào vận hành 30 ngày
+}
+
+enum M33AssetStatus {
+  DRAFT
+  PENDING_REVIEW
+  REVIEW_REJECTED
+  PENDING_APPROVAL
+  APPROVAL_REJECTED
+  OPERATING // Đang vận hành
+  SUSPENDED // Tạm ngừng (bảo trì lớn/sự cố)
+  RETIRED // Ngừng vận hành — chưa thanh lý, dữ liệu chưa xử lý xong
+  DISPOSED // Đã thanh lý — bản ghi kiểm kê vẫn giữ, mã không cấp lại
+  CANCELLED // Hủy bản ghi (khai báo sai/trùng, trước phê duyệt)
+}
+
+enum M33MaintenanceCycle {
+  THANG
+  QUY
+  SAU_THANG
+  NAM
+  THEO_KHUYEN_CAO_HANG
+}
+
+enum M33MaintenanceType {
+  BAO_TRI_DINH_KY // bắt buộc thuộc kế hoạch năm đã phê duyệt (R19)
+  VA_LOI_BAO_MAT // bắt buộc severity — mốc 07/30/90 ngày (§6.3.3)
+  CAP_NHAT_PHIEN_BAN
+  SUA_CHUA_SU_CO
+  SAO_LUU_KIEM_TRA_KHOI_PHUC // phối hợp M27
+  THAY_THE_LINH_KIEN
+}
+
+enum M33Severity {
+  NGHIEM_TRONG // 07 ngày; chưa vá được ⇒ giảm thiểu tạm thời trong 48 giờ
+  CAO // 30 ngày
+  TRUNG_BINH // 90 ngày
+  THAP // theo chu kỳ bảo trì kế tiếp
+}
+
+enum M33TaskResult {
+  THANH_CONG
+  THAT_BAI
+  HOAN
+}
+
+enum M33TaskStatus {
+  KE_HOACH
+  DANG_THUC_HIEN
+  CHO_NGHIEM_THU // bắt buộc đi qua — không có đường thẳng sang Hoàn thành (R15)
+  HOAN_THANH
+  HUY
+}
+
+enum M33PlanStatus {
+  DRAFT
+  CHO_PHE_DUYET
+  DA_PHE_DUYET
+  THAY_THE
+}
+
+enum M33AccountType {
+  CA_NHAN_DINH_DANH
+  DAC_QUYEN_QUAN_TRI // bắt buộc MFA
+  DICH_VU_HE_THONG
+  BEN_THU_BA
+  DUNG_CHUNG_NGOAI_LE // bắt buộc sharedApprovalRef
+}
+
+enum M33AccountStatus {
+  DANG_HOAT_DONG
+  TAM_KHOA
+  DA_THU_HOI
+}
+
+enum M33ReconScope {
+  TOAN_BO // 06 tháng/lần
+  DAC_QUYEN_DICH_VU // ≥ 02 lần/năm, trình LĐV
+}
+
+enum M33ReconStatus {
+  DANG_THUC_HIEN
+  DA_CHOT // bất biến, lưu 05 năm
+}
+
+enum M33IncidentKind {
+  SU_CO
+  YEU_CAU_HO_TRO
+}
+
+enum M33Impact {
+  NGUNG_TOAN_VIEN
+  NGUNG_MOT_PHONG
+  ANH_HUONG_MOT_NGUOI
+  KHONG_ANH_HUONG
+}
+
+enum M33Priority {
+  CAO // phản hồi ngay, báo LĐV trong 01 giờ; xử lý theo RTO
+  TRUNG_BINH // phản hồi 04 giờ làm việc; xử lý 02 ngày làm việc
+  THAP // phản hồi 01 ngày làm việc; xử lý 05 ngày làm việc
+}
+
+enum M33IncidentStatus {
+  MOI
+  DANG_XU_LY
+  CHO_BEN_THU_BA
+  DA_XU_LY
+  DA_DONG
+  HUY
+}
+
+enum M33ItemType {
+  ASSET
+  PLAN
+  TASK
+  ACCOUNT
+  RECONCILIATION
+  INCIDENT
+}
+
+model M33ITAsset {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "HT-2026-0001" — cấp một lần, không đổi, không cấp lại (R22)
+
+  name       String
+  assetClass M33AssetClass
+  model      String?
+  serial     String? @unique // nhận dạng duy nhất thiết bị vật lý
+
+  networkZone M33NetworkZone?
+  environment M33Environment  @default(VAN_HANH)
+  location    String
+
+  userOwnerId String // người/đơn vị sử dụng — R1, NOT NULL ngay khi lưu
+  custodianId String // QTHT quản trị kỹ thuật — R1
+
+  criticality M33Criticality @default(THAP)
+
+  platformRefs       String[] // → M35 (ref mềm) — dịch vụ thuê ngoài đồng thời là nền tảng (R2b)
+  infoAssetRefs      String[] // → M27
+  measuringDeviceRef String? // → M05 — bắt buộc khi assetClass = MAY_TINH_DIEU_KHIEN_DO (R4)
+
+  maxClassification      Classification @default(NOI_BO) // thang dùng chung ETV.P02/P27/P28
+  diskEncryption         Boolean        @default(false) // bắt buộc khi Hạn chế/Mật (R3)
+  screenLock             Boolean?
+  antimalware            Boolean?
+  defaultPasswordChanged Boolean?
+  unusedServicesClosed   Boolean?
+
+  osVersion     String?
+  patchLevel    String?
+  lastPatchedAt DateTime?
+
+  commissionedAt    DateTime? // ngày đưa vào vận hành
+  handoverRecordRef String? // biên bản bàn giao thiết bị
+
+  isPersonalDevice Boolean @default(false) // BYOD — mục 4.5
+  byodApprovalRef  String? // phê duyệt LĐV khi BYOD xử lý Hạn chế/Mật
+
+  licenseType            String?
+  licenseExpiry          DateTime?
+  warrantyUntil          DateTime?
+  maintenanceContractRef String? // → M07
+  eolDate                DateTime?
+  replacementPlan        String? // kế hoạch thay thế có mốc thời gian — R11
+
+  maintenanceCycle M33MaintenanceCycle @default(NAM)
+  lastMaintainedAt DateTime?
+
+  recoveryTimeObjective String? // bắt buộc khi criticality = CAO
+  failoverPlan          String? // bắt buộc khi criticality = CAO — Phụ lục I.1 điều kiện 5
+  riskRefs              String[] // → M28/M01 — bắt buộc khi Cao hoặc EOL còn vận hành (R11)
+
+  reviewCycleMonths Int       @default(12) // Cao ⇒ ≤ 12 (§6.1.3)
+  lastReviewedAt    DateTime?
+
+  discoverySource M33DiscoverySource @default(KIEM_KE_KY_DAU)
+  inventoryDueAt  DateTime? // chỉ khi PHAT_HIEN_CHUA_KIEM_KE: ngày lập + 30 ngày (R17)
+  networkIsolated Boolean            @default(false) // đã ngắt khỏi mạng do không đạt cấu hình cơ sở (§6.7)
+
+  status M33AssetStatus @default(DRAFT)
+  reason String? // lý do trả lại/tạm ngừng/ngừng/thanh lý/hủy gần nhất
+
+  disposalEvidenceRef String? // bằng chứng xóa dữ liệu an toàn ← M27 — điều kiện thanh lý (R10)
+
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userOwner  User  @relation("M33AssetUserOwner", fields: [userOwnerId], references: [id])
+  custodian  User  @relation("M33AssetCustodian", fields: [custodianId], references: [id])
+  createdBy  User  @relation("M33AssetCreated", fields: [createdById], references: [id])
+  approvedBy User? @relation("M33AssetApproved", fields: [approvedById], references: [id])
+
+  tasks     M33MaintenanceTask[]
+  plans     M33MaintenancePlan[]
+  accounts  M33SystemAccount[]
+  incidents M33ITIncident[]
+
+  @@index([status, assetClass])
+  @@index([eolDate])
+  @@index([licenseExpiry])
+  @@index([warrantyUntil])
+  @@index([lastMaintainedAt])
+  @@index([lastReviewedAt])
+  @@index([inventoryDueAt])
+}
+
+model M33MaintenancePlan {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KHBT-2027"
+
+  year          Int
+  downtimeNeeds String? // nhu cầu ngừng dịch vụ (§6.3.1)
+  resourceNeeds String?
+
+  status M33PlanStatus @default(DRAFT)
+  reason String?
+
+  createdById  String
+  approvedById String? // LĐV — trước khi bắt đầu năm kế hoạch; ≠ createdBy (R19)
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdBy  User  @relation("M33PlanCreated", fields: [createdById], references: [id])
+  approvedBy User? @relation("M33PlanApproved", fields: [approvedById], references: [id])
+
+  scopeAssets M33ITAsset[] // tài sản có hệ điều hành/phần mềm nền thuộc phạm vi
+  tasks       M33MaintenanceTask[]
+}
+
+model M33MaintenanceTask {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "BT-2026-0001"
+
+  taskType M33MaintenanceType
+  severity M33Severity? // bắt buộc khi VA_LOI_BAO_MAT — quyết định mốc 07/30/90 ngày
+
+  plannedAt DateTime?
+  dueAt     DateTime?
+
+  planId               String? // bắt buộc khi BAO_TRI_DINH_KY (R19)
+  changeRef            String? // phiếu F30.02 ← M30 — bắt buộc khi thay đổi cấu hình ngoài định kỳ (R5)
+  impactAssessmentRef  String? // đánh giá ảnh hưởng ATTT ← M28 — bắt buộc khi có changeRef (R5)
+  measurementImpactRef String? // ← M10 — bắt buộc với máy tính điều khiển thiết bị đo (R4)
+  methodImpactRef      String? // ← M08 khi chạm phương pháp (§6.3.4)
+  emergencyOrderRef    String? // lệnh LĐV khẩn cấp — KHÔNG miễn changeRef hồi tố (Phụ lục I.2)
+
+  userNotifiedAt DateTime? // thông báo trước khi gây gián đoạn (§6.3.2 bước 3)
+
+  performedById String?
+  performedAt   DateTime?
+  result        M33TaskResult?
+  evidenceRef   String? // nhật ký công việc, ảnh, kết quả kiểm tra, phiên bản sau cập nhật
+
+  acceptedById String? // TP hoặc QTHT KHÁC người thực hiện — R15
+  acceptedAt   DateTime?
+
+  postCheckResult String? // bắt buộc với máy tính điều khiển thiết bị đo sau khi áp dụng (§6.3.4)
+  downtimeMinutes Int?
+
+  status M33TaskStatus @default(KE_HOACH)
+  reason String?
+
+  createdById String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdBy   User  @relation("M33TaskCreated", fields: [createdById], references: [id])
+  performedBy User? @relation("M33TaskPerformed", fields: [performedById], references: [id])
+  acceptedBy  User? @relation("M33TaskAccepted", fields: [acceptedById], references: [id])
+
+  plan   M33MaintenancePlan? @relation(fields: [planId], references: [id])
+  assets M33ITAsset[] // ≥ 1 — kiểm ở rules
+
+  @@index([status, dueAt])
+}
+
+model M33SystemAccount {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "TK-2026-0001"
+
+  assetId     String? // tài khoản tồn tại trên tài sản nào…
+  platformRef String? // …hoặc nền tảng nào (→ M35) — một trong hai, kiểm ở rules
+
+  loginName   String
+  accountType M33AccountType
+  holderId    String? // bắt buộc khi ≠ DICH_VU_HE_THONG
+  holderNote  String? // bên thứ ba không có tài khoản User
+
+  accessRequestRef String // phiếu F28.04 đã phê duyệt ở M28 — R6, NOT NULL
+  grantedAt        DateTime
+
+  // R7 — chỉ NƠI LƯU và NGƯỜI CẤP PHÁT; schema không có cột giá trị bí mật
+  secretLocation String
+  secretIssuer   String
+
+  mfaEnabled Boolean   @default(false) // bắt buộc với đặc quyền, truy cập từ xa, hệ chứa Hạn chế/Mật
+  validUntil DateTime?
+
+  sharedApprovalRef String? // bắt buộc khi DUNG_CHUNG_NGOAI_LE
+  lastReviewRef     String? // kỳ rà soát quyền gần nhất bên M28
+
+  hrEventRef      String? // ← M03 — biến động nhân sự
+  revocationDueAt DateTime? // = cuối ngày làm việc phát sinh sự kiện (R16)
+  revokedAt       DateTime?
+
+  status M33AccountStatus @default(DANG_HOAT_DONG)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  holder User?       @relation("M33AccountHolder", fields: [holderId], references: [id])
+  asset  M33ITAsset? @relation(fields: [assetId], references: [id])
+
+  @@index([status, revocationDueAt])
+  @@index([validUntil])
+}
+
+model M33AccountReconciliation {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "KYDC-2026-0001"
+
+  period String // vd "2026-H1"
+  scope  M33ReconScope
+
+  // Bốn nhóm bất thường — SNAPSHOT tại thời điểm chốt, không tính lại (R20)
+  orphanAccountIds  String[] // tài khoản không có phiếu
+  orphanRequestRefs String[] // phiếu không có tài khoản
+  expiredAccountIds String[] // quá validUntil
+  mfaMissingIds     String[] // đặc quyền thiếu MFA
+
+  performedById    String
+  reviewedById     String? // PT.ATTT — kỳ đặc quyền/dịch vụ (§6.4.2 bước 5)
+  submittedToLdvAt DateTime? // bắt buộc khi scope = DAC_QUYEN_DICH_VU (R20)
+
+  status   M33ReconStatus @default(DANG_THUC_HIEN)
+  closedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  performedBy User @relation("M33ReconPerformed", fields: [performedById], references: [id])
+
+  @@unique([period, scope])
+}
+
+model M33ITIncident {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // vd "SC-2026-0001"
+
+  kind        M33IncidentKind
+  reportedById String
+  reportedAt  DateTime        @default(now())
+  description String
+
+  impact   M33Impact
+  priority M33Priority // tự tính theo bảng 4.6 + 3 điều kiện nâng bắt buộc lên Cao
+
+  responseDueAt    DateTime?
+  respondedAt      DateTime?
+  resolutionDueAt  DateTime?
+  escalatedToLdvAt DateTime? // priority CAO: trong 01 giờ (R18)
+
+  securityFlag        Boolean @default(false)
+  securityIncidentRef String? // → M28 (F28.03) — bắt buộc khi securityFlag; chặn đóng khi M28 chưa kết luận (R9)
+  securityConcluded   Boolean @default(false) // M28 đã kết luận — điều kiện mở khóa đóng phiếu
+  platformIncidentRef String? // → M35 (F35.03)
+  measurementImpactRef String? // → M10/M11 — dừng sử dụng kết quả liên quan (§6.5.3)
+  continuityRef       String? // → M31 khi gián đoạn vượt ngưỡng
+  capaRef             String? // → M13 — bắt buộc khi lặp ≥ 3 lần/90 ngày (R9)
+  lessonRef           String? // → M26 — hoặc noLessonReason khi đóng (§6.5.4)
+  noLessonReason      String?
+  maintenanceRef      String? // công việc sửa chữa phát sinh
+
+  assignedToId String?
+
+  rootCause         String?
+  resolution        String?
+  assetBackToNormal Boolean?
+
+  status M33IncidentStatus @default(MOI)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reportedBy User  @relation("M33IncidentReported", fields: [reportedById], references: [id])
+  assignedTo User? @relation("M33IncidentAssigned", fields: [assignedToId], references: [id])
+
+  assets M33ITAsset[] // ≥ 1 — kiểm ở rules
+
+  @@index([status, priority])
+  @@index([responseDueAt])
+}
+
+model M33AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M33ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String

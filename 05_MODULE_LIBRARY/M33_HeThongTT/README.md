@@ -9,7 +9,7 @@
 | Phạm vi | **Hạ tầng CNTT**: máy chủ, mạng, thiết bị đầu cuối, phần mềm – bản quyền, dịch vụ thuê ngoài, tài khoản người dùng (ETV.P35 mục 2.3 giao cho ETV.P33) |
 | Liên thông | → M35 (`infra_ref`), M27 (`system_ref`), M28, M31, M10/M11, M13, M26, M01, M03, M17 · ← M28 (phiếu F28.04), M30 (F30.02), M27 (biên bản xóa dữ liệu), M06/M07, M03, M05, M08 |
 | Nguyên tắc | Không phê duyệt quyền truy cập (M28 giữ) · không lưu bí mật xác thực · người nghiệm thu bảo trì ≠ người thực hiện · không thiết bị nào rời Viện khi chưa xóa dữ liệu an toàn · mã tài sản không bao giờ cấp lại |
-| Triển khai | **Chưa xây** — đã đủ tầng đặc tả (yêu cầu, API, dữ liệu, màn hình, đầu ra, bảng điều khiển, trạng thái); chờ `ETV.P33` được phê duyệt theo MP14 trước khi BUILD |
+| Triển khai | **Đã xây nguyên mẫu trên `09_ENGINEERING/aios-platform`** (26/08/2026): schema `M33*` + gate R1–R22 (`src/lib/m33/rules.ts`, 32 test) + 11 trang `/modules/M33…` + seed demo. Xây theo **dự thảo** `ETV.P33` (Chờ soát xét) theo lệnh chủ sở hữu repo — giá trị định lượng trong gate sửa theo khi thủ tục được phê duyệt MP14 |
 | Nhật ký | Mọi thao tác ghi vết; nhật ký module không thay thế nhật ký hệ thống (ETV.P28 mục 5.7.5) |
 
 ## Tầng đặc tả
@@ -23,4 +23,4 @@
 | `05_Report` | `Outputs.md` | Biểu mẫu xuất, báo cáo 06 tháng, thời hạn lưu hồ sơ |
 | `06_Dashboard` | `Dashboard.md` | 14 chỉ số bám tám nội dung báo cáo ETV.P33 §6.9 |
 | `07_Workflow` | `StateMachine.md` | Bảng trạng thái và thẩm quyền thao tác |
-| `08_Source` | *(trống)* | Chưa xây |
+| `08_Source` | *(xem `09_ENGINEERING/aios-platform`)* | Mã thật trên nền tảng hợp nhất: `prisma/schema.prisma` (khối M33), `src/lib/m33/`, `src/app/(platform)/modules/M33/` |
