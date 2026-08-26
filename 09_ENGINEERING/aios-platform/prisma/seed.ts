@@ -55,7 +55,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
 // M25 xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md (chưa có ETV.P25).
 // M27 xây từ ETV.P27 (lần BH 01, ban hành 26/08/2026) — danh mục tài sản thông tin.
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M27", "M29", "M33", "M34"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M27", "M28", "M29", "M33", "M34"]);
 
 interface MpManifest {
   name?: string;
@@ -329,6 +329,7 @@ async function main() {
   await seedM34();
   await seedM33();
   await seedM27();
+  await seedM28();
 
   baoCaoMatKhauDemo();
 }
@@ -3977,4 +3978,304 @@ async function seedM27() {
       lastReviewedAt: thang(1),
     },
   });
+}
+
+// ===========================================================================
+// M28 — Quản lý an toàn thông tin (ISMS).
+// Nguồn: ETV.P28 (lần BH 02, ban hành 26/08/2026) + biểu mẫu F28.01–F28.04.
+// Rủi ro mẫu gắn với mã tài sản THẬT do seedM27 tạo — đúng ràng buộc R1.
+// ===========================================================================
+
+const M28_DEMO_USERS = [
+  { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "TP" },
+  { email: "qtht@manlab.vn", name: "Đỗ A. (QTHT)", role: "QTHT" },
+  { email: "attt@manlab.vn", name: "Vũ B. (PT.ATTT)", role: "ATTT" },
+  { email: "qlcl@manlab.vn", name: "Phạm Q. (QLCL)", role: "QLCL" },
+  { email: "ldv@manlab.vn", name: "Lê Văn V. (LĐV)", role: "LDV" },
+] as const;
+
+/// 93 mã kiểm soát của Phụ lục A ISO/IEC 27001:2022 — A.5 (37) · A.6 (8) · A.7 (14) · A.8 (34).
+/// CỐ Ý chỉ sinh MÃ, không kèm tên và diễn giải: chép nội dung tiêu chuẩn có bản quyền vào cơ sở
+/// dữ liệu bị chính ETV.P28 mục 6.6 cấm. Tên tra ở bản ISO lưu tại kho tri thức (ETV.P26).
+function annexAControlCodes(): { controlCode: string; theme: string }[] {
+  const groups: [string, number][] = [
+    ["A.5", 37],
+    ["A.6", 8],
+    ["A.7", 14],
+    ["A.8", 34],
+  ];
+  const out: { controlCode: string; theme: string }[] = [];
+  for (const [theme, count] of groups) {
+    for (let i = 1; i <= count; i++) out.push({ controlCode: `${theme}.${i}`, theme });
+  }
+  return out;
+}
+
+async function seedM28() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+  for (const u of M28_DEMO_USERS) {
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    userByRole[u.role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M28", role: u.role } },
+      create: { userId: user.id, moduleCode: "M28", role: u.role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m28SecurityRisk.count();
+  if (existing > 0) return; // idempotent thô: chỉ seed lần đầu
+
+  const codes = annexAControlCodes();
+
+  // Tuyên bố áp dụng phiên bản 1 — đã được LĐV phê duyệt, đủ 93 dòng.
+  await prisma.m28SoAVersion.create({
+    data: {
+      version: 1,
+      status: "DA_PHE_DUYET",
+      effectiveDate: new Date("2026-08-26"),
+      approvedById: userByRole.LDV.id,
+      approvedAt: new Date("2026-08-26"),
+      scopeOrganization: "Toàn bộ các phòng chuyên môn và bộ phận hỗ trợ của Viện ETV.",
+      scopeLocation: "Trụ sở, phòng thử nghiệm, kho mẫu, hiện trường và làm việc từ xa.",
+      scopeInformation:
+        "Nhóm thông tin theo danh mục tài sản của ETV.P27: dữ liệu khách hàng, dữ liệu kết quả đo, dữ liệu nhân sự, dữ liệu hệ thống quản lý.",
+      scopeSystems:
+        "Nền tảng ManLab, thư điện tử công vụ, kho dữ liệu dùng chung, phần mềm điều khiển thiết bị đo, hạ tầng mạng.",
+      scopeInterfaces:
+        "Dịch vụ do bên thứ ba cung cấp, kết nối tới cơ quan quản lý nhà nước và tổ chức công nhận.",
+      scopeExclusions: null,
+      controls: {
+        create: codes.map((c, idx) => ({
+          controlCode: c.controlCode,
+          theme: c.theme,
+          // Mẫu: phần lớn Áp dụng; ba kiểm soát để Loại trừ CÓ lý do để minh hoạ R7, và một số
+          // kiểm soát chưa có bằng chứng đã quá hạn cam kết để minh hoạ R9.
+          applicable: ![90, 91, 92].includes(idx),
+          justification: ![90, 91, 92].includes(idx)
+            ? "Yêu cầu của tiêu chuẩn và rủi ro tương ứng trong hồ sơ F28.01."
+            : null,
+          exclusionReason: [90, 91, 92].includes(idx)
+            ? "Viện không tự phát triển phần mềm nghiệp vụ; hoạt động lập trình do đối tác thực hiện theo hợp đồng, kiểm soát qua ETV.P06."
+            : null,
+          implementation: ![90, 91, 92].includes(idx) ? "Thực thi theo ETV.P28 mục 6.7 và các thủ tục liên quan." : null,
+          implementationStatus: idx < 70 ? "DA_THUC_HIEN" : idx < 88 ? "DANG_THUC_HIEN" : "CHUA_THUC_HIEN",
+          evidenceRefs: idx < 70 ? [`HS-ATTT-2026-${String(idx + 1).padStart(3, "0")}`] : [],
+          evidenceDueAt: idx >= 70 && idx < 76 ? new Date("2026-07-15") : null,
+        })),
+      },
+    },
+  });
+
+  const thang = (n: number) => {
+    const d = new Date();
+    d.setMonth(d.getMonth() - n);
+    return d;
+  };
+  const thangToi = (n: number) => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + n);
+    return d;
+  };
+
+  // 1) Rủi ro mức Cao, đang xử lý, còn hạng mục chưa xác nhận hiệu lực (minh hoạ R6).
+  const r1 = await prisma.m28SecurityRisk.create({
+    data: {
+      code: "RR-ATTT-2026-001",
+      title: "Lộ lọt dữ liệu kết quả đo qua thư điện tử gửi nhầm người nhận",
+      assetRefs: ["TS-2026-001"],
+      classification: "HAN_CHE",
+      threat: "Người dùng gửi nhầm địa chỉ ngoài miền của Viện",
+      vulnerability: "Chưa bật cảnh báo khi gửi thư ra ngoài miền; chưa mã hoá tệp đính kèm",
+      existingControls: "Đào tạo nhận thức hằng năm",
+      impactC: 4,
+      impactI: 2,
+      impactA: 1,
+      likelihood: 4,
+      impact: 4,
+      riskScore: 16,
+      treatmentOption: "GIAM_THIEU",
+      soaControlRefs: ["A.5.14", "A.8.24"],
+      ownerId: userByRole.TP.id,
+      bcpInput: false,
+      lastAssessedAt: thang(2),
+      status: "DANG_XU_LY",
+      createdById: userByRole.ATTT.id,
+      reviewedById: userByRole.QLCL.id,
+      reviewedAt: thang(2),
+      approvedById: userByRole.LDV.id,
+      approvedAt: thang(2),
+      treatments: {
+        create: [
+          {
+            measure: "Bật cảnh báo gửi thư ra ngoài miền và chặn đính kèm chưa mã hoá",
+            soaControlRef: "A.8.24",
+            responsibleId: userByRole.QTHT.id,
+            dueAt: thangToi(2),
+            verificationMethod: "Thử nghiệm gửi thư ra ngoài miền và kiểm tra nhật ký",
+            status: "DANG_THUC_HIEN",
+          },
+        ],
+      },
+    },
+  });
+
+  // 2) Rủi ro mức Rất cao, có khống chế tạm thời, tác động sẵn sàng = 5 ⇒ đầu vào bắt buộc ETV.P31.
+  await prisma.m28SecurityRisk.create({
+    data: {
+      code: "RR-ATTT-2026-002",
+      title: "Mã hoá tống tiền làm mất khả năng truy cập kho tài liệu hệ thống quản lý",
+      assetRefs: ["TS-2026-003"],
+      classification: "NOI_BO",
+      threat: "Mã độc tống tiền lây qua thiết bị đầu cuối",
+      vulnerability: "Sao lưu chưa được kiểm chứng phục hồi định kỳ",
+      impactC: 3,
+      impactI: 5,
+      impactA: 5,
+      likelihood: 4,
+      impact: 5,
+      riskScore: 20,
+      treatmentOption: "GIAM_THIEU",
+      soaControlRefs: ["A.8.13", "A.8.7"],
+      ownerId: userByRole.LDV.id,
+      bcpInput: true, // impactA ≥ 4 (R12)
+      m01RiskRef: "RR-2026-11 (M01)",
+      lastAssessedAt: thang(1),
+      status: "DANG_XU_LY",
+      createdById: userByRole.ATTT.id,
+      reviewedById: userByRole.QLCL.id,
+      reviewedAt: thang(1),
+      approvedById: userByRole.LDV.id,
+      approvedAt: thang(1),
+      treatments: {
+        create: [
+          {
+            measure: "Kiểm chứng phục hồi bản sao lưu theo chu kỳ 06 tháng và tách bản sao ngoại tuyến",
+            soaControlRef: "A.8.13",
+            responsibleId: userByRole.QTHT.id,
+            dueAt: thangToi(1),
+            interimMeasure: "Tách ngay một bản sao ngoại tuyến hằng tuần, cô lập khỏi mạng nội bộ",
+            verificationMethod: "Phục hồi thử vào môi trường kiểm thử, đối chiếu dữ liệu (F31.03)",
+            status: "DANG_THUC_HIEN",
+          },
+        ],
+      },
+    },
+  });
+
+  // 3) Rủi ro quá 12 tháng chưa rà soát ⇒ minh hoạ cảnh báo R13.
+  await prisma.m28SecurityRisk.create({
+    data: {
+      code: "RR-ATTT-2026-003",
+      title: "Truy cập trái phép vào hồ sơ nhân sự bản giấy",
+      assetRefs: ["TS-2026-002"],
+      classification: "MAT",
+      threat: "Người không có thẩm quyền tiếp cận tủ hồ sơ",
+      vulnerability: "Tủ hồ sơ đặt tại khu vực dùng chung",
+      impactC: 5,
+      impactI: 2,
+      impactA: 1,
+      likelihood: 2,
+      impact: 5,
+      riskScore: 10,
+      treatmentOption: "GIAM_THIEU",
+      soaControlRefs: ["A.7.6"],
+      ownerId: userByRole.QLCL.id,
+      lastAssessedAt: thang(14), // quá 12 tháng
+      status: "DA_XU_LY",
+      createdById: userByRole.ATTT.id,
+      reviewedById: userByRole.QLCL.id,
+      reviewedAt: thang(14),
+      approvedById: userByRole.LDV.id,
+      approvedAt: thang(14),
+      treatments: {
+        create: [
+          {
+            measure: "Chuyển tủ hồ sơ vào phòng có kiểm soát ra vào",
+            soaControlRef: "A.7.6",
+            responsibleId: userByRole.QLCL.id,
+            dueAt: thang(10),
+            verificationMethod: "Kiểm tra thực địa và biên bản bàn giao khu vực",
+            status: "HOAN_THANH",
+            completedAt: thang(11),
+            verifiedById: userByRole.ATTT.id,
+            verifiedAt: thang(11),
+          },
+        ],
+      },
+    },
+  });
+
+  // Một sự cố đang ở bước Chờ kết luận, mức Cao, thiếu bài học kinh nghiệm ⇒ minh hoạ R15 chặn đóng.
+  await prisma.m28SecurityIncident.create({
+    data: {
+      code: "SC-ATTT-2026-001",
+      reporterId: userByRole.TP.id,
+      detectedAt: thang(1),
+      occurredAt: thang(1),
+      reportedAt: thang(1),
+      symptom: "Một tệp phiếu kết quả được gửi tới địa chỉ thư điện tử ngoài Viện không đúng người nhận",
+      assetRefs: ["TS-2026-001"],
+      classification: "HAN_CHE",
+      involvesCustomerData: "CO",
+      involvesPersonalData: "KHONG",
+      severity: "CAO",
+      containedAt: thang(1),
+      containmentActions: "Thu hồi thư trên hệ thống, liên hệ người nhận đề nghị xoá và xác nhận bằng văn bản",
+      evidencePreserved: "Nhật ký máy chủ thư, ảnh chụp thư đã gửi, văn bản xác nhận đã xoá của người nhận",
+      directCause: "Tính năng gợi ý địa chỉ tự động điền nhầm người nhận",
+      scopeOfImpact: "01 phiếu kết quả của 01 khách hàng",
+      affectsResultValidity: false,
+      recoveryAt: thang(1),
+      riskRefs: ["RR-ATTT-2026-001"],
+      capaRef: "KPH-2026-07 (M13)",
+      status: "CHO_KET_LUAN",
+    },
+  });
+
+  // Một phiếu quyền truy cập đã phê duyệt, chờ QTHT thực hiện.
+  await prisma.m28AccessRequest.create({
+    data: {
+      code: "QTC-2026-001",
+      subjectId: userByRole.QTHT.id,
+      subjectType: "NHAN_SU_CHINH_THUC",
+      awarenessTrainingRef: "DT-ATTT-2026-08 (F03.05)",
+      requestType: "CAP_MOI",
+      reason: "Bổ sung quyền quản trị máy chủ CSDL phục vụ nhiệm vụ vận hành",
+      items: [
+        {
+          heThong: "HT-2026-0001 — Máy chủ CSDL ManLab",
+          vaiTro: "Quản trị hệ điều hành",
+          isPrivileged: true,
+          mucPhanLoai: "HAN_CHE",
+          validUntil: thangToi(12).toISOString().slice(0, 10),
+        },
+      ] as never,
+      mfaRequired: true,
+      requestedById: userByRole.TP.id,
+      approvedById: userByRole.LDV.id, // đặc quyền ⇒ bắt buộc LĐV (R17)
+      approvedAt: thang(1),
+      status: "DA_PHE_DUYET",
+    },
+  });
+
+  await prisma.m28AccessReview.create({
+    data: {
+      period: "2026-H1",
+      scope: "TAI_KHOAN_DAC_QUYEN",
+      accountsReviewed: 12,
+      excessFound: 2,
+      revoked: 2,
+      revocationRefs: ["QTC-2026-000 (thu hồi theo phiếu)"],
+      reviewerId: userByRole.LDV.id,
+      reviewedAt: thang(3),
+    },
+  });
+
+  void r1;
 }
