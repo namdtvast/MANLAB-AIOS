@@ -173,6 +173,14 @@ model User {
   m33IncidentReported  M33ITIncident[]            @relation("M33IncidentReported")
   m33IncidentAssigned  M33ITIncident[]            @relation("M33IncidentAssigned")
   m33AuditEntries      M33AuditEntry[]
+
+  m27AssetOwner     M27InfoAsset[]  @relation("M27AssetOwner")
+  m27AssetCustodian M27InfoAsset[]  @relation("M27AssetCustodian")
+  m27AssetCreated   M27InfoAsset[]  @relation("M27AssetCreated")
+  m27AssetReviewed  M27InfoAsset[]  @relation("M27AssetReviewed")
+  m27AssetApproved  M27InfoAsset[]  @relation("M27AssetApproved")
+  m27RulesApproved  M27RuleVersion[] @relation("M27RulesApproved")
+  m27AuditEntries   M27AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -4209,6 +4217,235 @@ model M33ITIncident {
 model M33AuditEntry {
   id       String      @id @default(cuid())
   itemType M33ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([itemType, itemId])
+}
+
+// ============================================================================
+// M27 — Quản trị dữ liệu và tài sản thông tin
+// NGUỒN QUY ĐỊNH: Thủ tục ETV.P27 (lần BH 01, ban hành 26/08/2026) —
+// 03_MANAGEMENT_SYSTEM/02_P/ETV.P27_QuanTriDuLieuTaiSanTT.md
+// Biểu mẫu: ETV.P.F 27.01 (danh mục) · F 27.02 (bảng quy tắc xử lý).
+//
+// Hai điều bất biến của module này, đọc trước khi sửa schema:
+//  1. KHÔNG có thao tác xoá M27InfoAsset. Bản ghi kiểm kê giữ vĩnh viễn làm bằng
+//     chứng, kể cả sau khi dữ liệu đã huỷ (P27 §6.7.1, Phụ lục I.2). Tài sản kết
+//     thúc vòng đời bằng status = DA_HUY, không phải bằng DELETE.
+//  2. Thang phân loại dùng enum `Classification` toàn nền tảng — P27 §6.2 là
+//     ĐỊNH NGHĨA GỐC của thang này; M33/M34 và các module sau kế thừa, không ai
+//     định nghĩa lại. Đổi thang phải ban hành lại ETV.P27 theo ETV.P14.
+// ============================================================================
+
+/// Loại tài sản — DacTa M27 mục 4.1
+enum M27AssetType {
+  CSDL_DIEN_TU // Cơ sở dữ liệu, tập dữ liệu điện tử
+  TEP_TAI_LIEU // Tệp tài liệu điện tử trên thư mục dùng chung
+  HO_SO_GIAY // Hồ sơ giấy
+  UNG_DUNG_NEN_TANG // Ứng dụng, nền tảng chứa dữ liệu (ManLab, aios-platform)
+  VAT_MANG_TIN_ROI // Ổ cứng, USB, băng từ
+  DICH_VU_BEN_THU_BA // Dữ liệu trên đám mây, thư điện tử thuê ngoài
+  DU_LIEU_THIET_BI_DO // Dữ liệu đo trực tiếp từ thiết bị (← M05)
+}
+
+/// Nhóm dữ liệu nghiệp vụ — P27 §6.1.3, mỗi nhóm có mức phân loại TỐI THIỂU
+enum M27DataDomain {
+  KHACH_HANG // ≥ Hạn chế
+  KET_QUA_DO // ≥ Hạn chế
+  HIEU_CHUAN_CRM // ≥ Hạn chế
+  NHAN_SU // ≥ Mật
+  TAI_CHINH // ≥ Mật
+  HE_THONG_QUAN_LY // ≥ Nội bộ
+  NGHIEN_CUU // ≥ Nội bộ
+  VAN_HANH_CNTT // ≥ Hạn chế
+  PHUC_VU_AI // ≥ Nội bộ
+}
+
+/// Mức yêu cầu cho từng chiều C–I–A — P27 §6.1.4
+enum M27CiaLevel {
+  THAP
+  TRUNG_BINH
+  CAO
+}
+
+/// Tần suất sao lưu — bắt buộc khi backupRequired
+enum M27BackupFrequency {
+  NGAY
+  TUAN
+  THANG
+  KHAC
+}
+
+/// Phương pháp huỷ dự kiến — P27 §6.7.4
+enum M27DisposalMethod {
+  CAT_VUN_GIAY
+  XOA_AN_TOAN
+  HUY_VAT_LY
+  HUY_KHOA_MA_HOA
+  BEN_THU_BA_XOA
+}
+
+/// Vòng đời bản ghi kiểm kê — P27 Phụ lục II.1 (9 trạng thái).
+/// KHÔNG có giá trị nào nghĩa là "đã xoá" — xem ghi chú đầu khối M27.
+enum M27AssetStatus {
+  DRAFT // Nháp
+  PENDING_REVIEW // Chờ soát xét
+  REVIEW_REJECTED // Không soát xét (bắt buộc lý do)
+  PENDING_APPROVAL // Chờ phê duyệt
+  APPROVAL_REJECTED // Không phê duyệt (bắt buộc lý do)
+  DANG_SU_DUNG // Đang sử dụng — có trong danh mục hiệu lực
+  NGUNG_SU_DUNG // Ngừng sử dụng, vẫn trong thời hạn lưu
+  DA_HUY // Đã huỷ — dữ liệu đã huỷ, bản ghi kiểm kê vẫn giữ
+  CANCELLED // Huỷ bản ghi (khai báo sai/trùng, trước phê duyệt)
+}
+
+/// Hành động trong bảng quy tắc xử lý — P27 §6.3 liệt kê đúng 8 hành động này
+enum M27RuleAction {
+  LUU_TRU
+  TRUYEN_GUI
+  IN_SAO_CHEP
+  MANG_RA_NGOAI
+  CHIA_SE_BEN_THU_BA
+  THIET_BI_CA_NHAN
+  CHI_MUC_AI
+  HUY
+}
+
+/// Vòng đời bảng quy tắc xử lý — P27 Phụ lục II.2
+enum M27RuleVersionStatus {
+  DRAFT
+  PENDING_APPROVAL
+  DA_PHE_DUYET
+  HET_HIEU_LUC
+}
+
+enum M27ItemType {
+  ASSET
+  RULE_VERSION
+}
+
+/// Tài sản thông tin — biểu mẫu ETV.P.F 27.01, trình tự P27 §6.1.5
+model M27InfoAsset {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "TS-<năm>-<số>" — QLCL cấp một lần, KHÔNG cấp lại mã của tài sản đã huỷ (P27 §6.1.2)
+
+  name        String
+  assetType   M27AssetType
+  dataDomain  M27DataDomain
+  description String // nội dung dữ liệu chứa đựng — KHÔNG chép dữ liệu thật (Phụ lục I.1 điều kiện 8)
+
+  classification Classification // thang dùng chung; P27 §6.2 là định nghĩa gốc
+  ciaC           M27CiaLevel
+  ciaI           M27CiaLevel
+  ciaA           M27CiaLevel
+
+  // Căn cứ hạ mức xuống dưới mức tối thiểu của nhóm dữ liệu (P27 §6.1.3): phê duyệt công bố
+  // theo ETV.P02 (ref mềm → M02) hoặc quy định pháp luật bắt buộc công bố. Thiếu ⇒ chặn.
+  classificationDowngradeRef String?
+
+  containsPersonalData Boolean @default(false)
+  personalDataScope    String? // phạm vi chủ thể và loại dữ liệu cá nhân (cơ bản/nhạy cảm) — P27 §6.4
+  legalBasis           String? // căn cứ pháp lý + mục đích xử lý — bắt buộc khi containsPersonalData
+
+  ownerId     String // chủ sở hữu — MỘT CÁ NHÂN, không phải phòng (P27 Phụ lục I.1 điều kiện 1)
+  custodianId String? // người quản lý kỹ thuật — bắt buộc khi tài sản ở dạng điện tử (điều kiện 2)
+
+  storageLocation String // nơi lưu vật lý hoặc logic
+  systemRefs      String[] // → M33 (ref mềm, không FK chéo module)
+  docRef          String? // → M14 khi tài sản là tài liệu kiểm soát
+  recordRef       String? // → M15 khi tài sản là hồ sơ
+  datasetRefs     String[] // → M34 tập dữ liệu số tương ứng
+
+  retentionPeriod String // thời hạn lưu (điều kiện 5)
+  retentionBasis  String // căn cứ thời hạn: ETV.P15 · ETV.P.F 14.06 · pháp luật chuyên ngành
+  disposalMethod  M27DisposalMethod
+
+  backupRequired    Boolean             @default(false) // bắt buộc true khi ciaA = CAO (điều kiện 7)
+  backupFrequency   M27BackupFrequency?
+  lastRestoreTestAt DateTime? // ngày kiểm chứng phục hồi gần nhất — chu kỳ theo P27 §6.5.2 (F31.03)
+
+  externalSharingAllowed Boolean @default(false) // Hạn chế/Mật mặc định KHÔNG được phép (P27 §6.6)
+  aiUseAllowed           Boolean @default(false) // chỉ bật được với Công khai/Nội bộ (P27 §6.9.2)
+
+  riskRefs String[] // → M28/M01 (ref mềm). P27 §6.9.1: cảnh báo cho tới khi M28 vận hành, sau đó chặn phê duyệt
+
+  reviewCycleMonths Int       @default(12) // 6 khi Mật hoặc có dữ liệu cá nhân — P27 §6.8
+  lastReviewedAt    DateTime?
+
+  status M27AssetStatus @default(DRAFT)
+  reason String? // lý do trả lại/ngừng sử dụng/huỷ gần nhất
+
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner      User  @relation("M27AssetOwner", fields: [ownerId], references: [id])
+  custodian  User? @relation("M27AssetCustodian", fields: [custodianId], references: [id])
+  createdBy  User  @relation("M27AssetCreated", fields: [createdById], references: [id])
+  reviewedBy User? @relation("M27AssetReviewed", fields: [reviewedById], references: [id])
+  approvedBy User? @relation("M27AssetApproved", fields: [approvedById], references: [id])
+
+  @@index([status, dataDomain])
+  @@index([classification])
+  @@index([lastReviewedAt])
+  @@index([lastRestoreTestAt])
+  @@index([containsPersonalData])
+}
+
+/// Phiên bản bảng quy tắc xử lý — biểu mẫu ETV.P.F 27.02.
+/// Mỗi lần sửa tạo phiên bản MỚI, không sửa đè; phiên bản cũ giữ làm bằng chứng (P27 §6.3).
+model M27RuleVersion {
+  id      String @id @default(cuid())
+  version Int    @unique
+
+  effectiveFrom DateTime?
+  status        M27RuleVersionStatus @default(DRAFT)
+  note          String?
+
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  approvedBy User?                 @relation("M27RulesApproved", fields: [approvedById], references: [id])
+  rules      M27ClassificationRule[]
+
+  @@index([status])
+}
+
+/// Một ô của ma trận (mức phân loại × hành động) — P27 §6.3
+model M27ClassificationRule {
+  id            String @id @default(cuid())
+  ruleVersionId String
+
+  classification Classification
+  action         M27RuleAction
+  requirement    String // yêu cầu bắt buộc khi thực hiện hành động
+  isProhibited   Boolean        @default(false) // CẤM — chặn ở MỌI luồng thao tác (P27 §6.3, Phụ lục I.2)
+
+  ruleVersion M27RuleVersion @relation(fields: [ruleVersionId], references: [id], onDelete: Cascade)
+
+  @@unique([ruleVersionId, classification, action])
+  @@index([classification, action])
+}
+
+model M27AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M27ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String

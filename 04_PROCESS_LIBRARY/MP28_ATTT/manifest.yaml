@@ -23,7 +23,7 @@ document:
   doc_id: ETV.P28
   # Lần BH 02: ranh giới kiểm kê thiết bị với ETV.P33 + tái cấu trúc khung I–IX;
   # soát xét Trần Thị Hoa, phê duyệt Nguyễn Hoàng Giang ngày 26/08/2026.
-  doc_status: Da-phe-duyet
+  doc_status: issued
   doc_version: "02"
   issued_date: 2026-08-26
 forms:

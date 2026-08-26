@@ -322,10 +322,24 @@ thời hạn lưu hồ sơ (M15) · phiên bản tài liệu (M14).
 
 ## 9. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform`
-(`PlatformModule.status = COMING_SOON`). Đặc tả kỹ thuật chi tiết (màn hình, API, tiêu chí chấp
-nhận, NFR) và kế hoạch tăng trưởng theo increment:
-`01_Requirement/_work/20260824-dac-ta-m27/{outcome.md, spec.md, plan.md}`.
+**Đã lên nền tảng** — `09_ENGINEERING/aios-platform`, `PlatformModule.status = ACTIVE`, nhóm menu
+`DU_LIEU_SO`. Không dựng nguyên mẫu riêng trong `08_Source/`.
+
+Phạm vi đã xây (26/08/2026): **danh mục tài sản** — khai báo, chuỗi trạng thái Nháp → Chờ soát xét →
+Chờ phê duyệt → Đang sử dụng với **8 điều kiện chặn cứng** của P27 Phụ lục I.1 thực thi ở tầng server
+action; **bảng quy tắc xử lý** có phiên bản, hiển thị ngay tại màn hình tài sản (§6.3); bảng đến hạn
+(rà soát · kiểm chứng phục hồi · chờ đối chiếu để huỷ · tài sản vô chủ); danh sách tài sản có dữ liệu
+cá nhân; nhật ký thao tác append-only.
+
+| Vùng | Đường dẫn |
+|---|---|
+| Dữ liệu | `prisma/schema.prisma` — `M27InfoAsset`, `M27RuleVersion`, `M27ClassificationRule`, `M27AuditEntry`; dùng lại enum `Classification` toàn nền tảng |
+| Quyết định | `src/lib/m27/rules.ts` — **nơi duy nhất** quyết định được phép hay không; thuần hàm, có 37 test |
+| Ghi dữ liệu | `src/lib/m27/actions.ts` — chỉ gọi rule rồi ghi DB; **không có** action xoá tài sản |
+| Giao diện | `src/app/(platform)/modules/M27/` — danh mục, chi tiết, khai báo, bảng quy tắc, bảng đến hạn, dữ liệu cá nhân |
+
+Chưa xây: huỷ dữ liệu (F27.03), xuất PDF/Excel, chuyển giao chủ sở hữu tự động từ M03, ghi nhật ký
+lượt **đọc** tài sản Hạn chế/Mật. Chi tiết và phần chưa verify: `_work/20260826-build-m27-danh-muc/`.
 
 ## 10. Câu hỏi đã được thủ tục trả lời, và phần còn mở
 

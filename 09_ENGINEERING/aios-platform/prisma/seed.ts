@@ -52,7 +52,8 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
 // M25 xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md (chưa có ETV.P25).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M29", "M33", "M34"]);
+// M27 xây từ ETV.P27 (lần BH 01, ban hành 26/08/2026) — danh mục tài sản thông tin.
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M27", "M29", "M33", "M34"]);
 
 interface MpManifest {
   name?: string;
@@ -302,6 +303,7 @@ async function main() {
   await seedM26();
   await seedM34();
   await seedM33();
+  await seedM27();
 
   baoCaoMatKhauDemo();
 }
@@ -3732,4 +3734,208 @@ async function seedM33() {
       "1 kế hoạch bảo trì năm đã phê duyệt, 2 công việc (vá Nghiêm trọng quá hạn + chờ nghiệm thu R15), 2 tài khoản (1 quá hạn thu hồi R16), " +
       `1 kỳ đối chiếu đã chốt, 2 sự cố (1 quá hạn phản hồi R18 + 1 chờ kết luận M28 R9) + vai trò M33 cho ${Object.keys(userByRole).length} tài khoản.`,
   );
+}
+
+// ===========================================================================
+// M27 — Quản trị dữ liệu và tài sản thông tin.
+// Nguồn: ETV.P27 (lần BH 01, ban hành 26/08/2026) + biểu mẫu ETV.P.F 27.01, F 27.02.
+// Vai trò dùng chung vocabulary với M28/M33: TP / QTHT / ATTT / QLCL / LDV.
+// ===========================================================================
+
+const M27_DEMO_USERS = [
+  { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "TP" },
+  { email: "qtht@manlab.vn", name: "Đỗ A. (QTHT)", role: "QTHT" },
+  { email: "attt@manlab.vn", name: "Vũ B. (PT.ATTT)", role: "ATTT" },
+  { email: "qlcl@manlab.vn", name: "Phạm Q. (QLCL)", role: "QLCL" },
+  { email: "ldv@manlab.vn", name: "Lê Văn V. (LĐV)", role: "LDV" },
+] as const;
+
+/// Ma trận quy tắc xử lý — chép nguyên PHẦN B của biểu mẫu ETV.P.F 27.02.
+/// 8 hành động × 4 mức phân loại = 32 dòng. `true` ở cuối nghĩa là CẤM (P27 §6.3).
+const M27_RULE_MATRIX: [string, string, string, boolean][] = [
+  ["LUU_TRU", "CONG_KHAI", "Nơi lưu do Viện quản lý", false],
+  ["LUU_TRU", "NOI_BO", "Hệ thống của Viện; phân quyền theo vai trò", false],
+  ["LUU_TRU", "HAN_CHE", "Hệ thống của Viện; phân quyền theo danh sách; ghi nhật ký truy cập", false],
+  ["LUU_TRU", "MAT", "Hệ thống của Viện; danh sách cá nhân do LĐV duyệt; mã hoá khi lưu", false],
+
+  ["TRUYEN_GUI", "CONG_KHAI", "Không hạn chế", false],
+  ["TRUYEN_GUI", "NOI_BO", "Kênh của Viện", false],
+  ["TRUYEN_GUI", "HAN_CHE", "Kênh có bảo vệ; mã hoá khi qua mạng công cộng; mật khẩu gửi qua kênh khác (ETV.P02 §6.8)", false],
+  ["TRUYEN_GUI", "MAT", "Như mức Hạn chế, bổ sung xác nhận người nhận trước khi gửi", false],
+
+  ["IN_SAO_CHEP", "CONG_KHAI", "Không hạn chế", false],
+  ["IN_SAO_CHEP", "NOI_BO", "Thu hồi bản in khi hết nhu cầu", false],
+  ["IN_SAO_CHEP", "HAN_CHE", "Chỉ in khi cần; không để trên bàn khi rời vị trí; huỷ bằng máy huỷ giấy", false],
+  ["IN_SAO_CHEP", "MAT", "Ghi nhận số bản in và người giữ; huỷ có chứng kiến", false],
+
+  ["MANG_RA_NGOAI", "CONG_KHAI", "Không hạn chế", false],
+  ["MANG_RA_NGOAI", "NOI_BO", "Được phép khi phục vụ công việc", false],
+  ["MANG_RA_NGOAI", "HAN_CHE", "Phải được chủ sở hữu đồng ý; thiết bị mã hoá", false],
+  ["MANG_RA_NGOAI", "MAT", "CẤM — trừ khi có phê duyệt của LĐV kèm biện pháp bảo vệ", true],
+
+  ["CHIA_SE_BEN_THU_BA", "CONG_KHAI", "Không hạn chế", false],
+  ["CHIA_SE_BEN_THU_BA", "NOI_BO", "Chủ sở hữu tài sản phê duyệt", false],
+  ["CHIA_SE_BEN_THU_BA", "HAN_CHE", "LĐV phê duyệt (F34.03) + phê duyệt công bố ETV.P02 nếu là dữ liệu khách hàng, dữ liệu cá nhân", false],
+  ["CHIA_SE_BEN_THU_BA", "MAT", "Như mức Hạn chế; mặc định không được phép", false],
+
+  ["THIET_BI_CA_NHAN", "CONG_KHAI", "Được phép", false],
+  ["THIET_BI_CA_NHAN", "NOI_BO", "Được phép nếu thiết bị đã đăng ký và đủ cấu hình an toàn (ETV.P33)", false],
+  ["THIET_BI_CA_NHAN", "HAN_CHE", "Chỉ khi có phê duyệt của LĐV; bắt buộc mã hoá ổ đĩa", false],
+  ["THIET_BI_CA_NHAN", "MAT", "CẤM (ETV.P02 §6.8)", true],
+
+  ["CHI_MUC_AI", "CONG_KHAI", "Được phép", false],
+  ["CHI_MUC_AI", "NOI_BO", "Được phép khi tài sản được đánh dấu cho phép dùng cho AI", false],
+  ["CHI_MUC_AI", "HAN_CHE", "CẤM (ETV.P27 §6.9.2; ETV.P28 mục 6.13; ETV.P26 mục 5.5)", true],
+  ["CHI_MUC_AI", "MAT", "CẤM (ETV.P27 §6.9.2; ETV.P28 mục 6.13; ETV.P26 mục 5.5)", true],
+
+  ["HUY", "CONG_KHAI", "Theo thời hạn lưu", false],
+  ["HUY", "NOI_BO", "Theo thời hạn lưu; xoá an toàn với dữ liệu điện tử", false],
+  ["HUY", "HAN_CHE", "Phê duyệt của LĐV; xoá an toàn; có bằng chứng", false],
+  ["HUY", "MAT", "Phê duyệt của LĐV; xoá an toàn hoặc huỷ vật lý; có người chứng kiến", false],
+];
+
+async function seedM27() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+  for (const u of M27_DEMO_USERS) {
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    userByRole[u.role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M27", role: u.role } },
+      create: { userId: user.id, moduleCode: "M27", role: u.role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m27InfoAsset.count();
+  if (existing > 0) return; // idempotent thô: chỉ seed lần đầu
+
+  // Bảng quy tắc xử lý phiên bản 1 — đã được LĐV phê duyệt.
+  await prisma.m27RuleVersion.create({
+    data: {
+      version: 1,
+      status: "DA_PHE_DUYET",
+      effectiveFrom: new Date("2026-08-26"),
+      note: "Ban hành lần đầu cùng ETV.P27 — nội dung theo PHẦN B biểu mẫu ETV.P.F 27.02.",
+      approvedById: userByRole.LDV.id,
+      approvedAt: new Date("2026-08-26"),
+      rules: {
+        create: M27_RULE_MATRIX.map(([action, classification, requirement, isProhibited]) => ({
+          action: action as never,
+          classification: classification as never,
+          requirement,
+          isProhibited,
+        })),
+      },
+    },
+  });
+
+  const thang = (n: number) => {
+    const d = new Date();
+    d.setMonth(d.getMonth() - n);
+    return d;
+  };
+
+  // Ba tài sản mẫu, cố ý phủ các tình huống mà bảng "đến hạn" phải bắt được:
+  // TS-001 quá hạn kiểm chứng phục hồi · TS-002 đến hạn rà soát · TS-003 bình thường.
+  const veted = {
+    createdById: userByRole.QLCL.id,
+    reviewedById: userByRole.ATTT.id,
+    reviewedAt: new Date("2026-08-26"),
+    approvedById: userByRole.LDV.id,
+    approvedAt: new Date("2026-08-26"),
+    status: "DANG_SU_DUNG" as const,
+  };
+
+  // 1) Sẵn sàng = Cao ⇒ chu kỳ kiểm chứng phục hồi 06 tháng; đặt 8 tháng trước để QUÁ HẠN.
+  await prisma.m27InfoAsset.create({
+    data: {
+      ...veted,
+      code: "TS-2026-001",
+      name: "Cơ sở dữ liệu kết quả đo trên ManLab",
+      assetType: "CSDL_DIEN_TU",
+      dataDomain: "KET_QUA_DO",
+      description: "Dữ liệu thô, phiếu kết quả và chứng chỉ của các phép đo đã thực hiện.",
+      classification: "HAN_CHE",
+      ciaC: "CAO",
+      ciaI: "CAO",
+      ciaA: "CAO",
+      ownerId: userByRole.TP.id,
+      custodianId: userByRole.QTHT.id,
+      storageLocation: "Máy chủ CSDL — phòng máy chủ tầng 3",
+      systemRefs: ["HT-2026-0001"],
+      retentionPeriod: "10 năm",
+      retentionBasis: "ETV.P15 · ETV.P.F 14.06",
+      disposalMethod: "XOA_AN_TOAN",
+      backupRequired: true,
+      backupFrequency: "NGAY",
+      lastRestoreTestAt: thang(8),
+      riskRefs: ["RR-ATTT-2026-001"],
+      reviewCycleMonths: 12,
+      lastReviewedAt: thang(2),
+    },
+  });
+
+  // 2) Mật + dữ liệu cá nhân ⇒ chu kỳ rà soát 06 tháng; đặt 9 tháng trước để ĐẾN HẠN RÀ SOÁT.
+  //    Hồ sơ giấy nên không có người quản lý kỹ thuật và không thuộc diện sao lưu.
+  await prisma.m27InfoAsset.create({
+    data: {
+      ...veted,
+      code: "TS-2026-002",
+      name: "Hồ sơ nhân sự và bảng lương",
+      assetType: "HO_SO_GIAY",
+      dataDomain: "NHAN_SU",
+      description: "Hồ sơ cán bộ, hợp đồng lao động, bảng lương hằng tháng.",
+      classification: "MAT",
+      ciaC: "CAO",
+      ciaI: "TRUNG_BINH",
+      ciaA: "THAP",
+      containsPersonalData: true,
+      personalDataScope: "Người lao động của Viện; dữ liệu cá nhân cơ bản và dữ liệu nhạy cảm về sức khoẻ.",
+      legalBasis:
+        "Bộ luật Lao động 45/2019/QH14; hợp đồng lao động — mục đích quản lý nhân sự và chi trả lương.",
+      ownerId: userByRole.QLCL.id,
+      storageLocation: "Tủ hồ sơ có khoá — phòng Tổ chức hành chính",
+      retentionPeriod: "30 năm sau khi chấm dứt hợp đồng",
+      retentionBasis: "Pháp luật về lưu trữ · ETV.P15",
+      disposalMethod: "CAT_VUN_GIAY",
+      riskRefs: ["RR-ATTT-2026-004"],
+      reviewCycleMonths: 6,
+      lastReviewedAt: thang(9),
+    },
+  });
+
+  // 3) Nội bộ ⇒ được phép làm nguồn cho hệ thống AI (ETV.P27 §6.9.2).
+  await prisma.m27InfoAsset.create({
+    data: {
+      ...veted,
+      code: "TS-2026-003",
+      name: "Kho tài liệu hệ thống quản lý chất lượng",
+      assetType: "TEP_TAI_LIEU",
+      dataDomain: "HE_THONG_QUAN_LY",
+      description: "Thủ tục, hướng dẫn, biểu mẫu gốc của hệ thống quản lý.",
+      classification: "NOI_BO",
+      ciaC: "TRUNG_BINH",
+      ciaI: "CAO",
+      ciaA: "TRUNG_BINH",
+      ownerId: userByRole.QLCL.id,
+      custodianId: userByRole.QTHT.id,
+      storageLocation: "Thư mục dùng chung \\\\manlab\\qms",
+      systemRefs: ["HT-2026-0002"],
+      docRef: "ETV.P14",
+      retentionPeriod: "Vĩnh viễn (bản hiện hành và các phiên bản)",
+      retentionBasis: "ETV.P14 · ETV.P15",
+      disposalMethod: "XOA_AN_TOAN",
+      backupRequired: true,
+      backupFrequency: "TUAN",
+      lastRestoreTestAt: thang(3),
+      aiUseAllowed: true,
+      reviewCycleMonths: 12,
+      lastReviewedAt: thang(1),
+    },
+  });
 }
