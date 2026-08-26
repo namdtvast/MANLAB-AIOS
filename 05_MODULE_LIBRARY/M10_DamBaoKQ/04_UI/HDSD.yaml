@@ -1,0 +1,32 @@
+# HDSD — hướng dẫn dùng module M10 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M10 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m10/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M10
+summary: "Một hồ sơ đảm bảo giá trị sử dụng kết quả: nhập dữ liệu QC/PT, qua ba cấp rồi công bố"
+
+steps:
+  - role: "Người thực hiện"
+    action: "Tạo hồ sơ đảm bảo giá trị sử dụng kết quả"
+    path: "/modules/M10/new"
+    note: "Chọn đúng loại hồ sơ (thử nghiệm thành thạo/so sánh liên phòng hay kiểm soát chất lượng nội bộ)."
+  - role: "Người thực hiện"
+    action: "Nhập dữ liệu, đánh giá và kết luận rồi bấm Gửi soát xét"
+    note: "Chỉ hồ sơ Nháp, Trả lại hoặc Từ chối mới gửi được; thiếu trường bắt buộc là bị chặn."
+  - role: "Lãnh đạo phòng"
+    action: "Soát xét hồ sơ"
+    note: "Người soát xét không được là người tạo hồ sơ."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt hồ sơ"
+    note: "Người phê duyệt không được là người tạo hoặc người soát xét."
+  - role: "Lãnh đạo Viện"
+    action: "Công bố hồ sơ"
+    note: "Chỉ hồ sơ Đã phê duyệt mới công bố được."
+  - role: "Người thực hiện / QLCL"
+    action: "Kết quả không đạt thì liên kết hồ sơ khắc phục bên M13; cần sửa hồ sơ đã công bố thì tạo phiên bản mới"
+    note: "Hồ sơ đã công bố không sửa trực tiếp — luôn đi bằng phiên bản mới."

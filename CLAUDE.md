@@ -68,6 +68,8 @@ Sửa thẳng một module mà chưa xác định nó số hóa MP nào (hoặc 
 `README.md` + đúng 9 thư mục con đánh số, chuẩn hóa cho mọi module (không thêm README riêng cho từng thư mục con, đây là quy ước cố định):
 `01_Requirement` (đặc tả/DacTa.md = nguồn sự thật) → `02_API` → `03_Database` → `04_UI` → `05_Report` → `06_Dashboard` → `07_Workflow` → `08_Source` (mã nguồn thật/nguyên mẫu) → `09_Release`.
 
+`04_UI/HDSD.yaml` (lược đồ `manlab-aios/hdsd@1.0`, xem `_meta/SCHEMA.md`) là **nguồn sự thật của hướng dẫn sử dụng module** — tuần tự vai trò → thao tác → màn hình → ràng buộc, hiển thị ở mục "HDSD" trong khung Căn cứ đầu mọi trang module của aios-platform. Không viết hướng dẫn thẳng trong JSX. Sửa luồng nghiệp vụ trong `src/lib/mxx/rules.ts` thì phải sửa HDSD kèm theo — công cụ chỉ kiểm được lược đồ, không đối chiếu ngữ nghĩa.
+
 Module chuẩn để tham chiếu phong cách/độ đầy đủ: **M36_ChungChiSo**. Module đã làm trọn từ đầu đến cuối (đặc tả → API → DB → UI → workflow → webapp chạy thật): **M10_DamBaoKQ**.
 
 ## Kiểm tra toàn vẹn

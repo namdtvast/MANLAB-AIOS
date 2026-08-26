@@ -1,0 +1,28 @@
+# HDSD — hướng dẫn dùng module M04 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M04 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m04/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M04
+summary: "Theo dõi điều kiện môi trường/bảo quản hằng ngày và duyệt kế hoạch đi hiện trường"
+
+steps:
+  - role: "Nhân viên"
+    action: "Ghi nhận điều kiện môi trường hoặc tủ bảo quản theo tần suất quy định"
+    path: "/modules/M04/log/new"
+    note: "Giá trị ngoài ngưỡng của khu vực sẽ tự bị đánh dấu và bắt buộc ghi hành động xử lý."
+  - role: "Nhân viên"
+    action: "Lập kế hoạch công việc hiện trường"
+    path: "/modules/M04/plan/new"
+  - role: "Người lập"
+    action: "Gửi duyệt kế hoạch"
+    note: "Chỉ kế hoạch Đang soạn hoặc bị Từ chối mới gửi được."
+  - role: "Trưởng phòng PTN / Lãnh đạo Viện"
+    action: "Phê duyệt kế hoạch hiện trường"
+  - role: "Trưởng đoàn hiện trường"
+    action: "Đánh dấu đã phổ biến kế hoạch cho đoàn trước khi xuất phát"
+    note: "Chỉ kế hoạch Đã duyệt mới đánh dấu được — đây là bằng chứng đã phổ biến."

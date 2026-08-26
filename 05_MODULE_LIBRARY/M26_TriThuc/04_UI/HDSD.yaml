@@ -1,0 +1,40 @@
+# HDSD — hướng dẫn dùng module M26 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M26 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m26/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M26
+summary: "Danh mục tri thức tổ chức, bài học kinh nghiệm, nhu cầu và hoạt động chia sẻ tri thức"
+
+steps:
+  - role: "QLCL / Trưởng phòng"
+    action: "Thêm mục tri thức vào danh mục"
+    path: "/modules/M26/item/new"
+    note: "Khai đúng dạng tri thức (hiện/ẩn), mức trọng yếu, số người đang nắm và mức bảo mật."
+  - role: "Người lập"
+    action: "Gửi soát xét mục tri thức"
+  - role: "Trưởng phòng"
+    action: "Soát xét nội dung mục tri thức"
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt mục tri thức"
+    note: "Tri thức ẩn mức trọng yếu Cao chỉ một người nắm bị chặn cho tới khi có liên kết rủi ro bên M01 và phiếu nhu cầu chuyển giao."
+  - role: "QLCL / Trưởng phòng"
+    action: "Rà soát định kỳ các mục đến hạn; nội dung thay đổi thì tạo phiên bản mới"
+    path: "/modules/M26/review-due"
+    note: "Mục đã phê duyệt không sửa trực tiếp — đi bằng phiên bản mới."
+  - role: "QLCL / Trưởng phòng"
+    action: "Lập phiếu bài học kinh nghiệm, phân tích rồi trình Lãnh đạo Viện phê duyệt"
+    path: "/modules/M26/lessons"
+  - role: "QLCL / Trưởng phòng"
+    action: "Ghi nhu cầu tri thức và kết quả bổ sung; ghi nhận hoạt động chia sẻ tri thức"
+    path: "/modules/M26/needs"
+  - role: "QLCL / Quản trị hệ thống"
+    action: "Bật hoặc tắt chỉ mục trợ lý AI cho từng mục tri thức"
+    note: "Đây là chỗ duy nhất quyết định tri thức nào được đưa cho trợ lý AI đọc."
+
+tips:
+  - "Báo cáo tình hình tri thức phục vụ xem xét lãnh đạo (M17) ở /modules/M26/report; xuất biểu mẫu F26.01 ở /modules/M26/print/f26-01."

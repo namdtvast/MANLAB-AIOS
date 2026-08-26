@@ -1,0 +1,34 @@
+# HDSD — hướng dẫn dùng module M25 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M25 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m25/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M25
+summary: "Một kỳ xem xét bối cảnh: vấn đề nội bộ/bên ngoài, bên quan tâm và mong đợi, ba cấp phê duyệt"
+
+steps:
+  - role: "QLCL"
+    action: "Lập kỳ xem xét bối cảnh"
+    path: "/modules/M25/review/new"
+    note: "Kỳ đột xuất bắt buộc ghi rõ sự kiện làm phát sinh."
+  - role: "QLCL"
+    action: "Nhập các vấn đề bối cảnh (nội bộ/bên ngoài) kèm mức tác động"
+    note: "Vấn đề mức tác động Cao phải liên kết ít nhất một rủi ro/cơ hội bên M01."
+  - role: "QLCL"
+    action: "Nhập các bên quan tâm và nhu cầu/mong đợi của từng bên"
+    note: "Mỗi bên quan tâm phải có ít nhất một nhu cầu/mong đợi."
+  - role: "QLCL"
+    action: "Ghi tóm tắt biến động so với kỳ trước rồi bấm Gửi soát xét"
+  - role: "Trưởng phòng"
+    action: "Soát xét đạt, hoặc trả lại kèm lý do"
+    note: "Người soát xét không được là người lập kỳ."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt kèm kết luận, hoặc không phê duyệt kèm lý do"
+    note: "Kỳ đã phê duyệt là bất biến — muốn sửa phải lập kỳ mới; kỳ trước tự chuyển Hết hiệu lực."
+  - role: "QLCL"
+    action: "Theo dõi các mục đến hạn xem xét lại"
+    path: "/modules/M25/monitoring"

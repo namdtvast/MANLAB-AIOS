@@ -1,0 +1,35 @@
+# HDSD — hướng dẫn dùng module M21 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M21 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m21/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M21
+summary: "Một hồ sơ công bố năng lực Đo lường (Mẫu 01) hoặc thông báo QTMT (Mẫu 9.01) từ lúc lập tới lúc công khai"
+
+steps:
+  - role: "Người thực hiện"
+    action: "Tạo hồ sơ theo đúng loại: Công bố năng lực Đo lường hoặc Thông báo QTMT"
+    path: "/modules/M21"
+    note: "Chọn đối tượng từ Danh mục phương tiện đo — không gõ tay ngoài danh mục."
+  - role: "Người thực hiện"
+    action: "Nhập phần đầu hồ sơ và từng dòng năng lực, rồi bấm Gửi soát xét"
+    note: "Phải có ít nhất một dòng đạt và không còn trường bắt buộc bỏ trống."
+  - role: "Lãnh đạo phòng"
+    action: "Soát xét: duyệt để đề nghị Lãnh đạo Viện, hoặc trả lại bổ sung kèm lý do"
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt nội bộ và ký số"
+    note: "Dòng năng lực thiếu bằng chứng sẽ bị chặn ngay tại bước ký."
+  - role: "Lãnh đạo phòng"
+    action: "Gửi hồ sơ tới cơ quan tiếp nhận"
+  - role: "Người thực hiện"
+    action: "Ghi nhận biên nhận của cơ quan, hoặc ghi yêu cầu bổ sung để quay lại chỉnh sửa"
+    note: "Ghi biên nhận bắt buộc nhập mã biên nhận."
+  - role: "Lãnh đạo phòng"
+    action: "Công khai hồ sơ và sinh mã QR tra cứu"
+  - role: "Lãnh đạo phòng / Lãnh đạo Viện"
+    action: "Sau khi công khai: điều chỉnh (tạo phiên bản mới), tạm dừng, hủy bỏ hoặc đánh dấu hết hiệu lực"
+    note: "Mọi thao tác này bắt buộc nhập lý do; điều chỉnh xong hồ sơ tăng một lần ban hành."

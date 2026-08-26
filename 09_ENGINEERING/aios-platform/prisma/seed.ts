@@ -8,9 +8,11 @@ import { join, relative as relative_ } from "node:path";
 import yaml from "js-yaml";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
-import type { Prisma } from "../src/generated/prisma/client";
+// Prisma nhập dạng giá trị (không phải `import type`) vì cần Prisma.DbNull để ghi NULL cho cột Json.
+import { Prisma } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { BO_CAU_HOI, TAT_CA_CA } from "../src/lib/m29/copilot/bo-cau-hoi-vang";
+import { parseHdsd, type Hdsd } from "../src/lib/hdsd";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -159,6 +161,19 @@ function readFormFrontmatter(absPath: string): Pick<FormRef, "title" | "revision
   };
 }
 
+// HDSD của module — 05_MODULE_LIBRARY/Mxx_Slug/04_UI/HDSD.yaml. Chưa soạn thì trả null
+// (banner ẩn mục HDSD); soạn sai lược đồ thì DỪNG seed kèm tên file, không nạp hướng dẫn cụt.
+function buildHdsd(dirName: string, code: string): Hdsd | null {
+  const rel = `05_MODULE_LIBRARY/${dirName}/04_UI/HDSD.yaml`;
+  const raw = loadYaml<unknown>(join(MODULE_LIB, dirName, "04_UI", "HDSD.yaml"));
+  if (raw === null || raw === undefined) return null;
+  try {
+    return parseHdsd(raw, code);
+  } catch (e) {
+    throw new Error(`[HDSD] ${rel}: ${(e as Error).message}`);
+  }
+}
+
 // Ghép mã biểu mẫu (manifest.forms) với file thật (links.form_files). Mã không có
 // file tương ứng vẫn hiển thị — chỉ là không bấm mở được.
 function buildForms(num: string, manifest: MpManifest | null, links: MpLinks | null): FormRef[] {
@@ -202,6 +217,7 @@ async function main() {
 
     // Căn cứ pháp lý của module (banner đầu trang). Thiếu khối document nghĩa là
     // MP chưa ban hành thủ tục — để null hết, UI hiển thị "chưa ban hành".
+    const hdsd = buildHdsd(dirName, code);
     const doc = mpManifest?.document;
     const issuedDate = doc?.issued_date ? new Date(doc.issued_date) : null;
     const canCu = {
@@ -218,11 +234,20 @@ async function main() {
       legalBasis: mpManifest?.legal ?? [],
       // Json trong Prisma cần kiểu InputJsonValue — FormRef[] là dữ liệu thuần, ép kiểu là an toàn.
       forms: buildForms(num, mpManifest, mpLinks) as unknown as Prisma.InputJsonValue,
+      // Cột Json nullable: Prisma đòi Prisma.DbNull để ghi NULL, `null` thường không hợp lệ.
+      hdsd: (hdsd ?? Prisma.DbNull) as Prisma.InputJsonValue | typeof Prisma.DbNull,
     };
     if (ACTIVE_MODULE_CODES.has(code) && !doc?.doc_id) {
       console.warn(
         `[căn cứ] ${code}: chưa khai khối document trong 04_PROCESS_LIBRARY/MP${num}_*/manifest.yaml ` +
           `→ banner sẽ hiển thị "chưa ban hành thủ tục".`,
+      );
+    }
+
+    if (ACTIVE_MODULE_CODES.has(code) && !hdsd) {
+      console.warn(
+        `[HDSD] ${code}: chưa có 05_MODULE_LIBRARY/${dirName}/04_UI/HDSD.yaml ` +
+          `→ trang module không có mục "Hướng dẫn sử dụng".`,
       );
     }
 

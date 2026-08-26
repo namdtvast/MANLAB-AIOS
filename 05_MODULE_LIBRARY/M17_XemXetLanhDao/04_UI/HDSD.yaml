@@ -1,0 +1,33 @@
+# HDSD — hướng dẫn dùng module M17 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M17 của aios-platform (mục "HDSD — Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m17/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M17
+summary: "Một kỳ xem xét của lãnh đạo: chương trình, biên bản đủ nội dung đầu vào, kết luận, theo dõi hành động"
+
+steps:
+  - role: "QLCL"
+    action: "Lập chương trình xem xét lãnh đạo"
+    path: "/modules/M17/plan/new"
+    note: "Hệ thống đối chiếu với M16 xem trong năm đã có đánh giá nội bộ hoàn thành chưa."
+  - role: "QLCL"
+    action: "Gửi duyệt chương trình"
+    note: "Chỉ chương trình Đang soạn hoặc Không duyệt mới gửi được."
+  - role: "Trưởng phòng"
+    action: "Duyệt chương trình"
+    note: "Chương trình cần đồng phê duyệt của cả Trưởng phòng và Lãnh đạo Viện mới chuyển sang Đã duyệt."
+  - role: "Lãnh đạo Viện"
+    action: "Duyệt chương trình (chữ ký thứ hai)"
+  - role: "QLCL"
+    action: "Lập biên bản cuộc họp và ghi kết quả cho từng nội dung đầu vào"
+    note: "Chỉ chương trình Đã duyệt mới lập biên bản được; thiếu nội dung đầu vào bắt buộc là bị chặn."
+  - role: "Lãnh đạo Viện"
+    action: "Ghi kết luận cuộc họp xem xét"
+  - role: "QLCL"
+    action: "Lập theo dõi hành động sau xem xét và đánh dấu hoàn thành khi có bằng chứng"
+    note: "Hành động mang tính khắc phục thì chuyển sang M13 để theo dõi bằng hồ sơ khắc phục."
