@@ -1,0 +1,44 @@
+# HDSD — hướng dẫn dùng module M27 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M27 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m27/rules.ts và thủ tục tương ứng; sửa quy tắc
+# thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M27
+summary: "Khai báo và duy trì danh mục tài sản thông tin: phân loại, quy tắc xử lý, rà soát định kỳ"
+
+steps:
+  - role: "Trưởng phòng (chủ sở hữu) / QLCL"
+    action: "Khai báo tài sản thông tin vào danh mục"
+    path: "/modules/M27/asset/new"
+    note: "Bắt buộc có chủ sở hữu; tài sản điện tử còn phải có người quản lý kỹ thuật thì mới gửi đi được."
+  - role: "Người lập / QLCL"
+    action: "Gửi bản ghi đi soát xét"
+    note: "Chỉ bản ghi ở Nháp hoặc bị trả lại mới gửi được."
+  - role: "Phụ trách an toàn thông tin"
+    action: "Soát xét mức phân loại và mức C–I–A, đạt hoặc trả lại kèm lý do"
+    note: "Người soát xét phải khác người lập."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt đưa tài sản vào danh mục"
+  - role: "Quản trị hệ thống"
+    action: "Ghi nhận kết quả kiểm chứng phục hồi dữ liệu cho tài sản thuộc diện phải sao lưu"
+    note: "Chỉ ghi được cho tài sản Đang sử dụng và có yêu cầu sao lưu."
+  - role: "Chủ sở hữu / QLCL"
+    action: "Ghi nhận rà soát định kỳ; theo dõi mục sắp đến hạn ở Bảng đến hạn"
+    path: "/modules/M27/due"
+  - role: "QLCL / QTHT / PT.ATTT"
+    action: "Đặt cờ cho phép dùng tài sản làm nguồn cho hệ thống AI"
+    note: "Chỉ tài sản Đang sử dụng mới được làm nguồn cho AI; việc cấp dữ liệu cho AI vẫn phải qua hồ sơ riêng bên M34."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt bảng quy tắc xử lý theo mức phân loại (F27.02)"
+    path: "/modules/M27/rules"
+    note: "Bảng quy tắc là căn cứ để biết mỗi mức phân loại được lưu, gửi, sao chép, huỷ ra sao."
+  - role: "Chủ sở hữu (TP) / QLCL"
+    action: "Chuyển tài sản sang Ngừng sử dụng khi không còn dùng"
+    note: "Bắt buộc nhập lý do; bản ghi khai sai hoặc trùng thì Lãnh đạo Viện huỷ, và chỉ huỷ được khi chưa phê duyệt."
+
+tips:
+  - "Tài sản có chứa dữ liệu cá nhân xem riêng ở /modules/M27/personal-data — đây là danh sách phải rà trước mỗi kỳ đánh giá bảo mật."
