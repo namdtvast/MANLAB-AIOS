@@ -15,4 +15,12 @@
 
 **Phân biệt với thủ tục lân cận:** ETV.P27 — *có tài sản dữ liệu nào, sao lưu và huỷ ra sao* · **ETV.P34 — *dữ liệu có đúng không, ai được dùng, sống bao lâu*** · ETV.P28 — *bảo vệ bằng biện pháp gì* · ETV.P33 — *nằm trên thiết bị nào* · ETV.P37 — *chảy giữa các hệ thống thế nào*. Ranh giới này do ETV.P35 mục 2.3 (đã ban hành) xác lập.
 
+**Dữ liệu chủ Chủ thể (Party):** nhóm dữ liệu chủ "danh mục khách hàng" (ETV.P34 §2.1 nhóm 3) được
+chuẩn hóa thành mô hình **Chủ thể – Vai trò**: một tổ chức hoặc cá nhân chỉ có một định danh gốc, mang
+nhiều vai trò (khách hàng, nhà cung cấp, bên ngoài cung cấp, cơ sở được đánh giá, chuyên gia, nhân sự,
+bên quan tâm...). Lược đồ, danh mục vai trò, quy tắc khử trùng và gộp:
+[`09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md`](../../09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md).
+Mọi module tham chiếu `m34_party_role`, **không tự tạo master khách hàng / NCC / cơ sở / đối tác /
+chuyên gia** — đây là áp dụng Nguyên tắc 1 (một nguồn sự thật) của ETV.P34 §2.2.
+
 > Hub không chứa nội dung quy trình. Xem `links.yaml`.

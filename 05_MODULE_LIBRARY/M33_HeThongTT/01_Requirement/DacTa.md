@@ -571,8 +571,14 @@ kiến chuyển đổi số (M32).
 
 ## 9. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform`
-(`PlatformModule.status = COMING_SOON`). Tầng đặc tả đã đủ để lập trình:
+**Đã xây nguyên mẫu trên `09_ENGINEERING/aios-platform`** (26/08/2026, theo lệnh BUILD của chủ sở
+hữu repo trong khi `ETV.P33` còn `Chờ soát xét` — cùng cách tiếp cận đã dùng cho M34, xem giới hạn
+ở mục 10): schema Prisma (7 model `M33*` + 21 enum, migration `m33_he_thong_tt`), gate thuần
+`src/lib/m33/rules.ts` (R1–R22, **32 test** `rules.test.ts` PASS), server action + audit
+append-only, **11 trang** `/modules/M33…` đúng danh sách `04_UI/Screens.md`, seed demo phủ các
+nhánh gate và 7 nhóm cờ đến hạn, vai trò `VP`, `TP` bổ sung vào ModuleRoleAssignment. Mọi giá trị
+định lượng trong gate bám dự thảo — Viện phê duyệt thủ tục mà đổi số thì sửa `rules.ts` theo.
+Tầng đặc tả:
 
 | Tầng | File | Nội dung |
 |---|---|---|
@@ -585,7 +591,8 @@ kiến chuyển đổi số (M32).
 | Quy trình | `07_Workflow/StateMachine.md` | Bảng trạng thái và thẩm quyền |
 
 Hồ sơ làm việc: `01_Requirement/_work/20260824-dac-ta-m33/` (đợt đặc tả gốc — outcome, spec, plan
-theo increment) và `_work/20260826-dong-bo-p33/` (đợt đối chiếu với thủ tục dự thảo).
+theo increment), `_work/20260826-dong-bo-p33/` (đợt đối chiếu với thủ tục dự thảo) và
+`_work/20260826-build-m33/` (đợt BUILD nguyên mẫu lên aios-platform).
 
 ## 10. Đối chiếu với `ETV.P33` — đã chốt và còn lệch
 
