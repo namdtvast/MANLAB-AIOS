@@ -21,11 +21,11 @@ menu_group: CONG_NGHE
 menu_order: 2
 document:
   doc_id: ETV.P28
-  # Lần BH 02 (làm rõ ranh giới kiểm kê thiết bị với ETV.MP33) đang chờ soát xét;
-  # lần BH 01 ban hành 24/08/2026 vẫn là bản đang áp dụng cho tới khi 02 được phê duyệt.
-  doc_status: Cho-soat-xet
+  # Lần BH 02: ranh giới kiểm kê thiết bị với ETV.P33 + tái cấu trúc khung I–IX;
+  # soát xét Trần Thị Hoa, phê duyệt Nguyễn Hoàng Giang ngày 26/08/2026.
+  doc_status: Da-phe-duyet
   doc_version: "02"
-  issued_date: 2026-08-24
+  issued_date: 2026-08-26
 forms:
   - ETV.P.F28.01
   - ETV.P.F28.02

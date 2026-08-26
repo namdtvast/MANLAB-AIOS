@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP28 |
 | Tên gọi ngắn | ATTT |
-| Thủ tục ban hành | `ETV.P28` — Lần ban hành 01, ngày 24/08/2026 |
+| Thủ tục ban hành | `ETV.P28` — Lần ban hành 02, ngày 26/08/2026 |
 | Điều khoản/căn cứ | ISO/IEC 27001:2022 §4, §5.2, §6.1.2, §6.1.3, §6.2, §7.2–7.5, §8.1–8.3, §9.1–9.3, §10, Phụ lục A; ISO 9001 §6.1, §7.5; ISO/IEC 17025 §4.1, §4.2, §7.11; ISO 17034 §7.4; ISO/IEC 42001 §6.1, §8.1 |
 | Căn cứ pháp luật | Luật 86/2015/QH13 (An toàn thông tin mạng); Luật 24/2018/QH14 (An ninh mạng); Luật 20/2023/QH15 (Giao dịch điện tử); Nghị định 13/2023/NĐ-CP; Nghị định 85/2016/NĐ-CP |
 | Năng lực liên quan | CAP-28 |

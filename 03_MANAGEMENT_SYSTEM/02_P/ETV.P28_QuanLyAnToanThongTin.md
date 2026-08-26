@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP28_ATTT
 capability: [CAP-28_ATTT]
 module: M28_ATTT
-effective_date: ""
+effective_date: "26/08/2026"
 revision: "02"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [an toàn thông tin, ISMS, ISO/IEC 27001, đánh giá rủi ro, xử lý rủi ro, tuyên bố áp dụng, SoA, sự cố an toàn thông tin, quyền truy cập, MFA, nhật ký, dữ liệu cá nhân]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P03, ETV.P04, ETV.P06, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P16, ETV.P17, ETV.P24, ETV.P25, ETV.P26, ETV.P27, ETV.P29, ETV.P30, ETV.P31, ETV.P33]
 iso_clause: ["ISO/IEC 27001:2022 §4, §5.2, §5.3, §6.1.2, §6.1.3, §6.2, §7.2, §7.3, §7.5, §8.1, §8.2, §8.3, §9.1, §9.2, §9.3, §10, Phụ lục A (A.5–A.8)", "ISO/IEC 27002:2022 (tham khảo khi lập SoA)", "ISO/IEC 27005 (tham khảo phương pháp rủi ro)", "ISO 9001:2015 §6.1, §7.5, §9.3", "ISO/IEC 17025:2017 §4.1, §4.2, §6.2, §7.11, §8.3, §8.5", "ISO 17034:2016 §7.4, §8.3", "ISO/IEC 42001:2023 §6.1, §8.1"]
@@ -32,16 +32,14 @@ superseded_by: null
 | ----------------- | ---------------------------------------- |
 | **Mã số**         | ETV.P 28                                 |
 | **Lần ban hành**  | 02                                       |
-| **Ngày ban hành** | ..../..../........                       |
-| **Biên soạn**     | Dương Thành Nam — ..../..../........     |
-| **Soát xét**      | Trần Thị Hoa — ..../..../........        |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........ |
-
-> **Tình trạng bản này: CHỜ SOÁT XÉT** — lần ban hành 02, chưa có hiệu lực. **Lần ban hành 01 (24/08/2026) vẫn là bản đang áp dụng** cho tới khi bản này được Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
+| **Ngày ban hành** | 26/08/2026                               |
+| **Biên soạn**     | Dương Thành Nam                          |
+| **Soát xét**      | Trần Thị Hoa — Lãnh đạo Phòng, ngày 26/08/2026 |
+| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 26/08/2026 |
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú số hóa (AI).** Bản lần ban hành 01 do AI hỗ trợ soạn thảo; lần ban hành 02 do AI hỗ trợ soát xét, tái cấu trúc theo skill `s14-kiem-soat-tai-lieu` (khung thủ tục chuẩn tại `templates/thu_tuc.md`, thể thức tài liệu HTQL theo ETV.P14), lấy ETV.P31 và ETV.P35 làm mẫu cấu trúc. Đây là **bản dự thảo/gợi ý của AI**, cần người soát xét kiểm tra toàn văn và Lãnh đạo Viện phê duyệt trước khi có hiệu lực — AI không tự phê duyệt, không tự ký số, không tự cấp số hiệu chính thức. Trước khi công bố áp dụng, đề nghị QLCL xác nhận hiệu lực các văn bản pháp luật viện dẫn tại mục 3.2. File Markdown này là bản số hóa để đồng bộ vào ManLab/tri thức nội bộ, không thay thế bản ký thật lưu theo ETV.P15.
+> **Ghi chú số hóa (AI).** Bản lần ban hành 01 do AI hỗ trợ soạn thảo; lần ban hành 02 do AI hỗ trợ soát xét, tái cấu trúc theo skill `s14-kiem-soat-tai-lieu` (khung thủ tục chuẩn tại `templates/thu_tuc.md`, thể thức tài liệu HTQL theo ETV.P14), lấy ETV.P31 và ETV.P35 làm mẫu cấu trúc. Thông tin Biên soạn/Soát xét/Phê duyệt và ngày ban hành do người dùng cung cấp trực tiếp trong phiên làm việc — **AI không tự phê duyệt, không tự ký số, không tự cấp số hiệu chính thức**. Đề nghị LĐV xác nhận bản ký thật được lưu tại hồ sơ theo ETV.P15. File Markdown này là bản số hóa để đồng bộ vào ManLab/tri thức nội bộ, không thay thế bản ký thật.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 

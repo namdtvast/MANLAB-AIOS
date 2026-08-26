@@ -5,7 +5,7 @@
 > **bốn biểu mẫu `ETV.P.F 33.01–33.04`** trong `06_SHARED_RESOURCES/01_Forms/` (cùng trạng thái).
 > Dự thảo lấy chính đặc tả này làm đầu vào và **đã chốt toàn bộ 8 điểm mà đặc tả để ngỏ** — đối
 > chiếu ở mục 10. Căn cứ khác: Sổ tay chất lượng **§10.2** và **§7.11**; Thủ tục **`ETV.P28` — Quản
-> lý an toàn thông tin** (ban hành 24/08/2026, đánh số theo lần ban hành 02) mục **6.7.1–6.7.5**, **6.7.10** và **6.9**; Thủ tục
+> lý an toàn thông tin** (lần ban hành 02, ngày 26/08/2026) mục **6.7.1–6.7.5**, **6.7.10** và **6.9**; Thủ tục
 > **`ETV.P35` — Quản lý nền tảng số** (ban hành 24/08/2026) **mục 2.3** — giao cho ETV.P33 "hạ tầng
 > công nghệ thông tin, máy chủ, mạng, thiết bị đầu cuối, tài khoản người dùng"; ETV.P02 §6.8;
 > `ETV.P15`.
@@ -328,8 +328,7 @@ Thiếu một trong hai ⇒ **không cho lưu**, không chỉ chặn phê duyệ
 **hợp của M33 + M27**, xuất từ một màn hình chung; **không lập hai danh mục thiết bị song song**.
 Điểm lệch câu chữ giữa `ETV.P28` **lần BH 01** mục 5.7.2 ("đăng ký trong danh mục tài sản ETV.MP27")
 và ETV.P35 mục 2.3 (giao thiết bị đầu cuối cho ETV.P33) **đã được chốt** tại ETV.P33 §2.2 Nguyên
-tắc 1 — và đã được **đưa vào chính `ETV.P28` lần BH 02** (mục 5.7.2 + ghi chú ranh giới tại mục 1.4,
-đang chờ soát xét), nên kết luận không chỉ nằm trong một thủ tục: **thiết bị đăng ký tại P33, dữ liệu
+tắc 1 — và đã được **đưa vào chính `ETV.P28` lần BH 02** (mục 6.7.2 + ghi chú ranh giới tại mục 2.3, đã phê duyệt ngày 26/08/2026), nên kết luận không chỉ nằm trong một thủ tục: **thiết bị đăng ký tại P33, dữ liệu
 trên thiết bị đăng ký tại P27**. Yêu cầu cấu hình an toàn của ETV.P28 mục 6.7.2 vẫn áp dụng nguyên
 và được kiểm chứng tại ETV.P33 §6.2.3.
 
@@ -620,8 +619,8 @@ Tám câu hỏi mà bản đặc tả đầu tiên (24/08/2026) để ngỏ **đ
 3. **Ánh xạ `impact` (4 giá trị) → `priority` (3 mức SLA)** ở mục 4.6 là **diễn giải của đặc tả**,
    ETV.P33 §6.5.2 không nêu bảng ánh xạ. Cần xác nhận: "Không ảnh hưởng vận hành" xếp mức **Thấp**
    (đề xuất hiện tại) hay tách thành mức thứ tư không có SLA?
-4. **Thứ tự phê duyệt `ETV.P28` lần BH 02 ↔ `ETV.P33`.** Câu chữ mục 5.7.2 của P28 đã được hiệu
-   đính theo MP14 (lần BH 02, đang chờ soát xét) để không còn đọc ngược với P33. **P33 chỉ nên được
+4. **Thứ tự phê duyệt `ETV.P28` lần BH 02 ↔ `ETV.P33`.** Câu chữ mục 6.7.2 của P28 đã được hiệu
+   đính theo MP14 (lần BH 02, đã phê duyệt ngày 26/08/2026) để không còn đọc ngược với P33. **P33 chỉ nên được
    phê duyệt sau hoặc cùng đợt với P28 lần BH 02** — nếu P33 có hiệu lực trước, hai thủ tục vẫn mâu
    thuẫn trong thời gian chờ. Đây là việc của tầng 03, không phải của module.
 5. **Phụ thuộc M27, M28, M30, M31, M35 chưa lên nền tảng** — giai đoạn đầu dùng tham chiếu mềm kèm

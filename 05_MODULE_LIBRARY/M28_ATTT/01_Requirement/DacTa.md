@@ -1,6 +1,6 @@
 # M28_ATTT — Đặc tả yêu cầu
 
-> **Nguồn**: Thủ tục **`ETV.P28` — Quản lý an toàn thông tin** đã **ban hành lần 01 ngày 24/08/2026**
+> **Nguồn**: Thủ tục **`ETV.P28` — Quản lý an toàn thông tin** đã **ban hành lần 02 ngày 26/08/2026**
 > (`03_MANAGEMENT_SYSTEM/02_P/ETV.P28_QuanLyAnToanThongTin.md`) cùng bộ biểu mẫu
 > **`ETV.P.F28.01–F28.04`** trong `06_SHARED_RESOURCES/01_Forms/`. Tiêu chuẩn áp dụng: ISO/IEC
 > 27001:2022 §4, §5.2, §6.1.2, §6.1.3, §6.2, §7.2–7.5, §8.1–8.3, §9.1–9.3, §10 và Phụ lục A;
@@ -353,7 +353,7 @@ Báo cáo tổng hợp tối thiểu 06 tháng/lần.
 
 ## 9. Liên kết
 
-Quy trình: **MP28** (`ETV.P28`, ban hành lần 01 ngày 24/08/2026) · Năng lực: **CAP-28_ATTT** (dùng
+Quy trình: **MP28** (`ETV.P28`, ban hành lần 02 ngày 26/08/2026) · Năng lực: **CAP-28_ATTT** (dùng
 chung với MP27, MP31, MP33, MP34, MP37) · Tiêu chuẩn: ISO/IEC 27001:2022 (§4–§10, Phụ lục A),
 ISO/IEC 27002:2022 và ISO/IEC 27005 (tham khảo), ISO 9001 §6.1/§7.5, ISO/IEC 17025 §4.1/§4.2/§7.11,
 ISO 17034 §7.4, ISO/IEC 42001 §6.1/§8.1 · Pháp luật: Luật 86/2015/QH13, Luật 24/2018/QH14,

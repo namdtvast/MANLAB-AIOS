@@ -34,7 +34,7 @@ nơi dữ liệu thật nằm** (hệ thống CNTT ở M33, hồ sơ ở M15, t�
 | Module | M27 làm gì với nó | M27 **không** làm |
 |---|---|---|
 | **M02_BaoMat** (đã có đặc tả theo `ETV.P02`) | Trỏ tới phê duyệt công bố thông tin khách hàng (`DisclosureApproval`) khi chia sẻ ra bên ngoài | Không quản lý cam kết bảo mật, sổ khách, sự cố bảo mật |
-| **M28_ATTT** (`ETV.P28` **đã ban hành** 24/08/2026, đã có đặc tả) | Cấp danh mục tài sản làm **đầu vào đánh giá rủi ro ATTT** (ISO/IEC 27001 §8.2); nhận sự cố khi khôi phục sao lưu thất bại hoặc dữ liệu Hạn chế/Mật lọt chỉ mục AI | Không đánh giá rủi ro, không quản lý SoA, không xử lý sự cố ATTT |
+| **M28_ATTT** (`ETV.P28` **đã ban hành** 26/08/2026, đã có đặc tả) | Cấp danh mục tài sản làm **đầu vào đánh giá rủi ro ATTT** (ISO/IEC 27001 §8.2); nhận sự cố khi khôi phục sao lưu thất bại hoặc dữ liệu Hạn chế/Mật lọt chỉ mục AI | Không đánh giá rủi ro, không quản lý SoA, không xử lý sự cố ATTT |
 | **M33_HeThongTT** | Trỏ tới hệ thống/ứng dụng đang chứa tài sản bằng `system_ref` | Không quản lý vòng đời phần cứng, phần mềm, hạ tầng CNTT |
 | **M34_DuLieuSo** | Cung cấp mức phân loại và chủ sở hữu cho tập dữ liệu số | Không định nghĩa từ điển dữ liệu, chuẩn kỹ thuật, luồng tích hợp (M34, M37) |
 | **M15_HoSo** | Với tài sản là **hồ sơ**: `retention_ref` trỏ M15 | Không tự đặt thời hạn lưu hồ sơ (thẩm quyền của ETV.P15) |
@@ -223,7 +223,7 @@ thứ ba xóa và cung cấp bằng chứng.
    cảnh báo LĐV. Sao lưu chưa từng khôi phục thử **không được coi là biện pháp kiểm soát có hiệu
    lực** (ISO/IEC 27001 A.8.13). **Kiểm tra khôi phục thất bại ⇒ bắt buộc mở sự cố an toàn thông
    tin ở M28** và kết quả kiểm tra là bằng chứng bắt buộc cho các kiểm soát tính sẵn sàng trong SoA
-   (`ETV.P28` mục 6.7, đã ban hành 24/08/2026).
+   (`ETV.P28` mục 6.7, đã ban hành 26/08/2026).
 8. **Thời hạn lưu không đặt hai nơi**: tài sản là hồ sơ ⇒ `retention_ref` trỏ **M15**, thời hạn lấy
    theo ETV.P15; tài sản là tài liệu kiểm soát ⇒ `doc_ref` trỏ **M14**. M27 chỉ tự đặt thời hạn cho
    dữ liệu không thuộc hai loại trên (CSDL vận hành, bản sao lưu, nhật ký hệ thống).
@@ -296,7 +296,7 @@ phê duyệt của **ETV.P02**, không lập biểu mẫu trùng.
 
 Quy trình: **MP27** (`ETV.P27` chưa ban hành) · Năng lực: **CAP-28_ATTT** (dùng chung với MP28,
 MP31, MP33, MP34, MP37) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §9.4 và §7.11,
-`ETV.P02_BaoMat.md` §6.8–§6.10, `ETV.P15`, `ETV.P28_QuanLyAnToanThongTin.md` mục 5.3/5.7 (ban hành 24/08/2026) · Tiêu chuẩn: ISO/IEC 27001 §8.2 và A.5.9–A.5.14, A.8.10,
+`ETV.P02_BaoMat.md` §6.8–§6.10, `ETV.P15`, `ETV.P28_QuanLyAnToanThongTin.md` mục 6.3/6.7 (ban hành 26/08/2026) · Tiêu chuẩn: ISO/IEC 27001 §8.2 và A.5.9–A.5.14, A.8.10,
 A.8.13; ISO/IEC 17025 §7.11; ISO 9001 §7.5; ISO/IEC 42001 §7.4 · Pháp luật: **Nghị định
 13/2023/NĐ-CP** · Lưu hồ sơ: **ETV.P15** · Nhóm menu: `DU_LIEU_SO` (manifest MP27).
 

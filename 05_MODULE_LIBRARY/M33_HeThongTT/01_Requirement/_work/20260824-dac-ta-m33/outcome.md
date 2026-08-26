@@ -20,7 +20,7 @@ mềm, dịch vụ thuê ngoài), đúng phạm vi mà ETV.P35 lần BH 01 mục
 
 ## WHY
 - QM §10.2 dẫn chiếu Thủ tục ETV.MP33 nhưng **thủ tục và biểu mẫu chưa tồn tại**.
-- `ETV.P28` (đã ban hành) đặt ra một loạt **kiểm soát kỹ thuật bắt buộc** tại mục 5.7 — mã hóa ổ
+- `ETV.P28` (đã ban hành) đặt ra một loạt **kiểm soát kỹ thuật bắt buộc** tại mục 6.7 — mã hóa ổ
   đĩa, chống mã độc, vá lỗi theo mức nghiêm trọng, phân vùng mạng, tách môi trường, xóa dữ liệu
   trước thanh lý — nhưng **không có module nào đang giữ bằng chứng thực hiện**. Không có M33 thì
   SoA của M28 có kiểm soát "Áp dụng" mà không chứng minh được.
