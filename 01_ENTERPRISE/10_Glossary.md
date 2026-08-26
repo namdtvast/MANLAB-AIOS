@@ -177,6 +177,9 @@ Thứ tự ưu tiên nguồn tham chiếu là: **văn bản pháp luật hiện 
 | DMC | Digital Measurement Certificate - Chứng chỉ đo lường số có cấu trúc máy đọc được, có khả năng xác thực và trao đổi. |
 | Chứng chỉ số | Chứng chỉ được tạo, ký, phát hành, lưu giữ và xác thực trong môi trường số. |
 | Dữ liệu chủ | Dữ liệu cốt lõi được dùng chung, như khách hàng, thiết bị, phương pháp, dịch vụ và nhân sự. |
+| Chủ thể (Party) | Một tổ chức hoặc cá nhân mà ETV có quan hệ, được định danh **một lần duy nhất** và dùng chung cho mọi nghiệp vụ, bất kể giữ bao nhiêu vai trò. |
+| Vai trò chủ thể (Party Role) | Tư cách của một chủ thể trong một ngữ cảnh nghiệp vụ và một khoảng thời gian xác định: khách hàng, nhà cung cấp, bên ngoài cung cấp, cơ sở được đánh giá, chuyên gia, nhân sự, bên quan tâm... Giao dịch tham chiếu vai trò, không tham chiếu chủ thể trần. |
+| QLKH | Quản lý quan hệ khách hàng - vòng đời từ khách hàng tiềm năng, báo giá, hợp đồng, dịch vụ đến phản hồi và tái ký. Dùng chữ **QLKH**, không dùng "CRM" cho nghĩa này (xem mục 3: CRM là mẫu chuẩn được chứng nhận). |
 | Metadata | Dữ liệu mô tả nội dung, nguồn gốc, cấu trúc, thời gian và điều kiện sử dụng của dữ liệu khác. |
 | Data Lake | Kho lưu trữ dữ liệu thô hoặc bán cấu trúc ở quy mô lớn để quản lý và phân tích. |
 | Digital Twin | Biểu diễn số được duy trì của một đối tượng hoặc hệ thống vật lý. |
