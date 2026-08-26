@@ -594,16 +594,22 @@ model AIProvider {
 }
 
 model AIModel {
-  id              String     @id @default(cuid())
-  providerId      String
-  modelId         String // vd "gemini-2.5-flash" — id thật của model tại provider, khác PK
-  displayName     String
-  purpose         String     @default("")
-  status          AIOpStatus @default(ACTIVE)
-  temperature     Float?
-  maxTokens       Int?
-  costPer1kTokens Float      @default(0)
-  version         Int        @default(1)
+  id                         String     @id @default(cuid())
+  providerId                 String
+  modelId                    String // vd "gemini-2.5-flash" — id thật của model tại provider, khác PK
+  displayName                String
+  purpose                    String     @default("")
+  status                     AIOpStatus @default(ACTIVE)
+  temperature                Float?
+  maxTokens                  Int?
+  // Giữ cột cũ để đọc dữ liệu trước migration. Giá mới tách token vào/ra theo đơn vị 1 triệu
+  // token — đúng cách các nhà cung cấp công bố bảng giá và tránh sai số từ giá pha trộn.
+  costPer1kTokens            Float      @default(0)
+  inputCostPerMillionTokens  Float      @default(0)
+  outputCostPerMillionTokens Float      @default(0)
+  currency                   String     @default("USD")
+  pricingUpdatedAt           DateTime?
+  version                    Int        @default(1)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -678,6 +684,7 @@ model AIAgent {
   aia              AIImpactAssessment[]
   evaluationSuites AIEvaluationSuite[]
   requests         AIRequest[]
+  budgets          AIBudget[]
   incidents        AIIncident[]
   sightings        AIUnregisteredSighting[]
 }
@@ -796,17 +803,22 @@ model AIEvaluationRun {
 }
 
 model AIRequest {
-  id               String  @id @default(cuid()) // = traceId
-  platformId       String?
-  agentId          String?
-  modelId          String?
-  promptVersionId  String?
-  userRef          String
-  inputTokens      Int     @default(0)
-  outputTokens     Int     @default(0)
-  latencyMs        Int     @default(0)
-  guardrailResult  String  @default("PASS")
-  evaluationResult String?
+  id                       String  @id @default(cuid()) // = traceId
+  platformId               String?
+  agentId                  String?
+  modelId                  String?
+  promptVersionId          String?
+  userRef                  String
+  inputTokens              Int     @default(0)
+  outputTokens             Int     @default(0)
+  // Snapshot đơn giá và chi phí tại thời điểm gọi. Không tính lại lịch sử bằng bảng giá hiện tại.
+  inputUnitCostPerMillion  Float   @default(0)
+  outputUnitCostPerMillion Float   @default(0)
+  estimatedCost            Float   @default(0)
+  costCurrency             String  @default("USD")
+  latencyMs                Int     @default(0)
+  guardrailResult          String  @default("PASS")
+  evaluationResult         String?
 
   createdAt DateTime @default(now())
 
@@ -814,6 +826,30 @@ model AIRequest {
   model         AIModel?         @relation(fields: [modelId], references: [id])
   promptVersion AIPromptVersion? @relation(fields: [promptVersionId], references: [id])
   toolCalls     AIToolCall[]
+}
+
+// Hạn mức chi phí theo tháng. agentId rỗng = hạn mức toàn M29; có agentId = hạn mức riêng Agent.
+// Chỉ một hạn mức đang hiệu lực cho mỗi phạm vi tại một thời điểm; action kiểm soát chồng lấn.
+model AIBudget {
+  id             String     @id @default(cuid())
+  code           String     @unique
+  name           String
+  agentId        String?
+  monthlyLimit   Float
+  currency       String     @default("USD")
+  warningPercent Int        @default(80)
+  blockAtLimit   Boolean    @default(true)
+  status         AIOpStatus @default(ACTIVE)
+  effectiveFrom  DateTime   @default(now())
+  effectiveTo    DateTime?
+  owner          String     @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  agent AIAgent? @relation(fields: [agentId], references: [id], onDelete: Restrict)
+
+  @@index([agentId, status])
 }
 
 model AIToolCall {

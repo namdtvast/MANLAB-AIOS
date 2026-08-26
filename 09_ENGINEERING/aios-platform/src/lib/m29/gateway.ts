@@ -9,6 +9,7 @@ import { buildContextBlock, retrieve, type Passage } from "./copilot/retrieval";
 // Câu từ chối và mã Agent nằm ở module thuần để trình chấm đánh giá dùng lại được mà không
 // phải kéo theo Prisma. Re-export để nơi gọi cũ không phải đổi đường dẫn nhập.
 import { COPILOT_AGENT_CODE, NO_SOURCE_ANSWER } from "./copilot/hang-so";
+import { calculateCost } from "./cost";
 
 export { COPILOT_AGENT_CODE, NO_SOURCE_ANSWER };
 import type { M29Role } from "./model";
@@ -38,7 +39,7 @@ export async function callTool({
   if (!agentId) return err("AGENT_REQUIRED", "Tool Gateway chỉ nhận lời gọi thay mặt một Agent cụ thể — thiếu agentId.");
 
   // (3) Agent tồn tại.
-  const agent = await prisma.aIAgent.findUnique({ where: { id: agentId } });
+  const agent = await prisma.aIAgent.findUnique({ where: { id: agentId }, include: { model: true } });
   if (!agent) return err("NOT_FOUND", "Không tìm thấy Agent.");
 
   // (3b) Agent phải đang hoạt động. Bước này BỔ SUNG ở Increment 4 — bản port gốc không xét
@@ -75,8 +76,10 @@ export async function callTool({
   const adapter = getAdapter(platform.adapterType);
   const result = await adapter.call(platform, tool, input);
 
-  const inputTokens = JSON.stringify(input ?? {}).length;
-  const outputTokens = JSON.stringify(result.output ?? {}).length;
+  // Tool call không phải model inference; kích thước JSON không được ghi giả thành token.
+  const inputTokens = 0;
+  const outputTokens = 0;
+  const cost = calculateCost(inputTokens, outputTokens, agent.model);
 
   const request = await prisma.aIRequest.create({
     data: {
@@ -87,6 +90,10 @@ export async function callTool({
       userRef: user.id,
       inputTokens,
       outputTokens,
+      inputUnitCostPerMillion: cost.inputCostPerMillionTokens,
+      outputUnitCostPerMillion: cost.outputCostPerMillionTokens,
+      estimatedCost: cost.estimatedCost,
+      costCurrency: cost.currency,
       latencyMs: Date.now() - startedAt,
       guardrailResult: "PASS",
     },
@@ -171,15 +178,59 @@ function monthlyBudgetUsd(): number | null {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-async function costThisMonth(agentId: string): Promise<number> {
-  const from = new Date();
-  from.setUTCDate(1);
-  from.setUTCHours(0, 0, 0, 0);
+async function costThisMonth(agentId?: string): Promise<number> {
+  const now = new Date();
+  const from = new Date(now.getFullYear(), now.getMonth(), 1);
   const rows = await prisma.aIRequest.findMany({
     where: { agentId, createdAt: { gte: from } },
-    select: { inputTokens: true, outputTokens: true, model: { select: { costPer1kTokens: true } } },
+    select: {
+      inputTokens: true,
+      outputTokens: true,
+      estimatedCost: true,
+      inputUnitCostPerMillion: true,
+      outputUnitCostPerMillion: true,
+      model: {
+        select: {
+          costPer1kTokens: true,
+          inputCostPerMillionTokens: true,
+          outputCostPerMillionTokens: true,
+          currency: true,
+        },
+      },
+    },
   });
-  return rows.reduce((sum, r) => sum + ((r.inputTokens + r.outputTokens) / 1000) * (r.model?.costPer1kTokens ?? 0), 0);
+  return rows.reduce((sum, r) => {
+    if (r.estimatedCost > 0) return sum + r.estimatedCost;
+    return sum + calculateCost(r.inputTokens, r.outputTokens, {
+      inputCostPerMillionTokens: r.inputUnitCostPerMillion || r.model?.inputCostPerMillionTokens,
+      outputCostPerMillionTokens: r.outputUnitCostPerMillion || r.model?.outputCostPerMillionTokens,
+      costPer1kTokens: r.model?.costPer1kTokens,
+      currency: r.model?.currency,
+    }).estimatedCost;
+  }, 0);
+}
+
+async function exceededBudget(agentId: string): Promise<{ code: string; limit: number } | null> {
+  const now = new Date();
+  const budgets = await prisma.aIBudget.findMany({
+    where: {
+      status: "ACTIVE",
+      blockAtLimit: true,
+      effectiveFrom: { lte: now },
+      OR: [{ effectiveTo: null }, { effectiveTo: { gt: now } }],
+      AND: [{ OR: [{ agentId: null }, { agentId }] }],
+    },
+  });
+  for (const budget of budgets) {
+    const spent = await costThisMonth(budget.agentId ?? undefined);
+    if (spent >= budget.monthlyLimit) return { code: budget.code, limit: budget.monthlyLimit };
+  }
+
+  // Tương thích cấu hình vận hành cũ trong lúc chuyển hạn mức từ .env vào M29.
+  const legacyLimit = monthlyBudgetUsd();
+  if (legacyLimit !== null && (await costThisMonth(agentId)) >= legacyLimit)
+    return { code: "COPILOT_MONTHLY_BUDGET_USD", limit: legacyLimit };
+  return null;
 }
 
 /** Đoạn nào thật sự được câu trả lời dẫn tới — cơ sở cho guardrail GR-NO-SOURCE. */
@@ -198,21 +249,29 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
   });
 
   // Ghi trace cho MỌI nhánh kết thúc, kể cả nhánh chưa từng chạm tới nhà cung cấp mô hình.
-  const trace = async (fields: { guardrailResult: string; inputTokens?: number; outputTokens?: number; latencyMs?: number }) =>
-    prisma.aIRequest.create({
+  const trace = async (fields: { guardrailResult: string; inputTokens?: number; outputTokens?: number; latencyMs?: number }) => {
+    const inputTokens = fields.inputTokens ?? 0;
+    const outputTokens = fields.outputTokens ?? 0;
+    const cost = calculateCost(inputTokens, outputTokens, agent?.model);
+    return prisma.aIRequest.create({
       data: {
         platformId: agent?.platformId ?? null,
         agentId: agent?.id ?? null,
         modelId: agent?.modelId ?? null,
         promptVersionId: agent?.activePromptVersionId ?? null,
         userRef: user.id,
-        inputTokens: fields.inputTokens ?? 0,
-        outputTokens: fields.outputTokens ?? 0,
+        inputTokens,
+        outputTokens,
+        inputUnitCostPerMillion: cost.inputCostPerMillionTokens,
+        outputUnitCostPerMillion: cost.outputCostPerMillionTokens,
+        estimatedCost: cost.estimatedCost,
+        costCurrency: cost.currency,
         latencyMs: fields.latencyMs ?? 0,
         guardrailResult: fields.guardrailResult,
       },
       select: { id: true },
     });
+  };
 
   const refuse = async (code: string, answer: string, guardrailResult = code): Promise<ChatTurnResult> => {
     const r = await trace({ guardrailResult });
@@ -257,9 +316,9 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     return refuse("GUARDRAIL_BLOCKED", inputCheck.hits.map((h) => h.reason).join(" "), inputCheck.result);
 
   // (5) Hạn mức chi phí tháng.
-  const budget = monthlyBudgetUsd();
-  if (budget !== null && (await costThisMonth(agent.id)) >= budget)
-    return refuse("QUOTA_EXCEEDED", `Copilot đã dùng hết hạn mức chi phí tháng (${budget} USD). Liên hệ quản trị AI để xem xét.`);
+  const budget = await exceededBudget(agent.id);
+  if (budget)
+    return refuse("QUOTA_EXCEEDED", `Copilot đã dùng hết hạn mức chi phí tháng ${budget.code} (${budget.limit} USD). Liên hệ quản trị AI để xem xét.`);
 
   // (6) Truy hồi ngữ cảnh. Không có trích đoạn ⇒ từ chối, KHÔNG gọi API, vẫn ghi trace.
   // Trần mức bảo mật lấy từ CHÍNH nền tảng sẽ nhận dữ liệu, không phải một cài đặt toàn cục.

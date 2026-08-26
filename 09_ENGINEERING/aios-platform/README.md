@@ -80,6 +80,19 @@ Chi tiết đầy đủ + evidence verify:
   deprecate — Tool Gateway của Agent mẫu gọi thật ra `localhost:8010` (server
   M10 standalone cũ), cần server đó chạy để demo thành công.
 
+### M29 FinOps — token, bảng giá và hạn mức chi phí
+
+- ✅ Model có bảng giá tách **token vào/token ra theo 1 triệu token**, tiền tệ USD; thay đổi giá
+  ghi Audit Log và không sửa lại chi phí lịch sử.
+- ✅ Mỗi `AIRequest` chụp đơn giá, token thật do adapter mô hình trả về và chi phí ước tính tại
+  thời điểm gọi. Tool call thuần API không còn dùng độ dài JSON giả làm số token.
+- ✅ Trang `/modules/M29/usage` tổng hợp theo tháng: lượt gọi, token vào/ra, chi phí, chi tiết
+  theo ngày/Agent/Model và hạn mức toàn M29 hoặc từng Agent.
+- ✅ Hạn mức có ngưỡng cảnh báo và tùy chọn chặn tại 100%; Gateway kiểm tra hạn mức trước khi
+  gọi nhà cung cấp. Biến `COPILOT_MONTHLY_BUDGET_USD` vẫn được đọc trong giai đoạn chuyển đổi.
+- ℹ️ Chi phí là **ước tính vận hành**, chưa phải hóa đơn đối soát; M29 chưa tự quy đổi USD sang
+  VND và không tự lấy bảng giá từ Internet.
+
 ## Trạng thái Increment 4 — xây mới M01_RuiRo (không có nguyên mẫu code)
 
 Chi tiết đầy đủ + evidence verify:

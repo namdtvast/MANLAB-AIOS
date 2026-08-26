@@ -87,11 +87,95 @@ export async function createModel(input: {
   temperature?: number;
   maxTokens?: number;
   costPer1kTokens?: number;
+  inputCostPerMillionTokens?: number;
+  outputCostPerMillionTokens?: number;
+  currency?: string;
 }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
   const rec = await prisma.aIModel.create({ data: input });
   await logAudit(actor, "models", rec.id, { after: rec, reason: "create" });
+  revalidateM29();
+  return rec;
+}
+
+export async function updateModelPricing(input: {
+  modelId: string;
+  inputCostPerMillionTokens: number;
+  outputCostPerMillionTokens: number;
+  currency?: string;
+}) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền cập nhật bảng giá model.");
+  if (!Number.isFinite(input.inputCostPerMillionTokens) || input.inputCostPerMillionTokens < 0)
+    throw new Error("Đơn giá token vào phải là số không âm.");
+  if (!Number.isFinite(input.outputCostPerMillionTokens) || input.outputCostPerMillionTokens < 0)
+    throw new Error("Đơn giá token ra phải là số không âm.");
+  const currency = (input.currency || "USD").trim().toUpperCase();
+  if (currency !== "USD") throw new Error("M29 hiện tổng hợp chi phí theo USD; chưa hỗ trợ quy đổi tiền tệ khác.");
+
+  const before = await prisma.aIModel.findUniqueOrThrow({ where: { id: input.modelId } });
+  const rec = await prisma.aIModel.update({
+    where: { id: input.modelId },
+    data: {
+      inputCostPerMillionTokens: input.inputCostPerMillionTokens,
+      outputCostPerMillionTokens: input.outputCostPerMillionTokens,
+      currency,
+      pricingUpdatedAt: new Date(),
+    },
+  });
+  await logAudit(actor, "models", rec.id, {
+    field: "pricing",
+    before: {
+      input: before.inputCostPerMillionTokens,
+      output: before.outputCostPerMillionTokens,
+      currency: before.currency,
+    },
+    after: {
+      input: rec.inputCostPerMillionTokens,
+      output: rec.outputCostPerMillionTokens,
+      currency: rec.currency,
+    },
+    reason: "update-pricing",
+  });
+  revalidateM29();
+  return rec;
+}
+
+export async function createBudget(input: {
+  code: string;
+  name: string;
+  agentId?: string;
+  monthlyLimit: number;
+  warningPercent?: number;
+  blockAtLimit?: boolean;
+  owner?: string;
+}) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "usage", "write")) throw new Error("Không đủ quyền thiết lập hạn mức chi phí.");
+  if (!Number.isFinite(input.monthlyLimit) || input.monthlyLimit <= 0) throw new Error("Hạn mức tháng phải lớn hơn 0.");
+  const warningPercent = input.warningPercent ?? 80;
+  if (!Number.isInteger(warningPercent) || warningPercent < 1 || warningPercent > 100)
+    throw new Error("Ngưỡng cảnh báo phải từ 1 đến 100%.");
+
+  const overlapping = await prisma.aIBudget.findFirst({
+    where: { agentId: input.agentId || null, status: "ACTIVE", effectiveTo: null },
+  });
+  if (overlapping)
+    throw new Error(`Phạm vi này đang có hạn mức hiệu lực ${overlapping.code}; hãy kết thúc hạn mức cũ trước khi tạo hạn mức mới.`);
+
+  const rec = await prisma.aIBudget.create({
+    data: {
+      code: input.code.trim(),
+      name: input.name.trim(),
+      agentId: input.agentId || null,
+      monthlyLimit: input.monthlyLimit,
+      warningPercent,
+      blockAtLimit: input.blockAtLimit ?? true,
+      owner: input.owner?.trim() || "",
+    },
+  });
+  await logAudit(actor, "budgets", rec.id, { after: rec, reason: "create" });
   revalidateM29();
   return rec;
 }

@@ -168,13 +168,18 @@ export default async function M29OverviewPage() {
         </div>
       </div>
 
-      <div className="flex gap-4 text-sm">
+      <div className="flex flex-wrap gap-4 text-sm">
         <Link href="/modules/M29/registry" className="text-accent hover:underline">
           Danh mục Provider/Model/Skill/Tool →
         </Link>
         <Link href="/modules/M29/traces" className="text-accent hover:underline">
           Trace (nhật ký gọi AI) →
         </Link>
+        {can(role, "usage") && (
+          <Link href="/modules/M29/usage" className="text-accent hover:underline">
+            Token & chi phí →
+          </Link>
+        )}
         <Link href="/modules/M29/incidents" className="text-accent hover:underline">
           Sự cố AI →
         </Link>

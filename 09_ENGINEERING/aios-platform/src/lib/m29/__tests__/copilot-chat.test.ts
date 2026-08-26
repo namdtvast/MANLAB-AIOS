@@ -14,6 +14,7 @@ const prismaMock = {
   aIPromptVersion: { findUnique: vi.fn() },
   aIGuardrail: { findMany: vi.fn() },
   aIRequest: { create: vi.fn(), findMany: vi.fn() },
+  aIBudget: { findMany: vi.fn() },
   aITool: { findUnique: vi.fn() },
   aIPlatform: { findUnique: vi.fn() },
   aIToolCall: { create: vi.fn() },
@@ -61,6 +62,7 @@ function happyPath() {
   ]);
   prismaMock.aIRequest.create.mockResolvedValue({ id: "req-1" });
   prismaMock.aIRequest.findMany.mockResolvedValue([]);
+  prismaMock.aIBudget.findMany.mockResolvedValue([]);
   retrieve.mockResolvedValue([PASSAGE]);
   adapterChat.mockResolvedValue({
     text: `Xem thủ tục (${PASSAGE.path}).`,
