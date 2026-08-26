@@ -62,7 +62,9 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     const items = modules
       .filter((m) => (m.menuGroup ?? DEFAULT_MENU_GROUP) === g.code)
       .filter(matchesFilter)
-      .sort((a, b) => (a.menuOrder ?? a.order) - (b.menuOrder ?? b.order));
+      // Bản đồ xếp theo mã module tăng dần (M01 → M38) để tra cứu theo mã; menu bên
+      // trái vẫn giữ thứ tự nghiệp vụ (menuOrder) vì ở đó người dùng đi theo luồng việc.
+      .sort((a, b) => a.code.localeCompare(b.code, "en", { numeric: true }));
     return { ...g, items, active: items.filter((m) => m.status === "ACTIVE") };
   }).filter((g) => g.items.length > 0);
 
