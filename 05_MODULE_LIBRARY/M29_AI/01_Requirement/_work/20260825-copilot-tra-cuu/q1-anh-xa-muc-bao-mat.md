@@ -12,7 +12,7 @@ trong tài liệu đã ban hành; việc còn lại chỉ là *áp cho đúng* v
 | ETV.P29 §5.5 | Gửi dữ liệu tới **dịch vụ mô hình bên ngoài** phải nêu rõ trong AIA, kèm điều khoản nhà cung cấp về **không dùng dữ liệu để huấn luyện lại**; không bảo đảm được ⇒ **chỉ gửi mức Công khai** |
 | ETV.P29 §5.5 | Tài liệu chuyển **hết hiệu lực** ⇒ gỡ khỏi chỉ mục AI **ngay trong cùng giao dịch** |
 | ETV.P26 §5.5 | Vào chỉ mục AI cần **đồng thời**: trạng thái **Đã phê duyệt** *và* mức ∈ {Công khai, Nội bộ} |
-| ETV.P28 §6.13 | Phát hiện dữ liệu Hạn chế/Mật lọt vào chỉ mục ⇒ gỡ ngay, **mở sự cố** theo P28 §5.8 và lập KPH theo ETV.P13 |
+| ETV.P28 §6.13 | Phát hiện dữ liệu Hạn chế/Mật lọt vào chỉ mục ⇒ gỡ ngay, **mở sự cố** theo P28 §6.8 và lập KPH theo ETV.P13 |
 
 **Hệ quả cho Copilot:** không cần nhãn mới nào. Một tài liệu vào được chỉ mục khi và chỉ khi
 `mức ∈ {Công khai, Nội bộ}` **và** `trạng thái = Đã phê duyệt`. Mọi câu hỏi kiểu "tài liệu này có
@@ -74,7 +74,7 @@ tục + biểu mẫu trống + hub/đặc tả — đủ cho phần lớn câu h
 | **E2** | Tài liệu ngoài chỉ mục **không xuất hiện dưới bất kỳ hình thức nào** — Copilot không tiết lộ cả tiêu đề |
 | **E3** | CI chặn merge nếu một file trong lớp `✗` của §3 khai mức Công khai/Nội bộ |
 | **E4** | Hạ mức hoặc chuyển hết hiệu lực ⇒ gỡ khỏi chỉ mục **trong cùng giao dịch** (P29 §5.5), không chờ chu kỳ nạp lại |
-| **E5** | Phát hiện tài liệu Hạn chế/Mật đã lọt vào chỉ mục ⇒ gỡ ngay + mở phiếu sự cố (P28 §5.8) + KPH (ETV.P13) |
+| **E5** | Phát hiện tài liệu Hạn chế/Mật đã lọt vào chỉ mục ⇒ gỡ ngay + mở phiếu sự cố (P28 §6.8) + KPH (ETV.P13) |
 | **E6** | Kể cả tài liệu Nội bộ, trích đoạn chứa dữ liệu cá nhân phải được che trước khi gửi (guardrail `GR-PII-OUT`) |
 
 Bổ sung vào tiêu chí nghiệm thu của spec §10:

@@ -7,7 +7,8 @@
 > ISO 9001 §6.1/§7.5; ISO/IEC 17025 §4.1, §4.2, §7.11; ISO 17034 §7.4; ISO/IEC 42001 §6.1/§8.1.
 >
 > **Thủ tục là nguồn sự thật**: nếu đặc tả lệch thủ tục thì sửa đặc tả, không sửa ngược lại. Mọi số
-> hiệu mục dạng "P28 §5.x" dưới đây trỏ tới điều khoản tương ứng của thủ tục.
+> hiệu mục dạng "P28 §x.y" dưới đây trỏ tới điều khoản của thủ tục **lần ban hành 02** (khung I–IX,
+> nội dung nghiệp vụ nằm ở mục VI); lần ban hành 01 đánh số khác, không dùng để đối chiếu.
 
 ## 1. Mục tiêu module
 
@@ -40,7 +41,7 @@ sao, quyền truy cập do ai phê duyệt.
 ## 2. Đối tượng dữ liệu chính
 
 Bốn thực thể nghiệp vụ + hai thực thể phụ trợ + nhật ký. Trục chính là `SecurityRisk` (rủi ro ATTT):
-mọi kiểm soát trong SoA phải truy được về một rủi ro (P28 §1.3 nguyên tắc 1), sự cố xảy ra thì cập
+mọi kiểm soát trong SoA phải truy được về một rủi ro (P28 §2.2 nguyên tắc 1), sự cố xảy ra thì cập
 nhật ngược lại rủi ro, quyền truy cập là kiểm soát vận hành sinh bằng chứng cho SoA.
 
 | Đối tượng | Mô tả | Biểu mẫu áp dụng (ban hành 24/08/2026) |
@@ -69,7 +70,7 @@ nhật ngược lại rủi ro, quyền truy cập là kiểm soát vận hành 
 | `impact` | int 1–5 | tự tính | T = `max(impact_c, impact_i, impact_a)` — quy tắc R2 |
 | `risk_score` | int 1–25 | tự tính | R = K × T; mức: Thấp 1–6 · Trung bình 7–12 · Cao 13–19 · Rất cao 20–25 |
 | `risk_owner` | ref User (TP hoặc LĐV) | có | **Không** được là QTHT — quy tắc R3 |
-| `treatment_option` | enum: Giảm thiểu / Tránh / Chia sẻ / Chấp nhận | có | P28 §5.5.1 |
+| `treatment_option` | enum: Giảm thiểu / Tránh / Chia sẻ / Chấp nhận | có | P28 §6.5.1 |
 | `treatments[]` | ref `RiskTreatment` | có **khi** `risk_score ≥ 7` | Quy tắc R4 |
 | `soa_control_refs[]` | ref `SoAControl` | có **khi** `treatment_option = Giảm thiểu` | Kiểm soát được viện tới để giảm rủi ro |
 | `residual_likelihood` / `residual_impact` | int 1–5 | có, khi đóng | Sau xử lý |
@@ -101,12 +102,12 @@ nhật ngược lại rủi ro, quyền truy cập là kiểm soát vận hành 
 ### 2.3. `SoAVersion` và `SoAControl` — Tuyên bố áp dụng
 
 `SoAVersion` là bản SoA có hiệu lực tại một thời điểm; mỗi lần sửa tạo phiên bản mới, **không sửa
-đè** (P28 §5.6).
+đè** (P28 §6.6).
 
 | Trường (`SoAVersion`) | Kiểu | Bắt buộc | Ghi chú |
 |---|---|---|---|
 | `version` | int | tự sinh | Bắt đầu từ 1 |
-| `scope_organization` / `scope_location` / `scope_information` / `scope_systems` / `scope_interfaces` | text | có | Sáu chiều phạm vi ISMS — P28 §5.1 |
+| `scope_organization` / `scope_location` / `scope_information` / `scope_systems` / `scope_interfaces` | text | có | Sáu chiều phạm vi ISMS — P28 §6.1 |
 | `scope_exclusions` | text | có **khi** có loại trừ | Bắt buộc nêu lý do |
 | `effective_date` | date | có, khi phê duyệt | |
 | `supersedes_ref` | ref `SoAVersion` | tự gán | |
@@ -129,7 +130,7 @@ nhật ngược lại rủi ro, quyền truy cập là kiểm soát vận hành 
 
 **Không lưu tên kiểm soát**: module chỉ giữ `control_code` và cách ETV thực thi. Tên và diễn giải
 từng kiểm soát tra bản ISO/IEC 27001:2022 và 27002:2022 lưu tại kho tri thức (M26) — tránh chép nội
-dung tiêu chuẩn có bản quyền vào cơ sở dữ liệu (P28 §5.6).
+dung tiêu chuẩn có bản quyền vào cơ sở dữ liệu (P28 §6.6).
 
 ### 2.4. `SecurityIncident` — Sự cố an toàn thông tin
 
@@ -142,7 +143,7 @@ dung tiêu chuẩn có bản quyền vào cơ sở dữ liệu (P28 §5.6).
 | `asset_refs[]` | ref → M27 | có | Hệ thống/tài sản liên quan |
 | `confidentiality` | enum | có | Mức phân loại thông tin bị ảnh hưởng |
 | `involves_customer_data` / `involves_personal_data` | enum: Có / Không / Chưa xác định | có | Quyết định nghĩa vụ thông báo |
-| `severity` | enum: Thấp / Trung bình / Cao / Rất cao | có | P28 §5.8.1 — quyết định thời hạn báo cáo và thẩm quyền đóng |
+| `severity` | enum: Thấp / Trung bình / Cao / Rất cao | có | P28 §6.8.1 — quyết định thời hạn báo cáo và thẩm quyền đóng |
 | `contained_at` | datetime | có, khi khống chế xong | |
 | `containment_actions` | text | có | Biện pháp khống chế đã thực hiện |
 | `evidence_preserved` | text | có | Bằng chứng đã thu thập và nơi lưu — quy tắc R10 |
@@ -195,7 +196,7 @@ dung tiêu chuẩn có bản quyền vào cơ sở dữ liệu (P28 §5.6).
 Append-only, ghi mọi thao tác tạo/sửa/đổi trạng thái trên sáu thực thể trên: ai, khi nào, trường nào,
 giá trị trước → sau, lý do (khi bắt buộc). Ghi thêm **lượt truy cập** đối với `SecurityIncident` và
 `SecurityRisk` có `confidentiality ∈ {Hạn chế, Mật}`. Nhật ký của module **không** thay thế nhật ký
-hệ thống do QTHT quản lý (P28 §5.7.5) — hai loại tồn tại song song, module chỉ trỏ tới bằng
+hệ thống do QTHT quản lý (P28 §6.7.5) — hai loại tồn tại song song, module chỉ trỏ tới bằng
 `system_log_ref`.
 
 ## 3. Vai trò
@@ -209,14 +210,14 @@ hệ thống do QTHT quản lý (P28 §5.7.5) — hai loại tồn tại song so
 | **TP** | `risk_owner` của rủi ro trong lĩnh vực · đề nghị cấp/thu hồi quyền cho nhân sự phòng · rà soát quyền định kỳ |
 | **Nhân viên** | Báo cáo sự kiện/sự cố; xác nhận cam kết khi nhận quyền |
 
-Nguyên tắc tách vai trò (P28 §4.7): `requested_by ≠ approved_by ≠ executed_by`; QTHT **không** phê
+Nguyên tắc tách vai trò (P28 §5.3): `requested_by ≠ approved_by ≠ executed_by`; QTHT **không** phê
 duyệt quyền của chính mình; người liên quan trực tiếp tới sự cố **không** đóng sự cố đó;
 `created_by ≠ approved_by` trên hồ sơ rủi ro. AI **không** đánh giá rủi ro chính thức, **không** phê
 duyệt SoA, **không** đóng sự cố, **không** thay đổi quyền truy cập.
 
 ## 4. Danh mục chuẩn
 
-### 4.1. Thang chấm rủi ro — P28 §5.4.2
+### 4.1. Thang chấm rủi ro — P28 §6.4.2
 
 | Yếu tố | Thang | Diễn giải |
 |---|---|---|
@@ -227,7 +228,7 @@ duyệt SoA, **không** đóng sự cố, **không** thay đổi quyền truy c�
 Thang này **khác** ma trận của M01 ở chỗ tác động lấy theo ba chiều C-I-A. Rủi ro mức Cao/Rất cao
 được đẩy sang M01 để hợp nhất vào hồ sơ rủi ro chung, **không** đánh giá lại từ đầu.
 
-### 4.2. Ngưỡng chấp nhận và hạn xử lý — P28 §5.4.3
+### 4.2. Ngưỡng chấp nhận và hạn xử lý — P28 §6.4.3
 
 | Mức | Yêu cầu | Hạn hoàn thành |
 |---|---|---|
@@ -236,7 +237,7 @@ Thang này **khác** ma trận của M01 ở chỗ tác động lấy theo ba ch
 | Cao (13–19) | Phải xử lý, báo cáo LĐV | ≤ 06 tháng |
 | Rất cao (20–25) | Khống chế tạm thời **ngay**, LĐV trực tiếp theo dõi | ≤ 03 tháng |
 
-### 4.3. Phân mức sự cố — P28 §5.8.1
+### 4.3. Phân mức sự cố — P28 §6.8.1
 
 | Mức | Tiêu chí (thỏa mãn ít nhất một) | Thời hạn báo cáo | Thẩm quyền đóng |
 |---|---|---|---|
@@ -248,7 +249,7 @@ Thang này **khác** ma trận của M01 ở chỗ tác động lấy theo ba ch
 ### 4.4. Phân loại thông tin (`confidentiality`)
 
 Dùng **nguyên** thang **Công khai · Nội bộ · Hạn chế · Mật** của M02/M27 — M28 **không** định nghĩa
-thang riêng (P28 §5.3). Nếu M27 ban hành thang khác, M28 sửa theo M27.
+thang riêng (P28 §6.3). Nếu M27 ban hành thang khác, M28 sửa theo M27.
 
 ### 4.5. Tập kiểm soát tham chiếu (`control_code`)
 
@@ -258,7 +259,7 @@ thang riêng (P28 §5.3). Nếu M27 ban hành thang khác, M28 sửa theo M27.
 
 ## 5. Quy tắc nghiệp vụ
 
-Nguồn: P28 mục 7 (Kiểm soát rủi ro). **Chặn cứng** = hệ thống từ chối thao tác; **cảnh báo mềm** =
+Nguồn: P28 Phụ lục I (Ma trận kiểm soát rủi ro và điều kiện chặn cứng). **Chặn cứng** = hệ thống từ chối thao tác; **cảnh báo mềm** =
 cho phép nhưng ghi cờ và thông báo.
 
 | # | Quy tắc | Loại |
@@ -338,7 +339,7 @@ chưa có bằng chứng · đề xuất phân mức sự cố dựa trên tiêu
 chấm điểm rủi ro chính thức, **không** phê duyệt SoA, **không** phân mức hay đóng sự cố, **không**
 thay đổi quyền truy cập.
 
-## 8. Chỉ số đo lường hiệu lực ISMS — P28 §5.11
+## 8. Chỉ số đo lường hiệu lực ISMS — P28 §6.11
 
 | Nhóm | Chỉ số |
 |---|---|
@@ -387,23 +388,23 @@ từ rủi ro; (3) `SecurityIncident` với các gate liên module R14, R15; (4)
 
 ## 11. Quyết định đã chốt và câu hỏi còn mở
 
-**Đã chốt và đưa vào `ETV.P28` (ban hành 24/08/2026):**
+**Đã chốt và đưa vào `ETV.P28` (lần ban hành 02, ngày 26/08/2026):**
 
 | # | Nội dung | Quyết định | Điều khoản thủ tục |
 |---|---|---|---|
-| 1 | Phạm vi thủ tục | ISMS đầy đủ theo ISO/IEC 27001, có mục "Ngoài phạm vi" phân định với MP02/MP27/MP31/MP29 và 9 thủ tục khác | 1.4 |
-| 2 | Thang chấm rủi ro | R = K × T, T = max(C, I, A), thang 1–25, bốn ngưỡng | 5.4.2, 5.4.3 |
-| 3 | Chấp nhận rủi ro tồn dư | R ≥ 7 chỉ **LĐV** chấp nhận bằng văn bản, không ủy quyền | 4.1, 5.4.3 |
-| 4 | SoA | Bắt buộc, liệt kê đủ 93 kiểm soát, lý do loại trừ bắt buộc, LĐV phê duyệt, rà soát ≥ 1 lần/năm | 5.6 |
-| 5 | Không chép nội dung tiêu chuẩn | Chỉ lưu mã kiểm soát và cách ETV thực thi | 5.6 |
-| 6 | Sự cố | 4 mức, 6 bước; hồ sơ gốc là F28.03, MP02 dẫn chiếu tới; điều kiện đóng gồm bài học M26 | 1.4, 5.8 |
-| 7 | Quyền truy cập | Tách ba vai trò đề nghị/phê duyệt/thực hiện; thu hồi trong ngày làm việc; MFA bắt buộc cho 4 nhóm | 5.7.1 |
-| 8 | Bộ biểu mẫu | F28.01 rủi ro+RTP · F28.02 SoA · F28.03 sự cố · F28.04 quyền truy cập; tái sử dụng F02.x, F01.01, F03.05.x, F06.x, F26.02 | 8 |
-| 9 | Thời hạn lưu hồ sơ | Rủi ro và SoA vĩnh viễn · sự cố 10 năm · phiếu quyền 05 năm sau thu hồi · nhật ký ≥ 12 tháng | 9 |
+| 1 | Phạm vi thủ tục | ISMS đầy đủ theo ISO/IEC 27001, có mục "Ngoài phạm vi" phân định với P02/P27/P31/P29 và 9 thủ tục khác | 2.3 |
+| 2 | Thang chấm rủi ro | R = K × T, T = max(C, I, A), thang 1–25, bốn ngưỡng | 6.4.2, 6.4.3 |
+| 3 | Chấp nhận rủi ro tồn dư | R ≥ 7 chỉ **LĐV** chấp nhận bằng văn bản, không ủy quyền | 5.2, 6.4.3 |
+| 4 | SoA | Bắt buộc, liệt kê đủ 93 kiểm soát, lý do loại trừ bắt buộc, LĐV phê duyệt, rà soát ≥ 1 lần/năm | 6.6 |
+| 5 | Không chép nội dung tiêu chuẩn | Chỉ lưu mã kiểm soát và cách ETV thực thi | 6.6 |
+| 6 | Sự cố | 4 mức, 6 bước; hồ sơ gốc là F28.03, P02 dẫn chiếu tới; điều kiện đóng gồm bài học M26 | 2.3, 6.8 |
+| 7 | Quyền truy cập | Tách ba vai trò đề nghị/phê duyệt/thực hiện; thu hồi trong ngày làm việc; MFA bắt buộc cho 4 nhóm | 6.7.1 |
+| 8 | Bộ biểu mẫu | F28.01 rủi ro+RTP · F28.02 SoA · F28.03 sự cố · F28.04 quyền truy cập; tái sử dụng F02.x, F01.01, F03.05.x, F06.x, F26.02 | VII |
+| 9 | Thời hạn lưu hồ sơ | Rủi ro và SoA vĩnh viễn · sự cố 10 năm · phiếu quyền 05 năm sau thu hồi · nhật ký ≥ 12 tháng | VIII |
 
 **Còn mở — cần chốt trước hoặc trong quá trình BUILD:**
 
-1. **Ai giữ vai trò PT.ATTT?** Thủ tục cho phép QLCL kiêm nhiệm nếu bảo đảm tách vai trò (P28 §4.2).
+1. **Ai giữ vai trò PT.ATTT?** Thủ tục cho phép QLCL kiêm nhiệm nếu bảo đảm tách vai trò (P28 §5.2).
    Nếu kiêm nhiệm, cần rà lại các gate R5/R17: LĐV phải là người phê duyệt cuối để không dồn quyền.
 2. **Phạm vi ISMS kỳ đầu**: toàn Viện ngay từ đầu, hay bắt đầu từ nền tảng ManLab + thư điện tử +
    kho dữ liệu dùng chung rồi mở rộng sang phần mềm thiết bị đo?
@@ -411,7 +412,7 @@ từ rủi ro; (3) `SecurityIncident` với các gate liên module R14, R15; (4)
    ban hành** và M27 chưa xây. Trong giai đoạn quá độ, cho nhập tài sản dạng văn bản tự do rồi
    chuẩn hóa sau, hay hoãn R1 xuống cảnh báo mềm cho tới khi M27 sẵn sàng?
 4. **Nhật ký hệ thống**: module chỉ lưu `system_log_ref`. Có tích hợp đọc nhật ký thật từ nền tảng
-   (ManLab, thư điện tử) để phục vụ rà soát hằng quý (P28 §5.7.5), hay giữ nguyên thao tác thủ công
+   (ManLab, thư điện tử) để phục vụ rà soát hằng quý (P28 §6.7.5), hay giữ nguyên thao tác thủ công
    do QTHT trích xuất?
 5. **Chu kỳ seed SoA**: khi tạo `SoAVersion` mới, sao chép nguyên trạng thái 93 dòng của phiên bản
    trước (nhanh, dễ bỏ sót rà soát) hay bắt buộc rà từng dòng lại (chậm, chắc)?

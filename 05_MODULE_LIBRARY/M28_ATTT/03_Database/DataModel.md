@@ -67,5 +67,5 @@
 
 - **93 mã kiểm soát** cho mỗi `SoAVersion` mới: `A.5.1`–`A.5.37`, `A.6.1`–`A.6.8`, `A.7.1`–`A.7.14`,
   `A.8.1`–`A.8.34`. Chỉ seed **mã**; không lưu tên và diễn giải kiểm soát (bản quyền tiêu chuẩn —
-  P28 §5.6).
+  P28 §6.6).
 - Enum `confidentiality` lấy từ M02/M27, không seed riêng.
