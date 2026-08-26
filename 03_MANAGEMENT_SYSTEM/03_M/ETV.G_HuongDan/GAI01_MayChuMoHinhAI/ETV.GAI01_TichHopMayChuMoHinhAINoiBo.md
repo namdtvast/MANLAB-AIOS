@@ -362,11 +362,11 @@ Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc b�
 
 > **Dữ liệu mức Hạn chế và Mật: không đưa vào hệ thống AI dưới bất kỳ hình thức nào** — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp.
 >
-> Căn cứ là **hai thủ tục đang có hiệu lực**: **ETV.P28 mục 5.13** ("Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức Công khai và Nội bộ") và **ETV.P26 mục 5.5** (Hạn chế/Mật không bao giờ vào chỉ mục AI). Câu cho phép trước đây tại ETV.P34 mục 6.8 đã được sửa cho khớp (dự thảo 25/08/2026, phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe`).
+> Căn cứ là **hai thủ tục đang có hiệu lực**: **ETV.P28 mục 6.13** ("Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức Công khai và Nội bộ") và **ETV.P26 mục 5.5** (Hạn chế/Mật không bao giờ vào chỉ mục AI). Câu cho phép trước đây tại ETV.P34 mục 6.8 đã được sửa cho khớp (dự thảo 25/08/2026, phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe`).
 >
 > **Phần mềm cưỡng chế điều này ở tầng kiểu dữ liệu, không chỉ bằng câu chữ:** hàm tính trần trong `copilot/retrieval.ts` có kiểu trả về là `"Cong-khai" | "Noi-bo"`, nên mức Hạn chế **không biểu diễn được** — một thay đổi mã vô ý cũng không nới lên tới đó mà qua được kiểm kiểu. Có ca test duyệt toàn bộ enum ranh giới để khoá lại.
 >
-> **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 mục 5.13 **không phân biệt** nơi mô hình vận hành — câu chữ áp cho mọi trợ lý AI và agent của Viện. Muốn đổi thì phải **ban hành lại ETV.P28**, là đề nghị riêng đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
+> **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 mục 6.13 **không phân biệt** nơi mô hình vận hành — câu chữ áp cho mọi trợ lý AI và agent của Viện. Muốn đổi thì phải **ban hành lại ETV.P28**, là đề nghị riêng đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
 
 **Quy tắc dự phòng khi máy chủ nội bộ mất khả dụng:**
 

@@ -85,7 +85,7 @@ action xóa `InfoAsset`.
 | AC12 | Không có bất kỳ đường nào xóa bản ghi tài sản (kể cả API trực tiếp) | Rà soát server action + thử gọi |
 | AC13 | Tài sản **Mật** không hiển thị với vai trò không được phép; lượt xem hợp lệ vào nhật ký | Đăng nhập 2 vai trò + xem AuditLog |
 | AC14 | Ba bảng đến hạn (rà soát/khôi phục/hủy) hiển thị đúng; ghi nhận rà soát hoặc kiểm tra khôi phục ⇒ mục rời khỏi bảng | Dữ liệu seed có mục quá hạn và chưa quá hạn |
-| AC15 | Bật `ai_use_allowed` cho tài sản **Hạn chế** hoặc **Mật** ⇒ bị chặn (`ETV.P28` mục 5.7) | Thử cả 4 mức phân loại |
+| AC15 | Bật `ai_use_allowed` cho tài sản **Hạn chế** hoặc **Mật** ⇒ bị chặn (`ETV.P28` mục 6.7) | Thử cả 4 mức phân loại |
 | AC16 | Mọi chuyển trạng thái và mọi lần đổi mức phân loại ghi `AuditLog` đủ ai/khi nào/trước→sau/lý do | Xem nhật ký sau chuỗi thao tác |
 
 ## 5. NFR

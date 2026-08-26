@@ -27,7 +27,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 **Số phiếu:** ...................　**Ngày lập:** ..../..../........
 
-> Sự cố có yếu tố mất an toàn thông tin xử lý **đồng thời** theo ETV.MP28 mục 5.8 — hồ sơ gốc về khía cạnh an toàn thông tin là **ETV.P.F28.03**, phiếu này dẫn chiếu tới phiếu đó, **không** lập hai bộ hồ sơ song song.
+> Sự cố có yếu tố mất an toàn thông tin xử lý **đồng thời** theo ETV.MP28 mục 6.8 — hồ sơ gốc về khía cạnh an toàn thông tin là **ETV.P.F28.03**, phiếu này dẫn chiếu tới phiếu đó, **không** lập hai bộ hồ sơ song song.
 
 ## 1. Thông tin sự cố
 

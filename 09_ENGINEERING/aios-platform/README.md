@@ -541,7 +541,7 @@ và đổi `adapterType` của bản ghi `AIPlatform`; nhưng theo ETV.P29 §5.3
 | `EXTERNAL_WITH_COMMITMENT` | rời, nhà cung cấp cam kết không huấn luyện lại, **đã trích vào F29.02** | Nội bộ |
 | `EXTERNAL_NO_COMMITMENT` | rời, không cam kết — **mặc định** | chỉ Công khai |
 
-Không trạng thái nào mở tới **Hạn chế/Mật**, kể cả mô hình nội bộ: ETV.P28 §5.13 cấm ở mức *truy
+Không trạng thái nào mở tới **Hạn chế/Mật**, kể cả mô hình nội bộ: ETV.P28 §6.13 cấm ở mức *truy
 cập* — *"trợ lý AI chỉ được truy cập nguồn dữ liệu mức Công khai và Nội bộ"*.
 
 Đổi ranh giới bằng `datRanhGioiDuLieu()`, quyền `governance` (**AI_SECURITY_ADMIN**, **SUPER_ADMIN**)

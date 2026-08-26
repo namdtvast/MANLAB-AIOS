@@ -185,7 +185,7 @@ Dữ liệu trên dịch vụ bên thứ ba (đám mây, email) · Dữ liệu �
 | **Mật** | Danh sách cá nhân đích danh do LĐV duyệt | Cấm lưu trên thiết bị cá nhân và dịch vụ đám mây cá nhân (ETV.P02 §6.8); **không** đưa vào chỉ mục AI |
 
 Thang này là **nguồn chuẩn duy nhất** — M26 (`confidentiality`), M14, M15, M34, M35 kế thừa nguyên
-tên gọi, không định nghĩa thang riêng (quy tắc 2). `ETV.P28` mục 5.3 (đã ban hành) cũng tuyên bố
+tên gọi, không định nghĩa thang riêng (quy tắc 2). `ETV.P28` mục 6.3 (đã ban hành) cũng tuyên bố
 rõ: định nghĩa mức và tiêu chí gán mức thuộc **ETV.MP02 và ETV.MP27**, M28 chỉ sử dụng lại.
 
 ### 4.4. Phương pháp hủy (`disposal_method`) — ETV.P02 §6.10
@@ -223,7 +223,7 @@ thứ ba xóa và cung cấp bằng chứng.
    cảnh báo LĐV. Sao lưu chưa từng khôi phục thử **không được coi là biện pháp kiểm soát có hiệu
    lực** (ISO/IEC 27001 A.8.13). **Kiểm tra khôi phục thất bại ⇒ bắt buộc mở sự cố an toàn thông
    tin ở M28** và kết quả kiểm tra là bằng chứng bắt buộc cho các kiểm soát tính sẵn sàng trong SoA
-   (`ETV.P28` mục 5.7, đã ban hành 24/08/2026).
+   (`ETV.P28` mục 6.7, đã ban hành 24/08/2026).
 8. **Thời hạn lưu không đặt hai nơi**: tài sản là hồ sơ ⇒ `retention_ref` trỏ **M15**, thời hạn lấy
    theo ETV.P15; tài sản là tài liệu kiểm soát ⇒ `doc_ref` trỏ **M14**. M27 chỉ tự đặt thời hạn cho
    dữ liệu không thuộc hai loại trên (CSDL vận hành, bản sao lưu, nhật ký hệ thống).
@@ -233,7 +233,7 @@ thứ ba xóa và cung cấp bằng chứng.
    chuyển trạng thái **Đã hủy** và giữ lại biên bản làm bằng chứng (ETV.P02 §6.10, ETV.P15).
 10. **Danh mục là đầu vào của đánh giá rủi ro ATTT**: tài sản `classification ∈ {Hạn chế, Mật}`
     hoặc có bất kỳ mức CIA = Cao phải có ≥ 1 `risk_refs` sang **M28**. Chiều ngược lại là **chặn
-    cứng** theo `ETV.P28` mục 5.3 và quy tắc R1 của M28: rủi ro ATTT không gắn được tài sản trong
+    cứng** theo `ETV.P28` mục 6.3 và quy tắc R1 của M28: rủi ro ATTT không gắn được tài sản trong
     danh mục M27 thì không cho lưu. Hệ quả về thứ tự triển khai: **M27 phải lên nền tảng trước
     M28**, nếu không R1 của M28 phải tạm hạ xuống cảnh báo mềm (câu hỏi mở số 3 của M28). Ở chiều
     M27, giai đoạn đầu áp dụng **cảnh báo mềm**, chuyển thành chặn phê duyệt khi M28 lên nền tảng.
@@ -244,7 +244,7 @@ thứ ba xóa và cung cấp bằng chứng.
 12. **Dữ liệu cho AI có kiểm soát (← M29)**: tài sản chỉ được dùng làm nguồn cho hệ thống AI khi
     `ai_use_allowed = true`, `status = Đang sử dụng` và `classification ∈ {Công khai, Nội bộ}` —
     dữ liệu mức **Hạn chế** và **Mật** **không bao giờ** được đưa vào chỉ mục AI; phát hiện vi phạm
-    phải gỡ ngay, **mở sự cố ATTT ở M28 và lập KPH ở M13** (`ETV.P28` mục 5.7 và 5.10, đã ban hành;
+    phải gỡ ngay, **mở sự cố ATTT ở M28 và lập KPH ở M13** (`ETV.P28` mục 6.7 và 5.10, đã ban hành;
     thống nhất với `ETV.P26` mục 5.5 và quy tắc R11 của M28). Mọi hệ thống AI sử dụng tài sản phải
     được liệt kê (liên kết sang M29). AI được phép *gợi ý* phân loại và *phát hiện* tài sản chưa
     kiểm kê; AI **không** tự phân loại chính thức, **không** phê duyệt chia sẻ hoặc hủy dữ liệu
@@ -304,7 +304,7 @@ A.8.13; ISO/IEC 17025 §7.11; ISO 9001 §7.5; ISO/IEC 42001 §7.4 · Pháp luậ
 kiểm soát) · M02 (phê duyệt công bố thông tin khách hàng) · M05 (dữ liệu đo từ thiết bị) ·
 M03 (biến động nhân sự ⇒ chuyển giao chủ sở hữu) · M29 (hệ thống AI sử dụng dữ liệu).
 
-**Đầu ra sang**: M28 (danh mục tài sản làm đầu vào đánh giá rủi ro ATTT và SoA — bắt buộc theo `ETV.P28` mục 5.3) · M31 (yêu cầu sao
+**Đầu ra sang**: M28 (danh mục tài sản làm đầu vào đánh giá rủi ro ATTT và SoA — bắt buộc theo `ETV.P28` mục 6.3) · M31 (yêu cầu sao
 lưu/khôi phục cho kế hoạch liên tục) · M26 (thang phân loại cho tri thức) · M34/M35 (mức phân loại
 và chủ sở hữu của tập dữ liệu số) · M01 (rủi ro mất dữ liệu, rủi ro chủ sở hữu nghỉ việc) ·
 M17 (tình hình quản trị dữ liệu trong xem xét lãnh đạo).

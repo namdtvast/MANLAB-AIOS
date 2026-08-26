@@ -376,12 +376,12 @@ Bản ghi điểm tích hợp đã ngừng **vẫn được giữ** để truy v
 - Dữ liệu đo thu thập tự động phải giữ **giá trị gốc** như thiết bị sinh ra; mọi biến đổi (đổi đơn vị, làm tròn, hiệu chính) phải khai báo trong hợp đồng dữ liệu và **không được ghi đè giá trị gốc** (ETV.P34 §6.3.1).
 - Việc thiết lập, thay đổi kết nối tới máy tính điều khiển, thu thập dữ liệu của thiết bị đo thực hiện theo **ETV.P33 §6.3.4**: bắt buộc có phiếu thay đổi ETV.P30 và **đánh giá ảnh hưởng tới hiệu lực kết quả đo** theo ETV.P10 trước khi áp dụng.
 - Trước khi đưa vào sử dụng chính thức, phải **đối chiếu dữ liệu truyền tự động với giá trị đọc trực tiếp trên thiết bị** trên một bộ mẫu đại diện; kết quả lưu cùng hồ sơ kiểm thử.
-- Kết nối tới thiết bị đo phải nằm trong **vùng mạng dành cho thiết bị đo** theo ETV.P28 mục 5.7.3.
+- Kết nối tới thiết bị đo phải nằm trong **vùng mạng dành cho thiết bị đo** theo ETV.P28 mục 6.7.3.
 
 ### 6.7. Kết nối ra ngoài Viện
 
 - Kết nối với **hệ thống của cơ quan nhà nước** tuân thủ yêu cầu kỹ thuật, thủ tục đăng ký và quy định chia sẻ dữ liệu của cơ quan chủ quản hệ thống đó; hồ sơ đăng ký lưu kèm bản ghi điểm tích hợp.
-- Kết nối với **nhà cung cấp, đối tác** phải có thoả thuận bằng văn bản gồm: phạm vi dữ liệu, nghĩa vụ bảo mật, nghĩa vụ thông báo sự cố, quyền kiểm tra của Viện, trả lại hoặc xoá dữ liệu khi kết thúc (ETV.P28 mục 5.7.7; đánh giá nhà cung cấp theo ETV.P06).
+- Kết nối với **nhà cung cấp, đối tác** phải có thoả thuận bằng văn bản gồm: phạm vi dữ liệu, nghĩa vụ bảo mật, nghĩa vụ thông báo sự cố, quyền kiểm tra của Viện, trả lại hoặc xoá dữ liệu khi kết thúc (ETV.P28 mục 6.7.7; đánh giá nhà cung cấp theo ETV.P06).
 - Luồng có **dữ liệu cá nhân** phải ghi căn cứ pháp lý, mục đích và biện pháp giảm thiểu (ẩn danh, giới hạn trường) theo ETV.P27 §6.4 và ETV.P34.
 - Dữ liệu mức **Hạn chế, Mật** chỉ được truyền qua kênh có mã hoá và tài khoản có thời hạn; **cấm** truyền qua kênh cá nhân hoặc dịch vụ chưa được phê duyệt.
 

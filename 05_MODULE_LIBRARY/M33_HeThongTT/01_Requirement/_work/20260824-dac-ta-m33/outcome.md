@@ -27,7 +27,7 @@ mềm, dịch vụ thuê ngoài), đúng phạm vi mà ETV.P35 lần BH 01 mục
 - `ETV.P35` (đã ban hành) mục 1.4 giao rõ hạ tầng, máy chủ, mạng, thiết bị đầu cuối và tài khoản
   người dùng cho **ETV.MP33** — nghĩa là M35 đang trỏ xuống một module chưa có nội dung.
 - Rủi ro đặc thù của Viện: **máy tính điều khiển và thu thập dữ liệu của thiết bị đo**. ETV.P28
-  mục 5.7.3 buộc mọi thay đổi trên nhóm này phải qua MP30 và phải đánh giá ảnh hưởng tới hiệu lực
+  mục 6.7.3 buộc mọi thay đổi trên nhóm này phải qua MP30 và phải đánh giá ảnh hưởng tới hiệu lực
   kết quả đo (MP10). Không có nơi ghi nhận, ràng buộc này chỉ tồn tại trên giấy.
 
 ## SUCCESS CRITERIA

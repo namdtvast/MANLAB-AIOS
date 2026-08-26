@@ -306,7 +306,7 @@ audit log đã cho.
 
 #### Trần tối đa vẫn là Nội bộ — kể cả mô hình nội bộ
 
-`ETV.P28 §5.13` cấm ở mức **truy cập**, không chỉ lập chỉ mục: *"Trợ lý AI và các agent của Viện chỉ
+`ETV.P28 §6.13` cấm ở mức **truy cập**, không chỉ lập chỉ mục: *"Trợ lý AI và các agent của Viện chỉ
 được truy cập nguồn dữ liệu ở mức Công khai và Nội bộ"*.
 
 Kiểu trả về của `mucBaoMatToiDa()` là `"Cong-khai" | "Noi-bo"`, nên **mức Hạn chế không biểu diễn

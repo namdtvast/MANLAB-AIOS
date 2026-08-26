@@ -91,7 +91,7 @@ thái **NOT RUN**.
    SLA 01 giờ/04 giờ/01 ngày, 90/180 ngày, 06 tháng) là **đề xuất chờ Viện xác nhận**.
 2. **Xác nhận ánh xạ `impact` → `priority`** (mục 4.6) — ETV.P33 §6.5.2 không nêu bảng ánh xạ, đây
    là diễn giải của đặc tả.
-3. **Hiệu đính ETV.P28 mục 5.7.2** theo MP14 khi tới kỳ soát xét: câu chữ hiện vẫn nói thiết bị đầu
+3. **Hiệu đính ETV.P28 mục 6.7.2** theo MP14 khi tới kỳ soát xét: câu chữ hiện vẫn nói thiết bị đầu
    cuối đăng ký tại ETV.MP27, ngược với kết luận đã chốt ở ETV.P33 §2.2.
 4. **Cập nhật `04_PROCESS_LIBRARY/MP33_HeThongTT/manifest.yaml`** khi thủ tục được phê duyệt:
    `doc_status` từ `Cho-soat-xet` sang trạng thái mới và điền `issued_date` thật.

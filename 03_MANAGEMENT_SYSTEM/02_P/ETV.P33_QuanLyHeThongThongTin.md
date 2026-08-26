@@ -93,7 +93,7 @@ Dữ liệu được quản lý thống nhất trên phần mềm ManLab (Module
 
 **Nguyên tắc 1 — Kiểm kê một lần, không hai nơi.** Thủ tục này kiểm kê **thiết bị, hệ thống, phần mềm**; ETV.P27 kiểm kê **dữ liệu và tài sản thông tin** nằm trên các thiết bị đó và trỏ xuống bằng tham chiếu hệ thống. Báo cáo kiểm kê tài sản phục vụ ISO/IEC 27001 A.5.9 là **hợp của hai danh mục**, xuất từ một màn hình chung; không lập hai danh mục thiết bị song song.
 
-> **Chốt điểm lệch câu chữ:** ETV.P28 **lần ban hành 01** mục 5.7.2 viết thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)", trong khi ETV.P35 mục 2.3 giao "thiết bị đầu cuối" cho ETV.P33. Cách hiểu thống nhất: **thiết bị đăng ký tại ETV.P33**, **dữ liệu trên thiết bị đăng ký tại ETV.P27**. Cách hiểu này **đã được đưa vào chính ETV.P28 lần ban hành 02** (mục 5.7.2 và ghi chú ranh giới tại mục 1.4, đang chờ soát xét) — không dừng ở một ghi chú trong thủ tục này. Yêu cầu cấu hình an toàn của ETV.P28 mục 5.7.2 vẫn áp dụng nguyên, được thực thi và kiểm chứng tại §6.2.3 của thủ tục này.
+> **Chốt điểm lệch câu chữ:** ETV.P28 **lần ban hành 01** mục 5.7.2 viết thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)", trong khi ETV.P35 mục 2.3 giao "thiết bị đầu cuối" cho ETV.P33. Cách hiểu thống nhất: **thiết bị đăng ký tại ETV.P33**, **dữ liệu trên thiết bị đăng ký tại ETV.P27**. Cách hiểu này **đã được đưa vào chính ETV.P28 lần ban hành 02** (mục 6.7.2 và ghi chú ranh giới tại mục 2.3, đang chờ soát xét) — không dừng ở một ghi chú trong thủ tục này. Yêu cầu cấu hình an toàn của ETV.P28 mục 6.7.2 vẫn áp dụng nguyên, được thực thi và kiểm chứng tại §6.2.3 của thủ tục này.
 >
 > **Điều kiện phê duyệt:** ETV.P33 chỉ nên được phê duyệt **sau hoặc cùng đợt với ETV.P28 lần ban hành 02**. Nếu phê duyệt trước, hai thủ tục sẽ đọc ngược nhau trong thời gian chờ.
 
@@ -173,7 +173,7 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 | **Đơn vị sử dụng** (user owner) | Phòng, bộ phận hoặc cá nhân được giao sử dụng tài sản và chịu trách nhiệm bảo quản, sử dụng đúng quy định |
 | **Mức trọng yếu** | Mức độ ảnh hưởng tới Viện nếu tài sản hỏng hoặc ngừng hoạt động, gồm ba mức Thấp, Trung bình, Cao (§6.1.3) |
 | **Mục tiêu thời gian khôi phục** (RTO) | Khoảng thời gian mục tiêu để đưa tài sản trở lại hoạt động, tính từ thời điểm hỏng; xác định theo ETV.P31 |
-| **Vùng mạng** | Phân vùng logic của mạng Viện theo ETV.P28 mục 5.7.3: vùng quản trị – văn phòng · **vùng thiết bị đo và hệ thống thu thập dữ liệu** · vùng khách – Wi-Fi công cộng |
+| **Vùng mạng** | Phân vùng logic của mạng Viện theo ETV.P28 mục 6.7.3: vùng quản trị – văn phòng · **vùng thiết bị đo và hệ thống thu thập dữ liệu** · vùng khách – Wi-Fi công cộng |
 | **Môi trường** | Ngữ cảnh sử dụng của tài sản: **Vận hành** · **Kiểm thử** · **Phát triển**; áp dụng thống nhất với ETV.P35 |
 | **Bảo trì** | Công việc kỹ thuật theo kế hoạch hoặc đột xuất nhằm giữ tài sản ở tình trạng hoạt động được: kiểm tra, vệ sinh, thay thế linh kiện, cập nhật phần mềm nền |
 | **Vá lỗi bảo mật** | Việc cài đặt bản sửa lỗi do nhà cung cấp phát hành nhằm khắc phục lỗ hổng đã công bố; thời hạn theo §6.3.3 |
@@ -245,7 +245,7 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 
 **Người phụ trách an toàn thông tin (PT.ATTT):** Soát xét cấu hình an toàn cơ sở, phân vùng mạng và mức phân loại tối đa của tài sản trước khi đưa vào vận hành; phê duyệt quyền truy cập theo thẩm quyền tại ETV.P28; đánh giá ảnh hưởng an toàn thông tin trước thay đổi hệ thống; kết luận đối với sự cố có dấu hiệu mất an toàn thông tin; xác nhận phương pháp xoá dữ liệu an toàn.
 
-**Lãnh đạo Phòng (TP):** Xác nhận nhu cầu hạ tầng của đơn vị; tiếp nhận, bảo quản và sử dụng đúng quy định thiết bị được giao; nghiệm thu bảo trì trong phạm vi đơn vị; **đánh giá ảnh hưởng tới hiệu lực kết quả đo** khi thay đổi chạm máy tính điều khiển, thu thập dữ liệu của thiết bị đo (phối hợp ETV.P10); rà soát danh sách quyền của phòng theo ETV.P28 mục 5.7.1.
+**Lãnh đạo Phòng (TP):** Xác nhận nhu cầu hạ tầng của đơn vị; tiếp nhận, bảo quản và sử dụng đúng quy định thiết bị được giao; nghiệm thu bảo trì trong phạm vi đơn vị; **đánh giá ảnh hưởng tới hiệu lực kết quả đo** khi thay đổi chạm máy tính điều khiển, thu thập dữ liệu của thiết bị đo (phối hợp ETV.P10); rà soát danh sách quyền của phòng theo ETV.P28 mục 6.7.1.
 
 **Phụ trách Quản lý chất lượng (QLCL):** Bảo đảm hồ sơ hệ thống thông tin được lưu theo ETV.P15; mở KPH theo ETV.P13 khi sự cố lặp lại hoặc bảo trì, vá lỗi quá hạn kéo dài; đưa tình hình hạ tầng vào chương trình đánh giá nội bộ (ETV.P16).
 
@@ -253,7 +253,7 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 
 ### 5.3. Nguyên tắc tách vai trò và giới hạn của AI
 
-- **Người đề nghị ≠ người phê duyệt ≠ người thực hiện** đối với quyền truy cập (ETV.P28 mục 5.7.1). Thủ tục này giữ vai trò **người thực hiện**.
+- **Người đề nghị ≠ người phê duyệt ≠ người thực hiện** đối với quyền truy cập (ETV.P28 mục 6.7.1). Thủ tục này giữ vai trò **người thực hiện**.
 - Người lập bản ghi tài sản ≠ người soát xét (PT.ATTT hoặc TP khác) ≠ người phê duyệt (LĐV).
 - Người trực tiếp thực hiện bảo trì **không** đồng thời là người nghiệm thu bảo trì đó.
 - Trợ lý AI được phép **phát hiện** tài sản chưa kiểm kê, **nhắc** hạn bảo trì, hạn vá lỗi, hạn bản quyền, **gợi ý** phân loại sự cố và đối chiếu tài khoản với phiếu. Trợ lý AI **không** phê duyệt danh mục, **không** tự thực hiện thay đổi cấu hình trên hệ thống vận hành, **không** kết luận sự cố an toàn thông tin và **không** kết luận về hiệu lực kết quả đo (ISO/IEC 42001; ETV.P29).
@@ -315,11 +315,11 @@ Tài sản phát hiện đang sử dụng mà **chưa được kiểm kê** đư
 
 #### 6.2.1. Nguyên tắc chung
 
-Yêu cầu an toàn do **ETV.P28 mục 5.7.2 và 5.7.3** quy định. Thủ tục này **áp dụng nguyên**, không diễn giải lại, và bổ sung cách **thực thi, kiểm chứng và lưu bằng chứng**.
+Yêu cầu an toàn do **ETV.P28 mục 6.7.2 và 5.7.3** quy định. Thủ tục này **áp dụng nguyên**, không diễn giải lại, và bổ sung cách **thực thi, kiểm chứng và lưu bằng chứng**.
 
 #### 6.2.2. Vùng mạng và môi trường
 
-Tài sản phải được gán đúng vùng mạng theo ETV.P28 mục 5.7.3 và đúng môi trường (Vận hành/Kiểm thử/Phát triển). Môi trường **Kiểm thử, Phát triển phải tách khỏi Vận hành**; **nghiêm cấm** đưa dữ liệu thật của khách hàng vào tài sản thuộc môi trường không phải Vận hành khi chưa được ẩn danh hoặc chưa được LĐV phê duyệt (ETV.P28 mục 5.7.10).
+Tài sản phải được gán đúng vùng mạng theo ETV.P28 mục 6.7.3 và đúng môi trường (Vận hành/Kiểm thử/Phát triển). Môi trường **Kiểm thử, Phát triển phải tách khỏi Vận hành**; **nghiêm cấm** đưa dữ liệu thật của khách hàng vào tài sản thuộc môi trường không phải Vận hành khi chưa được ẩn danh hoặc chưa được LĐV phê duyệt (ETV.P28 mục 6.7.10).
 
 #### 6.2.3. Cấu hình an toàn cơ sở bắt buộc
 
@@ -330,7 +330,7 @@ Trước khi đưa vào vận hành, thiết bị đầu cuối và máy chủ p
 | Mức phân loại thông tin xử lý | Điều kiện |
 |---|---|
 | Công khai, **Nội bộ** | Được phép, với điều kiện thiết bị đã đăng ký trong danh mục và đáp ứng đủ cấu hình an toàn cơ sở tại §6.2.3 |
-| **Hạn chế**, **Mật** | Phải được **LĐV phê duyệt** và ghi nhận rủi ro tương ứng theo ETV.P28 mục 5.7.2 |
+| **Hạn chế**, **Mật** | Phải được **LĐV phê duyệt** và ghi nhận rủi ro tương ứng theo ETV.P28 mục 6.7.2 |
 
 Thiết bị cá nhân không đăng ký **không** được kết nối vào vùng quản trị – văn phòng và vùng thiết bị đo.
 
@@ -357,7 +357,7 @@ Văn phòng lập kế hoạch bảo trì năm cho toàn bộ tài sản có h�
 
 #### 6.3.3. Thời hạn hoàn thành vá lỗi bảo mật
 
-ETV.P28 mục 5.7.3 yêu cầu vá lỗi "theo mức nghiêm trọng của lỗ hổng". Mốc thời hạn áp dụng trong toàn Viện:
+ETV.P28 mục 6.7.3 yêu cầu vá lỗi "theo mức nghiêm trọng của lỗ hổng". Mốc thời hạn áp dụng trong toàn Viện:
 
 | Mức nghiêm trọng | Thời hạn kể từ khi nhà cung cấp phát hành bản vá |
 |---|---|
@@ -393,9 +393,9 @@ Mỗi bản ghi tài khoản ghi tối thiểu: hệ thống, tên tài khoản,
 |---|---|---|---|
 | 1 | Tiếp nhận phiếu yêu cầu cấp/thay đổi/thu hồi quyền **đã được phê duyệt** | QTHT | `F 28.04` |
 | 2 | Thực hiện trên hệ thống; ghi bản ghi tài khoản kèm số phiếu và thời hạn hiệu lực | QTHT | `ETV.P.F 33.03` |
-| 3 | Thu hồi **trong ngày làm việc** khi chấm dứt hợp đồng, chuyển công tác hoặc kết thúc công việc của bên thứ ba (ETV.P28 mục 5.7.1; điều kiện bắt buộc để hoàn tất thủ tục thôi việc theo ETV.P03) | QTHT | `ETV.P.F 33.03` |
+| 3 | Thu hồi **trong ngày làm việc** khi chấm dứt hợp đồng, chuyển công tác hoặc kết thúc công việc của bên thứ ba (ETV.P28 mục 6.7.1; điều kiện bắt buộc để hoàn tất thủ tục thôi việc theo ETV.P03) | QTHT | `ETV.P.F 33.03` |
 | 4 | **Đối chiếu định kỳ 06 tháng/lần**: tài khoản thực tế ↔ phiếu đã phê duyệt; lập danh sách tài khoản không có phiếu, phiếu không có tài khoản, tài khoản quá thời hạn hiệu lực | QTHT | `ETV.P.F 33.03` |
-| 5 | Rà soát danh sách **tài khoản đặc quyền và tài khoản dịch vụ** tối thiểu **02 lần/năm**, trình LĐV theo ETV.P28 mục 5.7.1 | QTHT, PT.ATTT | `ETV.P.F 33.03` |
+| 5 | Rà soát danh sách **tài khoản đặc quyền và tài khoản dịch vụ** tối thiểu **02 lần/năm**, trình LĐV theo ETV.P28 mục 6.7.1 | QTHT, PT.ATTT | `ETV.P.F 33.03` |
 
 #### 6.4.3. Tài khoản bất thường
 
@@ -446,7 +446,7 @@ Phiếu sự cố chỉ được đóng khi có đủ: nguyên nhân, biện ph�
 
 #### 6.6.2. Điều kiện chặn cứng
 
-Không được chuyển tài sản sang **Đã thanh lý**, chuyển giao ra ngoài hoặc gửi sửa chữa bên ngoài khi **chưa có bằng chứng xoá dữ liệu an toàn** (ETV.P28 mục 5.7.2; biên bản theo ETV.P27). Không được ngừng vận hành hạ tầng khi còn nền tảng số ở trạng thái Hiệu lực phụ thuộc vào hạ tầng đó — hệ thống từ chối thao tác và chỉ ra danh sách đối tượng còn phụ thuộc.
+Không được chuyển tài sản sang **Đã thanh lý**, chuyển giao ra ngoài hoặc gửi sửa chữa bên ngoài khi **chưa có bằng chứng xoá dữ liệu an toàn** (ETV.P28 mục 6.7.2; biên bản theo ETV.P27). Không được ngừng vận hành hạ tầng khi còn nền tảng số ở trạng thái Hiệu lực phụ thuộc vào hạ tầng đó — hệ thống từ chối thao tác và chỉ ra danh sách đối tượng còn phụ thuộc.
 
 #### 6.6.3. Hạ tầng hết vòng đời (EOL)
 
@@ -533,11 +533,11 @@ Việc lập, lưu giữ, bảo quản, tra cứu, phân quyền truy cập và 
 | Hoàn thành bảo trì trên máy tính điều khiển thiết bị đo mà thiếu phiếu thay đổi (ETV.P30) hoặc thiếu đánh giá ảnh hưởng hiệu lực kết quả đo (ETV.P10) | **Chặn ghi nhận hoàn thành** (§6.3.4) |
 | Thực hiện thay đổi cấu hình ngoài phạm vi bảo trì thông thường khi chưa có phiếu thay đổi được phê duyệt | Vi phạm; xử lý như thay đổi âm thầm theo ETV.P30 |
 | Tạo tài khoản trên hệ thống mà **không có phiếu F28.04 đã phê duyệt** | **Khoá tạm ngay** + mở sự cố theo ETV.P28; không xoá trước khi PT.ATTT xem xét |
-| QTHT tự phê duyệt quyền truy cập cho mình hoặc cho người khác | **Cấm tuyệt đối** (ETV.P28 mục 5.7.1) |
+| QTHT tự phê duyệt quyền truy cập cho mình hoặc cho người khác | **Cấm tuyệt đối** (ETV.P28 mục 6.7.1) |
 | Bản ghi tài sản hoặc tài khoản chứa bí mật xác thực | **Cấm tuyệt đối**; thu hồi bí mật xác thực ngay theo ETV.P28 và lập KPH theo ETV.P13 |
 | Thanh lý, chuyển giao, gửi sửa chữa bên ngoài khi chưa có bằng chứng **xoá dữ liệu an toàn** | **Chặn thao tác** (§6.6.2) |
 | Ngừng vận hành hạ tầng khi còn nền tảng số Hiệu lực phụ thuộc | **Chặn thao tác** |
-| Đưa dữ liệu thật của khách hàng vào tài sản thuộc môi trường Kiểm thử/Phát triển khi chưa ẩn danh hoặc chưa được LĐV phê duyệt | **Không chấp nhận** (ETV.P28 mục 5.7.10) |
+| Đưa dữ liệu thật của khách hàng vào tài sản thuộc môi trường Kiểm thử/Phát triển khi chưa ẩn danh hoặc chưa được LĐV phê duyệt | **Không chấp nhận** (ETV.P28 mục 6.7.10) |
 | Cài đặt phần mềm không có bản quyền hợp lệ trên hạ tầng của Viện | **Cấm tuyệt đối**; gỡ bỏ ngay và lập KPH theo ETV.P13 |
 | Thiết bị cá nhân chưa đăng ký kết nối vào vùng quản trị – văn phòng hoặc vùng thiết bị đo | **Ngắt kết nối**; xử lý theo §6.7 |
 | Vá lỗi mức **Nghiêm trọng quá hạn** hoặc bảo trì quá **02 chu kỳ** | Cảnh báo LĐV + mở KPH theo ETV.P13 |

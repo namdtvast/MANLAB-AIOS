@@ -181,4 +181,4 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | *(Người phụ trách ATTT)* | *(QLCL)* | *(Lãnh đạo Viện)* |
 | Ngày: ..../..../........ | Ngày: ..../..../........ | Ngày: ..../..../........ |
 
-> SoA được rà soát **tối thiểu 01 lần/năm** và sau mỗi lần đánh giá rủi ro đột xuất theo mục 5.4.1 của ETV.P28. Mỗi lần sửa đổi tạo **phiên bản mới**, không sửa đè; phiên bản cũ được giữ làm bằng chứng.
+> SoA được rà soát **tối thiểu 01 lần/năm** và sau mỗi lần đánh giá rủi ro đột xuất theo mục 6.4.1 của ETV.P28. Mỗi lần sửa đổi tạo **phiên bản mới**, không sửa đè; phiên bản cũ được giữ làm bằng chứng.

@@ -48,9 +48,9 @@ Trong nhóm bốn thủ tục liên quan, **hai thủ tục đã có hiệu lự
 | Văn bản | Trạng thái | Nội dung ràng buộc |
 |---|---|---|
 | **ETV.P26** mục 5.5 | **Đã ban hành** | Mục Hạn chế/Mật "**không bao giờ**" được đưa vào **chỉ mục AI** |
-| **ETV.P28** mục 5.13 | **Đã ban hành** | "Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức **Công khai** và **Nội bộ**" |
+| **ETV.P28** mục 6.13 | **Đã ban hành** | "Trợ lý AI và các agent của Viện **chỉ được truy cập** nguồn dữ liệu ở mức **Công khai** và **Nội bộ**" |
 
-**ETV.P28 mục 5.13 là điểm quyết định.** Nó cấm ở mức **truy cập**, không chỉ ở mức lập chỉ mục. Một bản dự thảo (ETV.P34) không thể nới rộng hơn một thủ tục đang có hiệu lực. Vì vậy câu cho phép tại ETV.P34 mục 6.8 là **sai so với hệ thống văn bản hiện hành**, không phải là một lựa chọn chính sách ngang hàng với ETV.P29.
+**ETV.P28 mục 6.13 là điểm quyết định.** Nó cấm ở mức **truy cập**, không chỉ ở mức lập chỉ mục. Một bản dự thảo (ETV.P34) không thể nới rộng hơn một thủ tục đang có hiệu lực. Vì vậy câu cho phép tại ETV.P34 mục 6.8 là **sai so với hệ thống văn bản hiện hành**, không phải là một lựa chọn chính sách ngang hàng với ETV.P29.
 
 ---
 
@@ -81,7 +81,7 @@ Việc sửa ở mục 3 **gỡ được mâu thuẫn**, nhưng để lại mộ
 
 > Máy chủ mô hình AI nội bộ vừa đầu tư — nơi dữ liệu **không rời khỏi hạ tầng của Viện** — có nên được phép xử lý tài liệu mức **Hạn chế** hay không?
 
-Điều kiểm được: **ETV.P28 mục 5.13 không phân biệt** mô hình chạy trong hay ngoài hạ tầng của Viện — câu chữ chỉ nêu "trợ lý AI và các agent của Viện", không đặt điều kiện về nơi mô hình vận hành. Hai thủ tục cùng mới: ETV.P26 ban hành 23/08/2026, ETV.P28 ban hành 24/08/2026.
+Điều kiểm được: **ETV.P28 mục 6.13 không phân biệt** mô hình chạy trong hay ngoài hạ tầng của Viện — câu chữ chỉ nêu "trợ lý AI và các agent của Viện", không đặt điều kiện về nơi mô hình vận hành. Hai thủ tục cùng mới: ETV.P26 ban hành 23/08/2026, ETV.P28 ban hành 24/08/2026.
 
 Điều **không** kiểm được, và vì vậy không nêu ở đây như một căn cứ: liệu việc không phân biệt đó là **có chủ ý** (cấm bất kể mô hình chạy ở đâu) hay là **chưa xét tới** trường hợp mô hình nội bộ. Chỉ người biên soạn và người phê duyệt ETV.P28 trả lời được. Đó chính là câu hỏi đề nghị LĐV quyết.
 

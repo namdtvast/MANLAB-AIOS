@@ -90,7 +90,7 @@ Vi phạm gate ⇒ lỗi nghiệp vụ có mã (`409` + mã lỗi). **Không có
 ## 5. NFR
 
 - **Ghi vết**: `AuditLog` append-only; module **không** thay thế nhật ký hệ thống, chỉ trỏ tới bằng
-  `evidence_ref`/`system_log_ref` (ETV.P28 mục 5.7.5).
+  `evidence_ref`/`system_log_ref` (ETV.P28 mục 6.7.5).
 - **Không lưu bí mật**: schema không có trường mật khẩu/khóa/token; kiểm tra mẫu (regex) trên trường
   tự do của `SystemAccount` và `ITIncident` để chặn dán bí mật vào mô tả.
 - **Không xóa**: tầng dữ liệu không có thao tác xóa `ITAsset`.

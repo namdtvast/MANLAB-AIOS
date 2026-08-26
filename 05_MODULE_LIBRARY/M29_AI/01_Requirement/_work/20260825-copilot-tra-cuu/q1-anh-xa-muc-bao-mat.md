@@ -7,12 +7,12 @@ trong tài liệu đã ban hành; việc còn lại chỉ là *áp cho đúng* v
 
 | Nguồn | Nội dung ràng buộc |
 |---|---|
-| ETV.P28 §2 | Bốn mức thống nhất toàn Viện: **Công khai · Nội bộ · Hạn chế · Mật**. Định nghĩa và tiêu chí gán mức thuộc **ETV.P02/ETV.P27**; các thủ tục khác *sử dụng nguyên, không định nghĩa lại* |
+| ETV.P28 §4.1 | Bốn mức thống nhất toàn Viện: **Công khai · Nội bộ · Hạn chế · Mật**. Định nghĩa và tiêu chí gán mức thuộc **ETV.P02/ETV.P27**; các thủ tục khác *sử dụng nguyên, không định nghĩa lại* |
 | ETV.P29 §5.5 | Chỉ dữ liệu mức **Công khai** và **Nội bộ** được đưa vào chỉ mục AI; **Hạn chế** và **Mật** *không bao giờ* |
 | ETV.P29 §5.5 | Gửi dữ liệu tới **dịch vụ mô hình bên ngoài** phải nêu rõ trong AIA, kèm điều khoản nhà cung cấp về **không dùng dữ liệu để huấn luyện lại**; không bảo đảm được ⇒ **chỉ gửi mức Công khai** |
 | ETV.P29 §5.5 | Tài liệu chuyển **hết hiệu lực** ⇒ gỡ khỏi chỉ mục AI **ngay trong cùng giao dịch** |
 | ETV.P26 §5.5 | Vào chỉ mục AI cần **đồng thời**: trạng thái **Đã phê duyệt** *và* mức ∈ {Công khai, Nội bộ} |
-| ETV.P28 §5.13 | Phát hiện dữ liệu Hạn chế/Mật lọt vào chỉ mục ⇒ gỡ ngay, **mở sự cố** theo P28 §5.8 và lập KPH theo ETV.P13 |
+| ETV.P28 §6.13 | Phát hiện dữ liệu Hạn chế/Mật lọt vào chỉ mục ⇒ gỡ ngay, **mở sự cố** theo P28 §5.8 và lập KPH theo ETV.P13 |
 
 **Hệ quả cho Copilot:** không cần nhãn mới nào. Một tài liệu vào được chỉ mục khi và chỉ khi
 `mức ∈ {Công khai, Nội bộ}` **và** `trạng thái = Đã phê duyệt`. Mọi câu hỏi kiểu "tài liệu này có

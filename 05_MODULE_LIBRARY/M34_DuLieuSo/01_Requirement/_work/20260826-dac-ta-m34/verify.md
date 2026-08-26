@@ -30,9 +30,9 @@ II.2 — **tất cả tồn tại** trong `ETV.P34_QuanLyDuLieuSo.md` (bản d�
 | Trích dẫn | Tiêu đề mục thật trong file gốc | Khớp ngữ nghĩa |
 |---|---|---|
 | `ETV.P26` mục 5.5 | "Khai thác tri thức và chỉ mục trợ lý AI" | ✓ — cấm Hạn chế/Mật vào chỉ mục AI |
-| `ETV.P28` mục 5.7.5 | "Nhật ký và giám sát" | ✓ — nơi lưu nhật ký không sửa được |
-| `ETV.P28` mục 5.7.9 | "Làm việc từ xa và hiện trường" | ✓ — có đúng câu "không lưu trữ lâu dài trên thiết bị cá nhân" |
-| `ETV.P28` mục 5.13 | "An toàn thông tin đối với hệ thống trí tuệ nhân tạo" | ✓ — nguồn quy tắc HC/Mật không vào AI |
+| `ETV.P28` mục 6.7.5 | "Nhật ký và giám sát" | ✓ — nơi lưu nhật ký không sửa được |
+| `ETV.P28` mục 6.7.9 | "Làm việc từ xa và hiện trường" | ✓ — có đúng câu "không lưu trữ lâu dài trên thiết bị cá nhân" |
+| `ETV.P28` mục 6.13 | "An toàn thông tin đối với hệ thống trí tuệ nhân tạo" | ✓ — nguồn quy tắc HC/Mật không vào AI |
 | `ETV.P29` mục 5.5 | "Dữ liệu cấp cho hệ thống AI" | ✓ — quy tắc gốc, M34 không quy định lại |
 | `ETV.P35` mục 2.3 | "Ngoài phạm vi" | ✓ — nơi giao ranh giới dữ liệu số cho ETV.P34 |
 | QM §10.3 / §7.11 | "QUẢN LÝ DỮ LIỆU SỐ" / "KIỂM SOÁT DỮ LIỆU VÀ QUẢN LÝ THÔNG TIN" | ✓ |

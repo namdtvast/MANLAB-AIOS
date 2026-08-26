@@ -53,7 +53,7 @@ Quyết định phạm vi đã chốt với chủ sở hữu ngày 2026-08-25: *
 
 ### [QUESTION] Chưa chốt — phải trả lời trước khi bật cho người dùng thật
 
-- **Q1** — Mức bảo mật của từng tài liệu để nạp chỉ mục. **Quy tắc đã có sẵn**: ETV.P29 §5.5 + ETV.P26 §5.5 + ETV.P28 §5.13 — chỉ mức **Công khai/Nội bộ** vào chỉ mục AI, hệ 4 mức gốc thuộc ETV.P02/P27. Việc còn lại là gán mức cho từng tài liệu, xem [q1-anh-xa-muc-bao-mat.md](q1-anh-xa-muc-bao-mat.md). **Chưa xong:** rà 84 SOP `03_MANAGEMENT_SYSTEM/03_M`.
+- **Q1** — Mức bảo mật của từng tài liệu để nạp chỉ mục. **Quy tắc đã có sẵn**: ETV.P29 §5.5 + ETV.P26 §5.5 + ETV.P28 §6.13 — chỉ mức **Công khai/Nội bộ** vào chỉ mục AI, hệ 4 mức gốc thuộc ETV.P02/P27. Việc còn lại là gán mức cho từng tài liệu, xem [q1-anh-xa-muc-bao-mat.md](q1-anh-xa-muc-bao-mat.md). **Chưa xong:** rà 84 SOP `03_MANAGEMENT_SYSTEM/03_M`.
 - **Q2 — ĐÃ ĐÓNG.** ETV.P29 §4.1: **LĐV phê duyệt hồ sơ AIA**; §4.2: PT.AI chủ trì lập và soát xét cùng CSH; §4.8: tách vai trò đề xuất ≠ soát xét ≠ phê duyệt. Hồ sơ AIA của Copilot lập trên **F29.02**.
 - **Q3** — Hạn mức chi phí tháng: là **tham số vận hành**, không đưa vào thủ tục (đổi hạn mức không được kéo theo ban hành lại thủ tục). Khai trong **F29.01** khi đăng ký hệ thống AI + bản ghi `AIPolicy` trong CSDL M29. Còn chờ LĐV ấn định con số.
 - **Q4 — ĐÃ ĐÓNG.** ETV.P29 §9: hội thoại Copilot là *nhật ký suy luận (Trace)* — QTHT lưu, **05 năm**; trường hợp liên quan chứng chỉ đã phát hành thì theo thời hạn lưu của hồ sơ chứng chỉ. Quyền đọc lại theo `ETV.P.F14.06` và RBAC M29.
@@ -203,5 +203,5 @@ Soạn `AIEvaluationSuite` "Copilot tra cứu v1" gồm ≥30 `AIEvaluationCase`
 | 2 | Gọi Anthropic API, không mock, không tự host | Có bản chạy thật sớm; adapter đúng interface sẵn có nên đổi nhà cung cấp sau này không phải sửa nghiệp vụ |
 | 3 | Không dựng vector DB ở increment này | Full-text trên Postgres sẵn có đủ cho tra cứu thủ tục; chỉ nâng cấp khi eval chứng minh là thiếu |
 | 4 | Không thêm cột vào bảng `AI*` | Giữ nguyên control plane đã port 1:1 từ `08_Source`, tránh lệch hai bản |
-| 5 | **Không tạo hệ phân loại riêng cho AI** — dùng nguyên 4 mức Công khai/Nội bộ/Hạn chế/Mật đã ban hành | ETV.P28 §2 quy định 4 mức là thống nhất toàn Viện, các thủ tục khác *sử dụng nguyên, không định nghĩa lại*; P29 §5.5 đã quy định sẵn mức nào vào được chỉ mục AI |
+| 5 | **Không tạo hệ phân loại riêng cho AI** — dùng nguyên 4 mức Công khai/Nội bộ/Hạn chế/Mật đã ban hành | ETV.P28 §4.1 quy định 4 mức là thống nhất toàn Viện, các thủ tục khác *sử dụng nguyên, không định nghĩa lại*; P29 §5.5 đã quy định sẵn mức nào vào được chỉ mục AI |
 | 6 | Điều khoản "không dùng dữ liệu để huấn luyện lại" của nhà cung cấp phải được trích vào hồ sơ AIA (F29.02) | ETV.P29 §5.5: không bảo đảm được điều khoản này thì chỉ được gửi mức Công khai — phạm vi Copilot phụ thuộc trực tiếp vào đó |

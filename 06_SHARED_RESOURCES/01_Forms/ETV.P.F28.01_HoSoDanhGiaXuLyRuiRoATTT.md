@@ -27,7 +27,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 **Kỳ đánh giá:** Từ ..../..../........ đến ..../..../........　**Người lập:** ............................　**Ngày lập:** ..../..../........
 
-> **Nguyên tắc:** Mỗi rủi ro phải gắn với **ít nhất 01 tài sản thông tin** có trong danh mục tài sản của ETV.MP27 — rủi ro không gắn được tài sản thì **không được lưu**. Mức rủi ro R = K × T, trong đó T lấy **giá trị lớn nhất** trong ba chiều C (bí mật), I (toàn vẹn), A (sẵn sàng). Xem mục 5.4 của ETV.P28.
+> **Nguyên tắc:** Mỗi rủi ro phải gắn với **ít nhất 01 tài sản thông tin** có trong danh mục tài sản của ETV.MP27 — rủi ro không gắn được tài sản thì **không được lưu**. Mức rủi ro R = K × T, trong đó T lấy **giá trị lớn nhất** trong ba chiều C (bí mật), I (toàn vẹn), A (sẵn sàng). Xem mục 6.4 của ETV.P28.
 
 ## 1. Bảng đánh giá rủi ro an toàn thông tin
 

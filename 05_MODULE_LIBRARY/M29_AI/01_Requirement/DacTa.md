@@ -149,7 +149,7 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
     cung cấp (cùng nhà cung cấp có bậc cam kết và bậc không), cũng **không** suy từ
     `AIPlatform.environment` — trường đó trả lời câu hỏi khác, mặc định ở giá trị dễ dãi nhất và
     chưa từng được kiểm bởi nhánh logic nào, nên dựng chốt lên nó là fail-open. Trần tối đa là
-    **Nội bộ** kể cả với mô hình nội bộ: ETV.P28 §5.13 cấm AI *truy cập* dữ liệu Hạn chế/Mật.
+    **Nội bộ** kể cả với mô hình nội bộ: ETV.P28 §6.13 cấm AI *truy cập* dữ liệu Hạn chế/Mật.
     Nới lên trạng thái "có cam kết" phải qua `datRanhGioiDuLieu()` dưới quyền `governance`
     (không phải `platforms` — người đăng ký nền tảng không tự nới ranh giới của mình), bắt buộc dẫn
     số hồ sơ F29.02, ghi vết ở `AIAuditLog`.

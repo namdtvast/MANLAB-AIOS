@@ -5,7 +5,7 @@
 > **bốn biểu mẫu `ETV.P.F 33.01–33.04`** trong `06_SHARED_RESOURCES/01_Forms/` (cùng trạng thái).
 > Dự thảo lấy chính đặc tả này làm đầu vào và **đã chốt toàn bộ 8 điểm mà đặc tả để ngỏ** — đối
 > chiếu ở mục 10. Căn cứ khác: Sổ tay chất lượng **§10.2** và **§7.11**; Thủ tục **`ETV.P28` — Quản
-> lý an toàn thông tin** (ban hành 24/08/2026) mục **5.7.1–5.7.5**, **5.7.10** và **5.9**; Thủ tục
+> lý an toàn thông tin** (ban hành 24/08/2026, đánh số theo lần ban hành 02) mục **6.7.1–6.7.5**, **6.7.10** và **6.9**; Thủ tục
 > **`ETV.P35` — Quản lý nền tảng số** (ban hành 24/08/2026) **mục 2.3** — giao cho ETV.P33 "hạ tầng
 > công nghệ thông tin, máy chủ, mạng, thiết bị đầu cuối, tài khoản người dùng"; ETV.P02 §6.8;
 > `ETV.P15`.
@@ -43,8 +43,8 @@ thống nào theo phiếu nào, sự cố được xử lý và định tuyến 
 |---|---|---|
 | **M35_NenTangSo** (`ETV.P35` đã ban hành) | Cấp hạ tầng bên dưới nền tảng (`infra_ref` từ M35 trỏ xuống M33); chặn ngừng vận hành hạ tầng khi còn nền tảng Hiệu lực phụ thuộc | Không đăng ký nền tảng số, không đánh giá trước vận hành nền tảng, không quản lý điểm tích hợp |
 | **M27_TaiSanTT** | Kiểm kê **thiết bị/hệ thống/phần mềm**; M27 kiểm kê **dữ liệu** và trỏ xuống bằng `system_ref` | Không phân loại dữ liệu, không sao lưu – phục hồi – hủy dữ liệu (quy tắc R2, R10) |
-| **M28_ATTT** (`ETV.P28` đã ban hành) | **Thực thi** kiểm soát kỹ thuật ETV.P28 §5.7 và thực hiện cấp/thu hồi quyền theo phiếu đã phê duyệt của M28; chuyển sự cố có dấu hiệu mất ATTT sang M28 | Không đánh giá rủi ro ATTT, **không phê duyệt quyền truy cập**, không kết luận sự cố ATTT, không quản lý SoA |
-| **M30_ThayDoi** | Chuyển mọi thay đổi cấu hình ngoài bảo trì định kỳ sang M30 kèm đánh giá ảnh hưởng ATTT (ETV.P28 mục 5.9) | Không thẩm định, không phê duyệt thay đổi |
+| **M28_ATTT** (`ETV.P28` đã ban hành) | **Thực thi** kiểm soát kỹ thuật ETV.P28 §6.7 và thực hiện cấp/thu hồi quyền theo phiếu đã phê duyệt của M28; chuyển sự cố có dấu hiệu mất ATTT sang M28 | Không đánh giá rủi ro ATTT, **không phê duyệt quyền truy cập**, không kết luận sự cố ATTT, không quản lý SoA |
+| **M30_ThayDoi** | Chuyển mọi thay đổi cấu hình ngoài bảo trì định kỳ sang M30 kèm đánh giá ảnh hưởng ATTT (ETV.P28 mục 6.9) | Không thẩm định, không phê duyệt thay đổi |
 | **M10_DamBaoKQ** | Chặn thay đổi trên máy tính điều khiển/thu thập dữ liệu thiết bị đo khi chưa đánh giá ảnh hưởng hiệu lực kết quả đo | **Không** tự kết luận về hiệu lực kết quả đo — thẩm quyền của M10 |
 | **M05_ThietBi** | Trỏ tới thiết bị đo mà máy tính/phần mềm điều khiển đang phục vụ | Không quản lý hiệu chuẩn, kiểm định, vòng đời thiết bị đo |
 | **M06_MuaSam / M07_HopDong** | Trỏ hồ sơ mua sắm, hợp đồng bảo trì, nhà cung cấp dịch vụ CNTT | Không mua sắm, không đánh giá nhà cung cấp |
@@ -79,8 +79,8 @@ biểu mẫu mới.
 | `name` | string | có | Tên định danh trong vận hành |
 | `asset_class` | enum | có | Mục 4.1 |
 | `model` / `serial` | string | có **khi** là thiết bị vật lý | Nhận dạng duy nhất thiết bị |
-| `network_zone` | enum: Quản trị – văn phòng / Thiết bị đo và thu thập dữ liệu / Khách – Wi-Fi công cộng / Không nối mạng | có **khi** có kết nối mạng | Phân vùng mạng theo ETV.P28 mục 5.7.3 |
-| `environment` | enum: Vận hành / Kiểm thử / Phát triển | có | ETV.P28 mục 5.9 — tách môi trường |
+| `network_zone` | enum: Quản trị – văn phòng / Thiết bị đo và thu thập dữ liệu / Khách – Wi-Fi công cộng / Không nối mạng | có **khi** có kết nối mạng | Phân vùng mạng theo ETV.P28 mục 6.7.3 |
+| `environment` | enum: Vận hành / Kiểm thử / Phát triển | có | ETV.P28 mục 6.9 — tách môi trường |
 | `location` | text | có | Vị trí vật lý hoặc nhà cung cấp đám mây |
 | `user_owner` | ref User / đơn vị | có | Người/đơn vị sử dụng chịu trách nhiệm |
 | `custodian` | ref User (QTHT) | có | Người quản trị kỹ thuật — quy tắc R1 |
@@ -90,7 +90,7 @@ biểu mẫu mới.
 | `measuring_device_ref` | ref → M05 | có **khi** `asset_class = Máy tính điều khiển – thu thập dữ liệu` | Thiết bị đo được phục vụ — quy tắc R4 |
 | `max_classification` | enum | có | Mức phân loại cao nhất được phép lưu/xử lý trên thiết bị (thang của M27) |
 | `disk_encryption` | bool | có | Bắt buộc `true` khi `max_classification ∈ {Hạn chế, Mật}` — quy tắc R3 |
-| `screen_lock` / `antimalware` | bool | có **khi** là thiết bị đầu cuối | ETV.P28 mục 5.7.2 |
+| `screen_lock` / `antimalware` | bool | có **khi** là thiết bị đầu cuối | ETV.P28 mục 6.7.2 |
 | `default_password_changed` / `unused_services_closed` | bool | có **khi** là thiết bị đầu cuối hoặc máy chủ | Hai điều kiện cấu hình an toàn cơ sở bổ sung tại ETV.P33 §6.2.3 — quy tắc R3 |
 | `os_version` | string | có **khi** có hệ điều hành | Hệ điều hành và phiên bản (ETV.P33 §6.1.1) |
 | `patch_level` / `last_patched_at` | string / date | có **khi** có hệ điều hành hoặc phần mềm | Quy tắc R8 |
@@ -122,7 +122,7 @@ biểu mẫu mới.
 | `severity` | enum: Nghiêm trọng / Cao / Trung bình / Thấp | có **khi** `task_type = Vá lỗi bảo mật` | Quyết định thời hạn phải hoàn thành — quy tắc R8 |
 | `planned_at` / `due_at` | date | có | |
 | `change_ref` | ref → M30 | có **khi** thay đổi cấu hình ngoài bảo trì định kỳ | Quy tắc R5 |
-| `impact_assessment_ref` | ref → M28 | có **khi** `change_ref` tồn tại | Đánh giá ảnh hưởng ATTT trước triển khai (ETV.P28 mục 5.9) |
+| `impact_assessment_ref` | ref → M28 | có **khi** `change_ref` tồn tại | Đánh giá ảnh hưởng ATTT trước triển khai (ETV.P28 mục 6.9) |
 | `measurement_impact_ref` | ref → M10 | có **khi** tài sản là máy tính điều khiển thiết bị đo | Quy tắc R4 |
 | `method_impact_ref` | ref → M08 | có **khi** thay đổi chạm tới phương pháp đo | ETV.P33 §6.3.4 — đánh giá theo `ETV.P10` **và `ETV.P08` nếu chạm phương pháp** |
 | `plan_ref` | ref `MaintenancePlan` | có **khi** `task_type = Bảo trì định kỳ` | Thuộc kế hoạch bảo trì năm đã được LĐV phê duyệt (mục 2.6) |
@@ -145,12 +145,12 @@ M33 giữ **danh mục tài khoản thực tế đang tồn tại**; thẩm quy�
 | `code` | string, duy nhất | tự sinh | |
 | `asset_ref` / `platform_ref` | ref `ITAsset` / → M35 | có (một trong hai) | Tài khoản tồn tại trên hệ thống/nền tảng nào |
 | `login_name` | string | có | Không lưu mật khẩu, khóa, token dưới bất kỳ dạng nào — quy tắc R7 |
-| `account_type` | enum: Cá nhân định danh / Đặc quyền – quản trị / Dịch vụ – hệ thống / **Bên thứ ba** / Dùng chung (ngoại lệ) | có | ETV.P28 mục 5.7.1; ETV.P33 §6.4.1 nêu bốn loại (cá nhân · đặc quyền · dịch vụ · bên thứ ba) và ETV.P33 §6.4.3 nêu thêm **dùng chung** là ngoại lệ ⇒ enum gộp đủ 5 |
+| `account_type` | enum: Cá nhân định danh / Đặc quyền – quản trị / Dịch vụ – hệ thống / **Bên thứ ba** / Dùng chung (ngoại lệ) | có | ETV.P28 mục 6.7.1; ETV.P33 §6.4.1 nêu bốn loại (cá nhân · đặc quyền · dịch vụ · bên thứ ba) và ETV.P33 §6.4.3 nêu thêm **dùng chung** là ngoại lệ ⇒ enum gộp đủ 5 |
 | `holder` | ref User / bên thứ ba | có **khi** `account_type ≠ Dịch vụ – hệ thống` | |
 | `access_request_ref` | ref → M28 | có | Phiếu **F28.04** cấp/thay đổi quyền đã phê duyệt — **quy tắc R6** |
 | `granted_at` | date | có | Ngày cấp (ETV.P33 §6.4.1) |
 | `secret_location` / `secret_issuer` | text / ref User | có | **Nơi lưu** bí mật xác thực và **người có quyền cấp phát** — ghi *nơi lưu*, tuyệt đối không ghi *giá trị* (ETV.P33 §6.4.1, quy tắc R7) |
-| `mfa_enabled` | bool | có | Bắt buộc `true` với tài khoản đặc quyền, truy cập từ xa, thư điện tử công vụ, hệ thống chứa Hạn chế/Mật (ETV.P28 mục 5.7.1) |
+| `mfa_enabled` | bool | có | Bắt buộc `true` với tài khoản đặc quyền, truy cập từ xa, thư điện tử công vụ, hệ thống chứa Hạn chế/Mật (ETV.P28 mục 6.7.1) |
 | `valid_until` | date | có **khi** quyền tạm thời | Hết hạn ⇒ chặn tiếp tục sử dụng, phải thu hồi |
 | `shared_approval_ref` | ref → M28/LĐV | có **khi** `account_type = Dùng chung (ngoại lệ)` | Ngoại lệ phải được phê duyệt và có rủi ro tương ứng |
 | `last_review_ref` | ref → M28 `AccessReview` | không | Kỳ rà soát gần nhất của M28 đã đối chiếu tài khoản này |
@@ -190,7 +190,7 @@ M33 giữ **danh mục tài khoản thực tế đang tồn tại**; thẩm quy�
 
 Append-only, ghi mọi thao tác tạo/sửa/đổi trạng thái trên 4 thực thể: ai, khi nào, trường nào, giá
 trị trước → sau, lý do (khi bắt buộc). Nhật ký của module **không** thay thế nhật ký hệ thống do
-QTHT quản lý (ETV.P28 mục 5.7.5) — hai loại tồn tại song song, module chỉ trỏ tới bằng
+QTHT quản lý (ETV.P28 mục 6.7.5) — hai loại tồn tại song song, module chỉ trỏ tới bằng
 `evidence_ref` / `system_log_ref`.
 
 ### 2.6. `MaintenancePlan` — Kế hoạch bảo trì năm
@@ -219,7 +219,7 @@ màn hình tính khi đọc, nhưng **kết quả từng kỳ là hồ sơ phả
 | `scope` | enum: Toàn bộ tài khoản / Đặc quyền và dịch vụ | có | Hai chu kỳ khác nhau của ETV.P33 §6.4.2 |
 | `orphan_accounts[]` / `orphan_requests[]` / `expired_accounts[]` / `mfa_missing[]` | ref[] | tự sinh | Bốn nhóm bất thường — chốt lại tại thời điểm kết thúc kỳ, không tính lại về sau |
 | `performed_by` / `reviewed_by` | ref User (QTHT) / ref User (PT.ATTT) | có | Rà soát đặc quyền cần PT.ATTT (ETV.P33 §6.4.2 bước 5) |
-| `submitted_to_ldv_at` | date | có **khi** `scope = Đặc quyền và dịch vụ` | Trình LĐV theo ETV.P28 mục 5.7.1 |
+| `submitted_to_ldv_at` | date | có **khi** `scope = Đặc quyền và dịch vụ` | Trình LĐV theo ETV.P28 mục 6.7.1 |
 | `status` | enum: Đang thực hiện / Đã chốt | tự quản lý | Đã chốt ⇒ bất biến |
 
 ## 3. Vai trò
@@ -236,7 +236,7 @@ màn hình tính khi đọc, nhưng **kết quả từng kỳ là hồ sơ phả
 
 Nguyên tắc tách vai trò (ETV.P33 §5.3), M33 thực thi cả ba:
 1. **Người đề nghị ≠ người phê duyệt ≠ người thực hiện** đối với quyền truy cập (ETV.P28 mục
-   5.7.1) — M33 chỉ giữ vai trò **người thực hiện**.
+   6.7.1) — M33 chỉ giữ vai trò **người thực hiện**.
 2. **Người lập bản ghi tài sản ≠ người soát xét** (PT.ATTT hoặc TP khác) **≠ người phê duyệt** (LĐV).
 3. **Người thực hiện bảo trì ≠ người nghiệm thu** chính công việc đó (quy tắc R15).
 
@@ -262,7 +262,7 @@ Thiết bị ký số (USB token).
 
 ### 4.3. Thời hạn hoàn thành vá lỗi bảo mật theo mức nghiêm trọng — ETV.P33 §6.3.3
 
-ETV.P28 mục 5.7.3 yêu cầu "vá lỗi theo mức nghiêm trọng của lỗ hổng" nhưng không nêu con số;
+ETV.P28 mục 6.7.3 yêu cầu "vá lỗi theo mức nghiêm trọng của lỗ hổng" nhưng không nêu con số;
 ETV.P33 §6.3.3 **đã chốt** mốc áp dụng trong toàn Viện (giá trị định lượng còn chờ Viện xác nhận
 khi phê duyệt thủ tục):
 
@@ -276,7 +276,7 @@ khi phê duyệt thủ tục):
 Quá hạn ⇒ cảnh báo chủ quản trị; **vá lỗi Nghiêm trọng quá hạn** hoặc bảo trì quá **02 chu kỳ liên
 tiếp** ⇒ cảnh báo LĐV và mở KPH theo M13 (quy tắc R8).
 
-### 4.4. Phân vùng mạng (`network_zone`) — ETV.P28 mục 5.7.3 (đã ban hành)
+### 4.4. Phân vùng mạng (`network_zone`) — ETV.P28 mục 6.7.3 (đã ban hành)
 
 Vùng quản trị – văn phòng · **vùng thiết bị đo và hệ thống thu thập dữ liệu** · vùng khách – Wi-Fi
 công cộng. M33 áp dụng nguyên, không định nghĩa lại.
@@ -286,7 +286,7 @@ công cộng. M33 áp dụng nguyên, không định nghĩa lại.
 | Mức phân loại thông tin xử lý | Điều kiện |
 |---|---|
 | Công khai, **Nội bộ** | **Được phép**, với điều kiện thiết bị đã đăng ký trong danh mục và đủ cấu hình an toàn cơ sở (ETV.P33 §6.2.3) |
-| **Hạn chế**, **Mật** | Phải được **LĐV phê duyệt** và ghi nhận rủi ro tương ứng (ETV.P28 mục 5.7.2) |
+| **Hạn chế**, **Mật** | Phải được **LĐV phê duyệt** và ghi nhận rủi ro tương ứng (ETV.P28 mục 6.7.2) |
 
 Thiết bị cá nhân **không đăng ký** không được kết nối vào **vùng quản trị – văn phòng** và **vùng
 thiết bị đo** — phát hiện thì ngắt kết nối và xử lý theo ETV.P33 §6.7 (quy tắc R17).
@@ -330,7 +330,7 @@ Thiếu một trong hai ⇒ **không cho lưu**, không chỉ chặn phê duyệ
 và ETV.P35 mục 2.3 (giao thiết bị đầu cuối cho ETV.P33) **đã được chốt** tại ETV.P33 §2.2 Nguyên
 tắc 1 — và đã được **đưa vào chính `ETV.P28` lần BH 02** (mục 5.7.2 + ghi chú ranh giới tại mục 1.4,
 đang chờ soát xét), nên kết luận không chỉ nằm trong một thủ tục: **thiết bị đăng ký tại P33, dữ liệu
-trên thiết bị đăng ký tại P27**. Yêu cầu cấu hình an toàn của ETV.P28 mục 5.7.2 vẫn áp dụng nguyên
+trên thiết bị đăng ký tại P27**. Yêu cầu cấu hình an toàn của ETV.P28 mục 6.7.2 vẫn áp dụng nguyên
 và được kiểm chứng tại ETV.P33 §6.2.3.
 
 **R2b. Dịch vụ thuê ngoài vừa là hạ tầng vừa có thể là nền tảng** (ETV.P33 §2.1) — dịch vụ đám
@@ -339,7 +339,7 @@ tầng**; nếu dịch vụ đó **đồng thời là nền tảng phần mềm 
 bản ghi nền tảng ở **M35** và **liên kết hai bản ghi**. M33 cảnh báo khi `asset_class = Dịch vụ CNTT
 thuê ngoài` mà `platform_refs` rỗng.
 
-**R3. Cấu hình an toàn cơ sở bắt buộc** (ETV.P28 mục 5.7.2 — **đã ban hành**; cách thực thi và
+**R3. Cấu hình an toàn cơ sở bắt buộc** (ETV.P28 mục 6.7.2 — **đã ban hành**; cách thực thi và
 kiểm chứng tại ETV.P33 §6.2.3 — **chặn cứng**), áp cho **thiết bị đầu cuối và máy chủ**: khóa màn
 hình tự động · mật khẩu/mã PIN · phần mềm phòng chống mã độc đang hoạt động · cập nhật bản vá ·
 **đổi mật khẩu mặc định và đóng dịch vụ không dùng đến** · **mã hóa ổ đĩa khi
@@ -348,7 +348,7 @@ hành. `is_personal_device = true` mà xử lý thông tin Hạn chế/Mật ⇒
 rủi ro tương ứng ghi ở M28; xử lý thông tin Công khai/**Nội bộ** ⇒ được phép nếu đã đăng ký và đủ
 cấu hình cơ sở (mục 4.5).
 
-**R4. Máy tính điều khiển thiết bị đo là vùng đặc biệt** (ETV.P28 mục 5.7.3 — **đã ban hành, chặn
+**R4. Máy tính điều khiển thiết bị đo là vùng đặc biệt** (ETV.P28 mục 6.7.3 — **đã ban hành, chặn
 cứng**; trình tự tại ETV.P33 §6.3.4): mọi thay đổi cấu hình hoặc cập nhật phần mềm điều khiển phải
 thực hiện theo **MP30** và phải có **đánh giá ảnh hưởng tới hiệu lực kết quả đo (MP10, và MP08 nếu
 chạm phương pháp)** *trước khi* áp dụng. M33 chặn ghi nhận hoàn thành `MaintenanceTask` loại này khi
@@ -356,11 +356,11 @@ thiếu `change_ref` hoặc `measurement_impact_ref`. Sau khi áp dụng, bắt 
 thống thu thập dữ liệu hoạt động đúng** (`post_check_result`) trước khi dùng lại cho công việc chính
 thức.
 
-**R5. Thay đổi hệ thống đi qua M30, kèm đánh giá ATTT** (ETV.P28 mục 5.9 — **đã ban hành**): nâng
+**R5. Thay đổi hệ thống đi qua M30, kèm đánh giá ATTT** (ETV.P28 mục 6.9 — **đã ban hành**): nâng
 cấp nền tảng, tích hợp mới, đổi phân quyền diện rộng ⇒ bắt buộc `change_ref` → M30 và
 `impact_assessment_ref` → M28 trước triển khai. Môi trường **Phát triển/Kiểm thử phải tách khỏi Vận
 hành**; **nghiêm cấm** dùng dữ liệu thật của khách hàng để kiểm thử khi chưa ẩn danh hoặc chưa được
-LĐV phê duyệt (ETV.P28 mục 5.7.10) — M33 chặn gán tài sản thông tin chứa dữ liệu khách hàng
+LĐV phê duyệt (ETV.P28 mục 6.7.10) — M33 chặn gán tài sản thông tin chứa dữ liệu khách hàng
 (← M27) vào tài sản có `environment ≠ Vận hành` nếu thiếu phê duyệt.
 
 **Ngoại lệ khẩn cấp** (ETV.P33 §5.2): QTHT **từ chối** thực hiện thay đổi cấu hình khi chưa có
@@ -392,7 +392,7 @@ hoặc vá lỗi **Nghiêm trọng** quá hạn ⇒ cảnh báo LĐV và **mở 
 kích hoạt kế hoạch liên tục ⇒ `continuity_ref` sang **M31**; lặp **≥ 03 lần/90 ngày** trên cùng tài
 sản ⇒ bắt buộc `capa_ref` sang **M13**.
 
-**R10. Xóa dữ liệu an toàn trước khi rời tay Viện** (ETV.P28 mục 5.7.2 — **đã ban hành, chặn
+**R10. Xóa dữ liệu an toàn trước khi rời tay Viện** (ETV.P28 mục 6.7.2 — **đã ban hành, chặn
 cứng**): thanh lý, chuyển giao hoặc gửi sửa chữa bên ngoài chỉ được thực hiện khi có **bằng chứng
 xóa dữ liệu an toàn** — biên bản hủy ở **M27** (`DisposalRecord`) hoặc bằng chứng tương đương. M33
 chặn chuyển trạng thái sang **Đã thanh lý** khi thiếu bằng chứng này. Trước đó, trình tự ETV.P33
@@ -425,7 +425,7 @@ kết quả đo. Mọi tính năng AI của M33 phải có **hồ sơ AIA theo M
 `accepted_by` (TP hoặc QTHT khác) **≠** `performed_by`. Thiếu nghiệm thu ⇒ chặn Hoàn thành. Sau
 nghiệm thu, bản ghi tài sản được cập nhật phiên bản, `last_maintained_at` và hạn kế tiếp (bước 6).
 
-**R16. Thu hồi tài khoản trong ngày làm việc** (ETV.P33 §6.4.2 bước 3; ETV.P28 mục 5.7.1) — khi
+**R16. Thu hồi tài khoản trong ngày làm việc** (ETV.P33 §6.4.2 bước 3; ETV.P28 mục 6.7.1) — khi
 có tín hiệu chấm dứt hợp đồng, chuyển công tác hoặc kết thúc công việc của bên thứ ba (← M03), M33
 đặt `revocation_due_at` = **cuối ngày làm việc đó** và cảnh báo cho tới khi thu hồi xong. Việc thu
 hồi là **điều kiện bắt buộc để hoàn tất thủ tục thôi việc** theo `ETV.P03` — M33 trả tín hiệu hoàn
@@ -541,7 +541,7 @@ theo `ETV.P28`.
 Quy trình: **MP33** — thủ tục `ETV.P33_QuanLyHeThongThongTin.md` (**dự thảo lần BH 01, Chờ soát
 xét**) · Biểu mẫu: `ETV.P.F 33.01`–`33.04` (cùng trạng thái) · Năng lực: **CAP-28_ATTT** (dùng chung
 với MP27, MP28, MP31, MP34, MP37) · Căn cứ đã ban hành: `ETV.QM_QuanlyChatluong.md` §10.2 và §7.11,
-`ETV.P28_QuanLyAnToanThongTin.md` mục 5.7.1–5.7.5, 5.7.10 và 5.9, `ETV.P35_QuanLyNenTangSo.md`
+`ETV.P28_QuanLyAnToanThongTin.md` mục 6.7.1–6.7.5, 6.7.10 và 6.9, `ETV.P35_QuanLyNenTangSo.md`
 **mục 2.3**, `ETV.P02_BaoMat.md` ETV.P33 §6.8, `ETV.P15` · Tiêu chuẩn: ISO/IEC 27001 A.5.9, A.7.9–A.7.10,
 A.8.1, A.8.7–A.8.9, A.8.19–A.8.22, A.8.32; ISO 9001 §7.1.3, §9.3; ISO/IEC 17025 §6.4, §7.11;
 ISO 17034 §7.4; ISO/IEC 42001 §8.1 · Lưu hồ sơ: **ETV.P15** · Nhóm menu: `CONG_NGHE` (manifest
