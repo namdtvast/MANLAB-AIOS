@@ -2,7 +2,7 @@
 
 | Đặc tả | Mô tả |
 |---|---|
-| Số hóa quy trình | MP33 — Thủ tục `ETV.P33` **dự thảo lần BH 01, Chờ soát xét** (kèm biểu mẫu `ETV.P.F 33.01`–`33.04` cùng trạng thái). Căn cứ đã ban hành: Sổ tay chất lượng §10.2, ETV.P28 mục 5.7/5.9, ETV.P35 mục 2.3 |
+| Số hóa quy trình | MP33 — Thủ tục `ETV.P33` **dự thảo lần BH 01, Chờ soát xét** (kèm biểu mẫu `ETV.P.F 33.01`–`33.04` cùng trạng thái). Căn cứ đã ban hành: Sổ tay chất lượng §10.2, ETV.P28 mục 6.7/5.9, ETV.P35 mục 2.3 |
 | Đối tượng dữ liệu chính | Tài sản CNTT · Kế hoạch bảo trì năm · Bảo trì – vá lỗi · Tài khoản hệ thống · Kỳ đối chiếu tài khoản · Sự cố và yêu cầu hỗ trợ |
 | Trạng thái | Nháp → Chờ soát xét → Chờ phê duyệt → Đang vận hành → Tạm ngừng → Ngừng vận hành → Đã thanh lý |
 | Vai trò | QTHT (quản trị, thực thi) · PT.ATTT (soát xét cấu hình an toàn) · TP (đơn vị sử dụng, nghiệm thu bảo trì) · VP (chủ trì, tổng hợp) · QLCL (hồ sơ, KPH) · LĐV (phê duyệt, thanh lý) |
@@ -10,7 +10,7 @@
 | Liên thông | → M35 (`infra_ref`), M27 (`system_ref`), M28, M31, M10/M11, M13, M26, M01, M03, M17 · ← M28 (phiếu F28.04), M30 (F30.02), M27 (biên bản xóa dữ liệu), M06/M07, M03, M05, M08 |
 | Nguyên tắc | Không phê duyệt quyền truy cập (M28 giữ) · không lưu bí mật xác thực · người nghiệm thu bảo trì ≠ người thực hiện · không thiết bị nào rời Viện khi chưa xóa dữ liệu an toàn · mã tài sản không bao giờ cấp lại |
 | Triển khai | **Đã xây nguyên mẫu trên `09_ENGINEERING/aios-platform`** (26/08/2026): schema `M33*` + gate R1–R22 (`src/lib/m33/rules.ts`, 32 test) + 11 trang `/modules/M33…` + seed demo. Xây theo **dự thảo** `ETV.P33` (Chờ soát xét) theo lệnh chủ sở hữu repo — giá trị định lượng trong gate sửa theo khi thủ tục được phê duyệt MP14 |
-| Nhật ký | Mọi thao tác ghi vết; nhật ký module không thay thế nhật ký hệ thống (ETV.P28 mục 5.7.5) |
+| Nhật ký | Mọi thao tác ghi vết; nhật ký module không thay thế nhật ký hệ thống (ETV.P28 mục 6.7.5) |
 
 ## Tầng đặc tả
 

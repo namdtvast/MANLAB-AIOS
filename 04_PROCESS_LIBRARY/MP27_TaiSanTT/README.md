@@ -11,7 +11,7 @@
 | Chủ sở hữu | Phụ trách Quản lý chất lượng (QLCL) |
 | Biểu mẫu | F27.01 Danh mục tài sản thông tin · F27.02 Bảng quy tắc xử lý theo mức phân loại · F27.03 Phiếu đề nghị và biên bản huỷ dữ liệu, vật mang tin |
 
-**Vai trò đặc biệt trong HTQL:** đây là **nguồn chuẩn của thang phân loại thông tin** (Công khai · Nội bộ · Hạn chế · Mật) — `ETV.P02`, `ETV.P14`, `ETV.P15`, `ETV.P26`, `ETV.P28`, `ETV.P33`, `ETV.P34`, `ETV.P35` kế thừa, không định nghĩa lại (`ETV.P28` mục 5.3 đã tuyên bố điều này).
+**Vai trò đặc biệt trong HTQL:** đây là **nguồn chuẩn của thang phân loại thông tin** (Công khai · Nội bộ · Hạn chế · Mật) — `ETV.P02`, `ETV.P14`, `ETV.P15`, `ETV.P26`, `ETV.P28`, `ETV.P33`, `ETV.P34`, `ETV.P35` kế thừa, không định nghĩa lại (`ETV.P28` mục 6.3 đã tuyên bố điều này).
 
 **Nguyên tắc cốt lõi:** không có tài sản vô chủ (chủ sở hữu là **một cá nhân**) · một thang phân loại duy nhất · **sao lưu chưa phục hồi thử thì chưa phải sao lưu** · huỷ dữ liệu phê duyệt trước, bằng chứng sau, bản ghi kiểm kê không bao giờ bị xoá.
 

@@ -54,7 +54,7 @@ rõ ai điền, điền khi nào — theo đúng cách `MP35_NenTangSo/manifest.
 
 ## 3. Điểm phải do LĐP/LĐV quyết định — AI không tự xử lý
 
-### L2 — Xung đột với ETV.P28 mục 5.7.2 (mức: **Cao**, chặn phê duyệt)
+### L2 — Xung đột với ETV.P28 mục 6.7.2 (mức: **Cao**, chặn phê duyệt)
 
 > **Cập nhật 26/08/2026 — đã chọn phương án A và có dự thảo xử lý.** `ETV.P28` **lần ban hành 02**
 > đã được soạn: sửa mục 5.7.2 (thiết bị đầu cuối đăng ký trong danh mục tài sản CNTT của ETV.MP33,
@@ -76,7 +76,7 @@ Hai đường xử lý, cần LĐP chọn trước khi trình LĐV:
 
 | Phương án | Nội dung | Hệ quả |
 |---|---|---|
-| **A (khuyến nghị)** | Hiệu đính ETV.P28 mục 5.7.2 theo `ETV.P14`, ban hành lại lần BH 02, rồi phê duyệt P33 | Sạch về nguyên tắc một nguồn sự thật; tốn một vòng ban hành lại P28 |
+| **A (khuyến nghị)** | Hiệu đính ETV.P28 mục 6.7.2 theo `ETV.P14`, ban hành lại lần BH 02, rồi phê duyệt P33 | Sạch về nguyên tắc một nguồn sự thật; tốn một vòng ban hành lại P28 |
 | B | LĐV ra văn bản giải thích, ghi nhận cách hiểu thống nhất, hiệu đính P28 ở kỳ soát xét định kỳ | Phê duyệt P33 được ngay; trong thời gian chờ, hai văn bản vẫn đọc ngược nhau |
 
 ### L4 — Trích dẫn `ETV.P35 mục 2.3` phụ thuộc phiên bản chưa được phê duyệt (mức: **Trung bình**)
@@ -130,7 +130,7 @@ Sau khi LĐP chọn phương án cho L2 và L4, văn bản đủ điều kiện 
 | Loại đề nghị | ☑ Xây dựng mới |
 | Người đề nghị | Dương Thành Nam |
 | Ngày đề nghị | *(LĐP điền)* |
-| Lý do đề nghị | Hiện thực hóa Sổ tay chất lượng §10.2 và quy trình MP33; giữ bằng chứng thực hiện các kiểm soát kỹ thuật mà ETV.P28 mục 5.7 đặt ra và phạm vi mà `ETV.P35` giao cho ETV.P33 — hiện chưa có thủ tục nào đảm nhận |
+| Lý do đề nghị | Hiện thực hóa Sổ tay chất lượng §10.2 và quy trình MP33; giữ bằng chứng thực hiện các kiểm soát kỹ thuật mà ETV.P28 mục 6.7 đặt ra và phạm vi mà `ETV.P35` giao cho ETV.P33 — hiện chưa có thủ tục nào đảm nhận |
 | Người soạn thảo | Dương Thành Nam |
 | Người soát xét | Đỗ Văn Vinh — LĐP |
 | Kết quả soát xét | *(LĐP quyết định — xem mục 4)* |

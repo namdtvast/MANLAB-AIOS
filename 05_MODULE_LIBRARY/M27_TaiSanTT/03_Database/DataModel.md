@@ -27,7 +27,7 @@
 - `classification ∈ {Hạn chế, Mật}` **hoặc** bất kỳ `cia_* = Cao` ⇒ cần ≥ 1 `risk_refs` → M28
   (cảnh báo mềm cho tới khi M28 lên nền tảng, quy tắc 10).
 - `ai_use_allowed = true` ⇒ `classification ∈ {Công khai, Nội bộ}` **và** `status = Đang sử dụng`
-  (quy tắc 12 — `ETV.P28` mục 5.7 cấm tuyệt đối dữ liệu Hạn chế/Mật vào chỉ mục AI).
+  (quy tắc 12 — `ETV.P28` mục 6.7 cấm tuyệt đối dữ liệu Hạn chế/Mật vào chỉ mục AI).
 - `DataSharing.status = Đã phê duyệt` ⇒ `approved_by` thuộc vai trò LĐV; dữ liệu khách hàng/dữ liệu
   cá nhân ⇒ `disclosure_ref` NOT NULL (quy tắc 6).
 - `DisposalRecord.status = Đã thực hiện` ⇒ `approved_at < executed_at`, `witness ≠ executed_by`,

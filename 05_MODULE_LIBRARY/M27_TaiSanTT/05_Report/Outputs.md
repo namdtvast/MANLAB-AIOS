@@ -27,4 +27,4 @@ chính thức, **không** phê duyệt chia sẻ, **không** phê duyệt hoặc
 
 Chiều ngược lại: dữ liệu chỉ được dùng làm nguồn cho hệ thống AI khi tài sản có `ai_use_allowed =
 true`, đang sử dụng và ở mức **Công khai hoặc Nội bộ** — dữ liệu **Hạn chế/Mật không bao giờ** vào
-chỉ mục AI; phát hiện vi phạm phải gỡ ngay, mở sự cố ở M28 và lập KPH ở M13 (`ETV.P28` mục 5.7).
+chỉ mục AI; phát hiện vi phạm phải gỡ ngay, mở sự cố ở M28 và lập KPH ở M13 (`ETV.P28` mục 6.7).

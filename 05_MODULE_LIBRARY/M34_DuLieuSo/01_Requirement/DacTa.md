@@ -10,7 +10,7 @@
 > **Thứ tự nguồn sự thật khi có mâu thuẫn**: `ETV.P28`/`ETV.P35`/`ETV.P26` (**đã ban hành**) →
 > `ETV.P34` (**dự thảo, chờ soát xét**) → đặc tả này. Quy tắc nào dẫn từ thủ tục thì M34 **áp dụng
 > nguyên**, không diễn giải lại; nhãn `[P34 §x.y]` chỉ rõ điều khoản nguồn. Chính `ETV.P34` bản
-> 25/08/2026 đã tự hiệu đính mục 6.8 để khớp `ETV.P28` mục 5.13 và `ETV.P26` mục 5.5 đang hiệu lực
+> 25/08/2026 đã tự hiệu đính mục 6.8 để khớp `ETV.P28` mục 6.13 và `ETV.P26` mục 5.5 đang hiệu lực
 > — đặc tả này theo bản đã hiệu đính.
 >
 > ⚠ **Giới hạn còn lại**: `ETV.P34` **chưa được phê duyệt**; các **giá trị định lượng** trong đó
@@ -240,7 +240,7 @@ hồ sơ AIA theo `ETV.P29`, biện pháp giảm thiểu theo mức phân loại
 
 Append-only, ghi mọi thao tác tạo/sửa/đổi trạng thái trên 8 thực thể: ai, khi nào, trường nào, giá
 trị trước → sau, lý do (khi bắt buộc). Nhật ký thao tác trên dữ liệu phải **không sửa được** và lưu
-theo `ETV.P28` mục 5.7.5 (`ETV.P34` §6.6) — nhật ký module không thay thế nhật ký hệ thống, chỉ
+theo `ETV.P28` mục 6.7.5 (`ETV.P34` §6.6) — nhật ký module không thay thế nhật ký hệ thống, chỉ
 trỏ tới bằng `log_ref`.
 
 ## 3. Vai trò
@@ -425,7 +425,7 @@ nhận vi phạm phát hiện trong kỳ vào báo cáo §6.9 (nội dung 6).
 lần ngược: nguồn phát sinh (thiết bị, người nhập, hệ thống ngoài) · các bước biến đổi và **phiên
 bản quy tắc tính** · người, thời điểm của mỗi lần ghi nhận, hiệu chỉnh · kết quả, báo cáo, chứng
 chỉ đã dùng dữ liệu đó. Là điều kiện đáp ứng ISO/IEC 17025 §7.11 và nền cho truy xuất chứng chỉ số
-(`ETV.P36`). Nhật ký thao tác **không sửa được**, lưu theo `ETV.P28` mục 5.7.5.
+(`ETV.P36`). Nhật ký thao tác **không sửa được**, lưu theo `ETV.P28` mục 6.7.5.
 
 **R21. Vòng đời ba giai đoạn, hủy phải đủ điều kiện và hai chữ ký** (`ETV.P34` §6.7; §5.3; Phụ lục
 I.2 — **chặn cứng**) — chuyển Hoạt động → Lưu trữ → Đề nghị hủy theo mục 4.5. **Không được hủy**
@@ -434,14 +434,14 @@ tranh chấp, vụ việc, cuộc đánh giá liên quan · còn tập dữ li�
 chưa xử lý (§6.7.2). Hủy cần **phê duyệt LĐV + xác nhận phương pháp hủy của PT.ATTT** — thiếu một
 ⇒ chặn. Hủy kỹ thuật (phương pháp, biên bản, bản sao lưu) theo `ETV.P27`; **bản ghi danh mục vẫn
 giữ** để truy vết (Phụ lục II.1). Bản sao làm việc (kết xuất, tệp tạm) xóa khi hết mục đích, không
-được coi là nguồn dữ liệu (§6.7.3; `ETV.P28` mục 5.7.9).
+được coi là nguồn dữ liệu (§6.7.3; `ETV.P28` mục 6.7.9).
 
 **R22. Dữ liệu cho AI: bốn điều kiện, Hạn chế – Mật cấm tuyệt đối, AI không ghi đè** (`ETV.P34`
 §6.8; §5.3; Phụ lục I.2) — dùng tập dữ liệu cho hệ thống AI cần đủ: bản ghi danh mục có mức phân
 loại và cờ dữ liệu cá nhân · **phê duyệt LĐV có ý kiến PT.ATTT** (`AIDataApproval`) · hồ sơ AIA
 theo `ETV.P29` · biện pháp giảm thiểu. Dữ liệu mức **Hạn chế, Mật không đưa vào hệ thống AI dưới
 mọi hình thức** — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp (theo
-`ETV.P28` mục 5.13, `ETV.P26` mục 5.5 — hai thủ tục đã ban hành; quy tắc gốc tại `ETV.P29` mục
+`ETV.P28` mục 6.13, `ETV.P26` mục 5.5 — hai thủ tục đã ban hành; quy tắc gốc tại `ETV.P29` mục
 5.5, M34 không quy định lại). Kết quả AI sinh ra **không ghi đè dữ liệu gốc**, lưu phải **đánh dấu
 nguồn gốc AI**. Trợ lý AI của chính M34 chỉ *phát hiện* trùng/thiếu/bất thường, *nhắc* đến hạn,
 *gợi ý* ánh xạ – chuẩn hóa, *soạn dự thảo* từ điển và báo cáo — **không** tự sửa dữ liệu vận hành,

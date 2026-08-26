@@ -67,7 +67,7 @@
 ## 4. NFR
 
 - **Ghi vết**: `AuditLog` append-only; nhật ký thao tác không sửa được, lưu theo `ETV.P28` mục
-  5.7.5 (`ETV.P34` §6.6).
+  6.7.5 (`ETV.P34` §6.6).
 - **Không chứa dữ liệu thật**: schema và UI chỉ làm việc với metadata; kiểm tra mẫu trên trường tự
   do trước khi lưu (R6).
 - **Không xóa**: tầng dữ liệu không có thao tác xóa `DataSet`; dữ liệu chủ trùng hợp nhất qua bảng

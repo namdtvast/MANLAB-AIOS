@@ -48,7 +48,7 @@ superseded_by: null
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
 | ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.3 và quy trình MP34; phân định rõ với ETV.P27 (tài sản dữ liệu, sao lưu) và ETV.P28 (biện pháp bảo vệ) | 01 |
-| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: mục 6.8 trước đây cho phép dữ liệu mức **Hạn chế** dùng trên nền tảng AI đã phê duyệt — trái **ETV.P28 mục 5.13** và **ETV.P26 mục 5.5** đang có hiệu lực. Đưa về đúng bộ văn bản hiện hành: Hạn chế và Mật không đưa vào hệ thống AI dưới mọi hình thức; dẫn chiếu quy tắc gốc về ETV.P29 mục 5.5 thay vì quy định song song. | 01 |
+| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: mục 6.8 trước đây cho phép dữ liệu mức **Hạn chế** dùng trên nền tảng AI đã phê duyệt — trái **ETV.P28 mục 6.13** và **ETV.P26 mục 5.5** đang có hiệu lực. Đưa về đúng bộ văn bản hiện hành: Hạn chế và Mật không đưa vào hệ thống AI dưới mọi hình thức; dẫn chiếu quy tắc gốc về ETV.P29 mục 5.5 thay vì quy định song song. | 01 |
 | 26/08/2026 | Bổ sung quản trị dữ liệu chủ đo lường: 12 nhóm dữ liệu chủ tối thiểu; mô hình một hồ sơ Tổ chức/Cá nhân có nhiều vai trò; quy tắc chống trùng, hợp nhất, nguồn và hiệu lực; cập nhật F34.01. **Chưa ban hành, chờ soát xét.** | 01 |
 
 ---
@@ -427,7 +427,7 @@ Chuyển dữ liệu khách hàng, dữ liệu đo, dữ liệu cá nhân ra ngo
 
 Tập dữ liệu thuộc nhóm **dữ liệu đo và dữ liệu kỹ thuật** và **dữ liệu công bố** phải ghi nhận đủ để lần ngược: nguồn phát sinh (thiết bị, người nhập, hệ thống bên ngoài) · các bước biến đổi, tính toán đã áp dụng và phiên bản quy tắc tính · người và thời điểm của mỗi lần ghi nhận, hiệu chỉnh · kết quả, báo cáo, chứng chỉ đã sử dụng dữ liệu đó.
 
-Yêu cầu này là điều kiện để đáp ứng ISO/IEC 17025 §7.11 và để phục vụ truy xuất nguồn gốc chứng chỉ số theo **ETV.P36**. Nhật ký thao tác trên dữ liệu phải **không sửa được** và được lưu theo ETV.P28 mục 5.7.5.
+Yêu cầu này là điều kiện để đáp ứng ISO/IEC 17025 §7.11 và để phục vụ truy xuất nguồn gốc chứng chỉ số theo **ETV.P36**. Nhật ký thao tác trên dữ liệu phải **không sửa được** và được lưu theo ETV.P28 mục 6.7.5.
 
 ### 6.7. Vòng đời dữ liệu số
 
@@ -447,7 +447,7 @@ Việc **huỷ dữ liệu về mặt kỹ thuật** (phương pháp huỷ an to
 
 #### 6.7.3. Bản sao và dữ liệu ngoài hệ thống
 
-Bản sao dữ liệu tạo ra để phục vụ công việc (kết xuất, tệp làm việc) phải được xoá khi hết mục đích, **không** được coi là nguồn dữ liệu và **không** được dùng làm căn cứ nghiệp vụ. Nghiêm cấm lưu trữ lâu dài dữ liệu công việc trên thiết bị cá nhân hoặc dịch vụ cá nhân (ETV.P28 mục 5.7.9).
+Bản sao dữ liệu tạo ra để phục vụ công việc (kết xuất, tệp làm việc) phải được xoá khi hết mục đích, **không** được coi là nguồn dữ liệu và **không** được dùng làm căn cứ nghiệp vụ. Nghiêm cấm lưu trữ lâu dài dữ liệu công việc trên thiết bị cá nhân hoặc dịch vụ cá nhân (ETV.P28 mục 6.7.9).
 
 ### 6.8. Dữ liệu dùng cho hệ thống trí tuệ nhân tạo
 
@@ -458,7 +458,7 @@ Dữ liệu của Viện chỉ được dùng làm dữ liệu ngữ cảnh, t�
 3. Hồ sơ đánh giá tác động AI theo **ETV.P29**;
 4. Biện pháp giảm thiểu tương ứng mức phân loại: loại bỏ hoặc ẩn danh dữ liệu cá nhân, loại trừ dữ liệu mức **Mật**, giới hạn phạm vi truy xuất.
 
-Dữ liệu mức **Hạn chế** và **Mật** **không** được đưa vào hệ thống trí tuệ nhân tạo — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp — theo **ETV.P28 mục 5.13** và **ETV.P26 mục 5.5** (hai thủ tục đang có hiệu lực). Quy tắc gốc về dữ liệu cấp cho AI nằm ở **ETV.P29 mục 5.5**; thủ tục này không quy định lại và không nới rộng. Kết quả do hệ thống AI sinh ra **không** được ghi đè lên dữ liệu gốc và phải được đánh dấu rõ nguồn gốc khi lưu vào hệ thống.
+Dữ liệu mức **Hạn chế** và **Mật** **không** được đưa vào hệ thống trí tuệ nhân tạo — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp — theo **ETV.P28 mục 6.13** và **ETV.P26 mục 5.5** (hai thủ tục đang có hiệu lực). Quy tắc gốc về dữ liệu cấp cho AI nằm ở **ETV.P29 mục 5.5**; thủ tục này không quy định lại và không nới rộng. Kết quả do hệ thống AI sinh ra **không** được ghi đè lên dữ liệu gốc và phải được đánh dấu rõ nguồn gốc khi lưu vào hệ thống.
 
 ### 6.9. Báo cáo và soát xét
 

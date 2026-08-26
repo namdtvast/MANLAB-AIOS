@@ -50,7 +50,7 @@ Không dựng nguyên mẫu riêng trong `08_Source/`.
 
 1. Soạn và ban hành `ETV.P33` + F33.01–F33.04 theo **MP14**.
 2. **Chốt câu hỏi 2** (thiết bị đầu cuối thuộc danh mục nào) — nếu LĐV chọn phương án khác quy tắc
-   R2 thì phải sửa đồng bộ đặc tả M27 và có thể phải hiệu đính ETV.P28 mục 5.7.2 theo MP14.
+   R2 thì phải sửa đồng bộ đặc tả M27 và có thể phải hiệu đính ETV.P28 mục 6.7.2 theo MP14.
 3. Cập nhật `04_PROCESS_LIBRARY/MP33_HeThongTT/manifest.yaml` — `owner` còn `"(cập nhật)"`;
    `links.yaml` trỏ `procedure` về Sổ tay chất lượng, phải trỏ lại khi `ETV.P33` được ban hành.
 4. **Kiểm kê hạ tầng kỳ đầu**: máy chủ, thiết bị mạng, máy tính điều khiển thiết bị đo, máy trạm,

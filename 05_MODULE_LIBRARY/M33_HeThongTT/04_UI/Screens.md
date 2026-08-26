@@ -64,7 +64,7 @@
 ## 4. NFR
 
 - **Ghi vết**: `AuditLog` append-only; module **không** thay thế nhật ký hệ thống, chỉ trỏ tới bằng
-  `evidence_ref`/`system_log_ref` (ETV.P28 mục 5.7.5).
+  `evidence_ref`/`system_log_ref` (ETV.P28 mục 6.7.5).
 - **Không lưu bí mật**: schema không có trường mật khẩu/khóa/token; kiểm tra mẫu (regex) trên trường
   tự do của `ITAsset`, `SystemAccount` và `ITIncident`.
 - **Không xóa**: tầng dữ liệu không có thao tác xóa `ITAsset`; tài khoản bất thường **khóa tạm,

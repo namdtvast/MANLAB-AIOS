@@ -26,7 +26,7 @@
   (R1) — vi phạm ⇒ **không cho lưu**, không chỉ chặn phê duyệt.
 - `max_classification ∈ {Hạn chế, Mật}` ⇒ `disk_encryption = true`; thiết bị đầu cuối và máy chủ ⇒
   `screen_lock`, `antimalware`, `default_password_changed`, `unused_services_closed` đều `true`
-  (R3 — ETV.P28 mục 5.7.2, ETV.P33 §6.2.3).
+  (R3 — ETV.P28 mục 6.7.2, ETV.P33 §6.2.3).
 - `is_personal_device = true`: `max_classification ∈ {Công khai, Nội bộ}` ⇒ được phép khi đã đăng ký
   và đủ cấu hình cơ sở; `∈ {Hạn chế, Mật}` ⇒ phải có phê duyệt LĐV **và** `risk_refs` → M28 (ETV.P33 §6.2.4).
 - `criticality = Cao` ⇒ `recovery_time_objective`, `failover_plan` NOT NULL **và** ≥ 01 `risk_refs`;

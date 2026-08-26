@@ -29,7 +29,7 @@ applicable_standard:
 | Ngày soát xét | Lý do soát xét, ban hành lại | Lần ban hành |
 |---|---|---|
 | 24/08/2026 | Dự thảo lần đầu, trình soát xét (chưa ban hành) | 01 |
-| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: dọn câu chữ lệch trong nội bộ về dữ liệu mức Hạn chế. Mục 1.3.6 trước chỉ cấm *lập chỉ mục* trong khi mục 5.1.5 cấm cả *truy cập*; mục 4.7 viết "khi không được phép" ngầm mở một ngoại lệ không có ở đâu. Nay cả ba mục nói cùng một điều, khớp **ETV.MP26 mục 5.5** và **ETV.MP28 mục 5.13** đang có hiệu lực. **Không nới rộng phạm vi cho phép.** | 01 |
+| 25/08/2026 | Sửa dự thảo, **chưa ban hành**: dọn câu chữ lệch trong nội bộ về dữ liệu mức Hạn chế. Mục 1.3.6 trước chỉ cấm *lập chỉ mục* trong khi mục 5.1.5 cấm cả *truy cập*; mục 4.7 viết "khi không được phép" ngầm mở một ngoại lệ không có ở đâu. Nay cả ba mục nói cùng một điều, khớp **ETV.MP26 mục 5.5** và **ETV.MP28 mục 6.13** đang có hiệu lực. **Không nới rộng phạm vi cho phép.** | 01 |
 
 ---
 
@@ -68,7 +68,7 @@ Thủ tục này quy định thống nhất cách thức **đăng ký, đánh gi
 3. **Chỉ được làm điều đã cho phép.** AI chỉ gọi được các công cụ đã đăng ký, qua **cổng công cụ**; công cụ không có trong danh sách cho phép thì bị chặn, không phụ thuộc vào nội dung lời nhắc.
 4. **Không sửa đè bản đang hiệu lực.** Lời nhắc, rào chắn, chính sách AI đã ở trạng thái hiệu lực **không sửa trực tiếp** — tạo phiên bản mới và trình duyệt lại.
 5. **Truy vết đầy đủ.** Mọi lượt gọi AI và mọi thay đổi cấu hình AI đều sinh nhật ký **chỉ ghi thêm, không sửa, không xóa**.
-6. **Dữ liệu theo phân loại.** AI chỉ truy cập dữ liệu ở mức **Công khai** và **Nội bộ**. Dữ liệu **Hạn chế** và **Mật** **không bao giờ** được đưa vào hệ thống AI — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp (thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 5.13).
+6. **Dữ liệu theo phân loại.** AI chỉ truy cập dữ liệu ở mức **Công khai** và **Nội bộ**. Dữ liệu **Hạn chế** và **Mật** **không bao giờ** được đưa vào hệ thống AI — không lập chỉ mục, không đưa vào lời nhắc, không truy xuất trực tiếp (thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 6.13).
 
 ### 1.4. Ngoài phạm vi
 
@@ -259,8 +259,8 @@ Văn bản, hình ảnh, bảng biểu, mã nguồn hoặc bản nháp hồ sơ 
 
 ### 4.6. Người phụ trách an toàn thông tin (PT.ATTT)
 
-- Đánh giá rủi ro an toàn thông tin của hệ thống AI theo ETV.MP28 mục 5.4; kết quả là đầu vào bắt buộc của AIA
-- Phối hợp xử lý sự cố AI có yếu tố mất an toàn thông tin theo ETV.MP28 mục 5.8
+- Đánh giá rủi ro an toàn thông tin của hệ thống AI theo ETV.MP28 mục 6.4; kết quả là đầu vào bắt buộc của AIA
+- Phối hợp xử lý sự cố AI có yếu tố mất an toàn thông tin theo ETV.MP28 mục 6.8
 
 ### 4.7. Người sử dụng
 
@@ -361,7 +361,7 @@ Hồ sơ AIA là **bắt buộc** đối với hệ thống AI mức tác độn
 | 2 | Các bên chịu tác động: người lao động, khách hàng, bên thứ ba, xã hội |
 | 3 | Dữ liệu sử dụng: nguồn, mức phân loại, có dữ liệu cá nhân hay không, cơ sở pháp lý xử lý |
 | 4 | Tác động tiềm ẩn: sai lệch đầu ra, thiên lệch/phân biệt đối xử, rò rỉ thông tin, phụ thuộc nhà cung cấp, ảnh hưởng tới tính khách quan và năng lực kỹ thuật |
-| 5 | Đánh giá rủi ro an toàn thông tin do PT.ATTT cung cấp (ETV.MP28 mục 5.4) |
+| 5 | Đánh giá rủi ro an toàn thông tin do PT.ATTT cung cấp (ETV.MP28 mục 6.4) |
 | 6 | Biện pháp kiểm soát: rào chắn, giới hạn công cụ, con người trong vòng lặp, ghi nhãn đầu ra, đào tạo người dùng |
 | 7 | Rủi ro tồn dư và mức chấp nhận |
 | 8 | Kết luận: được phép sử dụng / được phép có điều kiện (nêu rõ điều kiện) / không được phép |
@@ -422,9 +422,9 @@ Khóa truy cập dịch vụ mô hình và công cụ được quản lý theo E
 ### 5.5. Dữ liệu cấp cho hệ thống AI
 
 - Nguồn dữ liệu cấp cho AI phải là **tài sản dữ liệu đã đăng ký** theo ETV.MP27/MP34 hoặc **tri thức đã phê duyệt** theo ETV.MP26
-- Chỉ dữ liệu mức **Công khai** và **Nội bộ** được đưa vào chỉ mục AI; mức **Hạn chế** và **Mật** **không bao giờ** — thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 5.13
+- Chỉ dữ liệu mức **Công khai** và **Nội bộ** được đưa vào chỉ mục AI; mức **Hạn chế** và **Mật** **không bao giờ** — thống nhất với ETV.MP26 mục 5.5 và ETV.MP28 mục 6.13
 - Khi một mục tri thức hoặc tài liệu chuyển sang **hết hiệu lực**, việc gỡ khỏi chỉ mục AI phải thực hiện **ngay trong cùng giao dịch**
-- **Nghiêm cấm** dùng dữ liệu thật của khách hàng để kiểm thử hoặc huấn luyện khi chưa được ẩn danh hoặc chưa được LĐV phê duyệt (thống nhất với ETV.MP28 mục 5.7)
+- **Nghiêm cấm** dùng dữ liệu thật của khách hàng để kiểm thử hoặc huấn luyện khi chưa được ẩn danh hoặc chưa được LĐV phê duyệt (thống nhất với ETV.MP28 mục 6.7)
 - Xử lý dữ liệu cá nhân bằng hệ thống AI phải có cơ sở pháp lý, được nêu trong hồ sơ AIA và tuân thủ quy định pháp luật về bảo vệ dữ liệu cá nhân
 - Việc gửi dữ liệu của Viện tới **dịch vụ mô hình bên ngoài** phải được nêu rõ trong AIA, kèm điều khoản của nhà cung cấp về việc **không dùng dữ liệu để huấn luyện lại**; nếu nhà cung cấp không bảo đảm được điều này thì chỉ được gửi dữ liệu mức **Công khai**
 
@@ -454,7 +454,7 @@ PT.AI theo dõi: số lượt gọi và chi phí theo tác tử; tỷ lệ lời
 
 1. **Khống chế trước**: tạm dừng tác tử hoặc vô hiệu hóa công cụ liên quan
 2. Lập **Phiếu sự cố AI (F29.04)**, đính kèm mã nhật ký suy luận liên quan
-3. Sự cố có yếu tố mất an toàn thông tin: xử lý **đồng thời** theo ETV.MP28 mục 5.8 — **không** lập hai bộ hồ sơ sự cố song song, hồ sơ gốc về khía cạnh an toàn thông tin là F28.03, F29.04 dẫn chiếu tới phiếu đó
+3. Sự cố có yếu tố mất an toàn thông tin: xử lý **đồng thời** theo ETV.MP28 mục 6.8 — **không** lập hai bộ hồ sơ sự cố song song, hồ sơ gốc về khía cạnh an toàn thông tin là F28.03, F29.04 dẫn chiếu tới phiếu đó
 4. Sự cố ảnh hưởng tới **hiệu lực của kết quả đo hoặc chứng chỉ đã phát hành**: kích hoạt đồng thời ETV.MP10 và ETV.MP11; **AI và cá nhân đơn lẻ không được tự kết luận** về hiệu lực kết quả
 5. Sự cố mức **Nghiêm trọng** và **Đáng kể**: bắt buộc lập KPH theo ETV.MP13; bài học kinh nghiệm kết tinh theo ETV.MP26
 6. Người gây ra hoặc liên quan trực tiếp tới sự cố **không** được là người kết luận và đóng sự cố đó

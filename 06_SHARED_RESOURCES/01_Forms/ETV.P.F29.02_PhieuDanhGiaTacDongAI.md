@@ -88,7 +88,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | 8 | Tác động tới việc làm, kỹ năng của người lao động | | | | |
 | 9 | Vi phạm pháp luật về dữ liệu cá nhân, sở hữu trí tuệ | | | | |
 
-**Đánh giá rủi ro an toàn thông tin do PT.ATTT cung cấp** *(ETV.MP28 mục 5.4)*: số hồ sơ ETV.P.F28.01 ............... ngày ..../..../........
+**Đánh giá rủi ro an toàn thông tin do PT.ATTT cung cấp** *(ETV.MP28 mục 6.4)*: số hồ sơ ETV.P.F28.01 ............... ngày ..../..../........
 
 ## 6. Biện pháp kiểm soát bắt buộc đã thiết lập
 

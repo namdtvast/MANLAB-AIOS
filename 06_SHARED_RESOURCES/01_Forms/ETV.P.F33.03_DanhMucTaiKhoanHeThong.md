@@ -39,7 +39,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 | 1 | | | ☐ Cá nhân ☐ Đặc quyền ☐ Dịch vụ ☐ Bên thứ ba | | | | | ☐ Có ☐ Không | | | ☐ Hoạt động ☐ Tạm khóa ☐ Đã thu hồi |
 | 2 | | | ☐ Cá nhân ☐ Đặc quyền ☐ Dịch vụ ☐ Bên thứ ba | | | | | ☐ Có ☐ Không | | | ☐ Hoạt động ☐ Tạm khóa ☐ Đã thu hồi |
 
-> **MFA bắt buộc** với: tài khoản quản trị · truy cập từ xa · thư điện tử công vụ · hệ thống chứa thông tin Hạn chế/Mật (ETV.P28 mục 5.7.1).
+> **MFA bắt buộc** với: tài khoản quản trị · truy cập từ xa · thư điện tử công vụ · hệ thống chứa thông tin Hạn chế/Mật (ETV.P28 mục 6.7.1).
 
 ---
 
@@ -61,7 +61,7 @@ VIỆN KIỂM ĐỊNH CÔNG NGHỆ VÀ MÔI TRƯỜNG
 
 ## PHẦN III — RÀ SOÁT TÀI KHOẢN ĐẶC QUYỀN VÀ TÀI KHOẢN DỊCH VỤ
 
-*(Tối thiểu 02 lần/năm, trình LĐV — ETV.P28 mục 5.7.1)*
+*(Tối thiểu 02 lần/năm, trình LĐV — ETV.P28 mục 6.7.1)*
 
 | TT | Hệ thống | Tài khoản | Loại | Người chịu trách nhiệm | Còn cần thiết | Đã tách khỏi tài khoản dùng hằng ngày | Kết luận | Ngày rà soát |
 |---|---|---|---|---|---|---|---|---|

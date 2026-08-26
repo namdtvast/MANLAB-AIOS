@@ -63,7 +63,7 @@ Kế hoạch hiện thực hóa [spec.md](spec.md). Mỗi increment phải **dù
 
 | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|
-| Tài liệu Hạn chế/Mật lọt ra ngoài qua ngữ cảnh prompt | **Cao** | Lọc theo mức bảo mật **trước** khi dựng prompt (E1–E6); guardrail PII; Increment 3 không chạm bảng nghiệp vụ nào. Nếu xảy ra: gỡ ngay + sự cố theo ETV.P28 §5.8 + KPH theo ETV.P13 |
+| Tài liệu Hạn chế/Mật lọt ra ngoài qua ngữ cảnh prompt | **Cao** | Lọc theo mức bảo mật **trước** khi dựng prompt (E1–E6); guardrail PII; Increment 3 không chạm bảng nghiệp vụ nào. Nếu xảy ra: gỡ ngay + sự cố theo ETV.P28 §6.8 + KPH theo ETV.P13 |
 | Copilot bịa căn cứ, người dùng dùng nhầm vào hồ sơ ISO | **Cao** | Bắt buộc trích dẫn; `GR-NO-SOURCE`; 10 câu bẫy trong eval; nhãn cảnh báo cố định |
 | Bỏ qua Gateway để "làm nhanh" | **Cao** | AC-08 kiểm bằng grep trong verify; review PR chặn |
 | Chi phí API vượt dự toán | Trung bình | `AIPolicy` hạn mức + kiểm tra trước mỗi lượt + trang Usage |

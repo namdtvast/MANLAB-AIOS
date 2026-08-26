@@ -47,7 +47,7 @@ superseded_by: null
 
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
-| ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §9.4 và quy trình MP27; xác lập **thang phân loại thông tin chuẩn của Viện** mà ETV.P28 mục 5.3 và các thủ tục khác dẫn chiếu | 01 |
+| ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §9.4 và quy trình MP27; xác lập **thang phân loại thông tin chuẩn của Viện** mà ETV.P28 mục 6.3 và các thủ tục khác dẫn chiếu | 01 |
 
 ---
 
@@ -306,7 +306,7 @@ Tài sản phát hiện đang sử dụng mà **chưa kiểm kê** được xử
 
 ### 6.2. Thang phân loại thông tin — nguồn chuẩn của Viện
 
-Viện áp dụng **thống nhất bốn mức**. Đây là **định nghĩa gốc** mà ETV.P28 mục 5.3 và các thủ tục khác dẫn chiếu:
+Viện áp dụng **thống nhất bốn mức**. Đây là **định nghĩa gốc** mà ETV.P28 mục 6.3 và các thủ tục khác dẫn chiếu:
 
 | Mức | Ai được tiếp cận | Hệ quả chính |
 |---|---|---|
@@ -407,7 +407,7 @@ Hệ thống, thiết bị chứa tài sản bị ngừng vận hành tại ETV.
 
 #### 6.9.1. Đầu vào cho đánh giá rủi ro an toàn thông tin
 
-Danh mục tài sản là **đầu vào bắt buộc** của ETV.P28: mỗi rủi ro trong F28.01 phải gắn với ít nhất **01 tài sản** có trong danh mục — chiều ràng buộc này đã là **chặn cứng** theo ETV.P28 mục 5.3.
+Danh mục tài sản là **đầu vào bắt buộc** của ETV.P28: mỗi rủi ro trong F28.01 phải gắn với ít nhất **01 tài sản** có trong danh mục — chiều ràng buộc này đã là **chặn cứng** theo ETV.P28 mục 6.3.
 
 Chiều ngược lại: tài sản có mức phân loại **Hạn chế**, **Mật** hoặc có bất kỳ mức C–I–A = **Cao** phải có ít nhất **01 rủi ro đã mở** tại ETV.P28 hoặc ETV.P01. Trong giai đoạn đầu áp dụng, đây là **cảnh báo**; chuyển thành **chặn phê duyệt** kể từ khi Module M28 vận hành trên nền tảng — mốc chuyển do QLCL trình LĐV quyết định và ghi vào biên bản xem xét của lãnh đạo.
 
