@@ -11,7 +11,7 @@ module: M34_DuLieuSo
 effective_date: ""
 revision: "01"
 status: Cho-soat-xet
-keywords: [dữ liệu số, từ điển dữ liệu, chất lượng dữ liệu, dữ liệu chủ, chủ sở hữu dữ liệu, truy xuất nguồn gốc dữ liệu, ISO/IEC 17025 §7.11]
+keywords: [dữ liệu số, từ điển dữ liệu, chất lượng dữ liệu, dữ liệu chủ, tổ chức cá nhân, Party Role, năng lực kỹ thuật, chủ sở hữu dữ liệu, truy xuất nguồn gốc dữ liệu, ISO/IEC 17025 §7.11]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P08, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P26, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P33, ETV.P35, ETV.P36, ETV.P37, ETV.P38]
 iso_clause: ["ISO 9001:2015 §7.1.6, §7.5, §9.1", "ISO/IEC 17025:2017 §7.5, §7.11, §8.4", "ISO 17034:2016 §7.4", "ISO/IEC 27001:2022 §8.1, A.5.12, A.5.13, A.5.14, A.5.33, A.8.10, A.8.11, A.8.12", "ISO/IEC 42001:2023 §7.4, §8.1, A.7 (dữ liệu cho hệ thống AI)"]
 legal_basis: ["Luật Giao dịch điện tử 20/2023/QH15", "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân", "Pháp luật hiện hành về an toàn thông tin mạng"]
@@ -49,6 +49,7 @@ superseded_by: null
 | ---------- | ------------------- | -------------- |
 | ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.3 và quy trình MP34; phân định rõ với ETV.P27 (tài sản dữ liệu, sao lưu) và ETV.P28 (biện pháp bảo vệ) | 01 |
 | 25/08/2026 | Sửa dự thảo, **chưa ban hành**: mục 6.8 trước đây cho phép dữ liệu mức **Hạn chế** dùng trên nền tảng AI đã phê duyệt — trái **ETV.P28 mục 5.13** và **ETV.P26 mục 5.5** đang có hiệu lực. Đưa về đúng bộ văn bản hiện hành: Hạn chế và Mật không đưa vào hệ thống AI dưới mọi hình thức; dẫn chiếu quy tắc gốc về ETV.P29 mục 5.5 thay vì quy định song song. | 01 |
+| 26/08/2026 | Bổ sung quản trị dữ liệu chủ đo lường: 12 nhóm dữ liệu chủ tối thiểu; mô hình một hồ sơ Tổ chức/Cá nhân có nhiều vai trò; quy tắc chống trùng, hợp nhất, nguồn và hiệu lực; cập nhật F34.01. **Chưa ban hành, chờ soát xét.** | 01 |
 
 ---
 
@@ -63,6 +64,7 @@ Thủ tục này quy định nội dung, trách nhiệm và trình tự **xác l
 5. Bảo đảm việc **khai thác, chia sẻ dữ liệu ra ngoài phạm vi được phép** không xảy ra, đặc biệt với dữ liệu khách hàng và dữ liệu cá nhân.
 6. Bảo đảm dữ liệu có thể **truy xuất nguồn gốc**: một con số trên báo cáo, chứng chỉ truy được về dữ liệu gốc và quá trình biến đổi đã trải qua.
 7. Bảo đảm dữ liệu dùng cho **hệ thống trí tuệ nhân tạo** có nguồn gốc rõ ràng và được phép sử dụng (ETV.P29).
+8. Bảo đảm các danh mục dùng chung của hoạt động kiểm định, hiệu chuẩn, thử nghiệm, quan trắc và sản xuất RM/CRM được quản trị thống nhất, đủ để xác định **đúng chủ thể, đúng đối tượng, đúng phương pháp, đúng nguồn lực và đúng phạm vi năng lực** trước khi thực hiện công việc.
 
 Áp dụng thống nhất trong toàn Viện ETV, thực hiện qua phần mềm ManLab (Module M34 – Quản lý dữ liệu số).
 
@@ -78,7 +80,7 @@ Thủ tục này quy định nội dung, trách nhiệm và trình tự **xác l
 |---|---|---|
 | 1 | Dữ liệu đo và dữ liệu kỹ thuật | Dữ liệu thô từ thiết bị đo, dữ liệu tính toán trung gian, kết quả kiểm định, hiệu chuẩn, thử nghiệm |
 | 2 | Dữ liệu hồ sơ nghiệp vụ | Hồ sơ khách hàng, đơn hàng, mẫu, tiến độ công việc, biên bản |
-| 3 | Dữ liệu chủ (dùng chung) | Danh mục khách hàng, danh mục thiết bị, danh mục phương pháp, danh mục nhân sự, danh mục đơn vị đo |
+| 3 | Dữ liệu chủ (dùng chung) | Tổ chức/Cá nhân và vai trò; dịch vụ; năng lực kỹ thuật; loại đối tượng đo/thử nghiệm; đại lượng–thông số–đơn vị đo; phương pháp; tài liệu viện dẫn; nhân sự–năng lực–thẩm quyền; thiết bị–chuẩn–mẫu chuẩn; cơ sở vật chất; phạm vi công nhận/chỉ định; NCC/NTP được phê duyệt |
 | 4 | Dữ liệu quản trị | Dữ liệu nhân sự, tài chính, mua sắm, đào tạo |
 | 5 | Dữ liệu hệ thống quản lý | Rủi ro, KPH, đánh giá nội bộ, sáng kiến, chỉ số hiệu quả |
 | 6 | Dữ liệu công bố | Dữ liệu đưa lên cổng tra cứu, chứng chỉ số, dữ liệu chia sẻ với cơ quan quản lý |
@@ -167,6 +169,9 @@ Thủ tục này **không** thay thế và **không** trùng lặp với:
 | **Người quản trị dữ liệu nghiệp vụ** (data steward) | Người được chủ sở hữu giao theo dõi chất lượng, xử lý sai lệch và duy trì từ điển dữ liệu của tập dữ liệu |
 | **Người giữ dữ liệu** (data custodian) | Bộ phận kỹ thuật vận hành nơi dữ liệu được lưu (theo ETV.P33, ETV.P35); chịu trách nhiệm kỹ thuật, **không** quyết định nội dung dữ liệu |
 | **Dữ liệu chủ** (master data) | Dữ liệu dùng chung nhiều nơi, thay đổi chậm, là căn cứ tham chiếu của các dữ liệu khác (khách hàng, thiết bị, phương pháp, đơn vị đo, nhân sự) |
+| **Chủ thể** (Party) | Tổ chức hoặc cá nhân được nhận dạng một lần trong nguồn dữ liệu chủ và có thể tham gia nhiều quan hệ, giao dịch hoặc vai trò nghiệp vụ |
+| **Vai trò của chủ thể** (Party Role) | Tư cách nghiệp vụ của một chủ thể trong một thời hạn xác định, ví dụ khách hàng, NCC, NTP, NSX, đối tác, cơ quan quản lý, tổ chức công nhận/chứng nhận hoặc chuyên gia |
+| **Bản ghi tham chiếu** | Một giá trị cụ thể thuộc dữ liệu chủ được các hồ sơ nghiệp vụ dẫn chiếu bằng mã định danh ổn định; không sao chép thành nguồn cạnh tranh |
 | **Dữ liệu gốc** | Dữ liệu ghi nhận lần đầu, chưa qua biến đổi — bao gồm **dữ liệu đo thô**; là căn cứ cuối cùng khi có tranh luận về kết quả |
 | **Chiều chất lượng dữ liệu** | Sáu chiều đánh giá tại §6.4.1: chính xác · đầy đủ · nhất quán · kịp thời · duy nhất · hợp lệ |
 | **Ngưỡng chấp nhận** | Giá trị tối thiểu của một chỉ số chất lượng mà tập dữ liệu phải đạt; dưới ngưỡng thì phải xử lý theo §6.4.4 |
@@ -297,6 +302,46 @@ Với mỗi loại dữ liệu chủ, LĐV **công nhận một nguồn duy nh�
 #### 6.2.2. Xử lý bảng tra song song
 
 Bảng tra, danh sách riêng phát hiện đang được dùng làm căn cứ nghiệp vụ trong khi đã có nguồn chính thức được coi là **không phù hợp**: ngừng sử dụng ngay, đối chiếu chênh lệch với nguồn chính thức, cập nhật phần dữ liệu đúng còn thiếu vào nguồn chính thức, và xem xét mở KPH theo ETV.P13 nếu đã gây sai lệch kết quả hoặc hồ sơ.
+
+#### 6.2.3. Hệ thống dữ liệu chủ tối thiểu
+
+Viện duy trì tối thiểu các nhóm dữ liệu chủ sau. Mỗi nhóm phải được đăng ký tại F34.01, có một nguồn sự thật duy nhất, chủ sở hữu, người quản trị, từ điển dữ liệu, quy tắc định danh và trạng thái hiệu lực.
+
+| Mã nhóm | Dữ liệu chủ | Nội dung tối thiểu | Module nghiệp vụ sử dụng chính |
+|---|---|---|---|
+| MD01 | Tổ chức/Cá nhân và vai trò | Định danh chủ thể; tổ chức/cá nhân; vai trò; đầu mối; địa chỉ; trạng thái xác minh và hiệu lực | M06, M07, M12, M25, M34, M37, M38 |
+| MD02 | Dịch vụ | Loại dịch vụ; lĩnh vực; địa điểm/phương thức cung cấp; trạng thái | M07, M21, M38 |
+| MD03 | Năng lực kỹ thuật | Dịch vụ; đối tượng; đại lượng/thông số; phạm vi; phương pháp; độ không đảm bảo đo/CMC khi áp dụng; địa điểm; hiệu lực | M07, M08, M21 |
+| MD04 | Loại đối tượng đo/thử nghiệm | Nhóm, loại, đặc tính nhận dạng, yêu cầu xử lý/bảo quản | M07, M09, M11 |
+| MD05 | Đại lượng–thông số–đơn vị đo | Đại lượng/thông số; ký hiệu; đơn vị; hệ đơn vị; quy tắc quy đổi | M08, M10, M11, M18, M23 |
+| MD06 | Phương pháp kỹ thuật | Loại KĐ/HC/TN/lấy mẫu; mã; phiên bản; phạm vi áp dụng; tình trạng xác nhận/thẩm định; hiệu lực | M08, M09, M10, M11 |
+| MD07 | Tiêu chuẩn và tài liệu viện dẫn | Loại tài liệu; số hiệu; phiên bản; nguồn kiểm soát; ngày hiệu lực/hết hiệu lực | M08, M14, M26 |
+| MD08 | Nhân sự–năng lực–thẩm quyền | Nhân sự; năng lực theo phương pháp/lĩnh vực; phân công; quyền thực hiện/soát xét/phê duyệt; thời hạn | M03, M07, M08, M11, M21 |
+| MD09 | Thiết bị–chuẩn–mẫu chuẩn | Loại và tài sản cụ thể; đặc tính; tình trạng hiệu chuẩn/kiểm định; liên kết chuẩn; phạm vi và trạng thái sử dụng | M05, M08, M10, M19 |
+| MD10 | Cơ sở vật chất và địa điểm | Phòng/khu vực/hiện trường; điều kiện môi trường; phạm vi hoạt động được phép | M04, M07, M21 |
+| MD11 | Phạm vi công nhận–chỉ định–đăng ký | Cơ quan cấp; quyết định/chứng chỉ; phạm vi; ngày hiệu lực/hết hạn; minh chứng | M07, M21 |
+| MD12 | NCC/NTP và phạm vi được phê duyệt | Chủ thể; vai trò; sản phẩm/dịch vụ; năng lực; kết quả đánh giá; thời hạn phê duyệt | M06, M07 |
+
+Danh sách trên là mức tối thiểu. Khi phát sinh dữ liệu chủ mới, CSHDL đề nghị bổ sung vào F34.01; QLCL kiểm tra không trùng nghĩa; LĐV công nhận nguồn theo §6.2.1. Không được tạo thêm nhóm chỉ vì khác tên gọi trên một màn hình nếu bản chất đã thuộc nhóm hiện có.
+
+#### 6.2.4. Quản lý Tổ chức/Cá nhân và vai trò
+
+1. **Một chủ thể — một hồ sơ định danh.** Hồ sơ Tổ chức/Cá nhân là nguồn gốc; “Khách hàng”, “NCC”, “NTP”, “NSX”, “Đối tác” là vai trò, không phải các danh mục định danh độc lập.
+2. Một chủ thể được mang nhiều vai trò đồng thời; mỗi vai trò có phạm vi, trạng thái, ngày hiệu lực, ngày hết hiệu lực và hồ sơ phê duyệt riêng khi nghiệp vụ yêu cầu.
+3. Người liên hệ, người đại diện pháp luật và chuyên gia là hồ sơ cá nhân được liên kết với tổ chức bằng loại quan hệ và thời hạn; không lặp lại thành chuỗi văn bản ở nhiều danh mục.
+4. Trước khi tạo mới phải tra cứu theo định danh tin cậy (mã số thuế, mã đăng ký hoặc mã hệ thống) và danh sách ứng viên tương đồng. **Không tự động hợp nhất chỉ dựa vào tên gần giống.**
+5. Hợp nhất bản ghi phải do người có thẩm quyền phê duyệt, giữ mã cũ–mã còn lại, giá trị trước/sau, nguồn, bằng chứng, người và thời điểm; bản ghi đã được hồ sơ nghiệp vụ tham chiếu không được xoá cứng.
+6. Trạng thái `Lead/Tiềm năng`, `Đang hoạt động`, `Ngừng giao dịch` là trạng thái quan hệ khách hàng, không thay thế trạng thái phê duyệt hồ sơ chủ thể hoặc trạng thái vai trò.
+7. Dữ liệu định danh cá nhân nhạy cảm chỉ thu thập khi có mục đích, căn cứ và phân quyền phù hợp; không dùng làm khóa đối soát toàn cục giữa ManLab và hệ thống bên ngoài.
+
+#### 6.2.5. Quy tắc đối với dữ liệu chủ kỹ thuật
+
+1. Hồ sơ năng lực kỹ thuật phải liên kết tối thiểu: dịch vụ → đối tượng → đại lượng/thông số → phạm vi → phương pháp → nguồn lực/thẩm quyền → phạm vi công nhận/chỉ định khi áp dụng.
+2. Loại đối tượng là dữ liệu chủ; phương tiện đo, mẫu hoặc đối tượng cụ thể của khách hàng là hồ sơ nghiệp vụ có mã riêng và dẫn chiếu loại đối tượng.
+3. Loại thiết bị/chuẩn/mẫu chuẩn là dữ liệu chủ; từng thiết bị/chuẩn/mẫu chuẩn cụ thể là tài sản có số nhận dạng, lịch sử và trạng thái riêng theo ETV.P05.
+4. Mã phương pháp và tài liệu viện dẫn phải gắn phiên bản và hiệu lực. Hồ sơ đã phát hành giữ tham chiếu đến phiên bản được sử dụng tại thời điểm thực hiện.
+5. Đơn vị đo và quy tắc quy đổi dùng từ MD05; không cho phép từng module tự tạo ký hiệu hoặc hệ số quy đổi cạnh tranh.
+6. Chỉ bản ghi `Hiệu lực` và đủ điều kiện nghiệp vụ mới được chọn cho hồ sơ mới; hồ sơ cũ phải giữ ảnh chụp hoặc tham chiếu phiên bản để truy xuất.
 
 ### 6.3. Nhập liệu, hiệu chỉnh và bảo toàn dữ liệu gốc
 

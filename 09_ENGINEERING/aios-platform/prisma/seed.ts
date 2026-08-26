@@ -3098,8 +3098,33 @@ const M34_DEMO_USERS = [
   { email: "qtht@manlab.vn", name: "Đỗ A. (QTHT)", role: "QTHT" },
 ] as const;
 
+/**
+ * Danh mục loại vai trò chủ thể — MASTER DATA, không phải enum.
+ * Thêm vai trò mới: thêm một dòng ở đây (hoặc nhập qua giao diện), KHÔNG cần migration.
+ * Chuẩn: 09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md mục 4.4.
+ */
+const M34_PARTY_ROLE_TYPES = [
+  { code: "LEAD", nameVi: "Khách hàng tiềm năng", description: "Chưa phát sinh giao dịch, đang trong giai đoạn tiếp cận", sortOrder: 10 },
+  { code: "CUSTOMER", nameVi: "Khách hàng", description: "Bên yêu cầu dịch vụ kiểm định, hiệu chuẩn, thử nghiệm, quan trắc", sortOrder: 20 },
+  { code: "SUPPLIER", nameVi: "Nhà cung cấp (NCC)", description: "Cung cấp sản phẩm, vật tư, dịch vụ cho Viện", sortOrder: 30 },
+  { code: "SUBCONTRACTOR", nameVi: "Nhà thầu phụ (NTP)", description: "Bên ngoài cung cấp theo ISO/IEC 17025 §6.6", sortOrder: 40 },
+  { code: "MANUFACTURER", nameVi: "Nhà sản xuất (NSX)", description: "Cơ sở sản xuất đối tượng được đánh giá", sortOrder: 50 },
+  { code: "AUDITEE", nameVi: "Cơ sở được đánh giá", description: "Đối tượng của hoạt động đánh giá, giám định, chứng nhận", sortOrder: 60 },
+  { code: "PARTNER", nameVi: "Đối tác", description: "Hợp tác chuyên môn hoặc thương mại", sortOrder: 70 },
+  { code: "REGULATOR", nameVi: "Cơ quan quản lý", description: "Cơ quan nhà nước có thẩm quyền quản lý hoạt động của Viện", sortOrder: 80 },
+  { code: "ACCREDITATION_BODY", nameVi: "Tổ chức công nhận/chứng nhận", description: "BoA, ILAC và tổ chức công nhận khác — khác cơ quan quản lý nhà nước", sortOrder: 90 },
+  { code: "EXPERT", nameVi: "Chuyên gia", description: "Chuyên gia, đánh giá viên bên ngoài", sortOrder: 100 },
+  { code: "EMPLOYEE", nameVi: "Nhân sự", description: "Nhân sự của Viện, nối với M03", sortOrder: 110 },
+  { code: "INTERESTED_PARTY", nameVi: "Bên quan tâm", description: "Bên quan tâm theo ISO 9001 §4.2, nối với M25", sortOrder: 120 },
+];
+
 async function seedM34() {
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+
+  // Idempotent: chạy lại không tạo trùng, không ghi đè tên đã sửa tay trên giao diện.
+  for (const rt of M34_PARTY_ROLE_TYPES) {
+    await prisma.m34PartyRoleType.upsert({ where: { code: rt.code }, create: rt, update: {} });
+  }
   const userByRole: Record<string, { id: string }> = {};
 
   for (const u of M34_DEMO_USERS) {

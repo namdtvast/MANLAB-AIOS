@@ -3,7 +3,7 @@
 | Đặc tả | Mô tả |
 |---|---|
 | Số hóa quy trình | MP34 — Thủ tục `ETV.P34` **dự thảo lần BH 01, Chờ soát xét** (25/08/2026, kèm biểu mẫu `ETV.P.F 34.01`–`34.03` cùng trạng thái). Căn cứ đã ban hành: Sổ tay chất lượng §10.3, `ETV.P35` mục 2.3 (ranh giới), `ETV.P28`, `ETV.P26` mục 5.5 |
-| Đối tượng dữ liệu chính | Tập dữ liệu (danh mục) · Từ điển dữ liệu theo phiên bản · Dữ liệu chủ – nguồn sự thật duy nhất · Bảng tra song song · Kỳ đo chất lượng sáu chiều · Hiệu chỉnh dữ liệu · Phiếu khai thác – chia sẻ · Hồ sơ dữ liệu cho AI |
+| Đối tượng dữ liệu chính | Tập dữ liệu (danh mục) · Từ điển dữ liệu theo phiên bản · 12 nhóm dữ liệu chủ đo lường (MD01–MD12) và nguồn sự thật duy nhất · Party–Role cho Tổ chức/Cá nhân · Bảng tra song song · Kỳ đo chất lượng sáu chiều · Hiệu chỉnh dữ liệu · Phiếu khai thác – chia sẻ · Hồ sơ dữ liệu cho AI |
 | Trạng thái | Nháp → Chờ soát xét → Chờ phê duyệt → Hiệu lực (Hoạt động) → Lưu trữ → Đề nghị hủy → Đã hủy (bản ghi vẫn giữ) · nhánh trả lại/hủy bản ghi |
 | Vai trò | CSHDL (sở hữu, phê duyệt) · QTDL (quản trị nghiệp vụ) · QLCL (danh mục, KPH, báo cáo) · PT.ATTT (phân loại, chia sẻ, ẩn danh) · QTHT (thao tác kỹ thuật) · TP · NTH · LĐV (4 thẩm quyền không ủy quyền) |
 | Phạm vi | **Nội dung dữ liệu số**: đúng không, ai được dùng, dùng thế nào, sống bao lâu (`ETV.P35` mục 2.3 giao cho ETV.P34) — phân biệt với M27 (tài sản, sao lưu, hủy kỹ thuật), M28 (bảo vệ, quyền), M33 (thiết bị), M35 (nền tảng) |
