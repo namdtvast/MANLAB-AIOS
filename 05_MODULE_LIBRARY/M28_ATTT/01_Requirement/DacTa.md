@@ -378,13 +378,26 @@ nguyên nhân gốc (M13) · nội dung tài liệu (M14) · hồ sơ (M15) · k
 
 ## 10. Trạng thái triển khai
 
-**Chưa xây** — `08_Source/` trống, chưa có trong `09_ENGINEERING/aios-platform`
-(`PlatformModule.status = COMING_SOON`).
+**Đã lên nền tảng** — `09_ENGINEERING/aios-platform`, `PlatformModule.status = ACTIVE`, nhóm menu
+`CONG_NGHE`. Không dựng nguyên mẫu riêng trong `08_Source/`.
 
-Thứ tự tăng trưởng đề xuất khi BUILD: (1) `SecurityRisk` + `RiskTreatment` — trục chính, dùng được
-ngay cho đánh giá rủi ro định kỳ; (2) `SoAVersion` + `SoAControl` seed 93 mã, nối `soa_control_refs`
-từ rủi ro; (3) `SecurityIncident` với các gate liên module R14, R15; (4) `AccessRequest` +
-`AccessReview`; (5) dashboard chỉ số mục 8 và bản xuất bốn biểu mẫu.
+Phạm vi đã xây (26/08/2026): cả **bốn dòng nghiệp vụ** của ISMS — đánh giá và xử lý rủi ro, Tuyên bố
+áp dụng, sự cố, quyền truy cập — với **toàn bộ 21 quy tắc R1–R21** thực thi ở tầng server action.
+
+| Vùng | Đường dẫn |
+|---|---|
+| Dữ liệu | `prisma/schema.prisma` — `M28SecurityRisk`, `M28RiskTreatment`, `M28SoAVersion`, `M28SoAControl`, `M28SecurityIncident`, `M28AccessRequest`, `M28AccessReview`, `M28AuditEntry` |
+| Quyết định | `src/lib/m28/rules.ts` — **nơi duy nhất** quyết định được phép hay không; thuần hàm, 47 test |
+| Ghi dữ liệu | `src/lib/m28/actions.ts` — chỉ gọi rule rồi ghi DB; truy vấn danh mục M27 để thực thi R1 |
+| Giao diện | `src/app/(platform)/modules/M28/` — hồ sơ rủi ro, chi tiết rủi ro kèm RTP, khai báo, SoA, sự cố, quyền truy cập |
+
+**R1 nay là chặn cứng thật.** M27 đã lên nền tảng nên `actions.ts` đếm được số mã tài sản có thật
+trong danh mục trước khi cho lưu rủi ro; không còn phải hạ xuống cảnh báo mềm như dự kiến ban đầu.
+
+Chưa xây: thao tác trên phiếu quyền truy cập ở giao diện (đã có đủ ở tầng server action và có test,
+chưa có nút bấm) · xuất PDF F28.01–F28.04 · trang chỉ số ISMS 06 tháng/lần phục vụ ETV.P17 ·
+`involvedUserIds` của R20 hiện mới lấy từ người báo cáo, cần bổ sung trường ghi người gây ra sự cố
+khi có kết luận điều tra. Chi tiết và phần chưa verify: `_work/20260826-build-m28-isms/`.
 
 ## 11. Quyết định đã chốt và câu hỏi còn mở
 
@@ -408,10 +421,11 @@ từ rủi ro; (3) `SecurityIncident` với các gate liên module R14, R15; (4)
    Nếu kiêm nhiệm, cần rà lại các gate R5/R17: LĐV phải là người phê duyệt cuối để không dồn quyền.
 2. **Phạm vi ISMS kỳ đầu**: toàn Viện ngay từ đầu, hay bắt đầu từ nền tảng ManLab + thư điện tử +
    kho dữ liệu dùng chung rồi mở rộng sang phần mềm thiết bị đo?
-3. **Nguồn dữ liệu tài sản (M27)**: `ETV.P27` **đã ban hành lần 01 ngày 26/08/2026** — căn cứ pháp
-   lý cho R1 nay đã đủ. Còn lại là điều kiện kỹ thuật: R1 chỉ chặn cứng được khi danh mục tài sản
-   của M27 có trên nền tảng. Cho tới lúc đó, giữ R1 ở mức **cảnh báo mềm**; không mở đường nhập
-   tài sản dạng văn bản tự do, vì rủi ro không gắn được tài sản thì SoA mất căn cứ A.5.9.
+3. ~~**Nguồn dữ liệu tài sản (M27)**~~ — **đã gỡ**: `ETV.P27` ban hành 26/08/2026 và danh mục tài
+   sản M27 đã lên nền tảng cùng ngày. R1 giữ nguyên **chặn cứng**: `actions.ts` đếm số mã tài sản
+   thực sự có trong danh mục (và đang sử dụng) rồi truyền vào rule; không mở đường nhập tài sản
+   dạng văn bản tự do.
+
 4. **Nhật ký hệ thống**: module chỉ lưu `system_log_ref`. Có tích hợp đọc nhật ký thật từ nền tảng
    (ManLab, thư điện tử) để phục vụ rà soát hằng quý (P28 §6.7.5), hay giữ nguyên thao tác thủ công
    do QTHT trích xuất?

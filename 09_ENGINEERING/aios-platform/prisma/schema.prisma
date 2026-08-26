@@ -181,6 +181,24 @@ model User {
   m27AssetApproved  M27InfoAsset[]  @relation("M27AssetApproved")
   m27RulesApproved  M27RuleVersion[] @relation("M27RulesApproved")
   m27AuditEntries   M27AuditEntry[]
+
+  m28RiskOwner        M28SecurityRisk[]     @relation("M28RiskOwner")
+  m28RiskCreated      M28SecurityRisk[]     @relation("M28RiskCreated")
+  m28RiskReviewed     M28SecurityRisk[]     @relation("M28RiskReviewed")
+  m28RiskApproved     M28SecurityRisk[]     @relation("M28RiskApproved")
+  m28RiskResidualAcc  M28SecurityRisk[]     @relation("M28RiskResidualAccepted")
+  m28TreatmentResp    M28RiskTreatment[]    @relation("M28TreatmentResponsible")
+  m28TreatmentVerify  M28RiskTreatment[]    @relation("M28TreatmentVerified")
+  m28SoaApproved      M28SoAVersion[]       @relation("M28SoaApproved")
+  m28ControlResp      M28SoAControl[]       @relation("M28ControlResponsible")
+  m28IncidentReporter M28SecurityIncident[] @relation("M28IncidentReporter")
+  m28IncidentClosed   M28SecurityIncident[] @relation("M28IncidentClosed")
+  m28AccessSubject    M28AccessRequest[]    @relation("M28AccessSubject")
+  m28AccessRequested  M28AccessRequest[]    @relation("M28AccessRequested")
+  m28AccessApproved   M28AccessRequest[]    @relation("M28AccessApproved")
+  m28AccessExecuted   M28AccessRequest[]    @relation("M28AccessExecuted")
+  m28AccessReviewer   M28AccessReview[]     @relation("M28AccessReviewer")
+  m28AuditEntries     M28AuditEntry[]
 }
 
 // Vai trò nghiệp vụ theo TỪNG module — không dùng chung 1 enum vì mỗi module
@@ -4446,6 +4464,446 @@ model M27ClassificationRule {
 model M27AuditEntry {
   id       String      @id @default(cuid())
   itemType M27ItemType
+  itemId   String
+  ts       DateTime    @default(now())
+  actorId  String
+  role     String
+  action   String
+  reason   String?
+
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([itemType, itemId])
+}
+
+// ============================================================================
+// M28 — Quản lý an toàn thông tin (ISMS)
+// NGUỒN QUY ĐỊNH: Thủ tục ETV.P28 (lần BH 02, ban hành 26/08/2026) —
+// 03_MANAGEMENT_SYSTEM/02_P/ETV.P28_QuanLyAnToanThongTin.md
+// Biểu mẫu: F28.01 rủi ro+RTP · F28.02 SoA · F28.03 sự cố · F28.04 quyền truy cập.
+//
+// Ba điều bất biến, đọc trước khi sửa:
+//  1. Mỗi rủi ro PHẢI gắn ít nhất một tài sản thông tin CÓ THẬT trong danh mục M27
+//     (P28 mục 6.3, Phụ lục I mục 1). Ràng buộc này là ref mềm ở tầng schema (nền tảng
+//     không dùng FK chéo module) nhưng được kiểm tra tồn tại ở tầng action — xem
+//     `assetsExist` truyền vào rules. KHÔNG nới thành nhập văn bản tự do.
+//  2. Rủi ro tồn dư từ 7 trở lên chỉ đóng được khi LĐV chấp nhận bằng văn bản, có lý do
+//     (P28 mục 6.4.3). Không uỷ quyền cho vai trò khác.
+//  3. SoA liệt kê ĐỦ 93 kiểm soát của Phụ lục A ISO/IEC 27001:2022 và chỉ lưu MÃ kiểm
+//     soát + cách ETV thực thi. Chép toàn văn nội dung tiêu chuẩn vào DB là vi phạm bản
+//     quyền và bị cấm bởi chính thủ tục (P28 mục 6.6).
+// ============================================================================
+
+/// Phương án xử lý rủi ro — P28 mục 6.5.1
+enum M28TreatmentOption {
+  GIAM_THIEU
+  TRANH
+  CHIA_SE
+  CHAP_NHAN
+}
+
+/// Vòng đời bản ghi rủi ro — P28 Phụ lục II mục 1 (9 trạng thái)
+enum M28RiskStatus {
+  DRAFT // Nháp
+  PENDING_REVIEW // Chờ soát xét
+  REVIEW_REJECTED // Không soát xét (bắt buộc lý do)
+  PENDING_APPROVAL // Chờ phê duyệt
+  APPROVAL_REJECTED // Không phê duyệt (bắt buộc lý do)
+  DANG_XU_LY // RTP đã phê duyệt, đang thực hiện biện pháp
+  DA_XU_LY // Biện pháp hoàn thành VÀ đã xác nhận hiệu lực
+  CHAP_NHAN_TON_DU // Đóng với mức tồn dư còn lại (LĐV khi R ≥ 7)
+  HET_HIEU_LUC // Rủi ro không còn (tài sản/hoạt động đã chấm dứt)
+}
+
+enum M28TreatmentStatus {
+  MO
+  DANG_THUC_HIEN
+  HOAN_THANH
+}
+
+enum M28SoAStatus {
+  DRAFT
+  PENDING_REVIEW
+  PENDING_APPROVAL
+  DA_PHE_DUYET
+  HET_HIEU_LUC
+}
+
+enum M28ImplementationStatus {
+  CHUA_THUC_HIEN
+  DANG_THUC_HIEN
+  DA_THUC_HIEN
+}
+
+/// Phân mức sự cố — P28 mục 6.8.1. Quyết định thời hạn báo cáo và thẩm quyền đóng.
+enum M28Severity {
+  THAP // ≤ 24 giờ tới PT.ATTT · PT.ATTT đóng
+  TRUNG_BINH // ≤ 08 giờ tới PT.ATTT · PT.ATTT đóng
+  CAO // Ngay lập tức tới PT.ATTT và LĐV · LĐV đóng
+  RAT_CAO // Ngay lập tức tới LĐV · LĐV đóng; kích hoạt ETV.P31 nếu gián đoạn
+}
+
+/// Vòng đời sự cố — P28 mục 6.8.2 (6 bước) và Phụ lục II mục 2
+enum M28IncidentStatus {
+  MOI
+  DANG_KHONG_CHE
+  DANG_DIEU_TRA
+  DANG_KHAC_PHUC
+  CHO_KET_LUAN
+  DA_DONG
+  HUY // cảnh báo giả — bắt buộc ghi lý do
+}
+
+enum M28TriState {
+  CO
+  KHONG
+  CHUA_XAC_DINH
+}
+
+enum M28SubjectType {
+  NHAN_SU_CHINH_THUC
+  THU_VIEC
+  CHUYEN_GIA_NHA_THAU
+  NHA_CUNG_CAP_CNTT
+}
+
+enum M28RequestType {
+  CAP_MOI
+  THAY_DOI
+  THU_HOI_MOT_PHAN
+  THU_HOI_TOAN_BO
+}
+
+/// Vòng đời phiếu quyền truy cập — P28 Phụ lục II mục 2
+enum M28AccessStatus {
+  DE_NGHI
+  CHO_PHE_DUYET
+  DA_PHE_DUYET
+  DA_THUC_HIEN
+  TU_CHOI
+  DA_THU_HOI
+}
+
+enum M28ReviewScope {
+  PHONG // TP rà soát ≥ 06 tháng/lần
+  TAI_KHOAN_DAC_QUYEN // LĐV rà soát ≥ 02 lần/năm
+}
+
+enum M28ItemType {
+  RISK
+  TREATMENT
+  SOA_VERSION
+  INCIDENT
+  ACCESS_REQUEST
+  ACCESS_REVIEW
+}
+
+/// Rủi ro an toàn thông tin — biểu mẫu ETV.P.F 28.01, trình tự P28 mục 6.4
+model M28SecurityRisk {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "RR-ATTT-<năm>-<số>"
+
+  title String
+
+  // Ref mềm tới mã tài sản của M27. Tồn tại được kiểm ở tầng action rồi truyền vào rule —
+  // rủi ro không gắn được tài sản thì KHÔNG CHO LƯU (P28 Phụ lục I mục 1).
+  assetRefs String[]
+
+  classification Classification // mức phân loại thông tin bị ảnh hưởng, kế thừa M27
+  threat         String
+  vulnerability  String
+  existingControls String?
+
+  // Chấm điểm: T = max(C, I, A); R = K × T (P28 mục 6.4.2). Cả hai do hệ thống tính,
+  // người dùng KHÔNG sửa tay được.
+  impactC    Int // 1–5
+  impactI    Int // 1–5
+  impactA    Int // 1–5
+  likelihood Int // 1–5 — K
+  impact     Int // 1–5 — T, tự tính
+  riskScore  Int // 1–25 — R, tự tính
+
+  treatmentOption M28TreatmentOption
+
+  // Kiểm soát trong SoA được viện tới để giảm rủi ro — bắt buộc khi chọn Giảm thiểu.
+  soaControlRefs String[]
+
+  ownerId String // chủ sở hữu rủi ro: TP hoặc LĐV, KHÔNG được là QTHT (P28 mục 6.4.3)
+
+  residualLikelihood Int?
+  residualImpact     Int?
+  residualScore      Int?
+  residualAcceptedById String? // BẮT BUỘC là LĐV khi residualScore ≥ 7 — không uỷ quyền
+  residualAcceptedAt   DateTime?
+  residualAcceptReason String?
+
+  m01RiskRef String? // → M01 khi mức Cao/Rất cao
+  bcpInput   Boolean @default(false) // tự tính: impactA ≥ 4 ⇒ đầu vào bắt buộc của ETV.P31
+
+  lastAssessedAt DateTime? // mốc tính hạn rà soát 12 tháng (P28 mục 6.4.1)
+
+  status M28RiskStatus @default(DRAFT)
+  reason String?
+
+  createdById  String
+  reviewedById String?
+  reviewedAt   DateTime?
+  approvedById String?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner              User  @relation("M28RiskOwner", fields: [ownerId], references: [id])
+  createdBy          User  @relation("M28RiskCreated", fields: [createdById], references: [id])
+  reviewedBy         User? @relation("M28RiskReviewed", fields: [reviewedById], references: [id])
+  approvedBy         User? @relation("M28RiskApproved", fields: [approvedById], references: [id])
+  residualAcceptedBy User? @relation("M28RiskResidualAccepted", fields: [residualAcceptedById], references: [id])
+
+  treatments M28RiskTreatment[]
+
+  @@index([status, riskScore])
+  @@index([classification])
+  @@index([lastAssessedAt])
+  @@index([bcpInput])
+}
+
+/// Hạng mục Kế hoạch xử lý rủi ro (RTP) — phần 2 của biểu mẫu F28.01, P28 mục 6.5.2
+model M28RiskTreatment {
+  id     String @id @default(cuid())
+  riskId String
+
+  measure       String
+  soaControlRef String // mã kiểm soát tương ứng trong SoA
+  responsibleId String
+  resources     String?
+
+  // Hạn theo mức rủi ro: ≤ 12 tháng (Trung bình) · ≤ 06 tháng (Cao) · ≤ 03 tháng (Rất cao)
+  dueAt DateTime
+
+  // Biện pháp khống chế tạm thời — BẮT BUỘC ngay với rủi ro mức Rất cao (P28 mục 6.4.3)
+  interimMeasure String?
+
+  verificationMethod String // cách xác nhận hiệu lực
+  completedAt        DateTime?
+
+  // Chưa xác nhận hiệu lực thì KHÔNG được ghi là hoàn thành (P28 mục 6.5.2)
+  verifiedById String?
+  verifiedAt   DateTime?
+
+  status M28TreatmentStatus @default(MO)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  risk        M28SecurityRisk @relation(fields: [riskId], references: [id], onDelete: Cascade)
+  responsible User            @relation("M28TreatmentResponsible", fields: [responsibleId], references: [id])
+  verifiedBy  User?           @relation("M28TreatmentVerified", fields: [verifiedById], references: [id])
+
+  @@index([riskId])
+  @@index([status, dueAt])
+}
+
+/// Tuyên bố áp dụng — biểu mẫu ETV.P.F 28.02. Tài liệu BẮT BUỘC của ISMS (P28 mục 6.6).
+/// Mỗi lần sửa tạo phiên bản mới, KHÔNG sửa đè; phiên bản cũ giữ làm bằng chứng.
+model M28SoAVersion {
+  id      String @id @default(cuid())
+  version Int    @unique
+
+  // Sáu chiều xác định phạm vi ISMS — P28 mục 6.1
+  scopeOrganization String
+  scopeLocation     String
+  scopeInformation  String
+  scopeSystems      String
+  scopeInterfaces   String
+  scopeExclusions   String? // phần bị loại khỏi phạm vi KÈM LÝ DO
+
+  effectiveDate DateTime?
+  supersedesId  String?
+
+  approvedById String?
+  approvedAt   DateTime?
+
+  status M28SoAStatus @default(DRAFT)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  approvedBy User?           @relation("M28SoaApproved", fields: [approvedById], references: [id])
+  controls   M28SoAControl[]
+
+  @@index([status])
+}
+
+/// Một dòng kiểm soát của SoA. 93 dòng cho mỗi phiên bản — A.5 (37) · A.6 (8) · A.7 (14) · A.8 (34).
+/// CHỈ lưu mã kiểm soát và cách ETV thực thi; KHÔNG lưu tên và diễn giải của tiêu chuẩn.
+model M28SoAControl {
+  id           String @id @default(cuid())
+  soaVersionId String
+
+  controlCode String // "A.5.9" — theo Phụ lục A ISO/IEC 27001:2022
+  theme       String // "A.5" Tổ chức · "A.6" Con người · "A.7" Vật lý · "A.8" Công nghệ
+
+  applicable Boolean @default(true)
+
+  justification   String? // bắt buộc khi Áp dụng: rủi ro tương ứng, pháp luật, hợp đồng, yêu cầu tiêu chuẩn
+  exclusionReason String? // BẮT BUỘC khi Loại trừ — không chấp nhận lý do chung chung (P28 mục 6.6)
+  implementation  String? // thủ tục/quy định/biện pháp nội bộ đang thực thi kiểm soát
+  responsibleId   String?
+
+  implementationStatus M28ImplementationStatus @default(CHUA_THUC_HIEN)
+  evidenceRefs         String[] // dẫn chiếu hồ sơ ETV.P15 hoặc bản ghi trên ManLab
+  evidenceDueAt        DateTime? // quá hạn mà rỗng ⇒ lập KPH theo ETV.P13
+
+  soaVersion  M28SoAVersion @relation(fields: [soaVersionId], references: [id], onDelete: Cascade)
+  responsible User?         @relation("M28ControlResponsible", fields: [responsibleId], references: [id])
+
+  @@unique([soaVersionId, controlCode])
+  @@index([applicable, implementationStatus])
+  @@index([evidenceDueAt])
+}
+
+/// Sự cố an toàn thông tin — biểu mẫu ETV.P.F 28.03, trình tự P28 mục 6.8.2.
+/// Đây là HỒ SƠ GỐC về sự cố: ETV.P02 và M29 dẫn chiếu tới phiếu này, không lập bộ song song.
+model M28SecurityIncident {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "SC-ATTT-<năm>-<số>"
+
+  reporterId String // ai cũng báo được, kể cả nhân sự không có quyền quản trị
+
+  occurredAt DateTime? // có thể ước lượng
+  detectedAt DateTime
+  reportedAt DateTime
+
+  symptom   String
+  assetRefs String[] // → M27
+
+  classification         Classification
+  involvesCustomerData   M28TriState    @default(CHUA_XAC_DINH)
+  involvesPersonalData   M28TriState    @default(CHUA_XAC_DINH)
+
+  severity M28Severity
+
+  containedAt        DateTime?
+  containmentActions String?
+  evidencePreserved  String? // bằng chứng đã thu thập và nơi lưu — cấm xoá khi đang xử lý
+
+  directCause   String?
+  scopeOfImpact String?
+
+  // true ⇒ BẮT BUỘC kích hoạt ETV.P10 và ETV.P11; module KHÔNG tự kết luận hiệu lực kết quả đo
+  affectsResultValidity Boolean @default(false)
+  m10Ref                String?
+  m11Ref                String?
+
+  // Nghĩa vụ thông báo ra bên ngoài — P28 mục 6.8.3. Quyết định gửi thuộc LĐV.
+  notifications Json? // [{ doiTuong, canCu, nguoiQuyetDinh, ngayGui, bangChung }]
+
+  recoveryAt DateTime?
+  riskRefs   String[] // rủi ro đã cập nhật hoặc mở mới sau sự cố
+  capaRef    String? // → M13 khi có sự không phù hợp
+  lessonRef  String? // → M26 — BẮT BUỘC khi severity ∈ {CAO, RAT_CAO} mới được đóng
+
+  closedById String?
+  closedAt   DateTime?
+
+  status M28IncidentStatus @default(MOI)
+  reason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reporter User  @relation("M28IncidentReporter", fields: [reporterId], references: [id])
+  closedBy User? @relation("M28IncidentClosed", fields: [closedById], references: [id])
+
+  @@index([status, severity])
+  @@index([detectedAt])
+  @@index([classification])
+}
+
+/// Phiếu yêu cầu cấp/thay đổi/thu hồi quyền truy cập — biểu mẫu ETV.P.F 28.04, P28 mục 6.7.1.
+/// Ba vai trò đề nghị / phê duyệt / thực hiện PHẢI khác nhau.
+model M28AccessRequest {
+  id   String @id @default(cuid())
+  seq  Int    @default(autoincrement())
+  code String @unique // "QTC-<năm>-<số>"
+
+  subjectId       String? // người được cấp quyền, khi là nhân sự của Viện
+  subjectExternal String? // tên và tổ chức, khi là bên thứ ba
+  subjectType     M28SubjectType
+
+  ndaRef               String? // cam kết bảo mật đã ký (F02.01/.02/.04) — bắt buộc với bên thứ ba
+  awarenessTrainingRef String? // đào tạo nhận thức ATTT — chưa có thì CHẶN cấp quyền
+
+  requestType M28RequestType
+  reason      String
+
+  // [{ heThong, vaiTro, isPrivileged, mucPhanLoai, validUntil }]
+  items Json
+
+  // Tự tính: bắt buộc MFA khi có tài khoản đặc quyền, truy cập từ xa, thư điện tử công vụ,
+  // hoặc hệ thống chứa thông tin mức Hạn chế/Mật (P28 mục 6.7.1).
+  mfaRequired Boolean @default(false)
+
+  requestedById String // TP đề nghị
+  approvedById  String? // PT.ATTT hoặc LĐV theo mức nhạy cảm
+  approvedAt    DateTime?
+  executedById  String? // QTHT thực hiện — KHÔNG tự quyết định quyền
+  executedAt    DateTime?
+
+  systemLogRef String? // mã nhật ký hệ thống của thao tác
+
+  revokedAt      DateTime? // thu hồi trong ngày làm việc khi chấm dứt/chuyển công tác
+  assetsReturned Boolean   @default(false) // thiết bị, thẻ ra vào, USB token chữ ký số
+
+  status M28AccessStatus @default(DE_NGHI)
+  // `reason` ở trên là lý do ĐỀ NGHỊ cấp quyền; trường này là lý do của lần đổi trạng thái
+  // gần nhất (từ chối, thu hồi) — bắt buộc ghi theo P28 Phụ lục II.
+  statusReason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subject     User? @relation("M28AccessSubject", fields: [subjectId], references: [id])
+  requestedBy User  @relation("M28AccessRequested", fields: [requestedById], references: [id])
+  approvedBy  User? @relation("M28AccessApproved", fields: [approvedById], references: [id])
+  executedBy  User? @relation("M28AccessExecuted", fields: [executedById], references: [id])
+
+  @@index([status, requestType])
+  @@index([revokedAt])
+}
+
+/// Đợt rà soát quyền truy cập định kỳ — phần 6 của biểu mẫu F28.04, P28 mục 6.7.1
+model M28AccessReview {
+  id     String         @id @default(cuid())
+  period String // kỳ rà soát, vd "2026-H1"
+  scope  M28ReviewScope
+
+  department String? // khi scope = PHONG
+
+  accountsReviewed Int @default(0)
+  excessFound      Int @default(0)
+  revoked          Int @default(0)
+
+  // Quyền thừa phải được thu hồi BẰNG PHIẾU, không thu hồi ngầm
+  revocationRefs String[]
+
+  reviewerId String
+  reviewedAt DateTime
+
+  createdAt DateTime @default(now())
+
+  reviewer User @relation("M28AccessReviewer", fields: [reviewerId], references: [id])
+
+  @@index([scope, reviewedAt])
+}
+
+model M28AuditEntry {
+  id       String      @id @default(cuid())
+  itemType M28ItemType
   itemId   String
   ts       DateTime    @default(now())
   actorId  String
