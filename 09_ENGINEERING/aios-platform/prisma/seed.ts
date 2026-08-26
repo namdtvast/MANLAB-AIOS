@@ -52,7 +52,7 @@ const PROCESS_LIB = join(REPO_ROOT, "04_PROCESS_LIBRARY");
 // M16 xây mới từ 05_MODULE_LIBRARY/M16_DanhGiaNoiBo/01_Requirement/DacTa.md (Increment 8).
 // M17 xây mới từ 05_MODULE_LIBRARY/M17_XemXetLanhDao/01_Requirement/DacTa.md (Increment 9).
 // M25 xây mới từ 05_MODULE_LIBRARY/M25_BoiCanh/01_Requirement/DacTa.md (chưa có ETV.P25).
-const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M29", "M34"]);
+const ACTIVE_MODULE_CODES = new Set(["M01", "M02", "M03", "M04", "M10", "M12", "M13", "M14", "M16", "M17", "M21", "M25", "M26", "M29", "M33", "M34"]);
 
 interface MpManifest {
   name?: string;
@@ -301,6 +301,7 @@ async function main() {
   await seedM25();
   await seedM26();
   await seedM34();
+  await seedM33();
 
   baoCaoMatKhauDemo();
 }
@@ -3356,5 +3357,354 @@ async function seedM34() {
     "Đã nạp M34: 3 tập dữ liệu (1 đo — ACTIVE kèm từ điển + kỳ đo Đạt, 1 dữ liệu chủ Hạn chế — đã công nhận nguồn, 1 chờ soát xét), " +
       "1 hiệu chỉnh đang chờ kết luận P10/P11 (minh họa chặn R12), 1 phiếu chia sẻ chờ ý kiến ATTT, 1 đề nghị dữ liệu cho AI, " +
       `1 bảng tra song song đang xử lý + vai trò M34 cho ${Object.keys(userByRole).length} tài khoản (thêm attt@, qtdl@).`,
+  );
+}
+
+// M33 — Quản lý hệ thống thông tin. Nguồn: ETV.P33 (DỰ THẢO, Chờ soát xét) +
+// 05_MODULE_LIBRARY/M33_HeThongTT/01_Requirement/DacTa.md. Vai trò toàn cục:
+// QTHT/ATTT/VP/TP/QLCL/LDV. Dữ liệu mẫu phủ các nhánh gate và cờ đến hạn chính.
+const M33_DEMO_USERS = [
+  { email: "qtht@manlab.vn", name: "Đỗ A. (QTHT)", role: "QTHT" },
+  { email: "attt@manlab.vn", name: "Vũ B. (PT.ATTT)", role: "ATTT" },
+  { email: "vanphong@manlab.vn", name: "Ngô Thị Văn Phòng", role: "VP" },
+  { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "TP" },
+  { email: "qlcl@manlab.vn", name: "Phạm Q. (QLCL)", role: "QLCL" },
+  { email: "ldv@manlab.vn", name: "Lê Văn V. (LĐV)", role: "LDV" },
+] as const;
+
+async function seedM33() {
+  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
+  const userByRole: Record<string, { id: string }> = {};
+
+  for (const u of M33_DEMO_USERS) {
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
+      update: {},
+    });
+    userByRole[u.role] = user;
+    await prisma.moduleRoleAssignment.upsert({
+      where: { userId_moduleCode_role: { userId: user.id, moduleCode: "M33", role: u.role } },
+      create: { userId: user.id, moduleCode: "M33", role: u.role },
+      update: {},
+    });
+  }
+
+  const existing = await prisma.m33ITAsset.count();
+  if (existing > 0) return; // idempotent thô: chỉ seed lần đầu
+
+  const qtht = userByRole["QTHT"];
+  const attt = userByRole["ATTT"];
+  const vp = userByRole["VP"];
+  const tp = userByRole["TP"];
+  const ldv = userByRole["LDV"];
+  const year = new Date().getFullYear();
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000);
+  const daysAhead = (n: number) => new Date(Date.now() + n * 86_400_000);
+
+  // 1) Máy chủ ManLab — trọng yếu Cao, đang vận hành, đủ RTO/failover/rủi ro.
+  const server = await prisma.m33ITAsset.create({
+    data: {
+      code: `HT-${year}-0001`,
+      name: "Máy chủ nền tảng ManLab",
+      assetClass: "MAY_CHU",
+      model: "Dell R760",
+      serial: "SRV-MANLAB-01",
+      networkZone: "QUAN_TRI_VAN_PHONG",
+      environment: "VAN_HANH",
+      location: "Phòng máy chủ tầng 3",
+      userOwnerId: vp.id,
+      custodianId: qtht.id,
+      criticality: "CAO",
+      platformRefs: ["ManLab AIOS (M35: NT-2026-001)"],
+      infoAssetRefs: ["TS-DL-012 (M27)", "TS-DL-014 (M27)"],
+      maxClassification: "HAN_CHE",
+      diskEncryption: true,
+      defaultPasswordChanged: true,
+      unusedServicesClosed: true,
+      osVersion: "Ubuntu Server 24.04 LTS",
+      patchLevel: "2026-08 rollup",
+      lastPatchedAt: daysAgo(20),
+      commissionedAt: daysAgo(400),
+      maintenanceCycle: "QUY",
+      lastMaintainedAt: daysAgo(30),
+      recoveryTimeObjective: "04 giờ",
+      failoverPlan: "Chuyển sang máy chủ dự phòng cùng phòng máy (M31)",
+      riskRefs: ["RR-2026-08 (M01)"],
+      reviewCycleMonths: 12,
+      lastReviewedAt: daysAgo(100),
+      status: "OPERATING",
+      createdById: qtht.id,
+      reviewedById: attt.id,
+      approvedById: ldv.id,
+      approvedAt: daysAgo(395),
+    },
+  });
+
+  // 2) Máy tính điều khiển thiết bị đo — vùng đặc biệt R4.
+  const controlPc = await prisma.m33ITAsset.create({
+    data: {
+      code: `HT-${year}-0002`,
+      name: "Máy tính điều khiển hệ quan trắc khí thải QT-05",
+      assetClass: "MAY_TINH_DIEU_KHIEN_DO",
+      model: "Dell Precision 3680",
+      serial: "PC-QT05-01",
+      networkZone: "THIET_BI_DO",
+      environment: "VAN_HANH",
+      location: "Trạm quan trắc — hiện trường",
+      userOwnerId: tp.id,
+      custodianId: qtht.id,
+      criticality: "CAO",
+      measuringDeviceRef: "TB-2025-031 (M05)",
+      infoAssetRefs: ["TS-DL-012 (M27)"],
+      maxClassification: "NOI_BO",
+      diskEncryption: true,
+      screenLock: true,
+      antimalware: true,
+      defaultPasswordChanged: true,
+      unusedServicesClosed: true,
+      osVersion: "Windows 11 IoT",
+      commissionedAt: daysAgo(300),
+      maintenanceCycle: "SAU_THANG",
+      lastMaintainedAt: daysAgo(200), // quá hạn chu kỳ 180 ngày → cờ Đến hạn bảo trì
+      recoveryTimeObjective: "08 giờ",
+      failoverPlan: "Máy dự phòng lạnh tại kho thiết bị",
+      riskRefs: ["RR-2026-11 (M01)"],
+      status: "OPERATING",
+      createdById: qtht.id,
+      reviewedById: attt.id,
+      approvedById: ldv.id,
+      approvedAt: daysAgo(295),
+      lastReviewedAt: daysAgo(500), // quá 12 tháng → cờ Đến hạn rà soát
+    },
+  });
+
+  // 3) Laptop BYOD đang chờ soát xét (Nội bộ — được phép khi đủ cấu hình cơ sở).
+  await prisma.m33ITAsset.create({
+    data: {
+      code: `HT-${year}-0003`,
+      name: "Laptop cá nhân của kỹ thuật viên hiện trường (BYOD)",
+      assetClass: "MAY_TRAM",
+      networkZone: "QUAN_TRI_VAN_PHONG",
+      environment: "VAN_HANH",
+      location: "Di động theo người dùng",
+      userOwnerId: tp.id,
+      custodianId: qtht.id,
+      criticality: "THAP",
+      maxClassification: "NOI_BO",
+      isPersonalDevice: true,
+      diskEncryption: true,
+      screenLock: true,
+      antimalware: true,
+      defaultPasswordChanged: true,
+      unusedServicesClosed: true,
+      maintenanceCycle: "NAM",
+      status: "PENDING_REVIEW",
+      createdById: qtht.id,
+    },
+  });
+
+  // 4) Switch phát hiện chưa kiểm kê — quá 30 ngày, đã ngắt mạng (R17).
+  await prisma.m33ITAsset.create({
+    data: {
+      code: `HT-${year}-0004`,
+      name: "Switch không nhãn tại phòng thử nghiệm",
+      assetClass: "THIET_BI_MANG",
+      networkZone: "THIET_BI_DO",
+      environment: "VAN_HANH",
+      location: "Phòng thử nghiệm tầng 2",
+      userOwnerId: tp.id,
+      custodianId: qtht.id,
+      criticality: "TRUNG_BINH",
+      maxClassification: "NOI_BO",
+      defaultPasswordChanged: false, // chưa đạt cấu hình cơ sở → đã ngắt mạng
+      unusedServicesClosed: false,
+      maintenanceCycle: "NAM",
+      discoverySource: "PHAT_HIEN_CHUA_KIEM_KE",
+      inventoryDueAt: daysAgo(5), // quá hạn 30 ngày → cờ đỏ
+      networkIsolated: true,
+      status: "DRAFT",
+      createdById: qtht.id,
+      reason: "Phát hiện khi kiểm tra hiện trường 26/07 — chưa rõ nguồn gốc",
+    },
+  });
+
+  // 5) Phần mềm bản quyền sắp hết hạn — cờ cảnh báo (R21).
+  await prisma.m33ITAsset.create({
+    data: {
+      code: `HT-${year}-0005`,
+      name: "Phần mềm xử lý số liệu quan trắc EnvDataPro",
+      assetClass: "PHAN_MEM_BAN_QUYEN",
+      environment: "VAN_HANH",
+      location: "Cài trên HT-2026-0002",
+      userOwnerId: tp.id,
+      custodianId: qtht.id,
+      criticality: "TRUNG_BINH",
+      maxClassification: "NOI_BO",
+      defaultPasswordChanged: true,
+      unusedServicesClosed: true,
+      licenseType: "Thuê bao năm",
+      licenseExpiry: daysAhead(25), // sắp hết hạn → cờ vàng
+      maintenanceCycle: "NAM",
+      status: "OPERATING",
+      createdById: qtht.id,
+      reviewedById: attt.id,
+      approvedById: ldv.id,
+      approvedAt: daysAgo(340),
+      commissionedAt: daysAgo(340),
+      lastReviewedAt: daysAgo(60),
+      lastMaintainedAt: daysAgo(60),
+    },
+  });
+
+  // Kế hoạch bảo trì năm đã phê duyệt — phủ server + máy điều khiển (R19).
+  const plan = await prisma.m33MaintenancePlan.create({
+    data: {
+      code: `KHBT-${year}-01`,
+      year,
+      downtimeNeeds: "02 cửa sổ ngừng dịch vụ 4 giờ (quý II, quý IV)",
+      resourceNeeds: "QTHT + nhà thầu bảo trì máy chủ",
+      status: "DA_PHE_DUYET",
+      createdById: vp.id,
+      approvedById: ldv.id,
+      approvedAt: daysAgo(200),
+      scopeAssets: { connect: [{ id: server.id }, { id: controlPc.id }] },
+    },
+  });
+
+  // Vá lỗi Nghiêm trọng QUÁ HẠN trên máy chủ — cờ đỏ mục (3) báo cáo, cảnh báo LĐV (R8).
+  await prisma.m33MaintenanceTask.create({
+    data: {
+      code: `BT-${year}-0001`,
+      taskType: "VA_LOI_BAO_MAT",
+      severity: "NGHIEM_TRONG",
+      plannedAt: daysAgo(10),
+      dueAt: daysAgo(3), // quá hạn mốc 07 ngày
+      changeRef: "F30.02-2026-018 (M30)",
+      impactAssessmentRef: "DGAH-ATTT-2026-07 (M28)",
+      status: "DANG_THUC_HIEN",
+      createdById: qtht.id,
+      assets: { connect: [{ id: server.id }] },
+    },
+  });
+
+  // Bảo trì định kỳ CHỜ NGHIỆM THU — minh họa R15 (người nghiệm thu ≠ người thực hiện).
+  await prisma.m33MaintenanceTask.create({
+    data: {
+      code: `BT-${year}-0002`,
+      taskType: "BAO_TRI_DINH_KY",
+      plannedAt: daysAgo(7),
+      dueAt: daysAgo(1),
+      planId: plan.id,
+      performedById: qtht.id,
+      performedAt: daysAgo(1),
+      result: "THANH_CONG",
+      evidenceRef: "Nhật ký bảo trì 25/08 + ảnh tủ rack",
+      userNotifiedAt: daysAgo(2),
+      status: "CHO_NGHIEM_THU",
+      createdById: qtht.id,
+      assets: { connect: [{ id: server.id }] },
+    },
+  });
+
+  // Tài khoản đặc quyền của QTHT trên máy chủ — đủ phiếu, MFA (R6).
+  await prisma.m33SystemAccount.create({
+    data: {
+      code: `TK-${year}-0001`,
+      loginName: "root-manlab",
+      accountType: "DAC_QUYEN_QUAN_TRI",
+      assetId: server.id,
+      holderId: qtht.id,
+      accessRequestRef: "F28.04-2026-031 (M28)",
+      grantedAt: daysAgo(390),
+      secretLocation: "Két quản trị — phong bì niêm phong số 07",
+      secretIssuer: "Vũ B. (PT.ATTT)",
+      mfaEnabled: true,
+    },
+  });
+
+  // Tài khoản có biến động nhân sự — QUÁ HẠN thu hồi trong ngày làm việc (R16).
+  await prisma.m33SystemAccount.create({
+    data: {
+      code: `TK-${year}-0002`,
+      loginName: "ktv-hientruong-02",
+      accountType: "CA_NHAN_DINH_DANH",
+      assetId: controlPc.id,
+      holderNote: "Kỹ thuật viên hợp đồng đã chấm dứt 25/08",
+      accessRequestRef: "F28.04-2026-012 (M28)",
+      grantedAt: daysAgo(200),
+      secretLocation: "Người dùng tự quản theo chính sách mật khẩu",
+      secretIssuer: "Đỗ A. (QTHT)",
+      mfaEnabled: false,
+      hrEventRef: "M03: chấm dứt HĐ 25/08/2026",
+      revocationDueAt: daysAgo(1), // quá hạn → cờ đỏ
+    },
+  });
+
+  // Kỳ đối chiếu toàn bộ đã chốt (R20).
+  await prisma.m33AccountReconciliation.create({
+    data: {
+      code: `KYDC-${year}-01`,
+      period: `${year}-H1`,
+      scope: "TOAN_BO",
+      orphanAccountIds: [],
+      orphanRequestRefs: ["F28.04-2026-009 (chưa thấy tài khoản trên hệ thống)"],
+      expiredAccountIds: [],
+      mfaMissingIds: [],
+      performedById: qtht.id,
+      status: "DA_CHOT",
+      closedAt: daysAgo(50),
+    },
+  });
+
+  // Sự cố mức CAO còn MỚI — quá hạn phản hồi (R18).
+  await prisma.m33ITIncident.create({
+    data: {
+      code: `SC-${year}-0001`,
+      kind: "SU_CO",
+      reportedById: tp.id,
+      reportedAt: daysAgo(1),
+      description: "Nền tảng ManLab không truy cập được từ mạng nội bộ, nghi lỗi máy chủ",
+      impact: "NGUNG_TOAN_VIEN",
+      priority: "CAO",
+      responseDueAt: daysAgo(1), // phản hồi NGAY — đã quá hạn
+      securityFlag: false,
+      status: "MOI",
+      assets: { connect: [{ id: server.id }] },
+    },
+  });
+
+  // Sự cố có yếu tố ATTT — đã định tuyến M28, CHƯA kết luận → chặn đóng (R9).
+  await prisma.m33ITIncident.create({
+    data: {
+      code: `SC-${year}-0002`,
+      kind: "SU_CO",
+      reportedById: qtht.id,
+      reportedAt: daysAgo(6),
+      description: "Máy tính điều khiển QT-05 có tiến trình lạ kết nối ra ngoài",
+      impact: "NGUNG_MOT_PHONG",
+      priority: "CAO", // tài sản trọng yếu Cao ⇒ nâng bắt buộc
+      responseDueAt: daysAgo(6),
+      respondedAt: daysAgo(6),
+      escalatedToLdvAt: daysAgo(6),
+      securityFlag: true,
+      securityIncidentRef: "F28.03-2026-05 (M28)",
+      securityConcluded: false,
+      measurementImpactRef: "M10-2026-14 — dừng sử dụng kết quả từ 20/08 tới khi kết luận",
+      assignedToId: qtht.id,
+      rootCause: "Đang chờ M28 phân tích",
+      resolution: "Đã cách ly máy, chuyển dự phòng lạnh",
+      assetBackToNormal: true,
+      noLessonReason: null,
+      lessonRef: "BH-2026-09 (M26)",
+      status: "DA_XU_LY",
+      assets: { connect: [{ id: controlPc.id }] },
+    },
+  });
+
+  console.log(
+    "Đã nạp M33: 5 tài sản (máy chủ Cao, máy điều khiển đo, BYOD chờ soát xét, switch chưa kiểm kê quá hạn — đã ngắt mạng, phần mềm sắp hết bản quyền), " +
+      "1 kế hoạch bảo trì năm đã phê duyệt, 2 công việc (vá Nghiêm trọng quá hạn + chờ nghiệm thu R15), 2 tài khoản (1 quá hạn thu hồi R16), " +
+      `1 kỳ đối chiếu đã chốt, 2 sự cố (1 quá hạn phản hồi R18 + 1 chờ kết luận M28 R9) + vai trò M33 cho ${Object.keys(userByRole).length} tài khoản.`,
   );
 }
