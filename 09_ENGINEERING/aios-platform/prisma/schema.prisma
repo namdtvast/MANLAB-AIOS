@@ -3318,16 +3318,6 @@ enum M34PartyStatus {
   ARCHIVED
 }
 
-enum M34PartyRoleType {
-  CUSTOMER
-  SUPPLIER
-  SUBCONTRACTOR
-  MANUFACTURER
-  PARTNER
-  REGULATOR
-  ACCREDITATION_BODY
-  EXPERT
-}
 
 model M34Party {
   id           String         @id @default(cuid())
@@ -3365,18 +3355,36 @@ model M34Party {
   @@index([status])
 }
 
-model M34PartyRole {
-  id        String           @id @default(cuid())
-  partyId   String
-  roleType  M34PartyRoleType
-  scopeNote String?
-  validFrom DateTime?
-  validTo   DateTime?
-  active    Boolean          @default(true)
-  createdAt DateTime         @default(now())
-  party     M34Party         @relation(fields: [partyId], references: [id], onDelete: Cascade)
+// Loại vai trò của chủ thể — MASTER DATA cấu hình được, KHÔNG hard-code thành enum.
+// Căn cứ: 09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md mục 4.4.
+// Thêm/bớt một vai trò là thêm/sửa MỘT DÒNG DỮ LIỆU, không phải một migration.
+model M34PartyRoleType {
+  code        String   @id // vd "CUSTOMER", "AUDITEE"
+  nameVi      String
+  description String?
+  sortOrder   Int      @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  @@unique([partyId, roleType])
+  partyRoles M34PartyRole[]
+}
+
+model M34PartyRole {
+  id           String    @id @default(cuid())
+  partyId      String
+  roleTypeCode String
+  scopeNote    String?
+  validFrom    DateTime?
+  validTo      DateTime?
+  active       Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+
+  party    M34Party          @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  roleType M34PartyRoleType  @relation(fields: [roleTypeCode], references: [code])
+
+  @@unique([partyId, roleTypeCode])
+  @@index([roleTypeCode])
 }
 
 model M34PartyContact {

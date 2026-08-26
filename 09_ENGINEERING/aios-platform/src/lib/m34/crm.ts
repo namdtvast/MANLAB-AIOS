@@ -1,4 +1,4 @@
-import type { M34PartyRoleType, M34PartyStatus, M34PartyType } from "@/generated/prisma/enums";
+import type { M34PartyStatus, M34PartyType } from "@/generated/prisma/enums";
 
 export const PARTY_TYPE_LABEL: Record<M34PartyType, string> = {
   ORGANIZATION: "Tổ chức/Doanh nghiệp",
@@ -15,24 +15,31 @@ export const PARTY_STATUS_LABEL: Record<M34PartyStatus, string> = {
   ARCHIVED: "Lưu trữ",
 };
 
-export const PARTY_ROLE_LABEL: Record<M34PartyRoleType, string> = {
-  CUSTOMER: "Khách hàng",
-  SUPPLIER: "Nhà cung cấp (NCC)",
-  SUBCONTRACTOR: "Nhà thầu phụ (NTP)",
-  MANUFACTURER: "Nhà sản xuất (NSX)",
-  PARTNER: "Đối tác",
-  REGULATOR: "Cơ quan quản lý",
-  ACCREDITATION_BODY: "Tổ chức công nhận/chứng nhận",
-  EXPERT: "Chuyên gia",
-};
+/**
+ * Vai trò của chủ thể là MASTER DATA cấu hình được (bảng M34PartyRoleType),
+ * KHÔNG phải enum sinh từ Prisma — xem 09_ENGINEERING/05_Database/MasterData_ChuThe_VaiTro.md
+ * mục 4.4. Thêm một vai trò mới là thêm một dòng dữ liệu, không phải một migration.
+ */
+export interface PartyRoleTypeOption {
+  code: string;
+  nameVi: string;
+}
 
-export const PARTY_ROLES = Object.entries(PARTY_ROLE_LABEL) as [M34PartyRoleType, string][];
+/** Bảng tra mã vai trò → tên hiển thị, dựng từ danh mục đọc ở tầng server. */
+export function roleLabelMap(list: PartyRoleTypeOption[]): Map<string, string> {
+  return new Map(list.map((r) => [r.code, r.nameVi]));
+}
+
+/** Tên hiển thị của một mã vai trò; mã lạ (đã bị vô hiệu hóa) vẫn hiện được thay vì mất dấu. */
+export function roleLabel(labels: Map<string, string>, code: string): string {
+  return labels.get(code) ?? code;
+}
 
 export function validateParty(input: {
   partyType: M34PartyType;
   legalName: string;
   taxId?: string;
-  roles: M34PartyRoleType[];
+  roles: string[];
   contactName?: string;
   contactEmail?: string;
 }) {

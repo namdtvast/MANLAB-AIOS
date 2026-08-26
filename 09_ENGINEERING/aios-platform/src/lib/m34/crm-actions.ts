@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import type { M34PartyRoleType, M34PartyType } from "@/generated/prisma/enums";
+import type { M34PartyType } from "@/generated/prisma/enums";
 import { getActor } from "./actor";
 import { validateParty } from "./crm";
 
@@ -16,7 +16,7 @@ export interface PartyInput {
   ward?: string;
   province?: string;
   source?: string;
-  roles: M34PartyRoleType[];
+  roles: string[]; // mã vai trò trong M34PartyRoleType — master data, không phải enum
   contactName?: string;
   contactPosition?: string;
   contactEmail?: string;
@@ -29,6 +29,15 @@ const refresh = (id?: string) => {
   revalidatePath("/modules/M34/crm");
   if (id) revalidatePath(`/modules/M34/crm/${id}`);
 };
+
+/** Danh mục vai trò đang hiệu lực — nguồn duy nhất cho UI và kiểm tra đầu vào. */
+export async function listPartyRoleTypes() {
+  return prisma.m34PartyRoleType.findMany({
+    where: { active: true },
+    orderBy: [{ sortOrder: "asc" }, { code: "asc" }],
+    select: { code: true, nameVi: true },
+  });
+}
 
 export async function findPartyDuplicates(name: string, taxId?: string) {
   const normalizedName = name.trim();
@@ -51,6 +60,11 @@ export async function createParty(input: PartyInput) {
   if (!actor.m34Role) return fail("Bạn chưa được gán vai trò M34 để tạo hồ sơ.");
   const invalid = validateParty(input);
   if (invalid) return fail(invalid);
+  const roleCodes = [...new Set(input.roles)];
+  const knownRoles = await prisma.m34PartyRoleType.findMany({ where: { code: { in: roleCodes }, active: true }, select: { code: true } });
+  const unknown = roleCodes.filter((c) => !knownRoles.some((r) => r.code === c));
+  if (unknown.length) return fail(`Vai trò không có trong danh mục hoặc đã ngừng hiệu lực: ${unknown.join(", ")}.`);
+
   const exact = await prisma.m34Party.findFirst({ where: { taxId: input.taxId?.trim() || undefined } });
   if (exact && input.taxId?.trim()) return fail(`Mã số thuế đã tồn tại tại ${exact.code} – ${exact.legalName}. Hãy mở hồ sơ hiện có và bổ sung vai trò.`);
 
@@ -68,7 +82,7 @@ export async function createParty(input: PartyInput) {
         province: input.province?.trim() || null,
         source: input.source?.trim() || null,
         createdById: actor.id,
-        roles: { create: [...new Set(input.roles)].map((roleType) => ({ roleType })) },
+        roles: { create: roleCodes.map((roleTypeCode) => ({ roleTypeCode })) },
         contacts: input.contactName?.trim() ? { create: [{
           fullName: input.contactName.trim(), position: input.contactPosition?.trim() || null,
           email: input.contactEmail?.trim() || null, phone: input.contactPhone?.trim() || null,
