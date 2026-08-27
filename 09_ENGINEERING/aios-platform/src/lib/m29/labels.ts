@@ -8,7 +8,7 @@ export const APPROVAL_STATUS_LABEL: Record<string, string> = {
   REJECTED: "Không phê duyệt",
   APPROVED: "Đã phê duyệt",
   ACTIVE: "Hiệu lực",
-  ARCHIVED: "Hết hiệu lực/Hủy",
+  ARCHIVED: "Hết hiệu lực",
   CANCELLED: "Hủy",
 };
 

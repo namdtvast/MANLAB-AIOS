@@ -14,7 +14,23 @@ bao giờ tự chuyển trạng thái phê duyệt**, người phê duyệt luô
 | 5 | Không phê duyệt | Bị trả lại | Người lập | Sửa → Chờ soát xét | **Có** |
 | 6 | Đã phê duyệt (APPROVED) | Có hiệu lực nội dung | — | Kích hoạt → Hiệu lực (ACTIVE) | — |
 | 7 | Hiệu lực (ACTIVE) | Đang được Agent/Tool Gateway sử dụng | AI_ADMIN | Có bản mới ACTIVE → Lưu trữ (ARCHIVED); Hết hiệu lực/Hủy | — |
-| 8 | Lưu trữ / Hết hiệu lực / Hủy (ARCHIVED) | Kết thúc vòng đời bản ghi | người có thẩm quyền | (kết thúc) | **Có** khi Hủy |
+| 8 | Hết hiệu lực (ARCHIVED) | Đã ngừng vận hành hoặc bị thay thế — chỉ mở từ Đã phê duyệt/Hiệu lực | người có thẩm quyền | (kết thúc) | **Có** |
+| 9 | Hủy (CANCELLED) | Bỏ bản ghi **trước khi phê duyệt** — chỉ mở từ trạng thái 1–5 | người có thẩm quyền | (kết thúc) | **Có** |
+
+### Hai nhánh kết thúc và chuyện không có nút "Xóa"
+
+Trạng thái 8 và 9 **không** phải hai tên gọi của một việc: `ARCHIVED` chỉ mở từ `APPROVED`/`ACTIVE`
+(đã vận hành rồi dừng, đi qua phiếu `ETV.P.F 35.04` theo ETV.P35 §6.5.2), `CANCELLED` chỉ mở từ 5
+bước chưa phê duyệt (ETV.P35 Phụ lục II.1 trạng thái 9). Gộp lại thì nhật ký mất phân biệt "chưa
+từng vận hành" với "đã vận hành rồi dừng".
+
+Bản ghi nền tảng **không có thao tác xóa**, kể cả bản ghi Nháp lập nhầm: ETV.P35 §6.1.8 cấm cấp lại
+mã nền tảng đã Hủy/Hết hiệu lực "nhằm giữ nguyên giá trị truy vết của nhật ký lịch sử" — xóa cứng
+làm mã trở lại tự do và cắt đứt vết kiểm toán. **Hủy** là nhánh nghiệp vụ thay cho xóa.
+
+**Chặn cứng khi kết thúc vòng đời** (ETV.P35 §6.5.3): cả hai nhánh bị từ chối (`DEPENDENTS_ACTIVE`)
+khi còn `AIAgent` hoặc `AITool` ở `status = ACTIVE` trỏ tới nền tảng; thông báo liệt kê mã từng đối
+tượng. Agent `SUSPENDED` không tính — đã bị Tool Gateway chặn (`AGENT_NOT_ACTIVE`).
 
 ## Ghi chú riêng theo entity
 

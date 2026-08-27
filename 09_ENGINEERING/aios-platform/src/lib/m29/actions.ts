@@ -34,6 +34,7 @@ import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
 import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
 import { ADAPTER_TYPES, getAdapter } from "./adapters";
+import { APPROVAL_STATUS_LABEL } from "./labels";
 
 function forbidden(): TxResult {
   return { ok: false, code: "FORBIDDEN", message: "Không đủ quyền truy cập tài nguyên này." };
@@ -202,6 +203,14 @@ export async function createTool(input: {
 }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
+  // ETV.P35 §6.7: đăng ký công cụ trỏ tới nền tảng chưa phê duyệt, đã Hết hiệu lực hoặc đã Hủy là
+  // lỗi ràng buộc — hệ thống từ chối. Không có chốt này thì ngay sau khi ngừng vận hành một nền
+  // tảng vẫn treo được công cụ mới lên nó, dựng lại đúng thứ vừa gỡ.
+  const platform = await prisma.aIPlatform.findUniqueOrThrow({ where: { id: input.platformId }, select: { code: true, approvalStatus: true } });
+  if (!(["APPROVED", "ACTIVE"] as AIApprovalStatus[]).includes(platform.approvalStatus))
+    throw new Error(
+      `Nền tảng ${platform.code} đang ở trạng thái ${APPROVAL_STATUS_LABEL[platform.approvalStatus]} — chỉ nền tảng Đã phê duyệt hoặc Hiệu lực mới nhận công cụ mới (ETV.P35 §6.7).`
+    );
   const check = validateTool({
     permissionLevel: input.permissionLevel,
     requireConfirmation: input.requireConfirmation ?? false,
@@ -315,10 +324,23 @@ async function updateApprovable(kind: ApprovalKind, id: string, data: { approval
   return prisma.aIPolicy.update({ where: { id }, data });
 }
 
+/**
+ * Tác tử/công cụ đang hoạt động trỏ tới một nền tảng — dữ liệu cho chặn cứng ETV.P35 §6.5.3.
+ * Agent `SUSPENDED` KHÔNG tính: agent đã bị khống chế thì Tool Gateway đã chặn mọi lời gọi
+ * (`AGENT_NOT_ACTIVE`), giữ nó trong danh sách chỉ làm LĐV không ngừng được nền tảng đã chết.
+ */
+async function activePlatformDependents(platformId: string): Promise<string[]> {
+  const [agents, tools] = await Promise.all([
+    prisma.aIAgent.findMany({ where: { platformId, status: "ACTIVE" }, select: { code: true } }),
+    prisma.aITool.findMany({ where: { platformId, status: "ACTIVE" }, select: { code: true } }),
+  ]);
+  return [...agents.map((a) => `tác tử ${a.code}`), ...tools.map((t) => `công cụ ${t.code}`)];
+}
+
 export async function approvalAction(
   kind: ApprovalKind,
   id: string,
-  action: "submit" | "review" | "approve" | "activate" | "archive",
+  action: "submit" | "review" | "approve" | "activate" | "archive" | "cancel",
   extra: { decision?: "return" | "approve" | "reject"; reason?: string } = {}
 ): Promise<TxResult> {
   const actor = await getActor();
@@ -326,6 +348,12 @@ export async function approvalAction(
   if (!can(actor.m29Role, category, "write")) return forbidden();
 
   const rec = await findApprovable(kind, id);
+  // Chỉ nạp danh sách phụ thuộc cho hai nhánh kết thúc vòng đời của nền tảng — guardrail/policy
+  // không có đối tượng nào trỏ tới qua khoá ngoại.
+  const endOfLifeExtra =
+    kind === "platform" && (action === "archive" || action === "cancel")
+      ? { reason: extra.reason, activeDependents: await activePlatformDependents(id) }
+      : extra;
   const result =
     action === "submit"
       ? approvalTransitions.submit(rec)
@@ -335,7 +363,9 @@ export async function approvalAction(
           ? approvalTransitions.approve(rec, actor, { decision: extra.decision === "reject" ? "reject" : "approve", reason: extra.reason })
           : action === "activate"
             ? approvalTransitions.activate(rec)
-            : approvalTransitions.archive(rec, extra);
+            : action === "cancel"
+              ? approvalTransitions.cancel(rec, endOfLifeExtra)
+              : approvalTransitions.archive(rec, endOfLifeExtra);
   if (!result.ok) return result;
 
   const before = rec.approvalStatus;

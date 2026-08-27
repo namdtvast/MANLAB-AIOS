@@ -235,6 +235,15 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   [`_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md`](_work/20260825-vong-doi-hieu-luc-nen-tang/verify.md).
   **Chưa kiểm được lượt bấm nút thật trên giao diện** — công cụ trình duyệt không kích hoạt được
   server action; logic đã phủ bằng test đơn vị. Trạng thái `CANCELLED` vẫn chưa có chuyển tiếp.
+- ✅ **Hủy và Hết hiệu lực bản ghi nền tảng** (2026-08-28): hiện thực nốt trạng thái `CANCELLED`
+  (ETV.P35 Phụ lục II.1 trạng thái 9 — "bỏ bản ghi trước khi phê duyệt") mà lượt trước ghi lại là
+  việc còn thiếu, và mở đường giao diện cho `archive()` vốn có luật từ lâu nhưng **không nút nào gọi
+  tới** — muốn ngừng vận hành một nền tảng phải sửa thẳng CSDL. Bổ sung: chặn cứng theo §6.5.3 (từ
+  chối kết thúc vòng đời khi còn tác tử/công cụ `ACTIVE` trỏ tới, thông báo liệt kê tên đối tượng);
+  nút Trả lại/Từ chối kèm ô nhập lý do; nút Gửi lại soát xét cho bản ghi bị trả lại; `createTool`
+  chặn nền tảng chưa phê duyệt/đã kết thúc theo §6.7. **Không làm nút Xóa** — §6.1.8 cấm cấp lại mã
+  nền tảng đã Hủy/Hết hiệu lực, xóa cứng cắt đứt vết kiểm toán; Hủy là nhánh thay thế. Xem
+  [`_work/20260828-huy-va-het-hieu-luc-nen-tang/verify.md`](_work/20260828-huy-va-het-hieu-luc-nen-tang/verify.md).
 - ✅ **Đăng ký nền tảng và công cụ trên giao diện** (2026-08-25): trang danh mục có form tạo mới cho
   `AIPlatform` và `AITool` — trước đó `createPlatform`/`createTool` đã có đủ kiểm quyền và ghi nhật ký
   kiểm toán nhưng **không thành phần giao diện nào gọi tới**, nên đăng ký một nền tảng phải sửa

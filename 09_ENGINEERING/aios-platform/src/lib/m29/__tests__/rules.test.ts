@@ -76,6 +76,36 @@ describe("approvalTransitions — vòng đời phê duyệt dùng chung (Platfor
       status: "ARCHIVED",
     });
   });
+
+  // ETV.P35 Phụ lục II.1 trạng thái 9. Hủy và Hết hiệu lực có tập trạng thái nguồn RỜI NHAU —
+  // đây là ranh giới dễ bị gộp lại nhất khi ai đó thấy hai nút "trông giống nhau".
+  it("hủy chỉ mở ở các bước chưa phê duyệt", () => {
+    for (const from of ["DRAFT", "PENDING_REVIEW", "RETURNED", "PENDING_APPROVAL", "REJECTED"] as const)
+      expect(approvalTransitions.cancel({ approvalStatus: from }, { reason: "đăng ký nhầm" })).toMatchObject({ ok: true, status: "CANCELLED" });
+    for (const from of ["APPROVED", "ACTIVE", "ARCHIVED", "CANCELLED"] as const)
+      expectErr(approvalTransitions.cancel({ approvalStatus: from }, { reason: "đăng ký nhầm" }), "BAD_STATE");
+  });
+
+  it("hủy bắt buộc lý do, lý do toàn khoảng trắng không tính", () => {
+    expectErr(approvalTransitions.cancel({ approvalStatus: "DRAFT" }), "REASON_REQUIRED");
+    expectErr(approvalTransitions.cancel({ approvalStatus: "DRAFT" }, { reason: "   " }), "REASON_REQUIRED");
+    expectErr(approvalTransitions.archive({ approvalStatus: "ACTIVE" }, { reason: "  " }), "REASON_REQUIRED");
+  });
+
+  // ETV.P35 §6.5.3: chặn cứng, và thủ tục đòi chỉ ra DANH SÁCH đối tượng còn phụ thuộc.
+  it("không kết thúc vòng đời khi còn tác tử/công cụ đang hoạt động trỏ tới", () => {
+    const dep = { reason: "hết hạn hợp đồng", activeDependents: ["Tác tử AGENT_TROLY_M29", "Công cụ TOOL_KPI"] };
+    const archived = approvalTransitions.archive({ approvalStatus: "ACTIVE" }, dep);
+    expectErr(archived, "DEPENDENTS_ACTIVE");
+    // §6.5.3 đòi hệ thống "chỉ ra danh sách đối tượng còn phụ thuộc" — thông báo phải nêu tên thật.
+    if (!archived.ok) {
+      expect(archived.message).toContain("AGENT_TROLY_M29");
+      expect(archived.message).toContain("TOOL_KPI");
+    }
+    expectErr(approvalTransitions.cancel({ approvalStatus: "DRAFT" }, dep), "DEPENDENTS_ACTIVE");
+    // Danh sách rỗng không phải là lý do chặn.
+    expect(approvalTransitions.archive({ approvalStatus: "ACTIVE" }, { reason: "hết hạn", activeDependents: [] }).ok).toBe(true);
+  });
 });
 
 describe("aiaTransitions — hồ sơ đánh giá tác động AI (ISO/IEC 42001, ETV.P29 mục 5.2)", () => {
