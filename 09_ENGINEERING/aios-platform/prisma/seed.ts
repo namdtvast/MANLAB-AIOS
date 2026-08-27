@@ -24,7 +24,8 @@ const prisma = new PrismaClient({ adapter });
 //   SEED_DEMO_PASSWORD có đặt → dùng đúng giá trị đó (đội dev thống nhất một mật khẩu).
 //   không đặt                 → sinh ngẫu nhiên và in ra một lần ở cuối lần chạy seed.
 //
-// Mọi upsert tài khoản trong file này đều dùng `update: {}`, nên chạy lại seed KHÔNG đổi
+// Nhánh `update` của mọi upsert tài khoản trong file này chỉ đặt `demoAccount: true` (đánh dấu
+// lại cho database đã có sẵn) và KHÔNG chạm tới passwordHash, nên chạy lại seed KHÔNG đổi
 // mật khẩu của tài khoản đã tồn tại — giá trị sinh ngẫu nhiên chỉ áp cho tài khoản mới tạo.
 // Đó cũng là lý do chạy seed lần hai không làm hỏng đăng nhập của môi trường đang chạy.
 const DEMO_PASSWORD_FROM_ENV = process.env.SEED_DEMO_PASSWORD;
@@ -306,8 +307,8 @@ async function main() {
   const adminPasswordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   await prisma.user.upsert({
     where: { email: adminEmail },
-    create: { email: adminEmail, name: "Quản trị viên (demo)", role: "ADMIN", passwordHash: adminPasswordHash },
-    update: {},
+    create: { email: adminEmail, name: "Quản trị viên (demo)", role: "ADMIN", passwordHash: adminPasswordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   console.log(`Tài khoản quản trị demo: ${adminEmail}`);
 
@@ -353,8 +354,8 @@ async function seedM10() {
   for (const u of M10_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({
@@ -584,8 +585,8 @@ async function seedM29() {
   for (const u of M29_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({
@@ -1343,8 +1344,8 @@ async function seedM03() {
 
   const vanPhong = await prisma.user.upsert({
     where: { email: "vanphong@manlab.vn" },
-    create: { email: "vanphong@manlab.vn", name: "Ngô Thị Văn Phòng", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "vanphong@manlab.vn", name: "Ngô Thị Văn Phòng", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   await prisma.moduleRoleAssignment.upsert({
     where: { userId_moduleCode_role: { userId: vanPhong.id, moduleCode: "M03", role: "VANPHONG" } },
@@ -1796,8 +1797,8 @@ async function seedM16() {
 
   const truongDoan = await prisma.user.upsert({
     where: { email: "truongdoan@manlab.vn" },
-    create: { email: "truongdoan@manlab.vn", name: "Đỗ Văn Trưởng Đoàn", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "truongdoan@manlab.vn", name: "Đỗ Văn Trưởng Đoàn", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   await prisma.moduleRoleAssignment.upsert({
     where: { userId_moduleCode_role: { userId: truongDoan.id, moduleCode: "M16", role: "TRUONGDOAN" } },
@@ -1814,8 +1815,8 @@ async function seedM16() {
   ] as const) {
     const u = await prisma.user.upsert({
       where: { email },
-      create: { email, name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email, name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     await prisma.moduleRoleAssignment.upsert({
       where: { userId_moduleCode_role: { userId: u.id, moduleCode: "M16", role } },
@@ -2236,8 +2237,8 @@ async function seedM13() {
 
   const qlkt = await prisma.user.upsert({
     where: { email: "qlkt@manlab.vn" },
-    create: { email: "qlkt@manlab.vn", name: "Hoàng T. (QLKT)", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "qlkt@manlab.vn", name: "Hoàng T. (QLKT)", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   await prisma.moduleRoleAssignment.upsert({
     where: { userId_moduleCode_role: { userId: qlkt.id, moduleCode: "M13", role: "QLKT" } },
@@ -2374,8 +2375,8 @@ async function seedM14() {
 
   const pvt = await prisma.user.upsert({
     where: { email: "pvt@manlab.vn" },
-    create: { email: "pvt@manlab.vn", name: "Vũ M. (Phó Viện trưởng — được ủy quyền)", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "pvt@manlab.vn", name: "Vũ M. (Phó Viện trưởng — được ủy quyền)", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   await prisma.moduleRoleAssignment.upsert({
     where: { userId_moduleCode_role: { userId: pvt.id, moduleCode: "M14", role: "LDV_UYQUYEN" } },
@@ -2583,8 +2584,8 @@ async function seedM26() {
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   await prisma.user.upsert({
     where: { email: "ktv@manlab.vn" },
-    create: { email: "ktv@manlab.vn", name: "Trần V. K. (Kiểm nghiệm viên)", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "ktv@manlab.vn", name: "Trần V. K. (Kiểm nghiệm viên)", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
 
   const userByRole: Record<string, { id: string }> = {};
@@ -3172,8 +3173,8 @@ async function seedM34() {
   for (const u of M34_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({
@@ -3186,13 +3187,13 @@ async function seedM34() {
   // CSHDL demo: Trưởng phòng (ldp@) sở hữu tập; NTH là người nhập liệu chính (gate R16).
   const ldp = await prisma.user.upsert({
     where: { email: "ldp@manlab.vn" },
-    create: { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "ldp@manlab.vn", name: "Trần Thị Hoa (LĐP)", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
   const nth = await prisma.user.upsert({
     where: { email: "nth@manlab.vn" },
-    create: { email: "nth@manlab.vn", name: "Nguyễn Thị H. (NTH)", role: "MEMBER", passwordHash },
-    update: {},
+    create: { email: "nth@manlab.vn", name: "Nguyễn Thị H. (NTH)", role: "MEMBER", passwordHash, demoAccount: true },
+    update: { demoAccount: true },
   });
 
   const existing = await prisma.m34DataSet.count();
@@ -3446,8 +3447,8 @@ async function seedM33() {
   for (const u of M33_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({
@@ -3840,8 +3841,8 @@ async function seedM27() {
   for (const u of M27_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({
@@ -4017,8 +4018,8 @@ async function seedM28() {
   for (const u of M28_DEMO_USERS) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
-      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash },
-      update: {},
+      create: { email: u.email, name: u.name, role: "MEMBER", passwordHash, demoAccount: true },
+      update: { demoAccount: true },
     });
     userByRole[u.role] = user;
     await prisma.moduleRoleAssignment.upsert({

@@ -5,7 +5,9 @@ import { SidebarToggle } from "@/components/SidebarToggle";
 import { HomeButton } from "@/components/HomeButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { CopilotDrawer } from "@/components/CopilotDrawer";
+import { AccountSwitcher } from "@/components/AccountSwitcher";
 import { copilotAvailable } from "@/lib/m29/copilot/availability";
+import { danhSachTaiKhoanDemo, duocDoiTaiKhoan } from "@/lib/doi-tai-khoan";
 
 function initials(label: string) {
   return label
@@ -23,10 +25,15 @@ export default async function PlatformLayout({
 }) {
   const session = await auth();
   const isAdmin = session?.user?.role === "ADMIN";
-  const [modules, pendingAccessRequests, showCopilot] = await Promise.all([
+  // Bộ chuyển tài khoản chỉ dựng khi phiên hiện tại thật sự được phép đổi (cần gạt
+  // DEMO_ACCOUNT_SWITCH + cờ demoAccount) — xem src/lib/doi-tai-khoan.ts. Môi trường thật
+  // không đặt cần gạt thì danh sách rỗng và header giữ nguyên khối danh tính tĩnh như cũ.
+  const [modules, pendingAccessRequests, showCopilot, doiDuoc, taiKhoanDemo] = await Promise.all([
     prisma.platformModule.findMany({ orderBy: { order: "asc" } }),
     isAdmin ? prisma.accessRequest.count({ where: { status: "PENDING" } }) : Promise.resolve(0),
     copilotAvailable(),
+    duocDoiTaiKhoan(session?.user?.id),
+    danhSachTaiKhoanDemo(),
   ]);
   const displayName = session?.user?.name ?? session?.user?.email ?? "";
 
@@ -39,15 +46,26 @@ export default async function PlatformLayout({
           <HomeButton />
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
-                {initials(displayName) || "?"}
-              </span>
-              <span className="hidden text-sm leading-tight sm:block">
-                <span className="block font-medium text-ink">{displayName}</span>
-                <span className="block text-xs text-ink-3">{session?.user?.role}</span>
-              </span>
-            </div>
+            {doiDuoc && taiKhoanDemo.length > 1 ? (
+              <AccountSwitcher
+                taiKhoanHienTai={{
+                  email: session?.user?.email ?? "",
+                  name: session?.user?.name ?? null,
+                  role: session?.user?.role ?? "",
+                }}
+                danhSach={taiKhoanDemo}
+              />
+            ) : (
+              <div className="flex items-center gap-2.5">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
+                  {initials(displayName) || "?"}
+                </span>
+                <span className="hidden text-sm leading-tight sm:block">
+                  <span className="block font-medium text-ink">{displayName}</span>
+                  <span className="block text-xs text-ink-3">{session?.user?.role}</span>
+                </span>
+              </div>
+            )}
             <form
               action={async () => {
                 "use server";
