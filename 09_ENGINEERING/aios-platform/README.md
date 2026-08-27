@@ -528,6 +528,21 @@ CSP đầy đủ (`script-src`/`style-src`) **chưa làm** — cần phát nonce
 nội tuyến ở `src/app/layout.tsx` và style nội tuyến ở `M26/print/PrintFrame.tsx`; lý do và các bước
 ghi ở cuối `next.config.ts`.
 
+### Lịch quét AIA quá hạn (M29)
+
+Đặt `M29_SWEEP_TOKEN` trong `.env` của máy chủ rồi cho cron gọi `POST /api/m29/sweep` — mẫu crontab
+nằm ngay cạnh biến đó trong [`.env.example`](.env.example). **Bỏ qua bước này thì vòng quét im lặng
+không chạy**: route trả 503 và hồ sơ AIA quá hạn rà soát không bao giờ tự chuyển sang *Cần rà soát
+lại*, trái với yêu cầu "phát hiện theo lịch, chủ thể là hệ thống" của ETV.P29 mục 5.2.3. Không có
+cảnh báo nào cho tình trạng này — phải tự kiểm:
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" -X POST https://aios.manlab.vn/api/m29/sweep
+```
+
+`503` = chưa cấu hình token, vòng quét đang tắt. `401` = đã cấu hình (token trong lệnh trên sai,
+đúng như mong đợi vì lệnh không gửi token).
+
 ## Chạy test
 
 ```bash
