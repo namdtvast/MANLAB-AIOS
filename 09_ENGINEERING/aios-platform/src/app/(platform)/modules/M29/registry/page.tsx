@@ -76,7 +76,9 @@ export default async function M29RegistryPage() {
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
         {canWriteRegistry && (
           <NewToolForm
-            platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            /* ETV.P35 §6.7: công cụ chỉ được trỏ tới nền tảng Đã phê duyệt/Hiệu lực. Lọc ở đây
+               cho khỏi mời gọi thao tác sai; createTool vẫn kiểm lại phía máy chủ. */
+            platforms={platforms.filter((p) => p.approvalStatus === "APPROVED" || p.approvalStatus === "ACTIVE").map((p) => ({ id: p.id, code: p.code, name: p.name }))}
             existingCodes={tools.map((t) => t.code)}
           />
         )}

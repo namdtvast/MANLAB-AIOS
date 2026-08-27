@@ -25,6 +25,28 @@ const ok = (status: string, action: string, reason: string | null = null, patch:
 });
 const err = (code: string, message: string): TxResult => ({ ok: false, code, message });
 
+// Các bước "chưa phê duyệt" của ETV.P35 Phụ lục II.1 (trạng thái 1–5) — tập trạng thái duy nhất
+// mà nhánh Hủy mở ra.
+const PRE_APPROVAL_STATUSES: AIApprovalStatus[] = ["DRAFT", "PENDING_REVIEW", "RETURNED", "PENDING_APPROVAL", "REJECTED"];
+
+/** Lý do + danh sách đối tượng còn phụ thuộc, dùng chung cho hai nhánh kết thúc vòng đời. */
+export interface EndOfLifeExtra {
+  reason?: string;
+  /** Mô tả từng tác tử/công cụ đang hoạt động trỏ tới bản ghi, do tầng hành động nạp từ CSDL. */
+  activeDependents?: string[];
+}
+
+// ETV.P35 §6.5.3: không kết thúc vòng đời bản ghi khi còn tác tử/công cụ đang hoạt động trỏ tới —
+// và thủ tục đòi hệ thống "chỉ ra danh sách đối tượng còn phụ thuộc", nên thông báo liệt kê tên
+// thật chứ không chỉ đếm. Áp cho cả nhánh Hủy vì §6.7 cấm tác tử/công cụ trỏ tới nền tảng đã Hủy.
+function dependentsBlock(activeDependents: string[] | undefined, action: string): TxResult | null {
+  if (!activeDependents?.length) return null;
+  return err(
+    "DEPENDENTS_ACTIVE",
+    `Không ${action} được khi còn ${activeDependents.length} đối tượng đang hoạt động trỏ tới nền tảng này (ETV.P35 §6.5.3): ${activeDependents.join(", ")}. Hãy chuyển hướng hoặc dừng các đối tượng đó trước.`
+  );
+}
+
 // Vòng đời chuẩn (Nháp→Chờ soát xét→Chờ phê duyệt→Đã phê duyệt→Hết hiệu lực/Hủy) — dùng chung
 // cho Platform/Guardrail/Policy.
 export const approvalTransitions = {
@@ -65,13 +87,30 @@ export const approvalTransitions = {
     return ok("ACTIVE", "Đưa vào vận hành");
   },
 
-  archive(entity: { approvalStatus: AIApprovalStatus }, extra: { reason?: string } = {}): TxResult {
+  archive(entity: { approvalStatus: AIApprovalStatus }, extra: EndOfLifeExtra = {}): TxResult {
     // Nhận cả ACTIVE: nền tảng đang vận hành vẫn phải ngừng vận hành được (ETV.P35 §6.5). Giữ cả
     // APPROVED vì bản ghi đã duyệt nhưng chưa từng đưa vào vận hành cũng có thể bị bỏ.
     if (!(["APPROVED", "ACTIVE"] as AIApprovalStatus[]).includes(entity.approvalStatus))
-      return err("BAD_STATE", "Chỉ bản ghi Đã phê duyệt hoặc Hiệu lực mới Hết hiệu lực/Hủy được.");
-    if (!extra.reason) return err("REASON_REQUIRED", "Hết hiệu lực/Hủy bắt buộc nhập lý do.");
-    return ok("ARCHIVED", "Hết hiệu lực/Hủy", extra.reason);
+      return err("BAD_STATE", "Chỉ bản ghi Đã phê duyệt hoặc Hiệu lực mới chuyển Hết hiệu lực được — bản ghi chưa phê duyệt đi nhánh Hủy.");
+    if (!extra.reason?.trim()) return err("REASON_REQUIRED", "Hết hiệu lực bắt buộc nhập lý do.");
+    const blocked = dependentsBlock(extra.activeDependents, "chuyển sang Hết hiệu lực");
+    if (blocked) return blocked;
+    return ok("ARCHIVED", "Hết hiệu lực", extra.reason);
+  },
+
+  // ETV.P35 Phụ lục II.1 trạng thái 9: "Hủy — bỏ bản ghi TRƯỚC KHI phê duyệt", thẩm quyền LĐV,
+  // bắt buộc lý do. Tách hẳn khỏi archive() vì hai nhánh khác nhau ở tập trạng thái nguồn chứ
+  // không phải hai tên gọi của một việc: gộp lại thì nhật ký mất phân biệt "chưa từng vận hành"
+  // với "đã vận hành rồi dừng" — đúng chỗ đoàn đánh giá đọc. Đây cũng là nhánh nghiệp vụ THAY CHO
+  // xóa bản ghi: §6.1.8 cấm cấp lại mã nền tảng đã Hủy/Hết hiệu lực để giữ giá trị truy vết, nên
+  // bản ghi không bao giờ được xóa cứng.
+  cancel(entity: { approvalStatus: AIApprovalStatus }, extra: EndOfLifeExtra = {}): TxResult {
+    if (!PRE_APPROVAL_STATUSES.includes(entity.approvalStatus))
+      return err("BAD_STATE", "Chỉ bản ghi chưa phê duyệt mới Hủy được — bản ghi Đã phê duyệt/Hiệu lực phải đi nhánh Hết hiệu lực (ETV.P35 §6.5).");
+    if (!extra.reason?.trim()) return err("REASON_REQUIRED", "Hủy bản ghi bắt buộc nhập lý do.");
+    const blocked = dependentsBlock(extra.activeDependents, "hủy bản ghi");
+    if (blocked) return blocked;
+    return ok("CANCELLED", "Hủy bản ghi", extra.reason);
   },
 };
 
