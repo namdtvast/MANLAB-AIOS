@@ -1,8 +1,13 @@
 "use client";
 
-import { useActionState, useId } from "react";
+import { useActionState, useId, useState } from "react";
 import { submitAccessRequest, type SubmitState } from "@/lib/access-request/actions";
-import { FIELD_LIMITS, type AccessRequestField } from "@/lib/access-request/rules";
+import {
+  FIELD_LIMITS,
+  PASSWORD_MAX,
+  PASSWORD_MIN,
+  type AccessRequestField,
+} from "@/lib/access-request/rules";
 
 const inputClass =
   "w-full rounded-lg border border-border bg-bg px-3 py-2.5 text-[15px] text-ink outline-none transition-colors focus:border-accent-line";
@@ -45,6 +50,123 @@ function Field({
           {errors[name]}
         </p>
       )}
+    </div>
+  );
+}
+
+// Hai ô mật khẩu tách riêng khỏi <Field> vì có nút hiện/ẩn và không bao giờ có defaultValue:
+// server không trả mật khẩu ngược về, form lỗi thì gõ lại (xem keepForRetry trong actions.ts).
+function PasswordFields({
+  errors,
+}: {
+  errors: Partial<Record<AccessRequestField, string>> | undefined;
+}) {
+  const base = useId();
+  const [show, setShow] = useState(false);
+  const pwId = `${base}-password`;
+  const confirmId = `${base}-passwordConfirm`;
+
+  return (
+    <div className="flex flex-col gap-5 rounded-xl border border-border bg-sunk p-4">
+      <p className="text-sm leading-relaxed text-ink-2">
+        <strong className="text-ink">Mật khẩu đăng nhập.</strong> Bạn tự đặt và{" "}
+        <strong className="text-ink">phải tự nhớ</strong> — nếu được cấp tài khoản thì đăng nhập
+        bằng chính email và mật khẩu này. Hệ thống không gửi lại mật khẩu cho bạn.
+      </p>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor={pwId} className="text-sm font-medium text-ink">
+          Mật khẩu <span className="font-normal text-ink-3">(bắt buộc)</span>
+        </label>
+        <p id={`${pwId}-hint`} className="text-xs text-ink-3">
+          Tối thiểu {PASSWORD_MIN} ký tự, tối đa {PASSWORD_MAX}, có cả chữ và số. Không dùng lại
+          mật khẩu của email hay hệ thống khác.
+        </p>
+        <div className="relative">
+          <input
+            id={pwId}
+            name="password"
+            type={show ? "text" : "password"}
+            autoComplete="new-password"
+            maxLength={PASSWORD_MAX}
+            aria-invalid={Boolean(errors?.password) || undefined}
+            aria-describedby={
+              [`${pwId}-hint`, errors?.password ? `${pwId}-error` : undefined]
+                .filter(Boolean)
+                .join(" ") || undefined
+            }
+            className={`${inputClass} pr-11`}
+          />
+          <button
+            type="button"
+            onClick={() => setShow((v) => !v)}
+            aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+            aria-pressed={show}
+            title={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+            className="absolute inset-y-0 right-0 flex w-11 cursor-pointer items-center justify-center rounded-r-lg text-ink-3 outline-none transition-colors hover:text-ink focus-visible:text-ink"
+          >
+            {show ? (
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M10.6 5.1A10.9 10.9 0 0 1 12 5c7 0 10 7 10 7a18.4 18.4 0 0 1-2.6 3.7" />
+                <path d="M6.6 6.6A18.4 18.4 0 0 0 2 12s3 7 10 7a10.7 10.7 0 0 0 5.4-1.4" />
+                <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                <path d="M3 3l18 18" />
+              </svg>
+            ) : (
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            )}
+          </button>
+        </div>
+        {errors?.password && (
+          <p id={`${pwId}-error`} className="text-sm text-crit">
+            {errors.password}
+          </p>
+        )}
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor={confirmId} className="text-sm font-medium text-ink">
+          Nhập lại mật khẩu <span className="font-normal text-ink-3">(bắt buộc)</span>
+        </label>
+        <input
+          id={confirmId}
+          name="passwordConfirm"
+          type={show ? "text" : "password"}
+          autoComplete="new-password"
+          maxLength={PASSWORD_MAX}
+          aria-invalid={Boolean(errors?.passwordConfirm) || undefined}
+          aria-describedby={errors?.passwordConfirm ? `${confirmId}-error` : undefined}
+          className={inputClass}
+        />
+        {errors?.passwordConfirm && (
+          <p id={`${confirmId}-error`} className="text-sm text-crit">
+            {errors.passwordConfirm}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -150,6 +272,8 @@ export function AccessRequestForm() {
           />
         )}
       </Field>
+
+      <PasswordFields errors={state?.errors} />
 
       <Field
         name="purpose"

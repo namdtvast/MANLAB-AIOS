@@ -29,6 +29,11 @@ export default function AccessRequestPage() {
             thay vì gửi lại yêu cầu.
           </li>
           <li>Form này chỉ ghi nhận đề nghị — gửi xong chưa có tài khoản để đăng nhập ngay.</li>
+          <li>
+            Mật khẩu bạn đặt ở đây là mật khẩu đăng nhập nếu được cấp tài khoản —{" "}
+            <strong className="text-ink">tự nhớ lấy</strong>, hệ thống không gửi lại và không ai
+            xem lại được.
+          </li>
           <li>Thông tin gửi lên được dùng để xét cấp quyền, không dùng cho mục đích khác.</li>
         </ul>
       </div>

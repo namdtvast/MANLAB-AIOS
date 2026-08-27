@@ -1,6 +1,6 @@
 # VERIFY — Trang chủ công khai + yêu cầu cấp tài khoản
 
-Work-id: `20260824-trang-chu-cong-khai` · verify ngày 24/08/2026
+Work-id: `20260824-trang-chu-cong-khai` · verify ngày 24/08/2026, bổ sung R7 ngày 27/08/2026
 
 Trạng thái dùng đúng 5 giá trị: PASS / FAIL / NOT RUN / NOT APPLICABLE / BLOCKED.
 
@@ -79,6 +79,30 @@ Còn lại **chưa** kiểm chứng: thao tác bấm nút thật trên trình du
 lại hẹp — chỉ nằm ở tầng gắn sự kiện của `ReviewPanel`, vì cả hàm xử lý phía server lẫn HTML
 sinh ra của trang đều đã kiểm chứng ở trên.
 
+## 3ter. R7 — mật khẩu do người đề nghị tự đặt (bổ sung ngày 27/08/2026)
+
+Chạy trên Postgres cục bộ (`aios_platform_dev`) sau khi áp `20260827090000_access_request_mat_khau`.
+
+| Kịch bản | Kết quả quan sát | Trạng thái |
+|---|---|---|
+| Trang `/dang-ky` hiện khối mật khẩu | Có ô *Mật khẩu* (kèm nút hiện/ẩn) và *Nhập lại mật khẩu*, cùng câu "Bạn tự đặt và **phải tự nhớ**" | PASS |
+| Mật khẩu quá ngắn (AC7) | Chặn, báo "Mật khẩu tối thiểu 12 ký tự."; họ tên/email/đơn vị/lý do giữ nguyên; **hai ô mật khẩu trống lại** | PASS |
+| Nhập lại không khớp (AC7) | Chặn, lỗi nằm đúng ở ô *Nhập lại mật khẩu* ("Nhập lại mật khẩu chưa khớp.") | PASS |
+| Gửi hợp lệ → lưu gì trong DB (AC8) | `passwordHash` là bcrypt (`$2b$10$…`, 60 ký tự), `bcrypt.compare` khớp mật khẩu đã gõ; quét toàn bộ cột của bản ghi: **không cột nào chứa bản rõ** | PASS |
+| `scripts/cap-tai-khoan.ts` xem trước | In "mật khẩu — theo mật khẩu người đề nghị đã tự đặt trên form"; không ghi gì vào DB | PASS |
+| Cấp tài khoản thật (AC8) | Tạo `User` dùng lại đúng hash; `AccessRequest.passwordHash` trở về `null` ngay sau đó | PASS |
+| Đăng nhập bằng mật khẩu người dùng tự đặt (AC8) | `/login` → vào `/dashboard`, chào đúng tên tài khoản vừa cấp | PASS |
+| Dọn dữ liệu kiểm thử | Đã xoá `User` và `AccessRequest` của email kiểm thử | PASS |
+
+`npx vitest run` sau thay đổi: **22 file · 439 test PASS** (trong đó 8 test mới cho R7, gồm cả
+ca 30 ký tự tiếng Việt có dấu = 90 byte — dưới trần 64 ký tự nhưng vượt giới hạn 72 byte của
+bcrypt, phải bị chặn thay vì để bcrypt cắt âm thầm). `npx eslint src scripts` sạch;
+`npx next build` mã thoát 0.
+
+**Chưa kiểm chứng:** giao diện `/admin/access-requests` với phiên ADMIN thật (đoạn văn hướng dẫn
+mới cho QTHT) — trang chỉ build-pass và render đúng ở các đợt verify trước; phiên này không có
+mật khẩu tài khoản quản trị nên không đăng nhập vai đó.
+
 ## 4. Toàn vẹn repo
 
 `python3 _meta/validate_links.py` → PASS (xem log ở PR). Thay đổi không đụng thư mục Hub
@@ -93,6 +117,15 @@ sinh ra của trang đều đã kiểm chứng ở trên.
 
 ## 6. Giới hạn còn lại của thiết kế
 
-Duyệt **không** tạo tài khoản đăng nhập — chỉ ghi nhận "đồng ý cấp". Việc tạo `User`, cấp mật
-khẩu và gán vai trò vẫn theo quy trình cấp phát hiện hành của Quản trị hệ thống. Tự động hóa
-bước đó là thay đổi biên xác thực, cần quyết định riêng (mật khẩu tạm, ép đổi lần đầu, thu hồi).
+Duyệt **không** tạo tài khoản đăng nhập — chỉ ghi nhận "đồng ý cấp". Việc tạo `User` và gán vai
+trò vẫn theo quy trình cấp phát hiện hành của Quản trị hệ thống. Tự động hóa bước đó là thay đổi
+biên xác thực, cần quyết định riêng (ép đổi lần đầu, thu hồi).
+
+Từ 27/08/2026 (R7), riêng **mật khẩu** không còn do QTHT đặt hộ: người đề nghị tự đặt trên form
+và `scripts/cap-tai-khoan.ts` dùng lại hash đó, nên mật khẩu không phải đi qua email hay tin nhắn
+để bàn giao. Hai điểm còn hở:
+
+- **Quên mật khẩu trước khi được cấp** — chưa có luồng đặt lại tự phục vụ (cần hạ tầng gửi thư).
+  Hiện phải cấp tài khoản rồi QTHT đổi bằng `scripts/doi-mat-khau-demo.ts`.
+- **Đề nghị nằm chờ lâu** — hash tồn tại trong `AccessRequest` suốt thời gian chờ duyệt. Ngắn
+  hay dài là do tốc độ xử lý hàng chờ, chưa có cơ chế tự hết hạn đề nghị quá cũ.

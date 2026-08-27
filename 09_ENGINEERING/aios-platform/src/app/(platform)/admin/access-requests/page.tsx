@@ -35,9 +35,23 @@ export default async function AccessRequestsPage() {
     );
   }
 
+  // Chọn trường tường minh: KHÔNG lấy passwordHash ra khỏi database. Trang này không cần
+  // tới nó, và hash không có việc gì phải đi qua tầng render (R7).
   const requests = await prisma.accessRequest.findMany({
     orderBy: [{ status: "asc" }, { createdAt: "desc" }],
-    include: { reviewedBy: { select: { name: true, email: true } } },
+    select: {
+      id: true,
+      fullName: true,
+      email: true,
+      organization: true,
+      phone: true,
+      purpose: true,
+      status: true,
+      reviewNote: true,
+      reviewedAt: true,
+      createdAt: true,
+      reviewedBy: { select: { name: true, email: true } },
+    },
   });
   const pending = requests.filter((r) => r.status === "PENDING");
 
@@ -52,6 +66,14 @@ export default async function AccessRequestsPage() {
           Đề nghị gửi từ form công khai. <strong className="text-ink">Đồng ý cấp</strong> chỉ ghi
           nhận quyết định — tài khoản và vai trò vẫn tạo theo quy trình cấp phát hiện hành, không
           sinh tự động từ trang này.
+        </p>
+        <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">
+          Người đề nghị đã tự đặt mật khẩu khi gửi form. Chạy{" "}
+          <code className="rounded bg-surface px-1 py-0.5 text-xs">
+            npx tsx scripts/cap-tai-khoan.ts --email=… --role=… --yes
+          </code>{" "}
+          để cấp tài khoản: script dùng lại đúng mật khẩu đó, nên không phải đặt hộ và không phải
+          báo mật khẩu cho ai. Từ chối một đề nghị sẽ xóa luôn mật khẩu đã đặt.
         </p>
       </div>
 
