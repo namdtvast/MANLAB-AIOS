@@ -27,6 +27,10 @@ model User {
   image         String?
   passwordHash  String?
   role          PlatformRole @default(VIEWER)
+  // Tài khoản dựng sẵn cho dev/demo (do prisma/seed.ts tạo). CHỈ tài khoản có cờ này mới
+  // xuất hiện trong bộ chuyển tài khoản ở header — xem src/lib/doi-tai-khoan.ts. Mặc định
+  // false nên tài khoản người thật không bao giờ chuyển được sang, kể cả khi cần gạt bật nhầm.
+  demoAccount   Boolean      @default(false)
   createdAt     DateTime     @default(now())
 
   accounts    Account[]
