@@ -513,6 +513,21 @@ npm run build
 npm run start
 ```
 
+### Header bảo mật
+
+`next.config.ts` phát 6 header trên mọi response: `Strict-Transport-Security`, `X-Frame-Options`,
+`Content-Security-Policy` (mới chỉ `frame-ancestors`), `X-Content-Type-Options`, `Referrer-Policy`,
+`Permissions-Policy`. Đặt ở tầng ứng dụng chứ không ở nginx/Cloudflare để bản dev, bản build cục bộ
+và bản trên VPS cư xử giống nhau. Kiểm sau khi deploy:
+
+```bash
+curl -sSI https://aios.manlab.vn/login | grep -iE "strict-transport|content-security|x-frame|x-content-type|referrer-policy|permissions-policy"
+```
+
+CSP đầy đủ (`script-src`/`style-src`) **chưa làm** — cần phát nonce trong `src/proxy.ts` cho script
+nội tuyến ở `src/app/layout.tsx` và style nội tuyến ở `M26/print/PrintFrame.tsx`; lý do và các bước
+ghi ở cuối `next.config.ts`.
+
 ## Chạy test
 
 ```bash
