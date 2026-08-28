@@ -5,6 +5,7 @@ import type {
   AIApprovalStatus,
   AIAStatus,
   AIIncidentSeverity,
+  AIOpStatus,
   AIIncidentStatus,
   AIPermissionLevel,
   AIPromptStatus,
@@ -264,3 +265,47 @@ export const unregisteredTransitions = {
     return ok("DISCONTINUED", "Chấm dứt sử dụng", extra.reason, { closeReason: extra.reason });
   },
 };
+
+// ---------- Đổi mô hình của tác tử (ETV.P29 §5.8 — thay đổi lớn) ----------
+
+export interface DoiMoHinhInput {
+  /** Lý do đổi — bắt buộc, vì đây là thay đổi phải truy được về sau. */
+  lyDo: string;
+  agent: { platformId: string; modelId: string | null };
+  platform: { id: string; code: string; approvalStatus: AIApprovalStatus };
+  model: { id: string; modelId: string; status: AIOpStatus; providerCode: string; providerPlatformId: string | null };
+}
+
+/**
+ * Điều kiện được đổi mô hình. Tách khỏi actions.ts để kiểm được bằng test thuần, không cần DB —
+ * đúng ranh giới "rules quyết định, actions ghi DB" của module này.
+ *
+ * KHÔNG quyết định hệ quả (tạm dừng tác tử, đưa AIA về Cần rà soát lại) — đó là việc ghi dữ liệu,
+ * nằm ở actions.ts; ở đây chỉ trả lời được phép đổi hay không.
+ */
+export function kiemTraDoiMoHinh(input: DoiMoHinhInput): TxResult {
+  const { lyDo, agent, platform, model } = input;
+
+  if (lyDo.trim().length < 10)
+    return err("REASON_REQUIRED", "Ghi lý do đổi mô hình (tối thiểu 10 ký tự) — đây là thay đổi lớn theo ETV.P29 §5.8, phải truy được về sau.");
+
+  // Cùng điều kiện như khi đăng ký công cụ (ETV.P35 §6.7): chỉ nền tảng đã phê duyệt hoặc đang
+  // vận hành mới được nhận lưu lượng thật.
+  if (platform.approvalStatus !== "APPROVED" && platform.approvalStatus !== "ACTIVE")
+    return err("PLATFORM_NOT_APPROVED", `Nền tảng "${platform.code}" chưa được phê duyệt hoặc đã dừng — chỉ nền tảng Đã phê duyệt hoặc Hiệu lực mới nhận được lưu lượng.`);
+
+  if (model.status !== "ACTIVE") return err("MODEL_DISABLED", `Model "${model.modelId}" không ở trạng thái Hoạt động — không dùng cho vận hành được.`);
+
+  // Model phải thuộc nhà cung cấp gắn ĐÚNG nền tảng đang chọn. Không kiểm thì tạo được cặp "gọi
+  // máy chủ A bằng tên model của máy chủ B" — lỗi đó chỉ lộ ra ở lượt gọi thật.
+  if (!model.providerPlatformId)
+    return err("PROVIDER_NO_PLATFORM", `Nhà cung cấp "${model.providerCode}" chưa gắn nền tảng nào — gắn ở trang Danh mục trước.`);
+  if (model.providerPlatformId !== platform.id)
+    return err("MODEL_PLATFORM_MISMATCH", `Model "${model.modelId}" thuộc nhà cung cấp "${model.providerCode}", nhà cung cấp đó gắn với nền tảng khác — chọn model của đúng nền tảng "${platform.code}".`);
+
+  if (agent.platformId === platform.id && agent.modelId === model.id) return err("NO_CHANGE", "Tác tử đang chạy đúng nền tảng và model này rồi.");
+
+  // Tạm dừng ngay là một phần của quy tắc, không phải tùy chọn của người bấm: AIA hiện có mô tả
+  // hệ thống AI cũ, nên từ giây phút đổi mô hình nó không còn chống lưng cho tác tử nữa.
+  return ok("SUSPENDED", "Đổi mô hình", lyDo.trim(), { platformId: platform.id, modelId: model.id });
+}

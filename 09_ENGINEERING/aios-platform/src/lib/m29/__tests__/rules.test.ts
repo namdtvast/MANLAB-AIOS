@@ -9,6 +9,7 @@ import {
   approvalTransitions,
   hasToolPermission,
   incidentTransitions,
+  kiemTraDoiMoHinh,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -309,5 +310,54 @@ describe("unregisteredTransitions — hệ thống AI chưa đăng ký (ETV.P29 
   it("chỉ bắt đầu hoàn thiện đăng ký từ trạng thái Mới phát hiện", () => {
     expect(unregisteredTransitions.startRegistering({ ...sightingBase, status: "OPEN" })).toMatchObject({ ok: true, status: "REGISTERING" });
     expectErr(unregisteredTransitions.startRegistering(sightingBase), "BAD_STATE");
+  });
+});
+
+// ---------- Đổi mô hình của tác tử (ETV.P29 §5.8) ----------
+describe("kiemTraDoiMoHinh", () => {
+  const AGENT = { platformId: "pf-cu", modelId: "md-cu" };
+  const PF = { id: "pf-moi", code: "MANLAB_AI_Q3", approvalStatus: "ACTIVE" as const };
+  const MD = { id: "md-moi", modelId: "manlab-ai", status: "ACTIVE" as const, providerCode: "MANLAB_AI", providerPlatformId: "pf-moi" };
+  const LY_DO = "Chuyển sang máy chủ nội bộ để dữ liệu không rời hạ tầng của Viện";
+
+  it("đủ điều kiện thì cho đổi VÀ tác tử về trạng thái tạm dừng", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: AGENT, platform: PF, model: MD });
+    expect(r.ok).toBe(true);
+    // Tạm dừng là một phần của quy tắc, không phải tùy chọn: AIA hiện có mô tả hệ thống AI cũ.
+    if (r.ok) expect(r.status).toBe("SUSPENDED");
+  });
+
+  it("bắt buộc ghi lý do — đây là thay đổi lớn phải truy được", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: "  ", agent: AGENT, platform: PF, model: MD });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("REASON_REQUIRED");
+  });
+
+  it("nền tảng chưa phê duyệt thì không nhận được lưu lượng", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: AGENT, platform: { ...PF, approvalStatus: "DRAFT" }, model: MD });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("PLATFORM_NOT_APPROVED");
+  });
+
+  it("model đang vô hiệu hóa thì không dùng cho vận hành", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: AGENT, platform: PF, model: { ...MD, status: "DISABLED" } });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("MODEL_DISABLED");
+  });
+
+  it("chặn ghép model của nhà cung cấp này với nền tảng khác", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: AGENT, platform: PF, model: { ...MD, providerPlatformId: "pf-khac" } });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("MODEL_PLATFORM_MISMATCH");
+
+    const r2 = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: AGENT, platform: PF, model: { ...MD, providerPlatformId: null } });
+    expect(r2.ok).toBe(false);
+    if (!r2.ok) expect(r2.code).toBe("PROVIDER_NO_PLATFORM");
+  });
+
+  it("đổi sang đúng thứ đang chạy thì không phải một thay đổi", () => {
+    const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: { platformId: "pf-moi", modelId: "md-moi" }, platform: PF, model: MD });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("NO_CHANGE");
   });
 });

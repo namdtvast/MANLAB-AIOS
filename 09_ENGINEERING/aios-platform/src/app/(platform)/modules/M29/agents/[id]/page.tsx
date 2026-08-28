@@ -5,6 +5,7 @@ import { M29_ROLE_LABEL, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m
 import { AiaPanel } from "./AiaPanel";
 import { PromptPanel } from "./PromptPanel";
 import { ToolGatewayPanel } from "./ToolGatewayPanel";
+import { ModelPanel, type ModelChoice } from "./ModelPanel";
 
 export default async function AgentDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -23,6 +24,33 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
     prisma.aIGuardrail.findMany({ where: { OR: [{ scope: "SYSTEM" }, { scopeRef: agent.id }] } }),
     prisma.aIPromptVersion.findMany({ where: { prompt: { agentId: agent.id } }, orderBy: { createdAt: "desc" } }),
   ]);
+  // Model dùng được cho tác tử: đang Hoạt động, và nhà cung cấp của nó gắn với một nền tảng đã
+  // phê duyệt hoặc đang vận hành. Lọc ở đây cho khỏi mời gọi thao tác sai; doiMoHinhTacTu() kiểm
+  // lại đủ các điều kiện này ở phía máy chủ.
+  const modelChoices: ModelChoice[] = (
+    await prisma.aIModel.findMany({
+      where: {
+        status: "ACTIVE",
+        provider: { platform: { approvalStatus: { in: ["APPROVED", "ACTIVE"] } } },
+      },
+      include: { provider: { include: { platform: true } } },
+      orderBy: { modelId: "asc" },
+    })
+  ).flatMap((m) =>
+    m.provider.platform
+      ? [
+          {
+            id: m.id,
+            modelId: m.modelId,
+            displayName: m.displayName,
+            platformId: m.provider.platform.id,
+            platformCode: m.provider.platform.code,
+            platformName: m.provider.platform.name,
+          },
+        ]
+      : []
+  );
+
   const aia = agent.aia[0] ?? null;
   const lastRun = agent.evaluationSuites.flatMap((s) => s.runs)[0] ?? null;
 
@@ -49,6 +77,18 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
           <dt className="text-ink-3">Evaluation gần nhất</dt>
           <dd className="text-ink">{lastRun ? `${lastRun.status} (${lastRun.passCount} đạt / ${lastRun.failCount} lỗi)` : "chưa chạy"}</dd>
         </dl>
+
+        <ModelPanel
+          agentId={agent.id}
+          hienTai={{
+            platformCode: agent.platform.code,
+            modelId: agent.model?.modelId ?? null,
+            status: agent.status,
+            suspendedReason: agent.suspendedReason,
+          }}
+          choices={modelChoices}
+          m29Role={role}
+        />
 
         <div>
           <h2 className="mb-2 font-head text-sm font-bold text-ink">Skills</h2>

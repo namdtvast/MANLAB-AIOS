@@ -23,6 +23,7 @@ import {
   aiaTransitions,
   approvalTransitions,
   incidentTransitions,
+  kiemTraDoiMoHinh,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -32,8 +33,9 @@ import { callTool as gatewayCallTool } from "./gateway";
 import { deploymentGate, runCases } from "./evaluation";
 import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
-import { sweepAiaReview, SUSPEND_REASON_AIA } from "./sweep";
+import { sweepAiaReview, SUSPEND_REASON_AIA, SUSPEND_REASON_DOI_MO_HINH } from "./sweep";
 import { ADAPTER_TYPES, getAdapter } from "./adapters";
+import { KEY_ENV_HINT, KEY_ENV_PATTERN } from "./khoa-api";
 import { APPROVAL_STATUS_LABEL } from "./labels";
 
 function forbidden(): TxResult {
@@ -74,6 +76,10 @@ function revalidateM29() {
 export async function createProvider(input: { code: string; name: string; platformId?: string }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
+  // Mã trùng thì @unique của cột `code` cũng chặn, nhưng lỗi Prisma trả về cho người dùng là một
+  // chuỗi kỹ thuật khó đọc. Kiểm trước để báo bằng tiếng người — cùng cách createTool đang làm.
+  if (await prisma.aIProvider.findUnique({ where: { code: input.code } }))
+    throw new Error(`Mã nhà cung cấp "${input.code}" đã có trong danh mục.`);
   const rec = await prisma.aIProvider.create({ data: input });
   await logAudit(actor, "providers", rec.id, { after: rec, reason: "create" });
   revalidateM29();
@@ -94,6 +100,12 @@ export async function createModel(input: {
 }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
+  // modelId phải TRÙNG ĐÚNG id model tại nhà cung cấp (với máy chủ tự vận hành là
+  // --served-model-name của vLLM/LiteLLM — ETV.GAI 01 §3.4 Bước 4b). Lược đồ không đặt @@unique
+  // trên (providerId, modelId) vì cùng một model có thể đăng ký lại ở phiên bản mới; nhưng hai
+  // bản ghi ĐANG cùng tồn tại với cùng cặp đó thì Agent trỏ vào cái nào là chuyện may rủi.
+  if (await prisma.aIModel.findFirst({ where: { providerId: input.providerId, modelId: input.modelId } }))
+    throw new Error(`Nhà cung cấp này đã có model "${input.modelId}" trong danh mục.`);
   const rec = await prisma.aIModel.create({ data: input });
   await logAudit(actor, "models", rec.id, { after: rec, reason: "create" });
   revalidateM29();
@@ -252,6 +264,83 @@ export async function createAgent(input: {
   return rec;
 }
 
+/**
+ * Đổi nền tảng + mô hình của một tác tử.
+ *
+ * ETV.P29 §5.8 xếp "đổi mô hình/nhà cung cấp" vào **thay đổi lớn**: phải lập lại AIA và đánh giá
+ * chất lượng, Lãnh đạo Viện phê duyệt. Phần mềm không thay người phê duyệt được, nhưng nó chặn
+ * được đường vòng: đổi xong thì AIA đang hiệu lực bị đưa về **Cần rà soát lại** và tác tử bị
+ * **tạm dừng** — muốn chạy lại phải đi hết vòng AIA. Không có nhánh nào bỏ qua bước này, kể cả
+ * SUPER_ADMIN, vì bỏ qua đúng một lần là tác tử chạy trên mô hình chưa ai đánh giá.
+ *
+ * Cũng vì thế hàm KHÔNG tự gọi resumeAgent() sau khi đổi.
+ */
+export async function doiMoHinhTacTu(input: { agentId: string; platformId: string; modelId: string; lyDo: string }): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+
+  const agent = await prisma.aIAgent.findUnique({ where: { id: input.agentId }, include: { aia: true } });
+  if (!agent) return { ok: false, code: "AGENT_NOT_FOUND", message: "Không tìm thấy tác tử." };
+  const platform = await prisma.aIPlatform.findUnique({ where: { id: input.platformId } });
+  if (!platform) return { ok: false, code: "PLATFORM_NOT_FOUND", message: "Không tìm thấy nền tảng." };
+  const model = await prisma.aIModel.findUnique({ where: { id: input.modelId }, include: { provider: true } });
+  if (!model) return { ok: false, code: "MODEL_NOT_FOUND", message: "Không tìm thấy model." };
+
+  const kiem = kiemTraDoiMoHinh({
+    lyDo: input.lyDo,
+    agent: { platformId: agent.platformId, modelId: agent.modelId },
+    platform: { id: platform.id, code: platform.code, approvalStatus: platform.approvalStatus },
+    model: {
+      id: model.id,
+      modelId: model.modelId,
+      status: model.status,
+      providerCode: model.provider.code,
+      providerPlatformId: model.provider.platformId,
+    },
+  });
+  if (!kiem.ok) return kiem;
+
+  const truoc = { platformId: agent.platformId, modelId: agent.modelId, status: agent.status };
+  await prisma.aIAgent.update({
+    where: { id: agent.id },
+    data: {
+      platformId: platform.id,
+      modelId: model.id,
+      status: "SUSPENDED",
+      suspendedReason: SUSPEND_REASON_DOI_MO_HINH,
+      suspendedAt: new Date(),
+    },
+  });
+  await logAudit(actor, "agents", agent.id, {
+    field: "model",
+    before: truoc,
+    after: { platformId: platform.id, modelId: model.id, status: "SUSPENDED" },
+    reason: `Đổi mô hình sang ${platform.code}/${model.modelId} — thay đổi lớn theo ETV.P29 §5.8. Lý do: ${kiem.reason}`,
+  });
+
+  // AIA đang hiệu lực không còn nói về hệ thống AI hiện tại nữa.
+  const aiaHieuLuc = agent.aia.filter((a) => a.status === "APPROVED");
+  for (const aia of aiaHieuLuc) {
+    await prisma.aIImpactAssessment.update({ where: { id: aia.id }, data: { status: "REVIEW_REQUIRED" } });
+    await logAudit(actor, "aia", aia.id, {
+      field: "status",
+      before: "APPROVED",
+      after: "REVIEW_REQUIRED",
+      reason: `Tác tử đổi sang mô hình ${model.modelId} — AIA phải rà soát lại trước khi vận hành tiếp (ETV.P29 §5.8).`,
+    });
+  }
+
+  revalidateM29();
+  return {
+    ...kiem,
+    patch: {
+      ...kiem.patch,
+      thongBao: `Đã chuyển sang ${platform.code}/${model.modelId}. Tác tử đang TẠM DỪNG: rà soát lại AIA, chạy lại bộ đánh giá (F29.03) và trình phê duyệt trước khi cho chạy tiếp.`,
+      aiaCanRaSoat: aiaHieuLuc.length,
+    },
+  };
+}
+
 export async function updateAgentToolsSkills(id: string, input: { skillIds?: string[]; toolIds?: string[] }) {
   const actor = await getActor();
   if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
@@ -262,7 +351,25 @@ export async function updateAgentToolsSkills(id: string, input: { skillIds?: str
   return rec;
 }
 
-export async function createPlatform(input: { code: string; name: string; baseUrl?: string; apiBaseUrl?: string; environment?: string; adapterType: string; owner?: string }) {
+// Tên biến môi trường chứa khoá API. Kiểm ở MỌI đường ghi (đăng ký mới và sửa sau này) chứ không
+// chỉ ở form: form là gương, chốt nằm ở đây và ở chính chỗ adapter đọc biến.
+function kiemTraBienKhoaApi(apiKeyEnv: string | undefined): string | undefined {
+  const v = apiKeyEnv?.trim();
+  if (!v) return undefined; // bỏ trống = dùng biến mặc định của adapter
+  if (!KEY_ENV_PATTERN.test(v)) throw new Error(`Tên biến môi trường "${v}" không hợp lệ. ${KEY_ENV_HINT}`);
+  return v;
+}
+
+export async function createPlatform(input: {
+  code: string;
+  name: string;
+  baseUrl?: string;
+  apiBaseUrl?: string;
+  environment?: string;
+  adapterType: string;
+  owner?: string;
+  apiKeyEnv?: string;
+}) {
   const actor = await getActor();
   if (!can(actor.m29Role, "platforms", "write")) throw new Error("Không đủ quyền.");
   // getAdapter() rơi về PlaceholderPlatformAdapter khi không nhận ra adapterType — im lặng và
@@ -270,10 +377,33 @@ export async function createPlatform(input: { code: string; name: string; baseUr
   // nền tảng mà thực ra mọi lời gọi trả NOT_INTEGRATED. Chặn ngay tại đây, không để lệch âm thầm.
   if (!ADAPTER_TYPES.includes(input.adapterType))
     throw new Error(`Bộ chuyển đổi "${input.adapterType}" không có thật. Chọn một trong: ${ADAPTER_TYPES.join(", ")}.`);
-  const rec = await prisma.aIPlatform.create({ data: input });
+  const rec = await prisma.aIPlatform.create({ data: { ...input, apiKeyEnv: kiemTraBienKhoaApi(input.apiKeyEnv) } });
   await logAudit(actor, "platforms", rec.id, { after: rec, reason: "create" });
   revalidateM29();
   return rec;
+}
+
+/**
+ * Đổi TÊN BIẾN MÔI TRƯỜNG chứa khoá API của một nền tảng đã đăng ký.
+ *
+ * Chỉ ghi tên biến — giá trị khoá vẫn nằm trong `.env` của máy chủ, đúng như AISecret chỉ giữ
+ * maskedValue. Đổi tên biến là đổi CHỖ lấy bí mật nên ghi audit như mọi thay đổi cấu hình khác;
+ * quyền đặt ngang với đăng ký nền tảng (platforms:write) chứ không hạ xuống registry:write.
+ */
+export async function datBienKhoaApi(platformId: string, apiKeyEnv: string) {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "platforms", "write")) throw new Error("Không đủ quyền đặt biến khoá API của nền tảng.");
+  const gia_tri = kiemTraBienKhoaApi(apiKeyEnv) ?? null;
+  const truoc = await prisma.aIPlatform.findUniqueOrThrow({ where: { id: platformId } });
+  const sau = await prisma.aIPlatform.update({ where: { id: platformId }, data: { apiKeyEnv: gia_tri } });
+  await logAudit(actor, "platforms", platformId, {
+    field: "apiKeyEnv",
+    before: truoc.apiKeyEnv,
+    after: sau.apiKeyEnv,
+    reason: "Đổi biến môi trường chứa khoá API của nền tảng",
+  });
+  revalidateM29();
+  return sau;
 }
 
 /**

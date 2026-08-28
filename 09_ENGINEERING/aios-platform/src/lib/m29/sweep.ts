@@ -8,6 +8,10 @@
 import { prisma } from "@/lib/prisma";
 
 export const SUSPEND_REASON_AIA = "AIA_OVERDUE";
+// Tác tử vừa bị đổi mô hình/nền tảng. ETV.P29 §5.8 xếp việc này vào **thay đổi lớn**: phải lập
+// lại AIA và đánh giá chất lượng, LĐV phê duyệt. Đặt lý do riêng thay vì dùng lại AIA_OVERDUE để
+// đọc nhật ký không nhầm "quá hạn rà soát" với "vừa đổi mô hình".
+export const SUSPEND_REASON_DOI_MO_HINH = "MODEL_CHANGED";
 
 export interface SweepResult {
   aiaFlagged: number;

@@ -9,6 +9,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
 import { createPlatform } from "@/lib/m29/actions";
+import { KEY_ENV_HINT } from "@/lib/m29/khoa-api";
 
 const fieldCls = "rounded-lg border border-border bg-bg px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-accent-line";
 const labelCls = "flex flex-col gap-1.5 text-sm font-medium text-ink";
@@ -55,6 +56,7 @@ export function NewPlatformForm({ adapterTypes, existingCodes }: { adapterTypes:
                 baseUrl: String(formData.get("baseUrl") ?? "").trim() || undefined,
                 apiBaseUrl: String(formData.get("apiBaseUrl") ?? "").trim() || undefined,
                 owner: String(formData.get("owner") ?? "").trim() || undefined,
+                apiKeyEnv: String(formData.get("apiKeyEnv") ?? "").trim() || undefined,
               });
               formRef.current?.reset();
               setDone(`Đã đăng ký nền tảng "${code}" ở trạng thái Nháp.`);
@@ -118,6 +120,15 @@ export function NewPlatformForm({ adapterTypes, existingCodes }: { adapterTypes:
             <span className="text-xs font-normal text-ink-3">
               Nguồn sự thật duy nhất cho endpoint của nền tảng — bộ chuyển đổi và vòng dò sức khoẻ đều đọc ở đây. Bỏ trống thì mọi lời gọi trả
               NO_API_BASE_URL.
+            </span>
+          </label>
+
+          <label className={labelCls}>
+            Biến môi trường chứa khoá API (apiKeyEnv)
+            <input name="apiKeyEnv" className={`${fieldCls} font-mono`} placeholder="LOCAL_LLM_API_KEY" title={KEY_ENV_HINT} />
+            <span className="text-xs font-normal text-ink-3">
+              Ghi TÊN BIẾN, không ghi khoá — khoá thật nằm trong <code className="font-mono">.env</code> của máy chủ AIOS và không vào cơ sở dữ liệu. Bỏ
+              trống thì dùng biến mặc định của bộ chuyển đổi. {KEY_ENV_HINT}
             </span>
           </label>
 

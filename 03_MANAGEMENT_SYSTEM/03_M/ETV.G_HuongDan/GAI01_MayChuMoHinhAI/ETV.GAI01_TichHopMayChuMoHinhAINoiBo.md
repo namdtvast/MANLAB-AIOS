@@ -49,6 +49,7 @@ superseded_by: null
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | --- | --- | --- |
 | 25/08/2026 | Dự thảo lần đầu | 01 |
+| 28/08/2026 | Cập nhật §3.6 theo hiện trạng phần mềm: khoá API tách theo từng nền tảng (`AIPlatform.apiKeyEnv`), giao diện hiện lý do nền tảng ngừng hoạt động, đã có màn hình tạo Provider/Model và màn hình chuyển tác tử sang mô hình khác. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 | 25/08/2026 | Soát xét nội bộ trước khi trình: chặn dữ liệu mức Hạn chế do xung đột ETV.P29–P26–P34 chưa giải quyết (§3.7); siết điều kiện dùng đường hầm của bên thứ ba (§3.4 Bước 3); thêm kiểm soát chuỗi cung ứng mô hình/image (Bước 2) và kiểm soát nhật ký, dữ liệu tạm (Bước 3b); §3.6 chuyển thành bảng hiện trạng; bổ sung Gate và hồ sơ P01/P06/P30/P31/P34. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 
 ---
@@ -333,21 +334,24 @@ Thẩm quyền phê duyệt theo **mức tác động của Agent sử dụng m�
 
 ### 3.6. Hiện trạng phía ManLab AIOS (dành cho người lập trình)
 
-Cập nhật tới 25/08/2026. **Phần lớn đã triển khai** — đọc bảng này trước khi viết mã để không làm lại.
+Cập nhật tới 28/08/2026. **Phần lớn đã triển khai** — đọc bảng này trước khi viết mã để không làm lại.
 
 | Hạng mục | Hiện trạng | Bằng chứng nghiệm thu |
 | --- | --- | --- |
 | `AIProvider.platformId` → `AIPlatform` (tùy chọn, `onDelete: Restrict`) | **Đã có** | `prisma/schema.prisma`, di trú `20260825141357_m29_provider_platform_link` |
-| `LocalOpenAIPlatformAdapter` (`health` + `chat`, đã đăng ký trong `ADAPTERS`) | **Đã có** | `src/lib/m29/adapters.ts`; 14 ca test tại `__tests__/adapters-local.test.ts` |
+| `LocalOpenAIPlatformAdapter` (`health` + `chat`, đã đăng ký trong `ADAPTERS`) | **Đã có** | `src/lib/m29/adapters.ts`; 16 ca test tại `__tests__/adapters-local.test.ts` |
 | Biến môi trường `LOCAL_LLM_API_KEY` | **Đã có** | `.env.example` |
+| Khoá API **riêng cho từng nền tảng** | **Đã có** | `AIPlatform.apiKeyEnv` giữ TÊN biến môi trường (không giữ khoá), di trú `20260828100000_platform_api_key_env`. Bỏ trống = dùng `LOCAL_LLM_API_KEY`. Tên biến bị chặn theo `KEY_ENV_PATTERN` (`src/lib/m29/khoa-api.ts`): người đăng ký nền tảng cũng là người khai `apiBaseUrl`, nên tên biến tự do sẽ thành đường đọc `DATABASE_URL`/`AUTH_SECRET` rồi gửi ra endpoint do chính họ khai. Cần khi Viện chạy **nhiều** máy chủ tương thích OpenAI với khoá khác nhau |
+| Lý do nền tảng **Ngừng hoạt động** hiện trên giao diện | **Đã có** | `AIPlatform.lastError` dịch qua `healthErrorLabel()` và hiện dưới huy hiệu sức khoẻ ở trang Tổng quan M29. Trước đó thiếu khoá, khoá sai và máy chủ tắt trông giống hệt nhau |
 | Ghi `AIRequest` mỗi lượt gọi và `AIAuditLog` mỗi thay đổi cấu hình | **Đã có** | `src/lib/m29/gateway.ts`, `actions.ts` |
 | Trần mức bảo mật **theo từng nền tảng** | **Đã có** | `AIPlatform.dataBoundary` (enum `AIDataBoundary`), mặc định fail-closed ở `EXTERNAL_NO_COMMITMENT`; di trú `20260825161823_m29_ranh_gioi_du_lieu_nen_tang`. Biến toàn cục `COPILOT_MUC_BAO_MAT_TOI_DA` đã gỡ. Nới trần phải đi qua `datRanhGioiDuLieu()` và **dẫn số hồ sơ** F29.02, quyền thuộc AI_SECURITY_ADMIN/SUPER_ADMIN — người đăng ký nền tảng không tự nới được. 10 ca test tại `__tests__/copilot-ranh-gioi.test.ts` |
+| Chuyển một tác tử sang mô hình khác (Bước 5–6) | **Đã có** | Khối "Nền tảng và mô hình" trên trang tác tử → `doiMoHinhTacTu()`; điều kiện ở `rules.ts#kiemTraDoiMoHinh` (6 ca test). Đổi xong tác tử **tạm dừng** và AIA đang hiệu lực về **Cần rà soát lại** — cưỡng chế ETV.P29 §5.8 (thay đổi lớn), khác với tạm dừng do AIA quá hạn ở chỗ **không** tự gỡ khi AIA được duyệt lại: phải bấm "Mở lại tác tử" và ghi lý do (chỗ dẫn số phiếu F29.03) |
 | Quy tắc định tuyến theo loại tác vụ và mức phân loại dữ liệu | **Còn thiếu** — nền tảng gắn cứng ở `AIAgent.platformId` | Tối thiểu cần: loại tác vụ, mức phân loại, đích, thứ tự ưu tiên, dự phòng, cờ bật/tắt |
 | Chuyển nền tảng sang trạng thái **Hiệu lực** (Bước 6) | **Đã có** | `approvalTransitions.activate()` + nút "Đưa vào vận hành" trên trang danh mục; ngừng vận hành được từ `ACTIVE` — `src/lib/m29/rules.ts`, `RegistryActions.tsx` |
 | Vòng dò sức khoẻ với nền tảng ở trạng thái **Hiệu lực** | **Đã có** | `checkHealthAction()` lọc `{ in: ["APPROVED", "ACTIVE"] }` — `src/lib/m29/actions.ts`. Bộ lọc cũ chỉ quét `APPROVED` nên nền tảng vừa đưa vào vận hành rơi khỏi vòng dò |
-| Màn hình tạo Provider kèm chọn nền tảng | **Còn thiếu** — danh mục hiện chỉ đọc | — |
+| Màn hình tạo Provider kèm chọn nền tảng | **Đã có** | `NewProviderForm.tsx` (chọn nền tảng phơi API) và `NewModelForm.tsx` (`modelId` phải trùng `--served-model-name`) trên trang Danh mục M29, quyền `registry:write` |
 
-**Quyết định kiến trúc đã chốt, không mở lại:** endpoint chỉ có **một** nguồn sự thật là `AIPlatform.apiBaseUrl`; không nhân đôi `baseUrl` sang `AIProvider`. Khoá API đọc từ biến môi trường, **không** từ `AISecret` (bảng đó cố ý chỉ lưu `maskedValue`).
+**Quyết định kiến trúc đã chốt, không mở lại:** endpoint chỉ có **một** nguồn sự thật là `AIPlatform.apiBaseUrl`; không nhân đôi `baseUrl` sang `AIProvider`. Khoá API đọc từ biến môi trường, **không** từ `AISecret` (bảng đó cố ý chỉ lưu `maskedValue`); cơ sở dữ liệu chỉ giữ **tên** biến (`AIPlatform.apiKeyEnv`), và tên đó bị khoanh theo mẫu cho phép.
 
 ### 3.7. Định tuyến theo mức phân loại dữ liệu và dự phòng
 

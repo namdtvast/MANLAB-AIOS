@@ -24,7 +24,8 @@ export default async function M29UsagePage() {
   const [rows, agents, budgets] = await Promise.all([
     usage(range),
     prisma.aIAgent.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true } }),
-    prisma.aIBudget.findMany({ orderBy: { code: "asc" }, include: { agent: true } }),
+    // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
+    prisma.aIBudget.findMany({ orderBy: { updatedAt: "desc" }, include: { agent: true } }),
   ]);
   const requests = rows.reduce((n, r) => n + r.requestCount, 0);
   const tokensIn = rows.reduce((n, r) => n + r.tokensIn, 0);
