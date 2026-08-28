@@ -13,6 +13,24 @@ Chạy 28/08/2026 trên bản build production trong worktree (cổng 54801) + P
 | 5 | Cột "Thao tác" (phê duyệt nền tảng) | **Không hiện** với vai trò này — đúng: `platforms:write` chỉ SUPER_ADMIN có |
 | 6 | Đổi `MANLAB_AI_Q3` sang "Không rời hạ tầng Viện" | DB: `dataBoundary = NO_EXTERNAL_TRANSFER`, `dataBoundaryRef = null`; `AIAuditLog` ghi `field=dataBoundary`, lý do "Đặt ranh giới dữ liệu theo ETV.P29 §5.5" |
 
+## Bố cục trang Danh mục
+
+Thêm cột làm trang rộng kịch khung và lệch hẳn so với các trang module khác. Thống kê bề rộng
+khung trong `src/app/(platform)/modules/**/page.tsx`: **`max-w-4xl` là chuẩn phổ biến nhất
+(18 trang)**, trang Danh mục M29 đang `max-w-5xl`.
+
+Sửa cho khớp, và giảm số cột thay vì ép cuộn ngang:
+
+| | Trước | Sau |
+|---|---|---|
+| Khung trang | `max-w-5xl` (1024px) | `max-w-4xl` (896px) — bằng 18 trang khác |
+| Cột bảng Platform | 7 (Mã, Tên, Adapter, Biến khoá, Ranh giới, Trạng thái, Thao tác) | 5 — adapter xuống dòng phụ dưới mã; nút vòng đời nằm cùng ô với huy hiệu trạng thái |
+| `min-w` bảng | `64rem` | `52rem` |
+
+Đo lại ở viewport 1440: khung 896px, bảng 894px — **không cuộn ngang**, `document.scrollWidth`
+bằng đúng viewport. Kiểm ở cả hai vai trò: AI_SECURITY_ADMIN (không có nút vòng đời) và
+SUPER_ADMIN (có đủ nút).
+
 ## Phép đo trước/sau — đây là lý do thay đổi này tồn tại
 
 `npm run danh-gia-copilot -- --chi-truy-hoi` trên bộ 20 câu hỏi vàng, Copilot trỏ `MANLAB_AI_Q3`:

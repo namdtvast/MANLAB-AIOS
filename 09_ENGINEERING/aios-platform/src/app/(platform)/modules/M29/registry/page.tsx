@@ -47,7 +47,7 @@ export default async function M29RegistryPage() {
   ]);
 
   return (
-    <div className="flex max-w-5xl flex-col gap-6">
+    <div className="flex max-w-4xl flex-col gap-6">
       <div>
         <p className="text-xs font-medium text-ink-3">M29 · Danh mục</p>
         <h1 className="font-head text-2xl font-bold text-ink">Provider · Model · Skill · Tool · Platform</h1>
@@ -57,24 +57,29 @@ export default async function M29RegistryPage() {
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
         {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[64rem] text-sm">
+          <table className="w-full min-w-[52rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Mã</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Adapter</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Biến khoá API</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Ranh giới dữ liệu</th>
+                {/* Nút vòng đời nằm CÙNG cột với huy hiệu trạng thái, không tách cột riêng: chúng
+                    nói về đúng một thứ, và bảng này đã đủ rộng. Cùng cách với cột Ranh giới. */}
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Trạng thái</th>
-                {canWritePlatform && <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Thao tác</th>}
               </tr>
             </thead>
             <tbody>
               {platforms.map((p) => (
                 <tr key={p.id} className="border-b border-border last:border-0">
-                  <td className="px-3 py-2 font-mono text-xs text-ink">{p.code}</td>
+                  {/* Adapter đi kèm mã thay vì chiếm một cột riêng: bảng này đã có 6 cột, mà tên
+                      bộ chuyển đổi là thông tin tra cứu chứ không phải thứ người ta quét mắt theo
+                      hàng. Bớt một cột giữ được bề ngang bằng các trang module khác. */}
+                  <td className="px-3 py-2">
+                    <div className="font-mono text-xs text-ink">{p.code}</div>
+                    <div className="font-mono text-xs text-ink-3">{p.adapterType}</div>
+                  </td>
                   <td className="px-3 py-2 text-ink">{p.name}</td>
-                  <td className="px-3 py-2 text-ink-2">{p.adapterType}</td>
                   {/* Chỉ bộ chuyển đổi mô hình cục bộ mới đọc biến theo từng nền tảng; Anthropic
                       và Gemini có biến cố định riêng của SDK/nhà cung cấp nên không có gì để chọn. */}
                   <td className="px-3 py-2 text-ink-2">
@@ -99,15 +104,13 @@ export default async function M29RegistryPage() {
                     </div>
                   </td>
                   <td className="px-3 py-2">
-                    <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[APPROVAL_STATUS_TONE[p.approvalStatus]]}`}>
-                      {APPROVAL_STATUS_LABEL[p.approvalStatus]}
-                    </span>
+                    <div className="flex flex-col items-start gap-1">
+                      <span className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[APPROVAL_STATUS_TONE[p.approvalStatus]]}`}>
+                        {APPROVAL_STATUS_LABEL[p.approvalStatus]}
+                      </span>
+                      {canWritePlatform && <PlatformApprovalButton id={p.id} status={p.approvalStatus} />}
+                    </div>
                   </td>
-                  {canWritePlatform && (
-                    <td className="px-3 py-2">
-                      <PlatformApprovalButton id={p.id} status={p.approvalStatus} />
-                    </td>
-                  )}
                 </tr>
               ))}
             </tbody>
