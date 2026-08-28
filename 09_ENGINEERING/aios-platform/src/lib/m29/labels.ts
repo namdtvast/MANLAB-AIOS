@@ -160,6 +160,28 @@ export function healthErrorLabel(error: string | null | undefined): string | nul
   return error;
 }
 
+// ---------- Ranh giới dữ liệu của nền tảng (ETV.P29 §5.5) ----------
+
+export const DATA_BOUNDARY_LABEL: Record<string, string> = {
+  NO_EXTERNAL_TRANSFER: "Không rời hạ tầng Viện",
+  EXTERNAL_WITH_COMMITMENT: "Ra ngoài, có cam kết",
+  EXTERNAL_NO_COMMITMENT: "Ra ngoài, không cam kết",
+};
+
+// Không tô "tốt/xấu" theo cảm tính: mức siết nhất (chỉ gửi tài liệu Công khai) là AN TOÀN nhất về
+// dữ liệu nhưng lại là mức khiến Copilot đọc được ít nhất. Dùng tông trung tính cho cả ba, chỉ
+// nhấn "không rời hạ tầng" vì đó là trạng thái vừa an toàn vừa không mất tài liệu Nội bộ.
+export const DATA_BOUNDARY_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  NO_EXTERNAL_TRANSFER: "good",
+  EXTERNAL_WITH_COMMITMENT: "neutral",
+  EXTERNAL_NO_COMMITMENT: "warn",
+};
+
+export const SECURITY_LEVEL_LABEL: Record<string, string> = {
+  "Cong-khai": "Công khai",
+  "Noi-bo": "Nội bộ",
+};
+
 export const PERMISSION_LEVEL_LABEL: Record<string, string> = {
   READ: "Đọc",
   COMPUTE: "Tính toán",
