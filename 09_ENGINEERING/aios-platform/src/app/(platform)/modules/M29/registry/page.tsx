@@ -7,6 +7,9 @@ import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
 import { ModelPricingForm } from "./ModelPricingForm";
+import { NewProviderForm } from "./NewProviderForm";
+import { NewModelForm } from "./NewModelForm";
+import { PlatformKeyEnvForm } from "./PlatformKeyEnvForm";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -21,11 +24,13 @@ export default async function M29RegistryPage() {
   const canWriteRegistry = can(role, "registry", "write");
 
   const [platforms, providers, models, skills, tools] = await Promise.all([
-    prisma.aIPlatform.findMany({ orderBy: { code: "asc" } }),
-    prisma.aIProvider.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
-    prisma.aIModel.findMany({ orderBy: { modelId: "asc" }, include: { provider: true } }),
+    // Mới thao tác nhất lên đầu — xem chú thích cùng truy vấn ở trang Tổng quan M29.
+    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" } }),
+    // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
+    prisma.aIProvider.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true } }),
+    prisma.aIModel.findMany({ orderBy: { updatedAt: "desc" }, include: { provider: true } }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" } }),
-    prisma.aITool.findMany({ orderBy: { code: "asc" }, include: { platform: true } }),
+    prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true } }),
   ]);
 
   return (
@@ -39,12 +44,13 @@ export default async function M29RegistryPage() {
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
         {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[36rem] text-sm">
+          <table className="w-full min-w-[48rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Mã</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Adapter</th>
+                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Biến khoá API</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Trạng thái</th>
                 {canWritePlatform && <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Thao tác</th>}
               </tr>
@@ -55,6 +61,17 @@ export default async function M29RegistryPage() {
                   <td className="px-3 py-2 font-mono text-xs text-ink">{p.code}</td>
                   <td className="px-3 py-2 text-ink">{p.name}</td>
                   <td className="px-3 py-2 text-ink-2">{p.adapterType}</td>
+                  {/* Chỉ bộ chuyển đổi mô hình cục bộ mới đọc biến theo từng nền tảng; Anthropic
+                      và Gemini có biến cố định riêng của SDK/nhà cung cấp nên không có gì để chọn. */}
+                  <td className="px-3 py-2 text-ink-2">
+                    {p.adapterType !== "LocalOpenAIPlatformAdapter" ? (
+                      <span className="text-xs text-ink-3">—</span>
+                    ) : canWritePlatform ? (
+                      <PlatformKeyEnvForm id={p.id} apiKeyEnv={p.apiKeyEnv} />
+                    ) : (
+                      <span className="font-mono text-xs">{p.apiKeyEnv ?? "LOCAL_LLM_API_KEY"}</span>
+                    )}
+                  </td>
                   <td className="px-3 py-2">
                     <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[APPROVAL_STATUS_TONE[p.approvalStatus]]}`}>
                       {APPROVAL_STATUS_LABEL[p.approvalStatus]}
@@ -121,6 +138,9 @@ export default async function M29RegistryPage() {
       <section className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <h2 className="mb-2 font-head text-sm font-bold text-ink">Provider</h2>
+          {canWriteRegistry && (
+            <NewProviderForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={providers.map((p) => p.code)} />
+          )}
           <ul className="flex flex-col gap-1.5 text-sm">
             {providers.map((p) => (
               <li key={p.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
@@ -134,11 +154,15 @@ export default async function M29RegistryPage() {
         </div>
         <div>
           <h2 className="mb-2 font-head text-sm font-bold text-ink">Model và bảng giá token</h2>
+          {canWriteRegistry && <NewModelForm providers={providers.map((p) => ({ id: p.id, code: p.code, name: p.name }))} />}
           <ul className="flex flex-col gap-1.5 text-sm">
             {models.map((m) => (
               <li key={m.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span>{m.displayName} <span className="text-xs text-ink-3">· {m.provider.name}</span></span>
+                  <span>
+                    {m.displayName} <span className="text-xs text-ink-3">· {m.provider.name}</span>
+                    <span className="ml-1 font-mono text-xs text-ink-3">({m.modelId})</span>
+                  </span>
                   <span className="text-xs tabular-nums text-ink-2">
                     Vào {m.inputCostPerMillionTokens.toLocaleString("vi-VN")} · Ra {m.outputCostPerMillionTokens.toLocaleString("vi-VN")} {m.currency}/1M token
                   </span>

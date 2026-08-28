@@ -159,6 +159,22 @@ NEXTAUTH_URL="https://aios.manlab.vn"
 EOF
 ```
 
+### 5.1. Khoá của các nền tảng AI (M29)
+
+Không có khoá thì nền tảng tương ứng hiện **Ngừng hoạt động** ở trang M29 — app vẫn chạy bình
+thường, chỉ là không gọi được mô hình. Thêm vào cùng file `.env`:
+
+| Biến | Nền tảng dùng |
+|---|---|
+| `ANTHROPIC_API_KEY` | `ANTHROPIC_API` |
+| `GEMINI_API_KEY` | `GEMINI_API` |
+| `LOCAL_LLM_API_KEY` | Mặc định cho mọi nền tảng dùng `LocalOpenAIPlatformAdapter` |
+| `LOCAL_LLM_API_KEY_<HẬU_TỐ>` | Máy chủ mô hình cục bộ có khoá riêng — khai tên biến này vào ô **Biến khoá API** của nền tảng đó trong Danh mục M29 |
+
+Khoá **chỉ nằm trong `.env`**, không bao giờ vào cơ sở dữ liệu; danh mục M29 chỉ giữ *tên* biến.
+Đổi `.env` xong phải `sudo systemctl restart manlab-aios-platform` (không cần build lại), rồi bấm
+**Kiểm tra ngay** ở trang M29 để dò lại. Lý do hỏng hiện ngay dưới huy hiệu sức khoẻ.
+
 Hai biến tùy chọn chỉ ảnh hưởng tới lệnh seed, không ảnh hưởng lúc chạy app:
 
 | Biến | Tác dụng |

@@ -7,6 +7,7 @@ import {
   APPROVAL_STATUS_TONE,
   HEALTH_LABEL,
   HEALTH_TONE,
+  healthErrorLabel,
   OP_STATUS_LABEL,
   OP_STATUS_TONE,
   suspendReasonLabel,
@@ -33,8 +34,12 @@ export default async function M29OverviewPage() {
   await maybeSweep();
 
   const [platforms, agents, pendingAia, disabledTools, openIncidents, overdueSightings] = await Promise.all([
-    prisma.aIPlatform.findMany({ orderBy: { code: "asc" } }),
-    prisma.aIAgent.findMany({ orderBy: { code: "asc" }, include: { model: true, aia: true } }),
+    // Mới thao tác nhất lên đầu: đăng ký, đổi trạng thái phê duyệt, đặt biến khoá và cả vòng dò
+    // sức khoẻ đều chạm `updatedAt`. Xếp theo mã thì bản ghi vừa đụng tới nằm lẫn giữa danh sách,
+    // đúng lúc người vận hành đang cần nhìn nó.
+    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" } }),
+    // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
+    prisma.aIAgent.findMany({ orderBy: { updatedAt: "desc" }, include: { model: true, aia: true } }),
     prisma.aIImpactAssessment.count({ where: { status: { in: ["NOT_ASSESSED", "DRAFT", "REVIEWED", "REVIEW_REQUIRED"] } } }),
     prisma.aITool.count({ where: { status: "DISABLED" } }),
     prisma.aIIncident.count({ where: { status: { notIn: ["CLOSED", "CANCELLED"] } } }),
@@ -106,6 +111,10 @@ export default async function M29OverviewPage() {
                   <td className="px-3 py-2.5 text-ink-2">{p.environment}</td>
                   <td className="px-3 py-2.5">
                     <Badge label={HEALTH_LABEL[p.health]} tone={HEALTH_TONE[p.health] ?? "neutral"} />
+                    {/* Lý do đã nằm sẵn ở AIPlatform.lastError từ lần dò gần nhất — không hiện ra
+                        thì người vận hành không phân biệt được "thiếu khoá" với "máy chủ tắt". */}
+                    {healthErrorLabel(p.lastError) && <p className="mt-1 max-w-[22rem] text-xs text-ink-3">{healthErrorLabel(p.lastError)}</p>}
+                    {p.lastHealthCheckAt && <p className="mt-0.5 text-xs text-ink-3">Dò lúc {p.lastHealthCheckAt.toLocaleString("vi-VN")}</p>}
                   </td>
                   <td className="px-3 py-2.5">
                     <Badge label={APPROVAL_STATUS_LABEL[p.approvalStatus]} tone={APPROVAL_STATUS_TONE[p.approvalStatus] ?? "neutral"} />

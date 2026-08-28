@@ -3,7 +3,10 @@
 //   (1) thiếu endpoint hoặc thiếu khóa thì KHÔNG phát HTTP — máy chủ nội bộ không được gọi mù;
 //   (2) mã lỗi trả về đúng bộ dùng chung của ChatResult, vì trang giám sát và bảng trace đọc theo
 //       mã này chứ không đọc thông báo;
-//   (3) adapter có mặt trong hằng ADAPTERS — sai adapterType sẽ âm thầm rơi về Placeholder.
+//   (3) adapter có mặt trong hằng ADAPTERS — sai adapterType sẽ âm thầm rơi về Placeholder;
+//   (4) khoá đọc theo BIẾN RIÊNG của từng nền tảng (AIPlatform.apiKeyEnv), và tên biến ngoài mẫu
+//       cho phép thì bị chặn ngay tại chỗ đọc — không để một bản ghi nền tảng trỏ vào bí mật khác
+//       của máy chủ rồi gửi giá trị đó đi làm Bearer token.
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { getAdapter, type ChatRequest, type PlatformForAdapter } from "../adapters";
 
@@ -63,7 +66,8 @@ describe("LocalOpenAIPlatformAdapter", () => {
 
     await expect(adapter.health({ apiBaseUrl: null })).resolves.toEqual({ ok: false, error: "NO_API_BASE_URL" });
     vi.stubEnv("LOCAL_LLM_API_KEY", "");
-    await expect(adapter.health(PLATFORM)).resolves.toEqual({ ok: false, error: "NO_API_KEY" });
+    // Mã lỗi kèm TÊN biến còn thiếu — trang giám sát hiện thẳng tên đó cho người vận hành.
+    await expect(adapter.health(PLATFORM)).resolves.toEqual({ ok: false, error: "NO_API_KEY:LOCAL_LLM_API_KEY" });
 
     expect(fetchMock).not.toHaveBeenCalled();
   });
@@ -74,8 +78,39 @@ describe("LocalOpenAIPlatformAdapter", () => {
 
     expect((await adapter.chat!({ apiBaseUrl: null }, REQ)).errorCode).toBe("NO_API_BASE_URL");
     vi.stubEnv("LOCAL_LLM_API_KEY", "");
-    expect((await adapter.chat!(PLATFORM, REQ)).errorCode).toBe("NO_API_KEY");
+    expect((await adapter.chat!(PLATFORM, REQ)).errorCode).toBe("NO_API_KEY:LOCAL_LLM_API_KEY");
 
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("địa chỉ API có dấu / ở cuối vẫn ghép đúng đường dẫn", async () => {
+    const fetchMock = reply(200, { data: [] });
+    vi.stubGlobal("fetch", fetchMock);
+    await adapter.health({ apiBaseUrl: "https://ai.manlab.vn/v1/" });
+    expect(fetchMock.mock.calls[0][0]).toBe("https://ai.manlab.vn/v1/models");
+  });
+
+  it("mỗi nền tảng đọc khoá theo biến riêng của nó", async () => {
+    vi.stubEnv("LOCAL_LLM_API_KEY_Q3", "khoa-cua-q3");
+    const fetchMock = reply(200, OK_BODY);
+    vi.stubGlobal("fetch", fetchMock);
+
+    await adapter.chat!({ apiBaseUrl: "https://ai.manlab.vn/v1", apiKeyEnv: "LOCAL_LLM_API_KEY_Q3" }, REQ);
+
+    const [, init] = fetchMock.mock.calls[0];
+    // Khoá mặc định vẫn tồn tại trong môi trường; nếu adapter đọc nhầm biến thì giá trị sẽ là
+    // "khoa-thu-nghiem" — đó chính là lỗi mà hai máy chủ dùng chung một biến từng gây ra.
+    expect((init!.headers as Record<string, string>).authorization).toBe("Bearer khoa-cua-q3");
+  });
+
+  it("tên biến ngoài mẫu cho phép thì bị chặn, không đọc env và không phát HTTP", async () => {
+    vi.stubEnv("AUTH_SECRET", "bi-mat-cua-may-chu");
+    const fetchMock = reply(200, OK_BODY);
+    vi.stubGlobal("fetch", fetchMock);
+    const doiTruong: PlatformForAdapter = { apiBaseUrl: "https://ke-tan-cong.example/v1", apiKeyEnv: "AUTH_SECRET" };
+
+    await expect(adapter.health(doiTruong)).resolves.toEqual({ ok: false, error: "INVALID_KEY_ENV" });
+    expect((await adapter.chat!(doiTruong, REQ)).errorCode).toBe("INVALID_KEY_ENV");
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

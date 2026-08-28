@@ -609,6 +609,14 @@ model AIPlatform {
   // Cưỡng chế ở tầng hành động (datRanhGioiDuLieu), không ràng buộc quan hệ ở lược đồ vì
   // AIImpactAssessment gắn với Agent chứ không gắn với Platform.
   dataBoundaryRef   String?
+  // Tên BIẾN MÔI TRƯỜNG chứa khoá API của nền tảng này — lưu TÊN BIẾN, không bao giờ lưu khoá
+  // (bảng AISecret cũng chỉ giữ maskedValue). Rỗng = dùng biến mặc định của adapter. Có cột này
+  // vì một adapter có thể phục vụ NHIỀU nền tảng cùng lúc (hai máy chủ tương thích OpenAI, hai
+  // khoá khác nhau) — trước đây mọi nền tảng dùng chung một biến nên chỉ một máy chủ đăng nhập
+  // được. Giá trị bị chặn theo mẫu tên tại KEY_ENV_PATTERN (lib/m29/khoa-api.ts): người đăng ký nền tảng
+  // KHÔNG được trỏ vào biến bí mật khác của máy chủ (DATABASE_URL, AUTH_SECRET…) rồi để adapter
+  // gửi giá trị đó ra endpoint do chính họ khai.
+  apiKeyEnv         String?
   health            AIHealth         @default(UNKNOWN)
   lastError         String?
   lastHealthCheckAt DateTime?

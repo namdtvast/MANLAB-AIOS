@@ -50,6 +50,9 @@ export const OP_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"
 export function suspendReasonLabel(reason: string | null): string {
   if (!reason) return "";
   if (reason === "AIA_OVERDUE") return "Hồ sơ AIA quá hạn rà soát";
+  // KHÔNG viết "chờ AIA được phê duyệt": phê duyệt lại AIA cố ý KHÔNG tự mở lại tác tử ở nhánh
+  // này (xem doiMoHinhTacTu), nên nhãn đó sẽ nói sai ngay khi AIA vừa được duyệt xong.
+  if (reason === "MODEL_CHANGED") return "Vừa đổi mô hình — rà soát lại AIA và chạy lại bộ đánh giá trước khi mở lại";
   if (reason.startsWith("INCIDENT:")) return `Khống chế sự cố ${reason.slice("INCIDENT:".length)}`;
   return reason;
 }
@@ -122,6 +125,40 @@ export const HEALTH_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> =
   DOWN: "crit",
   UNKNOWN: "neutral",
 };
+
+/**
+ * Dịch mã lỗi kỹ thuật do adapter ghi vào AIPlatform.lastError sang câu người vận hành đọc được.
+ *
+ * Có hàm này vì trước đây bảng nền tảng chỉ hiện huy hiệu "Ngừng hoạt động": thiếu khoá API,
+ * khoá sai, và máy chủ tắt hẳn trông giống hệt nhau trên giao diện, trong khi ba ca đó cần ba
+ * cách xử lý khác nhau — và mã lỗi thì đã nằm sẵn trong DB.
+ *
+ * Cố ý KHÔNG che tên biến môi trường: nó là tên biến, không phải giá trị bí mật, và chính nó là
+ * thông tin người vận hành cần để sửa.
+ */
+export function healthErrorLabel(error: string | null | undefined): string | null {
+  if (!error) return null;
+  if (error.startsWith("NO_API_KEY:")) return `Máy chủ AIOS chưa có biến môi trường ${error.slice("NO_API_KEY:".length)} — đặt khoá API vào .env rồi khởi động lại dịch vụ.`;
+  const map: Record<string, string> = {
+    NO_API_KEY: "Máy chủ AIOS chưa có khoá API của nhà cung cấp này (đặt trong .env rồi khởi động lại dịch vụ).",
+    NO_API_BASE_URL: "Chưa khai Địa chỉ API (apiBaseUrl) cho nền tảng.",
+    INVALID_KEY_ENV: "Tên biến môi trường chứa khoá API không hợp lệ — đặt lại ở phần Danh mục.",
+    NOT_INTEGRATED: "Chưa có bộ chuyển đổi thật — mọi lời gọi trả NOT_INTEGRATED.",
+    TIMEOUT: "Quá thời gian chờ — máy chủ không phản hồi kịp.",
+  };
+  if (map[error]) return map[error];
+  // Lỗi mạng của fetch tới AIOS dưới dạng "TypeError: fetch failed" — đúng về kỹ thuật nhưng vô
+  // nghĩa với người vận hành, mà đây lại là ca hay gặp nhất (máy chủ tắt, sai địa chỉ, bị chặn).
+  if (error.includes("fetch failed")) return "Không kết nối được tới máy chủ — soát lại Địa chỉ API, máy chủ có đang chạy và có bị chặn mạng không.";
+  const http = error.match(/^HTTP (\d{3})$/);
+  if (http) {
+    const ma = http[1];
+    if (ma === "401" || ma === "403") return `Máy chủ từ chối khoá API (HTTP ${ma}) — khoá sai hoặc đã bị thu hồi.`;
+    if (ma === "404") return "Máy chủ không có đường dẫn kiểm tra (HTTP 404) — soát lại Địa chỉ API.";
+    return `Máy chủ trả lỗi HTTP ${ma}.`;
+  }
+  return error;
+}
 
 export const PERMISSION_LEVEL_LABEL: Record<string, string> = {
   READ: "Đọc",

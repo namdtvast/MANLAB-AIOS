@@ -8,12 +8,24 @@
 // về mặt hạ tầng có thể tắt qua đường tắt.
 
 import Anthropic from "@anthropic-ai/sdk";
+import { KEY_ENV_PATTERN } from "./khoa-api";
 
 interface CallResult {
   status: number;
   output: unknown;
   latencyMs: number;
   errorCode: string | null;
+}
+
+/**
+ * Cắt dấu "/" thừa ở cuối apiBaseUrl trước khi ghép đường dẫn.
+ *
+ * Người khai nền tảng hay dán nguyên "https://…/v1/" từ tài liệu của nhà cung cấp; ghép thẳng sẽ
+ * ra "…/v1//models". Một số máy chủ bỏ qua, một số trả 404 — và lỗi đó rất khó nhìn ra vì địa chỉ
+ * trên giao diện trông đúng. Chuẩn hoá ở chỗ GHÉP để bắt được cả bản ghi đã lưu từ trước.
+ */
+function goc(apiBaseUrl: string): string {
+  return apiBaseUrl.replace(/\/+$/, "");
 }
 
 async function callWithTimeout(url: string, options: RequestInit, ms: number): Promise<Omit<CallResult, "errorCode">> {
@@ -31,6 +43,8 @@ async function callWithTimeout(url: string, options: RequestInit, ms: number): P
 
 export interface PlatformForAdapter {
   apiBaseUrl: string | null;
+  /** Tên biến môi trường chứa khoá API của riêng nền tảng này; rỗng = biến mặc định của adapter. */
+  apiKeyEnv?: string | null;
 }
 export interface ToolForAdapter {
   endpoint: string;
@@ -70,7 +84,7 @@ export interface PlatformAdapter {
 const ManlabPlatformAdapter: PlatformAdapter = {
   async call(platform, tool, input) {
     if (!platform.apiBaseUrl) return { status: 502, output: null, latencyMs: 0, errorCode: "NO_API_BASE_URL" };
-    const url = platform.apiBaseUrl + tool.endpoint;
+    const url = goc(platform.apiBaseUrl) + tool.endpoint;
     try {
       const r = await callWithTimeout(
         url,
@@ -89,7 +103,7 @@ const ManlabPlatformAdapter: PlatformAdapter = {
   async health(platform) {
     if (!platform.apiBaseUrl) return { ok: false, error: "NO_API_BASE_URL" };
     try {
-      const r = await callWithTimeout(platform.apiBaseUrl + "/api/kpi/summary", {}, 3000);
+      const r = await callWithTimeout(goc(platform.apiBaseUrl) + "/api/kpi/summary", {}, 3000);
       return { ok: r.status < 400, error: r.status >= 400 ? `HTTP ${r.status}` : null };
     } catch (e) {
       return { ok: false, error: e instanceof Error && e.name === "AbortError" ? "TIMEOUT" : String(e) };
@@ -307,8 +321,25 @@ const GeminiPlatformAdapter: PlatformAdapter = {
 //
 // Endpoint đọc từ AIPlatform.apiBaseUrl (một nguồn sự thật duy nhất cho endpoint — xem chú thích
 // tại AIProvider.platformId trong schema.prisma); khóa đọc từ biến môi trường như các adapter mô
-// hình khác, KHÔNG lấy từ AISecret vì bảng đó chỉ lưu maskedValue.
+// hình khác, KHÔNG lấy từ AISecret vì bảng đó chỉ lưu maskedValue. TÊN biến lấy từ
+// AIPlatform.apiKeyEnv của chính nền tảng đó, mặc định LOCAL_LLM_API_KEY khi bỏ trống.
 const LOCAL_LLM_ENV_KEY = "LOCAL_LLM_API_KEY";
+
+/**
+ * Đọc khoá API của một nền tảng. Mỗi nền tảng chỉ được một biến môi trường riêng qua
+ * AIPlatform.apiKeyEnv — cần thiết vì Viện có thể chạy nhiều máy chủ tương thích OpenAI với khoá
+ * khác nhau, mà adapter thì chỉ có một. Trả về mã lỗi thay vì khoá khi không đọc được — gọi ở cả
+ * health() và chat() để hai đường không lệch nhau.
+ *
+ * Tên biến được kiểm LẠI ở đây dù tầng hành động đã kiểm lúc ghi: dữ liệu cũ, seed, hoặc một
+ * đường ghi khác sau này đều có thể đưa vào giá trị chưa qua kiểm. Chốt cuối đặt ngay chỗ đọc.
+ */
+function docKhoaNenTang(platform: PlatformForAdapter): { key: string | null; error: string | null } {
+  const envName = platform.apiKeyEnv?.trim() || LOCAL_LLM_ENV_KEY;
+  if (!KEY_ENV_PATTERN.test(envName)) return { key: null, error: "INVALID_KEY_ENV" };
+  const key = process.env[envName];
+  return key ? { key, error: null } : { key: null, error: `NO_API_KEY:${envName}` };
+}
 // 30 s, không thử lại — theo ETV.GAI 01 §3.5. Đặt hằng riêng thay vì dùng lại hằng của Anthropic
 // để ngưỡng của máy chủ nội bộ đổi được độc lập với dịch vụ ngoài.
 const LOCAL_LLM_TIMEOUT_MS = 30_000;
@@ -324,10 +355,10 @@ const LocalOpenAIPlatformAdapter: PlatformAdapter = {
   },
   async health(platform) {
     if (!platform.apiBaseUrl) return { ok: false, error: "NO_API_BASE_URL" };
-    const key = process.env[LOCAL_LLM_ENV_KEY];
-    if (!key) return { ok: false, error: "NO_API_KEY" };
+    const { key, error } = docKhoaNenTang(platform);
+    if (!key) return { ok: false, error };
     try {
-      const r = await callWithTimeout(`${platform.apiBaseUrl}/models`, { headers: { authorization: `Bearer ${key}` } }, 5000);
+      const r = await callWithTimeout(`${goc(platform.apiBaseUrl)}/models`, { headers: { authorization: `Bearer ${key}` } }, 5000);
       return { ok: r.status < 400, error: r.status >= 400 ? `HTTP ${r.status}` : null };
     } catch (e) {
       return { ok: false, error: e instanceof Error && e.name === "AbortError" ? "TIMEOUT" : String(e) };
@@ -338,13 +369,13 @@ const LocalOpenAIPlatformAdapter: PlatformAdapter = {
     // Thiếu endpoint hoặc thiếu khóa thì dừng TRƯỚC khi phát HTTP — gọi mù ra mạng không giúp gì
     // mà còn làm nhiễu nhật ký truy cập của máy chủ.
     if (!platform.apiBaseUrl) return chatError("NO_API_BASE_URL", 0);
-    const key = process.env[LOCAL_LLM_ENV_KEY];
-    if (!key) return chatError("NO_API_KEY", 0);
+    const { key, error } = docKhoaNenTang(platform);
+    if (!key) return chatError(error ?? "NO_API_KEY", 0);
 
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), LOCAL_LLM_TIMEOUT_MS);
     try {
-      const res = await fetch(`${platform.apiBaseUrl}/chat/completions`, {
+      const res = await fetch(`${goc(platform.apiBaseUrl)}/chat/completions`, {
         method: "POST",
         headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
         body: JSON.stringify({
