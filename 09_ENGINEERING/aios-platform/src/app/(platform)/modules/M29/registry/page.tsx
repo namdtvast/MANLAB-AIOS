@@ -15,6 +15,7 @@ import { ADAPTER_TYPES } from "@/lib/m29/adapters";
 import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
+import { NewSkillForm } from "./NewSkillForm";
 import { ModelPricingForm } from "./ModelPricingForm";
 import { NewProviderForm } from "./NewProviderForm";
 import { NewModelForm } from "./NewModelForm";
@@ -214,6 +215,9 @@ export default async function M29RegistryPage() {
         </div>
         <div className="sm:col-span-2">
           <h2 className="mb-2 font-head text-sm font-bold text-ink">Skill</h2>
+          {canWriteRegistry && (
+            <NewSkillForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={skills.map((s) => s.code)} />
+          )}
           <div className="flex flex-wrap gap-2">
             {skills.map((s) => (
               <span key={s.id} className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent">
