@@ -8,7 +8,7 @@ export default async function M29AuditPage() {
   });
 
   return (
-    <div className="flex max-w-5xl flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <div>
         <p className="text-xs font-medium text-ink-3">M29 · Audit Log</p>
         <h1 className="font-head text-2xl font-bold text-ink">Nhật ký thay đổi cấu hình</h1>
