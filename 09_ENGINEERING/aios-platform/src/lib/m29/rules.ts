@@ -170,6 +170,89 @@ export function hasToolPermission(role: M29Role | null, tool: { permissionLevel:
   return (ROLE_RANK[role] ?? 0) >= (ROLE_RANK[minRole] ?? 99);
 }
 
+// ---------- Gán kỹ năng và công cụ cho tác tử (ETV.P29 mục 5.4.1, 5.8) ----------
+
+/**
+ * Thứ bậc 4 mức quyền hành động của ETV.P29 mục 5.1.4 (Đọc < Tính toán < Đề xuất < Thực thi).
+ *
+ * KHÔNG dùng lẫn với `ROLE_RANK`/`TOOL_MIN_ROLE`: hai bảng kia trả lời "vai trò nào được gọi công
+ * cụ này" và cố ý xếp Đề xuất ngang Thực thi (cùng cần AI_ADMIN). Bảng này trả lời "công cụ này
+ * cho tác tử làm được tới đâu" — Thực thi phải đứng trên Đề xuất, vì chỉ nó ghi được dữ liệu có
+ * hiệu lực nghiệp vụ.
+ */
+export const PERMISSION_RANK: Record<AIPermissionLevel, number> = {
+  READ: 1,
+  COMPUTE: 2,
+  PROPOSE: 3,
+  EXECUTE: 4,
+};
+
+export interface ToolChoCap {
+  id: string;
+  name: string;
+  status: AIOpStatus;
+  permissionLevel: AIPermissionLevel;
+}
+
+/** Mức quyền hành động cao nhất một whitelist cho phép. Whitelist rỗng ⇒ 0, tác tử không làm gì được. */
+export function mucQuyenCaoNhat(tools: { permissionLevel: AIPermissionLevel }[]): number {
+  return tools.reduce((max, t) => Math.max(max, PERMISSION_RANK[t.permissionLevel] ?? 0), 0);
+}
+
+export interface GanCongCuInput {
+  /** Lý do — chỉ bắt buộc ở nhánh nâng quyền (thay đổi lớn). */
+  lyDo: string;
+  /** Công cụ đang trong whitelist. */
+  truoc: ToolChoCap[];
+  /** Công cụ sau khi gán — danh sách ĐẦY ĐỦ, không phải phần thêm vào. */
+  sau: ToolChoCap[];
+}
+
+/**
+ * Điều kiện được đổi whitelist công cụ của tác tử.
+ *
+ * Chốt nghiệp vụ duy nhất ở đây: ETV.P29 mục 5.8 xếp "nâng mức quyền hành động" vào **thay đổi
+ * lớn** — phải lập lại AIA và đánh giá chất lượng, LĐV phê duyệt. Bỏ bớt công cụ hoặc thêm công
+ * cụ mức không cao hơn thì không chạm tới trần quyền của tác tử nên đi nhánh thay đổi nhỏ (ghi
+ * nhật ký là đủ, mục 5.4.1).
+ *
+ * Như `kiemTraDoiMoHinh`, hàm này KHÔNG quyết định hệ quả ghi CSDL (tạm dừng tác tử, gắn cờ AIA)
+ * — đó là việc của actions.ts; ở đây chỉ trả lời được đổi hay không và đổi thuộc loại nào.
+ */
+export function kiemTraGanCongCu(input: GanCongCuInput): TxResult {
+  const { lyDo, truoc, sau } = input;
+
+  const idTruoc = new Set(truoc.map((t) => t.id));
+  const idSau = new Set(sau.map((t) => t.id));
+  if (idTruoc.size === idSau.size && [...idSau].every((id) => idTruoc.has(id)))
+    return err("NO_CHANGE", "Danh sách công cụ không đổi.");
+
+  // Công cụ đang Vô hiệu hóa: cổng chặn ở bước (4) nên gán vào chỉ tạo whitelist ảo — danh sách
+  // trông như tác tử dùng được, thực tế mọi lời gọi đều hỏng. Chỉ chặn công cụ MỚI thêm: công cụ
+  // đã nằm sẵn trong whitelist rồi bị vô hiệu hóa sau đó là chuyện của vòng đời công cụ, không
+  // được biến thành lỗi khoá cứng màn hình này.
+  const themMoiHong = sau.find((t) => !idTruoc.has(t.id) && t.status !== "ACTIVE");
+  if (themMoiHong)
+    return err("TOOL_NOT_ACTIVE", `Công cụ "${themMoiHong.name}" không ở trạng thái Hoạt động — Tool Gateway sẽ chặn ngay tại cổng, gán vào whitelist không làm nó chạy được.`);
+
+  const mucTruoc = mucQuyenCaoNhat(truoc);
+  const mucSau = mucQuyenCaoNhat(sau);
+  const nangQuyen = mucSau > mucTruoc;
+
+  if (nangQuyen && lyDo.trim().length < 10)
+    return err(
+      "REASON_REQUIRED",
+      "Ghi lý do (tối thiểu 10 ký tự): thêm công cụ này nâng mức quyền hành động của tác tử — thay đổi lớn theo ETV.P29 mục 5.8, phải truy được về sau."
+    );
+
+  return ok(nangQuyen ? "SUSPENDED" : "UNCHANGED", nangQuyen ? "Nâng mức quyền công cụ" : "Đổi danh sách công cụ", lyDo.trim() || null, {
+    toolIds: sau.map((t) => t.id),
+    nangQuyen,
+    mucTruoc,
+    mucSau,
+  });
+}
+
 // ---------- Increment 4 — Phiếu sự cố AI (ETV.P29 mục 5.7.3, 6.3) ----------
 
 export interface IncidentForRules {

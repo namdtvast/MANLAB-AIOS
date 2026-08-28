@@ -53,6 +53,7 @@ export function suspendReasonLabel(reason: string | null): string {
   // KHÔNG viết "chờ AIA được phê duyệt": phê duyệt lại AIA cố ý KHÔNG tự mở lại tác tử ở nhánh
   // này (xem doiMoHinhTacTu), nên nhãn đó sẽ nói sai ngay khi AIA vừa được duyệt xong.
   if (reason === "MODEL_CHANGED") return "Vừa đổi mô hình — rà soát lại AIA và chạy lại bộ đánh giá trước khi mở lại";
+  if (reason === "TOOL_PERMISSION_RAISED") return "Vừa nâng mức quyền công cụ — rà soát lại AIA và chạy lại bộ đánh giá trước khi mở lại";
   if (reason.startsWith("INCIDENT:")) return `Khống chế sự cố ${reason.slice("INCIDENT:".length)}`;
   return reason;
 }

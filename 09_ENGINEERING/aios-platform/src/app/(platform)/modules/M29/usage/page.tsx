@@ -35,7 +35,7 @@ export default async function M29UsagePage() {
   rows.forEach((r) => r.agentId && agentCost.set(r.agentId, (agentCost.get(r.agentId) ?? 0) + r.costEstimate));
 
   return (
-    <div className="flex max-w-7xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <div>
         <p className="text-xs font-medium text-ink-3">M29 · FinOps AI · Tháng {range.from.toLocaleDateString("vi-VN", { month: "2-digit", year: "numeric" })}</p>
         <h1 className="font-head text-2xl font-bold text-ink">Sử dụng token và chi phí</h1>

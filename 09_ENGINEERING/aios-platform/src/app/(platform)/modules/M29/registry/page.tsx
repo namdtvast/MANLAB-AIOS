@@ -47,7 +47,7 @@ export default async function M29RegistryPage() {
   ]);
 
   return (
-    <div className="flex max-w-4xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <div>
         <p className="text-xs font-medium text-ink-3">M29 · Danh mục</p>
         <h1 className="font-head text-2xl font-bold text-ink">Provider · Model · Skill · Tool · Platform</h1>
