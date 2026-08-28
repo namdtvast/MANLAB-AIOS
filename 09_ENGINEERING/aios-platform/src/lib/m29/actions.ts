@@ -24,6 +24,7 @@ import {
   approvalTransitions,
   incidentTransitions,
   kiemTraDoiMoHinh,
+  kiemTraGanCongCu,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -33,7 +34,7 @@ import { callTool as gatewayCallTool } from "./gateway";
 import { deploymentGate, runCases } from "./evaluation";
 import { chuanHoaSoHoSo, kiemTraDatRanhGioi } from "./copilot/ranh-gioi";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
-import { sweepAiaReview, SUSPEND_REASON_AIA, SUSPEND_REASON_DOI_MO_HINH } from "./sweep";
+import { sweepAiaReview, SUSPEND_REASON_AIA, SUSPEND_REASON_DOI_MO_HINH, SUSPEND_REASON_NANG_QUYEN_CONG_CU } from "./sweep";
 import { ADAPTER_TYPES, getAdapter } from "./adapters";
 import { KEY_ENV_HINT, KEY_ENV_PATTERN } from "./khoa-api";
 import { APPROVAL_STATUS_LABEL } from "./labels";
@@ -341,14 +342,113 @@ export async function doiMoHinhTacTu(input: { agentId: string; platformId: strin
   };
 }
 
-export async function updateAgentToolsSkills(id: string, input: { skillIds?: string[]; toolIds?: string[] }) {
+/**
+ * Gán kỹ năng cho tác tử.
+ *
+ * Kỹ năng KHÔNG cấp quyền hành động — thứ quyết định tác tử làm được gì là whitelist công cụ. Nên
+ * đây luôn là **thay đổi nhỏ** theo ETV.P29 mục 5.8: làm ngay, ghi nhật ký (mục 5.4.1), không
+ * đụng tới trạng thái tác tử hay hồ sơ AIA.
+ */
+export async function ganKyNangTacTu(input: { agentId: string; skillIds: string[] }): Promise<TxResult> {
   const actor = await getActor();
-  if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
-  const before = await prisma.aIAgent.findUniqueOrThrow({ where: { id } });
-  const rec = await prisma.aIAgent.update({ where: { id }, data: input });
-  await logAudit(actor, "agents", id, { before: { skillIds: before.skillIds, toolIds: before.toolIds }, after: input, reason: "update" });
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+
+  const agent = await prisma.aIAgent.findUnique({ where: { id: input.agentId } });
+  if (!agent) return { ok: false, code: "AGENT_NOT_FOUND", message: "Không tìm thấy tác tử." };
+
+  // Bỏ trùng trước khi kiểm: form gửi lên mảng checkbox, một mã lặp lại sẽ làm phép đếm dưới đây
+  // báo "không tìm thấy" một cách khó hiểu.
+  const chonIds = [...new Set(input.skillIds)];
+  const skills = await prisma.aISkill.findMany({ where: { id: { in: chonIds } }, select: { id: true, code: true } });
+  if (skills.length !== chonIds.length) return { ok: false, code: "SKILL_NOT_FOUND", message: "Có kỹ năng không còn trong danh mục — tải lại trang rồi chọn lại." };
+
+  const truoc = agent.skillIds;
+  if (truoc.length === chonIds.length && chonIds.every((id) => truoc.includes(id)))
+    return { ok: false, code: "NO_CHANGE", message: "Danh sách kỹ năng không đổi." };
+
+  await prisma.aIAgent.update({ where: { id: agent.id }, data: { skillIds: chonIds } });
+  await logAudit(actor, "agents", agent.id, {
+    field: "skillIds",
+    before: truoc,
+    after: chonIds,
+    reason: `Gán kỹ năng cho tác tử (${skills.map((s) => s.code).join(", ") || "để trống"}) — ETV.P29 mục 5.4.1.`,
+  });
   revalidateM29();
-  return rec;
+  return { ok: true, status: "UNCHANGED", action: "Gán kỹ năng", reason: null, patch: { thongBao: "Đã cập nhật danh sách kỹ năng." } };
+}
+
+/**
+ * Gán công cụ (whitelist Tool Gateway) cho tác tử.
+ *
+ * Whitelist là chốt kiểm soát mạnh nhất của M29 — bước (5) của cổng đọc đúng trường này. Vì thế
+ * hành động này đi qua `kiemTraGanCongCu()` chứ không ghi thẳng: ETV.P29 mục 5.8 xếp "nâng mức
+ * quyền hành động" vào **thay đổi lớn**, và phần mềm không thay được người phê duyệt nhưng chặn
+ * được đường vòng — nâng quyền xong thì tác tử **tạm dừng** và AIA đang hiệu lực về **Cần rà soát
+ * lại**, y hệt nhánh đổi mô hình. Không nhánh nào bỏ qua bước này, kể cả SUPER_ADMIN.
+ *
+ * Cũng vì thế hàm KHÔNG tự gọi resumeAgent() sau khi nâng quyền.
+ */
+export async function ganCongCuTacTu(input: { agentId: string; toolIds: string[]; lyDo: string }): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+
+  const agent = await prisma.aIAgent.findUnique({ where: { id: input.agentId }, include: { aia: true } });
+  if (!agent) return { ok: false, code: "AGENT_NOT_FOUND", message: "Không tìm thấy tác tử." };
+
+  const chonIds = [...new Set(input.toolIds)];
+  const chon = await prisma.aITool.findMany({ where: { id: { in: chonIds } } });
+  if (chon.length !== chonIds.length) return { ok: false, code: "TOOL_NOT_FOUND", message: "Có công cụ không còn trong danh mục — tải lại trang rồi chọn lại." };
+  const dangCo = await prisma.aITool.findMany({ where: { id: { in: agent.toolIds } } });
+
+  const kiem = kiemTraGanCongCu({
+    lyDo: input.lyDo,
+    truoc: dangCo.map((t) => ({ id: t.id, name: t.name, status: t.status, permissionLevel: t.permissionLevel })),
+    sau: chon.map((t) => ({ id: t.id, name: t.name, status: t.status, permissionLevel: t.permissionLevel })),
+  });
+  if (!kiem.ok) return kiem;
+
+  const nangQuyen = Boolean(kiem.patch.nangQuyen);
+  await prisma.aIAgent.update({
+    where: { id: agent.id },
+    data: {
+      toolIds: chonIds,
+      ...(nangQuyen ? { status: "SUSPENDED" as AIOpStatus, suspendedReason: SUSPEND_REASON_NANG_QUYEN_CONG_CU, suspendedAt: new Date() } : {}),
+    },
+  });
+  await logAudit(actor, "agents", agent.id, {
+    field: "toolIds",
+    before: { toolIds: agent.toolIds, status: agent.status },
+    after: { toolIds: chonIds, status: nangQuyen ? "SUSPENDED" : agent.status },
+    reason: nangQuyen
+      ? `Nâng mức quyền hành động của tác tử (${dangCo.map((t) => t.code).join(", ") || "whitelist rỗng"} → ${chon.map((t) => t.code).join(", ")}) — thay đổi lớn theo ETV.P29 mục 5.8. Lý do: ${kiem.reason}`
+      : `Đổi whitelist công cụ (${dangCo.map((t) => t.code).join(", ") || "rỗng"} → ${chon.map((t) => t.code).join(", ") || "rỗng"}) — ETV.P29 mục 5.4.1.${kiem.reason ? ` Lý do: ${kiem.reason}` : ""}`,
+  });
+
+  // Chỉ nhánh nâng quyền mới đụng tới AIA: hồ sơ đang hiệu lực mô tả một tác tử có trần quyền
+  // thấp hơn, nên nó không còn chống lưng cho tác tử nữa (mục 5.1.3 — công cụ mức Thực thi kéo
+  // mức tác động lên Cao).
+  const aiaHieuLuc = nangQuyen ? agent.aia.filter((a) => a.status === "APPROVED") : [];
+  for (const aia of aiaHieuLuc) {
+    await prisma.aIImpactAssessment.update({ where: { id: aia.id }, data: { status: "REVIEW_REQUIRED" } });
+    await logAudit(actor, "aia", aia.id, {
+      field: "status",
+      before: "APPROVED",
+      after: "REVIEW_REQUIRED",
+      reason: `Tác tử được nâng mức quyền công cụ — AIA phải rà soát lại trước khi vận hành tiếp (ETV.P29 mục 5.8).`,
+    });
+  }
+
+  revalidateM29();
+  return {
+    ...kiem,
+    patch: {
+      ...kiem.patch,
+      thongBao: nangQuyen
+        ? "Đã đổi whitelist và nâng mức quyền. Tác tử đang TẠM DỪNG: rà soát lại AIA, chạy lại bộ đánh giá (F29.03) và trình phê duyệt trước khi cho chạy tiếp."
+        : "Đã cập nhật whitelist công cụ.",
+      aiaCanRaSoat: aiaHieuLuc.length,
+    },
+  };
 }
 
 // Tên biến môi trường chứa khoá API. Kiểm ở MỌI đường ghi (đăng ký mới và sửa sau này) chứ không

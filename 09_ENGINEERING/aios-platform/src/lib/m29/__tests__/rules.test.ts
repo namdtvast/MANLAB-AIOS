@@ -10,6 +10,7 @@ import {
   hasToolPermission,
   incidentTransitions,
   kiemTraDoiMoHinh,
+  kiemTraGanCongCu,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -357,6 +358,69 @@ describe("kiemTraDoiMoHinh", () => {
 
   it("đổi sang đúng thứ đang chạy thì không phải một thay đổi", () => {
     const r = kiemTraDoiMoHinh({ lyDo: LY_DO, agent: { platformId: "pf-moi", modelId: "md-moi" }, platform: PF, model: MD });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("NO_CHANGE");
+  });
+});
+
+// ---------- Gán công cụ cho tác tử (ETV.P29 mục 5.8, 5.4.1) ----------
+describe("kiemTraGanCongCu", () => {
+  const doc = { id: "t-doc", name: "Xem KPI", status: "ACTIVE" as const, permissionLevel: "READ" as const };
+  const tinh = { id: "t-tinh", name: "Tính z-score", status: "ACTIVE" as const, permissionLevel: "COMPUTE" as const };
+  const thucThi = { id: "t-thuchien", name: "Ghi phiếu KPH", status: "ACTIVE" as const, permissionLevel: "EXECUTE" as const };
+  const LY_DO = "Bổ sung công cụ ghi phiếu KPH theo quyết định đã phê duyệt";
+
+  it("thêm công cụ mức cao hơn là thay đổi lớn: bắt lý do và tạm dừng tác tử", () => {
+    const r = kiemTraGanCongCu({ lyDo: LY_DO, truoc: [doc], sau: [doc, thucThi] });
+    expect(r.ok).toBe(true);
+    // Tạm dừng nằm trong quy tắc, không phải tùy chọn của người bấm — ETV.P29 mục 5.8.
+    if (r.ok) {
+      expect(r.status).toBe("SUSPENDED");
+      expect(r.patch.nangQuyen).toBe(true);
+    }
+  });
+
+  it("nâng quyền mà không ghi lý do thì không cho", () => {
+    const r = kiemTraGanCongCu({ lyDo: "vì cần", truoc: [doc], sau: [doc, thucThi] });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("REASON_REQUIRED");
+  });
+
+  it("whitelist rỗng thêm công cụ đầu tiên cũng là nâng quyền", () => {
+    const r = kiemTraGanCongCu({ lyDo: LY_DO, truoc: [], sau: [doc] });
+    expect(r.ok).toBe(true);
+    if (r.ok) expect(r.patch.nangQuyen).toBe(true);
+  });
+
+  it("bỏ bớt công cụ là thay đổi nhỏ: không lý do, không tạm dừng", () => {
+    const r = kiemTraGanCongCu({ lyDo: "", truoc: [doc, thucThi], sau: [doc] });
+    expect(r.ok).toBe(true);
+    if (r.ok) {
+      expect(r.status).toBe("UNCHANGED");
+      expect(r.patch.nangQuyen).toBe(false);
+    }
+  });
+
+  it("thêm công cụ mức không cao hơn trần đang có là thay đổi nhỏ", () => {
+    const r = kiemTraGanCongCu({ lyDo: "", truoc: [thucThi], sau: [thucThi, tinh] });
+    expect(r.ok).toBe(true);
+    if (r.ok) expect(r.patch.nangQuyen).toBe(false);
+  });
+
+  it("không gán được công cụ đang vô hiệu hóa", () => {
+    const r = kiemTraGanCongCu({ lyDo: LY_DO, truoc: [doc], sau: [doc, { ...tinh, status: "DISABLED" }] });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.code).toBe("TOOL_NOT_ACTIVE");
+  });
+
+  it("công cụ đã nằm sẵn trong whitelist rồi bị vô hiệu hóa thì vẫn bỏ ra được", () => {
+    const hong = { ...tinh, status: "DISABLED" as const };
+    const r = kiemTraGanCongCu({ lyDo: "", truoc: [doc, hong], sau: [doc] });
+    expect(r.ok).toBe(true);
+  });
+
+  it("chọn lại đúng danh sách đang có thì không phải một thay đổi", () => {
+    const r = kiemTraGanCongCu({ lyDo: "", truoc: [doc, tinh], sau: [tinh, doc] });
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.code).toBe("NO_CHANGE");
   });
