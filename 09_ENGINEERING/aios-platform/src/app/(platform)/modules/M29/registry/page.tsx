@@ -1,7 +1,16 @@
 import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
-import { APPROVAL_STATUS_LABEL, APPROVAL_STATUS_TONE, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m29/labels";
+import {
+  APPROVAL_STATUS_LABEL,
+  APPROVAL_STATUS_TONE,
+  DATA_BOUNDARY_LABEL,
+  DATA_BOUNDARY_TONE,
+  OP_STATUS_LABEL,
+  PERMISSION_LEVEL_LABEL,
+  SECURITY_LEVEL_LABEL,
+} from "@/lib/m29/labels";
+import { mucBaoMatToiDa } from "@/lib/m29/copilot/muc-bao-mat";
 import { ADAPTER_TYPES } from "@/lib/m29/adapters";
 import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
@@ -10,6 +19,7 @@ import { ModelPricingForm } from "./ModelPricingForm";
 import { NewProviderForm } from "./NewProviderForm";
 import { NewModelForm } from "./NewModelForm";
 import { PlatformKeyEnvForm } from "./PlatformKeyEnvForm";
+import { DataBoundaryForm } from "./DataBoundaryForm";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -22,6 +32,9 @@ export default async function M29RegistryPage() {
   const role = await getM29Role();
   const canWritePlatform = can(role, "platforms", "write");
   const canWriteRegistry = can(role, "registry", "write");
+  // Nới/siết ranh giới dữ liệu là việc của quản trị an ninh AI, KHÔNG đi kèm quyền đăng ký nền
+  // tảng — ETV.P29 §5.5.
+  const canWriteGovernance = can(role, "governance", "write");
 
   const [platforms, providers, models, skills, tools] = await Promise.all([
     // Mới thao tác nhất lên đầu — xem chú thích cùng truy vấn ở trang Tổng quan M29.
@@ -44,13 +57,14 @@ export default async function M29RegistryPage() {
         <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
         {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[48rem] text-sm">
+          <table className="w-full min-w-[64rem] text-sm">
             <thead>
               <tr>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Mã</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Adapter</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Biến khoá API</th>
+                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Ranh giới dữ liệu</th>
                 <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Trạng thái</th>
                 {canWritePlatform && <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Thao tác</th>}
               </tr>
@@ -71,6 +85,18 @@ export default async function M29RegistryPage() {
                     ) : (
                       <span className="font-mono text-xs">{p.apiKeyEnv ?? "LOCAL_LLM_API_KEY"}</span>
                     )}
+                  </td>
+                  <td className="px-3 py-2">
+                    <div className="flex flex-col items-start gap-1">
+                      <span className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[DATA_BOUNDARY_TONE[p.dataBoundary]]}`}>
+                        {DATA_BOUNDARY_LABEL[p.dataBoundary]}
+                      </span>
+                      {/* Hệ quả thực tế của ranh giới, nói thẳng: đây mới là thứ người vận hành
+                          cần thấy — trần Công khai nghĩa là Copilot gần như không tra được gì. */}
+                      <span className="text-xs text-ink-3">Copilot đọc tới mức {SECURITY_LEVEL_LABEL[mucBaoMatToiDa(p.dataBoundary)]}</span>
+                      {p.dataBoundaryRef && <span className="text-xs text-ink-3">Hồ sơ {p.dataBoundaryRef}</span>}
+                      {canWriteGovernance && <DataBoundaryForm id={p.id} hienTai={p.dataBoundary} soHoSo={p.dataBoundaryRef} />}
+                    </div>
                   </td>
                   <td className="px-3 py-2">
                     <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[APPROVAL_STATUS_TONE[p.approvalStatus]]}`}>

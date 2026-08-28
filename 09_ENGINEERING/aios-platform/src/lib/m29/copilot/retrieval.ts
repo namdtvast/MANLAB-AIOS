@@ -9,27 +9,12 @@
 // TRẦN theo nhà cung cấp mô hình đang dùng (§5.5) — xem mucBaoMatToiDa().
 import { prisma } from "@/lib/prisma";
 import { tsQuery } from "./text";
+import { mucBaoMatToiDa } from "./muc-bao-mat";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
 
-export const INDEXABLE_LEVELS = ["Cong-khai", "Noi-bo"] as const;
-
-/**
- * TRẦN MỨC BẢO MẬT ĐƯỢC GỬI RA NGOÀI — ETV.P29 §5.5, suy từ RANH GIỚI DỮ LIỆU của chính nền tảng
- * đang phục vụ lượt hỏi, không phải từ một biến toàn cục.
- *
- * Vì sao theo từng nền tảng: một cấu hình có thể có nhiều nền tảng mô hình cùng lúc — mô hình tự
- * vận hành trong hạ tầng của Viện, và dịch vụ ngoài. Một trần toàn cục buộc phải chọn con số thấp
- * nhất cho tất cả (mô hình nội bộ mất tài liệu Nội bộ dù dữ liệu không hề rời Viện), hoặc nới cho
- * tất cả (tài liệu Nội bộ chảy ra dịch vụ ngoài). Cả hai đều sai.
- *
- * Ánh xạ thẳng từ §5.5, không suy diễn:
- *   không rời hạ tầng          → Nội bộ
- *   rời, CÓ cam kết (F29.02)   → Nội bộ
- *   rời, KHÔNG cam kết         → chỉ Công khai
- */
-export function mucBaoMatToiDa(ranhGioi: AIDataBoundary): (typeof INDEXABLE_LEVELS)[number] {
-  return ranhGioi === "NO_EXTERNAL_TRANSFER" || ranhGioi === "EXTERNAL_WITH_COMMITMENT" ? "Noi-bo" : "Cong-khai";
-}
+// Trần mức bảo mật ở "./muc-bao-mat" (module thuần, giao diện dùng chung) — re-export để nơi gọi
+// cũ không phải đổi đường dẫn import.
+export { INDEXABLE_LEVELS, mucBaoMatToiDa } from "./muc-bao-mat";
 
 /** Các mức được phép đưa vào ngữ cảnh, theo ranh giới dữ liệu của nền tảng. */
 export function mucDuocGui(ranhGioi: AIDataBoundary): string[] {
