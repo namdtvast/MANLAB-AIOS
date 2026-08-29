@@ -23,12 +23,16 @@ describe("maModuleTuDuongDan", () => {
 });
 
 describe("goiYTheoModule", () => {
+  // Chỉ mục thật của Copilot chỉ chứa tài liệu ĐÃ PHÊ DUYỆT — dựng đúng một tập như vậy để test
+  // phân biệt được "module khai docId" với "thủ tục đó tra cứu được".
+  const trongChiMuc = new Set(["ETV.P13", "ETV.P14"]);
+
   it("ngoài trang module thì dùng gợi ý chung", () => {
-    expect(goiYTheoModule(null)).toEqual(GOI_Y_CHUNG);
+    expect(goiYTheoModule(null, trongChiMuc)).toEqual(GOI_Y_CHUNG);
   });
 
   it("module có thủ tục đã ban hành: gợi ý bám mã thủ tục và tên thật", () => {
-    const g = goiYTheoModule({ code: "M13", name: "Kiểm soát công việc không phù hợp", docId: "ETV.P13" });
+    const g = goiYTheoModule({ code: "M13", name: "Kiểm soát công việc không phù hợp", docId: "ETV.P13" }, trongChiMuc);
     expect(g).toHaveLength(3);
     expect(g[0]).toContain("ETV.P13");
     expect(g[1]).toContain("Kiểm soát công việc không phù hợp");
@@ -36,9 +40,23 @@ describe("goiYTheoModule", () => {
   });
 
   it("module CHƯA ban hành thủ tục: không bịa ra mã thủ tục", () => {
-    const g = goiYTheoModule({ code: "M34", name: "Dữ liệu chủ", docId: null });
+    const g = goiYTheoModule({ code: "M34", name: "Dữ liệu chủ", docId: null }, trongChiMuc);
     expect(g.join(" ")).not.toMatch(/ETV\.P/);
     expect(g[0]).toContain("M34");
+  });
+
+  // Ca đã gây lỗi thật: M29 khai docId = ETV.P29, nhưng ETV.P29 đang ở trạng thái Cho-soat-xet nên
+  // script nạp chỉ mục bỏ qua. Gợi ý cũ mời hỏi "Thủ tục ETV.P29 quy định những gì?" và gateway
+  // trả về "Không tìm thấy căn cứ trong hệ thống tài liệu của Viện.".
+  it("module khai docId nhưng thủ tục KHÔNG có trong chỉ mục: không mời hỏi mã đó", () => {
+    const g = goiYTheoModule({ code: "M29", name: "Quản lý hệ thống trí tuệ nhân tạo", docId: "ETV.P29" }, trongChiMuc);
+    expect(g.join(" ")).not.toContain("ETV.P29");
+    expect(g[0]).toContain("M29");
+  });
+
+  it("chỉ mục rỗng thì không gợi ý câu nào bám mã thủ tục", () => {
+    const g = goiYTheoModule({ code: "M13", name: "Kiểm soát công việc không phù hợp", docId: "ETV.P13" }, new Set());
+    expect(g.join(" ")).not.toMatch(/ETV\.P/);
   });
 });
 

@@ -19,7 +19,8 @@ import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { normalize } from "../src/lib/m29/copilot/text";
+import { tachTuChoChiMuc } from "../src/lib/m29/copilot/text";
+import { maTaiLieuTuDuongDan } from "../src/lib/m29/copilot/goi-y";
 
 const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }) });
 
@@ -285,8 +286,14 @@ async function main() {
         approvalRef: status || "(lớp không yêu cầu phê duyệt)",
         ordinal: i,
         content: c.content,
-        searchTitle: normalize(`${title} ${c.heading}`),
-        searchText: normalize(c.content),
+        // MÃ TÀI LIỆU đứng ĐẦU searchTitle (hạng A) — không phải để đẹp, mà vì ts_rank KHÔNG
+        // tính độ hiếm của từ: "p13" và "quy" đóng góp như nhau nếu cùng hạng. Trước khi thêm
+        // dòng này, mã tài liệu chỉ nằm rải rác trong thân bài (hạng D, 0.05) — đo ngày
+        // 29/08/2026: chỉ 1 trong 13 đoạn của ETV.P13 mang "p13" ở hạng A. Hệ quả là câu hỏi
+        // "Thủ tục ETV.P13 quy định những gì?" bị ETV.P18 (giàu "quy"/"định") chiếm trọn 6 chỗ
+        // và không đoạn nào của chính ETV.P13 tới được prompt.
+        searchTitle: tachTuChoChiMuc(`${maTaiLieuTuDuongDan(relPath) ?? ""} ${title} ${c.heading}`),
+        searchText: tachTuChoChiMuc(c.content),
       });
     });
   }

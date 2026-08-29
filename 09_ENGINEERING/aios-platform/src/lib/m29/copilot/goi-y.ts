@@ -28,11 +28,18 @@ export function maModuleTuDuongDan(pathname: string | null): string | null {
 /**
  * Gợi ý theo module đang mở. Ba câu bám ba thứ người dùng hay cần nhất khi đứng trong một module:
  * thủ tục gốc, biểu mẫu phải dùng, và ai chịu trách nhiệm.
+ *
+ * `maTraCuuDuoc` là các mã tài liệu CÓ THẬT trong chỉ mục Copilot (xem chi-muc.ts). Tham số này
+ * BẮT BUỘC chứ không tùy chọn: chỉ cần một nơi gọi quên truyền là khay lại mời người dùng bấm
+ * câu hỏi mà gateway chắc chắn từ chối — đúng lỗi mà hàm này đang sửa. Khai báo docId trong danh
+ * mục module KHÔNG đồng nghĩa thủ tục đó tra cứu được: thủ tục chưa phê duyệt không vào chỉ mục.
  */
-export function goiYTheoModule(mod: ModuleGoiY | null | undefined): string[] {
+export function goiYTheoModule(mod: ModuleGoiY | null | undefined, maTraCuuDuoc: ReadonlySet<string>): string[] {
   if (!mod) return GOI_Y_CHUNG;
   const ten = mod.name.trim();
-  if (!mod.docId)
+  // Không tra được thủ tục thì KHÔNG nhắc mã thủ tục trong gợi ý. Ba câu thay thế đều nhắm vào
+  // Hub MP và đặc tả module — hai lớp không đòi trạng thái phê duyệt nên luôn có trong chỉ mục.
+  if (!mod.docId || !maTraCuuDuoc.has(mod.docId))
     return [
       `Module ${mod.code} số hóa thủ tục nào?`,
       `${ten} gồm những nội dung gì?`,

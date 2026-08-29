@@ -4,7 +4,7 @@
 // Lỗi khu trú (spec §12): mọi lời gọi đều nằm trong try/catch và mọi nhánh từ chối của gateway
 // đều trả về một tin nhắn bình thường. Copilot hỏng hoặc hết hạn mức KHÔNG được làm hỏng trang
 // người dùng đang mở — vì vậy component này không ném lỗi ra ngoài và không chặn render.
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { usePathname } from "next/navigation";
 import { askCopilot } from "@/lib/m29/copilot/actions";
 import { goiYTheoModule, goiYTiepTheo, maModuleTuDuongDan, type ModuleGoiY } from "@/lib/m29/copilot/goi-y";
@@ -60,7 +60,7 @@ function ChipGoiY({ text, onPick, disabled }: { text: string; onPick: (t: string
   );
 }
 
-export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
+export function CopilotDrawer({ modules, maTraCuuDuoc }: { modules: ModuleGoiY[]; maTraCuuDuoc: string[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [threadId, setThreadId] = useState<string | null>(null);
@@ -97,7 +97,13 @@ export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
 
   const maModule = maModuleTuDuongDan(pathname);
   const moduleHienTai = maModule ? (modules.find((m) => m.code === maModule) ?? null) : null;
-  const goiYMoDau = goiYTheoModule(moduleHienTai);
+  // Truyền mảng qua ranh giới server→client (Set không phải kiểu prop an toàn để tuần tự hóa),
+  // dựng Set một lần ở đây thay vì tra tuyến tính mỗi lần đổi trang.
+  const tapTraCuuDuoc = useMemo(() => new Set(maTraCuuDuoc), [maTraCuuDuoc]);
+  const goiYMoDau = goiYTheoModule(moduleHienTai, tapTraCuuDuoc);
+  // Câu dẫn nhập cũng đang mời hỏi về mã thủ tục — nêu mã không tra được là hứa hẹn y hệt chip
+  // gợi ý, nên áp cùng một điều kiện.
+  const docIdTraCuuDuoc = moduleHienTai?.docId && tapTraCuuDuoc.has(moduleHienTai.docId) ? moduleHienTai.docId : null;
 
   // Gợi ý tiếp theo sinh từ nguồn mà câu trả lời CUỐI CÙNG đã dẫn — chỉ hiện khi không đang chờ.
   const cuoi = messages[messages.length - 1];
@@ -169,7 +175,7 @@ export function CopilotDrawer({ modules }: { modules: ModuleGoiY[] }) {
           <div className="space-y-2">
             <p className="text-xs text-ink-2">
               {moduleHienTai
-                ? `Hỏi về ${moduleHienTai.name}${moduleHienTai.docId ? ` (${moduleHienTai.docId})` : ""}, biểu mẫu hoặc module khác. Câu trả lời luôn kèm đường dẫn tài liệu gốc.`
+                ? `Hỏi về ${moduleHienTai.name}${docIdTraCuuDuoc ? ` (${docIdTraCuuDuoc})` : ""}, biểu mẫu hoặc module khác. Câu trả lời luôn kèm đường dẫn tài liệu gốc.`
                 : "Hỏi về thủ tục ETV.Pxx, biểu mẫu, tiêu chuẩn hoặc module. Câu trả lời luôn kèm đường dẫn tài liệu gốc."}
             </p>
             {goiYMoDau.map((g) => (

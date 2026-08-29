@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { CopilotDrawer } from "@/components/CopilotDrawer";
 import { AccountSwitcher } from "@/components/AccountSwitcher";
 import { copilotAvailable } from "@/lib/m29/copilot/availability";
+import { maTaiLieuTraCuuDuoc } from "@/lib/m29/copilot/chi-muc";
 import { danhSachTaiKhoanDemo, duocDoiTaiKhoan } from "@/lib/doi-tai-khoan";
 
 function initials(label: string) {
@@ -28,12 +29,13 @@ export default async function PlatformLayout({
   // Bộ chuyển tài khoản chỉ dựng khi phiên hiện tại thật sự được phép đổi (cần gạt
   // DEMO_ACCOUNT_SWITCH + cờ demoAccount) — xem src/lib/doi-tai-khoan.ts. Môi trường thật
   // không đặt cần gạt thì danh sách rỗng và header giữ nguyên khối danh tính tĩnh như cũ.
-  const [modules, pendingAccessRequests, showCopilot, doiDuoc, taiKhoanDemo] = await Promise.all([
+  const [modules, pendingAccessRequests, showCopilot, doiDuoc, taiKhoanDemo, maTraCuuDuoc] = await Promise.all([
     prisma.platformModule.findMany({ orderBy: { order: "asc" } }),
     isAdmin ? prisma.accessRequest.count({ where: { status: "PENDING" } }) : Promise.resolve(0),
     copilotAvailable(),
     duocDoiTaiKhoan(session?.user?.id),
     danhSachTaiKhoanDemo(),
+    maTaiLieuTraCuuDuoc(),
   ]);
   const displayName = session?.user?.name ?? session?.user?.email ?? "";
 
@@ -95,8 +97,13 @@ export default async function PlatformLayout({
         <main className="flex-1 overflow-y-auto p-4 sm:p-6">{children}</main>
       </div>
       {/* Gợi ý câu hỏi bám dữ liệu module thật (PlatformModule, seed từ manifest.yaml) — không
-          viết cứng 38 × 3 câu ở giao diện. Chỉ truyền 3 trường cần dùng, không truyền cả bản ghi. */}
-      {showCopilot && <CopilotDrawer modules={modules.map((m) => ({ code: m.code, name: m.name, docId: m.docId }))} />}
+          viết cứng 38 × 3 câu ở giao diện. Chỉ truyền 3 trường cần dùng, không truyền cả bản ghi.
+          maTraCuuDuoc lọc tiếp phần gợi ý bám mã thủ tục theo chỉ mục Copilot: module khai docId
+          trỏ tới thủ tục chưa phê duyệt thì thủ tục đó không có trong chỉ mục, mời hỏi là mời vào
+          một lượt chắc chắn bị từ chối (xem chi-muc.ts). */}
+      {showCopilot && (
+        <CopilotDrawer modules={modules.map((m) => ({ code: m.code, name: m.name, docId: m.docId }))} maTraCuuDuoc={maTraCuuDuoc} />
+      )}
     </div>
   );
 }
