@@ -35,6 +35,7 @@ steps:
   - role: "Vận hành"
     action: "Theo dõi nhật ký gọi AI và tổng hợp token, chi phí theo tháng"
     path: "/modules/M29/traces"
+    note: "Cột Kết quả là chỗ đọc trước tiên: Đạt là lượt trả lời trọn vẹn, Bị chặn là guardrail hoặc cấu hình quản trị chặn lại, Lỗi gọi mô hình là không gọi được máy chủ mô hình (mã lỗi ghi ngay dưới huy hiệu). Bấm thẻ chỉ số ở đầu trang để chỉ xem một nhóm. Lượt bị chặn vẫn tiêu token và vẫn có độ trễ nên không thể phân biệt bằng hai cột đó. Nhật ký gọi AI chỉ mở cho Vận hành, Kiểm toán AI và Quản trị hệ thống; Quản trị AI và Quản trị bảo mật AI không đọc được."
   - role: "Bất kỳ ai phát hiện"
     action: "Lập phiếu sự cố AI, chuyển Đang xử lý, trình xác nhận rồi đóng phiếu"
     path: "/modules/M29/incidents/new"

@@ -212,8 +212,13 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   Khoá hiện có là bậc **miễn phí**, không bảo đảm điều khoản không huấn luyện lại, nên theo
   ETV.P29 §5.5 chỉ được gửi mức **Công khai**: chỉ mục dùng được co từ 1.865 xuống **12 đoạn**.
 - ❌ **Chưa làm**: rà mức bảo mật 84 SOP `03_MANAGEMENT_SYSTEM/03_M` để đưa vào chỉ mục (và bổ sung
-  câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); trang Trace chưa hiện cột
-  `guardrailResult`; chưa có UI chạy đánh giá.
+  câu hỏi vàng cho lớp này); phát trả lời theo luồng (streaming); chưa có UI chạy đánh giá.
+- ✅ **Trang Trace hiện cột `guardrailResult`** (2026-08-29): bảng thay danh sách thẻ, mỗi lượt gọi
+  một dòng với kết quả phân thành ba nhóm Đạt / Bị chặn / Lỗi gọi mô hình, thẻ chỉ số bấm được để
+  lọc. Cột này quyết định đọc được hay không đọc được nhật ký: một lượt bị guardrail chặn vẫn tiêu
+  token và vẫn có độ trễ, nên nếu chỉ nhìn token/latency thì nó trông y hệt một lượt trả lời thành
+  công. Cùng lúc, hai trang `traces` và `audit` được bổ sung chốt phân quyền theo mục 4 — trước đó
+  là hai trang M29 duy nhất render thẳng không kiểm `can()`.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ

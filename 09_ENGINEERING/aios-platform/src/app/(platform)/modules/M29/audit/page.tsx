@@ -1,6 +1,14 @@
 import { prisma } from "@/lib/prisma";
+import { getM29Role } from "@/lib/m29/actor";
+import { can } from "@/lib/m29/model";
 
 export default async function M29AuditPage() {
+  const role = await getM29Role();
+  // DacTa.md M29 mục 4, cột Audit: chỉ AI_AUDITOR và SUPER_ADMIN được đọc.
+  if (!can(role, "audit")) {
+    return <div className="rounded-xl border border-crit/30 bg-crit-soft p-4 text-sm text-crit">Bạn không có quyền xem nhật ký thay đổi cấu hình.</div>;
+  }
+
   const entries = await prisma.aIAuditLog.findMany({
     orderBy: { at: "desc" },
     take: 200,

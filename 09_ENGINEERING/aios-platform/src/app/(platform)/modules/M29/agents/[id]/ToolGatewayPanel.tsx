@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { callToolAction } from "@/lib/m29/actions";
-import type { M29Role } from "@/lib/m29/model";
+import { can, type M29Role } from "@/lib/m29/model";
 import type { AITool } from "@/generated/prisma/client";
 
 const btn = "cursor-pointer rounded-lg bg-accent px-3 py-1.5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50";
@@ -58,9 +58,12 @@ export function ToolGatewayPanel({ agentId, tools, m29Role }: { agentId: string;
             <>
               {/* Bằng chứng công cụ chạy thật nằm ở nhật ký, không nằm ở dòng thông báo này. */}
               Thành công — trace <span className="font-mono">{result.traceId}</span>.{" "}
-              <Link href="/modules/M29/traces" className="underline">
-                Xem trong nhật ký gọi AI
-              </Link>
+              {/* Gọi Tool được không kéo theo quyền đọc nhật ký: AI_ADMIN có cái trước, không có cái sau. */}
+              {can(m29Role, "traces") && (
+                <Link href="/modules/M29/traces" className="underline">
+                  Xem trong nhật ký gọi AI
+                </Link>
+              )}
             </>
           ) : (
             result.message
