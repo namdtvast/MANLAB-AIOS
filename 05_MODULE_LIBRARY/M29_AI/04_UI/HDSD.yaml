@@ -35,7 +35,7 @@ steps:
   - role: "Vận hành"
     action: "Theo dõi nhật ký gọi AI và tổng hợp token, chi phí theo tháng"
     path: "/modules/M29/traces"
-    note: "Cột Kết quả là chỗ đọc trước tiên: Đạt là lượt trả lời trọn vẹn, Bị chặn là guardrail hoặc cấu hình quản trị chặn lại, Lỗi gọi mô hình là không gọi được máy chủ mô hình (mã lỗi ghi ngay dưới huy hiệu). Bấm thẻ chỉ số ở đầu trang để chỉ xem một nhóm. Lượt bị chặn vẫn tiêu token và vẫn có độ trễ nên không thể phân biệt bằng hai cột đó. Nhật ký gọi AI chỉ mở cho Vận hành, Kiểm toán AI và Quản trị hệ thống; Quản trị AI và Quản trị bảo mật AI không đọc được."
+    note: "Cột Kết quả là chỗ đọc trước tiên: Đạt là lượt trả lời trọn vẹn, Bị chặn là guardrail hoặc cấu hình quản trị chặn lại, Lỗi gọi mô hình là không gọi được máy chủ mô hình (mã lỗi ghi ngay dưới huy hiệu). Bấm thẻ chỉ số ở đầu trang để chỉ xem một nhóm. Lượt bị chặn vẫn tiêu token và vẫn có độ trễ nên không thể phân biệt bằng hai cột đó. Nhật ký gọi AI chỉ mở cho Vận hành, Kiểm toán AI và Quản trị hệ thống; Quản trị AI và Quản trị bảo mật AI không đọc được. Bảng chia 10 lượt mỗi trang, chân bảng ghi số dòng đang xem trên tổng số; thanh lọc theo khoảng ngày, tài khoản gọi và nội dung (tên tác tử, mô hình, công cụ, mã trace). Thẻ chỉ số đếm trong phạm vi thanh lọc, không phải chỉ trang đang xem — bấm Bỏ lọc nhóm để về tất cả kết quả mà vẫn giữ nguyên khoảng ngày và tài khoản đang lọc."
   - role: "Bất kỳ ai phát hiện"
     action: "Lập phiếu sự cố AI, chuyển Đang xử lý, trình xác nhận rồi đóng phiếu"
     path: "/modules/M29/incidents/new"
@@ -46,6 +46,7 @@ steps:
   - role: "Kiểm toán AI"
     action: "Rà soát danh sách AI chưa đăng ký và nhật ký thay đổi cấu hình"
     path: "/modules/M29/unregistered"
+    note: "Nhật ký thay đổi cấu hình ở /modules/M29/audit là bảng chỉ-thêm: 10 dòng mỗi trang, chân bảng ghi số dòng đang xem trên tổng số, lọc theo khoảng ngày, tài khoản thực hiện và nội dung (đối tượng, trường, lý do). Không có nút sửa hay xoá — sai sót được đính chính bằng một thao tác mới có ghi lý do, không bằng cách sửa dòng cũ."
 
 tips:
   - "AI không bao giờ được tự ra kết luận đo lường cuối cùng hoặc tự phê duyệt chứng chỉ, kết quả — mọi kết luận vẫn do người có thẩm quyền ký."
