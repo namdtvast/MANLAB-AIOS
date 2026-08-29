@@ -190,6 +190,21 @@ export const PERMISSION_LEVEL_LABEL: Record<string, string> = {
   EXECUTE: "Thực thi",
 };
 
+// Mức rủi ro của Skill và Tool. AISkill.riskLevel/AITool.riskLevel là String tự do ở lược đồ, nên
+// tra không trúng thì trả về chính giá trị thô thay vì để trống — bản ghi cũ hoặc sinh bằng SQL
+// vẫn phải đọc được trên bảng.
+export const RISK_LEVEL_LABEL: Record<string, string> = {
+  LOW: "Thấp",
+  MEDIUM: "Trung bình",
+  HIGH: "Cao",
+};
+
+export const RISK_LEVEL_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  LOW: "good",
+  MEDIUM: "warn",
+  HIGH: "crit",
+};
+
 export const GUARDRAIL_ACTION_LABEL: Record<string, string> = {
   BLOCK: "Chặn",
   WARN: "Cảnh báo",

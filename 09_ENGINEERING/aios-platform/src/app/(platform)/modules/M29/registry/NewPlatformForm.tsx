@@ -31,7 +31,7 @@ export function NewPlatformForm({ adapterTypes, existingCodes }: { adapterTypes:
 
   return (
     <details className="mb-3 rounded-xl border border-border bg-surface">
-      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-ink marker:content-none">+ Đăng ký nền tảng mới</summary>
+      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-accent marker:content-none">+ Đăng ký nền tảng mới</summary>
 
       <form
         ref={formRef}
