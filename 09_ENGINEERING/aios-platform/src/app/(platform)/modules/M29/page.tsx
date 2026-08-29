@@ -181,9 +181,11 @@ export default async function M29OverviewPage() {
         <Link href="/modules/M29/registry" className="text-accent hover:underline">
           Danh mục Provider/Model/Skill/Tool →
         </Link>
-        <Link href="/modules/M29/traces" className="text-accent hover:underline">
-          Trace (nhật ký gọi AI) →
-        </Link>
+        {can(role, "traces") && (
+          <Link href="/modules/M29/traces" className="text-accent hover:underline">
+            Trace (nhật ký gọi AI) →
+          </Link>
+        )}
         {can(role, "usage") && (
           <Link href="/modules/M29/usage" className="text-accent hover:underline">
             Token & chi phí →
@@ -195,9 +197,11 @@ export default async function M29OverviewPage() {
         <Link href="/modules/M29/unregistered" className="text-accent hover:underline">
           AI chưa đăng ký →
         </Link>
-        <Link href="/modules/M29/audit" className="text-accent hover:underline">
-          Audit Log →
-        </Link>
+        {can(role, "audit") && (
+          <Link href="/modules/M29/audit" className="text-accent hover:underline">
+            Audit Log →
+          </Link>
+        )}
       </div>
     </div>
   );

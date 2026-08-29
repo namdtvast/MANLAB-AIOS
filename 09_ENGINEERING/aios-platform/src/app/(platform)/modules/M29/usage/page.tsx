@@ -96,7 +96,7 @@ export default async function M29UsagePage() {
           </table>
         </div>
       </section>
-      <div className="flex flex-wrap gap-4 text-sm"><Link href="/modules/M29" className="text-accent hover:underline">← Tổng quan M29</Link><Link href="/modules/M29/registry" className="text-accent hover:underline">Bảng giá Model →</Link><Link href="/modules/M29/traces" className="text-accent hover:underline">Trace chi tiết →</Link></div>
+      <div className="flex flex-wrap gap-4 text-sm"><Link href="/modules/M29" className="text-accent hover:underline">← Tổng quan M29</Link><Link href="/modules/M29/registry" className="text-accent hover:underline">Bảng giá Model →</Link>{can(role, "traces") && <Link href="/modules/M29/traces" className="text-accent hover:underline">Trace chi tiết →</Link>}</div>
     </div>
   );
 }
