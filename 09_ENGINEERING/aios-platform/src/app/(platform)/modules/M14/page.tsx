@@ -1,9 +1,11 @@
 import Link from "next/link";
+import type { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { getM14Role } from "@/lib/m14/actor";
 import { DOC_STATUS_LABEL, DOC_TYPE_LABEL, M14_ROLE_LABEL } from "@/lib/m14/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
 import { StatCard } from "@/components/StatCard";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -30,35 +32,38 @@ const LOC_LABEL: Record<string, string> = {
   "goi-y": "Có gợi ý AI chờ áp dụng",
 };
 
-export default async function M14ListPage({ searchParams }: { searchParams: Promise<{ loc?: string }> }) {
-  const { loc } = await searchParams;
-  const [docs, role, openSuggestions] = await Promise.all([
-    prisma.m14Document.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { createdBy: true, supersedes: true },
-    }),
-    getM14Role(),
-    // Lấy documentId chứ không chỉ đếm: thẻ "Gợi ý AI chờ áp dụng" phải lọc được ra
-    // đúng những văn bản đang có gợi ý treo.
-    prisma.m14AiSuggestion.findMany({ where: { appliedAt: null }, select: { documentId: true } }),
-  ]);
+// Điều kiện lọc ở TẦNG DB, không lọc sau khi lấy: 10 dòng của một trang phải là 10 dòng của đúng
+// nhóm đang xem. Nhóm "goi-y" lọc theo quan hệ (`some`) thay vì dựng Set documentId ở bộ nhớ —
+// cùng một kết quả nhưng không phải kéo toàn bộ gợi ý về máy chủ ứng dụng.
+const WHERE: Record<string, Prisma.M14DocumentWhereInput> = {
+  "hieu-luc": { status: "DA_PHE_DUYET" },
+  "cho-xu-ly": { status: { in: ["CHO_SOAT_XET", "CHO_PHE_DUYET"] } },
+  "goi-y": { suggestions: { some: { appliedAt: null } } },
+};
 
-  const pendingSuggestions = openSuggestions.length;
-  const docsWithSuggestion = new Set(openSuggestions.map((s) => s.documentId));
-
-  const effective = docs.filter((d) => d.status === "DA_PHE_DUYET").length;
-  const inFlight = docs.filter((d) => ["CHO_SOAT_XET", "CHO_PHE_DUYET"].includes(d.status)).length;
-
+export default async function M14ListPage({ searchParams }: { searchParams: Promise<{ loc?: string; trang?: string }> }) {
+  const { loc, trang: trangRaw } = await searchParams;
   // Bộ lọc nông từ thẻ chỉ số — bấm vào con số thì thấy đúng những văn bản làm nên con số đó.
   const filter = loc && LOC_LABEL[loc] ? loc : null;
-  const listed =
-    filter === "hieu-luc"
-      ? docs.filter((d) => d.status === "DA_PHE_DUYET")
-      : filter === "cho-xu-ly"
-        ? docs.filter((d) => ["CHO_SOAT_XET", "CHO_PHE_DUYET"].includes(d.status))
-        : filter === "goi-y"
-          ? docs.filter((d) => docsWithSuggestion.has(d.id))
-          : docs;
+  const where = filter ? WHERE[filter] : undefined;
+
+  const [tongAll, effective, inFlight, pendingSuggestions, tong, role] = await Promise.all([
+    prisma.m14Document.count(),
+    prisma.m14Document.count({ where: WHERE["hieu-luc"] }),
+    prisma.m14Document.count({ where: WHERE["cho-xu-ly"] }),
+    // Thẻ này đếm SỐ GỢI Ý còn treo, không phải số văn bản có gợi ý — giữ đúng con số cũ.
+    prisma.m14AiSuggestion.count({ where: { appliedAt: null } }),
+    prisma.m14Document.count({ where }),
+    getM14Role(),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
+  const listed = await prisma.m14Document.findMany({
+    where,
+    orderBy: { createdAt: "desc" },
+    include: { createdBy: true, supersedes: true },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -82,7 +87,7 @@ export default async function M14ListPage({ searchParams }: { searchParams: Prom
           href="/modules/M14?loc=cho-xu-ly#so-dang-ky"
         />
         <StatCard label="Gợi ý AI chờ áp dụng" value={pendingSuggestions} href="/modules/M14?loc=goi-y#so-dang-ky" />
-        <StatCard label="Tổng văn bản" value={docs.length} href="/modules/M14#so-dang-ky" />
+        <StatCard label="Tổng văn bản" value={tongAll} href="/modules/M14#so-dang-ky" />
       </div>
 
       <section id="so-dang-ky" className="flex scroll-mt-24 flex-col gap-2">
@@ -95,7 +100,7 @@ export default async function M14ListPage({ searchParams }: { searchParams: Prom
 
         {filter && (
           <p className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
-            Đang lọc: <strong className="text-ink">{LOC_LABEL[filter]}</strong> ({listed.length}/{docs.length} văn bản)
+            Đang lọc: <strong className="text-ink">{LOC_LABEL[filter]}</strong> ({tong}/{tongAll} văn bản)
             <Link href="/modules/M14#so-dang-ky" className="font-medium text-accent hover:underline">
               Bỏ lọc
             </Link>
@@ -142,6 +147,7 @@ export default async function M14ListPage({ searchParams }: { searchParams: Prom
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M14" query={{ loc: filter ?? undefined }} neo="#so-dang-ky" trang={trang} tong={tong} donVi="văn bản" />
         </div>
       </section>
     </div>

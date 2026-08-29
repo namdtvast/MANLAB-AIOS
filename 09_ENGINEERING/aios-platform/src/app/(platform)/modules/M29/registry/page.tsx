@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import {
@@ -84,7 +85,10 @@ function Section({
   );
 }
 
-export default async function M29RegistryPage() {
+type Trang = { trang?: string; trangPv?: string; trangMd?: string; trangTl?: string; trangSk?: string };
+
+export default async function M29RegistryPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
   const role = await getM29Role();
   const canWritePlatform = can(role, "platforms", "write");
   const canWriteRegistry = can(role, "registry", "write");
@@ -92,22 +96,42 @@ export default async function M29RegistryPage() {
   // tảng — ETV.P29 §5.5.
   const canWriteGovernance = can(role, "governance", "write");
 
-  const [platforms, providers, models, skills, tools] = await Promise.all([
+  const [tongPl, tongPv, tongMd, tongTl, tongSk] = await Promise.all([
+    prisma.aIPlatform.count(),
+    prisma.aIProvider.count(),
+    prisma.aIModel.count(),
+    prisma.aITool.count(),
+    prisma.aISkill.count(),
+  ]);
+  const trangPl = chotTrang(query.trang, tongPl);
+  const trangPv = chotTrang(query.trangPv, tongPv);
+  const trangMd = chotTrang(query.trangMd, tongMd);
+  const trangTl = chotTrang(query.trangTl, tongTl);
+  const trangSk = chotTrang(query.trangSk, tongSk);
+
+  const [platforms, providers, models, skills, tools, dsPlatform, dsProvider, maProvider, maSkill] = await Promise.all([
     // Mới thao tác nhất lên đầu — xem chú thích cùng truy vấn ở trang Tổng quan M29.
-    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" } }),
+    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" }, skip: boQua(trangPl), take: KICH_THUOC_TRANG }),
     // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
-    prisma.aIProvider.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true } }),
-    prisma.aIModel.findMany({ orderBy: { updatedAt: "desc" }, include: { provider: true } }),
-    prisma.aISkill.findMany({ orderBy: { code: "asc" } }),
-    prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true } }),
+    prisma.aIProvider.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true }, skip: boQua(trangPv), take: KICH_THUOC_TRANG }),
+    prisma.aIModel.findMany({ orderBy: { updatedAt: "desc" }, include: { provider: true }, skip: boQua(trangMd), take: KICH_THUOC_TRANG }),
+    prisma.aISkill.findMany({ orderBy: { code: "asc" }, skip: boQua(trangSk), take: KICH_THUOC_TRANG }),
+    prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true }, skip: boQua(trangTl), take: KICH_THUOC_TRANG }),
+    // Danh sách cho ô chọn và cho kiểm tra trùng mã của các biểu mẫu thêm mới: phải là TOÀN BỘ sổ,
+    // không phải trang đang xem — nếu lấy theo trang thì đứng ở trang 2 sẽ không chọn được nền tảng
+    // nằm ở trang 1, còn kiểm tra trùng mã thì bỏ lọt.
+    prisma.aIPlatform.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true, approvalStatus: true } }),
+    prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true } }),
+    prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
+    prisma.aISkill.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
   ]);
 
   const mucLuc: [string, string, number][] = [
-    ["platform", "Platform", platforms.length],
-    ["provider", "Provider", providers.length],
-    ["model", "Model", models.length],
-    ["tool", "Tool", tools.length],
-    ["skill", "Skill", skills.length],
+    ["platform", "Platform", tongPl],
+    ["provider", "Provider", tongPv],
+    ["model", "Model", tongMd],
+    ["tool", "Tool", tongTl],
+    ["skill", "Skill", tongSk],
   ];
 
   return (
@@ -139,7 +163,7 @@ export default async function M29RegistryPage() {
         n={1}
         id="platform"
         title="Platform — Nền tảng"
-        count={platforms.length}
+        count={tongPl}
         desc="Nơi duy nhất giữ địa chỉ API, tên biến chứa khoá, ranh giới dữ liệu và trạng thái sức khoẻ. Mọi sổ bên dưới đều quy về đây."
       >
         {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
@@ -199,6 +223,7 @@ export default async function M29RegistryPage() {
               {platforms.length === 0 && <EmptyRow cols={5}>Chưa đăng ký nền tảng nào. Đây là bước đầu tiên — các sổ bên dưới đều cần một nền tảng.</EmptyRow>}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#platform" trang={trangPl} tong={tongPl} donVi="nền tảng" />
         </div>
       </Section>
 
@@ -206,11 +231,11 @@ export default async function M29RegistryPage() {
         n={2}
         id="provider"
         title="Provider — Nhà cung cấp mô hình"
-        count={providers.length}
+        count={tongPv}
         desc="Đơn vị cung cấp mô hình. Nhà cung cấp tự vận hành phải gắn một nền tảng; dịch vụ ngoài Viện để trống là bình thường."
       >
         {canWriteRegistry && (
-          <NewProviderForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={providers.map((p) => p.code)} />
+          <NewProviderForm platforms={dsPlatform.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={maProvider.map((p) => p.code)} />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
@@ -240,6 +265,7 @@ export default async function M29RegistryPage() {
               {providers.length === 0 && <EmptyRow cols={4}>Chưa có nhà cung cấp nào.</EmptyRow>}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#provider" tenTham="trangPv" trang={trangPv} tong={tongPv} donVi="nhà cung cấp" />
         </div>
       </Section>
 
@@ -247,10 +273,10 @@ export default async function M29RegistryPage() {
         n={3}
         id="model"
         title="Model — Mô hình và bảng giá token"
-        count={models.length}
+        count={tongMd}
         desc="Mô hình cụ thể của một nhà cung cấp. Mã model phải trùng đúng tên máy chủ phơi ra; đơn giá dùng để quy đổi chi phí mỗi lượt gọi."
       >
-        {canWriteRegistry && <NewModelForm providers={providers.map((p) => ({ id: p.id, code: p.code, name: p.name }))} />}
+        {canWriteRegistry && <NewModelForm providers={dsProvider} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[44rem] text-sm">
             <thead>
@@ -289,6 +315,7 @@ export default async function M29RegistryPage() {
               {models.length === 0 && <EmptyRow cols={canWriteRegistry ? 5 : 4}>Chưa có Model nào để thiết lập bảng giá.</EmptyRow>}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#model" tenTham="trangMd" trang={trangMd} tong={tongMd} donVi="model" />
         </div>
       </Section>
 
@@ -296,14 +323,14 @@ export default async function M29RegistryPage() {
         n={4}
         id="tool"
         title="Tool — Công cụ tác tử được gọi"
-        count={tools.length}
+        count={tongTl}
         desc="Một endpoint mà tác tử được phép gọi, luôn thuộc một nền tảng. Đăng ký xong vẫn chưa gọi được: còn phải nằm trong whitelist của từng tác tử."
       >
         {canWriteRegistry && (
           <NewToolForm
             /* ETV.P35 §6.7: công cụ chỉ được trỏ tới nền tảng Đã phê duyệt/Hiệu lực. Lọc ở đây
                cho khỏi mời gọi thao tác sai; createTool vẫn kiểm lại phía máy chủ. */
-            platforms={platforms.filter((p) => p.approvalStatus === "APPROVED" || p.approvalStatus === "ACTIVE").map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            platforms={dsPlatform.filter((p) => p.approvalStatus === "APPROVED" || p.approvalStatus === "ACTIVE").map((p) => ({ id: p.id, code: p.code, name: p.name }))}
             existingCodes={tools.map((t) => t.code)}
           />
         )}
@@ -339,6 +366,7 @@ export default async function M29RegistryPage() {
               {tools.length === 0 && <EmptyRow cols={canWriteRegistry ? 6 : 5}>Chưa đăng ký công cụ nào.</EmptyRow>}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#tool" tenTham="trangTl" trang={trangTl} tong={tongTl} donVi="công cụ" />
         </div>
       </Section>
 
@@ -346,11 +374,11 @@ export default async function M29RegistryPage() {
         n={5}
         id="skill"
         title="Skill — Kỹ năng"
-        count={skills.length}
+        count={tongSk}
         desc="Nhãn mô tả việc tác tử làm được. Kỹ năng KHÔNG cấp quyền hành động — thứ giới hạn tác tử là whitelist công cụ (ETV.P29 mục 1.3 nguyên tắc 3)."
       >
         {canWriteRegistry && (
-          <NewSkillForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={skills.map((s) => s.code)} />
+          <NewSkillForm platforms={dsPlatform.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={maSkill.map((s) => s.code)} />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[40rem] text-sm">
@@ -384,6 +412,7 @@ export default async function M29RegistryPage() {
               {skills.length === 0 && <EmptyRow cols={6}>Chưa đăng ký kỹ năng nào.</EmptyRow>}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#skill" tenTham="trangSk" trang={trangSk} tong={tongSk} donVi="kỹ năng" />
         </div>
       </Section>
     </div>

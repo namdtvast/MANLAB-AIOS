@@ -13,6 +13,7 @@ import {
 } from "@/lib/m27/labels";
 import { CLASSIFICATION_LABEL, CLASSIFICATION_TONE } from "@/lib/m34/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -34,21 +35,29 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 const th =
   "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M27ListPage() {
-  const [assets, role] = await Promise.all([
-    prisma.m27InfoAsset.findMany({
-      orderBy: { code: "asc" },
-      include: { owner: { select: { name: true } }, custodian: { select: { name: true } } },
-    }),
-    getM27Role(),
-  ]);
+export default async function M27ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const role = await getM27Role();
   const now = new Date();
 
   // Tài sản mức Mật chỉ hiện với vai trò được phép tiếp cận (ETV.P27 §6.2: "danh sách cá nhân đích
-  // danh do LĐV phê duyệt"). Lọc NGAY ở tầng truy vấn/hiển thị — không hiện tên rồi mới chặn khi bấm.
+  // danh do LĐV phê duyệt"). Lọc NGAY ở tầng truy vấn — không hiện tên rồi mới chặn khi bấm, và
+  // cũng không kéo dòng Mật về máy chủ ứng dụng rồi mới bỏ đi.
   const canSeeSecret = role === "LDV" || role === "QLCL" || role === "ATTT";
-  const visible = assets.filter((a) => canSeeSecret || a.classification !== "MAT");
-  const hiddenCount = assets.length - visible.length;
+  const where = canSeeSecret ? undefined : { classification: { not: "MAT" as const } };
+  const [tongAll, tong] = await Promise.all([
+    prisma.m27InfoAsset.count(),
+    prisma.m27InfoAsset.count({ where }),
+  ]);
+  const hiddenCount = tongAll - tong;
+  const trang = chotTrang(trangRaw, tong);
+  const visible = await prisma.m27InfoAsset.findMany({
+    where,
+    orderBy: { code: "asc" },
+    include: { owner: { select: { name: true } }, custodian: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -163,6 +172,7 @@ export default async function M27ListPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M27" trang={trang} tong={tong} donVi="tài sản" />
       </div>
     </div>
   );

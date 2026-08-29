@@ -11,6 +11,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { EMPLOYEE_STATUS_LABEL, EMPLOYMENT_TYPE_LABEL } from "@/lib/m03/labels";
+import { PhanTrang } from "@/components/PhanTrang";
 
 export interface EmployeeRow {
   id: string;
@@ -29,12 +30,25 @@ const STATUS_TONE: Record<string, string> = {
 
 const TH = "border-b border-border px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export function EmployeeTable({ rows }: { rows: EmployeeRow[] }) {
+export function EmployeeTable({
+  rows,
+  query,
+  trang,
+  tong,
+}: {
+  rows: EmployeeRow[];
+  query: Record<string, string | undefined>;
+  trang: number;
+  tong: number;
+}) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Mã biểu mẫu đang xuất ("F03.01" | "F03.08") — để chỉ khoá đúng nút đang chạy.
   const [exporting, setExporting] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // Ô chọn ở đầu bảng chỉ chọn các dòng ĐANG HIỆN: chuyển trang là một lượt tải lại trang nên
+  // lựa chọn không mang theo được. F03.08 không chọn dòng nào vẫn xuất toàn bộ danh sách (máy chủ
+  // tự truy vấn lại), nên nhu cầu "xuất cả danh sách" không phụ thuộc vào việc chọn tay.
   const allChecked = rows.length > 0 && selected.size === rows.length;
   // Giữ đúng thứ tự hiển thị trên bảng để thứ tự dòng/file khớp với những gì người dùng thấy.
   const selectedIds = useMemo(() => rows.filter((r) => selected.has(r.id)).map((r) => r.id), [rows, selected]);
@@ -96,7 +110,7 @@ export function EmployeeTable({ rows }: { rows: EmployeeRow[] }) {
     "cursor-pointer rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink-2 transition-colors hover:bg-sunk disabled:cursor-not-allowed disabled:opacity-45";
 
   return (
-    <section className="flex flex-col gap-2">
+    <section id="nhan-su" className="flex scroll-mt-24 flex-col gap-2">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Nhân sự</h2>
         <div className="flex flex-wrap items-center gap-2">
@@ -147,7 +161,7 @@ export function EmployeeTable({ rows }: { rows: EmployeeRow[] }) {
                   type="checkbox"
                   checked={allChecked}
                   onChange={toggleAll}
-                  aria-label="Chọn tất cả nhân sự"
+                  aria-label="Chọn tất cả nhân sự trong trang"
                   className="cursor-pointer accent-accent"
                 />
               </th>
@@ -204,6 +218,7 @@ export function EmployeeTable({ rows }: { rows: EmployeeRow[] }) {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M03" query={query} neo="#nhan-su" tenTham="trangNs" trang={trang} tong={tong} donVi="nhân sự" />
       </div>
     </section>
   );

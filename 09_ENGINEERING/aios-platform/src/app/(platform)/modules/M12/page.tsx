@@ -4,6 +4,7 @@ import { getM12Role } from "@/lib/m12/actor";
 import { escalateFeedback } from "@/lib/m12/actions";
 import { CHANNEL_LABEL, COMPLAINT_STATUS_LABEL, FEEDBACK_CATEGORY_LABEL, FEEDBACK_ORIGIN_LABEL, M12_ROLE_LABEL } from "@/lib/m12/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -28,11 +29,26 @@ const COMPLAINT_TONE: Record<string, string> = {
   KHONG_DAT_THOA_THUAN: "crit",
 };
 
-export default async function M12ListPage() {
-  const [complaints, feedbacks, role] = await Promise.all([
-    prisma.m12Complaint.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true, assignedTo: true } }),
-    prisma.m12Feedback.findMany({ orderBy: { createdAt: "desc" }, take: 10, include: { escalatedComplaint: true } }),
-    getM12Role(),
+type Trang = { trang?: string; trangPn?: string };
+
+export default async function M12ListPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  const [tongKn, tongPn, role] = await Promise.all([prisma.m12Complaint.count(), prisma.m12Feedback.count(), getM12Role()]);
+  const trangKn = chotTrang(query.trang, tongKn);
+  const trangPn = chotTrang(query.trangPn, tongPn);
+  const [complaints, feedbacks] = await Promise.all([
+    prisma.m12Complaint.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { createdBy: true, assignedTo: true },
+      skip: boQua(trangKn),
+      take: KICH_THUOC_TRANG,
+    }),
+    prisma.m12Feedback.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { escalatedComplaint: true },
+      skip: boQua(trangPn),
+      take: KICH_THUOC_TRANG,
+    }),
   ]);
 
   return (
@@ -48,7 +64,7 @@ export default async function M12ListPage() {
 
       <CanCuBanner moduleCode="M12" />
 
-      <section className="flex flex-col gap-2">
+      <section id="khieu-nai" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Khiếu nại</h2>
           <Link href="/modules/M12/complaint/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -89,12 +105,13 @@ export default async function M12ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M12" query={query} neo="#khieu-nai" trang={trangKn} tong={tongKn} donVi="khiếu nại" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="phan-nan" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="font-head text-sm font-bold text-ink">Phàn nàn / Góp ý gần đây</h2>
+          <h2 className="font-head text-sm font-bold text-ink">Phàn nàn / Góp ý</h2>
           <Link href="/modules/M12/feedback/new" className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk">
             + Ghi nhận phàn nàn/góp ý
           </Link>
@@ -142,6 +159,7 @@ export default async function M12ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M12" query={query} neo="#phan-nan" tenTham="trangPn" trang={trangPn} tong={tongPn} donVi="phàn nàn/góp ý" />
         </div>
       </section>
     </div>

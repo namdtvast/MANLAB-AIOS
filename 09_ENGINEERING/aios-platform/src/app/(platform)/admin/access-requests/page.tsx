@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { ReviewPanel } from "./ReviewPanel";
 
 // Hàng chờ yêu cầu cấp tài khoản gửi từ form công khai /dang-ky.
@@ -21,7 +22,8 @@ function formatDateTime(d: Date): string {
 const th =
   "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function AccessRequestsPage() {
+export default async function AccessRequestsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
   const session = await auth();
 
   if (session?.user?.role !== "ADMIN") {
@@ -37,8 +39,16 @@ export default async function AccessRequestsPage() {
 
   // Chọn trường tường minh: KHÔNG lấy passwordHash ra khỏi database. Trang này không cần
   // tới nó, và hash không có việc gì phải đi qua tầng render (R7).
+  // Hai con số ở dòng tóm tắt đếm trên TOÀN BỘ hàng chờ, không phải trên trang đang xem.
+  const [tong, pending] = await Promise.all([
+    prisma.accessRequest.count(),
+    prisma.accessRequest.count({ where: { status: "PENDING" } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const requests = await prisma.accessRequest.findMany({
     orderBy: [{ status: "asc" }, { createdAt: "desc" }],
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
     select: {
       id: true,
       fullName: true,
@@ -53,7 +63,6 @@ export default async function AccessRequestsPage() {
       reviewedBy: { select: { name: true, email: true } },
     },
   });
-  const pending = requests.filter((r) => r.status === "PENDING");
 
   return (
     <div className="flex flex-col gap-6">
@@ -78,11 +87,10 @@ export default async function AccessRequestsPage() {
       </div>
 
       <p className="text-sm text-ink-2">
-        Đang chờ xử lý: <strong className="text-ink">{pending.length}</strong> / tổng{" "}
-        {requests.length} yêu cầu.
+        Đang chờ xử lý: <strong className="text-ink">{pending}</strong> / tổng {tong} yêu cầu.
       </p>
 
-      {requests.length === 0 ? (
+      {tong === 0 ? (
         <div className="rounded-xl border border-border bg-sunk p-6 text-center">
           <p className="font-head text-sm font-bold text-ink">Chưa có yêu cầu nào</p>
           <p className="mt-1.5 text-sm text-ink-2">
@@ -144,6 +152,7 @@ export default async function AccessRequestsPage() {
               })}
             </tbody>
           </table>
+          <PhanTrang path="/admin/access-requests" trang={trang} tong={tong} donVi="yêu cầu" />
         </div>
       )}
     </div>

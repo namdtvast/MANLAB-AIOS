@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM04Role } from "@/lib/m04/actor";
 import { LOG_TYPE_LABEL, M04_ROLE_LABEL, PLAN_STATUS_LABEL, RISK_LEVEL_LABEL } from "@/lib/m04/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -22,11 +23,25 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 const PLAN_TONE: Record<string, string> = { DRAFT: "neutral", PENDING_APPROVAL: "warn", APPROVED: "good", REJECTED: "crit" };
 const RISK_TONE: Record<string, string> = { THUONG: "good", CAO: "crit" };
 
-export default async function M04ListPage() {
-  const [logs, plans, role] = await Promise.all([
-    prisma.m04ConditionLog.findMany({ orderBy: { createdAt: "desc" }, take: 20, include: { area: true, reportedBy: true } }),
-    prisma.m04FieldWorkPlan.findMany({ orderBy: { createdAt: "desc" } }),
+type Trang = { trang?: string; trangKh?: string };
+
+export default async function M04ListPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  const [tongNk, tongKh, role] = await Promise.all([
+    prisma.m04ConditionLog.count(),
+    prisma.m04FieldWorkPlan.count(),
     getM04Role(),
+  ]);
+  const trangNk = chotTrang(query.trang, tongNk);
+  const trangKh = chotTrang(query.trangKh, tongKh);
+  const [logs, plans] = await Promise.all([
+    prisma.m04ConditionLog.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { area: true, reportedBy: true },
+      skip: boQua(trangNk),
+      take: KICH_THUOC_TRANG,
+    }),
+    prisma.m04FieldWorkPlan.findMany({ orderBy: { createdAt: "desc" }, skip: boQua(trangKh), take: KICH_THUOC_TRANG }),
   ]);
 
   return (
@@ -42,7 +57,7 @@ export default async function M04ListPage() {
 
       <CanCuBanner moduleCode="M04" />
 
-      <section className="flex flex-col gap-2">
+      <section id="nhat-ky" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Nhật ký điều kiện (môi trường / tủ bảo quản)</h2>
           <Link href="/modules/M04/log/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -83,10 +98,11 @@ export default async function M04ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M04" query={query} neo="#nhat-ky" trang={trangNk} tong={tongNk} donVi="bản ghi" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="ke-hoach" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Kế hoạch công việc hiện trường</h2>
           <Link href="/modules/M04/plan/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -129,6 +145,7 @@ export default async function M04ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M04" query={query} neo="#ke-hoach" tenTham="trangKh" trang={trangKh} tong={tongKh} donVi="kế hoạch" />
         </div>
       </section>
     </div>

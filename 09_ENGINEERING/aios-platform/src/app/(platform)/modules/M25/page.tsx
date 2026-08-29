@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM25Role } from "@/lib/m25/actor";
 import { CYCLE_TYPE_LABEL, M25_ROLE_LABEL, MGMT_SYSTEM_LABEL, REVIEW_STATUS_LABEL, REVIEW_STATUS_TONE } from "@/lib/m25/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -21,16 +22,21 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M25ListPage() {
-  const [reviews, role] = await Promise.all([
-    prisma.m25ContextReview.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { createdBy: true, approvedBy: true, _count: { select: { issues: true, parties: true } } },
-    }),
+export default async function M25ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  // Kỳ đang hiệu lực tra riêng chứ không dò trong danh sách đang hiện: kỳ đó có thể nằm ở trang 3.
+  const [tong, current, role] = await Promise.all([
+    prisma.m25ContextReview.count(),
+    prisma.m25ContextReview.findFirst({ where: { status: "APPROVED" }, orderBy: { createdAt: "desc" }, include: { approvedBy: true } }),
     getM25Role(),
   ]);
-
-  const current = reviews.find((r) => r.status === "APPROVED");
+  const trang = chotTrang(trangRaw, tong);
+  const reviews = await prisma.m25ContextReview.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { createdBy: true, approvedBy: true, _count: { select: { issues: true, parties: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -45,7 +51,7 @@ export default async function M25ListPage() {
 
       <CanCuBanner moduleCode="M25" />
 
-      <section className="flex flex-col gap-2">
+      <section id="danh-sach-ky" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Danh sách kỳ</h2>
           <div className="flex gap-2">
@@ -110,6 +116,7 @@ export default async function M25ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M25" neo="#danh-sach-ky" trang={trang} tong={tong} donVi="kỳ xem xét" />
         </div>
       </section>
     </div>

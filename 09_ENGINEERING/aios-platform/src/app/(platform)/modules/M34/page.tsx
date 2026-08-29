@@ -12,6 +12,7 @@ import {
   M34_ROLE_LABEL,
 } from "@/lib/m34/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -30,21 +31,26 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M34ListPage() {
-  const [dataSets, role] = await Promise.all([
-    prisma.m34DataSet.findMany({
-      orderBy: { createdAt: "desc" },
-      include: {
-        owner: { select: { name: true } },
-        steward: { select: { name: true } },
-        qualityMeasurements: { orderBy: { createdAt: "desc" }, take: 1, select: { status: true, measuredAt: true, createdAt: true } },
-      },
-    }),
+export default async function M34ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, soHieuLuc, role] = await Promise.all([
+    prisma.m34DataSet.count(),
+    prisma.m34DataSet.count({ where: { status: "ACTIVE" } }),
     getM34Role(),
   ]);
+  const trang = chotTrang(trangRaw, tong);
+  const dataSets = await prisma.m34DataSet.findMany({
+    orderBy: { createdAt: "desc" },
+    include: {
+      owner: { select: { name: true } },
+      steward: { select: { name: true } },
+      qualityMeasurements: { orderBy: { createdAt: "desc" }, take: 1, select: { status: true, measuredAt: true, createdAt: true } },
+    },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   const now = new Date();
-  const active = dataSets.filter((d) => d.status === "ACTIVE");
 
   return (
     <div className="flex flex-col gap-8">
@@ -69,7 +75,7 @@ export default async function M34ListPage() {
       <section className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">
-            Tập dữ liệu ({active.length} hiệu lực / {dataSets.length} bản ghi)
+            Tập dữ liệu ({soHieuLuc} hiệu lực / {tong} bản ghi)
           </h2>
           <div className="flex flex-wrap gap-2">
             <Link href="/modules/M34/crm" className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk">
@@ -153,6 +159,7 @@ export default async function M34ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M34" trang={trang} tong={tong} donVi="tập dữ liệu" />
         </div>
       </section>
     </div>

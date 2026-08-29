@@ -4,6 +4,7 @@ import { getM21Role } from "@/lib/m21/actor";
 import { createDLRecordAndRedirect, createQTMTRecordAndRedirect } from "@/lib/m21/actions";
 import { M21_ROLE_LABEL, RECORD_TYPE_SHORT, STATUS_LABEL, STATUS_TONE } from "@/lib/m21/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -20,11 +21,16 @@ function Badge({ label, tone }: { label: string; tone: string }) {
   );
 }
 
-export default async function M21ListPage() {
-  const [records, role] = await Promise.all([
-    prisma.m21Record.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true, lines: true } }),
-    getM21Role(),
-  ]);
+export default async function M21ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, role] = await Promise.all([prisma.m21Record.count(), getM21Role()]);
+  const trang = chotTrang(trangRaw, tong);
+  const records = await prisma.m21Record.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { createdBy: true, lines: true },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-4">
@@ -93,6 +99,7 @@ export default async function M21ListPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M21" trang={trang} tong={tong} donVi="hồ sơ" />
       </div>
     </div>
   );

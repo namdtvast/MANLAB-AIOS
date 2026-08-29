@@ -13,6 +13,7 @@ import {
   NETWORK_ZONE_LABEL,
 } from "@/lib/m33/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -31,17 +32,23 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M33ListPage() {
-  const [assets, role] = await Promise.all([
-    prisma.m33ITAsset.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { custodian: { select: { name: true } }, userOwner: { select: { name: true } } },
-    }),
+export default async function M33ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  // Hai con số ở tiêu đề đếm trên TOÀN BỘ danh mục, không phải trên trang đang xem.
+  const [tong, dangVanHanh, role] = await Promise.all([
+    prisma.m33ITAsset.count(),
+    prisma.m33ITAsset.count({ where: { status: "OPERATING" } }),
     getM33Role(),
   ]);
+  const trang = chotTrang(trangRaw, tong);
+  const assets = await prisma.m33ITAsset.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { custodian: { select: { name: true } }, userOwner: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   const now = new Date();
-  const operating = assets.filter((a) => a.status === "OPERATING");
 
   return (
     <div className="flex flex-col gap-8">
@@ -65,7 +72,7 @@ export default async function M33ListPage() {
       <section className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">
-            Tài sản ({operating.length} đang vận hành / {assets.length} bản ghi)
+            Tài sản ({dangVanHanh} đang vận hành / {tong} bản ghi)
           </h2>
           <div className="flex flex-wrap gap-2">
             <Link href="/modules/M33/plan" className="rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk">
@@ -159,6 +166,7 @@ export default async function M33ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M33" trang={trang} tong={tong} donVi="tài sản" />
         </div>
       </section>
     </div>

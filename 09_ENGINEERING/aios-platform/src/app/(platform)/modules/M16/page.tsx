@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM16Role } from "@/lib/m16/actor";
 import { AUDIT_TYPE_LABEL, M16_ROLE_LABEL, PLAN_STATUS_LABEL, PROGRAM_STATUS_LABEL } from "@/lib/m16/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -22,11 +23,30 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 const PLAN_TONE: Record<string, string> = { DRAFT: "neutral", PENDING_REVIEW: "warn", PENDING_APPROVAL: "warn", APPROVED: "good", REJECTED: "crit" };
 const PROGRAM_TONE: Record<string, string> = { DRAFT: "neutral", CONFIRMED: "good", CLOSED: "neutral" };
 
-export default async function M16ListPage() {
-  const [plans, programs, role] = await Promise.all([
-    prisma.m16AuditPlan.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true } }),
-    prisma.m16AuditProgram.findMany({ orderBy: { createdAt: "desc" }, take: 10, include: { plan: true } }),
+type Trang = { trang?: string; trangCt?: string };
+
+export default async function M16ListPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  const [tongKh, tongCt, role] = await Promise.all([
+    prisma.m16AuditPlan.count(),
+    prisma.m16AuditProgram.count(),
     getM16Role(),
+  ]);
+  const trangKh = chotTrang(query.trang, tongKh);
+  const trangCt = chotTrang(query.trangCt, tongCt);
+  const [plans, programs] = await Promise.all([
+    prisma.m16AuditPlan.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { createdBy: true },
+      skip: boQua(trangKh),
+      take: KICH_THUOC_TRANG,
+    }),
+    prisma.m16AuditProgram.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { plan: true },
+      skip: boQua(trangCt),
+      take: KICH_THUOC_TRANG,
+    }),
   ]);
 
   return (
@@ -42,7 +62,7 @@ export default async function M16ListPage() {
 
       <CanCuBanner moduleCode="M16" />
 
-      <section className="flex flex-col gap-2">
+      <section id="ke-hoach" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Kế hoạch đánh giá</h2>
           <div className="flex items-center gap-2">
@@ -91,11 +111,12 @@ export default async function M16ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M16" query={query} neo="#ke-hoach" trang={trangKh} tong={tongKh} donVi="kế hoạch" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
-        <h2 className="font-head text-sm font-bold text-ink">Chương trình đánh giá gần đây</h2>
+      <section id="chuong-trinh" className="flex scroll-mt-24 flex-col gap-2">
+        <h2 className="font-head text-sm font-bold text-ink">Chương trình đánh giá</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
@@ -128,6 +149,7 @@ export default async function M16ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M16" query={query} neo="#chuong-trinh" tenTham="trangCt" trang={trangCt} tong={tongCt} donVi="chương trình" />
         </div>
       </section>
     </div>

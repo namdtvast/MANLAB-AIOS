@@ -1,13 +1,22 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getViewer } from "@/lib/m26/actor";
 import { isNeedOverdue } from "@/lib/m26/rules";
 import { NEED_METHOD_LABEL, NEED_STATUS_LABEL, NEED_STATUS_TONE, NEED_TRIGGER_LABEL } from "@/lib/m26/labels";
 import { Badge, fmtDate, th } from "../_ui";
 import { NeedActions, NewNeedForm } from "./NeedsClient";
 
-export default async function NeedsPage() {
+export default async function NeedsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
   const viewer = await getViewer();
+  // Đếm quá hạn ở DB theo đúng luật isNeedOverdue (đang mở/đang bổ sung + đã qua hạn) — cảnh báo
+  // này phải tính trên TOÀN BỘ phiếu, không phải trên trang đang xem.
+  const [tong, overdue] = await Promise.all([
+    prisma.m26KnowledgeNeed.count(),
+    prisma.m26KnowledgeNeed.count({ where: { status: { in: ["MO", "DANG_BO_SUNG"] }, requiredBy: { lt: new Date() } } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const [needs, users, items, allItems, trainings] = await Promise.all([
     prisma.m26KnowledgeNeed.findMany({
       include: {
@@ -17,7 +26,8 @@ export default async function NeedsPage() {
         resultTraining: { select: { code: true } },
       },
       orderBy: [{ status: "asc" }, { requiredBy: "asc" }],
-      take: 100,
+      skip: boQua(trang),
+      take: KICH_THUOC_TRANG,
     }),
     prisma.user.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true, email: true } }),
     prisma.m26KnowledgeItem.findMany({ where: { status: "APPROVED" }, select: { id: true, code: true }, orderBy: { code: "asc" } }),
@@ -35,7 +45,6 @@ export default async function NeedsPage() {
   ]);
 
   const canAct = viewer.role === "QLCL" || viewer.role === "TP" || viewer.role === "LDV";
-  const overdue = needs.filter((n) => isNeedOverdue(n)).length;
 
   return (
     <div className="flex flex-col gap-6">
@@ -142,6 +151,7 @@ export default async function NeedsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M26/needs" trang={trang} tong={tong} donVi="phiếu" />
       </div>
     </div>
   );

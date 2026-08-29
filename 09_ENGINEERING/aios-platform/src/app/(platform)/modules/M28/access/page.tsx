@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM28Role } from "@/lib/m28/actor";
 import { requiredApprover } from "@/lib/m28/rules";
 import {
@@ -29,8 +30,18 @@ interface AccessItem {
   validUntil: string;
 }
 
-export default async function M28AccessPage() {
-  const [requests, reviews, role] = await Promise.all([
+type Trang = { trang?: string; trangRs?: string };
+
+export default async function M28AccessPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  const [tongPh, tongRs, role] = await Promise.all([
+    prisma.m28AccessRequest.count(),
+    prisma.m28AccessReview.count(),
+    getM28Role(),
+  ]);
+  const trangPh = chotTrang(query.trang, tongPh);
+  const trangRs = chotTrang(query.trangRs, tongRs);
+  const [requests, reviews] = await Promise.all([
     prisma.m28AccessRequest.findMany({
       orderBy: { createdAt: "desc" },
       include: {
@@ -39,12 +50,15 @@ export default async function M28AccessPage() {
         approvedBy: { select: { name: true } },
         executedBy: { select: { name: true } },
       },
+      skip: boQua(trangPh),
+      take: KICH_THUOC_TRANG,
     }),
     prisma.m28AccessReview.findMany({
       orderBy: { reviewedAt: "desc" },
       include: { reviewer: { select: { name: true } } },
+      skip: boQua(trangRs),
+      take: KICH_THUOC_TRANG,
     }),
-    getM28Role(),
   ]);
 
   return (
@@ -70,9 +84,9 @@ export default async function M28AccessPage() {
         tất thủ tục thôi việc theo ETV.P03.
       </div>
 
-      <section>
+      <section id="phieu-quyen" className="scroll-mt-24">
         <h2 className="font-head text-lg font-semibold text-ink">
-          Phiếu yêu cầu quyền truy cập <span className="text-sm font-normal text-ink-3">({requests.length})</span>
+          Phiếu yêu cầu quyền truy cập <span className="text-sm font-normal text-ink-3">({tongPh})</span>
         </h2>
         <div className="mt-3 overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[72rem] text-sm">
@@ -146,12 +160,13 @@ export default async function M28AccessPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M28/access" query={query} neo="#phieu-quyen" trang={trangPh} tong={tongPh} donVi="phiếu" />
         </div>
       </section>
 
-      <section>
+      <section id="ra-soat" className="scroll-mt-24">
         <h2 className="font-head text-lg font-semibold text-ink">
-          Rà soát quyền định kỳ <span className="text-sm font-normal text-ink-3">({reviews.length})</span>
+          Rà soát quyền định kỳ <span className="text-sm font-normal text-ink-3">({tongRs})</span>
         </h2>
         <p className="mt-1 text-xs text-ink-3">
           TP rà soát danh sách quyền của phòng tối thiểu 06 tháng/lần; danh sách tài khoản đặc quyền do LĐV phê duyệt
@@ -199,6 +214,7 @@ export default async function M28AccessPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M28/access" query={query} neo="#ra-soat" tenTham="trangRs" trang={trangRs} tong={tongRs} donVi="đợt rà soát" />
         </div>
       </section>
 

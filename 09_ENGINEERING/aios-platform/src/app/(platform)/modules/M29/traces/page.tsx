@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import { StatCard } from "@/components/StatCard";
-import { Badge, PhanTrang, chotTrang, locBtnCls, locFieldCls, locLabelCls, thCls } from "../ui";
+import { PhanTrang, chotTrang, locBtnCls, locFieldCls, locLabelCls } from "@/components/PhanTrang";
+import { Badge, thCls } from "../ui";
 
 const KICH_THUOC = 10;
 const PATH = "/modules/M29/traces";
@@ -288,7 +289,7 @@ export default async function M29TracesPage({ searchParams }: { searchParams: Pr
               )}
             </tbody>
           </table>
-          <PhanTrang path={PATH} query={query} neo={NEO} trang={trang} tong={tong} kichThuoc={KICH_THUOC} />
+          <PhanTrang path={PATH} query={query} neo={NEO} trang={trang} tong={tong} kichThuoc={KICH_THUOC} donVi="lượt gọi" />
         </div>
       </section>
 

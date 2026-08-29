@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM10Role } from "@/lib/m10/actor";
 import { M10_ROLE_LABEL, RECORD_TYPE_LABEL, RESULT_LABEL, STATUS_LABEL } from "@/lib/m10/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -37,11 +38,18 @@ function Badge({ label, tone }: { label: string; tone: string }) {
   );
 }
 
-export default async function M10ListPage() {
-  const [assessments, role] = await Promise.all([
-    prisma.m10Assessment.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true } }),
-    getM10Role(),
-  ]);
+export default async function M10ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  // Đếm ở DB rồi mới lấy đúng một trang: danh sách hồ sơ chỉ dài thêm theo thời gian, tải cả bảng
+  // về rồi cắt lát là cách hỏng chậm.
+  const [tong, role] = await Promise.all([prisma.m10Assessment.count(), getM10Role()]);
+  const trang = chotTrang(trangRaw, tong);
+  const assessments = await prisma.m10Assessment.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { createdBy: true },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-4">
@@ -112,6 +120,7 @@ export default async function M10ListPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M10" trang={trang} tong={tong} donVi="hồ sơ" />
       </div>
     </div>
   );

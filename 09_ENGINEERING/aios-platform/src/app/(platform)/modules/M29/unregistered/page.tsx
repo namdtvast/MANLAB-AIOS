@@ -1,20 +1,29 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import { UNREGISTERED_STATUS_LABEL, UNREGISTERED_STATUS_TONE } from "@/lib/m29/labels";
 import { Badge, thCls } from "../ui";
 import { NewSightingForm, SightingActions } from "./UnregisteredPanel";
 
-export default async function M29UnregisteredPage() {
+export default async function M29UnregisteredPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
   const role = await getM29Role();
   if (!can(role, "unregistered")) {
     return <div className="rounded-xl border border-crit/30 bg-crit-soft p-4 text-sm text-crit">Bạn không có quyền xem sổ theo dõi AI chưa đăng ký.</div>;
   }
 
   // "Quá hạn" do truy vấn quyết định, không tính bằng đồng hồ trong lúc render (react-hooks/purity).
+  const tong = await prisma.aIUnregisteredSighting.count();
+  const trang = chotTrang(trangRaw, tong);
   const [sightings, agents, openIncidents, overdueRows] = await Promise.all([
-    prisma.aIUnregisteredSighting.findMany({ orderBy: { createdAt: "desc" }, include: { detectedBy: true, incident: true, registeredAgent: true } }),
+    prisma.aIUnregisteredSighting.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { detectedBy: true, incident: true, registeredAgent: true },
+      skip: boQua(trang),
+      take: KICH_THUOC_TRANG,
+    }),
     prisma.aIAgent.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true } }),
     prisma.aIIncident.findMany({ where: { status: { notIn: ["CLOSED", "CANCELLED"] } }, orderBy: { createdAt: "desc" }, select: { id: true, code: true } }),
     prisma.aIUnregisteredSighting.findMany({
@@ -92,6 +101,7 @@ export default async function M29UnregisteredPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M29/unregistered" trang={trang} tong={tong} donVi="lượt ghi nhận" />
       </div>
 
       <Link href="/modules/M29" className="text-sm text-accent hover:underline">

@@ -1,17 +1,22 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getViewer } from "@/lib/m26/actor";
 import { LESSON_SOURCE_LABEL, LESSON_STATUS_LABEL, LESSON_STATUS_TONE } from "@/lib/m26/labels";
 import { Badge, fmtDate, th } from "../_ui";
 import { NewLessonForm } from "./NewLessonForm";
 
-export default async function LessonsPage() {
+export default async function LessonsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const tong = await prisma.m26LessonLearned.count();
+  const trang = chotTrang(trangRaw, tong);
   const viewer = await getViewer();
   const [lessons, items] = await Promise.all([
     prisma.m26LessonLearned.findMany({
       include: { createdBy: true, knowledgeItem: { select: { id: true, code: true } } },
       orderBy: [{ status: "asc" }, { code: "desc" }],
-      take: 100,
+      skip: boQua(trang),
+      take: KICH_THUOC_TRANG,
     }),
     prisma.m26KnowledgeItem.findMany({
       where: { status: "APPROVED" },
@@ -85,6 +90,7 @@ export default async function LessonsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M26/lessons" trang={trang} tong={tong} donVi="phiếu" />
       </div>
     </div>
   );

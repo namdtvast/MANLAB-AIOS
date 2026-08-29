@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { BELOW_THRESHOLD_CASE_LABEL, QUALITY_STATUS_LABEL, QUALITY_STATUS_TONE, TREND_LABEL } from "@/lib/m34/labels";
 
 const TONE_CLASS: Record<string, string> = {
@@ -10,12 +11,19 @@ const TONE_CLASS: Record<string, string> = {
 };
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M34QualityPage() {
+export default async function M34QualityPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, failing] = await Promise.all([
+    prisma.m34QualityMeasurement.count(),
+    prisma.m34QualityMeasurement.count({ where: { status: "KHONG_DAT" } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const measurements = await prisma.m34QualityMeasurement.findMany({
     orderBy: { createdAt: "desc" },
     include: { dataSet: { select: { id: true, code: true, name: true, suspendedUse: true } }, rows: true, measuredBy: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
-  const failing = measurements.filter((m) => m.status === "KHONG_DAT");
 
   return (
     <div className="flex flex-col gap-6">
@@ -23,7 +31,7 @@ export default async function M34QualityPage() {
         <p className="text-xs font-medium text-ink-3">M34 · Đo chất lượng dữ liệu — sáu chiều (ETV.P34 §6.4)</p>
         <h1 className="font-head text-2xl font-bold text-ink">Kỳ đo chất lượng</h1>
         <p className="mt-1 text-sm text-ink-2">
-          {measurements.length} kỳ đo · {failing.length} kỳ Không đạt đang theo dõi khắc phục (hạn 15 ngày làm việc — R15).
+          {tong} kỳ đo · {failing} kỳ Không đạt đang theo dõi khắc phục (hạn 15 ngày làm việc — R15).
         </p>
       </div>
       <Link href="/modules/M34" className="text-xs text-accent hover:underline">
@@ -85,6 +93,7 @@ export default async function M34QualityPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M34/quality" trang={trang} tong={tong} donVi="kỳ đo" />
       </div>
     </div>
   );

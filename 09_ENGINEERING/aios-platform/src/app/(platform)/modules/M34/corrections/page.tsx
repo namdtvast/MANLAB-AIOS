@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { CORRECTION_STATUS_LABEL, CORRECTION_STATUS_TONE, PUBLISHED_IMPACT_LABEL } from "@/lib/m34/labels";
 
 const TONE_CLASS: Record<string, string> = {
@@ -10,12 +11,19 @@ const TONE_CLASS: Record<string, string> = {
 };
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M34CorrectionsPage() {
+export default async function M34CorrectionsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, awaiting] = await Promise.all([
+    prisma.m34DataCorrection.count(),
+    prisma.m34DataCorrection.count({ where: { status: "CHO_KET_LUAN_P10_P11" } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const corrections = await prisma.m34DataCorrection.findMany({
     orderBy: { createdAt: "desc" },
     include: { dataSet: { select: { id: true, code: true, name: true } }, requestedBy: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
-  const awaiting = corrections.filter((c) => c.status === "CHO_KET_LUAN_P10_P11");
 
   return (
     <div className="flex flex-col gap-6">
@@ -24,7 +32,7 @@ export default async function M34CorrectionsPage() {
         <h1 className="font-head text-2xl font-bold text-ink">Hiệu chỉnh dữ liệu</h1>
         <p className="mt-1 text-sm text-ink-2">
           Dữ liệu gốc bất biến — hiệu chỉnh bằng bản ghi mới, giữ giá trị cũ (R11). Đang chờ kết luận ETV.P10/P11:{" "}
-          <strong className={awaiting.length > 0 ? "text-crit" : "text-ink"}>{awaiting.length}</strong> (chặn cứng R12).
+          <strong className={awaiting > 0 ? "text-crit" : "text-ink"}>{awaiting}</strong> (chặn cứng R12).
         </p>
       </div>
       <Link href="/modules/M34" className="text-xs text-accent hover:underline">
@@ -79,6 +87,7 @@ export default async function M34CorrectionsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M34/corrections" trang={trang} tong={tong} donVi="đề nghị" />
       </div>
     </div>
   );

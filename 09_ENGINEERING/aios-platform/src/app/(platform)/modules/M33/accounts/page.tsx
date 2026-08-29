@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM33Role } from "@/lib/m33/actor";
 import { ACCOUNT_STATUS_LABEL, ACCOUNT_STATUS_TONE, ACCOUNT_TYPE_LABEL } from "@/lib/m33/labels";
 import { AccountActions, NewAccountForm } from "./AccountActions";
@@ -12,20 +13,28 @@ const TONE_CLASS: Record<string, string> = {
 };
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M33AccountsPage() {
+export default async function M33AccountsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const now = new Date();
+  // Hàng chờ thu hồi và số quá hạn đếm ở DB trên TOÀN BỘ danh mục — đây là con số điều hành theo
+  // R16, đếm trên trang đang xem thì đổi theo trang.
+  const [tong, pendingRevocation, overdueRevocation] = await Promise.all([
+    prisma.m33SystemAccount.count(),
+    prisma.m33SystemAccount.count({ where: { status: { not: "DA_THU_HOI" }, revocationDueAt: { not: null } } }),
+    prisma.m33SystemAccount.count({ where: { status: { not: "DA_THU_HOI" }, revocationDueAt: { lt: now } } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const [accounts, role, assets, users] = await Promise.all([
     prisma.m33SystemAccount.findMany({
       orderBy: { createdAt: "desc" },
       include: { holder: { select: { name: true } }, asset: { select: { id: true, code: true } } },
+      skip: boQua(trang),
+      take: KICH_THUOC_TRANG,
     }),
     getM33Role(),
     prisma.m33ITAsset.findMany({ where: { status: { in: ["OPERATING", "SUSPENDED", "RETIRED"] } }, select: { id: true, code: true, name: true }, orderBy: { code: "asc" } }),
     prisma.user.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true, email: true } }),
   ]);
-
-  const now = new Date();
-  const pendingRevocation = accounts.filter((s) => s.status !== "DA_THU_HOI" && s.revocationDueAt);
-  const overdueRevocation = pendingRevocation.filter((s) => s.revocationDueAt! < now);
 
   return (
     <div className="flex flex-col gap-6">
@@ -34,8 +43,8 @@ export default async function M33AccountsPage() {
         <h1 className="font-head text-2xl font-bold text-ink">Tài khoản hệ thống</h1>
         <p className="mt-1 text-sm text-ink-2">
           M33 giữ danh mục và <strong>thực thi</strong> theo phiếu F28.04 — phê duyệt quyền thuộc M28 (R6). Không lưu bí mật xác thực (R7).
-          Hàng chờ thu hồi: <strong>{pendingRevocation.length}</strong>, quá hạn:{" "}
-          <strong className={overdueRevocation.length > 0 ? "text-crit" : "text-ink"}>{overdueRevocation.length}</strong> (R16 — trong ngày làm việc).
+          Hàng chờ thu hồi: <strong>{pendingRevocation}</strong>, quá hạn:{" "}
+          <strong className={overdueRevocation > 0 ? "text-crit" : "text-ink"}>{overdueRevocation}</strong> (R16 — trong ngày làm việc).
         </p>
       </div>
       <div className="flex gap-3">
@@ -108,6 +117,7 @@ export default async function M33AccountsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M33/accounts" trang={trang} tong={tong} donVi="tài khoản" />
       </div>
     </div>
   );

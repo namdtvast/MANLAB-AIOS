@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM27Role } from "@/lib/m27/actor";
 import { ASSET_STATUS_LABEL, DATA_DOMAIN_LABEL } from "@/lib/m27/labels";
 import { CLASSIFICATION_LABEL } from "@/lib/m34/labels";
@@ -7,7 +8,8 @@ import { CLASSIFICATION_LABEL } from "@/lib/m34/labels";
 const th =
   "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M27PersonalDataPage() {
+export default async function M27PersonalDataPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
   const role = await getM27Role();
   // Danh sách này phục vụ nghĩa vụ pháp lý theo NĐ 13/2023 (ETV.P27 §6.4) — QLCL tổng hợp,
   // sao gửi PT.ATTT. Không mở cho vai trò khác.
@@ -25,10 +27,14 @@ export default async function M27PersonalDataPage() {
     );
   }
 
+  const tong = await prisma.m27InfoAsset.count({ where: { containsPersonalData: true } });
+  const trang = chotTrang(trangRaw, tong);
   const assets = await prisma.m27InfoAsset.findMany({
     where: { containsPersonalData: true },
     orderBy: { code: "asc" },
     include: { owner: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
 
   return (
@@ -90,6 +96,7 @@ export default async function M27PersonalDataPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M27/personal-data" trang={trang} tong={tong} donVi="tài sản" />
       </div>
     </div>
   );

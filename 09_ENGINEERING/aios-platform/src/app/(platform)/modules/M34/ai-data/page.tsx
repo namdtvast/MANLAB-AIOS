@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { AI_APPROVAL_STATUS_LABEL, AI_APPROVAL_STATUS_TONE, AI_PURPOSE_LABEL, CLASSIFICATION_LABEL } from "@/lib/m34/labels";
 
 const TONE_CLASS: Record<string, string> = {
@@ -10,12 +11,19 @@ const TONE_CLASS: Record<string, string> = {
 };
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M34AIDataPage() {
+export default async function M34AIDataPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, active] = await Promise.all([
+    prisma.m34AIDataApproval.count(),
+    prisma.m34AIDataApproval.count({ where: { status: "DA_PHE_DUYET" } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const approvals = await prisma.m34AIDataApproval.findMany({
     orderBy: { createdAt: "desc" },
     include: { dataSet: { select: { id: true, code: true, name: true, classification: true } }, approvedBy: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
-  const active = approvals.filter((a) => a.status === "DA_PHE_DUYET");
 
   return (
     <div className="flex flex-col gap-6">
@@ -23,7 +31,7 @@ export default async function M34AIDataPage() {
         <p className="text-xs font-medium text-ink-3">M34 · Dữ liệu dùng cho hệ thống trí tuệ nhân tạo (ETV.P34 §6.8)</p>
         <h1 className="font-head text-2xl font-bold text-ink">Dữ liệu cấp cho hệ thống AI</h1>
         <p className="mt-1 text-sm text-ink-2">
-          {active.length} tập đang được phép cấp cho hệ thống AI. Bốn điều kiện bắt buộc: bản ghi danh mục · phê duyệt LĐV có ý kiến
+          {active} tập đang được phép cấp cho hệ thống AI. Bốn điều kiện bắt buộc: bản ghi danh mục · phê duyệt LĐV có ý kiến
           PT.ATTT · hồ sơ AIA theo ETV.P29 · biện pháp giảm thiểu. <strong>Hạn chế/Mật: cấm tuyệt đối</strong> (R22 — ETV.P28 §5.13).
         </p>
       </div>
@@ -75,6 +83,7 @@ export default async function M34AIDataPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M34/ai-data" trang={trang} tong={tong} donVi="đề nghị" />
       </div>
     </div>
   );

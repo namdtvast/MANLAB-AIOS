@@ -1,5 +1,7 @@
 import Link from "next/link";
+import type { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { ASSET_CLASS_LABEL, ENVIRONMENT_LABEL, NETWORK_ZONE_LABEL } from "@/lib/m33/labels";
 import { CLASSIFICATION_LABEL } from "@/lib/m34/labels";
 
@@ -8,11 +10,18 @@ const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold upp
 // Báo cáo kiểm kê hợp nhất M33 + M27 — ISO/IEC 27001 A.5.9 (R2): thiết bị đăng ký tại P33,
 // dữ liệu trên thiết bị đăng ký tại P27. M27 chưa lên nền tảng — phần dữ liệu hiển thị qua
 // infoAssetRefs (ref mềm) cho tới khi M27 ACTIVE.
-export default async function M33InventoryPage() {
+const TRONG_KIEM_KE: Prisma.M33ITAssetWhereInput = { status: { in: ["OPERATING", "SUSPENDED", "RETIRED"] } };
+
+export default async function M33InventoryPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const tong = await prisma.m33ITAsset.count({ where: TRONG_KIEM_KE });
+  const trang = chotTrang(trangRaw, tong);
   const assets = await prisma.m33ITAsset.findMany({
-    where: { status: { in: ["OPERATING", "SUSPENDED", "RETIRED"] } },
+    where: TRONG_KIEM_KE,
     orderBy: { code: "asc" },
     include: { custodian: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
 
   return (
@@ -21,7 +30,7 @@ export default async function M33InventoryPage() {
         <p className="text-xs font-medium text-ink-3">M33 · Kiểm kê hợp nhất M33 + M27 — ISO/IEC 27001 A.5.9 (R2)</p>
         <h1 className="font-head text-2xl font-bold text-ink">Báo cáo kiểm kê hợp nhất</h1>
         <p className="mt-1 text-sm text-ink-2">
-          {assets.length} tài sản trong kiểm kê. Cột “Dữ liệu trên thiết bị” lấy từ tham chiếu M27 (ref mềm — M27 chưa lên nền tảng,
+          {tong} tài sản trong kiểm kê. Cột “Dữ liệu trên thiết bị” lấy từ tham chiếu M27 (ref mềm — M27 chưa lên nền tảng,
           chuyển thành liên kết thật khi M27 ACTIVE; không lập hai danh mục song song).
         </p>
       </div>
@@ -71,6 +80,7 @@ export default async function M33InventoryPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M33/inventory" trang={trang} tong={tong} donVi="tài sản" />
       </div>
     </div>
   );

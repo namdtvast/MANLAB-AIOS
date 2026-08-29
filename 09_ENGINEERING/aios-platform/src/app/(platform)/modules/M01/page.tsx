@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM01Role } from "@/lib/m01/actor";
 import { M01_ROLE_LABEL, RISK_LEVEL_LABEL, RISK_SOURCE_LABEL, OPP_SOURCE_LABEL, STATUS_LABEL } from "@/lib/m01/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
   DRAFT: "neutral",
@@ -34,12 +35,32 @@ function Badge({ label, tone }: { label: string; tone: string }) {
   );
 }
 
-export default async function M01ListPage() {
-  const [risks, opportunities, role] = await Promise.all([
-    prisma.m01RiskItem.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true } }),
-    prisma.m01OpportunityItem.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true } }),
+export default async function M01ListPage({ searchParams }: { searchParams: Promise<{ trang?: string; trangCh?: string }> }) {
+  const { trang: trangRaw, trangCh: trangChRaw } = await searchParams;
+  // Hai bảng trên cùng trang nên mỗi bảng giữ một tham số trang riêng: lật bảng Rủi ro không được
+  // kéo bảng Cơ hội về trang 1.
+  const [tongRui, tongCh, role] = await Promise.all([
+    prisma.m01RiskItem.count(),
+    prisma.m01OpportunityItem.count(),
     getM01Role(),
   ]);
+  const trangRui = chotTrang(trangRaw, tongRui);
+  const trangCh = chotTrang(trangChRaw, tongCh);
+  const [risks, opportunities] = await Promise.all([
+    prisma.m01RiskItem.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { createdBy: true },
+      skip: boQua(trangRui),
+      take: KICH_THUOC_TRANG,
+    }),
+    prisma.m01OpportunityItem.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { createdBy: true },
+      skip: boQua(trangCh),
+      take: KICH_THUOC_TRANG,
+    }),
+  ]);
+  const query = { trang: trangRui > 1 ? String(trangRui) : undefined, trangCh: trangCh > 1 ? String(trangCh) : undefined };
 
   return (
     <div className="flex flex-col gap-8">
@@ -70,7 +91,7 @@ export default async function M01ListPage() {
 
       <CanCuBanner moduleCode="M01" />
 
-      <section className="flex flex-col gap-2">
+      <section id="rui-ro" className="flex scroll-mt-24 flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Rủi ro</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
@@ -116,10 +137,11 @@ export default async function M01ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M01" query={query} neo="#rui-ro" trang={trangRui} tong={tongRui} donVi="rủi ro" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="co-hoi" className="flex scroll-mt-24 flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Cơ hội</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
@@ -157,6 +179,7 @@ export default async function M01ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M01" query={query} neo="#co-hoi" tenTham="trangCh" trang={trangCh} tong={tongCh} donVi="cơ hội" />
         </div>
       </section>
     </div>

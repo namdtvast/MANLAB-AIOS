@@ -12,6 +12,7 @@ import {
 } from "@/lib/m28/labels";
 import { CLASSIFICATION_LABEL, CLASSIFICATION_TONE } from "@/lib/m34/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -33,12 +34,13 @@ function Badge({ label, tone }: { label: string; tone: string }) {
 const th =
   "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M28ListPage() {
-  const [risks, role, soa, incidentCount, accessPending] = await Promise.all([
-    prisma.m28SecurityRisk.findMany({
-      orderBy: [{ riskScore: "desc" }, { code: "asc" }],
-      include: { owner: { select: { name: true } }, treatments: true },
-    }),
+export default async function M28ListPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [chiSo, tong, role, soa, incidentCount, accessPending] = await Promise.all([
+    // Bốn thẻ chỉ số đọc TOÀN BỘ hồ sơ rủi ro, chỉ lấy các trường cần cho phép tính; bảng bên dưới
+    // chỉ lấy một trang. Đếm trên trang đang xem thì con số đổi theo trang và mất ý nghĩa theo dõi.
+    prisma.m28SecurityRisk.findMany({ include: { treatments: true } }),
+    prisma.m28SecurityRisk.count(),
     getM28Role(),
     prisma.m28SoAVersion.findFirst({
       where: { status: "DA_PHE_DUYET" },
@@ -49,10 +51,18 @@ export default async function M28ListPage() {
   ]);
   const now = new Date();
 
-  const open = risks.filter((r) => !["HET_HIEU_LUC", "CHAP_NHAN_TON_DU"].includes(r.status));
+  const open = chiSo.filter((r) => !["HET_HIEU_LUC", "CHAP_NHAN_TON_DU"].includes(r.status));
   const highOpen = open.filter((r) => r.riskScore >= 13).length;
-  const overdueTreatments = risks.flatMap((r) => r.treatments).filter((t) => isTreatmentOverdue(t, now)).length;
-  const reviewDue = risks.filter((r) => isRiskReviewDue(r, now)).length;
+  const overdueTreatments = chiSo.flatMap((r) => r.treatments).filter((t) => isTreatmentOverdue(t, now)).length;
+  const reviewDue = chiSo.filter((r) => isRiskReviewDue(r, now)).length;
+
+  const trang = chotTrang(trangRaw, tong);
+  const risks = await prisma.m28SecurityRisk.findMany({
+    orderBy: [{ riskScore: "desc" }, { code: "asc" }],
+    include: { owner: { select: { name: true } }, treatments: true },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -199,6 +209,7 @@ export default async function M28ListPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M28" trang={trang} tong={tong} donVi="rủi ro" />
       </div>
     </div>
   );
