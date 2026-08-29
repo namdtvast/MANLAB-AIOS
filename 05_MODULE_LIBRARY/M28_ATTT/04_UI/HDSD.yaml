@@ -1,0 +1,69 @@
+# HDSD — hướng dẫn dùng module M28 theo tuần tự, hiển thị trong khung Căn cứ ở đầu
+# trang /modules/M28 của aios-platform (mục "Hướng dẫn sử dụng").
+#
+# Đây là NGUỒN SỰ THẬT của hướng dẫn: prisma/seed.ts đọc file này, kiểm tra lược đồ bằng
+# parseHdsd() rồi nạp vào PlatformModule.hdsd — KHÔNG viết hướng dẫn thẳng trong JSX.
+# Mỗi bước bám đúng luật đã cài trong src/lib/m28/rules.ts (R1–R21) và thủ tục ETV.P28;
+# sửa quy tắc thì sửa thủ tục trước (MP14), rồi rules.ts, rồi file này.
+
+schema: manlab-aios/hdsd@1.0
+module: M28
+summary: "Hệ thống quản lý an toàn thông tin (ISMS): hồ sơ rủi ro ATTT, Tuyên bố áp dụng, sự cố và quyền truy cập"
+
+steps:
+  - role: "Người phụ trách ATTT / Trưởng phòng / Quản trị hệ thống"
+    action: "Khai báo rủi ro an toàn thông tin vào hồ sơ"
+    path: "/modules/M28/risk/new"
+    note: "Rủi ro phải trỏ tới tài sản CÓ THẬT trong danh mục M27 mới lưu được — khai bằng mã tài sản, không gõ tên tự do. Chủ sở hữu rủi ro phải là Trưởng phòng hoặc Lãnh đạo Viện, không được là Quản trị hệ thống. Điểm rủi ro R = Khả năng × Tác động và Tác động = mức lớn nhất trong ba mức C–I–A do hệ thống tự tính, ô điểm không sửa tay được (ETV.P28 §6.4.2)."
+  - role: "Người lập hồ sơ"
+    action: "Bổ sung Kế hoạch xử lý rủi ro rồi gửi đi soát xét"
+    path: "/modules/M28"
+    note: "R từ 7 trở lên bắt buộc có ít nhất một hạng mục xử lý kèm hạn hoàn thành trong ngưỡng của mức (Trung bình 12 tháng, Cao 06 tháng, Rất cao 03 tháng); mức Rất cao còn bắt buộc thêm biện pháp khống chế tạm thời áp dụng ngay (ETV.P28 §6.4.3, §6.5.2). Thiếu hạng mục thì vẫn gửi soát xét được nhưng sẽ bị CHẶN ở bước Lãnh đạo Viện phê duyệt — nên lập kế hoạch xử lý ngay từ đây, đừng để dồn tới cửa duyệt."
+  - role: "Phụ trách Quản lý chất lượng / Người phụ trách ATTT"
+    action: "Soát xét cách nhận diện và cách chấm điểm, đạt hoặc trả lại kèm lý do"
+    note: "Người soát xét phải khác người lập (ETV.P28 §5.3). Mọi nhánh trả lại đều bắt buộc ghi lý do."
+  - role: "Lãnh đạo Viện"
+    action: "Phê duyệt mức rủi ro và phương án xử lý"
+    note: "Người lập không được tự phê duyệt (ETV.P28 §5.3). Duyệt xong, rủi ro từ 7 điểm trở lên chuyển sang Đang xử lý; dưới ngưỡng chuyển thẳng sang Đã xử lý và chỉ theo dõi theo chu kỳ. Không phê duyệt thì bắt buộc ghi lý do."
+  - role: "Chủ sở hữu rủi ro (Trưởng phòng)"
+    action: "Thực hiện từng hạng mục trong Kế hoạch xử lý rủi ro"
+    path: "/modules/M28"
+    note: "Hạng mục quá hạn hiện cờ ngay trên thẻ chỉ số đầu trang — đó là chỗ đọc trước tiên mỗi tuần."
+  - role: "Người phụ trách ATTT"
+    action: "Xác nhận hiệu lực từng hạng mục xử lý đã làm xong"
+    note: "Chỉ Người phụ trách ATTT xác nhận hiệu lực, và phải ghi rõ cách xác nhận: kiểm tra kỹ thuật, rà soát hồ sơ hay thử nghiệm (ETV.P28 §6.5.2). Người thực hiện tự bấm hoàn thành là không đủ; xong hết hạng mục thì rủi ro mới chuyển được sang Đã xử lý."
+  - role: "Lãnh đạo Viện"
+    action: "Chấp nhận rủi ro tồn dư để đóng hồ sơ, hoặc tuyên bố rủi ro hết hiệu lực"
+    note: "Rủi ro tồn dư từ 7 điểm trở lên chỉ Lãnh đạo Viện chấp nhận, bằng văn bản kèm lý do, không ủy quyền (ETV.P28 §6.4.3). Tuyên bố hết hiệu lực cũng bắt buộc ghi lý do."
+  - role: "Người phụ trách ATTT"
+    action: "Soạn Tuyên bố áp dụng (SoA) và trình Lãnh đạo Viện phê duyệt"
+    path: "/modules/M28/soa"
+    note: "SoA phải đủ 93 dòng kiểm soát Phụ lục A; dòng ghi Không áp dụng mà bỏ trống lý do loại trừ thì không phê duyệt được. Bản đã phê duyệt là chỉ đọc — sửa nội dung là lập phiên bản mới, không sửa đè, bản cũ giữ làm bằng chứng (ETV.P28 §6.6)."
+  - role: "Người phụ trách ATTT"
+    action: "Theo dõi kiểm soát đã cam kết áp dụng nhưng quá hạn chưa có bằng chứng"
+    path: "/modules/M28/soa"
+    note: "Kiểm soát ghi Áp dụng, quá hạn cam kết mà bằng chứng còn trống thì phải mở phiếu khắc phục sang M13 — đây là cảnh báo mềm, hệ thống không chặn thao tác nên phải có người rà."
+  - role: "Bất kỳ ai phát hiện"
+    action: "Báo sự cố an toàn thông tin; Người phụ trách ATTT phân mức và điều phối xử lý"
+    path: "/modules/M28/incidents"
+    note: "Hạn báo cáo và thẩm quyền đóng đi theo mức sự cố (ETV.P28 §6.8.1); trình tự khống chế — điều tra — khắc phục — kết luận theo ETV.P28 §6.8.2. Nghĩa vụ thông báo ra bên ngoài do Lãnh đạo Viện quyết định theo ETV.P28 §6.8.3, không tự phát sinh."
+  - role: "Lãnh đạo Viện / Người phụ trách ATTT"
+    action: "Kết luận và đóng phiếu sự cố"
+    path: "/modules/M28/incidents"
+    note: "Sự cố mức Thấp và Trung bình do Người phụ trách ATTT đóng, mức Cao và Rất cao do Lãnh đạo Viện đóng (ETV.P28 §6.8.2). Bốn cửa chặn khi đóng: chưa kết luận sự cố có liên quan dữ liệu khách hàng hoặc dữ liệu cá nhân hay không thì chưa đóng được (vì nó quyết định nghĩa vụ thông báo); ảnh hưởng hiệu lực kết quả thì phải dẫn hồ sơ ETV.P10 và ETV.P11 — module này KHÔNG tự kết luận kết quả còn giá trị hay không; mức Cao trở lên phải có phiếu bài học kinh nghiệm bên M26 và đã hoàn tất thông báo; người báo cáo hoặc người liên quan trực tiếp không được đóng chính sự cố đó."
+  - role: "Trưởng phòng đề nghị · Lãnh đạo Viện hoặc PT.ATTT phê duyệt · Quản trị hệ thống thực hiện"
+    action: "Cấp, sửa hoặc thu hồi quyền truy cập theo phiếu"
+    path: "/modules/M28/access"
+    note: "Ba vai trò đề nghị — phê duyệt — thực hiện phải là ba người khác nhau, và Quản trị hệ thống không phê duyệt quyền của chính mình (ETV.P28 §5.3). Người chưa có hồ sơ đào tạo nhận thức, hoặc bên thứ ba chưa có thoả thuận bảo mật, thì không cấp quyền. Quyền đặc quyền, quyền chạm tới thông tin mức Hạn chế/Mật, hoặc nhà cung cấp CNTT: bắt buộc Lãnh đạo Viện duyệt (ETV.P28 §6.7.1)."
+  - role: "Trưởng phòng / Người phụ trách ATTT"
+    action: "Rà soát quyền định kỳ và thu hồi quyền thừa bằng phiếu"
+    path: "/modules/M28/access"
+    note: "Trưởng phòng rà soát danh sách quyền của phòng tối thiểu 06 tháng/lần, danh sách tài khoản đặc quyền do Lãnh đạo Viện phê duyệt và rà soát ít nhất 02 lần/năm (ETV.P28 §6.7.1). Thu hồi quyền phải xong trong ngày làm việc khi chấm dứt hợp đồng hoặc chuyển công tác; chưa xong thì thủ tục thôi việc bên M03 bị chặn. Quyền thừa thu hồi bằng phiếu, không thu hồi ngầm."
+
+tips:
+  - "AI không đánh giá rủi ro chính thức, không phê duyệt Tuyên bố áp dụng, không đóng sự cố và không thay đổi quyền truy cập — mọi quyết định vẫn do người có thẩm quyền ký (ETV.P28 §6.13)."
+  - "Rủi ro hoặc Tuyên bố áp dụng quá 12 tháng chưa rà soát sẽ tự gắn cờ Đến hạn rà soát và đi vào báo cáo xem xét của Lãnh đạo (M17) — cờ tính lúc đọc, không phải trạng thái lưu trong hồ sơ."
+  - "Sự cố an toàn thông tin có hồ sơ gốc ở đây; ETV.P02 và M29 dẫn chiếu tới chính phiếu này, không lập hai bộ hồ sơ song song."
+  - "Thông tin mức Hạn chế/Mật không bao giờ được đưa vào chỉ mục trợ lý AI hay đẩy lên dịch vụ ngoài phạm vi đã phê duyệt; phát hiện thì mở sự cố kèm phiếu khắc phục."
+  - "Nhật ký thao tác của module là chỉ-thêm, lưu theo ETV.P15 và không dùng để đánh giá năng suất cá nhân."
+  - "Phiếu quyền truy cập hiện mới tra cứu được trên màn hình: luật và thao tác đã cài đủ ở tầng máy chủ nhưng chưa có nút bấm, và bốn biểu mẫu F28.01–F28.04 chưa xuất được PDF."
