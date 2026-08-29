@@ -3979,6 +3979,12 @@ async function seedM27() {
       lastReviewedAt: thang(1),
     },
   });
+  console.log(
+    "Đã nạp M27: 1 bảng quy tắc xử lý đã phê duyệt gồm 32 quy tắc (4 mức phân loại × 8 hành động, trong đó 4 dòng CẤM: " +
+      "Mật mang ra ngoài, Mật trên thiết bị cá nhân, Hạn chế và Mật đưa vào chỉ mục AI), " +
+      "3 tài sản thông tin (TS-2026-001 Hạn chế, TS-2026-002 Mật, TS-2026-003 Nội bộ) " +
+      `+ vai trò M27 cho ${Object.keys(userByRole).length} tài khoản.`,
+  );
 }
 
 // ===========================================================================
@@ -4279,4 +4285,11 @@ async function seedM28() {
   });
 
   void r1;
+  console.log(
+    "Đã nạp M28: 1 Tuyên bố áp dụng đã phê duyệt, đủ 93 kiểm soát Phụ lục A ISO/IEC 27001:2022 " +
+      "(3 kiểm soát Loại trừ có nêu lý do minh hoạ R7, 6 kiểm soát quá hạn cam kết bằng chứng minh hoạ R9), " +
+      "3 rủi ro ATTT (1 điểm 16 đang xử lý còn hạng mục chưa xác nhận hiệu lực minh hoạ R6, 1 điểm 20 đưa vào BCP, 1 đã xử lý), " +
+      "1 sự cố chờ kết luận, 1 phiếu quyền đặc quyền do LĐV phê duyệt (R17), 1 kỳ soát xét quyền 2026-H1 " +
+      `+ vai trò M28 cho ${Object.keys(userByRole).length} tài khoản.`,
+  );
 }
