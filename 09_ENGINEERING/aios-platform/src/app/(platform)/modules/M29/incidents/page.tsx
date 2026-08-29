@@ -1,18 +1,24 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import { INCIDENT_KIND_LABEL, INCIDENT_SEVERITY_LABEL, INCIDENT_SEVERITY_TONE, INCIDENT_STATUS_LABEL, INCIDENT_STATUS_TONE } from "@/lib/m29/labels";
 import { Badge, thCls } from "../ui";
 
-export default async function M29IncidentsPage() {
+export default async function M29IncidentsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
   const role = await getM29Role();
   if (!can(role, "incidents")) {
     return <div className="rounded-xl border border-crit/30 bg-crit-soft p-4 text-sm text-crit">Bạn không có quyền xem phiếu sự cố AI.</div>;
   }
 
+  const tong = await prisma.aIIncident.count();
+  const trang = chotTrang(trangRaw, tong);
   const incidents = await prisma.aIIncident.findMany({
     orderBy: { createdAt: "desc" },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
     include: { agent: true, detectedBy: true },
   });
 
@@ -78,6 +84,7 @@ export default async function M29IncidentsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M29/incidents" trang={trang} tong={tong} donVi="phiếu sự cố" />
       </div>
 
       <Link href="/modules/M29" className="text-sm text-accent hover:underline">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { SHARING_STATUS_LABEL, SHARING_STATUS_TONE, SHARING_TYPE_LABEL } from "@/lib/m34/labels";
 
 const TONE_CLASS: Record<string, string> = {
@@ -10,13 +11,20 @@ const TONE_CLASS: Record<string, string> = {
 };
 const th = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M34SharingPage() {
+export default async function M34SharingPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const now = new Date();
+  const [tong, overdue] = await Promise.all([
+    prisma.m34SharingRequest.count(),
+    prisma.m34SharingRequest.count({ where: { status: "DA_THUC_HIEN", revokeDue: { lt: now } } }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const sharings = await prisma.m34SharingRequest.findMany({
     orderBy: { createdAt: "desc" },
     include: { dataSet: { select: { id: true, code: true } }, requester: { select: { name: true } }, approvedBy: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
-  const now = new Date();
-  const overdue = sharings.filter((s) => s.status === "DA_THUC_HIEN" && s.revokeDue && s.revokeDue < now);
 
   return (
     <div className="flex flex-col gap-6">
@@ -25,7 +33,7 @@ export default async function M34SharingPage() {
         <h1 className="font-head text-2xl font-bold text-ink">Phiếu khai thác, chia sẻ</h1>
         <p className="mt-1 text-sm text-ink-2">
           Nội bộ vượt quyền — CSHDL duyệt · Ra ngoài Viện — LĐV duyệt, PT.ATTT bắt buộc (R18). Quá hạn chưa thu hồi:{" "}
-          <strong className={overdue.length > 0 ? "text-crit" : "text-ink"}>{overdue.length}</strong>.
+          <strong className={overdue > 0 ? "text-crit" : "text-ink"}>{overdue}</strong>.
         </p>
       </div>
       <Link href="/modules/M34" className="text-xs text-accent hover:underline">
@@ -81,6 +89,7 @@ export default async function M34SharingPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M34/sharing" trang={trang} tong={tong} donVi="phiếu" />
       </div>
     </div>
   );

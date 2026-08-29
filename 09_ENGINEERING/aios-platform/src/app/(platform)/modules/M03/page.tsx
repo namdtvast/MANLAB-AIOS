@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getM03Role } from "@/lib/m03/actor";
 import { M03_ROLE_LABEL, RECRUITMENT_STATUS_LABEL } from "@/lib/m03/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { EmployeeTable } from "./EmployeeTable";
 
 const STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
@@ -31,11 +32,25 @@ function Badge({ label, tone }: { label: string; tone: string }) {
   );
 }
 
-export default async function M03ListPage() {
-  const [plans, employees, role] = await Promise.all([
-    prisma.m03RecruitmentPlan.findMany({ orderBy: { createdAt: "desc" }, include: { createdBy: true } }),
-    prisma.m03Employee.findMany({ orderBy: { createdAt: "desc" } }),
+type Trang = { trang?: string; trangNs?: string };
+
+export default async function M03ListPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  const [tongTd, tongNs, role] = await Promise.all([
+    prisma.m03RecruitmentPlan.count(),
+    prisma.m03Employee.count(),
     getM03Role(),
+  ]);
+  const trangTd = chotTrang(query.trang, tongTd);
+  const trangNs = chotTrang(query.trangNs, tongNs);
+  const [plans, employees] = await Promise.all([
+    prisma.m03RecruitmentPlan.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { createdBy: true },
+      skip: boQua(trangTd),
+      take: KICH_THUOC_TRANG,
+    }),
+    prisma.m03Employee.findMany({ orderBy: { createdAt: "desc" }, skip: boQua(trangNs), take: KICH_THUOC_TRANG }),
   ]);
 
   return (
@@ -59,7 +74,7 @@ export default async function M03ListPage() {
 
       <CanCuBanner moduleCode="M03" />
 
-      <section className="flex flex-col gap-2">
+      <section id="tuyen-dung" className="flex scroll-mt-24 flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Đề xuất tuyển dụng</h2>
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[36rem] text-sm">
@@ -99,10 +114,11 @@ export default async function M03ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M03" query={query} neo="#tuyen-dung" trang={trangTd} tong={tongTd} donVi="đề xuất" />
         </div>
       </section>
 
-      <EmployeeTable rows={employees} />
+      <EmployeeTable rows={employees} query={query} trang={trangNs} tong={tongNs} />
     </div>
   );
 }

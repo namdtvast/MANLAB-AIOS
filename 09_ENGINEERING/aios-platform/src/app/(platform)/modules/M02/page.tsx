@@ -9,6 +9,7 @@ import {
   M02_ROLE_LABEL,
 } from "@/lib/m02/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -29,13 +30,28 @@ const COMMITMENT_TONE: Record<string, string> = { HIEU_LUC: "good", DA_THU_HOI: 
 const DISCLOSURE_TONE: Record<string, string> = { DRAFT: "warn", APPROVED: "good" };
 const INCIDENT_TONE: Record<string, string> = { DETECTED: "crit", ASSESSED: "warn", CLOSED: "good" };
 
-export default async function M02ListPage() {
-  const [commitments, visitorLogs, disclosures, incidents, role] = await Promise.all([
-    prisma.m02SecurityCommitment.findMany({ orderBy: { createdAt: "desc" }, take: 20 }),
-    prisma.m02VisitorLog.findMany({ orderBy: { createdAt: "desc" }, take: 10, include: { commitment: true } }),
-    prisma.m02DisclosureApproval.findMany({ orderBy: { createdAt: "desc" }, take: 10 }),
-    prisma.m02SecurityIncident.findMany({ orderBy: { createdAt: "desc" }, take: 10 }),
+type Trang = { trang?: string; trangKh?: string; trangCb?: string; trangSc?: string };
+
+export default async function M02ListPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
+  // Bốn sổ trên cùng một trang nên mỗi sổ giữ tham số trang riêng: lật sổ khách không được kéo ba
+  // sổ kia về trang 1. Đếm ở DB rồi mới lấy đúng một trang — bốn sổ này chỉ dài thêm theo thời gian.
+  const [tongCk, tongKh, tongCb, tongSc, role] = await Promise.all([
+    prisma.m02SecurityCommitment.count(),
+    prisma.m02VisitorLog.count(),
+    prisma.m02DisclosureApproval.count(),
+    prisma.m02SecurityIncident.count(),
     getM02Role(),
+  ]);
+  const trangCk = chotTrang(query.trang, tongCk);
+  const trangKh = chotTrang(query.trangKh, tongKh);
+  const trangCb = chotTrang(query.trangCb, tongCb);
+  const trangSc = chotTrang(query.trangSc, tongSc);
+  const [commitments, visitorLogs, disclosures, incidents] = await Promise.all([
+    prisma.m02SecurityCommitment.findMany({ orderBy: { createdAt: "desc" }, skip: boQua(trangCk), take: KICH_THUOC_TRANG }),
+    prisma.m02VisitorLog.findMany({ orderBy: { createdAt: "desc" }, include: { commitment: true }, skip: boQua(trangKh), take: KICH_THUOC_TRANG }),
+    prisma.m02DisclosureApproval.findMany({ orderBy: { createdAt: "desc" }, skip: boQua(trangCb), take: KICH_THUOC_TRANG }),
+    prisma.m02SecurityIncident.findMany({ orderBy: { createdAt: "desc" }, skip: boQua(trangSc), take: KICH_THUOC_TRANG }),
   ]);
 
   return (
@@ -51,7 +67,7 @@ export default async function M02ListPage() {
 
       <CanCuBanner moduleCode="M02" />
 
-      <section className="flex flex-col gap-2">
+      <section id="cam-ket" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Cam kết bảo mật</h2>
           <Link href="/modules/M02/commitment/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -90,10 +106,11 @@ export default async function M02ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M02" query={query} neo="#cam-ket" trang={trangCk} tong={tongCk} donVi="cam kết" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="so-khach" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sổ khách ra vào khu vực hạn chế</h2>
           <Link href="/modules/M02/visitor/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -128,10 +145,11 @@ export default async function M02ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M02" query={query} neo="#so-khach" tenTham="trangKh" trang={trangKh} tong={tongKh} donVi="lượt khách" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="cong-bo" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Công bố thông tin ra bên thứ ba</h2>
           <Link href="/modules/M02/disclosure/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -168,10 +186,11 @@ export default async function M02ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M02" query={query} neo="#cong-bo" tenTham="trangCb" trang={trangCb} tong={tongCb} donVi="hồ sơ" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="su-co" className="flex scroll-mt-24 flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="font-head text-sm font-bold text-ink">Sự cố bảo mật</h2>
           <Link href="/modules/M02/incident/new" className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink hover:opacity-90">
@@ -208,6 +227,7 @@ export default async function M02ListPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M02" query={query} neo="#su-co" tenTham="trangSc" trang={trangSc} tong={tongSc} donVi="sự cố" />
         </div>
       </section>
     </div>

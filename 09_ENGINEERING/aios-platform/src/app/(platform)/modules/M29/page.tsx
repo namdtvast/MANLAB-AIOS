@@ -18,8 +18,12 @@ import { CheckHealthButton } from "./CheckHealthButton";
 import { Badge } from "./ui";
 import { CanCuBanner } from "@/components/CanCuBanner";
 import { StatCard } from "@/components/StatCard";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
-export default async function M29OverviewPage() {
+type Trang = { trang?: string; trangAg?: string };
+
+export default async function M29OverviewPage({ searchParams }: { searchParams: Promise<Trang> }) {
+  const query: Trang = await searchParams;
   const role = await getM29Role();
   if (!can(role, "platforms") && !can(role, "registry")) {
     return (
@@ -33,13 +37,22 @@ export default async function M29OverviewPage() {
   // 15 phút/lần. Cron ngoài gọi POST /api/m29/sweep cho môi trường không ai truy cập thường xuyên.
   await maybeSweep();
 
+  const [tongPl, tongAg] = await Promise.all([prisma.aIPlatform.count(), prisma.aIAgent.count()]);
+  const trangPl = chotTrang(query.trang, tongPl);
+  const trangAg = chotTrang(query.trangAg, tongAg);
+
   const [platforms, agents, pendingAia, disabledTools, openIncidents, overdueSightings] = await Promise.all([
     // Mới thao tác nhất lên đầu: đăng ký, đổi trạng thái phê duyệt, đặt biến khoá và cả vòng dò
     // sức khoẻ đều chạm `updatedAt`. Xếp theo mã thì bản ghi vừa đụng tới nằm lẫn giữa danh sách,
     // đúng lúc người vận hành đang cần nhìn nó.
-    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" } }),
+    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" }, skip: boQua(trangPl), take: KICH_THUOC_TRANG }),
     // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
-    prisma.aIAgent.findMany({ orderBy: { updatedAt: "desc" }, include: { model: true, aia: true } }),
+    prisma.aIAgent.findMany({
+      orderBy: { updatedAt: "desc" },
+      include: { model: true, aia: true },
+      skip: boQua(trangAg),
+      take: KICH_THUOC_TRANG,
+    }),
     prisma.aIImpactAssessment.count({ where: { status: { in: ["NOT_ASSESSED", "DRAFT", "REVIEWED", "REVIEW_REQUIRED"] } } }),
     prisma.aITool.count({ where: { status: "DISABLED" } }),
     prisma.aIIncident.count({ where: { status: { notIn: ["CLOSED", "CANCELLED"] } } }),
@@ -59,8 +72,8 @@ export default async function M29OverviewPage() {
       <CanCuBanner moduleCode="M29" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-        <StatCard label="Platform" value={platforms.length} href="#platform" />
-        <StatCard label="Agent" value={agents.length} href="#agent" />
+        <StatCard label="Platform" value={tongPl} href="#platform" />
+        <StatCard label="Agent" value={tongAg} href="#agent" />
         <StatCard
           label="AIA chưa Đã phê duyệt"
           value={pendingAia}
@@ -123,6 +136,7 @@ export default async function M29OverviewPage() {
               ))}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29" query={query} neo="#platform" trang={trangPl} tong={tongPl} donVi="nền tảng" />
         </div>
       </div>
 
@@ -174,6 +188,7 @@ export default async function M29OverviewPage() {
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M29" query={query} neo="#agent" tenTham="trangAg" trang={trangAg} tong={tongAg} donVi="tác tử" />
         </div>
       </div>
 

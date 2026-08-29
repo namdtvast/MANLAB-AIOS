@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { RULE_ACTION_LABEL, RULE_VERSION_STATUS_LABEL, RULE_VERSION_STATUS_TONE } from "@/lib/m27/labels";
 import { CLASSIFICATION_LABEL } from "@/lib/m34/labels";
 import type { Classification } from "@/generated/prisma/enums";
@@ -16,12 +17,25 @@ const th =
 
 const COLUMNS: Classification[] = ["CONG_KHAI", "NOI_BO", "HAN_CHE", "MAT"];
 
-export default async function M27RulesPage() {
+export default async function M27RulesPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  // Phiên bản đang hiệu lực tra riêng chứ không dò trong danh sách đang hiện: bảng lịch sử đã phân
+  // trang nên phiên bản đó có thể không nằm ở trang đầu.
+  const [tong, current] = await Promise.all([
+    prisma.m27RuleVersion.count(),
+    prisma.m27RuleVersion.findFirst({
+      where: { status: "DA_PHE_DUYET" },
+      orderBy: { version: "desc" },
+      include: { rules: true, approvedBy: { select: { name: true } } },
+    }),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
   const versions = await prisma.m27RuleVersion.findMany({
     orderBy: { version: "desc" },
-    include: { rules: true, approvedBy: { select: { name: true } } },
+    include: { approvedBy: { select: { name: true } }, _count: { select: { rules: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
   });
-  const current = versions.find((v) => v.status === "DA_PHE_DUYET");
 
   return (
     <div className="flex flex-col gap-6">
@@ -120,12 +134,13 @@ export default async function M27RulesPage() {
                     </span>
                   </td>
                   <td className="px-3 py-2 text-ink-2">{v.effectiveFrom?.toLocaleDateString("vi-VN") ?? "—"}</td>
-                  <td className="px-3 py-2 text-ink-2">{v.rules.length}</td>
+                  <td className="px-3 py-2 text-ink-2">{v._count.rules}</td>
                   <td className="px-3 py-2 text-xs text-ink-2">{v.note ?? "—"}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M27/rules" trang={trang} tong={tong} donVi="phiên bản" />
         </div>
       </div>
     </div>

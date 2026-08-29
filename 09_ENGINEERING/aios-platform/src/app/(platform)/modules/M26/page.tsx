@@ -17,41 +17,65 @@ import {
 } from "@/lib/m26/labels";
 import { Badge, fmtDate, th } from "./_ui";
 import { StatCard } from "@/components/StatCard";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const navLink = "rounded-lg border border-border-strong px-3 py-1.5 text-xs font-semibold text-ink hover:bg-sunk";
 
-export default async function M26ListPage({ searchParams }: { searchParams: Promise<{ loc?: string }> }) {
-  const { loc } = await searchParams;
+export default async function M26ListPage({ searchParams }: { searchParams: Promise<{ loc?: string; trang?: string }> }) {
+  const { loc, trang: trangRaw } = await searchParams;
   const viewer = await getViewer();
   const allowed = visibleConfidentiality(viewer.role);
 
   // Lọc NGAY Ở TẦNG DỮ LIỆU theo mức bảo mật (NFR phân quyền), kèm ngoại lệ cho chủ sở hữu/người giữ.
-  const items = await prisma.m26KnowledgeItem.findMany({
-    where: {
-      OR: [
-        { confidentiality: { in: allowed } },
-        ...(viewer.id
-          ? [{ ownerId: viewer.id }, { holders: { some: { userId: viewer.id } } }]
-          : []),
-      ],
-    },
-    include: { owner: true, _count: { select: { holders: true, riskLinks: true } } },
-    orderBy: [{ status: "asc" }, { code: "asc" }],
-    take: 200,
-  });
-
-  const hiddenCount = (await prisma.m26KnowledgeItem.count()) - items.length;
-  const dueCount = items.filter(
-    (i) => i.status === "APPROVED" && isDueForReview(i.reviewCycle, i.lastReviewedAt ?? i.approvedAt),
-  ).length;
-  const atRiskCount = items.filter(
-    (i) => i.knowledgeForm === "TRI_THUC_AN" && i.criticality === "CAO" && i._count.holders <= 1,
-  ).length;
-  const indexedCount = items.filter((i) => i.aiIndexed).length;
-
+  const nhinThay = {
+    OR: [
+      { confidentiality: { in: allowed } },
+      ...(viewer.id ? [{ ownerId: viewer.id }, { holders: { some: { userId: viewer.id } } }] : []),
+    ],
+  };
   // Bộ lọc nông từ thẻ chỉ số: chỉ giữ mục đã đưa vào chỉ mục trợ lý AI.
   const aiOnly = loc === "ai";
-  const listed = aiOnly ? items.filter((i) => i.aiIndexed) : items;
+  const where = aiOnly ? { AND: [nhinThay, { aiIndexed: true }] } : nhinThay;
+
+  // Thẻ chỉ số đọc TOÀN BỘ mục nhìn thấy được, chỉ lấy các trường cần cho phép tính — bảng thì chỉ
+  // lấy đúng một trang. Trước đây cả hai dùng chung một truy vấn `take: 200` nên danh mục vượt 200
+  // mục là số liệu trên thẻ sai âm thầm.
+  const [tongAll, tong, chiSo] = await Promise.all([
+    prisma.m26KnowledgeItem.count(),
+    prisma.m26KnowledgeItem.count({ where }),
+    prisma.m26KnowledgeItem.findMany({
+      where: nhinThay,
+      select: {
+        status: true,
+        reviewCycle: true,
+        lastReviewedAt: true,
+        approvedAt: true,
+        knowledgeForm: true,
+        criticality: true,
+        aiIndexed: true,
+        _count: { select: { holders: true } },
+      },
+    }),
+  ]);
+
+  const hienThi = chiSo.length;
+  const hiddenCount = tongAll - hienThi;
+  const dueCount = chiSo.filter(
+    (i) => i.status === "APPROVED" && isDueForReview(i.reviewCycle, i.lastReviewedAt ?? i.approvedAt),
+  ).length;
+  const atRiskCount = chiSo.filter(
+    (i) => i.knowledgeForm === "TRI_THUC_AN" && i.criticality === "CAO" && i._count.holders <= 1,
+  ).length;
+  const indexedCount = chiSo.filter((i) => i.aiIndexed).length;
+
+  const trang = chotTrang(trangRaw, tong);
+  const listed = await prisma.m26KnowledgeItem.findMany({
+    where,
+    include: { owner: true, _count: { select: { holders: true, riskLinks: true } } },
+    orderBy: [{ status: "asc" }, { code: "asc" }],
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -72,7 +96,7 @@ export default async function M26ListPage({ searchParams }: { searchParams: Prom
       </p>
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <StatCard label="Mục tri thức hiển thị" value={items.length} href="/modules/M26#muc-tri-thuc" />
+        <StatCard label="Mục tri thức hiển thị" value={hienThi} href="/modules/M26#muc-tri-thuc" />
         <StatCard
           label="Đến hạn rà soát"
           value={dueCount}
@@ -124,7 +148,7 @@ export default async function M26ListPage({ searchParams }: { searchParams: Prom
 
         {aiOnly && (
           <p className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
-            Đang lọc: <strong className="text-ink">Trong chỉ mục trợ lý AI</strong> ({listed.length} mục)
+            Đang lọc: <strong className="text-ink">Trong chỉ mục trợ lý AI</strong> ({tong} mục)
             <Link href="/modules/M26#muc-tri-thuc" className="font-medium text-accent hover:underline">
               Bỏ lọc
             </Link>
@@ -202,6 +226,7 @@ export default async function M26ListPage({ searchParams }: { searchParams: Prom
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M26" query={{ loc: aiOnly ? "ai" : undefined }} neo="#muc-tri-thuc" trang={trang} tong={tong} donVi="mục tri thức" />
         </div>
       </section>
     </div>

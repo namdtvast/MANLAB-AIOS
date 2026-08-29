@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM28Role } from "@/lib/m28/actor";
 import { closerRole, reportDeadlineHours } from "@/lib/m28/rules";
 import {
@@ -22,14 +23,16 @@ const TONE_CLASS: Record<string, string> = {
 const th =
   "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-3";
 
-export default async function M28IncidentsPage() {
-  const [incidents, role] = await Promise.all([
-    prisma.m28SecurityIncident.findMany({
-      orderBy: { detectedAt: "desc" },
-      include: { reporter: { select: { name: true } }, closedBy: { select: { name: true } } },
-    }),
-    getM28Role(),
-  ]);
+export default async function M28IncidentsPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const [tong, role] = await Promise.all([prisma.m28SecurityIncident.count(), getM28Role()]);
+  const trang = chotTrang(trangRaw, tong);
+  const incidents = await prisma.m28SecurityIncident.findMany({
+    orderBy: { detectedAt: "desc" },
+    include: { reporter: { select: { name: true } }, closedBy: { select: { name: true } } },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-6">
@@ -123,6 +126,7 @@ export default async function M28IncidentsPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M28/incidents" trang={trang} tong={tong} donVi="sự cố" />
       </div>
     </div>
   );

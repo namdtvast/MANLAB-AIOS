@@ -1,9 +1,11 @@
 import Link from "next/link";
+import type { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { getM13Role } from "@/lib/m13/actor";
 import { CAP_STATUS_LABEL, M13_ROLE_LABEL, NCW_STATUS_LABEL, SEVERITY_LABEL, SOURCE_TYPE_LABEL } from "@/lib/m13/labels";
 import { CanCuBanner } from "@/components/CanCuBanner";
 import { StatCard } from "@/components/StatCard";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -34,27 +36,34 @@ const LOC_LABEL: Record<string, string> = {
   "dung-viec": "Đang dừng công việc",
 };
 
-export default async function M13ListPage({ searchParams }: { searchParams: Promise<{ loc?: string }> }) {
-  const { loc } = await searchParams;
-  const [items, role] = await Promise.all([
-    prisma.m13NonconformingWork.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { detectedBy: true, plan: true },
-    }),
-    getM13Role(),
-  ]);
+// Điều kiện lọc ở TẦNG DB, không lọc sau khi lấy: 10 dòng của một trang phải là 10 dòng của đúng
+// nhóm đang xem, và thẻ chỉ số vẫn đếm trên toàn sổ chứ không phải trên trang đang hiện.
+const WHERE: Record<string, Prisma.M13NonconformingWorkWhereInput> = {
+  "chua-dong": { status: { not: "DA_KHAC_PHUC" } },
+  "dung-viec": { stoppedWork: true },
+};
 
-  const stoppedCount = items.filter((n) => n.stoppedWork).length;
-  const openCount = items.filter((n) => n.status !== "DA_KHAC_PHUC").length;
-
+export default async function M13ListPage({ searchParams }: { searchParams: Promise<{ loc?: string; trang?: string }> }) {
+  const { loc, trang: trangRaw } = await searchParams;
   // Bộ lọc nông từ thẻ chỉ số — bấm vào con số thì thấy đúng những hồ sơ làm nên con số đó.
   const filter = loc && LOC_LABEL[loc] ? loc : null;
-  const listed =
-    filter === "chua-dong"
-      ? items.filter((n) => n.status !== "DA_KHAC_PHUC")
-      : filter === "dung-viec"
-        ? items.filter((n) => n.stoppedWork)
-        : items;
+  const where = filter ? WHERE[filter] : undefined;
+
+  const [tongAll, openCount, stoppedCount, tong, role] = await Promise.all([
+    prisma.m13NonconformingWork.count(),
+    prisma.m13NonconformingWork.count({ where: WHERE["chua-dong"] }),
+    prisma.m13NonconformingWork.count({ where: WHERE["dung-viec"] }),
+    prisma.m13NonconformingWork.count({ where }),
+    getM13Role(),
+  ]);
+  const trang = chotTrang(trangRaw, tong);
+  const listed = await prisma.m13NonconformingWork.findMany({
+    where,
+    orderBy: { createdAt: "desc" },
+    include: { detectedBy: true, plan: true },
+    skip: boQua(trang),
+    take: KICH_THUOC_TRANG,
+  });
 
   return (
     <div className="flex flex-col gap-8">
@@ -77,7 +86,7 @@ export default async function M13ListPage({ searchParams }: { searchParams: Prom
           tone={stoppedCount > 0 ? "crit" : "ink"}
           href="/modules/M13?loc=dung-viec#so-theo-doi"
         />
-        <StatCard label="Tổng hồ sơ" value={items.length} href="/modules/M13#so-theo-doi" />
+        <StatCard label="Tổng hồ sơ" value={tongAll} href="/modules/M13#so-theo-doi" />
       </div>
 
       <section id="so-theo-doi" className="flex scroll-mt-24 flex-col gap-2">
@@ -90,7 +99,7 @@ export default async function M13ListPage({ searchParams }: { searchParams: Prom
 
         {filter && (
           <p className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
-            Đang lọc: <strong className="text-ink">{LOC_LABEL[filter]}</strong> ({listed.length}/{items.length} hồ sơ)
+            Đang lọc: <strong className="text-ink">{LOC_LABEL[filter]}</strong> ({tong}/{tongAll} hồ sơ)
             <Link href="/modules/M13#so-theo-doi" className="font-medium text-accent hover:underline">
               Bỏ lọc
             </Link>
@@ -141,6 +150,7 @@ export default async function M13ListPage({ searchParams }: { searchParams: Prom
               )}
             </tbody>
           </table>
+          <PhanTrang path="/modules/M13" query={{ loc: filter ?? undefined }} neo="#so-theo-doi" trang={trang} tong={tong} donVi="hồ sơ" />
         </div>
       </section>
     </div>

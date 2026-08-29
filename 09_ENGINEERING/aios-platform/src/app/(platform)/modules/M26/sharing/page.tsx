@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getViewer } from "@/lib/m26/actor";
 import { SHARING_FORM_LABEL, SHARING_STATUS_LABEL, SHARING_STATUS_TONE } from "@/lib/m26/labels";
 import { Badge, fmtDate, th } from "../_ui";
 import { NewSharingForm, SharingActions } from "./SharingClient";
 
-export default async function SharingPage() {
+export default async function SharingPage({ searchParams }: { searchParams: Promise<{ trang?: string }> }) {
+  const { trang: trangRaw } = await searchParams;
+  const tong = await prisma.m26SharingEvent.count();
+  const trang = chotTrang(trangRaw, tong);
   const viewer = await getViewer();
   const [events, users, items, trainings] = await Promise.all([
     prisma.m26SharingEvent.findMany({
@@ -16,7 +20,8 @@ export default async function SharingPage() {
         _count: { select: { participants: true } },
       },
       orderBy: { heldAt: "desc" },
-      take: 100,
+      skip: boQua(trang),
+      take: KICH_THUOC_TRANG,
     }),
     prisma.user.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true, email: true } }),
     prisma.m26KnowledgeItem.findMany({
@@ -107,6 +112,7 @@ export default async function SharingPage() {
             )}
           </tbody>
         </table>
+        <PhanTrang path="/modules/M26/sharing" trang={trang} tong={tong} donVi="hoạt động" />
       </div>
     </div>
   );
