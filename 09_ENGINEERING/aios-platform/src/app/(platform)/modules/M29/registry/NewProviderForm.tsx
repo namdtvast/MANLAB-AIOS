@@ -28,7 +28,7 @@ export function NewProviderForm({
 
   return (
     <details className="mb-3 rounded-xl border border-border bg-surface">
-      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-ink marker:content-none">+ Thêm nhà cung cấp</summary>
+      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-accent marker:content-none">+ Đăng ký nhà cung cấp mới</summary>
 
       <form
         ref={formRef}
@@ -100,7 +100,7 @@ export function NewProviderForm({
           disabled={isPending}
           className="cursor-pointer self-start rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isPending ? "Đang lưu…" : "Thêm nhà cung cấp"}
+          {isPending ? "Đang lưu…" : "Đăng ký nhà cung cấp"}
         </button>
       </form>
     </details>

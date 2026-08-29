@@ -32,7 +32,7 @@ export function NewModelForm({ providers }: { providers: { id: string; code: str
 
   return (
     <details className="mb-3 rounded-xl border border-border bg-surface">
-      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-ink marker:content-none">+ Thêm model</summary>
+      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-accent marker:content-none">+ Đăng ký model mới</summary>
 
       <form
         ref={formRef}
@@ -111,6 +111,7 @@ export function NewModelForm({ providers }: { providers: { id: string; code: str
           <label className={labelCls}>
             Giá token ra / 1 triệu
             <input name="outputRate" type="number" min="0" step="0.000001" defaultValue={0} className={`${fieldCls} tabular-nums`} />
+            <span className="text-xs font-normal text-ink-3">Lấy đúng đơn giá nhà cung cấp công bố cho 1 triệu token ra, cùng loại tiền chọn bên dưới.</span>
           </label>
 
           <label className={labelCls}>
@@ -130,7 +131,7 @@ export function NewModelForm({ providers }: { providers: { id: string; code: str
           disabled={isPending}
           className="cursor-pointer self-start rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isPending ? "Đang lưu…" : "Thêm model"}
+          {isPending ? "Đang lưu…" : "Đăng ký model"}
         </button>
       </form>
     </details>

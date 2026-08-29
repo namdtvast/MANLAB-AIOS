@@ -31,7 +31,7 @@ export function NewSkillForm({ platforms, existingCodes }: { platforms: { id: st
 
   return (
     <details className="mb-3 rounded-xl border border-border bg-surface">
-      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-ink marker:content-none">+ Đăng ký kỹ năng mới</summary>
+      <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold text-accent marker:content-none">+ Đăng ký kỹ năng mới</summary>
 
       <form
         ref={formRef}

@@ -7,7 +7,10 @@ import {
   DATA_BOUNDARY_LABEL,
   DATA_BOUNDARY_TONE,
   OP_STATUS_LABEL,
+  OP_STATUS_TONE,
   PERMISSION_LEVEL_LABEL,
+  RISK_LEVEL_LABEL,
+  RISK_LEVEL_TONE,
   SECURITY_LEVEL_LABEL,
 } from "@/lib/m29/labels";
 import { mucBaoMatToiDa } from "@/lib/m29/copilot/muc-bao-mat";
@@ -29,6 +32,58 @@ const TONE_CLASS: Record<string, string> = {
   neutral: "bg-sunk text-ink-2",
 };
 
+// Lớp của ô tiêu đề cột, đặt một chỗ vì trang này có năm bảng — sửa rời từng bảng là cách chúng
+// trôi khác nhau.
+const TH = "border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3";
+
+function Badge({ tone, children }: { tone: string; children: React.ReactNode }) {
+  return <span className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[tone] ?? TONE_CLASS.neutral}`}>{children}</span>;
+}
+
+function EmptyRow({ cols, children }: { cols: number; children: React.ReactNode }) {
+  return (
+    <tr>
+      <td colSpan={cols} className="px-3 py-6 text-center text-sm text-ink-3">
+        {children}
+      </td>
+    </tr>
+  );
+}
+
+// Năm sổ đăng ký xếp theo THỨ BẬC CHỨA NHAU, không theo số lượng bản ghi: Platform giữ endpoint và
+// khoá; Provider gắn vào Platform; Model bắt buộc thuộc một Provider; Tool bắt buộc thuộc một
+// Platform; Skill không có khoá ngoại nào nên xuống cuối. Người đăng ký lần đầu phải đi đúng mạch
+// này — không có Platform thì không gắn được Provider, không có Provider thì không tạo được Model.
+function Section({
+  n,
+  id,
+  title,
+  desc,
+  count,
+  children,
+}: {
+  n: number;
+  id: string;
+  title: string;
+  desc: string;
+  count: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <section id={id} className="scroll-mt-24">
+      <div className="mb-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <h2 className="font-head text-sm font-bold text-ink">
+          <span className="text-ink-3">{n}. </span>
+          {title}
+        </h2>
+        <span className="text-xs tabular-nums text-ink-3">{count} bản ghi</span>
+        <p className="w-full text-xs text-ink-3">{desc}</p>
+      </div>
+      {children}
+    </section>
+  );
+}
+
 export default async function M29RegistryPage() {
   const role = await getM29Role();
   const canWritePlatform = can(role, "platforms", "write");
@@ -47,27 +102,58 @@ export default async function M29RegistryPage() {
     prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true } }),
   ]);
 
+  const mucLuc: [string, string, number][] = [
+    ["platform", "Platform", platforms.length],
+    ["provider", "Provider", providers.length],
+    ["model", "Model", models.length],
+    ["tool", "Tool", tools.length],
+    ["skill", "Skill", skills.length],
+  ];
+
   return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <p className="text-xs font-medium text-ink-3">M29 · Danh mục</p>
-        <h1 className="font-head text-2xl font-bold text-ink">Provider · Model · Skill · Tool · Platform</h1>
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-3">
+        <div>
+          <p className="text-xs font-medium text-ink-3">M29 · Danh mục</p>
+          <h1 className="font-head text-2xl font-bold text-ink">Platform · Provider · Model · Tool · Skill</h1>
+        </div>
+        <p className="max-w-3xl text-sm text-ink-2">
+          Năm sổ đăng ký, xếp từ lớn đến nhỏ theo thứ bậc chứa nhau. Đăng ký lần đầu thì đi từ trên xuống: có nền tảng mới gắn được nhà cung cấp, có nhà
+          cung cấp mới tạo được mô hình. AI không nằm trong năm sổ này là AI chưa đăng ký — không được dùng cho công việc của Viện.
+        </p>
+        <nav className="flex flex-wrap gap-1.5">
+          {mucLuc.map(([id, ten, so], i) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-ink-2 transition-colors hover:border-accent-line hover:text-ink"
+            >
+              <span className="text-ink-3">{i + 1}. </span>
+              {ten} <span className="tabular-nums text-ink-3">({so})</span>
+            </a>
+          ))}
+        </nav>
       </div>
 
-      <section id="platform" className="scroll-mt-24">
-        <h2 className="mb-2 font-head text-sm font-bold text-ink">Platform</h2>
+      <Section
+        n={1}
+        id="platform"
+        title="Platform — Nền tảng"
+        count={platforms.length}
+        desc="Nơi duy nhất giữ địa chỉ API, tên biến chứa khoá, ranh giới dữ liệu và trạng thái sức khoẻ. Mọi sổ bên dưới đều quy về đây."
+      >
         {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[52rem] text-sm">
             <thead>
               <tr>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Mã</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Biến khoá API</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Ranh giới dữ liệu</th>
+                <th className={TH}>Mã</th>
+                <th className={TH}>Tên</th>
+                <th className={TH}>Biến khoá API</th>
+                <th className={TH}>Ranh giới dữ liệu</th>
                 {/* Nút vòng đời nằm CÙNG cột với huy hiệu trạng thái, không tách cột riêng: chúng
                     nói về đúng một thứ, và bảng này đã đủ rộng. Cùng cách với cột Ranh giới. */}
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Trạng thái</th>
+                <th className={TH}>Trạng thái</th>
               </tr>
             </thead>
             <tbody>
@@ -94,9 +180,7 @@ export default async function M29RegistryPage() {
                   </td>
                   <td className="px-3 py-2">
                     <div className="flex flex-col items-start gap-1">
-                      <span className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[DATA_BOUNDARY_TONE[p.dataBoundary]]}`}>
-                        {DATA_BOUNDARY_LABEL[p.dataBoundary]}
-                      </span>
+                      <Badge tone={DATA_BOUNDARY_TONE[p.dataBoundary]}>{DATA_BOUNDARY_LABEL[p.dataBoundary]}</Badge>
                       {/* Hệ quả thực tế của ranh giới, nói thẳng: đây mới là thứ người vận hành
                           cần thấy — trần Công khai nghĩa là Copilot gần như không tra được gì. */}
                       <span className="text-xs text-ink-3">Copilot đọc tới mức {SECURITY_LEVEL_LABEL[mucBaoMatToiDa(p.dataBoundary)]}</span>
@@ -106,21 +190,115 @@ export default async function M29RegistryPage() {
                   </td>
                   <td className="px-3 py-2">
                     <div className="flex flex-col items-start gap-1">
-                      <span className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium ${TONE_CLASS[APPROVAL_STATUS_TONE[p.approvalStatus]]}`}>
-                        {APPROVAL_STATUS_LABEL[p.approvalStatus]}
-                      </span>
+                      <Badge tone={APPROVAL_STATUS_TONE[p.approvalStatus]}>{APPROVAL_STATUS_LABEL[p.approvalStatus]}</Badge>
                       {canWritePlatform && <PlatformApprovalButton id={p.id} status={p.approvalStatus} />}
                     </div>
                   </td>
                 </tr>
               ))}
+              {platforms.length === 0 && <EmptyRow cols={5}>Chưa đăng ký nền tảng nào. Đây là bước đầu tiên — các sổ bên dưới đều cần một nền tảng.</EmptyRow>}
             </tbody>
           </table>
         </div>
-      </section>
+      </Section>
 
-      <section id="tool" className="scroll-mt-24">
-        <h2 className="mb-2 font-head text-sm font-bold text-ink">Tool</h2>
+      <Section
+        n={2}
+        id="provider"
+        title="Provider — Nhà cung cấp mô hình"
+        count={providers.length}
+        desc="Đơn vị cung cấp mô hình. Nhà cung cấp tự vận hành phải gắn một nền tảng; dịch vụ ngoài Viện để trống là bình thường."
+      >
+        {canWriteRegistry && (
+          <NewProviderForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={providers.map((p) => p.code)} />
+        )}
+        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
+          <table className="w-full min-w-[36rem] text-sm">
+            <thead>
+              <tr>
+                <th className={TH}>Mã</th>
+                <th className={TH}>Tên</th>
+                <th className={TH}>Nền tảng phơi API</th>
+                <th className={TH}>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              {providers.map((p) => (
+                <tr key={p.id} className="border-b border-border last:border-0">
+                  <td className="px-3 py-2 font-mono text-xs text-ink">{p.code}</td>
+                  <td className="px-3 py-2 text-ink">{p.name}</td>
+                  {/* Nhà cung cấp tự vận hành phải gắn nền tảng — đó là nơi giữ endpoint và trạng
+                      thái kiểm tra sức khoẻ. Dịch vụ ngoài Viện để trống là bình thường. */}
+                  <td className="px-3 py-2 text-ink-2">
+                    {p.platform ? <span className="font-mono text-xs">{p.platform.code}</span> : <span className="text-xs text-ink-3">Không gắn — dịch vụ ngoài Viện</span>}
+                  </td>
+                  <td className="px-3 py-2">
+                    <Badge tone={OP_STATUS_TONE[p.status]}>{OP_STATUS_LABEL[p.status]}</Badge>
+                  </td>
+                </tr>
+              ))}
+              {providers.length === 0 && <EmptyRow cols={4}>Chưa có nhà cung cấp nào.</EmptyRow>}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <Section
+        n={3}
+        id="model"
+        title="Model — Mô hình và bảng giá token"
+        count={models.length}
+        desc="Mô hình cụ thể của một nhà cung cấp. Mã model phải trùng đúng tên máy chủ phơi ra; đơn giá dùng để quy đổi chi phí mỗi lượt gọi."
+      >
+        {canWriteRegistry && <NewModelForm providers={providers.map((p) => ({ id: p.id, code: p.code, name: p.name }))} />}
+        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
+          <table className="w-full min-w-[44rem] text-sm">
+            <thead>
+              <tr>
+                <th className={TH}>Mã model</th>
+                <th className={TH}>Tên hiển thị</th>
+                <th className={TH}>Nhà cung cấp</th>
+                <th className={TH}>Giá / 1 triệu token</th>
+                {canWriteRegistry && <th className={TH}>Bảng giá</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {models.map((m) => (
+                <tr key={m.id} className="border-b border-border last:border-0">
+                  <td className="px-3 py-2 font-mono text-xs text-ink">{m.modelId}</td>
+                  <td className="px-3 py-2 text-ink">{m.displayName}</td>
+                  <td className="px-3 py-2 text-ink-2">{m.provider.name}</td>
+                  <td className="px-3 py-2 text-xs tabular-nums text-ink-2">
+                    Vào {m.inputCostPerMillionTokens.toLocaleString("vi-VN")} · Ra {m.outputCostPerMillionTokens.toLocaleString("vi-VN")} {m.currency}
+                  </td>
+                  {canWriteRegistry && (
+                    <td className="px-3 py-2">
+                      <ModelPricingForm
+                        model={{
+                          id: m.id,
+                          name: m.displayName,
+                          inputRate: m.inputCostPerMillionTokens,
+                          outputRate: m.outputCostPerMillionTokens,
+                          currency: m.currency,
+                        }}
+                      />
+                    </td>
+                  )}
+                </tr>
+              ))}
+              {models.length === 0 && <EmptyRow cols={canWriteRegistry ? 5 : 4}>Chưa có Model nào để thiết lập bảng giá.</EmptyRow>}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <Section
+        n={4}
+        id="tool"
+        title="Tool — Công cụ tác tử được gọi"
+        count={tools.length}
+        desc="Một endpoint mà tác tử được phép gọi, luôn thuộc một nền tảng. Đăng ký xong vẫn chưa gọi được: còn phải nằm trong whitelist của từng tác tử."
+      >
         {canWriteRegistry && (
           <NewToolForm
             /* ETV.P35 §6.7: công cụ chỉ được trỏ tới nền tảng Đã phê duyệt/Hiệu lực. Lọc ở đây
@@ -133,25 +311,23 @@ export default async function M29RegistryPage() {
           <table className="w-full min-w-[36rem] text-sm">
             <thead>
               <tr>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Tên</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Platform</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Endpoint</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Quyền</th>
-                <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Trạng thái</th>
-                {canWriteRegistry && <th className="border-b border-border px-3 py-2 text-left text-xs font-semibold uppercase text-ink-3">Thao tác</th>}
+                <th className={TH}>Tên</th>
+                <th className={TH}>Platform</th>
+                <th className={TH}>Endpoint</th>
+                <th className={TH}>Quyền</th>
+                <th className={TH}>Trạng thái</th>
+                {canWriteRegistry && <th className={TH}>Thao tác</th>}
               </tr>
             </thead>
             <tbody>
               {tools.map((t) => (
                 <tr key={t.id} className="border-b border-border last:border-0">
                   <td className="px-3 py-2 text-ink">{t.name}</td>
-                  <td className="px-3 py-2 text-ink-2">{t.platform.code}</td>
+                  <td className="px-3 py-2 font-mono text-xs text-ink-2">{t.platform.code}</td>
                   <td className="px-3 py-2 font-mono text-xs text-ink-2">{t.endpoint}</td>
                   <td className="px-3 py-2 text-ink-2">{PERMISSION_LEVEL_LABEL[t.permissionLevel]}</td>
                   <td className="px-3 py-2">
-                    <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${t.status === "ACTIVE" ? "bg-good-soft text-good" : "bg-crit-soft text-crit"}`}>
-                      {OP_STATUS_LABEL[t.status]}
-                    </span>
+                    <Badge tone={t.status === "ACTIVE" ? "good" : "crit"}>{OP_STATUS_LABEL[t.status]}</Badge>
                   </td>
                   {canWriteRegistry && (
                     <td className="px-3 py-2">
@@ -160,73 +336,56 @@ export default async function M29RegistryPage() {
                   )}
                 </tr>
               ))}
+              {tools.length === 0 && <EmptyRow cols={canWriteRegistry ? 6 : 5}>Chưa đăng ký công cụ nào.</EmptyRow>}
             </tbody>
           </table>
         </div>
-      </section>
+      </Section>
 
-      <section className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div>
-          <h2 className="mb-2 font-head text-sm font-bold text-ink">Provider</h2>
-          {canWriteRegistry && (
-            <NewProviderForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={providers.map((p) => p.code)} />
-          )}
-          <ul className="flex flex-col gap-1.5 text-sm">
-            {providers.map((p) => (
-              <li key={p.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
-                {p.name} <span className="text-xs text-ink-3">({OP_STATUS_LABEL[p.status]})</span>
-                {/* Nhà cung cấp tự vận hành phải gắn nền tảng — đó là nơi giữ endpoint và trạng
-                    thái kiểm tra sức khoẻ. Dịch vụ ngoài Viện để trống là bình thường. */}
-                <span className="text-xs text-ink-3">{p.platform ? ` · nền tảng ${p.platform.code}` : " · không gắn nền tảng"}</span>
-              </li>
-            ))}
-          </ul>
+      <Section
+        n={5}
+        id="skill"
+        title="Skill — Kỹ năng"
+        count={skills.length}
+        desc="Nhãn mô tả việc tác tử làm được. Kỹ năng KHÔNG cấp quyền hành động — thứ giới hạn tác tử là whitelist công cụ (ETV.P29 mục 1.3 nguyên tắc 3)."
+      >
+        {canWriteRegistry && (
+          <NewSkillForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={skills.map((s) => s.code)} />
+        )}
+        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
+          <table className="w-full min-w-[40rem] text-sm">
+            <thead>
+              <tr>
+                <th className={TH}>Mã</th>
+                <th className={TH}>Tên</th>
+                <th className={TH}>Phạm vi nền tảng</th>
+                <th className={TH}>Mức rủi ro</th>
+                <th className={TH}>Phiên bản</th>
+                <th className={TH}>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              {skills.map((s) => (
+                <tr key={s.id} className="border-b border-border last:border-0">
+                  <td className="px-3 py-2 font-mono text-xs text-ink">{s.code}</td>
+                  <td className="px-3 py-2 text-ink">{s.name}</td>
+                  <td className="px-3 py-2 text-ink-2">
+                    {s.platformScope ? <span className="font-mono text-xs">{s.platformScope}</span> : <span className="text-xs text-ink-3">Dùng chung</span>}
+                  </td>
+                  <td className="px-3 py-2">
+                    <Badge tone={RISK_LEVEL_TONE[s.riskLevel]}>{RISK_LEVEL_LABEL[s.riskLevel] ?? s.riskLevel}</Badge>
+                  </td>
+                  <td className="px-3 py-2 tabular-nums text-ink-2">v{s.version}</td>
+                  <td className="px-3 py-2">
+                    <Badge tone={OP_STATUS_TONE[s.status]}>{OP_STATUS_LABEL[s.status]}</Badge>
+                  </td>
+                </tr>
+              ))}
+              {skills.length === 0 && <EmptyRow cols={6}>Chưa đăng ký kỹ năng nào.</EmptyRow>}
+            </tbody>
+          </table>
         </div>
-        <div>
-          <h2 className="mb-2 font-head text-sm font-bold text-ink">Model và bảng giá token</h2>
-          {canWriteRegistry && <NewModelForm providers={providers.map((p) => ({ id: p.id, code: p.code, name: p.name }))} />}
-          <ul className="flex flex-col gap-1.5 text-sm">
-            {models.map((m) => (
-              <li key={m.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-ink">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span>
-                    {m.displayName} <span className="text-xs text-ink-3">· {m.provider.name}</span>
-                    <span className="ml-1 font-mono text-xs text-ink-3">({m.modelId})</span>
-                  </span>
-                  <span className="text-xs tabular-nums text-ink-2">
-                    Vào {m.inputCostPerMillionTokens.toLocaleString("vi-VN")} · Ra {m.outputCostPerMillionTokens.toLocaleString("vi-VN")} {m.currency}/1M token
-                  </span>
-                </div>
-                {canWriteRegistry && (
-                  <ModelPricingForm
-                    model={{
-                      id: m.id,
-                      name: m.displayName,
-                      inputRate: m.inputCostPerMillionTokens,
-                      outputRate: m.outputCostPerMillionTokens,
-                      currency: m.currency,
-                    }}
-                  />
-                )}
-              </li>
-            ))}
-            {models.length === 0 && <li className="rounded-lg border border-dashed border-border p-6 text-center text-ink-3">Chưa có Model nào để thiết lập bảng giá.</li>}
-          </ul>
-        </div>
-        <div className="sm:col-span-2">
-          <h2 className="mb-2 font-head text-sm font-bold text-ink">Skill</h2>
-          {canWriteRegistry && (
-            <NewSkillForm platforms={platforms.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={skills.map((s) => s.code)} />
-          )}
-          <div className="flex flex-wrap gap-2">
-            {skills.map((s) => (
-              <span key={s.id} className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent">
-                {s.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      </Section>
     </div>
   );
 }
