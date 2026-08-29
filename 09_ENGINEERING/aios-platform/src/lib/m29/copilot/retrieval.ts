@@ -8,7 +8,7 @@
 // nếu một bản ghi sai mức lọt vào bảng thì truy hồi vẫn không lấy ra. Lớp lọc này còn áp thêm
 // TRẦN theo nhà cung cấp mô hình đang dùng (§5.5) — xem mucBaoMatToiDa().
 import { prisma } from "@/lib/prisma";
-import { tsQuery } from "./text";
+import { maModuleTrongCauHoi, maTaiLieuTrongCauHoi, tsQuery } from "./text";
 import { mucBaoMatToiDa } from "./muc-bao-mat";
 import type { AIDataBoundary } from "@/generated/prisma/enums";
 
@@ -49,33 +49,53 @@ export async function retrieve(question: string, ranhGioi: AIDataBoundary, limit
   const q = tsQuery(question);
   if (!q) return [];
 
+  // Tài liệu/module được câu hỏi GỌI ĐÍCH DANH đứng trước mọi thứ khác — xem hai hàm rút mã ở
+  // text.ts. Khớp theo ĐƯỜNG DẪN chứ không theo nội dung: mã nằm ở tên file/thư mục, còn thân
+  // bài của tài liệu khác cũng nhắc tới mã này (mục "Tài liệu liên quan") mà không phải là nó.
+  // Ký tự "_" trong mẫu LIKE là ký tự đại diện một ký tự bất kỳ — chấp nhận được vì mọi mã đều
+  // theo khuôn "Mxx_Slug"/"ETV.Pxx_Slug", không có mã nào là tiền tố của mã khác.
+  const mauDuongDan = [
+    ...maTaiLieuTrongCauHoi(question).map((ma) => `%/${ma}_%`),
+    ...maModuleTrongCauHoi(question).flatMap((so) => [`%/M${so}_%`, `%/MP${so}_%`]),
+  ];
+
   // Xếp hạng: trọng số {D, C, B, A} = {0.05, 0.2, 0.4, 1.0} — khớp tiêu đề (hạng A) ăn đứt khớp
   // thân bài (hạng D); cờ chuẩn hóa 1 chia điểm cho log độ dài để tài liệu dài không thắng chỉ
   // vì dài. Không có hai điều chỉnh này, truy vấn OR luôn trả về mấy tài liệu dài nhất repo.
-  const rows = await prisma.$queryRaw<{ path: string; title: string; heading: string; content: string; rank: number }[]>`
+  const rows = await prisma.$queryRaw<
+    { path: string; title: string; heading: string; content: string; rank: number; goiDichDanh: boolean }[]
+  >`
     SELECT c."path", c."title", c."heading", c."content",
-           ts_rank('{0.05, 0.2, 0.4, 1.0}'::float4[], c."tsv", query, 1) AS rank
+           ts_rank('{0.05, 0.2, 0.4, 1.0}'::float4[], c."tsv", query, 1) AS rank,
+           c."path" LIKE ANY(${mauDuongDan}::text[]) AS "goiDichDanh"
     FROM "CopilotDocChunk" c, to_tsquery('simple', ${q}) query
     WHERE c."tsv" @@ query
       AND c."securityLevel" = ANY(${mucDuocGui(ranhGioi)})
-    ORDER BY rank DESC, c."path" ASC
+    ORDER BY "goiDichDanh" DESC, rank DESC, c."path" ASC
     LIMIT ${limit * CANDIDATE_FACTOR}
   `;
 
   // Áp hạn mức đoạn/tài liệu theo đúng thứ tự xếp hạng: đoạn tốt nhất của mỗi tài liệu luôn được
   // giữ, chỉ đoạn thứ ba trở đi của cùng tài liệu mới bị nhường chỗ cho tài liệu khác.
+  // Hạn mức đoạn/tài liệu KHÔNG áp cho tài liệu được gọi đích danh: hạn mức này sinh ra để một
+  // tài liệu dài không chiếm hết chỗ khi câu hỏi chung chung. Khi người hỏi nêu thẳng mã tài
+  // liệu thì "chiếm hết chỗ" chính là câu trả lời đúng.
   const demTheoTaiLieu = new Map<string, number>();
   const chon: typeof rows = [];
   for (const r of rows) {
     const dem = demTheoTaiLieu.get(r.path) ?? 0;
-    if (dem >= MAX_PASSAGES_PER_DOC) continue;
+    if (dem >= (r.goiDichDanh ? limit : MAX_PASSAGES_PER_DOC)) continue;
     demTheoTaiLieu.set(r.path, dem + 1);
     chon.push(r);
     if (chon.length >= limit) break;
   }
 
+  // Liệt kê từng trường thay vì spread: cột goiDichDanh chỉ phục vụ xếp hạng, không được rò ra
+  // Passage (nó sẽ đi thẳng vào prompt qua buildContextBlock).
   return chon.map((r) => ({
-    ...r,
+    path: r.path,
+    title: r.title,
+    heading: r.heading,
     content: r.content.length > MAX_PASSAGE_CHARS ? `${r.content.slice(0, MAX_PASSAGE_CHARS)}…` : r.content,
     rank: Number(r.rank),
   }));

@@ -2,7 +2,7 @@
 // chỉ mục không bao giờ khớp truy vấn, mà lỗi đó không biểu hiện thành exception — chỉ thành
 // "Copilot lúc nào cũng nói không tìm thấy". Test khóa lại hành vi chuẩn hóa.
 import { describe, expect, it } from "vitest";
-import { keywords, normalize, tsQuery } from "../copilot/text";
+import { keywords, maModuleTrongCauHoi, maTaiLieuTrongCauHoi, normalize, tachTuChoChiMuc, tsQuery } from "../copilot/text";
 
 describe("normalize", () => {
   it("bỏ dấu tiếng Việt và hạ chữ thường", () => {
@@ -56,5 +56,54 @@ describe("tsQuery", () => {
   it("trả chuỗi rỗng khi không còn từ khóa — nơi gọi phải hiểu là không truy hồi được", () => {
     expect(tsQuery("là của và theo")).toBe("");
     expect(tsQuery("?!")).toBe("");
+  });
+});
+
+// Hai bộ test dưới khóa lại đúng chỗ đã làm Copilot câm: chỉ mục và truy vấn tách từ khác nhau.
+describe("tachTuChoChiMuc", () => {
+  it("tách mã tài liệu thành các token mà keywords() sẽ đi tìm", () => {
+    // Điều kiện sống còn: to_tsvector('simple') giữ "etv.p13" thành MỘT token, còn keywords()
+    // đi tìm "etv" và "p13" riêng lẻ — nên chuỗi đưa vào chỉ mục phải tách sẵn.
+    expect(tachTuChoChiMuc("ETV.P13_KhacPhuc")).toBe("etv p13 khacphuc");
+    expect(tachTuChoChiMuc("ISO/IEC 17025:2017")).toBe("iso iec 17025 2017");
+  });
+
+  it("mọi token sinh ra đều là token mà keywords() có thể sinh ra", () => {
+    const trongChiMuc = tachTuChoChiMuc("Thủ tục ETV.P.F29.03 — Phiếu kiểm thử").split(" ");
+    for (const t of trongChiMuc) expect(t).toMatch(/^[a-z0-9]+$/);
+  });
+
+  it("giữ nguyên phép bỏ dấu của normalize", () => {
+    expect(tachTuChoChiMuc("Kiểm định")).toBe(normalize("Kiem dinh"));
+  });
+});
+
+describe("maTaiLieuTrongCauHoi", () => {
+  it("nhận ra thủ tục, sổ tay và biểu mẫu được gọi đích danh", () => {
+    expect(maTaiLieuTrongCauHoi("Thủ tục ETV.P13 quy định những gì?")).toEqual(["ETV.P13"]);
+    expect(maTaiLieuTrongCauHoi("etv.qm nói gì về chính sách?")).toEqual(["ETV.QM"]);
+    expect(maTaiLieuTrongCauHoi("Biểu mẫu ETV.P.F29.03 dùng khi nào?")).toEqual(["ETV.P.F29.03"]);
+  });
+
+  it("gộp trùng và giữ được nhiều mã trong một câu", () => {
+    expect(maTaiLieuTrongCauHoi("So sánh ETV.P13 với ETV.P14, rồi ETV.P13 lần nữa")).toEqual(["ETV.P13", "ETV.P14"]);
+  });
+
+  it("câu hỏi không nêu mã nào thì không bịa ra mã", () => {
+    expect(maTaiLieuTrongCauHoi("Phát hiện công việc không phù hợp thì làm thế nào?")).toEqual([]);
+    expect(maTaiLieuTrongCauHoi("ETV làm gì?")).toEqual([]);
+  });
+});
+
+describe("maModuleTrongCauHoi", () => {
+  it("nhận cả Mxx lẫn MPxx và gộp về cùng một số", () => {
+    expect(maModuleTrongCauHoi("Module M29 số hóa thủ tục nào?")).toEqual(["29"]);
+    expect(maModuleTrongCauHoi("MP13 và M13 có gì khác nhau?")).toEqual(["13"]);
+  });
+
+  it("không nhận nhầm mã thủ tục hay số đo thành mã module", () => {
+    expect(maModuleTrongCauHoi("Thủ tục ETV.P13 quy định những gì?")).toEqual([]);
+    expect(maModuleTrongCauHoi("ISO/IEC 17025 yêu cầu gì?")).toEqual([]);
+    expect(maModuleTrongCauHoi("Biểu mẫu F13.01 dùng khi nào?")).toEqual([]);
   });
 });
