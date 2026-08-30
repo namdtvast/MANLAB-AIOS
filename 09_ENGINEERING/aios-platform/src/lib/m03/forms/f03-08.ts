@@ -1,7 +1,7 @@
 // Bản xuất biểu mẫu ETV.P.F 03.08 — DANH SÁCH NHÂN SỰ.
 //
 // Khác F03.01 ở chỗ đây là biểu mẫu TỔNG HỢP: một tờ chứa cả danh sách, khổ ngang, 11 cột đúng
-// thứ tự biểu mẫu gốc 06_SHARED_RESOURCES/01_Forms/ETV.P.F03.08_DanhSachNhanSu.md.
+// thứ tự biểu mẫu gốc 06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.08_DanhSachNhanSu.md.
 //
 // Cột "Ngày sinh" và "Ghi chú" chưa có trong M03Employee nên để ô trống điền tay — giữ nguyên cột
 // vì đoàn đánh giá đối chiếu bản in với biểu mẫu đã ban hành.

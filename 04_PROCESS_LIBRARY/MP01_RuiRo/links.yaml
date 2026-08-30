@@ -9,8 +9,8 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_MucTieu.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_QuaTrinh.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.04_CamKet_ATLD_TrenCao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.02_BangTongHop_MucTieu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.02_BangTongHop_QuaTrinh.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.04_CamKet_ATLD_TrenCao.md

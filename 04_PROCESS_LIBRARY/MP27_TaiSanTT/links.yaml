@@ -10,6 +10,6 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-28_ATTT
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F27.01_DanhMucTaiSanThongTin.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F27.03_PhieuBienBanHuyDuLieu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.01_DanhMucTaiSanThongTin.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.03_PhieuBienBanHuyDuLieu.md

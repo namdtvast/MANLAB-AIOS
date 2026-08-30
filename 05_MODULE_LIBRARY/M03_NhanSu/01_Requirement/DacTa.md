@@ -1,7 +1,7 @@
 # M03_NhanSu — Đặc tả yêu cầu
 
 > Nguồn: `03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md` (Thủ tục ETV.P03, lần ban hành 03, **Đã
-> phê duyệt** 20/07/2026, 18 biểu mẫu đi kèm tại `06_SHARED_RESOURCES/01_Forms/ETV.P.F03.xx_*`).
+> phê duyệt** 20/07/2026, 18 biểu mẫu đi kèm tại `06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.xx_*`).
 
 ## 1. Mục tiêu module
 
@@ -131,7 +131,7 @@ gia đình…; F03.08 thiếu cột Ngày sinh và Ghi chú. Muốn PDF điền 
 việc xuất biểu mẫu.
 
 **Nguồn sự thật của metadata biểu mẫu.** Mã số / lần ban hành / ngày ban hành in trên đầu bản
-xuất bắt nguồn từ frontmatter của chính `06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md`;
+xuất bắt nguồn từ frontmatter của chính `06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.01_SoYeuLyLich.md`;
 `prisma/seed.ts` đọc lên và nạp vào `PlatformModule.forms` (cùng đường với danh sách biểu mẫu mà
 `<CanCuBanner>` hiển thị), lúc chạy chỉ đọc lại từ DB (`src/lib/forms/meta.ts`). Biểu mẫu ban hành
 lại thì chạy lại seed, bản xuất tự đổi theo, không sửa code. Cố tình KHÔNG đọc file trong repo lúc

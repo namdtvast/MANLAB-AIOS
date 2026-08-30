@@ -10,7 +10,7 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-29_AIOffice
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F35.01_DanhMucNenTangSo.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.01_DanhMucNenTangSo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md

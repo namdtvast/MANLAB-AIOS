@@ -9,8 +9,8 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-28_ATTT
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F02.02_CamKetBaoMat_KhachHang.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F02.03_SoGhiNhanKhachHang.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F02.05_ChinhSachBaoMat_Website.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.02_CamKetBaoMat_KhachHang.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.03_SoGhiNhanKhachHang.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.05_ChinhSachBaoMat_Website.md

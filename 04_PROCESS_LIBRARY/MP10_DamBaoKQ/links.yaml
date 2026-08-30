@@ -9,12 +9,12 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.02_HoSoQCNoiBo.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.03_DanhGiaTayNghe.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.04_HoSoPT_ILC.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.05_DongNhatRM_CRM.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.06_OnDinhRM_CRM.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.07_DacTrungAnDinhGiaTri.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.08_XacNhanCongCuSoAI.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.09_CongBoTrangThaiP10.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.02_HoSoQCNoiBo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.03_DanhGiaTayNghe.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.04_HoSoPT_ILC.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.05_DongNhatRM_CRM.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.06_OnDinhRM_CRM.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.07_DacTrungAnDinhGiaTri.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.08_XacNhanCongCuSoAI.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.09_CongBoTrangThaiP10.md
