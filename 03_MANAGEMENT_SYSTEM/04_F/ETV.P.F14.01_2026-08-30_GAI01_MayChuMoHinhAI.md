@@ -5,8 +5,8 @@ type: Bieu-mau
 process: MP14_TaiLieu
 module: M14_TaiLieu
 revision: "01"
-effective_date: ""
-status: Cho-soat-xet
+effective_date: "30/08/2026"
+status: Da-phe-duyet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
@@ -23,7 +23,7 @@ Bản đã điền theo `ETV.P.F 14.01` (ETV.P14 §6.6.1 bước 1–2, trình t
 | Tên văn bản | Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS |
 | Loại văn bản | ☒ Hướng dẫn |
 | Loại đề nghị | ☒ Xây dựng mới |
-| Người đề nghị | Dương Thành Nam |
+| Người đề nghị / biên soạn | Dương Thành Nam |
 | Ngày đề nghị | 30/08/2026 |
 | Trạng thái hiện tại của văn bản | `Nháp`, lần ban hành 01, `effective_date` để trống |
 | Thủ tục chủ trì | **ETV.P29** (Quản lý hệ thống trí tuệ nhân tạo) |
@@ -150,12 +150,19 @@ Máy chủ công bố endpoint qua **Cloudflare Tunnel** (Phương án C của �
 
 ## 5. VIỆC PHẢI LÀM SAU KHI PHÊ DUYỆT
 
-Theo ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
+**Theo quyết định của LĐV tại mục 8 (PA A + ban hành lại ETV.P14 trước), GAI 01 CHƯA ban hành ngày 30/08/2026.** Hai điều kiện tiên quyết phải xong trước, theo đúng thứ tự:
+
+| TT | Điều kiện tiên quyết | Trách nhiệm | Trạng thái 30/08/2026 |
+|---|---|---|---|
+| **ĐK1** | **ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu lĩnh vực `AI` vào §6.2 và danh mục `ETV.P.F 14.02` | LĐP → LĐV | Chưa lập phiếu đề nghị |
+| **ĐK2** | **ETV.P29 có hiệu lực** (kèm P33, P34, P35 để hết dẫn chiếu treo) | LĐP → LĐV | Cả bốn đang `Chờ soát xét` |
+
+Đủ ĐK1 và ĐK2 rồi mới chạy tiếp ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
 
 | # | Việc | Trách nhiệm | Biểu mẫu |
 |---|---|---|---|
-| 1 | Cấp mã số chính thức (sau khi xử lý vướng mắc 2) | Văn thư/QLCL | — |
-| 2 | Đặt `effective_date`, `revision: 01`, chuyển `status` sang **`Da-phe-duyet`** | Văn thư/QLCL | — |
+| 1 | Cấp mã số chính thức theo ký hiệu `AI` đã được ETV.P14 lần 04 hợp thức hoá (ĐK1) | Văn thư/QLCL | — |
+| 2 | Đặt `effective_date` **không sớm hơn ngày hiệu lực của ETV.P29** (ĐK2), `revision: 01`, chuyển `status` sang **`Da-phe-duyet`** | Văn thư/QLCL | — |
 | 3 | Cập nhật danh mục văn bản nội bộ | Văn thư/QLCL | `ETV.P.F 14.02` |
 | 4 | Xác nhận thời hạn lưu và nhóm quyền truy cập | QLCL | `ETV.P.F 14.06` |
 | 5 | Phân phối, đóng dấu kiểm soát (nếu phát hành bản in) | NTH/QLCL | `ETV.P.F 14.04` |
@@ -166,38 +173,57 @@ Theo ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
 >
 > Thực tế trong `03_MANAGEMENT_SYSTEM/` đang tồn tại **hai từ vựng song song**: 76 văn bản ghi `Da-ban-hanh`, 41 văn bản ghi `Da-phe-duyet`. Đây là **phát hiện ngoài phạm vi phiếu này**, nêu để LĐP biết và xử lý riêng; không sửa hàng loạt trong lượt ban hành GAI 01.
 
+### 5.1. Trạng thái của GAI 01 trong thời gian chờ — một khe hở của bảng trạng thái
+
+Bảng trạng thái M14 có đúng 7 giá trị và **không có giá trị nào cho tình huống "đã được phê duyệt nội dung nhưng chưa đủ điều kiện ban hành"**:
+
+| Giá trị | Vì sao không dùng được cho GAI 01 lúc này |
+|---|---|
+| `Đã phê duyệt` | ETV.P14 §6.5 định nghĩa giá trị này là "**có hiệu lực, đã công bố**". Đặt bây giờ là tuyên bố một hiệu lực chưa có |
+| `Nháp` | Sai theo hướng ngược lại — văn bản đã qua soát xét (mục 7) và được LĐV cho ý kiến (mục 8) |
+
+**Xử lý:** giữ GAI 01 ở **`Cho-phe-duyet`** cho tới khi đủ ĐK1 và ĐK2. Giá trị này sai ít nhất và **fail-closed** — không văn bản nào tuyên bố hiệu lực mà nó chưa có. Quyết định phê duyệt nội dung ngày 30/08/2026 được ghi tại mục 8 của phiếu này, không ghi vào trường `status`.
+
+**Đề nghị riêng cho LĐP:** khe hở này sẽ lặp lại với mọi văn bản ban hành theo chùm. Cân nhắc bổ sung một trạng thái "Đã phê duyệt — chờ hiệu lực" vào `M14_TaiLieu/07_Workflow/StateMachine.md` ở lần soát xét kế tiếp. Không xử lý trong phiếu này.
+
 ---
 
 ## 6. Ý KIẾN LĐP (thẩm định sự cần thiết — ETV.P14 §6.6.1 bước 2)
 
 ☐ Không cần thiết — lý do: .....................
 
-☐ Cần thiết — phân công:
+☒ **Cần thiết** — phân công:
 
 | Vai trò | Người được phân công | Thời hạn hoàn thành |
 |---|---|---|
-| Người soạn thảo | | |
-| Người soát xét | | |
+| Người biên soạn | Dương Thành Nam | 30/08/2026 |
+| Người soát xét | Trần Thị Hoa (LĐP) | 30/08/2026 |
 
-Chữ ký LĐP: ..................... Ngày: .....................
+Chữ ký LĐP: **Trần Thị Hoa** Ngày: 30/08/2026
 
 ## 7. KẾT QUẢ SOÁT XÉT (LĐP — bước 4)
 
-☐ Đạt → chuyển `Chờ phê duyệt` · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
+☒ **Đạt** → chuyển `Chờ phê duyệt` · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
+
+Người soát xét: **Trần Thị Hoa (LĐP)** · Ngày: 30/08/2026
 
 Ý kiến về mục 3 (kết quả tự kiểm) và mục 4 (bốn vướng mắc): .....................
 
 ## 8. KẾT QUẢ PHÊ DUYỆT (LĐV — bước 5)
 
-**Về nội dung văn bản:** ☐ Phê duyệt · ☐ Không phê duyệt (bắt buộc lý do): .....................
+**Về nội dung văn bản:** ☒ **Phê duyệt** · ☐ Không phê duyệt (bắt buộc lý do): .....................
 
-**Về vướng mắc 1 (thủ tục chủ trì chưa hiệu lực):** ☐ PA A — ban hành theo chùm cùng ETV.P29 *(khuyến nghị)* · ☐ PA B — ban hành ngay · ☐ PA C — giữ Nháp tới khi ETV.P29 ban hành
+**Về vướng mắc 1 (thủ tục chủ trì chưa hiệu lực):** ☒ **PA A — ban hành theo chùm cùng ETV.P29** · ☐ PA B — ban hành ngay · ☐ PA C — giữ Nháp tới khi ETV.P29 ban hành
 
-**Về vướng mắc 2 (mã số):** ☐ Chấp nhận mã tạm `ETV.GAI 01` · ☐ Lập đề nghị ban hành lại ETV.P14 lần 04 bổ sung ký hiệu `AI` trước
+**Về vướng mắc 2 (mã số):** ☐ Chấp nhận mã tạm `ETV.GAI 01` · ☒ **Lập đề nghị ban hành lại ETV.P14 lần 04 bổ sung ký hiệu `AI` trước**
 
-**Về vướng mắc 3:** ☐ Xem xét cùng lượt với phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe` · ☐ Xử lý riêng
+**Về vướng mắc 3:** ☐ Xem xét cùng lượt với phiếu `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe` · ☐ Xử lý riêng *(chưa quyết — đề nghị LĐV cho ý kiến khi xem xét phiếu 25/08)*
 
-Lần ban hành: ......... Ngày ban hành: ......... Chữ ký LĐV: .....................
+Người phê duyệt: **TS. Nguyễn Hoàng Giang — Viện trưởng (LĐV)** · **Ngày phê duyệt: 30/08/2026**
+
+Lần ban hành: 01 · **Ngày ban hành: chưa ấn định** — theo PA A, ấn định sau khi đủ ĐK1 và ĐK2 tại mục 5 · Chữ ký LĐV: .....................
+
+> **Tóm tắt quyết định ngày 30/08/2026:** LĐV **phê duyệt nội dung** Hướng dẫn ETV.GAI 01, nhưng **chưa ban hành**. Văn bản chờ hai điều kiện: ETV.P14 ban hành lại lần 04 (hợp thức hoá ký hiệu `AI`) và ETV.P29 có hiệu lực. Trong thời gian chờ, GAI 01 giữ `status: Cho-phe-duyet` (mục 5.1).
 
 ---
 
