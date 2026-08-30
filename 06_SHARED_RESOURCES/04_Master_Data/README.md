@@ -1,15 +1,30 @@
-# 04 — Master Data
+# 04 — Master Data (Dữ liệu chủ)
 
-**Ý nghĩa:** Dữ liệu chủ mã hóa dùng chung
+> **Một câu:** bộ mã dùng chung của cả Viện — mã nào nghĩa là gì, để mọi module và mọi tài liệu gọi cùng một tên cho cùng một thứ.
 
-**Lưu file gì ở đây:**
-- Các file: dữ liệu chủ mã hóa dùng chung
+**Hiện có:** chưa có file danh mục — mục dưới mô tả những gì sẽ đưa vào; phần *Chủ thể (Party)* bên dưới là **ràng buộc kiến trúc đang có hiệu lực**.
 
-**KHÔNG lưu ở đây:**
-- Hồ sơ đã điền/đã phát hành (→11)
-- Dữ liệu giao dịch thật (→CSDL/ManLab)
+## Lưu gì ở đây
 
-**Lưu ý:** Sửa một chỗ → mọi nơi dùng lại cập nhật. Đây là lý do tránh nhân bản.
+| Loại | Ví dụ |
+|---|---|
+| Quy ước mã hoá dùng chung | mã đơn vị/phòng ban, mã lĩnh vực đo, mã loại tài liệu |
+| Danh mục giá trị hợp lệ (bảng mã tra cứu) | loại chủ thể, loại vai trò, loại hợp đồng, trạng thái hồ sơ |
+| Quy tắc sinh mã | cấu trúc mã chứng chỉ, mã hồ sơ, mã thiết bị |
+
+**Dữ liệu chủ ≠ bản ghi chủ.** Ở đây là **quy ước** (mã `KH` nghĩa là khách hàng, mã sinh theo cấu trúc nào). Còn **bản ghi thật** (Công ty A, mã KH-0007) sống trong CSDL — bảng `M34Party`, `M34PartyRole`.
+
+## Không lưu ở đây
+
+| Thứ này | Về đâu |
+|---|---|
+| Danh sách khách hàng / thiết bị / nhân sự cụ thể | [`06_Customers`](../06_Customers) · [`07_Equipment`](../07_Equipment) · [`08_Personnel`](../08_Personnel) (danh mục) và CSDL (bản ghi) |
+| Bảng tra kỹ thuật, hằng số | [`03_Reference_Data`](../03_Reference_Data) |
+| Dữ liệu phát sinh khi vận hành | CSDL của module `Mxx` |
+
+## Phép thử nhanh
+
+> Đây là **quy ước đặt tên/đặt mã** mà nhiều module phải theo? → để ở đây. Là **một dòng dữ liệu cụ thể**? → CSDL.
 
 ---
 
