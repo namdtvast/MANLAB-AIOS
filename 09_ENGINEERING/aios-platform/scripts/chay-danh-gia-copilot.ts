@@ -34,6 +34,24 @@ const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString: proc
 
 const cheDo = process.argv.includes("--kiem-nguon") ? "kiem-nguon" : process.argv.includes("--chi-truy-hoi") ? "chi-truy-hoi" : "day-du";
 
+/**
+ * `--loi-nhac <promptVersionId>` — đo một phiên bản lời nhắc CHƯA kích hoạt.
+ *
+ * ETV.P29 mục 5.3.1 đòi đánh giá TRƯỚC khi đưa cấu hình mới vào vận hành, còn deploymentGate()
+ * chặn kích hoạt tới khi có lần đánh giá Đạt. Không có cờ này thì hai điều đó khoá nhau và người
+ * chạy buộc phải sửa thẳng `activePromptVersionId` trong CSDL — đúng đường tắt mà phiên
+ * 20260828-loi-nhac-trich-dan-cuoi đã phải dùng rồi tự cảnh báo trong verify.md.
+ *
+ * Bản được đo vẫn phải APPROVED/ACTIVE (gateway kiểm), và phiếu F29.03 ghi đúng id bản đã đo — hồ
+ * sơ đánh giá nói về cấu hình nào thì phải chỉ đúng cấu hình đó.
+ */
+const viTriCoLoiNhac = process.argv.indexOf("--loi-nhac");
+const loiNhacChiDinh = viTriCoLoiNhac >= 0 ? process.argv[viTriCoLoiNhac + 1] : undefined;
+if (viTriCoLoiNhac >= 0 && !loiNhacChiDinh) {
+  console.error("Cờ --loi-nhac cần kèm mã phiên bản lời nhắc, ví dụ: --loi-nhac promptv2-do-thu-nghiem");
+  process.exit(1);
+}
+
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
 
 /** Mọi nguồn kỳ vọng phải là đường dẫn có thật trong chỉ mục. */
@@ -162,7 +180,7 @@ async function dayDu(): Promise<number> {
       const luot = [];
       let hong = false;
       for (let i = 0; i < soLan; i++) {
-        const r = await chat({ question: ca.cauHoi, history: [], user });
+        const r = await chat({ question: ca.cauHoi, history: [], user, promptVersionId: loiNhacChiDinh });
         const kq = { answer: r.answer, citations: r.citations, code: r.code };
         if (laLoiHaTang(kq)) {
           loiHaTang.push(`${ca.ma}: ${r.code}`);
@@ -202,7 +220,7 @@ async function dayDu(): Promise<number> {
   console.log("Kết luận Đạt/Không đạt KHÔNG do phần mềm ghi — người thực hiện và người soát xét điền vào phiếu F29.03.");
 
   const duongDanPhieu = ghiPhieuF2903(
-    renderPhieuF2903(th, ketQua, { modelId: agent.model?.modelId ?? "—", promptVersionId: agent.activePromptVersionId ?? "—" })
+    renderPhieuF2903(th, ketQua, { modelId: agent.model?.modelId ?? "—", promptVersionId: loiNhacChiDinh ?? agent.activePromptVersionId ?? "—" })
   );
   console.log(`Đã xuất bản nháp phiếu: ${duongDanPhieu}`);
 

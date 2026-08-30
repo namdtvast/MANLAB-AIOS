@@ -163,6 +163,21 @@ interface ChatArgs {
   history: ChatMessage[];
   user: { id: string };
   moduleContext?: string | null;
+  /**
+   * Đo một phiên bản lời nhắc CHƯA kích hoạt, thay cho bản đang hiệu lực.
+   *
+   * ETV.P29 mục 5.3.1 đòi có báo cáo đánh giá chất lượng TRƯỚC khi đưa cấu hình mới vào vận hành,
+   * còn deploymentGate() thì chặn kích hoạt cho tới khi lần đánh giá gần nhất Đạt. Không có tham
+   * số này thì hai điều đó khoá nhau: muốn đo bản mới phải kích hoạt nó trước, mà muốn kích hoạt
+   * lại phải đo trước. Phiên 20260828-loi-nhac-trich-dan-cuoi phá vòng bằng cách sửa thẳng
+   * `activePromptVersionId` trong CSDL dev và tự ghi lại cảnh báo rằng đó là đường tắt.
+   *
+   * Đây là đường đi hợp lệ cho đúng việc đó: chỉ trình chạy đánh giá truyền, người dùng thật không
+   * có đường nào chạm tới. Bản được đo vẫn phải APPROVED/ACTIVE — đo một bản Nháp chưa ai soát xét
+   * là vô nghĩa — và `AIRequest.promptVersionId` ghi đúng bản ĐÃ DÙNG, nên trace không nói dối về
+   * thứ đã sinh ra câu trả lời.
+   */
+  promptVersionId?: string;
 }
 
 /**
@@ -242,11 +257,12 @@ function citedPassages(answer: string, passages: Passage[]): Citation[] {
     .map((p) => ({ path: p.path, title: p.title, heading: p.heading }));
 }
 
-export async function chat({ question, history, user }: ChatArgs): Promise<ChatTurnResult> {
+export async function chat({ question, history, user, promptVersionId }: ChatArgs): Promise<ChatTurnResult> {
   const agent = await prisma.aIAgent.findUnique({
     where: { code: COPILOT_AGENT_CODE },
     include: { model: true, platform: true },
   });
+  const promptVersionDaDung = promptVersionId ?? agent?.activePromptVersionId ?? null;
 
   // Ghi trace cho MỌI nhánh kết thúc, kể cả nhánh chưa từng chạm tới nhà cung cấp mô hình.
   const trace = async (fields: { guardrailResult: string; inputTokens?: number; outputTokens?: number; latencyMs?: number }) => {
@@ -258,7 +274,7 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
         platformId: agent?.platformId ?? null,
         agentId: agent?.id ?? null,
         modelId: agent?.modelId ?? null,
-        promptVersionId: agent?.activePromptVersionId ?? null,
+        promptVersionId: promptVersionDaDung,
         userRef: user.id,
         inputTokens,
         outputTokens,
@@ -302,9 +318,7 @@ export async function chat({ question, history, user }: ChatArgs): Promise<ChatT
     );
 
   if (!agent.model) return refuse("MODEL_NOT_CONFIGURED", "Copilot chưa được gán mô hình ngôn ngữ trong danh mục M29.");
-  const promptVersion = agent.activePromptVersionId
-    ? await prisma.aIPromptVersion.findUnique({ where: { id: agent.activePromptVersionId } })
-    : null;
+  const promptVersion = promptVersionDaDung ? await prisma.aIPromptVersion.findUnique({ where: { id: promptVersionDaDung } }) : null;
   if (!promptVersion || !["APPROVED", "ACTIVE"].includes(promptVersion.status))
     return refuse("PROMPT_NOT_APPROVED", "Copilot chưa có phiên bản prompt hệ thống đã phê duyệt — không được vận hành.");
 

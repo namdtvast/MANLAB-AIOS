@@ -625,17 +625,26 @@ Bộ kiểm thử chất lượng — **42 tình huống theo đúng 7 nhóm c�
 ```bash
 npm run danh-gia-copilot -- --kiem-nguon     # nguồn kỳ vọng có thật trong chỉ mục? (không gọi mô hình)
 npm run danh-gia-copilot -- --chi-truy-hoi   # truy hồi lấy được nguồn đúng không? (điều kiện cần)
-npm run danh-gia-copilot                     # đánh giá thật, ghi AIEvaluationRun — cần ANTHROPIC_API_KEY
+npm run danh-gia-copilot                     # đánh giá thật, ghi AIEvaluationRun — cần khoá API của nền tảng đang gán
+npm run danh-gia-copilot -- --loi-nhac <id>  # đo một phiên bản lời nhắc CHƯA kích hoạt
 ```
 
 **Phần mềm đo, người kết luận.** Trình chạy chỉ ghi `AIEvaluationRun.status = CHO_KET_LUAN` và xuất
 bản nháp phiếu F29.03 với ô Kết luận **để trống** — ETV.P29 §4.8: trợ lý AI không kết luận Đạt/Không
-đạt và không phê duyệt phiếu. Chuyển sang Đạt/Không đạt bằng `ghiKetLuanDanhGia()` dưới danh nghĩa
-người có quyền, bắt buộc dẫn số phiếu F29.03 đã ký.
+đạt và không phê duyệt phiếu. Chuyển sang Đạt/Không đạt ở khối **Đánh giá chất lượng (ETV.P.F29.03)**
+trên trang chi tiết tác tử, quyền `evaluations:write` (**AI_OPERATOR**, **SUPER_ADMIN** — cố ý *không*
+phải AI_ADMIN: người khai báo cấu hình không tự kết luận cấu hình của mình), bắt buộc dẫn số phiếu đã ký.
 
 **Cổng triển khai fail-closed** (ETV.P29 §5.3.1): không kích hoạt được phiên bản lời nhắc mới nếu lần
 đánh giá gần nhất chưa có kết luận Đạt — kể cả khi chưa chạy lần nào. Lượt đánh giá gặp lỗi hạ tầng bị
 huỷ và không ghi kết quả: sự cố mạng không được hoá trang thành "đạt".
+
+Cổng đó và yêu cầu "đánh giá trước khi vận hành" của cùng điều khoản sẽ **khoá nhau** nếu chỉ đo được
+bản đang hiệu lực: muốn đo bản mới phải kích hoạt trước, mà kích hoạt lại đòi đo trước. `--loi-nhac`
+là lối ra: đo đúng bản sắp dùng mà không đụng `activePromptVersionId`. Bản được đo vẫn phải
+APPROVED/ACTIVE, và `AIRequest.promptVersionId` ghi đúng bản đã dùng nên trace không nói dối về thứ đã
+sinh ra câu trả lời. Trước khi có cờ này, cách duy nhất để đo là sửa thẳng CSDL — xem cảnh báo tự ghi
+trong [`_work/20260828-loi-nhac-trich-dan-cuoi/verify.md`](../../05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260828-loi-nhac-trich-dan-cuoi/verify.md).
 
 Tắt nhanh: `COPILOT_ENABLED=false` trong `.env` (đường tắt kỹ thuật cho sự cố) hoặc chuyển Agent sang
 `SUSPENDED` trong M29 (đường đúng theo quy trình ETV.P29 §5.7.3).

@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
-import { M29_ROLE_LABEL, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m29/labels";
+import { EVALUATION_RUN_STATUS_LABEL, M29_ROLE_LABEL, OP_STATUS_LABEL, PERMISSION_LEVEL_LABEL } from "@/lib/m29/labels";
 import { AiaPanel } from "./AiaPanel";
+import { EvaluationPanel } from "./EvaluationPanel";
 import { PromptPanel } from "./PromptPanel";
 import { ToolGatewayPanel } from "./ToolGatewayPanel";
 import { ModelPanel, type ModelChoice } from "./ModelPanel";
@@ -14,7 +15,9 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
   const [agent, role] = await Promise.all([
     prisma.aIAgent.findUnique({
       where: { id },
-      include: { platform: true, model: true, aia: true, evaluationSuites: { include: { runs: { orderBy: { createdAt: "desc" }, take: 1 } } } },
+      // Lấy 5 lượt đánh giá gần nhất, không phải 1: người ký cần thấy lượt trước đó để biết mình
+      // đang kết luận cho lần chạy nào — cổng triển khai chỉ đọc lượt đầu danh sách.
+      include: { platform: true, model: true, aia: true, evaluationSuites: { include: { runs: { orderBy: { createdAt: "desc" }, take: 5 } } } },
     }),
     getM29Role(),
   ]);
@@ -64,7 +67,13 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
     : [[], []];
 
   const aia = agent.aia[0] ?? null;
-  const lastRun = agent.evaluationSuites.flatMap((s) => s.runs)[0] ?? null;
+  // Trộn run của MỌI bộ rồi sắp lại theo thời gian — deploymentGate() cũng xét chung như vậy, nên
+  // "lượt gần nhất" trên màn hình phải đúng là lượt cổng sẽ đọc, không phải lượt gần nhất của bộ
+  // đầu tiên.
+  const runs = agent.evaluationSuites
+    .flatMap((s) => s.runs.map((r) => ({ ...r, suiteName: s.name })))
+    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+  const lastRun = runs[0] ?? null;
 
   return (
     <div className="grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -87,7 +96,9 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
           <dt className="text-ink-3">Mức rủi ro</dt>
           <dd className="text-ink">{agent.riskLevel}</dd>
           <dt className="text-ink-3">Evaluation gần nhất</dt>
-          <dd className="text-ink">{lastRun ? `${lastRun.status} (${lastRun.passCount} đạt / ${lastRun.failCount} lỗi)` : "chưa chạy"}</dd>
+          <dd className="text-ink">
+            {lastRun ? `${EVALUATION_RUN_STATUS_LABEL[lastRun.status] ?? lastRun.status} (${lastRun.passCount} đạt / ${lastRun.failCount} lỗi)` : "chưa chạy"}
+          </dd>
         </dl>
 
         <ModelPanel
@@ -184,6 +195,18 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
 
       <div className="flex flex-col gap-4">
         <AiaPanel aia={aia} agentId={agent.id} m29Role={role} />
+
+        <EvaluationPanel
+          canWrite={can(role, "evaluations", "write")}
+          runs={runs.map((r) => ({
+            id: r.id,
+            suiteName: r.suiteName,
+            status: r.status,
+            passCount: r.passCount,
+            failCount: r.failCount,
+            createdAt: r.createdAt.toLocaleString("vi-VN"),
+          }))}
+        />
         <ToolGatewayPanel agentId={agent.id} tools={tools} m29Role={role} />
         <p className="text-xs text-ink-3">
           Vai trò M29 của bạn: <strong className="text-ink">{role ? M29_ROLE_LABEL[role] : "chưa gán"}</strong>
