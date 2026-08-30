@@ -105,7 +105,9 @@ Nghĩa là câu "danh mục đầy đủ ở F14.02" trỏ tới một nơi khô
 | 3 | Cập nhật danh mục văn bản nội bộ | Văn thư/QLCL | `ETV.P.F 14.02` |
 | 4 | **Đánh dấu ĐK1 của GAI 01 đã hoàn thành** | LĐP | Xem mục 5 phiếu `ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI` |
 
-Sau việc 4, GAI 01 còn **ĐK2** — ETV.P29 có hiệu lực — trước khi ban hành được. Phiếu này **không** giải quyết ĐK2.
+Sau việc 4, GAI 01 còn **ĐK2** — ETV.P29 có hiệu lực (kèm P33, P34, P35) — trước khi ban hành được. Phiếu này **không** giải quyết ĐK2.
+
+> **Cập nhật 30/08/2026 — ĐK2 xong một phần.** `ETV.P29` đã ban hành lần 01, hiệu lực 30/08/2026. Nhưng `ETV.P33`, `ETV.P34`, `ETV.P35` vẫn `Chờ soát xét`, mà GAI 01 dẫn chiếu tới F33.01–04 (Bước 1) và F35.01–02 (Bước 4) — dẫn chiếu treo còn lại. Theo dõi chi tiết tại mục 5 phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md).
 
 ---
 

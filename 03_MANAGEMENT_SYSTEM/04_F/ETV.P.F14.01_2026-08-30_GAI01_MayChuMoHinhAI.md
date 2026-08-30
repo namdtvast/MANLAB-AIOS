@@ -19,7 +19,7 @@ Bản đã điền theo `ETV.P.F 14.01` (ETV.P14 §6.6.1 bước 1–2, trình t
 
 | Trường | Nội dung |
 |---|---|
-| Mã văn bản đề nghị | **ETV.GAI 01** *(mã đề xuất — xem vướng mắc 2)* |
+| Mã văn bản đề nghị | **ETV.GAI 01** *(là mã đề xuất tại thời điểm trình; nay là **mã chính thức** — vướng mắc 2 đã xử lý, xem mục 5)* |
 | Tên văn bản | Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS |
 | Loại văn bản | ☒ Hướng dẫn |
 | Loại đề nghị | ☒ Xây dựng mới |
@@ -155,7 +155,20 @@ Máy chủ công bố endpoint qua **Cloudflare Tunnel** (Phương án C của �
 | TT | Điều kiện tiên quyết | Trách nhiệm | Trạng thái 30/08/2026 |
 |---|---|---|---|
 | **ĐK1** | **ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu `AI` vào §6.2 | LĐP → LĐV | ✅ **HOÀN THÀNH 30/08/2026** — lần 04 có hiệu lực theo phiếu [`ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`](ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md). `ETV.GAI 01` nay là mã chính thức |
-| **ĐK2** | **ETV.P29 có hiệu lực** (kèm P33, P34, P35 để hết dẫn chiếu treo) | LĐP → LĐV | **Còn lại** — cả bốn đang `Chờ soát xét` |
+| **ĐK2** | **ETV.P29 có hiệu lực** (kèm P33, P34, P35 để hết dẫn chiếu treo) | LĐP → LĐV | **Xong một phần** — xem bảng dưới |
+
+**Theo dõi ĐK2 — cập nhật 30/08/2026:**
+
+| Thủ tục | Vai trò với GAI 01 | Trạng thái |
+|---|---|---|
+| **ETV.P29** | Thủ tục **chủ trì**; biểu mẫu F29.01–04 (Bước 4, 5) | ✅ **Ban hành lần 01, hiệu lực 30/08/2026** |
+| ETV.P33 | Kiểm kê tài sản; biểu mẫu F33.01–04 (Bước 1, 2) | ❌ `Chờ soát xét` |
+| ETV.P34 | Quản lý dữ liệu số (Bước 3b) | ❌ `Chờ soát xét` |
+| ETV.P35 | Đăng ký nền tảng; biểu mẫu F35.01–02 (Bước 4) | ❌ `Chờ soát xét` |
+
+**ĐK2 chưa hoàn thành.** Thủ tục chủ trì đã có hiệu lực, nhưng GAI 01 vẫn dẫn chiếu tới F33.01–04 ở Bước 1 và F35.01–02 ở Bước 4 — biểu mẫu của hai thủ tục chưa ban hành. Dẫn chiếu treo còn lại, chỉ hẹp hơn so với lúc trình phiếu.
+
+> **Nếu muốn ban hành GAI 01 ngay khi chỉ có ETV.P29:** đó là **thu hẹp phạm vi ĐK2** so với quyết định PA A của LĐV ngày 30/08/2026, phải có một lượt phê duyệt riêng ghi rõ chấp nhận dẫn chiếu treo tới F33/F35 — không sửa lặng lẽ dòng trên.
 
 Đủ ĐK1 và ĐK2 rồi mới chạy tiếp ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
 
