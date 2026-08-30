@@ -25,12 +25,12 @@ Trước khi ghi một trích dẫn điều khoản, **mở thủ tục ra đố
 | Quy trình hiệu chuẩn | `ETV.MCa xx` | ETV.MCW 01 |
 | Quy trình thử nghiệm | `ETV.MTa xx` | ETV.MTP 01 |
 | Quy trình kiểm định | `ETV.MVa xx` | ETV.MVA 01 |
-| Hướng dẫn | `ETV.Gb xx` | ETV.GI 01 |
+| Hướng dẫn | `ETV.Gb xx` | ETV.GI 01, ETV.GAI 01 |
 | Biểu mẫu của quy trình/hướng dẫn | `ETV.MCa.F xx.yy` / `ETV.Gb.F xx.yy` | ETV.MTP.F 01.01 |
 
-`a`/`b` = lĩnh vực/phân loại: A-Không khí, W-Nước, M-Khối lượng, F-Lưu lượng, O-Quang, S-Thời gian-Tần số, T-Nhiệt độ, P-Áp suất, E-Điện, H-Độ ẩm.
+`a`/`b` = lĩnh vực/phân loại. **Lĩnh vực đo lường (một ký tự):** A-Không khí, W-Nước, M-Khối lượng, F-Lưu lượng, O-Quang, S-Thời gian-Tần số, T-Nhiệt độ, P-Áp suất, E-Điện, H-Độ ẩm.
 
-> **Ký hiệu phân loại phi đo lường (đề xuất, chưa có trong `ETV.P14` §6.2):** `AI` — hướng dẫn về máy chủ/dịch vụ trí tuệ nhân tạo (đang dùng cho `ETV.GAI 01`, `ETV.GAI 02`). Khi soạn văn bản dùng ký hiệu này, **phải ghi rõ trong chính văn bản rằng đây là mã đề xuất**, chờ Văn thư/QLCL cấp số chính thức và bổ sung ký hiệu vào `ETV.P14` §6.2 ở lần ban hành kế tiếp. Không tự sinh thêm ký hiệu mới ngoài danh sách này.
+> **Ký hiệu phân loại phi đo lường** — đã đăng ký chính thức tại `ETV.P14` §6.2 (lần ban hành 04, hiệu lực 30/08/2026): `AI` — trí tuệ nhân tạo (hướng dẫn về máy chủ, mô hình, tri thức và dịch vụ AI); độ dài một hoặc hai ký tự. Đang dùng cho `ETV.GAI 01`, `ETV.GAI 02`. Không tự sinh thêm ký hiệu mới ngoài danh sách này — bổ sung ký hiệu phải qua soát xét và ban hành lại `ETV.P14`.
 
 > Hợp đồng (mã `ETV.HĐ.*`) **không** thuộc P14 — quy tắc mã hoá hợp đồng do P03/P07 quy định. Nếu gặp hợp đồng, định tuyến về các thủ tục đó (xem `CLAUDE.md` bước 1).
 

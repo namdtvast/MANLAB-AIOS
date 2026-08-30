@@ -154,8 +154,8 @@ Máy chủ công bố endpoint qua **Cloudflare Tunnel** (Phương án C của �
 
 | TT | Điều kiện tiên quyết | Trách nhiệm | Trạng thái 30/08/2026 |
 |---|---|---|---|
-| **ĐK1** | **ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu lĩnh vực `AI` vào §6.2 và danh mục `ETV.P.F 14.02` | LĐP → LĐV | Chưa lập phiếu đề nghị |
-| **ĐK2** | **ETV.P29 có hiệu lực** (kèm P33, P34, P35 để hết dẫn chiếu treo) | LĐP → LĐV | Cả bốn đang `Chờ soát xét` |
+| **ĐK1** | **ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu `AI` vào §6.2 | LĐP → LĐV | ✅ **HOÀN THÀNH 30/08/2026** — lần 04 có hiệu lực theo phiếu [`ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`](ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md). `ETV.GAI 01` nay là mã chính thức |
+| **ĐK2** | **ETV.P29 có hiệu lực** (kèm P33, P34, P35 để hết dẫn chiếu treo) | LĐP → LĐV | **Còn lại** — cả bốn đang `Chờ soát xét` |
 
 Đủ ĐK1 và ĐK2 rồi mới chạy tiếp ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
 

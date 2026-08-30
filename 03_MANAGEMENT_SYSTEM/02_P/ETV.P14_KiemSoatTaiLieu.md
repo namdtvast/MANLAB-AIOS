@@ -8,8 +8,8 @@ department: "Toàn Viện"
 process: MP14_TaiLieu
 capability: CAP-14_TaiLieuHoSo
 module: M14_TaiLieu
-effective_date: "01/07/2026"
-revision: "03"
+effective_date: "30/08/2026"
+revision: "04"
 status: Da-phe-duyet
 keywords: [kiểm soát tài liệu, kiểm soát hồ sơ, chữ ký số, ManLab, ISO 17025 §8.3]
 related_documents: [ETV.QM, ETV.P15]
@@ -21,7 +21,7 @@ permission: Noi-bo
 retention: "Vĩnh viễn (bản hiện hành) — xem chi tiết theo loại tại ETV.P.F 14.06"
 digital_signature: "LĐV"
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
-supersedes: "ETV.P14 lần ban hành 02 (22/4/2023, soát xét 06/01/2024)"
+supersedes: "ETV.P14 lần ban hành 03 (01/07/2026)"
 superseded_by: null
 ---
 # THỦ TỤC KIỂM SOÁT TÀI LIỆU, DỮ LIỆU, THÔNG TIN
@@ -29,13 +29,15 @@ superseded_by: null
 |                           |                      |
 | ------------------------- | -------------------- |
 | **Mã số**         | ETV.P 14             |
-| **Lần ban hành**  | 03                   |
-| **Ngày ban hành** | 01/07/2026           |
-| **Biên soạn**     | Nguyễn Văn Đồng  |
-| **Soát xét**      | Trần Thị Hoa (01/07/2026)       |
-| **Phê duyệt**     | Nguyễn Hoàng Giang (01/07/2026) |
+| **Lần ban hành**  | 04                   |
+| **Ngày ban hành** | 30/08/2026           |
+| **Biên soạn**     | Dương Thành Nam  |
+| **Soát xét**      | Trần Thị Hoa (30/08/2026)       |
+| **Phê duyệt**     | Nguyễn Hoàng Giang (30/08/2026) |
 
-> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thiết kế lại toàn diện thay thế lần ban hành 02 (22/4/2023, soát xét 06/01/2024). Bản này có hiệu lực từ ngày 01/07/2026.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thay thế lần ban hành 03 (01/07/2026). Bản này có hiệu lực từ ngày 30/08/2026.
+>
+> **Phạm vi sửa đổi so với lần 03:** chỉ §6.2 (bảng mã hoá) — bổ sung nhóm ký hiệu phân loại phi đo lường và đăng ký ký hiệu `AI`; gỡ dẫn chiếu danh mục ký hiệu tới `ETV.P.F 14.02` và đưa danh mục vào thẳng §6.2. Các mục còn lại giữ nguyên lần 03. Theo phiếu [`ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`](../04_F/ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md).
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
@@ -46,6 +48,8 @@ superseded_by: null
 | 22/04/2023 | Ban hành lần thứ hai                                                                                                                                                                                                                   | 02             |
 | 06/01/2024 | Bổ sung văn bản bên ngoài (đến), văn bản nội bộ (đi)                                                                                                                                                                          | 02             |
 | 01/07/2026 | Thiết kế lại toàn diện: RACI, metadata AI, đồng bộ trạng thái với ManLab, dẫn chiếu pháp luật/ISO cập nhật; thu hẹp phạm vi — hợp đồng chuyển về các thủ tục chuyên trách (P03 nhân sự, P07 dịch vụ...); bổ sung §IX. Các phụ lục (đăng ký Phụ lục I–VI). Theo phiếu ETV.P.F14.01 ngày 01/07/2026 | 03             |
+
+| 30/08/2026 | Bổ sung nhóm **ký hiệu phân loại phi đo lường** vào bảng mã hoá §6.2 và đăng ký ký hiệu `AI` (trí tuệ nhân tạo), cho phép ký hiệu hai ký tự ở nhóm này; gỡ dẫn chiếu danh mục ký hiệu tới `ETV.P.F 14.02` (biểu mẫu đó là danh mục **văn bản**, không chứa danh mục ký hiệu lĩnh vực) và đưa danh mục vào thẳng §6.2. Theo phiếu `ETV.P.F14.01` ngày 30/08/2026 | 04 |
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 
@@ -149,10 +153,15 @@ Chữ viết tắt tiếng Anh, các phần cách nhau bằng dấu `.`
 | Thủ tục                                         | `ETV.P xx`                                     | ETV.P 01 (Rủi ro và cơ hội) |
 | Biểu mẫu của thủ tục                         | `ETV.P.F xx.yy`                                | ETV.P.F 14.01                   |
 | Quy trình hiệu chuẩn/thử nghiệm/kiểm định | `ETV.MCa xx` / `ETV.MTa xx` / `ETV.MVa xx` | ETV.MCW 01                      |
-| Hướng dẫn                                      | `ETV.Gb xx`                                    | ETV.GI 01                       |
+| Hướng dẫn                                      | `ETV.Gb xx`                                    | ETV.GI 01, ETV.GAI 01                       |
 | Biểu mẫu của quy trình/hướng dẫn           | `ETV.MCa.F xx.yy` / `ETV.Gb.F xx.yy`         | ETV.MTP.F 01.01                 |
 
-`a`/`b` = ký hiệu lĩnh vực/phân loại (A-Không khí, W-Nước, M-Khối lượng, F-Lưu lượng, O-Quang, S-Thời gian-Tần số, T-Nhiệt độ, P-Áp suất, E-Điện, H-Độ ẩm...). Danh mục đầy đủ: `ETV.P.F 14.02`.
+`a`/`b` = ký hiệu lĩnh vực/phân loại, thuộc **một trong hai nhóm** dưới đây. Đây là danh mục đầy đủ; không tự sinh ký hiệu ngoài danh mục, bổ sung ký hiệu mới phải qua soát xét và ban hành lại thủ tục này.
+
+| Nhóm | Độ dài | Ký hiệu |
+| ------ | -------- | --------- |
+| **Lĩnh vực đo lường** | Một ký tự | A-Không khí · W-Nước · M-Khối lượng · F-Lưu lượng · O-Quang · S-Thời gian–Tần số · T-Nhiệt độ · P-Áp suất · E-Điện · H-Độ ẩm |
+| **Phân loại phi đo lường** | Một hoặc hai ký tự | `AI`-Trí tuệ nhân tạo (hướng dẫn về máy chủ, mô hình, tri thức và dịch vụ AI) |
 
 ### 6.3 Metadata chuẩn của văn bản
 
@@ -300,4 +309,4 @@ Các phụ lục dưới đây là tài liệu bổ trợ, chi tiết hoá các 
 
 ---
 
-*Thủ tục Kiểm soát tài liệu, dữ liệu, thông tin — ETV.P 14 — Lần BH: 03 — Trang tài liệu điện tử, không áp dụng đánh số trang thủ công (bản in xuất từ ManLab tự sinh header/footer theo §8).*
+*Thủ tục Kiểm soát tài liệu, dữ liệu, thông tin — ETV.P 14 — Lần BH: 04 — Trang tài liệu điện tử, không áp dụng đánh số trang thủ công (bản in xuất từ ManLab tự sinh header/footer theo §8).*
