@@ -31,17 +31,31 @@ def parse_yaml_value(value_str):
         in_quotes = False
         quote_char = None
 
+        escaped = False
         for char in list_str:
+            # Dấu nháy đứng sau '\\' là ký tự literal bên trong chuỗi (vd \\"Nghị định 107\\"),
+            # không phải dấu đóng chuỗi — bỏ qua nó khi xét trạng thái in_quotes.
+            if escaped:
+                escaped = False
+                current_item += char
+                continue
+            if char == '\\' and in_quotes:
+                escaped = True
+                continue
             if char in ('"', "'") and (not in_quotes or char == quote_char):
+                # Dấu nháy bao ngoài chỉ là ký tự phân giới: không đưa vào giá trị.
+                # Nhờ vậy dấu nháy literal ở cuối chuỗi (…ghi tắt \\"Nghị định 107\\")
+                # không bị .strip('"') cắt nhầm cùng dấu đóng chuỗi.
                 if in_quotes and char == quote_char:
                     in_quotes = False
                     quote_char = None
                 else:
                     in_quotes = True
                     quote_char = char
+                continue
             elif char == ',' and not in_quotes:
                 # End of item
-                item = current_item.strip().strip('"\'')
+                item = current_item.strip()
                 if item:
                     items.append(item)
                 current_item = ""
@@ -50,7 +64,7 @@ def parse_yaml_value(value_str):
             current_item += char
 
         # Don't forget the last item
-        item = current_item.strip().strip('"\'')
+        item = current_item.strip()
         if item:
             items.append(item)
 
@@ -66,6 +80,35 @@ def parse_yaml_value(value_str):
 
     return value_str
 
+def strip_inline_comment(value_str):
+    """Cắt phần comment '# ...' ở cuối một giá trị YAML không nằm trong ngoặc kép."""
+    in_quotes = False
+    quote_char = None
+    for i, char in enumerate(value_str):
+        if char in ('"', "'"):
+            if in_quotes and char == quote_char:
+                in_quotes = False
+                quote_char = None
+            elif not in_quotes:
+                in_quotes = True
+                quote_char = char
+        elif char == '#' and not in_quotes and (i == 0 or value_str[i - 1] in ' \t'):
+            return value_str[:i]
+    return value_str
+
+def as_list(value):
+    """Quy giá trị frontmatter về list.
+
+    Một khoá để rỗng trong YAML ("iso_clause:") được parse_yaml_value trả về None,
+    và một khoá chỉ có một giá trị không đóng ngoặc trả về str — cả hai đều không
+    lặp được như list. Hàm này chuẩn hoá cả hai trường hợp.
+    """
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
 def extract_frontmatter(md_file):
     """Extract YAML frontmatter from markdown file."""
     try:
@@ -79,20 +122,40 @@ def extract_frontmatter(md_file):
 
         yaml_text = match.group(1)
         frontmatter = {}
+        block_key = None  # khoá đang gom các mục của một list kiểu block
 
-        for line in yaml_text.split('\n'):
-            line = line.strip()
+        for raw_line in yaml_text.split('\n'):
+            # Mục của list kiểu block ("  - giá trị") phải được nhận diện TRƯỚC khi
+            # strip, vì sau khi strip nó vẫn chứa dấu ':' (vd '- "ISO 9001:2015 §8.1"')
+            # nên logic split(':') phía dưới sẽ hiểu nhầm thành một khoá mới.
+            if block_key is not None and raw_line.startswith((' ', '\t')) and raw_line.strip().startswith('- '):
+                item = strip_inline_comment(raw_line.strip()[2:])
+                item = item.strip().strip('"\'')
+                if item:
+                    frontmatter[block_key].append(item)
+                continue
+
+            line = raw_line.strip()
             if not line or line.startswith('#'):
                 continue
 
             if ':' not in line:
+                block_key = None
                 continue
 
             key, value = line.split(':', 1)
             key = key.strip()
             value = value.strip()
 
-            frontmatter[key] = parse_yaml_value(value)
+            # Khoá không có giá trị trên cùng dòng: có thể là list kiểu block ở
+            # các dòng sau, cũng có thể chỉ là khoá bỏ trống.
+            if value == '' or value.startswith('#'):
+                frontmatter[key] = []
+                block_key = key
+                continue
+
+            block_key = None
+            frontmatter[key] = parse_yaml_value(strip_inline_comment(value))
 
         return frontmatter
     except Exception as e:
@@ -164,23 +227,25 @@ def scan_documents():
 
                 # If has frontmatter, use it; otherwise infer from filename
                 if frontmatter:
-                    code = frontmatter.get('id', code)
+                    code = frontmatter.get('id') or code
                     # Extract author info from content
                     author, reviewer, approver = extract_author_info(md_path)
 
                     # Build document record
                     doc = {
                         'code': code,
-                        'title': frontmatter.get('title', file),
-                        'type': frontmatter.get('type', ''),
-                        'status': frontmatter.get('status', ''),
-                        'effective_date': frontmatter.get('effective_date', ''),
-                        'revision': str(frontmatter.get('revision', '')),
-                        'author': author or frontmatter.get('owner', ''),
+                        'title': frontmatter.get('title') or file,
+                        'type': frontmatter.get('type') or '',
+                        'status': frontmatter.get('status') or '',
+                        'effective_date': str(frontmatter.get('effective_date') or ''),
+                        'revision': str(frontmatter.get('revision') or ''),
+                        'author': author or frontmatter.get('owner') or '',
                         'reviewer': reviewer or '',
                         'approver': approver or '',
-                        'iso_clause': frontmatter.get('iso_clause', []),
-                        'legal_basis': frontmatter.get('legal_basis', []),
+                        # Khoá có mặt nhưng để rỗng (vd "iso_clause:") được parser trả về None,
+                        # không phải [] — phải quy về list trước khi lặp ở dưới.
+                        'iso_clause': as_list(frontmatter.get('iso_clause')),
+                        'legal_basis': as_list(frontmatter.get('legal_basis')),
                         'file_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
                         'relative_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
                     }

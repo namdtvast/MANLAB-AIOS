@@ -1,7 +1,8 @@
 name: Deploy portal to GitHub Pages
 
-# Tự động dựng lại docs/data.json từ cấu trúc repo và xuất bản cổng thông tin
-# lên GitHub Pages mỗi khi có thay đổi trên nhánh chính.
+# Tự động dựng lại docs/data.json (cấu trúc repo) và docs/documents.json (danh mục
+# tài liệu 03_MANAGEMENT_SYSTEM) rồi xuất bản cổng thông tin lên GitHub Pages mỗi
+# khi có thay đổi trên nhánh chính.
 
 on:
   push:
@@ -32,6 +33,13 @@ jobs:
 
       - name: Sinh data.json từ cấu trúc thư mục
         run: python3 _meta/build_site.py
+
+      # Bảng danh mục tài liệu ở tab "Khám phá" (khi mở thư mục 03_MANAGEMENT_SYSTEM)
+      # đọc trực tiếp docs/documents.json. Sinh lại tại đây để bảng luôn khớp
+      # frontmatter hiện hành, và để script hỏng thì deploy đỏ ngay thay vì
+      # phục vụ âm thầm một bản đã cũ.
+      - name: Sinh documents.json từ frontmatter 03_MANAGEMENT_SYSTEM
+        run: python3 _meta/extract_documents_metadata.py
 
       - name: Chặn Jekyll xử lý (giữ nguyên tệp)
         run: touch docs/.nojekyll
