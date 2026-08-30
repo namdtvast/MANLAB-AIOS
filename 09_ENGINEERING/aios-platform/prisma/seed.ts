@@ -968,27 +968,40 @@ async function seedCopilot() {
   });
 
   // ---- Nhà cung cấp mô hình TỰ VẬN HÀNH: máy chủ GPU nội bộ của Viện ----
-  // Bản ghi mẫu theo ETV.GAI 01 §3.5. Cố ý để ở trạng thái CHƯA phê duyệt và model DISABLED: máy
-  // chủ thật chưa qua nghiệm thu Bước 1–6 của hướng dẫn, mà `checkHealthAction()` chỉ dò nền tảng
-  // đã APPROVED — để DRAFT thì danh mục vẫn thể hiện đúng thiết kế mà không sinh báo động DOWN giả.
+  // Cấu hình thật đã triển khai (ETV.GAI 01 §3.2, §3.5, cập nhật 30/08/2026): Qwen2.5-7B-Instruct
+  // chạy FP16 trên vLLM v0.10.2 / RTX 3090, phục vụ dưới bí danh `manlab-ai`, ngữ cảnh 8192.
   //
-  // Đây là nhà cung cấp duy nhất mà dữ liệu KHÔNG rời hạ tầng của Viện, nên là nền tảng mô hình
-  // duy nhất hiện nhận được tài liệu mức Nội bộ (dataBoundary = NO_EXTERNAL_TRANSFER). Trần mức
-  // bảo mật đã gắn theo từng nền tảng qua AIPlatform.dataBoundary; biến toàn cục cũ đã bị gỡ.
+  // Vẫn để approvalStatus DRAFT và model DISABLED dù máy chủ thật đã qua Gate 1–6. KHÔNG phải vì
+  // máy chủ chưa nghiệm thu, mà vì seed chỉ mang SỰ THẬT KỸ THUẬT, không mang CHỮ KÝ PHÊ DUYỆT:
+  // phê duyệt là hành vi quản trị có người chịu trách nhiệm (ETV.GAI 01 Bước 6), phải bấm trên
+  // giao diện M29 để còn sinh vết kiểm toán. Seed đặt sẵn ACTIVE thì mọi môi trường dựng lại đều
+  // có một nền tảng "đã phê duyệt" mà không ai ký — và `checkHealthAction()` dò các nền tảng
+  // APPROVED/ACTIVE, nên môi trường dev không khoá API sẽ sinh báo động DOWN không có thật.
   const platformLocal = await prisma.aIPlatform.upsert({
     where: { code: "MANLAB_LOCAL_LLM" },
     create: {
       code: "MANLAB_LOCAL_LLM",
       name: "Máy chủ mô hình AI nội bộ ETV",
-      baseUrl: "https://llm.manlab.vn",
-      apiBaseUrl: "https://llm.manlab.vn/v1",
+      baseUrl: "https://ai.manlab.vn",
+      apiBaseUrl: "https://ai.manlab.vn/v1",
       environment: "INTERNAL",
       owner: "(chưa phân công — điền khi kiểm kê theo ETV.P.F 33.01)",
       adapterType: "LocalOpenAIPlatformAdapter",
-      // ETV.P29 §5.5 nói về "dịch vụ mô hình BÊN NGOÀI"; máy chủ này chạy trong hạ tầng của Viện
-      // nên điều khoản đó không áp. Trần trên vẫn là Nội bộ, KHÔNG phải Hạn chế: ETV.P28 §5.13
-      // cấm ở mức TRUY CẬP — "trợ lý AI chỉ được truy cập nguồn dữ liệu mức Công khai và Nội bộ".
-      dataBoundary: "NO_EXTERNAL_TRANSFER",
+      // Trước 30/08/2026 chỗ này là NO_EXTERNAL_TRANSFER với lập luận "máy chủ chạy trong hạ tầng
+      // của Viện nên ETV.P29 §5.5 không áp". Lập luận đó KHÔNG còn đúng: endpoint công bố qua
+      // Cloudflare Tunnel, TLS kết thúc ở biên nhà cung cấp nên lời nhắc đi qua bên thứ ba dưới
+      // dạng rõ (ETV.GAI 01 §3.4 Bước 3). Máy chủ đặt ở đâu không quyết định ranh giới — đường dữ
+      // liệu mới quyết định.
+      //
+      // Đặt mức SIẾT NHẤT ở đây là cố ý. Trần đúng của nền tảng này là EXTERNAL_WITH_COMMITMENT
+      // (trần Nội bộ), nhưng trạng thái đó đòi số hồ sơ F29.02 và phải đi qua datRanhGioiDuLieu()
+      // để có người ký và có vết kiểm toán — xem ghi chú ở cuối khối ranh giới dữ liệu bên dưới.
+      // Hệ quả: Copilot chỉ đọc tới mức Công khai trên nền tảng này cho tới khi có hồ sơ. Đó là
+      // fail-closed đúng thiết kế, không phải hồi quy.
+      //
+      // Trần trên vẫn là Nội bộ, KHÔNG phải Hạn chế: ETV.P28 §6.13 cấm ở mức TRUY CẬP — "trợ lý AI
+      // và các agent của Viện chỉ được truy cập nguồn dữ liệu ở mức Công khai và Nội bộ".
+      dataBoundary: "EXTERNAL_NO_COMMITMENT",
       approvalStatus: "DRAFT",
     },
     update: {},
@@ -998,16 +1011,18 @@ async function seedCopilot() {
     create: { code: "MANLAB_LOCAL", name: "ManLab Local AI (RTX 3090, tự vận hành)", platformId: platformLocal.id },
     update: { platformId: platformLocal.id },
   });
-  if (!(await prisma.aIModel.findFirst({ where: { providerId: providerLocal.id, modelId: "manlab-local-14b" } })))
+  if (!(await prisma.aIModel.findFirst({ where: { providerId: providerLocal.id, modelId: "manlab-ai" } })))
     await prisma.aIModel.create({
       data: {
         providerId: providerLocal.id,
-        modelId: "manlab-local-14b", // phải TRÙNG --served-model-name của vLLM (ETV.GAI 01 §3.5)
-        displayName: "ManLab Local 14B (lượng tử hoá INT4)",
-        purpose: "Tra cứu, phân loại, bóc tách tài liệu — chạy trên hạ tầng của Viện",
-        // Chưa qua Bước 5–6 của ETV.GAI 01 nên chưa được phép dùng cho vận hành.
+        modelId: "manlab-ai", // phải TRÙNG --served-model-name của vLLM (ETV.GAI 01 §3.5)
+        displayName: "Qwen2.5-7B-Instruct (FP16, tự vận hành)",
+        purpose: "Tra cứu, phân loại, bóc tách tài liệu — chạy trên GPU của Viện",
+        // Bật ACTIVE là quyết định quản trị của Bước 6, làm trên giao diện M29 (xem ghi chú đầu khối).
         status: "DISABLED",
-        maxTokens: 4096,
+        // Bằng --max-model-len 8192 của vLLM. 7B ở FP16 chiếm ~15 GB/24 GB VRAM nên không nâng
+        // được lên 16384; khai số lớn hơn ở đây chỉ làm lượt gọi bị chính máy chủ cắt (GAI 01 §3.3).
+        maxTokens: 8192,
         // Mô hình nội bộ không tính phí theo token; điện và khấu hao theo dõi ở ETV.P.F 33.01.
         costPer1kTokens: 0,
         inputCostPerMillionTokens: 0,
@@ -1069,9 +1084,14 @@ async function seedCopilot() {
   // Ranh giới dữ liệu là quyết định QUẢN TRỊ, không phải dữ liệu mẫu: áp cả cho bản ghi đã tồn tại
   // (mọi upsert ở trên dùng `update: {}` nên môi trường seed từ trước sẽ mắc kẹt ở mặc định).
   // Nới lên EXTERNAL_WITH_COMMITMENT thì KHÔNG làm ở đây — phải qua datRanhGioiDuLieu() kèm số hồ sơ.
+  //
+  // MANLAB_LOCAL_LLM ở mức siết nhất kể từ 30/08/2026: endpoint đi qua Cloudflare Tunnel nên dữ
+  // liệu CÓ rời hạ tầng Viện. Trần đúng là EXTERNAL_WITH_COMMITMENT + số hồ sơ F29.02 (trần Nội
+  // bộ) — người có quyền governance:write đặt trên trang Danh mục M29. MANLAB giữ
+  // NO_EXTERNAL_TRANSFER vì đó là chính hệ thống ManLab, không gọi ra ngoài.
   for (const [code, ranhGioi] of [
     ["MANLAB", "NO_EXTERNAL_TRANSFER"],
-    ["MANLAB_LOCAL_LLM", "NO_EXTERNAL_TRANSFER"],
+    ["MANLAB_LOCAL_LLM", "EXTERNAL_NO_COMMITMENT"],
     ["ANTHROPIC_API", "EXTERNAL_NO_COMMITMENT"],
     ["GEMINI_API", "EXTERNAL_NO_COMMITMENT"],
     ["VICONNECT", "EXTERNAL_NO_COMMITMENT"],

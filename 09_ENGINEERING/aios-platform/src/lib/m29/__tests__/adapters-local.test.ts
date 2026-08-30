@@ -11,9 +11,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { getAdapter, type ChatRequest, type PlatformForAdapter } from "../adapters";
 
 const adapter = getAdapter("LocalOpenAIPlatformAdapter");
-const PLATFORM: PlatformForAdapter = { apiBaseUrl: "https://llm.manlab.vn/v1" };
+const PLATFORM: PlatformForAdapter = { apiBaseUrl: "https://ai.manlab.vn/v1" };
 const REQ: ChatRequest = {
-  modelId: "manlab-local-14b",
+  modelId: "manlab-ai",
   system: "Lời nhắc hệ thống",
   messages: [{ role: "user", content: "Hỏi thử" }],
   maxTokens: 512,
@@ -54,10 +54,10 @@ describe("LocalOpenAIPlatformAdapter", () => {
   });
 
   it("health gọi GET /models và báo ok khi 2xx", async () => {
-    const fetchMock = reply(200, { data: [{ id: "manlab-local-14b" }] });
+    const fetchMock = reply(200, { data: [{ id: "manlab-ai" }] });
     vi.stubGlobal("fetch", fetchMock);
     await expect(adapter.health(PLATFORM)).resolves.toEqual({ ok: true, error: null });
-    expect(fetchMock.mock.calls[0][0]).toBe("https://llm.manlab.vn/v1/models");
+    expect(fetchMock.mock.calls[0][0]).toBe("https://ai.manlab.vn/v1/models");
   });
 
   it("health báo NO_API_BASE_URL và NO_API_KEY mà không phát HTTP", async () => {
@@ -120,10 +120,10 @@ describe("LocalOpenAIPlatformAdapter", () => {
     await adapter.chat!(PLATFORM, REQ);
 
     const [url, init] = fetchMock.mock.calls[0];
-    expect(url).toBe("https://llm.manlab.vn/v1/chat/completions");
+    expect(url).toBe("https://ai.manlab.vn/v1/chat/completions");
     expect((init!.headers as Record<string, string>).authorization).toBe("Bearer khoa-thu-nghiem");
     expect(JSON.parse(init!.body as string)).toMatchObject({
-      model: "manlab-local-14b",
+      model: "manlab-ai",
       max_tokens: 512,
       messages: [
         { role: "system", content: "Lời nhắc hệ thống" },
