@@ -106,10 +106,31 @@ hồ sơ đánh giá chỉ có giá trị khi chỉ đúng cấu hình đã sinh
 Ba việc trên **không** làm thay được: kết luận Đạt/Không đạt là thẩm quyền người ký (ETV.P29 §4.8),
 và guardrail `NO_AUTO_APPROVE` tồn tại đúng để chặn việc AI tự phê duyệt.
 
-## Vấn đề độc lập, chưa xử lý
+## Ban hành ETV.P29 và nạp lại chỉ mục (cùng ngày, theo chỉ đạo của chủ sở hữu)
 
-`ETV.P29_QuanLyTriTueNhanTao.md` mang `doc_status: Cho-soat-xet` nên **không vào chỉ mục Copilot**
-(script chỉ nạp `Da-phe-duyet | issued | Ban-hanh`). Mọi câu hỏi về chính thủ tục P29 vì thế đều
-trả "không tìm thấy căn cứ" — trong khi giao diện M29 dẫn "Căn cứ: ETV.P29 · lần ban hành 01" ở đầu
-mỗi trang. Đây là việc ban hành tài liệu theo MP14, không phải việc kỹ thuật; nạp lại chỉ mục sau
-khi ban hành là đủ.
+`ETV.P29_QuanLyTriTueNhanTao.md` trước đó mang `doc_status: Cho-soat-xet` nên **không vào chỉ mục
+Copilot** (script chỉ nạp `Da-phe-duyet | issued | Ban-hanh`). Mọi câu hỏi về chính thủ tục P29 đều
+trả "không tìm thấy căn cứ" — trong khi giao diện M29 dẫn "Căn cứ: ETV.P29" ở đầu mỗi trang.
+
+Đã ban hành lần 01 ngày 30/08/2026: frontmatter `doc_status: issued` + `issued_date`, header điền
+ngày ban hành, thêm dòng vào bảng Theo dõi sửa đổi; `manifest.yaml` của MP29 và README hub cập nhật
+theo.
+
+**Bẫy tránh được:** chú thích trong `manifest.yaml` MP29 dặn "chuyển doc_status sang `Da-phe-duyet`"
+— làm theo là hỏng lặng lẽ. Nền tảng đọc trường này qua `PlatformModule.docStatus`, mà `DOC_STATUS`
+trong `CanCuBanner.tsx` chỉ nhận `issued`/`draft` và dashboard đếm module đã ban hành bằng
+`docStatus === "issued"`. Ghi `Da-phe-duyet` thì huy hiệu *Đang hiệu lực* biến mất và module không
+được đếm, không một cảnh báo nào. Đã sửa luôn chú thích đó. Frontmatter `.md` thì ngược lại, đa số
+dùng `status: Da-phe-duyet` — hai bộ từ vựng song song vẫn là điểm chờ dọn của repo.
+
+Kiểm chứng sau khi `npm run nap-chi-muc-copilot`:
+
+- Chỉ mục 1920 → **1958 đoạn / 284 → 285 tài liệu**; 38 đoạn mới đúng là ETV.P29.
+- `validate_citations.py --chan`: 870 → **903 trích dẫn** được kiểm, **0 hỏng** — 33 chỗ dẫn
+  `ETV.P29 §x.y` nay mới thật sự được đối chiếu, vì công cụ chỉ kiểm thủ tục đã ban hành.
+- Truy hồi câu "Biểu mẫu nào dùng để đánh giá tác động AI theo ETV.P29?" trước đây trả về P24 lương
+  thưởng và F11.08 khí thải; nay 6/6 đoạn đều từ chính ETV.P29.
+- Chạy thật cùng câu hỏi qua `gateway.chat()`: **prompt v1 vẫn `GUARDRAIL_BLOCKED`, 0 trích dẫn**;
+  **prompt v2 trả lời đúng "ETV.P.F29.02" kèm nguồn**. Ban hành tài liệu là điều kiện cần, không
+  phải điều kiện đủ — phần còn lại vẫn nằm ở việc kích hoạt bản lời nhắc v2.
+- Trên giao diện, khay Copilot vẫn trả câu từ chối cho tới khi v2 được kích hoạt: đúng như trên.
