@@ -1,6 +1,8 @@
-# 13 — Branding
+# 13 — Branding (Nhận diện thương hiệu ETV)
 
-**Ý nghĩa:** Logo, màu, font, nhận diện
+> **Một câu:** logo, màu, quy tắc dùng nhận diện ETV — bản gốc dùng cho mọi văn bản, chứng chỉ, giao diện và slide.
+
+**Hiện có:** 4 file logo (xem mục *Logo*).
 
 ## Bảng màu ETV (Color Palette)
 
@@ -27,13 +29,24 @@
 3. Giữ khoảng trắng tối thiểu xung quanh logo
 4. Không xoay, biến dạng, hoặc thay đổi tỷ lệ logo
 
-## Lưu trữ
+## Lưu gì ở đây
 
-**Lưu file gì ở đây:**
-- Các file: logo, màu, font, nhận diện
+| Loại | Ví dụ |
+|---|---|
+| File logo bản gốc | PNG nền trong, và SVG khi có |
+| Quy chuẩn nhận diện | bảng màu, khoảng trắng, kích thước tối thiểu, cách dùng sai cần tránh |
+| Font chữ và quy ước typography | font dùng cho văn bản hành chính và cho giao diện |
 
-**KHÔNG lưu ở đây:**
-- Hồ sơ đã điền/đã phát hành (→11)
-- Dữ liệu giao dịch thật (→CSDL/ManLab)
+## Không lưu ở đây
 
-**Lưu ý:** Sửa một chỗ → mọi nơi dùng lại cập nhật. Đây là lý do tránh nhân bản.
+| Thứ này | Về đâu |
+|---|---|
+| Icon chức năng trên giao diện | [`12_Icons`](../12_Icons) |
+| Mẫu công văn/slide có gắn logo | [`02_Templates`](../02_Templates) |
+| Văn bản, chứng chỉ đã phát hành (có logo trên đó) | [`11_COMPLIANCE`](../../11_COMPLIANCE) / CSDL |
+
+## Phép thử nhanh
+
+> File này **mang dấu hiệu nhận diện ETV** và **nhiều nơi dùng lại**? → để ở đây. Là một sản phẩm cụ thể *đã dùng* nhận diện? → không để ở đây.
+
+**Lưu ý:** Sửa logo/bảng màu ở đây → mọi văn bản và giao diện tạo sau đó theo bản mới. Đừng chép logo vào từng module.

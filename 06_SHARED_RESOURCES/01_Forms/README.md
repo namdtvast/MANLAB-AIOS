@@ -1,14 +1,17 @@
-# 01 — Forms
+# 01 — Forms (Biểu mẫu gốc)
 
-**Ý nghĩa:** Biểu mẫu gốc (ETV.P.Fxx.yy), bản trắng chưa điền. Đây là **nguồn sự thật duy nhất** của biểu mẫu trong toàn repo.
+> **Một câu:** bản trắng của mọi biểu mẫu `ETV.P.Fxx.yy` — chưa điền, chưa ký, ai cần thì lấy về dùng.
 
-**Lưu file gì ở đây:**
-- Biểu mẫu gốc, bản trắng chưa điền, đặt trong thư mục `Fxx_Slug/` theo thủ tục ban hành nó
+**Hiện có:** 132 biểu mẫu / 28 thủ tục, gom theo thư mục `Fxx_Slug/`. Đây là **nguồn sự thật duy nhất** của biểu mẫu trong toàn repo — mọi tầng khác chỉ **link** về đây, không copy.
 
-**KHÔNG lưu ở đây:**
-- Hồ sơ đã điền/đã phát hành (→ `03_MANAGEMENT_SYSTEM/05_R/`)
-- Dữ liệu giao dịch thật (→ CSDL/ManLab)
-- Bản sao biểu mẫu ở tầng khác — mọi nơi khác chỉ **link** về đây
+## Không lưu ở đây
+
+| Thứ này | Về đâu | Vì sao |
+|---|---|---|
+| Biểu mẫu **đã điền, đã ký, có ngày** | [`03_MANAGEMENT_SYSTEM/05_R/`](../../03_MANAGEMENT_SYSTEM/05_R) (hồ sơ kiểm soát tài liệu) · CSDL/ManLab (hồ sơ vận hành) | Đó là hồ sơ — cấm sửa; biểu mẫu ở đây thì sửa được |
+| Hồ sơ dùng để **chứng minh tuân thủ với bên ngoài** (BoA, TDC, thanh tra) | [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) | Là bằng chứng có mã `EV-xxx` |
+| Mẫu trình bày không có mã F (công văn, slide, báo cáo) | [`02_Templates`](../02_Templates) | Không gắn với thủ tục nào |
+| Bản sao biểu mẫu đặt ở tầng khác | Không có — chỉ đặt link | Bản sao trôi khỏi bản gốc (xem ghi chú 31/08/2026 tại [`04_F`](../../03_MANAGEMENT_SYSTEM/04_F)) |
 
 ---
 
@@ -52,6 +55,12 @@ Biểu mẫu gom theo **số thủ tục ban hành**, không phải mỗi biểu
 | `F42_NoiQuyLaoDong/` | 3 | [`ETV.P42_NoiQuyLaoDong`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md) |
 
 **Tổng: 132 biểu mẫu / 28 thủ tục.**
+
+---
+
+## Phép thử nhanh
+
+> File có **mã F**, có **ô trống chờ điền**, và **chưa có tên ai** trên đó? → để ở đây. Đã có tên người và chữ ký → là hồ sơ, không để ở đây.
 
 ---
 
