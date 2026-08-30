@@ -45,6 +45,15 @@ describe("Ranh giới không được phép nới", () => {
     }
   });
 
+  // Vô hiệu hóa/kích hoạt lại bản ghi Provider/Model/Skill đi qua đúng chốt này — nới `registry`
+  // cho một vai trò khác là mở luôn đường gỡ bản ghi khỏi danh mục.
+  it("chỉ quản trị AI và quản trị cấp cao sửa được danh mục", () => {
+    for (const role of ALL_ROLES) {
+      const duocPhep = role === "AI_ADMIN" || role === "SUPER_ADMIN";
+      expect(can(role, "registry", "write")).toBe(duocPhep);
+    }
+  });
+
   it("người xem không ghi được gì", () => {
     for (const c of Object.keys(PERMS.AI_VIEWER) as PermCategory[]) {
       expect(can("AI_VIEWER", c, "write")).toBe(false);

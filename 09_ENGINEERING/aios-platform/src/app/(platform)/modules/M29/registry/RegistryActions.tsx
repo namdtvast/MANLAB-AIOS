@@ -3,8 +3,8 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { approvalAction, setToolStatus } from "@/lib/m29/actions";
-import { DEPENDENT_KIND_LABEL, type DependentsDetail } from "@/lib/m29/rules";
+import { approvalAction, datTrangThaiVanHanh, setToolStatus } from "@/lib/m29/actions";
+import { DEPENDENT_KIND_LABEL, type DependentRef, type DependentsDetail } from "@/lib/m29/rules";
 import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
 
 const btnSm =
@@ -29,9 +29,15 @@ const PRE_APPROVAL: AIApprovalStatus[] = ["DRAFT", "PENDING_REVIEW", "RETURNED",
 
 // Câu chặn ETV.P35 §6.5.3 với mã đối tượng bấm được: người đọc thông báo phải đi tới đúng chỗ xử
 // lý (tác tử → trang chi tiết để đổi mô hình hoặc dừng), chứ không phải tự dò mã trong danh sách.
-// Công cụ chưa có trang riêng nên trỏ về mục Tool của chính trang Danh mục.
+// Công cụ và mô hình chưa có trang riêng nên trỏ về đúng mục của chính trang Danh mục.
 // Chữ nghĩa lấy nguyên từ rules.ts (`truoc`/`sau`/nhãn loại) — giao diện chỉ chèn liên kết vào
 // giữa, không giữ bản sao câu thông báo nào.
+const DEPENDENT_HREF: Record<DependentRef["kind"], (id: string) => string> = {
+  agent: (id) => `/modules/M29/agents/${id}`,
+  tool: () => "/modules/M29/registry#tool",
+  model: () => "/modules/M29/registry#model",
+};
+
 function DependentsMessage({ detail }: { detail: DependentsDetail }) {
   return (
     <>
@@ -41,7 +47,7 @@ function DependentsMessage({ detail }: { detail: DependentsDetail }) {
           {i > 0 && ", "}
           {DEPENDENT_KIND_LABEL[d.kind]}{" "}
           <Link
-            href={d.kind === "agent" ? `/modules/M29/agents/${d.id}` : "/modules/M29/registry#tool"}
+            href={DEPENDENT_HREF[d.kind](d.id)}
             className="font-mono font-semibold underline underline-offset-2 hover:no-underline"
           >
             {d.code}
@@ -177,5 +183,78 @@ export function ToolStatusToggle({ id, status }: { id: string; status: AIOpStatu
     <button className={btnSm} disabled={isPending} onClick={toggle}>
       {status === "ACTIVE" ? "Vô hiệu hóa" : "Kích hoạt lại"}
     </button>
+  );
+}
+
+/**
+ * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model hoặc Skill.
+ *
+ * Đây là thứ thay cho nút Xóa mà người dùng hay đi tìm: ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc
+ * nên bản ghi phải ở lại danh mục làm chứng cứ, chỉ hết dùng. Khác `ToolStatusToggle` ở chỗ bắt
+ * buộc ghi lý do trước khi vô hiệu hóa — ETV.P29 mục 6.3 câu cuối đòi lý do cho mọi nhánh kết
+ * thúc, và lý do đó là thứ đoàn đánh giá đọc trong nhật ký thay đổi cấu hình.
+ */
+export function OpStatusToggle({ kind, id, status }: { kind: "provider" | "model" | "skill"; id: string; status: AIOpStatus }) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState<{ message: string; dependents?: DependentsDetail } | null>(null);
+  const [asking, setAsking] = useState(false);
+  const [reason, setReason] = useState("");
+
+  const run = (action: "disable" | "enable", lyDo?: string) => {
+    setError(null);
+    startTransition(async () => {
+      const r = await datTrangThaiVanHanh(kind, id, action, lyDo);
+      if (!r.ok) setError({ message: r.message, dependents: r.dependents });
+      else {
+        setAsking(false);
+        setReason("");
+        router.refresh();
+      }
+    });
+  };
+
+  if (status !== "ACTIVE")
+    return (
+      <button className={btnSm} disabled={isPending} onClick={() => run("enable")}>
+        Kích hoạt lại
+      </button>
+    );
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <span>
+        <button className={btnSm} disabled={isPending} onClick={() => { setError(null); setReason(""); setAsking(true); }}>
+          Vô hiệu hóa
+        </button>
+      </span>
+
+      {asking && (
+        <span className="flex flex-col gap-1">
+          <textarea
+            className="w-56 rounded-md border border-border-strong bg-surface px-2 py-1 text-xs text-ink"
+            rows={2}
+            autoFocus
+            placeholder="Lý do ngừng dùng bản ghi này"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+          />
+          <span className="flex gap-1.5">
+            <button className={btnSm} disabled={isPending || !reason.trim()} onClick={() => run("disable", reason)}>
+              Xác nhận vô hiệu hóa
+            </button>
+            <button className={btnSm} disabled={isPending} onClick={() => setAsking(false)}>
+              Bỏ qua
+            </button>
+          </span>
+        </span>
+      )}
+
+      {error && (
+        <span className="text-xs text-crit">
+          {error.dependents ? <DependentsMessage detail={error.dependents} /> : error.message}
+        </span>
+      )}
+    </div>
   );
 }

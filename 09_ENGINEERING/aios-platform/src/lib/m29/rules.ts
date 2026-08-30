@@ -17,9 +17,9 @@ export type TxResult =
   | { ok: true; status: string; action: string; reason: string | null; patch: Record<string, unknown> }
   | { ok: false; code: string; message: string; dependents?: DependentsDetail };
 
-/** Một tác tử/công cụ đang hoạt động trỏ tới bản ghi sắp kết thúc vòng đời. */
+/** Một bản ghi đang hoạt động trỏ tới bản ghi sắp kết thúc vòng đời hoặc sắp bị vô hiệu hóa. */
 export interface DependentRef {
-  kind: "agent" | "tool";
+  kind: "agent" | "tool" | "model";
   code: string;
   /** Khoá chính, để giao diện dựng liên kết tới đúng bản ghi. */
   id: string;
@@ -40,6 +40,7 @@ export interface DependentsDetail {
 export const DEPENDENT_KIND_LABEL: Record<DependentRef["kind"], string> = {
   agent: "tác tử",
   tool: "công cụ",
+  model: "mô hình",
 };
 
 const ok = (status: string, action: string, reason: string | null = null, patch: Record<string, unknown> = {}): TxResult => ({
@@ -65,9 +66,9 @@ export interface EndOfLifeExtra {
 // ETV.P35 §6.5.3: không kết thúc vòng đời bản ghi khi còn tác tử/công cụ đang hoạt động trỏ tới —
 // và thủ tục đòi hệ thống "chỉ ra danh sách đối tượng còn phụ thuộc", nên thông báo liệt kê tên
 // thật chứ không chỉ đếm. Áp cho cả nhánh Hủy vì §6.7 cấm tác tử/công cụ trỏ tới nền tảng đã Hủy.
-function dependentsBlock(activeDependents: DependentRef[] | undefined, action: string): TxResult | null {
+function dependentsBlock(activeDependents: DependentRef[] | undefined, action: string, doiTuong = "nền tảng này"): TxResult | null {
   if (!activeDependents?.length) return null;
-  const truoc = `Không ${action} được khi còn ${activeDependents.length} đối tượng đang hoạt động trỏ tới nền tảng này (ETV.P35 §6.5.3): `;
+  const truoc = `Không ${action} được khi còn ${activeDependents.length} đối tượng đang hoạt động trỏ tới ${doiTuong} (ETV.P35 §6.5.3): `;
   const sau = ". Hãy chuyển hướng hoặc dừng các đối tượng đó trước.";
   const nhan = activeDependents.map((d) => `${DEPENDENT_KIND_LABEL[d.kind]} ${d.code}`).join(", ");
   return err("DEPENDENTS_ACTIVE", `${truoc}${nhan}${sau}`, { truoc, sau, refs: activeDependents });
@@ -137,6 +138,36 @@ export const approvalTransitions = {
     const blocked = dependentsBlock(extra.activeDependents, "hủy bản ghi");
     if (blocked) return blocked;
     return ok("CANCELLED", "Hủy bản ghi", extra.reason);
+  },
+};
+
+/**
+ * Vòng đời VẬN HÀNH của Provider/Model/Skill — khác hẳn vòng đời phê duyệt ở trên.
+ *
+ * Ba sổ này không có bản ghi phê duyệt riêng trong ETV.P35/ETV.P29, nên chúng đi theo chuỗi ngắn
+ * mà ETV.P29 mục 6.3 đặt cho Công cụ: **Đăng ký → Đang hiệu lực → Vô hiệu hóa**. Đây là nhánh
+ * nghiệp vụ THAY CHO xóa bản ghi — ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc để giữ giá trị truy
+ * vết, và `AIAuditLog`/`AIRequest`/`AIToolCall` là bảng chỉ-thêm (DacTa M29 quy tắc 2), nên xóa
+ * cứng sẽ cắt đứt đúng chuỗi chứng cứ mà đoàn đánh giá đọc. Bản ghi ở lại danh mục, chỉ hết dùng.
+ *
+ * Lý do bắt buộc khi vô hiệu hóa, không bắt buộc khi kích hoạt lại — cùng cách approvalTransitions
+ * xử hai nhánh kết thúc vòng đời (ETV.P29 mục 6.3 câu cuối: mọi nhánh kết thúc phải ghi lý do).
+ */
+export const opStatusTransitions = {
+  disable(entity: { status: AIOpStatus }, extra: { reason?: string; activeDependents?: DependentRef[]; doiTuong?: string } = {}): TxResult {
+    if (entity.status !== "ACTIVE") return err("BAD_STATE", "Chỉ bản ghi đang Hoạt động mới vô hiệu hóa được.");
+    if (!extra.reason?.trim()) return err("REASON_REQUIRED", "Vô hiệu hóa bắt buộc nhập lý do.");
+    // Cùng tinh thần chặn cứng ETV.P35 §6.5.3: không rút một mắt xích khi mắt sau còn đang chạy.
+    // Vô hiệu hóa Provider mà Model của nó vẫn ACTIVE thì Model trỏ vào một nhà cung cấp đã chết
+    // nhưng Agent vẫn gọi được — đúng thứ chặn cứng này ngăn.
+    const blocked = dependentsBlock(extra.activeDependents, "vô hiệu hóa", extra.doiTuong);
+    if (blocked) return blocked;
+    return ok("DISABLED", "Vô hiệu hóa", extra.reason);
+  },
+
+  enable(entity: { status: AIOpStatus }): TxResult {
+    if (entity.status === "ACTIVE") return err("BAD_STATE", "Bản ghi đang Hoạt động.");
+    return ok("ACTIVE", "Kích hoạt lại");
   },
 };
 
