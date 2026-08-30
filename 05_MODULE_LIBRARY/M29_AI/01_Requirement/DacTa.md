@@ -251,9 +251,13 @@ miệng.
   `LocalOpenAIPlatformAdapter` gọi API tương thích OpenAI của máy chủ GPU nội bộ. Triển khai theo
   `ETV.GAI 01` §3.6; 14 ca test phủ đủ bộ mã lỗi và hai đường dừng-trước-khi-phát-HTTP — xem
   [`_work/20260825-local-model-provider/verify.md`](_work/20260825-local-model-provider/verify.md).
-  **Chưa gọi được máy chủ thật** vì `llm.manlab.vn` chưa dựng; bản ghi mẫu để `DRAFT`/`DISABLED`.
-  Trần mức bảo mật vẫn là biến toàn cục, **chưa gắn theo từng nền tảng** — nên mô hình nội bộ hiện
-  chưa nhận được tài liệu mức Nội bộ dù dữ liệu không rời hạ tầng của Viện (việc còn lại).
+  Tại thời điểm đó **chưa gọi được máy chủ thật** vì endpoint chưa dựng, bản ghi mẫu để
+  `DRAFT`/`DISABLED`, và trần mức bảo mật còn là biến toàn cục.
+  **Cập nhật 30/08/2026:** máy chủ đã vận hành thật tại `https://ai.manlab.vn/v1` (vLLM v0.10.2,
+  `Qwen/Qwen2.5-7B-Instruct` FP16, bí danh `manlab-ai`, ngữ cảnh 8192, RTX 3090) và trần mức bảo
+  mật đã gắn theo từng nền tảng qua `AIPlatform.dataBoundary`. Vì endpoint đi qua Cloudflare
+  Tunnel, ranh giới dữ liệu **không** còn là `NO_EXTERNAL_TRANSFER`: seed đặt mức siết nhất, việc
+  nới lên `EXTERNAL_WITH_COMMITMENT` kèm số hồ sơ F29.02 làm trên giao diện M29 (ETV.GAI 01 §3.7).
 - ✅ **Vòng đời Hiệu lực của nền tảng** (2026-08-25): hiện thực trạng thái `ACTIVE` mà
   `StateMachine.md` (trạng thái 7) và ETV.P35 §6.1.7 bước 6 đã quy định nhưng phần mềm còn thiếu —
   thêm chuyển tiếp `activate()`, cho ngừng vận hành từ `ACTIVE`, và sửa `checkHealthAction()` lọc
