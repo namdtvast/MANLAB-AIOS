@@ -11,6 +11,7 @@ capabilities:
   - ../../02_CAPABILITIES/CAP-29_AIOffice
 guidelines:
   - ../../03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI01_MayChuMoHinhAI/ETV.GAI01_TichHopMayChuMoHinhAINoiBo.md
+  - ../../03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/ETV.GAI02_KienTrucTriThucVaNguNghiaAI.md
 related_procedures:
   - ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P28_QuanLyAnToanThongTin.md
   - ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md

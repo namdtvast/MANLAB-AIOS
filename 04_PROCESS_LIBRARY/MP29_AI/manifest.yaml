@@ -32,3 +32,8 @@ guidelines:
     doc_status: Nhap
     doc_version: "01"
     note: "Mã ETV.GAI 01 là mã đề xuất — ký hiệu lĩnh vực AI chưa có trong bảng mã hoá ETV.P14 §6.2"
+  - doc_id: ETV.GAI 02
+    doc_title: "Hướng dẫn Kiến trúc tri thức và ngữ nghĩa cho trí tuệ nhân tạo trong hệ sinh thái ManLab"
+    doc_status: Nhap
+    doc_version: "01"
+    note: "Mã ETV.GAI 02 là mã đề xuất — cùng vướng mắc ký hiệu lĩnh vực AI như ETV.GAI 01"
