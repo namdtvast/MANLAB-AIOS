@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP34_DuLieuSo
 capability: [CAP-28_ATTT]
 module: M34_DuLieuSo
-effective_date: ""
+effective_date: "30/08/2026"
 revision: "01"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [dữ liệu số, từ điển dữ liệu, chất lượng dữ liệu, dữ liệu chủ, tổ chức cá nhân, Party Role, năng lực kỹ thuật, chủ sở hữu dữ liệu, truy xuất nguồn gốc dữ liệu, ISO/IEC 17025 §7.11]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P08, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P26, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P33, ETV.P35, ETV.P36, ETV.P37, ETV.P38]
 iso_clause: ["ISO 9001:2015 §7.1.6, §7.5, §9.1", "ISO/IEC 17025:2017 §7.5, §7.11, §8.4", "ISO 17034:2016 §7.4", "ISO/IEC 27001:2022 §8.1, A.5.12, A.5.13, A.5.14, A.5.33, A.8.10, A.8.11, A.8.12", "ISO/IEC 42001:2023 §7.4, §8.1, A.7 (dữ liệu cho hệ thống AI)"]
@@ -32,24 +32,25 @@ superseded_by: null
 | ----------------- | ---------------------------------------- |
 | **Mã số**         | ETV.P 34                                 |
 | **Lần ban hành**  | 01                                       |
-| **Ngày ban hành** | ..../..../........                       |
-| **Biên soạn**     | Dương Thành Nam — ..../..../........     |
-| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........ |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........ |
+| **Ngày ban hành** | 30/08/2026                               |
+| **Biên soạn**     | Dương Thành Nam — 30/08/2026             |
+| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026 |
+| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026 |
 
-> **Tình trạng bản này: CHỜ SOÁT XÉT** — dự thảo lần đầu, chưa có hiệu lực. Bản này chỉ được áp dụng sau khi Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — ban hành lần thứ nhất. Bản này có hiệu lực từ ngày 30/08/2026.
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú soạn thảo.** Phạm vi của thủ tục này bám đúng ranh giới đã được **ETV.P35 (đã ban hành) mục 2.3** xác lập: *"Dữ liệu số chạy trên nền tảng: chất lượng, vòng đời, kiểm soát truy xuất — ETV.P34"*, còn *"danh mục và vòng đời tài sản dữ liệu, sao lưu, phục hồi — ETV.P27"*. Các **giá trị định lượng** (ngưỡng chất lượng, chu kỳ đo, thời hạn xử lý) là **đề xuất**, cần Viện xác nhận trước khi ban hành.
+> **Ghi chú soạn thảo.** Phạm vi của thủ tục này bám đúng ranh giới đã được **ETV.P35 (đã ban hành) mục 2.3** xác lập: *"Dữ liệu số chạy trên nền tảng: chất lượng, vòng đời, kiểm soát truy xuất — ETV.P34"*, còn *"danh mục và vòng đời tài sản dữ liệu, sao lưu, phục hồi — ETV.P27"*. Các **giá trị định lượng** (ngưỡng chất lượng, chu kỳ đo, thời hạn xử lý) **đã được Viện xác nhận** trước khi phê duyệt ngày 30/08/2026.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
-| ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.3 và quy trình MP34; phân định rõ với ETV.P27 (tài sản dữ liệu, sao lưu) và ETV.P28 (biện pháp bảo vệ) | 01 |
+| 30/08/2026 | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.3 và quy trình MP34; phân định rõ với ETV.P27 (tài sản dữ liệu, sao lưu) và ETV.P28 (biện pháp bảo vệ) | 01 |
 | 25/08/2026 | Sửa dự thảo, **chưa ban hành**: mục 6.8 trước đây cho phép dữ liệu mức **Hạn chế** dùng trên nền tảng AI đã phê duyệt — trái **ETV.P28 mục 6.13** và **ETV.P26 mục 5.5** đang có hiệu lực. Đưa về đúng bộ văn bản hiện hành: Hạn chế và Mật không đưa vào hệ thống AI dưới mọi hình thức; dẫn chiếu quy tắc gốc về ETV.P29 mục 5.5 thay vì quy định song song. | 01 |
 | 26/08/2026 | Bổ sung quản trị dữ liệu chủ đo lường: 12 nhóm dữ liệu chủ tối thiểu; mô hình một hồ sơ Tổ chức/Cá nhân có nhiều vai trò; quy tắc chống trùng, hợp nhất, nguồn và hiệu lực; cập nhật F34.01. **Chưa ban hành, chờ soát xét.** | 01 |
+| 30/08/2026 | Ban hành lần thứ nhất: Lãnh đạo Viện phê duyệt, có hiệu lực cùng ngày. Các giá trị định lượng nêu ở dòng trên đã được Viện xác nhận khớp nguồn lực thực tế trước khi phê duyệt | 01 |
 
 ---
 

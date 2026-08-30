@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP33_HeThongTT
 capability: [CAP-28_ATTT]
 module: M33_HeThongTT
-effective_date: ""
+effective_date: "30/08/2026"
 revision: "01"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [hệ thống thông tin, hạ tầng công nghệ thông tin, kiểm kê tài sản, bảo trì, vá lỗi, tài khoản hệ thống, ISO/IEC 27001 A.5.9, ISO 9001 §7.1.3]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P03, ETV.P05, ETV.P06, ETV.P08, ETV.P10, ETV.P11, ETV.P13, ETV.P14, ETV.P15, ETV.P16, ETV.P17, ETV.P26, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P32, ETV.P34, ETV.P35]
 iso_clause: ["ISO 9001:2015 §7.1.3, §9.3", "ISO/IEC 17025:2017 §6.4, §7.11", "ISO 17034:2016 §7.4", "ISO/IEC 27001:2022 A.5.9, A.7.9–A.7.10, A.8.1, A.8.7–A.8.9, A.8.19–A.8.22, A.8.32", "ISO/IEC 42001:2023 §8.1"]
@@ -32,22 +32,22 @@ superseded_by: null
 | ----------------- | ---------------------------------------- |
 | **Mã số**         | ETV.P 33                                 |
 | **Lần ban hành**  | 01                                       |
-| **Ngày ban hành** | ..../..../........                       |
-| **Biên soạn**     | Dương Thành Nam — ..../..../........     |
-| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........ |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........ |
+| **Ngày ban hành** | 30/08/2026                               |
+| **Biên soạn**     | Dương Thành Nam — 30/08/2026             |
+| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026 |
+| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026 |
 
-> **Tình trạng bản này: CHỜ SOÁT XÉT** — dự thảo lần đầu, chưa có hiệu lực. Bản này chỉ được áp dụng sau khi Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — ban hành lần thứ nhất. Bản này có hiệu lực từ ngày 30/08/2026.
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
-> **Ghi chú soạn thảo.** Dự thảo lấy đặc tả module `M33_HeThongTT/01_Requirement/DacTa.md` làm đầu vào và **chốt** các điểm mà đặc tả để ngỏ: ranh giới kiểm kê với ETV.P27 (§2.3), vai trò đối với tài khoản hệ thống (§6.4), thời hạn vá lỗi bảo mật (§6.3.3), điều kiện dùng thiết bị cá nhân (§6.2.4), ngưỡng sự cố lặp (§6.5.4), phạm vi dịch vụ thuê ngoài (§2.1) và lộ trình kiểm kê kỳ đầu (§6.1.5). Các **giá trị định lượng** là **đề xuất**, cần Viện xác nhận cho khớp nguồn lực thực tế trước khi ban hành.
+> **Ghi chú soạn thảo.** Dự thảo lấy đặc tả module `M33_HeThongTT/01_Requirement/DacTa.md` làm đầu vào và **chốt** các điểm mà đặc tả để ngỏ: ranh giới kiểm kê với ETV.P27 (§2.3), vai trò đối với tài khoản hệ thống (§6.4), thời hạn vá lỗi bảo mật (§6.3.3), điều kiện dùng thiết bị cá nhân (§6.2.4), ngưỡng sự cố lặp (§6.5.4), phạm vi dịch vụ thuê ngoài (§2.1) và lộ trình kiểm kê kỳ đầu (§6.1.5). Các **giá trị định lượng** (thời hạn vá lỗi §6.3.3, lộ trình kiểm kê kỳ đầu §6.1.5, chu kỳ rà soát §6.1) **đã được Viện xác nhận khớp nguồn lực thực tế** trước khi phê duyệt ngày 30/08/2026.
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 
 | Thời gian | Nội dung thay đổi | Lần ban hành |
 | ---------- | ------------------- | -------------- |
-| ..../..../........ | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.2 và quy trình MP33; chốt các điểm ranh giới đã được ETV.P28 và ETV.P35 (đã ban hành) giao cho MP33 | 01 |
+| 30/08/2026 | Ban hành lần thứ nhất. Thủ tục mới, hiện thực hoá Sổ tay chất lượng §10.2 và quy trình MP33; chốt các điểm ranh giới đã được ETV.P28 và ETV.P35 (đã ban hành) giao cho MP33 | 01 |
 
 ---
 
@@ -95,7 +95,7 @@ Dữ liệu được quản lý thống nhất trên phần mềm ManLab (Module
 
 > **Chốt điểm lệch câu chữ:** ETV.P28 **lần ban hành 01** mục 5.7.2 viết thiết bị đầu cuối "được đăng ký trong danh mục tài sản (ETV.MP27)", trong khi ETV.P35 mục 2.3 giao "thiết bị đầu cuối" cho ETV.P33. Cách hiểu thống nhất: **thiết bị đăng ký tại ETV.P33**, **dữ liệu trên thiết bị đăng ký tại ETV.P27**. Cách hiểu này **đã được đưa vào chính ETV.P28 lần ban hành 02** (mục 6.7.2 và ghi chú ranh giới tại mục 2.3, đã phê duyệt ngày 26/08/2026) — không dừng ở một ghi chú trong thủ tục này. Yêu cầu cấu hình an toàn của ETV.P28 mục 6.7.2 vẫn áp dụng nguyên, được thực thi và kiểm chứng tại §6.2.3 của thủ tục này.
 >
-> **Điều kiện phê duyệt:** ETV.P33 chỉ nên được phê duyệt **sau hoặc cùng đợt với ETV.P28 lần ban hành 02**. Nếu phê duyệt trước, hai thủ tục sẽ đọc ngược nhau trong thời gian chờ.
+> **Điều kiện phê duyệt — đã thoả:** ETV.P33 chỉ được phê duyệt sau hoặc cùng đợt với **ETV.P28 lần ban hành 02**, để hai thủ tục không đọc ngược nhau. ETV.P28 lần 02 đã phê duyệt ngày 26/08/2026; thủ tục này phê duyệt ngày 30/08/2026, sau đó.
 
 **Nguyên tắc 2 — Thực thi, không phê duyệt.** Đối với quyền truy cập, thủ tục này giữ vai trò **người thực hiện**: cấp, thay đổi, thu hồi tài khoản theo phiếu **F28.04 đã được phê duyệt** tại ETV.P28. Quản trị hệ thống **không** phê duyệt quyền cho chính mình hoặc cho người khác.
 
