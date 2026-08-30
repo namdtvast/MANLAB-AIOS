@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP35 |
 | Tên gọi ngắn | NenTangSo |
-| Thủ tục ban hành | `ETV.P35` — Lần ban hành 01, ngày 24/08/2026 |
+| Thủ tục ban hành | `ETV.P35` — Lần ban hành 02, ngày 30/08/2026 |
 | Điều khoản/căn cứ | ISO 9001 §7.1.3, §8.4, §8.5.1; ISO/IEC 17025 §6.6, §7.11; ISO 17034 §6.6, §7.4; ISO/IEC 27001 §8.1, A.5.9, A.5.19–A.5.23, A.5.30, A.8.9, A.8.16, A.8.31; ISO/IEC 42001 §6.1, §8.1, §8.4 |
 | Năng lực liên quan | CAP-29 |
 | Module số hóa | M35_NenTangSo |

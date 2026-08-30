@@ -8,9 +8,9 @@ department: "Toàn Viện"
 process: MP35_NenTangSo
 capability: [CAP-29_AIOffice]
 module: M35_NenTangSo
-effective_date: ""
+effective_date: "30/08/2026"
 revision: "02"
-status: Cho-soat-xet
+status: Da-phe-duyet
 keywords: [nền tảng số, sổ đăng ký nền tảng, điểm tích hợp, kiểm tra sức khỏe, ngừng vận hành, ISO/IEC 17025 §7.11, ISO/IEC 27001 A.5.23]
 related_documents: [ETV.QM, ETV.P01, ETV.P02, ETV.P06, ETV.P13, ETV.P14, ETV.P15, ETV.P17, ETV.P27, ETV.P28, ETV.P29, ETV.P30, ETV.P31, ETV.P32, ETV.P33, ETV.P34, ETV.P37, ETV.P38]
 iso_clause: ["ISO 9001:2015 §7.1.3, §8.4, §8.5.1, §9.3", "ISO/IEC 17025:2017 §6.6, §7.11, §8.5", "ISO 17034:2016 §6.6, §7.4", "ISO/IEC 27001:2022 §8.1, A.5.9, A.5.19–A.5.23, A.5.30, A.8.9, A.8.16, A.8.31", "ISO/IEC 42001:2023 §6.1, §8.1, §8.4"]
@@ -32,12 +32,14 @@ superseded_by: null
 | ----------------- | ---------------------------------------- |
 | **Mã số**         | ETV.P 35                                 |
 | **Lần ban hành**  | 02                                       |
-| **Ngày ban hành** | ..../..../........                       |
-| **Biên soạn**     | Dương Thành Nam — ..../..../........     |
-| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........ |
-| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........ |
+| **Ngày ban hành** | 30/08/2026                               |
+| **Biên soạn**     | Dương Thành Nam — 30/08/2026             |
+| **Soát xét**      | Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026 |
+| **Phê duyệt**     | Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026 |
 
-> **Tình trạng bản này: CHỜ SOÁT XÉT** — lần ban hành 02, chưa có hiệu lực. **Lần ban hành 01 (24/08/2026) vẫn là bản đang áp dụng** cho tới khi bản này được Lãnh đạo Viện phê duyệt và chuyển trạng thái **Đã phê duyệt** theo ETV.P14.
+> **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thay thế lần ban hành 01 (24/08/2026). Bản này có hiệu lực từ ngày 30/08/2026.
+>
+> **Phạm vi sửa đổi so với lần 01:** chỉ hình thức — đưa về khung thủ tục I–IX của ETV.P14 (xem dòng 25/08/2026 ở bảng dưới). **Yêu cầu kỹ thuật và thẩm quyền giữ nguyên**, nên bản này không phát sinh nghĩa vụ mới cho đơn vị thực hiện.
 
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
@@ -47,6 +49,7 @@ superseded_by: null
 | ---------- | ------------------- | -------------- |
 | 24/08/2026 | Ban hành lần thứ nhất | 01 |
 | 25/08/2026 | Ban hành lại: đưa về đúng khung thủ tục I–IX của ETV.P14 (khối metadata chuẩn theo ETV.P14 §6.3, trang bìa Biên soạn–Soát xét–Phê duyệt, bổ sung §V Ma trận RACI, §IX Các phụ lục); bổ sung mục Văn bản pháp luật viện dẫn; §VIII dẫn chiếu thời hạn lưu về ETV.P.F 14.06 thay vì tự quy định; thống nhất cách dẫn chiếu thủ tục theo mã `ETV.P xx` (ETV.P14 §6.2). **Nội dung yêu cầu kỹ thuật và thẩm quyền không thay đổi so với lần ban hành 01.** | 02 |
+| 30/08/2026 | Ban hành lần thứ hai: phê duyệt và đưa vào hiệu lực bản đã đưa về khung I–IX nêu ở dòng trên; không thay đổi yêu cầu kỹ thuật, thẩm quyền hay biểu mẫu so với lần ban hành 01 | 02 |
 
 ---
 
