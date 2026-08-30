@@ -19,7 +19,7 @@ const FORMS_M03 = [
   {
     code: "ETV.P.F03.01",
     title: "Sơ yếu lý lịch",
-    path: "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md",
+    path: "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.01_SoYeuLyLich.md",
     revision: "03",
     effectiveDate: "20/07/2026",
   },

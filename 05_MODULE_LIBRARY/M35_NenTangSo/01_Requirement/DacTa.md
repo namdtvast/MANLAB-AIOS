@@ -334,7 +334,7 @@ dừng / Đã cắt). Mọi nhánh Hủy/Không phê duyệt bắt buộc lý do
 | Thống kê thời gian ngừng hoạt động | Màn hình/Dữ liệu | Theo `HealthCheckResult` + `PlatformIncident`, lọc theo `criticality` |
 
 **Bốn biểu mẫu F35.01–F35.04 đã ban hành** (lần 01, ngày 24/08/2026) tại
-`06_SHARED_RESOURCES/01_Forms/ETV.P.F35.0{1..4}_*.md` — bản xuất của module phải khớp bố cục và
+`06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.0{1..4}_*.md` — bản xuất của module phải khớp bố cục và
 danh mục chuẩn của biểu mẫu gốc. Đánh giá nhà cung cấp dùng lại biểu mẫu của **M06**, hồ sơ AIA
 dùng lại biểu mẫu của **M29** — không tạo biểu mẫu mới.
 

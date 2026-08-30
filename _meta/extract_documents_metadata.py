@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Extract document metadata from 03_MANAGEMENT_SYSTEM files
+Extract document metadata from 03_MANAGEMENT_SYSTEM and 06_SHARED_RESOURCES/01_Forms
 for the "Khám phá" (Explore) view on the website.
 """
 
@@ -10,7 +10,29 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-MANAGEMENT_SYSTEM_DIR = Path(__file__).parent.parent / "03_MANAGEMENT_SYSTEM"
+REPO_ROOT = Path(__file__).parent.parent
+MANAGEMENT_SYSTEM_DIR = REPO_ROOT / "03_MANAGEMENT_SYSTEM"
+
+# Biểu mẫu gốc nằm ở tầng 06 (một nguồn sự thật), KHÔNG ở 03_MANAGEMENT_SYSTEM/04_F — thư mục
+# đó nay chỉ là mục lục điều hướng. Không quét thêm root này thì bảng danh mục ở tab "Khám phá"
+# mất sạch biểu mẫu, vì trước 31/08/2026 nó chỉ thấy được các bản sao trong 04_F.
+FORMS_DIR = REPO_ROOT / "06_SHARED_RESOURCES" / "01_Forms"
+SCAN_DIRS = [MANAGEMENT_SYSTEM_DIR, FORMS_DIR]
+
+
+def scan_root_of(path):
+    """Thư mục quét chứa `path` — dùng cho relative_path; mặc định về gốc repo."""
+    for base in SCAN_DIRS:
+        if base in path.parents:
+            return base
+    return REPO_ROOT
+
+
+def walk_scan_dirs():
+    """os.walk qua mọi thư mục quét, bỏ qua thư mục không tồn tại."""
+    for base in SCAN_DIRS:
+        if base.exists():
+            yield from os.walk(base)
 
 def parse_yaml_value(value_str):
     """Simple YAML value parser."""
@@ -207,15 +229,18 @@ def extract_code_from_filename(filename):
     return name
 
 def scan_documents():
-    """Scan 03_MANAGEMENT_SYSTEM and extract document metadata."""
+    """Quét 03_MANAGEMENT_SYSTEM và 06_SHARED_RESOURCES/01_Forms, rút metadata tài liệu."""
     documents = {}  # Use dict to avoid duplicates
 
     if not MANAGEMENT_SYSTEM_DIR.exists():
         print(f"Error: {MANAGEMENT_SYSTEM_DIR} not found")
         return []
+    if not FORMS_DIR.exists():
+        print(f"Error: {FORMS_DIR} not found")
+        return []
 
     # First pass: process .md files (they have priority)
-    for root, dirs, files in os.walk(MANAGEMENT_SYSTEM_DIR):
+    for root, dirs, files in walk_scan_dirs():
         for file in files:
             if file.endswith('.md') and not file.startswith('_') and not file.startswith('README'):
                 md_path = Path(root) / file
@@ -246,8 +271,8 @@ def scan_documents():
                         # không phải [] — phải quy về list trước khi lặp ở dưới.
                         'iso_clause': as_list(frontmatter.get('iso_clause')),
                         'legal_basis': as_list(frontmatter.get('legal_basis')),
-                        'file_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
-                        'relative_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
+                        'file_path': str(md_path.relative_to(REPO_ROOT)),
+                        'relative_path': str(md_path.relative_to(scan_root_of(md_path))),
                     }
 
                     # Extract every distinct ISO standard mentioned across iso_clause (not just the first).
@@ -280,8 +305,8 @@ def scan_documents():
                         'approver': '',
                         'iso_clause': [],
                         'legal_basis': [],
-                        'file_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
-                        'relative_path': str(md_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
+                        'file_path': str(md_path.relative_to(REPO_ROOT)),
+                        'relative_path': str(md_path.relative_to(scan_root_of(md_path))),
                         'iso_standard': '',
                     }
 
@@ -289,7 +314,7 @@ def scan_documents():
 
     # Second pass: add .docx and .doc files that don't have .md version
     md_codes = set(documents.keys())
-    for root, dirs, files in os.walk(MANAGEMENT_SYSTEM_DIR):
+    for root, dirs, files in walk_scan_dirs():
         for file in files:
             if file.endswith('.docx') or file.endswith('.doc'):
                 # Extract code from filename
@@ -314,8 +339,8 @@ def scan_documents():
                     'approver': '',
                     'iso_clause': [],
                     'legal_basis': [],
-                    'file_path': str(doc_path.relative_to(MANAGEMENT_SYSTEM_DIR.parent)),
-                    'relative_path': str(doc_path.relative_to(MANAGEMENT_SYSTEM_DIR)),
+                    'file_path': str(doc_path.relative_to(REPO_ROOT)),
+                    'relative_path': str(doc_path.relative_to(scan_root_of(doc_path))),
                     'iso_standard': '',
                 }
                 documents[code] = doc
@@ -333,7 +358,7 @@ def main():
         print(f"  - {doc['code']:15} {doc['title'][:50]:50}")
 
     # Save to JSON
-    output_file = MANAGEMENT_SYSTEM_DIR.parent / 'docs' / 'documents.json'
+    output_file = REPO_ROOT / 'docs' / 'documents.json'
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     output = {

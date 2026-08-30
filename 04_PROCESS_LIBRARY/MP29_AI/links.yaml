@@ -19,7 +19,7 @@ related_procedures:
   - ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P33_QuanLyHeThongThongTin.md
   - ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.02_PhieuDanhGiaTacDongAI.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.02_PhieuDanhGiaTacDongAI.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md

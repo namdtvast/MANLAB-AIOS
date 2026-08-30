@@ -15,7 +15,7 @@ Các tầng đánh số `01_` … `12_` và đọc theo thứ tự — mỗi t�
 | Tầng | Trả lời câu hỏi | Chứa gì | Không bao giờ đặt ở đây |
 |---|---|---|---|
 | `02_CAPABILITIES` ⭐ | Viện làm được gì? | `CAP-xx_Slug/` = `capability.yaml` + `README.md`, link tới MP hiện thực năng lực đó | Chi tiết triển khai |
-| `03_MANAGEMENT_SYSTEM` | Theo luật chơi nào? | Chuẩn mực kiểm soát ISO: `01_QM` (sổ tay chất lượng), `02_P` (thủ tục ETV.Pxx), `03_M` (quy trình kỹ thuật/SOP), `04_F` (biểu mẫu gốc), `05_R` (hồ sơ) | Nội dung thủ tục MP, biểu mẫu đã điền |
+| `03_MANAGEMENT_SYSTEM` | Theo luật chơi nào? | Chuẩn mực kiểm soát ISO: `01_QM` (sổ tay chất lượng), `02_P` (thủ tục ETV.Pxx), `03_M` (quy trình kỹ thuật/SOP), `04_F` (mục lục biểu mẫu), `05_R` (hồ sơ đã điền) | Nội dung thủ tục MP, biểu mẫu đã điền |
 | `04_PROCESS_LIBRARY` ⭐ | Làm thế nào? | 46 thư mục `MPxx_Slug/` **Hub** — xem Mẫu Hub bên dưới | Nội dung thủ tục đầy đủ, bản copy biểu mẫu |
 | `05_MODULE_LIBRARY` ⭐ | Số hóa bằng gì? | 38 đặc tả module `Mxx_Slug/`, ánh xạ 1–1 với MPxx (MP44–51 Kế toán chưa số hóa) — xem Mẫu Module bên dưới | Dữ liệu nghiệp vụ/sản xuất thật |
 | `06_SHARED_RESOURCES` ⭐ | Tài nguyên dùng chung | Biểu mẫu gốc chưa điền, template, master data, branding — một nguồn sự thật | Hồ sơ đã điền/đã phát hành |

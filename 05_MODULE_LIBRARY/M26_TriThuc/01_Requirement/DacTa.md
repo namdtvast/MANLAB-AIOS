@@ -268,7 +268,7 @@ hoạch → Đã thực hiện / Hủy). Mọi nhánh Hủy/Không thực hiện
 | Bảng **rủi ro mất tri thức** | Màn hình/PDF | Mục `criticality = Cao` là tri thức ẩn, số người giữ ≤ 1 — đầu vào M01 |
 
 **Bốn biểu mẫu F26.01–F26.04 đã ban hành** (lần 01, ngày 23/08/2026) tại
-`06_SHARED_RESOURCES/01_Forms/ETV.P.F26.0{1..4}_*.md` — bản xuất của module phải khớp bố cục và
+`06_SHARED_RESOURCES/01_Forms/F26_TriThuc/ETV.P.F26.0{1..4}_*.md` — bản xuất của module phải khớp bố cục và
 danh mục chuẩn của biểu mẫu gốc. Hoạt động đào tạo nội bộ dùng lại **F03.05.x** của M03, không tạo
 biểu mẫu mới.
 

@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-08-30 16:43 UTC",
+ "generated_at": "2026-08-30 22:57 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "claude/bo-sung-45-bieu-mau-bbhc",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/bo-sung-45-bieu-mau-bbhc",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/bo-sung-45-bieu-mau-bbhc",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/bo-sung-45-bieu-mau-bbhc"
+  "branch": "claude/form-folder-organization-7ff30f",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/form-folder-organization-7ff30f",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/form-folder-organization-7ff30f",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/form-folder-organization-7ff30f"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 8149,
-  "dirs": 2185,
+  "files": 8273,
+  "dirs": 2236,
   "docs": 4725,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1299,
+   ".md": 1284,
    ".png": 96,
    ".pdf": 3422,
    ".yaml": 136,
@@ -122,11 +122,12 @@
    ".config": 2,
    ".conico": 1,
    ".service": 1,
-   ".ts": 150,
+   ".ts": 288,
    ".sql": 40,
    ".toml": 1,
    ".prisma": 1,
-   ".tsx": 243
+   ".tsx": 243,
+   ".tsbuildinfo": 1
   }
  },
  "standards": [
@@ -1375,8 +1376,8 @@
    "doc_controlled": "ETV.P33_QuanLyHeThongThongTin.md",
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P33_QuanLyHeThongThongTin.md",
    "doc_edition": "01",
-   "doc_issued": null,
-   "doc_status": "Cho-soat-xet",
+   "doc_issued": "30/08/2026",
+   "doc_status": "Da-phe-duyet",
    "has_doc": true,
    "forms": [
     "ETV.P.F33.01",
@@ -1410,8 +1411,8 @@
    "doc_controlled": "ETV.P34_QuanLyDuLieuSo.md",
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md",
    "doc_edition": "01",
-   "doc_issued": null,
-   "doc_status": "Cho-soat-xet",
+   "doc_issued": "30/08/2026",
+   "doc_status": "Da-phe-duyet",
    "has_doc": true,
    "forms": [
     "ETV.P.F34.01",
@@ -1444,8 +1445,8 @@
    "doc_controlled": "ETV.P35_QuanLyNenTangSo.md",
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
    "doc_edition": "02",
-   "doc_issued": null,
-   "doc_status": "Cho-soat-xet",
+   "doc_issued": "30/08/2026",
+   "doc_status": "Da-phe-duyet",
    "has_doc": true,
    "forms": [
     "ETV.P.F35.01",
@@ -3037,7 +3038,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
         "type": "file",
         "ext": ".md",
-        "size": 32487
+        "size": 32498
        },
        {
         "name": "ETV.P04_MoiTruong.md",
@@ -3114,7 +3115,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md",
         "type": "file",
         "ext": ".md",
-        "size": 36055
+        "size": 36067
        },
        {
         "name": "ETV.P15_KiemSoatHoSo.md",
@@ -3247,21 +3248,21 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P33_QuanLyHeThongThongTin.md",
         "type": "file",
         "ext": ".md",
-        "size": 56164
+        "size": 56227
        },
        {
         "name": "ETV.P34_QuanLyDuLieuSo.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md",
         "type": "file",
         "ext": ".md",
-        "size": 57972
+        "size": 58121
        },
        {
         "name": "ETV.P35_QuanLyNenTangSo.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
         "type": "file",
         "ext": ".md",
-        "size": 50898
+        "size": 51306
        },
        {
         "name": "ETV.P37_QuanLyTichHopDuLieu.md",
@@ -3289,7 +3290,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md",
         "type": "file",
         "ext": ".md",
-        "size": 13643
+        "size": 13697
        },
        {
         "name": "ETV.P42_Phan_luc_I_Noi_quy_mau.md",
@@ -3394,7 +3395,7 @@
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI01_MayChuMoHinhAI/ETV.GAI01_TichHopMayChuMoHinhAINoiBo.md",
             "type": "file",
             "ext": ".md",
-            "size": 48241
+            "size": 48512
            }
           ],
           "n_dirs": 0,
@@ -4508,7 +4509,7 @@
                 "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
                 "type": "file",
                 "ext": ".md",
-                "size": 16575
+                "size": 16587
                }
               ],
               "n_dirs": 0,
@@ -6253,6 +6254,218 @@
           "type": "dir",
           "children": [
            {
+            "name": "MVA01_KhiTuDong",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MVA.01_QTKD_KhiTuDong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/1. Quy trinh/ETV.MVA.01_QTKD_KhiTuDong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 19577
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MVA.F01.01_BBKD_KhiTuDong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/2. Bieu mau/ETV.MVA.F01.01_BBKD_KhiTuDong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8487
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
+            "name": "MVA02_NongDoKhi",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MVA.02_QTKD_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/1. Quy trinh/ETV.MVA.02_QTKD_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 19573
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MVA.F02.01_BBKD_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.01_BBKD_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 7566
+               },
+               {
+                "name": "ETV.MVA.F02.02_BBKD_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.02_BBKD_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8503
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 2
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
+            "name": "MVA_DLVN107_NongDoCon",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN107_QTKD_NongDoCon.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/1. Quy trinh/DLVN107_QTKD_NongDoCon.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15565
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN107_BBKD_NongDoCon.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/2. Bieu mau/DLVN107_BBKD_NongDoCon.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 4206
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
+            "name": "MVA_DLVN214_KhiThaiXeCoGioi",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN214_QTKD_KhiThaiXeCoGioi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/1. Quy trinh/DLVN214_QTKD_KhiThaiXeCoGioi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15373
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN214_BBKD_KhiThaiXeCoGioi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/2. Bieu mau/DLVN214_BBKD_KhiThaiXeCoGioi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 4574
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
+            "name": "MVA_DLVN265_NongDoKhi",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN265_QTKD_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/1. Quy trinh/DLVN265_QTKD_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 17494
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN265_BBKD_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/2. Bieu mau/DLVN265_BBKD_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8881
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
+           },
+           {
             "name": "MVA_DLVN333_KhiTuDong",
             "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong",
             "type": "dir",
@@ -6374,9 +6587,50 @@
             ],
             "n_dirs": 2,
             "n_files": 0
+           },
+           {
+            "name": "MVA_DLVN90_BuiTong",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN90_QTKD_BuiTong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/1. Quy trinh/DLVN90_QTKD_BuiTong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14711
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN90_BBKD_BuiTong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/2. Bieu mau/DLVN90_BBKD_BuiTong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 6830
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 0
            }
           ],
-          "n_dirs": 3,
+          "n_dirs": 9,
           "n_files": 0
          }
         ],
@@ -6388,7 +6642,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 34607
+        "size": 39416
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -6402,269 +6656,17 @@
       "type": "dir",
       "children": [
        {
-        "name": "ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2349
-       },
-       {
-        "name": "ETV.P.F01.02_BangTongHop_MucTieu.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.02_BangTongHop_MucTieu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3600
-       },
-       {
-        "name": "ETV.P.F01.02_BangTongHop_QuaTrinh.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.02_BangTongHop_QuaTrinh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 23517
-       },
-       {
-        "name": "ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 25450
-       },
-       {
-        "name": "ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3613
-       },
-       {
-        "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1645
-       },
-       {
-        "name": "ETV.P.F10.02_HoSoQCNoiBo.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.02_HoSoQCNoiBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2210
-       },
-       {
-        "name": "ETV.P.F10.03_DanhGiaTayNghe.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.03_DanhGiaTayNghe.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1463
-       },
-       {
-        "name": "ETV.P.F10.04_HoSoPT_ILC.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.04_HoSoPT_ILC.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1528
-       },
-       {
-        "name": "ETV.P.F10.05_DongNhatRM_CRM.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.05_DongNhatRM_CRM.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1198
-       },
-       {
-        "name": "ETV.P.F10.06_OnDinhRM_CRM.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.06_OnDinhRM_CRM.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1287
-       },
-       {
-        "name": "ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1383
-       },
-       {
-        "name": "ETV.P.F10.08_XacNhanCongCuSoAI.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.08_XacNhanCongCuSoAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1887
-       },
-       {
-        "name": "ETV.P.F10.09_CongBoTrangThaiP10.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.09_CongBoTrangThaiP10.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2023
-       },
-       {
-        "name": "ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2745
-       },
-       {
-        "name": "ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.pdf",
-        "type": "file",
-        "ext": ".pdf",
-        "size": 287827
-       },
-       {
-        "name": "ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4249
-       },
-       {
-        "name": "ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.pdf",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.pdf",
-        "type": "file",
-        "ext": ".pdf",
-        "size": 321918
-       },
-       {
-        "name": "ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8184
-       },
-       {
-        "name": "ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 20565
-       },
-       {
-        "name": "ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 12510
-       },
-       {
-        "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1657
-       },
-       {
-        "name": "ETV.P.F14.02_DanhMucVanBanNoiBo.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.02_DanhMucVanBanNoiBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1376
-       },
-       {
-        "name": "ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1069
-       },
-       {
-        "name": "ETV.P.F14.04_GiaoNhanVanBan.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.04_GiaoNhanVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 721
-       },
-       {
-        "name": "ETV.P.F14.05_DeNghiThanhLyVanBan.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.05_DeNghiThanhLyVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1211
-       },
-       {
-        "name": "ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1647
-       },
-       {
-        "name": "ETV.P.F19.01_LapKeHoach.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.01_LapKeHoach.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8224
-       },
-       {
-        "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.02_DanhGiaKeHoach.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8755
-       },
-       {
-        "name": "ETV.P.F19.03_KetQuaSanXuat.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.03_KetQuaSanXuat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7909
-       },
-       {
-        "name": "ETV.P.F24.01_BangChamCong.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.01_BangChamCong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3293
-       },
-       {
-        "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.02_TheoDoiLuongThuong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7656
-       },
-       {
-        "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.03_QuyetDinhLuongThuong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6195
-       },
-       {
-        "name": "ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3285
-       },
-       {
-        "name": "ETV.P.F42.02_QuyetDinhBanHanh.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.02_QuyetDinhBanHanh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3275
-       },
-       {
-        "name": "ETV.P.F42.03_DeNghiDangKy.md",
-        "path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.03_DeNghiDangKy.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3463
-       },
-       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/04_F/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 7418
+        "size": 5144
        }
       ],
       "desc": "Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.",
       "readme": "03_MANAGEMENT_SYSTEM/04_F/README.md",
       "n_dirs": 0,
-      "n_files": 37
+      "n_files": 1
      },
      {
       "name": "05_R",
@@ -6672,16 +6674,81 @@
       "type": "dir",
       "children": [
        {
+        "name": "F14_TaiLieu",
+        "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2745
+         },
+         {
+          "name": "ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.pdf",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-07-01_P14_BoSungPhuLuc.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 287827
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4249
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.pdf",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.pdf",
+          "type": "file",
+          "ext": ".pdf",
+          "size": 321918
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8184
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 23022
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 13188
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-30_P33_P34_P35_ChumQuanTriSo.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-30_P33_P34_P35_ChumQuanTriSo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 12554
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 8
+       },
+       {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/05_R/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 267
+        "size": 1355
        }
       ],
-      "desc": "Hồ sơ, minh chứng, dữ liệu phát sinh từ việc thực hiện các quy trình (kết quả đánh giá, hồ sơ hoàn thành, v.v.).",
+      "desc": "Hồ sơ, minh chứng, dữ liệu phát sinh từ việc thực hiện các quy trình (kết quả đánh giá, hồ sơ hoàn thành, v.v.). Biểu mẫu **đã điền** thuộc về đây, không phải `04_F`.",
       "readme": "03_MANAGEMENT_SYSTEM/05_R/README.md",
-      "n_dirs": 0,
+      "n_dirs": 1,
       "n_files": 1
      },
      {
@@ -6689,7 +6756,7 @@
       "path": "03_MANAGEMENT_SYSTEM/README.md",
       "type": "file",
       "ext": ".md",
-      "size": 1618
+      "size": 1730
      }
     ],
     "desc": "**Ý nghĩa:** Chuẩn mực kiểm soát nội bộ ETV — luật chơi mà tất cả MP, M phải tuân theo.",
@@ -6737,7 +6804,7 @@
         "path": "04_PROCESS_LIBRARY/MP01_RuiRo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 850
+        "size": 900
        },
        {
         "name": "manifest.yaml",
@@ -6802,7 +6869,7 @@
         "path": "04_PROCESS_LIBRARY/MP02_BaoMat/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 843
+        "size": 898
        },
        {
         "name": "manifest.yaml",
@@ -6870,7 +6937,7 @@
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1922
+        "size": 2120
        },
        {
         "name": "manifest.yaml",
@@ -6955,7 +7022,7 @@
         "path": "04_PROCESS_LIBRARY/MP04_MoiTruong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 922
+        "size": 978
        },
        {
         "name": "manifest.yaml",
@@ -7322,7 +7389,7 @@
         "path": "04_PROCESS_LIBRARY/MP10_DamBaoKQ/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1096
+        "size": 1213
        },
        {
         "name": "manifest.yaml",
@@ -7598,7 +7665,7 @@
         "path": "04_PROCESS_LIBRARY/MP14_TaiLieu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 933
+        "size": 1005
        },
        {
         "name": "manifest.yaml",
@@ -8274,7 +8341,7 @@
         "path": "04_PROCESS_LIBRARY/MP25_BoiCanh/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 761
+        "size": 797
        },
        {
         "name": "manifest.yaml",
@@ -8341,7 +8408,7 @@
         "path": "04_PROCESS_LIBRARY/MP26_TriThuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 835
+        "size": 883
        },
        {
         "name": "manifest.yaml",
@@ -8409,7 +8476,7 @@
         "path": "04_PROCESS_LIBRARY/MP27_TaiSanTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 760
+        "size": 799
        },
        {
         "name": "manifest.yaml",
@@ -8479,7 +8546,7 @@
         "path": "04_PROCESS_LIBRARY/MP28_ATTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1323
+        "size": 1359
        },
        {
         "name": "manifest.yaml",
@@ -8553,7 +8620,7 @@
         "path": "04_PROCESS_LIBRARY/MP29_AI/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1427
+        "size": 1455
        },
        {
         "name": "manifest.yaml",
@@ -8567,7 +8634,7 @@
         "path": "04_PROCESS_LIBRARY/MP29_AI/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 1997
+        "size": 1917
        }
       ],
       "desc": "**Ranh giới:** MP35 quản lý *nền tảng* nơi phần mềm chạy; MP29 quản lý *hệ thống AI chạy trên nền tảng đó*. Rủi ro và sự cố an toàn thông tin thuộc MP28; tri thức cấp cho AI thuộc MP26; tài sản dữ liệu thuộc MP27/MP34.",
@@ -8627,7 +8694,7 @@
         "path": "04_PROCESS_LIBRARY/MP30_ThayDoi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 766
+        "size": 802
        },
        {
         "name": "manifest.yaml",
@@ -8694,7 +8761,7 @@
         "path": "04_PROCESS_LIBRARY/MP31_LienTuc/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 847
+        "size": 895
        },
        {
         "name": "manifest.yaml",
@@ -8762,7 +8829,7 @@
         "path": "04_PROCESS_LIBRARY/MP32_ChuyenDoiSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 842
+        "size": 906
        },
        {
         "name": "manifest.yaml",
@@ -8830,21 +8897,21 @@
         "path": "04_PROCESS_LIBRARY/MP33_HeThongTT/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 823
+        "size": 879
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP33_HeThongTT/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 986
+        "size": 1296
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP33_HeThongTT/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 1474
+        "size": 1478
        }
       ],
       "desc": "**Nguyên tắc cốt lõi:** không có hạ tầng vô chủ · kiểm kê một lần, không hai nơi (thiết bị ở P33, dữ liệu ở P27) · **thực thi, không phê duyệt** quyền truy cập · thiết bị không rời Viện khi dữ liệu chưa xoá an toàn.",
@@ -8874,8 +8941,8 @@
         "controlled": "ETV.P33_QuanLyHeThongThongTin.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P33_QuanLyHeThongThongTin.md",
         "edition": "01",
-        "issued": null,
-        "doc_status": "Cho-soat-xet"
+        "issued": "30/08/2026",
+        "doc_status": "Da-phe-duyet"
        },
        "forms": [
         "ETV.P.F33.01",
@@ -8897,21 +8964,21 @@
         "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 892
+        "size": 931
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 938
+        "size": 1248
        },
        {
         "name": "README.md",
         "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 2399
+        "size": 2403
        }
       ],
       "desc": "**Nguyên tắc cốt lõi:** một nguồn sự thật · **dữ liệu gốc không bị sửa đè** (hiệu chỉnh bằng bản ghi mới, giữ nguyên giá trị cũ) · chất lượng dữ liệu phải **đo được**, không khẳng định suông.",
@@ -8942,8 +9009,8 @@
         "controlled": "ETV.P34_QuanLyDuLieuSo.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md",
         "edition": "01",
-        "issued": null,
-        "doc_status": "Cho-soat-xet"
+        "issued": "30/08/2026",
+        "doc_status": "Da-phe-duyet"
        },
        "forms": [
         "ETV.P.F34.01",
@@ -8964,14 +9031,14 @@
         "path": "04_PROCESS_LIBRARY/MP35_NenTangSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 845
+        "size": 901
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP35_NenTangSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 976
+        "size": 1407
        },
        {
         "name": "README.md",
@@ -9009,8 +9076,8 @@
         "controlled": "ETV.P35_QuanLyNenTangSo.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
         "edition": "02",
-        "issued": null,
-        "doc_status": "Cho-soat-xet"
+        "issued": "30/08/2026",
+        "doc_status": "Da-phe-duyet"
        },
        "forms": [
         "ETV.P.F35.01",
@@ -9090,7 +9157,7 @@
         "path": "04_PROCESS_LIBRARY/MP37_TichHopDuLieu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 805
+        "size": 859
        },
        {
         "name": "manifest.yaml",
@@ -9158,7 +9225,7 @@
         "path": "04_PROCESS_LIBRARY/MP38_DichVuSo/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 753
+        "size": 792
        },
        {
         "name": "manifest.yaml",
@@ -9744,7 +9811,7 @@
           "path": "05_MODULE_LIBRARY/M01_RuiRo/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 11553
+          "size": 11563
          }
         ],
         "n_dirs": 1,
@@ -10096,7 +10163,7 @@
           "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 12133
+          "size": 12155
          }
         ],
         "n_dirs": 1,
@@ -13753,7 +13820,7 @@
           "path": "05_MODULE_LIBRARY/M26_TriThuc/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 30696
+          "size": 30708
          }
         ],
         "n_dirs": 1,
@@ -14185,7 +14252,7 @@
           "path": "05_MODULE_LIBRARY/M28_ATTT/05_Report/Outputs.md",
           "type": "file",
           "ext": ".md",
-          "size": 3055
+          "size": 3064
          }
         ],
         "n_dirs": 0,
@@ -14382,7 +14449,7 @@
               "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260825-copilot-tra-cuu/F29.03_ban-nhap.md",
               "type": "file",
               "ext": ".md",
-              "size": 4374
+              "size": 4381
              },
              {
               "name": "plan.md",
@@ -15822,7 +15889,7 @@
           "path": "05_MODULE_LIBRARY/M35_NenTangSo/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 35684
+          "size": 35698
          }
         ],
         "n_dirs": 1,
@@ -16349,941 +16416,1193 @@
       "type": "dir",
       "children": [
        {
-        "name": "ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2349
-       },
-       {
-        "name": "ETV.P.F01.02_BangTongHop_MucTieu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_MucTieu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3600
-       },
-       {
-        "name": "ETV.P.F01.02_BangTongHop_QuaTrinh.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_QuaTrinh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 23517
-       },
-       {
-        "name": "ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 25450
-       },
-       {
-        "name": "ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3613
-       },
-       {
-        "name": "ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4547
-       },
-       {
-        "name": "ETV.P.F02.02_CamKetBaoMat_KhachHang.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F02.02_CamKetBaoMat_KhachHang.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2065
-       },
-       {
-        "name": "ETV.P.F02.03_SoGhiNhanKhachHang.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F02.03_SoGhiNhanKhachHang.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 962
-       },
-       {
-        "name": "ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2321
-       },
-       {
-        "name": "ETV.P.F02.05_ChinhSachBaoMat_Website.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F02.05_ChinhSachBaoMat_Website.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3794
-       },
-       {
-        "name": "ETV.P.F03.01_SoYeuLyLich.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3433
-       },
-       {
-        "name": "ETV.P.F03.02_BanMoTaCongViec.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.02_BanMoTaCongViec.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2239
-       },
-       {
-        "name": "ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2024
-       },
-       {
-        "name": "ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2219
-       },
-       {
-        "name": "ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3680
-       },
-       {
-        "name": "ETV.P.F03.04_KeHoachDaoTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.04_KeHoachDaoTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1952
-       },
-       {
-        "name": "ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1816
-       },
-       {
-        "name": "ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1314
-       },
-       {
-        "name": "ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1954
-       },
-       {
-        "name": "ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2469
-       },
-       {
-        "name": "ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1816
-       },
-       {
-        "name": "ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4058
-       },
-       {
-        "name": "ETV.P.F03.08_DanhSachNhanSu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.08_DanhSachNhanSu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2504
-       },
-       {
-        "name": "ETV.P.F03.09_HopDongLaoDong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.09_HopDongLaoDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 17968
-       },
-       {
-        "name": "ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1698
-       },
-       {
-        "name": "ETV.P.F03.11_HopDongDichVuChuyenMon.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.11_HopDongDichVuChuyenMon.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 12187
-       },
-       {
-        "name": "ETV.P.F03.12_HopDongDichVuPhoThong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.12_HopDongDichVuPhoThong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5702
-       },
-       {
-        "name": "ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5469
-       },
-       {
-        "name": "ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2573
-       },
-       {
-        "name": "ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2089
-       },
-       {
-        "name": "ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5056
-       },
-       {
-        "name": "ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2375
-       },
-       {
-        "name": "ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2569
-       },
-       {
-        "name": "ETV.P.F05.02_PhieuTheoDoiThietBi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.02_PhieuTheoDoiThietBi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3705
-       },
-       {
-        "name": "ETV.P.F05.03_NhatKySuDungThietBi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.03_NhatKySuDungThietBi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2082
-       },
-       {
-        "name": "ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2823
-       },
-       {
-        "name": "ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2470
-       },
-       {
-        "name": "ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2471
-       },
-       {
-        "name": "ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2215
-       },
-       {
-        "name": "ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2085
-       },
-       {
-        "name": "ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2372
-       },
-       {
-        "name": "ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2206
-       },
-       {
-        "name": "ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2646
-       },
-       {
-        "name": "ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2944
-       },
-       {
-        "name": "ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2297
-       },
-       {
-        "name": "ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2351
-       },
-       {
-        "name": "ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2417
-       },
-       {
-        "name": "ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2655
-       },
-       {
-        "name": "ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3581
-       },
-       {
-        "name": "ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 9363
-       },
-       {
-        "name": "ETV.P.F07.02_BienBanBanGiaoSanPham.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.02_BienBanBanGiaoSanPham.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4018
-       },
-       {
-        "name": "ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6522
-       },
-       {
-        "name": "ETV.P.F07.06_HopDongDichVuKHCN.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.06_HopDongDichVuKHCN.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 13477
-       },
-       {
-        "name": "ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3752
-       },
-       {
-        "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3218
-       },
-       {
-        "name": "ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5255
-       },
-       {
-        "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1645
-       },
-       {
-        "name": "ETV.P.F10.02_HoSoQCNoiBo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.02_HoSoQCNoiBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2210
-       },
-       {
-        "name": "ETV.P.F10.03_DanhGiaTayNghe.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.03_DanhGiaTayNghe.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1463
-       },
-       {
-        "name": "ETV.P.F10.04_HoSoPT_ILC.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.04_HoSoPT_ILC.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1528
-       },
-       {
-        "name": "ETV.P.F10.05_DongNhatRM_CRM.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.05_DongNhatRM_CRM.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1198
-       },
-       {
-        "name": "ETV.P.F10.06_OnDinhRM_CRM.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.06_OnDinhRM_CRM.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1287
-       },
-       {
-        "name": "ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1383
-       },
-       {
-        "name": "ETV.P.F10.08_XacNhanCongCuSoAI.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.08_XacNhanCongCuSoAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1887
-       },
-       {
-        "name": "ETV.P.F10.09_CongBoTrangThaiP10.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F10.09_CongBoTrangThaiP10.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2023
-       },
-       {
-        "name": "ETV.P.F11.02_GiayChungNhanHieuChuan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.02_GiayChungNhanHieuChuan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7324
-       },
-       {
-        "name": "ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5633
-       },
-       {
-        "name": "ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 12934
-       },
-       {
-        "name": "ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 12974
-       },
-       {
-        "name": "ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4786
-       },
-       {
-        "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1657
-       },
-       {
-        "name": "ETV.P.F14.02_DanhMucVanBanNoiBo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1376
-       },
-       {
-        "name": "ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1069
-       },
-       {
-        "name": "ETV.P.F14.04_GiaoNhanVanBan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 721
-       },
-       {
-        "name": "ETV.P.F14.05_DeNghiThanhLyVanBan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.05_DeNghiThanhLyVanBan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1211
-       },
-       {
-        "name": "ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 1647
-       },
-       {
-        "name": "ETV.P.F19.01_LapKeHoach.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.01_LapKeHoach.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8224
-       },
-       {
-        "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.02_DanhGiaKeHoach.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8755
-       },
-       {
-        "name": "ETV.P.F19.03_KetQuaSanXuat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F19.03_KetQuaSanXuat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7909
-       },
-       {
-        "name": "ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 2238
-       },
-       {
-        "name": "ETV.P.F24.01_BangChamCong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.01_BangChamCong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3293
-       },
-       {
-        "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7656
-       },
-       {
-        "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F24.03_QuyetDinhLuongThuong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6195
-       },
-       {
-        "name": "ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4434
-       },
-       {
-        "name": "ETV.P.F25.02_BangBenQuanTamVaMongDoi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F25.02_BangBenQuanTamVaMongDoi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4205
-       },
-       {
-        "name": "ETV.P.F25.03_BienBanXemXetBoiCanh.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F25.03_BienBanXemXetBoiCanh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3967
-       },
-       {
-        "name": "ETV.P.F26.01_DanhMucTriThucToChuc.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F26.01_DanhMucTriThucToChuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4770
-       },
-       {
-        "name": "ETV.P.F26.02_PhieuBaiHocKinhNghiem.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F26.02_PhieuBaiHocKinhNghiem.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4123
-       },
-       {
-        "name": "ETV.P.F26.03_PhieuXacDinhNhuCauTriThuc.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F26.03_PhieuXacDinhNhuCauTriThuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4130
-       },
-       {
-        "name": "ETV.P.F26.04_BienBanChiaSeTriThuc.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F26.04_BienBanChiaSeTriThuc.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4288
-       },
-       {
-        "name": "ETV.P.F27.01_DanhMucTaiSanThongTin.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F27.01_DanhMucTaiSanThongTin.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5350
-       },
-       {
-        "name": "ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5186
-       },
-       {
-        "name": "ETV.P.F27.03_PhieuBienBanHuyDuLieu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F27.03_PhieuBienBanHuyDuLieu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5339
-       },
-       {
-        "name": "ETV.P.F28.01_HoSoDanhGiaXuLyRuiRoATTT.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F28.01_HoSoDanhGiaXuLyRuiRoATTT.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4550
-       },
-       {
-        "name": "ETV.P.F28.02_TuyenBoApDung_SoA.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F28.02_TuyenBoApDung_SoA.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7595
-       },
-       {
-        "name": "ETV.P.F28.03_PhieuSuCoAnToanThongTin.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F28.03_PhieuSuCoAnToanThongTin.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5769
-       },
-       {
-        "name": "ETV.P.F28.04_PhieuYeuCauQuyenTruyCap.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F28.04_PhieuYeuCauQuyenTruyCap.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4929
-       },
-       {
-        "name": "ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5264
-       },
-       {
-        "name": "ETV.P.F29.02_PhieuDanhGiaTacDongAI.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F29.02_PhieuDanhGiaTacDongAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8634
-       },
-       {
-        "name": "ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4859
-       },
-       {
-        "name": "ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5840
-       },
-       {
-        "name": "ETV.P.F30.01_SoDangKyThayDoi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F30.01_SoDangKyThayDoi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5333
-       },
-       {
-        "name": "ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8549
-       },
-       {
-        "name": "ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4708
-       },
-       {
-        "name": "ETV.P.F31.01_PhanTichTacDongNghiepVu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F31.01_PhanTichTacDongNghiepVu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6262
-       },
-       {
-        "name": "ETV.P.F31.02_KeHoachDuyTriLienTucHoatDong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F31.02_KeHoachDuyTriLienTucHoatDong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6658
-       },
-       {
-        "name": "ETV.P.F31.03_BienBanDienTapKiemChungPhucHoi.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F31.03_BienBanDienTapKiemChungPhucHoi.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7092
-       },
-       {
-        "name": "ETV.P.F31.04_PhieuKichHoatNhatKyGianDoan.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F31.04_PhieuKichHoatNhatKyGianDoan.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 8329
-       },
-       {
-        "name": "ETV.P.F32.01_SoDangKySangKien.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F32.01_SoDangKySangKien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5484
-       },
-       {
-        "name": "ETV.P.F32.02_PhieuDeXuatSangLocSangKien.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F32.02_PhieuDeXuatSangLocSangKien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 7326
-       },
-       {
-        "name": "ETV.P.F32.03_BienBanXacNhanHieuQuaChuanHoa.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F32.03_BienBanXacNhanHieuQuaChuanHoa.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5886
-       },
-       {
-        "name": "ETV.P.F32.04_KeHoachChuyenDoiSoHangNam.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F32.04_KeHoachChuyenDoiSoHangNam.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5065
-       },
-       {
-        "name": "ETV.P.F33.01_DanhMucTaiSanCNTT.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F33.01_DanhMucTaiSanCNTT.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5596
-       },
-       {
-        "name": "ETV.P.F33.02_KeHoachHoSoBaoTri.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F33.02_KeHoachHoSoBaoTri.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4290
-       },
-       {
-        "name": "ETV.P.F33.03_DanhMucTaiKhoanHeThong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F33.03_DanhMucTaiKhoanHeThong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4580
-       },
-       {
-        "name": "ETV.P.F33.04_PhieuSuCoHoTroCNTT.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F33.04_PhieuSuCoHoTroCNTT.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4903
-       },
-       {
-        "name": "ETV.P.F34.01_DanhMucDuLieuSoTuDien.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F34.01_DanhMucDuLieuSoTuDien.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 6333
-       },
-       {
-        "name": "ETV.P.F34.02_PhieuDoChatLuongHieuChinhDuLieu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F34.02_PhieuDoChatLuongHieuChinhDuLieu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5074
-       },
-       {
-        "name": "ETV.P.F34.03_PhieuKhaiThacChiaSeDuLieu.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F34.03_PhieuKhaiThacChiaSeDuLieu.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4894
-       },
-       {
-        "name": "ETV.P.F35.01_DanhMucNenTangSo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F35.01_DanhMucNenTangSo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5885
-       },
-       {
-        "name": "ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5131
-       },
-       {
-        "name": "ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4385
-       },
-       {
-        "name": "ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4572
-       },
-       {
-        "name": "ETV.P.F37.01_DanhMucDiemTichHop.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F37.01_DanhMucDiemTichHop.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 3742
-       },
-       {
-        "name": "ETV.P.F37.02_HopDongDuLieuAnhXaTruong.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F37.02_HopDongDuLieuAnhXaTruong.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5565
-       },
-       {
-        "name": "ETV.P.F37.03_BienBanDoiChieuSuCoTichHop.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F37.03_BienBanDoiChieuSuCoTichHop.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5682
-       },
-       {
-        "name": "ETV.P.F38.01_DanhMucDichVuSo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F38.01_DanhMucDichVuSo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4421
-       },
-       {
-        "name": "ETV.P.F38.02_PhieuDanhGiaDichVuTruocCongBo.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F38.02_PhieuDanhGiaDichVuTruocCongBo.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5017
-       },
-       {
-        "name": "ETV.P.F38.03_PhieuSuCoDichVuHoTro.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F38.03_PhieuSuCoDichVuHoTro.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5778
-       },
-       {
-        "name": "ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 9350
-       },
-       {
-        "name": "ETV.P.F42.02_QuyetDinhBanHanh.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.02_QuyetDinhBanHanh.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 4881
-       },
-       {
-        "name": "ETV.P.F42.03_DeNghiDangKy.md",
-        "path": "06_SHARED_RESOURCES/01_Forms/ETV.P.F42.03_DeNghiDangKy.md",
-        "type": "file",
-        "ext": ".md",
-        "size": 5001
+        "name": "F01_RuiRo",
+        "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2349
+         },
+         {
+          "name": "ETV.P.F01.02_BangTongHop_MucTieu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.02_BangTongHop_MucTieu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3600
+         },
+         {
+          "name": "ETV.P.F01.02_BangTongHop_QuaTrinh.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.02_BangTongHop_QuaTrinh.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 23517
+         },
+         {
+          "name": "ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 25450
+         },
+         {
+          "name": "ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3613
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 5
+       },
+       {
+        "name": "F02_BaoMat",
+        "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.01_CamKetBaoMat_KhongCanhTranh_NhanVien.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4547
+         },
+         {
+          "name": "ETV.P.F02.02_CamKetBaoMat_KhachHang.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.02_CamKetBaoMat_KhachHang.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2065
+         },
+         {
+          "name": "ETV.P.F02.03_SoGhiNhanKhachHang.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.03_SoGhiNhanKhachHang.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 962
+         },
+         {
+          "name": "ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.04_CamKetBaoMat_NhanVienThuViec.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2321
+         },
+         {
+          "name": "ETV.P.F02.05_ChinhSachBaoMat_Website.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.05_ChinhSachBaoMat_Website.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3794
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 5
+       },
+       {
+        "name": "F03_NhanSu",
+        "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F03.01_SoYeuLyLich.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.01_SoYeuLyLich.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3433
+         },
+         {
+          "name": "ETV.P.F03.02_BanMoTaCongViec.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.02_BanMoTaCongViec.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2239
+         },
+         {
+          "name": "ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.03.1_PhieuTheoDoiKeHoachTuyenDung.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2024
+         },
+         {
+          "name": "ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.03.2_KeHoachTuyenDung_ThangDeXuat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2219
+         },
+         {
+          "name": "ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.03.3_ThongBaoKeHoachTuyenDung.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3680
+         },
+         {
+          "name": "ETV.P.F03.04_KeHoachDaoTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.04_KeHoachDaoTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1952
+         },
+         {
+          "name": "ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.05.1_ChuongTrinhDaoTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1816
+         },
+         {
+          "name": "ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.05.2_DanhSachThamDuDaoTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1314
+         },
+         {
+          "name": "ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.05.3_BaoCaoKetQuaDaoTao_TongHop.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1954
+         },
+         {
+          "name": "ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.05.4_BaoCaoDanhGiaKetQuaDaoTao_CaNhan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2469
+         },
+         {
+          "name": "ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.06_PhieuTheoDoiKetQuaDaoTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1816
+         },
+         {
+          "name": "ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.07_BienBanDanhGiaGiamSatNhanVienMoi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4058
+         },
+         {
+          "name": "ETV.P.F03.08_DanhSachNhanSu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.08_DanhSachNhanSu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2504
+         },
+         {
+          "name": "ETV.P.F03.09_HopDongLaoDong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.09_HopDongLaoDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 17968
+         },
+         {
+          "name": "ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.10_ChungChiDaoTaoNoiBo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1698
+         },
+         {
+          "name": "ETV.P.F03.11_HopDongDichVuChuyenMon.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.11_HopDongDichVuChuyenMon.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 12187
+         },
+         {
+          "name": "ETV.P.F03.12_HopDongDichVuPhoThong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.12_HopDongDichVuPhoThong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5702
+         },
+         {
+          "name": "ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.13_BienBanNghiemThuThanhLyHopDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5469
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 18
+       },
+       {
+        "name": "F04_MoiTruong",
+        "path": "06_SHARED_RESOURCES/01_Forms/F04_MoiTruong",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F04_MoiTruong/ETV.P.F04.01_BangTheoDoiDieuKienMoiTruong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2573
+         },
+         {
+          "name": "ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F04_MoiTruong/ETV.P.F04.02_BangTheoDoiDieuKienTuBaoQuanHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2089
+         },
+         {
+          "name": "ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F04_MoiTruong/ETV.P.F04.03_KeHoachCongViecVaAnToanTaiHienTruong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5056
+         },
+         {
+          "name": "ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F04_MoiTruong/ETV.P.F04.04_BangTheoDoiDieuKienTuBaoQuanThietBi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2375
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F05_ThietBi",
+        "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2569
+         },
+         {
+          "name": "ETV.P.F05.02_PhieuTheoDoiThietBi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.02_PhieuTheoDoiThietBi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3705
+         },
+         {
+          "name": "ETV.P.F05.03_NhatKySuDungThietBi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.03_NhatKySuDungThietBi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2082
+         },
+         {
+          "name": "ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2823
+         },
+         {
+          "name": "ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2470
+         },
+         {
+          "name": "ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2471
+         },
+         {
+          "name": "ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2215
+         },
+         {
+          "name": "ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2085
+         },
+         {
+          "name": "ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.09_SoTheoDoiHuyHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2372
+         },
+         {
+          "name": "ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.10_DanhMucQuanLyHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2206
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 10
+       },
+       {
+        "name": "F06_MuaSam",
+        "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2646
+         },
+         {
+          "name": "ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2944
+         },
+         {
+          "name": "ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.04_PhieuDeNghiMuaDichVu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2297
+         },
+         {
+          "name": "ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2351
+         },
+         {
+          "name": "ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2417
+         },
+         {
+          "name": "ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.08_SoTheoDoiNhaThauPhu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2655
+         },
+         {
+          "name": "ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3581
+         },
+         {
+          "name": "ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.12_HopDongMuaSanPhamDichVu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 9363
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 8
+       },
+       {
+        "name": "F07_HopDong",
+        "path": "06_SHARED_RESOURCES/01_Forms/F07_HopDong",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F07.02_BienBanBanGiaoSanPham.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.02_BienBanBanGiaoSanPham.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4018
+         },
+         {
+          "name": "ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6522
+         },
+         {
+          "name": "ETV.P.F07.06_HopDongDichVuKHCN.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.06_HopDongDichVuKHCN.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 13477
+         },
+         {
+          "name": "ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.11_QuyetDinhCuDiCongTac.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3752
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F08_PhuongPhap",
+        "path": "06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3218
+         },
+         {
+          "name": "ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap/ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5255
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 2
+       },
+       {
+        "name": "F10_DamBaoKQ",
+        "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1645
+         },
+         {
+          "name": "ETV.P.F10.02_HoSoQCNoiBo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.02_HoSoQCNoiBo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2210
+         },
+         {
+          "name": "ETV.P.F10.03_DanhGiaTayNghe.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.03_DanhGiaTayNghe.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1463
+         },
+         {
+          "name": "ETV.P.F10.04_HoSoPT_ILC.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.04_HoSoPT_ILC.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1528
+         },
+         {
+          "name": "ETV.P.F10.05_DongNhatRM_CRM.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.05_DongNhatRM_CRM.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1198
+         },
+         {
+          "name": "ETV.P.F10.06_OnDinhRM_CRM.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.06_OnDinhRM_CRM.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1287
+         },
+         {
+          "name": "ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1383
+         },
+         {
+          "name": "ETV.P.F10.08_XacNhanCongCuSoAI.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.08_XacNhanCongCuSoAI.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1887
+         },
+         {
+          "name": "ETV.P.F10.09_CongBoTrangThaiP10.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/ETV.P.F10.09_CongBoTrangThaiP10.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2023
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 9
+       },
+       {
+        "name": "F11_BaoCao",
+        "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F11.02_GiayChungNhanHieuChuan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.02_GiayChungNhanHieuChuan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7324
+         },
+         {
+          "name": "ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5633
+         },
+         {
+          "name": "ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 12934
+         },
+         {
+          "name": "ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 12974
+         },
+         {
+          "name": "ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4786
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 5
+       },
+       {
+        "name": "F14_TaiLieu",
+        "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1657
+         },
+         {
+          "name": "ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.02_DanhMucVanBanNoiBo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1376
+         },
+         {
+          "name": "ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.03_DanhMucVanBanBenNgoai.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1069
+         },
+         {
+          "name": "ETV.P.F14.04_GiaoNhanVanBan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.04_GiaoNhanVanBan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 721
+         },
+         {
+          "name": "ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.05_DeNghiThanhLyVanBan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1211
+         },
+         {
+          "name": "ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 1647
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 6
+       },
+       {
+        "name": "F19_SanXuatCRM",
+        "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F19.01_LapKeHoach.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.01_LapKeHoach.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8224
+         },
+         {
+          "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.02_DanhGiaKeHoach.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8755
+         },
+         {
+          "name": "ETV.P.F19.03_KetQuaSanXuat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.03_KetQuaSanXuat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7909
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F20_PhanPhoi",
+        "path": "06_SHARED_RESOURCES/01_Forms/F20_PhanPhoi",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F20_PhanPhoi/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 2238
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 1
+       },
+       {
+        "name": "F24_KPI",
+        "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F24.01_BangChamCong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.01_BangChamCong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3293
+         },
+         {
+          "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.02_TheoDoiLuongThuong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7656
+         },
+         {
+          "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.03_QuyetDinhLuongThuong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6195
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F25_BoiCanh",
+        "path": "06_SHARED_RESOURCES/01_Forms/F25_BoiCanh",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4434
+         },
+         {
+          "name": "ETV.P.F25.02_BangBenQuanTamVaMongDoi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.02_BangBenQuanTamVaMongDoi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4205
+         },
+         {
+          "name": "ETV.P.F25.03_BienBanXemXetBoiCanh.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.03_BienBanXemXetBoiCanh.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3967
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F26_TriThuc",
+        "path": "06_SHARED_RESOURCES/01_Forms/F26_TriThuc",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F26.01_DanhMucTriThucToChuc.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F26_TriThuc/ETV.P.F26.01_DanhMucTriThucToChuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4770
+         },
+         {
+          "name": "ETV.P.F26.02_PhieuBaiHocKinhNghiem.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F26_TriThuc/ETV.P.F26.02_PhieuBaiHocKinhNghiem.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4123
+         },
+         {
+          "name": "ETV.P.F26.03_PhieuXacDinhNhuCauTriThuc.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F26_TriThuc/ETV.P.F26.03_PhieuXacDinhNhuCauTriThuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4130
+         },
+         {
+          "name": "ETV.P.F26.04_BienBanChiaSeTriThuc.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F26_TriThuc/ETV.P.F26.04_BienBanChiaSeTriThuc.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4288
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F27_TaiSanTT",
+        "path": "06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F27.01_DanhMucTaiSanThongTin.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.01_DanhMucTaiSanThongTin.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5350
+         },
+         {
+          "name": "ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.02_BangQuyTacXuLyTheoPhanLoai.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5186
+         },
+         {
+          "name": "ETV.P.F27.03_PhieuBienBanHuyDuLieu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/ETV.P.F27.03_PhieuBienBanHuyDuLieu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5339
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F28_ATTT",
+        "path": "06_SHARED_RESOURCES/01_Forms/F28_ATTT",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F28.01_HoSoDanhGiaXuLyRuiRoATTT.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F28_ATTT/ETV.P.F28.01_HoSoDanhGiaXuLyRuiRoATTT.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4550
+         },
+         {
+          "name": "ETV.P.F28.02_TuyenBoApDung_SoA.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F28_ATTT/ETV.P.F28.02_TuyenBoApDung_SoA.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7595
+         },
+         {
+          "name": "ETV.P.F28.03_PhieuSuCoAnToanThongTin.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F28_ATTT/ETV.P.F28.03_PhieuSuCoAnToanThongTin.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5769
+         },
+         {
+          "name": "ETV.P.F28.04_PhieuYeuCauQuyenTruyCap.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F28_ATTT/ETV.P.F28.04_PhieuYeuCauQuyenTruyCap.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4929
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F29_AI",
+        "path": "06_SHARED_RESOURCES/01_Forms/F29_AI",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.01_DanhMucHeThongTriTueNhanTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5264
+         },
+         {
+          "name": "ETV.P.F29.02_PhieuDanhGiaTacDongAI.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.02_PhieuDanhGiaTacDongAI.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8634
+         },
+         {
+          "name": "ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4859
+         },
+         {
+          "name": "ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.04_PhieuSuCoTriTueNhanTao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5840
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F30_ThayDoi",
+        "path": "06_SHARED_RESOURCES/01_Forms/F30_ThayDoi",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F30.01_SoDangKyThayDoi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.01_SoDangKyThayDoi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5333
+         },
+         {
+          "name": "ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8549
+         },
+         {
+          "name": "ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4708
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F31_LienTuc",
+        "path": "06_SHARED_RESOURCES/01_Forms/F31_LienTuc",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F31.01_PhanTichTacDongNghiepVu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F31_LienTuc/ETV.P.F31.01_PhanTichTacDongNghiepVu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6262
+         },
+         {
+          "name": "ETV.P.F31.02_KeHoachDuyTriLienTucHoatDong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F31_LienTuc/ETV.P.F31.02_KeHoachDuyTriLienTucHoatDong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6658
+         },
+         {
+          "name": "ETV.P.F31.03_BienBanDienTapKiemChungPhucHoi.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F31_LienTuc/ETV.P.F31.03_BienBanDienTapKiemChungPhucHoi.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7092
+         },
+         {
+          "name": "ETV.P.F31.04_PhieuKichHoatNhatKyGianDoan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F31_LienTuc/ETV.P.F31.04_PhieuKichHoatNhatKyGianDoan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 8329
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F32_ChuyenDoiSo",
+        "path": "06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F32.01_SoDangKySangKien.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo/ETV.P.F32.01_SoDangKySangKien.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5484
+         },
+         {
+          "name": "ETV.P.F32.02_PhieuDeXuatSangLocSangKien.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo/ETV.P.F32.02_PhieuDeXuatSangLocSangKien.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 7326
+         },
+         {
+          "name": "ETV.P.F32.03_BienBanXacNhanHieuQuaChuanHoa.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo/ETV.P.F32.03_BienBanXacNhanHieuQuaChuanHoa.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5886
+         },
+         {
+          "name": "ETV.P.F32.04_KeHoachChuyenDoiSoHangNam.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo/ETV.P.F32.04_KeHoachChuyenDoiSoHangNam.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5065
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F33_HeThongTT",
+        "path": "06_SHARED_RESOURCES/01_Forms/F33_HeThongTT",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F33.01_DanhMucTaiSanCNTT.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F33_HeThongTT/ETV.P.F33.01_DanhMucTaiSanCNTT.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5596
+         },
+         {
+          "name": "ETV.P.F33.02_KeHoachHoSoBaoTri.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F33_HeThongTT/ETV.P.F33.02_KeHoachHoSoBaoTri.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4290
+         },
+         {
+          "name": "ETV.P.F33.03_DanhMucTaiKhoanHeThong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F33_HeThongTT/ETV.P.F33.03_DanhMucTaiKhoanHeThong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4580
+         },
+         {
+          "name": "ETV.P.F33.04_PhieuSuCoHoTroCNTT.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F33_HeThongTT/ETV.P.F33.04_PhieuSuCoHoTroCNTT.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4903
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F34_DuLieuSo",
+        "path": "06_SHARED_RESOURCES/01_Forms/F34_DuLieuSo",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F34.01_DanhMucDuLieuSoTuDien.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F34_DuLieuSo/ETV.P.F34.01_DanhMucDuLieuSoTuDien.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 6333
+         },
+         {
+          "name": "ETV.P.F34.02_PhieuDoChatLuongHieuChinhDuLieu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F34_DuLieuSo/ETV.P.F34.02_PhieuDoChatLuongHieuChinhDuLieu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5074
+         },
+         {
+          "name": "ETV.P.F34.03_PhieuKhaiThacChiaSeDuLieu.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F34_DuLieuSo/ETV.P.F34.03_PhieuKhaiThacChiaSeDuLieu.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4894
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F35_NenTangSo",
+        "path": "06_SHARED_RESOURCES/01_Forms/F35_NenTangSo",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F35.01_DanhMucNenTangSo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.01_DanhMucNenTangSo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5885
+         },
+         {
+          "name": "ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.02_PhieuDanhGiaNenTangTruocVanHanh.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5131
+         },
+         {
+          "name": "ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.03_PhieuSuCoGiamSatNenTangSo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4385
+         },
+         {
+          "name": "ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/ETV.P.F35.04_PhieuNgungVanHanhNenTangSo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4572
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 4
+       },
+       {
+        "name": "F37_TichHopDuLieu",
+        "path": "06_SHARED_RESOURCES/01_Forms/F37_TichHopDuLieu",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F37.01_DanhMucDiemTichHop.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F37_TichHopDuLieu/ETV.P.F37.01_DanhMucDiemTichHop.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 3742
+         },
+         {
+          "name": "ETV.P.F37.02_HopDongDuLieuAnhXaTruong.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F37_TichHopDuLieu/ETV.P.F37.02_HopDongDuLieuAnhXaTruong.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5565
+         },
+         {
+          "name": "ETV.P.F37.03_BienBanDoiChieuSuCoTichHop.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F37_TichHopDuLieu/ETV.P.F37.03_BienBanDoiChieuSuCoTichHop.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5682
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F38_DichVuSo",
+        "path": "06_SHARED_RESOURCES/01_Forms/F38_DichVuSo",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F38.01_DanhMucDichVuSo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F38_DichVuSo/ETV.P.F38.01_DanhMucDichVuSo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4421
+         },
+         {
+          "name": "ETV.P.F38.02_PhieuDanhGiaDichVuTruocCongBo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F38_DichVuSo/ETV.P.F38.02_PhieuDanhGiaDichVuTruocCongBo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5017
+         },
+         {
+          "name": "ETV.P.F38.03_PhieuSuCoDichVuHoTro.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F38_DichVuSo/ETV.P.F38.03_PhieuSuCoDichVuHoTro.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5778
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
+        "name": "F42_NoiQuyLaoDong",
+        "path": "06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 9368
+         },
+         {
+          "name": "ETV.P.F42.02_QuyetDinhBanHanh.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.02_QuyetDinhBanHanh.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4899
+         },
+         {
+          "name": "ETV.P.F42.03_DeNghiDangKy.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.03_DeNghiDangKy.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5019
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
        },
        {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/01_Forms/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 423
+        "size": 4830
        }
       ],
-      "desc": "**Ý nghĩa:** Biểu mẫu gốc (F-xxx), bản trắng chưa điền",
+      "desc": "**Ý nghĩa:** Biểu mẫu gốc (ETV.P.Fxx.yy), bản trắng chưa điền. Đây là **nguồn sự thật duy nhất** của biểu mẫu trong toàn repo.",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
-      "n_dirs": 0,
-      "n_files": 133
+      "n_dirs": 28,
+      "n_files": 1
      },
      {
       "name": "02_Templates",
@@ -22886,7 +23205,7 @@
           "path": "07_AI_OPERATING_SYSTEM/01_Skills/S14_KiemSoatTaiLieu/CLAUDE.md",
           "type": "file",
           "ext": ".md",
-          "size": 5568
+          "size": 5580
          },
          {
           "name": "SKILL.md",
@@ -77877,6 +78196,1008 @@
           "n_files": 9
          },
          {
+          "name": "generated",
+          "path": "09_ENGINEERING/aios-platform/src/generated",
+          "type": "dir",
+          "children": [
+           {
+            "name": "prisma",
+            "path": "09_ENGINEERING/aios-platform/src/generated/prisma",
+            "type": "dir",
+            "children": [
+             {
+              "name": "internal",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal",
+              "type": "dir",
+              "children": [
+               {
+                "name": "class.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/class.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 2117744
+               },
+               {
+                "name": "prismaNamespace.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/prismaNamespace.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 565968
+               },
+               {
+                "name": "prismaNamespaceBrowser.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/prismaNamespaceBrowser.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 78613
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 3
+             },
+             {
+              "name": "models",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models",
+              "type": "dir",
+              "children": [
+               {
+                "name": "AccessRequest.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AccessRequest.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 65634
+               },
+               {
+                "name": "Account.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/Account.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 60966
+               },
+               {
+                "name": "AIAgent.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIAgent.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 146304
+               },
+               {
+                "name": "AIAuditLog.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIAuditLog.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 58979
+               },
+               {
+                "name": "AIBudget.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIBudget.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 63666
+               },
+               {
+                "name": "AIEvaluationCase.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationCase.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 52327
+               },
+               {
+                "name": "AIEvaluationRun.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationRun.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 57462
+               },
+               {
+                "name": "AIEvaluationSuite.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationSuite.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 64529
+               },
+               {
+                "name": "AIGuardrail.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIGuardrail.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 48076
+               },
+               {
+                "name": "AIImpactAssessment.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIImpactAssessment.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 67626
+               },
+               {
+                "name": "AIIncident.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIIncident.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 152857
+               },
+               {
+                "name": "AIModel.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIModel.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 83927
+               },
+               {
+                "name": "AIPlatform.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPlatform.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 92373
+               },
+               {
+                "name": "AIPolicy.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPolicy.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 47633
+               },
+               {
+                "name": "AIPrompt.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPrompt.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 53309
+               },
+               {
+                "name": "AIPromptVersion.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPromptVersion.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 67465
+               },
+               {
+                "name": "AIProvider.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIProvider.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 60162
+               },
+               {
+                "name": "AIRequest.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIRequest.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 101156
+               },
+               {
+                "name": "AISecret.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AISecret.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 42858
+               },
+               {
+                "name": "AISkill.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AISkill.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 44251
+               },
+               {
+                "name": "AITool.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AITool.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 73174
+               },
+               {
+                "name": "AIToolCall.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIToolCall.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 63737
+               },
+               {
+                "name": "AIUnregisteredSighting.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIUnregisteredSighting.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 103151
+               },
+               {
+                "name": "CopilotDocChunk.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotDocChunk.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 51003
+               },
+               {
+                "name": "CopilotMessage.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotMessage.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55490
+               },
+               {
+                "name": "CopilotThread.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotThread.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 58634
+               },
+               {
+                "name": "M01AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M01OpportunityItem.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01OpportunityItem.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 140743
+               },
+               {
+                "name": "M01RiskItem.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01RiskItem.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 160389
+               },
+               {
+                "name": "M02AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M02DisclosureApproval.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02DisclosureApproval.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 71837
+               },
+               {
+                "name": "M02SecurityCommitment.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02SecurityCommitment.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 96492
+               },
+               {
+                "name": "M02SecurityIncident.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02SecurityIncident.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 96278
+               },
+               {
+                "name": "M02VisitorLog.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02VisitorLog.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 72866
+               },
+               {
+                "name": "M03AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M03ContractTermination.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03ContractTermination.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 66856
+               },
+               {
+                "name": "M03Employee.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03Employee.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 146039
+               },
+               {
+                "name": "M03LaborContract.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03LaborContract.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 84009
+               },
+               {
+                "name": "M03RecruitmentPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03RecruitmentPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 88010
+               },
+               {
+                "name": "M03ServiceContract.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03ServiceContract.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 76662
+               },
+               {
+                "name": "M03TrainingPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03TrainingPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 69219
+               },
+               {
+                "name": "M03TrainingRecord.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03TrainingRecord.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 137804
+               },
+               {
+                "name": "M04AreaSpec.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04AreaSpec.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 53127
+               },
+               {
+                "name": "M04AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M04ConditionLog.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04ConditionLog.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 76332
+               },
+               {
+                "name": "M04FieldWorkPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04FieldWorkPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 85695
+               },
+               {
+                "name": "M10Assessment.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M10Assessment.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 128347
+               },
+               {
+                "name": "M10AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M10AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 62705
+               },
+               {
+                "name": "M12AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M12Complaint.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12Complaint.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 98171
+               },
+               {
+                "name": "M12Feedback.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12Feedback.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 70930
+               },
+               {
+                "name": "M13AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M13CorrectiveActionPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13CorrectiveActionPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 110752
+               },
+               {
+                "name": "M13MonitoringNote.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13MonitoringNote.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 61922
+               },
+               {
+                "name": "M13NonconformingWork.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13NonconformingWork.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 133842
+               },
+               {
+                "name": "M13RevokedReport.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13RevokedReport.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 53804
+               },
+               {
+                "name": "M14AiSuggestion.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14AiSuggestion.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 78899
+               },
+               {
+                "name": "M14AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M14Document.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14Document.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 203103
+               },
+               {
+                "name": "M16AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M16AuditFinding.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditFinding.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 92059
+               },
+               {
+                "name": "M16AuditorQualification.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditorQualification.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 82919
+               },
+               {
+                "name": "M16AuditPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 114700
+               },
+               {
+                "name": "M16AuditProgram.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditProgram.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 137980
+               },
+               {
+                "name": "M16AuditReport.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditReport.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 80540
+               },
+               {
+                "name": "M16ProgramMember.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16ProgramMember.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 60803
+               },
+               {
+                "name": "M16ReportDissent.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16ReportDissent.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 63584
+               },
+               {
+                "name": "M17AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M17CorrectiveActionRequest.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17CorrectiveActionRequest.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 73095
+               },
+               {
+                "name": "M17ReviewActionTracking.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewActionTracking.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 71691
+               },
+               {
+                "name": "M17ReviewMinutes.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewMinutes.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 87216
+               },
+               {
+                "name": "M17ReviewPlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewPlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 109282
+               },
+               {
+                "name": "M21AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 62177
+               },
+               {
+                "name": "M21Line.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21Line.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 64713
+               },
+               {
+                "name": "M21Record.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21Record.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 102580
+               },
+               {
+                "name": "M25AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M25ContextIssue.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25ContextIssue.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 104057
+               },
+               {
+                "name": "M25ContextReview.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25ContextReview.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 146762
+               },
+               {
+                "name": "M25InterestedParty.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25InterestedParty.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 93751
+               },
+               {
+                "name": "M25IssueRiskLink.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25IssueRiskLink.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 72360
+               },
+               {
+                "name": "M25PartyExpectation.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25PartyExpectation.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 67211
+               },
+               {
+                "name": "M26AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 58728
+               },
+               {
+                "name": "M26ItemRiskLink.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26ItemRiskLink.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 59305
+               },
+               {
+                "name": "M26KnowledgeHolder.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeHolder.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 62880
+               },
+               {
+                "name": "M26KnowledgeItem.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeItem.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 272911
+               },
+               {
+                "name": "M26KnowledgeNeed.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeNeed.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 143727
+               },
+               {
+                "name": "M26LessonLearned.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26LessonLearned.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 118077
+               },
+               {
+                "name": "M26SharingEvent.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingEvent.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 114479
+               },
+               {
+                "name": "M26SharingItem.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingItem.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 57043
+               },
+               {
+                "name": "M26SharingParticipant.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingParticipant.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 63262
+               },
+               {
+                "name": "M27AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M27ClassificationRule.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27ClassificationRule.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 60187
+               },
+               {
+                "name": "M27InfoAsset.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27InfoAsset.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 196569
+               },
+               {
+                "name": "M27RuleVersion.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27RuleVersion.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 69683
+               },
+               {
+                "name": "M28AccessRequest.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AccessRequest.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 131719
+               },
+               {
+                "name": "M28AccessReview.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AccessReview.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 64579
+               },
+               {
+                "name": "M28AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M28RiskTreatment.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28RiskTreatment.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 93799
+               },
+               {
+                "name": "M28SecurityIncident.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SecurityIncident.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 121364
+               },
+               {
+                "name": "M28SecurityRisk.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SecurityRisk.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 194031
+               },
+               {
+                "name": "M28SoAControl.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SoAControl.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 77155
+               },
+               {
+                "name": "M28SoAVersion.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SoAVersion.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 81177
+               },
+               {
+                "name": "M33AccountReconciliation.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33AccountReconciliation.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 80494
+               },
+               {
+                "name": "M33AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M33ITAsset.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33ITAsset.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 313149
+               },
+               {
+                "name": "M33ITIncident.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33ITIncident.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 132179
+               },
+               {
+                "name": "M33MaintenancePlan.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33MaintenancePlan.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 101397
+               },
+               {
+                "name": "M33MaintenanceTask.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33MaintenanceTask.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 162975
+               },
+               {
+                "name": "M33SystemAccount.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33SystemAccount.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 100737
+               },
+               {
+                "name": "M34AIDataApproval.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34AIDataApproval.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 83549
+               },
+               {
+                "name": "M34AuditEntry.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34AuditEntry.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55810
+               },
+               {
+                "name": "M34DataCorrection.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DataCorrection.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 100599
+               },
+               {
+                "name": "M34DataSet.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DataSet.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 301110
+               },
+               {
+                "name": "M34DictionaryField.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DictionaryField.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 62997
+               },
+               {
+                "name": "M34DictionaryVersion.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DictionaryVersion.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 68827
+               },
+               {
+                "name": "M34MasterDataSource.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34MasterDataSource.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 88443
+               },
+               {
+                "name": "M34MasterMergeMap.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34MasterMergeMap.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 56639
+               },
+               {
+                "name": "M34ParallelLookupFinding.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34ParallelLookupFinding.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 75519
+               },
+               {
+                "name": "M34Party.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34Party.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 124760
+               },
+               {
+                "name": "M34PartyContact.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyContact.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 58907
+               },
+               {
+                "name": "M34PartyRole.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyRole.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 65278
+               },
+               {
+                "name": "M34PartyRoleType.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyRoleType.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55006
+               },
+               {
+                "name": "M34QualityMeasurement.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34QualityMeasurement.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 109307
+               },
+               {
+                "name": "M34QualityRow.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34QualityRow.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 57944
+               },
+               {
+                "name": "M34SharingRequest.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34SharingRequest.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 140941
+               },
+               {
+                "name": "ModuleRoleAssignment.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/ModuleRoleAssignment.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 55946
+               },
+               {
+                "name": "PlatformModule.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/PlatformModule.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 68278
+               },
+               {
+                "name": "Session.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/Session.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 47038
+               },
+               {
+                "name": "User.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/User.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 8416309
+               },
+               {
+                "name": "VerificationToken.ts",
+                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/VerificationToken.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 42057
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 130
+             },
+             {
+              "name": "browser.ts",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/browser.ts",
+              "type": "file",
+              "ext": ".ts",
+              "size": 14354
+             },
+             {
+              "name": "client.ts",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/client.ts",
+              "type": "file",
+              "ext": ".ts",
+              "size": 15302
+             },
+             {
+              "name": "commonInputTypes.ts",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/commonInputTypes.ts",
+              "type": "file",
+              "ext": ".ts",
+              "size": 390348
+             },
+             {
+              "name": "enums.ts",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/enums.ts",
+              "type": "file",
+              "ext": ".ts",
+              "size": 42608
+             },
+             {
+              "name": "models.ts",
+              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models.ts",
+              "type": "file",
+              "ext": ".ts",
+              "size": 6237
+             }
+            ],
+            "n_dirs": 2,
+            "n_files": 5
+           }
+          ],
+          "n_dirs": 1,
+          "n_files": 0
+         },
+         {
           "name": "lib",
           "path": "09_ENGINEERING/aios-platform/src/lib",
           "type": "dir",
@@ -77958,14 +79279,14 @@
                 "path": "09_ENGINEERING/aios-platform/src/lib/forms/__tests__/f03-01.test.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 6341
+                "size": 6352
                },
                {
                 "name": "f03-08.test.ts",
                 "path": "09_ENGINEERING/aios-platform/src/lib/forms/__tests__/f03-08.test.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 5535
+                "size": 5546
                }
               ],
               "n_dirs": 0,
@@ -78078,14 +79399,14 @@
                 "path": "09_ENGINEERING/aios-platform/src/lib/m03/forms/f03-01.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 6706
+                "size": 6717
                },
                {
                 "name": "f03-08.ts",
                 "path": "09_ENGINEERING/aios-platform/src/lib/m03/forms/f03-08.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 5439
+                "size": 5450
                }
               ],
               "n_dirs": 0,
@@ -78649,7 +79970,7 @@
                 "path": "09_ENGINEERING/aios-platform/src/lib/m29/__tests__/copilot-goi-y.test.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 6020
+                "size": 6031
                },
                {
                 "name": "copilot-guardrails.test.ts",
@@ -78763,7 +80084,7 @@
                 "path": "09_ENGINEERING/aios-platform/src/lib/m29/copilot/danh-gia.ts",
                 "type": "file",
                 "ext": ".ts",
-                "size": 12771
+                "size": 12778
                },
                {
                 "name": "goi-y.ts",
@@ -79119,7 +80440,7 @@
           "size": 1176
          }
         ],
-        "n_dirs": 4,
+        "n_dirs": 5,
         "n_files": 1
        },
        {
@@ -79183,7 +80504,7 @@
         "path": "09_ENGINEERING/aios-platform/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 53478
+        "size": 53485
        },
        {
         "name": "skills-lock.json",
@@ -79200,6 +80521,13 @@
         "size": 670
        },
        {
+        "name": "tsconfig.tsbuildinfo",
+        "path": "09_ENGINEERING/aios-platform/tsconfig.tsbuildinfo",
+        "type": "file",
+        "ext": ".tsbuildinfo",
+        "size": 263899
+       },
+       {
         "name": "vitest.config.ts",
         "path": "09_ENGINEERING/aios-platform/vitest.config.ts",
         "type": "file",
@@ -79210,7 +80538,7 @@
       "desc": "App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của",
       "readme": "09_ENGINEERING/aios-platform/README.md",
       "n_dirs": 4,
-      "n_files": 12
+      "n_files": 13
      },
      {
       "name": "README.md",
@@ -80264,7 +81592,7 @@
       "path": "_meta/extract_documents_metadata.py",
       "type": "file",
       "ext": ".py",
-      "size": 10838
+      "size": 14054
      },
      {
       "name": "github-setup.sh",
@@ -80433,7 +81761,7 @@
     "path": "CLAUDE.md",
     "type": "file",
     "ext": ".md",
-    "size": 18307
+    "size": 18326
    },
    {
     "name": "README.md",

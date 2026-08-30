@@ -2,57 +2,47 @@
 
 Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng chỉ, template công văn.
 
-## **Biểu mẫu P01 (Giải quyết rủi ro và cơ hội)**
+> **Thư mục này không lưu file biểu mẫu.** Toàn bộ 132 biểu mẫu gốc nằm ở [`06_SHARED_RESOURCES/01_Forms/`](../../06_SHARED_RESOURCES/01_Forms/), gom theo thủ tục ban hành. `04_F` chỉ là **mục lục điều hướng** của tầng 03.
+>
+> Trước 31/08/2026 thư mục này giữ 29 bản sao biểu mẫu. Ba bản (`F42.01`, `F42.02`, `F42.03`) đã trôi khỏi bản gốc và tụt lại thành file rỗng ruột chỉ còn phần mô tả — đúng lý do quy ước "một nguồn sự thật" cấm nhân bản. Các bản sao đã được gỡ bỏ; **đừng copy biểu mẫu về đây, hãy link.**
 
-- `ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md` — Hành động khắc phục, giải quyết rủi ro, cải tiến | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md)
-- `ETV.P.F01.02_BangTongHop_MucTieu.md` — Bảng nhận diện và quản lý rủi ro (theo mục tiêu) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_MucTieu.md)
-- `ETV.P.F01.02_BangTongHop_QuaTrinh.md` — Bảng tổng hợp hành động khắc phục, giải quyết rủi ro và cải tiến (theo quá trình) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.02_BangTongHop_QuaTrinh.md)
-- `ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md` — Biện pháp đảm bảo VSMT, PCCC, ATLĐ (phương án thi công và biện pháp an toàn lao động) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md)
-- `ETV.P.F01.04_CamKet_ATLD_TrenCao.md` — Cam kết thực hiện an toàn lao động (làm việc trên cao) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F01.04_CamKet_ATLD_TrenCao.md)
+## Mục lục biểu mẫu theo thủ tục
 
-## **Biểu mẫu P14 (Kiểm soát tài liệu)**
+| Nhóm | Số biểu mẫu | Thủ tục ban hành |
+|---|---|---|
+| [`F01_RuiRo/`](../../06_SHARED_RESOURCES/01_Forms/F01_RuiRo/) | 5 | [`ETV.P01_RuiRoCoHoi`](../02_P/ETV.P01_RuiRoCoHoi.md) |
+| [`F02_BaoMat/`](../../06_SHARED_RESOURCES/01_Forms/F02_BaoMat/) | 5 | [`ETV.P02_BaoMat`](../02_P/ETV.P02_BaoMat.md) |
+| [`F03_NhanSu/`](../../06_SHARED_RESOURCES/01_Forms/F03_NhanSu/) | 18 | [`ETV.P03_NhanSu`](../02_P/ETV.P03_NhanSu.md) |
+| [`F04_MoiTruong/`](../../06_SHARED_RESOURCES/01_Forms/F04_MoiTruong/) | 4 | [`ETV.P04_MoiTruong`](../02_P/ETV.P04_MoiTruong.md) |
+| [`F05_ThietBi/`](../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/) | 10 | [`ETV.P05_ThietBi`](../02_P/ETV.P05_ThietBi.md) |
+| [`F06_MuaSam/`](../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/) | 8 | [`ETV.P06_MuaSam`](../02_P/ETV.P06_MuaSam.md) |
+| [`F07_HopDong/`](../../06_SHARED_RESOURCES/01_Forms/F07_HopDong/) | 4 | [`ETV.P07_HopDong`](../02_P/ETV.P07_HopDong.md) |
+| [`F08_PhuongPhap/`](../../06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap/) | 2 | [`ETV.P08_PhuongPhap`](../02_P/ETV.P08_PhuongPhap.md) |
+| [`F10_DamBaoKQ/`](../../06_SHARED_RESOURCES/01_Forms/F10_DamBaoKQ/) | 9 | [`ETV.P10_DamBaoHieuLucKetQua`](../02_P/ETV.P10_DamBaoHieuLucKetQua.md) |
+| [`F11_BaoCao/`](../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/) | 5 | [`ETV.P11_BaoCao`](../02_P/ETV.P11_BaoCao.md) |
+| [`F14_TaiLieu/`](../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/) | 6 | [`ETV.P14_KiemSoatTaiLieu`](../02_P/ETV.P14_KiemSoatTaiLieu.md) |
+| [`F19_SanXuatCRM/`](../../06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/) | 3 | [`ETV.P19_SanXuatCRM`](../02_P/ETV.P19_SanXuatCRM.md) |
+| [`F20_PhanPhoi/`](../../06_SHARED_RESOURCES/01_Forms/F20_PhanPhoi/) | 1 | [`ETV.P20_PhanPhoi`](../02_P/ETV.P20_PhanPhoi.md) |
+| [`F24_KPI/`](../../06_SHARED_RESOURCES/01_Forms/F24_KPI/) | 3 | [`ETV.P24_QuanLyLuongThuong`](../02_P/ETV.P24_QuanLyLuongThuong.md) |
+| [`F25_BoiCanh/`](../../06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/) | 3 | [`ETV.P25_QuanLyBoiCanh`](../02_P/ETV.P25_QuanLyBoiCanh.md) |
+| [`F26_TriThuc/`](../../06_SHARED_RESOURCES/01_Forms/F26_TriThuc/) | 4 | [`ETV.P26_QuanLyTriThuc`](../02_P/ETV.P26_QuanLyTriThuc.md) |
+| [`F27_TaiSanTT/`](../../06_SHARED_RESOURCES/01_Forms/F27_TaiSanTT/) | 3 | [`ETV.P27_QuanTriDuLieuTaiSanTT`](../02_P/ETV.P27_QuanTriDuLieuTaiSanTT.md) |
+| [`F28_ATTT/`](../../06_SHARED_RESOURCES/01_Forms/F28_ATTT/) | 4 | [`ETV.P28_QuanLyAnToanThongTin`](../02_P/ETV.P28_QuanLyAnToanThongTin.md) |
+| [`F29_AI/`](../../06_SHARED_RESOURCES/01_Forms/F29_AI/) | 4 | [`ETV.P29_QuanLyTriTueNhanTao`](../02_P/ETV.P29_QuanLyTriTueNhanTao.md) |
+| [`F30_ThayDoi/`](../../06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/) | 3 | [`ETV.P30_QuanLyThayDoi`](../02_P/ETV.P30_QuanLyThayDoi.md) |
+| [`F31_LienTuc/`](../../06_SHARED_RESOURCES/01_Forms/F31_LienTuc/) | 4 | [`ETV.P31_QuanLyLienTuc`](../02_P/ETV.P31_QuanLyLienTuc.md) |
+| [`F32_ChuyenDoiSo/`](../../06_SHARED_RESOURCES/01_Forms/F32_ChuyenDoiSo/) | 4 | [`ETV.P32_ChuyenDoiSo`](../02_P/ETV.P32_ChuyenDoiSo.md) |
+| [`F33_HeThongTT/`](../../06_SHARED_RESOURCES/01_Forms/F33_HeThongTT/) | 4 | [`ETV.P33_QuanLyHeThongThongTin`](../02_P/ETV.P33_QuanLyHeThongThongTin.md) |
+| [`F34_DuLieuSo/`](../../06_SHARED_RESOURCES/01_Forms/F34_DuLieuSo/) | 3 | [`ETV.P34_QuanLyDuLieuSo`](../02_P/ETV.P34_QuanLyDuLieuSo.md) |
+| [`F35_NenTangSo/`](../../06_SHARED_RESOURCES/01_Forms/F35_NenTangSo/) | 4 | [`ETV.P35_QuanLyNenTangSo`](../02_P/ETV.P35_QuanLyNenTangSo.md) |
+| [`F37_TichHopDuLieu/`](../../06_SHARED_RESOURCES/01_Forms/F37_TichHopDuLieu/) | 3 | [`ETV.P37_QuanLyTichHopDuLieu`](../02_P/ETV.P37_QuanLyTichHopDuLieu.md) |
+| [`F38_DichVuSo/`](../../06_SHARED_RESOURCES/01_Forms/F38_DichVuSo/) | 3 | [`ETV.P38_QuanLyDichVuSo`](../02_P/ETV.P38_QuanLyDichVuSo.md) |
+| [`F42_NoiQuyLaoDong/`](../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/) | 3 | [`ETV.P42_NoiQuyLaoDong`](../02_P/ETV.P42_NoiQuyLaoDong.md) |
 
-- `ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md` — Phiếu đề nghị soát xét/ban hành văn bản
-- `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md` — **Đã điền:** đề nghị thống nhất ETV.P29 và ETV.P34 về dữ liệu mức Hạn chế (phân định lập chỉ mục với truy xuất trực tiếp) — chờ LĐV phê duyệt | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
-- `ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md` — **Đã điền, đã ký đủ:** đề nghị ban hành Hướng dẫn `ETV.GAI 01` (Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS) — LĐV phê duyệt 30/08/2026, chọn ban hành theo chùm; **đã đủ cả hai điều kiện và đã ban hành lần 01, hiệu lực 30/08/2026** | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
-- `ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md` — **Đã điền, đã ký đủ:** đề nghị ban hành lại `ETV.P14` lần 04 bổ sung ký hiệu phân loại phi đo lường `AI` vào bảng mã hoá §6.2 — **đã thực hiện**, lần 04 hiệu lực 30/08/2026; điều kiện ĐK1 của `ETV.GAI 01` đã hoàn thành | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
-- `ETV.P.F14.01_2026-08-30_P33_P34_P35_ChumQuanTriSo.md` — **Lập bù, đã ký đủ:** hồ sơ ban hành chùm ba thủ tục quản trị số `ETV.P33` (lần 01), `ETV.P34` (lần 01), `ETV.P35` (lần 02), cùng hiệu lực 30/08/2026 — ba thủ tục đã ban hành nhưng trước đó không có phiếu F14.01 nào; hoàn thành ĐK2 của `ETV.GAI 01` | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
-- `ETV.P.F14.02_DanhMucVanBanNoiBo.md` — Danh mục văn bản nội bộ | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md)
-- `ETV.P.F14.03_DanhMucVanBanBenNgoai.md` — Danh mục văn bản bên ngoài | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md)
-- `ETV.P.F14.04_GiaoNhanVanBan.md` — Phiếu giao nhận/thu hồi văn bản | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md)
-- `ETV.P.F14.05_DeNghiThanhLyVanBan.md` — Phiếu đề nghị thanh lý/hủy bỏ văn bản | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.05_DeNghiThanhLyVanBan.md)
-- `ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md` — Danh mục phân quyền và thời hạn lưu | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md)
-
-## **Biểu mẫu P10 (Đảm bảo hiệu lực của kết quả)**
-
-- `ETV.P.F10.01_KeHoachDamBaoHieuLuc.md` — Kế hoạch bảo đảm hiệu lực của kết quả | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md)
-- `ETV.P.F10.02_HoSoQCNoiBo.md` — Hồ sơ kiểm soát chất lượng (QC) nội bộ | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.02_HoSoQCNoiBo.md)
-- `ETV.P.F10.03_DanhGiaTayNghe.md` — Phiếu đánh giá tay nghề | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.03_DanhGiaTayNghe.md)
-- `ETV.P.F10.04_HoSoPT_ILC.md` — Hồ sơ thử nghiệm thành thạo/so sánh liên phòng | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.04_HoSoPT_ILC.md)
-- `ETV.P.F10.05_DongNhatRM_CRM.md` — Đánh giá độ đồng nhất RM/CRM | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.05_DongNhatRM_CRM.md)
-- `ETV.P.F10.06_OnDinhRM_CRM.md` — Đánh giá độ ổn định RM/CRM | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.06_OnDinhRM_CRM.md)
-- `ETV.P.F10.07_DacTrungAnDinhGiaTri.md` — Đặc trưng và ấn định giá trị RM/CRM | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.07_DacTrungAnDinhGiaTri.md)
-- `ETV.P.F10.08_XacNhanCongCuSoAI.md` — Xác nhận công cụ số/phần mềm/AI | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.08_XacNhanCongCuSoAI.md)
-- `ETV.P.F10.09_CongBoTrangThaiP10.md` — Công bố nội bộ trạng thái P10 | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F10.09_CongBoTrangThaiP10.md)
-
-## **Biểu mẫu P19 (Hoạch định Sản xuất Chất chuẩn)**
-
-- `ETV.P.F19.01_LapKeHoach.md` — Lập kế hoạch sản xuất chất chuẩn (11 bảng) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.01_LapKeHoach.md)
-- `ETV.P.F19.02_DanhGiaKeHoach.md` — Đánh giá kế hoạch sản xuất chất chuẩn (8 bảng tiêu chí) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.02_DanhGiaKeHoach.md)
-- `ETV.P.F19.03_KetQuaSanXuat.md` — Kết quả sản xuất chất chuẩn (10 bảng) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F19.03_KetQuaSanXuat.md)
-
-## **Biểu mẫu P24 (Quản lý Lương-Thưởng theo Mô hình 3P & KPI)**
-
-- `ETV.P.F24.01_BangChamCong.md` — Bảng chấm công hàng tháng (LV/NN/CP/KP/LT/CT/NL) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.01_BangChamCong.md)
-- `ETV.P.F24.02_TheoDoiLuongThuong.md` — Bảng theo dõi lương/thưởng (P1+P2+P3, khấu trừ, thuế) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.02_TheoDoiLuongThuong.md)
-- `ETV.P.F24.03_QuyetDinhLuongThuong.md` — Quyết định lương, thưởng (phê duyệt chính thức) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F24.03_QuyetDinhLuongThuong.md)
-
-## **Biểu mẫu P42 (Nội quy lao động và Quy tắc ứng xử)**
-
-- `ETV.P.F42.01_XacNhan_CamKetNoiQuy.md` — Phiếu xác nhận và cam kết tuân thủ Nội quy lao động | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md)
-- `ETV.P.F42.02_QuyetDinhBanHanh.md` — Quyết định ban hành Nội quy lao động và Quy tắc ứng xử | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.02_QuyetDinhBanHanh.md)
-- `ETV.P.F42.03_DeNghiDangKy.md` — Văn bản đề nghị đăng ký Nội quy lao động với cơ quan Nhà nước | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.03_DeNghiDangKy.md)
+**Tổng: 132 biểu mẫu / 28 thủ tục.**
 
 ---
 
-**Ghi chú:** Mọi biểu mẫu được quản lý tập trung tại `06_SHARED_RESOURCES/01_Forms/`. Copy này chỉ để tham chiếu nhanh. 📍 Nguồn = đường dẫn tới file gốc.
+## Hồ sơ đã điền không nằm ở đây
+
+Biểu mẫu **đã điền** là hồ sơ (Record), thuộc [`05_R/`](../05_R/) — xem bảng phân loại tại [`03_MANAGEMENT_SYSTEM/README.md`](../README.md). Sáu phiếu `ETV.P.F14.01` đã điền (kèm 2 bản PDF ký) đã được chuyển sang [`05_R/F14_TaiLieu/`](../05_R/F14_TaiLieu/) ngày 31/08/2026.

@@ -40,7 +40,7 @@ superseded_by: null
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — ban hành lần thứ nhất. Bản này có hiệu lực từ ngày **30/08/2026**.
 >
-> Soát xét: Trần Thị Hoa (LĐP). Phê duyệt: Nguyễn Hoàng Giang (LĐV). Hồ sơ ban hành: phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](../../../04_F/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md).
+> Soát xét: Trần Thị Hoa (LĐP). Phê duyệt: Nguyễn Hoàng Giang (LĐV). Hồ sơ ban hành: phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](../../../05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md).
 >
 > LĐV đã chọn **ban hành theo chùm**; cả hai điều kiện tiên quyết đều đã đủ trước khi ban hành:
 >

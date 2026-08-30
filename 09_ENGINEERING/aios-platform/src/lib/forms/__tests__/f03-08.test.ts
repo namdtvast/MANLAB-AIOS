@@ -14,7 +14,7 @@ const FORMS_M03 = [
   {
     code: "ETV.P.F03.08",
     title: "Danh sách nhân sự",
-    path: "06_SHARED_RESOURCES/01_Forms/ETV.P.F03.08_DanhSachNhanSu.md",
+    path: "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.08_DanhSachNhanSu.md",
     revision: "03",
     effectiveDate: "20/07/2026",
   },

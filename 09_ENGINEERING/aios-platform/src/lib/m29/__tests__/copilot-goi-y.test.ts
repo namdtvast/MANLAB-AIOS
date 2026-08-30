@@ -63,7 +63,7 @@ describe("goiYTheoModule", () => {
 describe("maTaiLieuTuDuongDan", () => {
   it("rút được mã thủ tục, sổ tay và biểu mẫu", () => {
     expect(maTaiLieuTuDuongDan("03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md")).toBe("ETV.P13");
-    expect(maTaiLieuTuDuongDan("06_SHARED_RESOURCES/01_Forms/ETV.P.F02.05_ChinhSachBaoMat_Website.md")).toBe("ETV.P.F02.05");
+    expect(maTaiLieuTuDuongDan("06_SHARED_RESOURCES/01_Forms/F02_BaoMat/ETV.P.F02.05_ChinhSachBaoMat_Website.md")).toBe("ETV.P.F02.05");
     expect(maTaiLieuTuDuongDan("03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md")).toBe("ETV.QM");
   });
 
