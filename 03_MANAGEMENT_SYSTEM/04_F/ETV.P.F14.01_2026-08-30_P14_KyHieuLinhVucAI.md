@@ -107,7 +107,7 @@ Nghĩa là câu "danh mục đầy đủ ở F14.02" trỏ tới một nơi khô
 
 Sau việc 4, GAI 01 còn **ĐK2** — ETV.P29 có hiệu lực (kèm P33, P34, P35) — trước khi ban hành được. Phiếu này **không** giải quyết ĐK2.
 
-> **Cập nhật 30/08/2026 — ĐK2 xong một phần.** `ETV.P29` đã ban hành lần 01, hiệu lực 30/08/2026. Nhưng `ETV.P33`, `ETV.P34`, `ETV.P35` vẫn `Chờ soát xét`, mà GAI 01 dẫn chiếu tới F33.01–04 (Bước 1) và F35.01–02 (Bước 4) — dẫn chiếu treo còn lại. Theo dõi chi tiết tại mục 5 phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md).
+> **Cập nhật 30/08/2026 — ĐK2 đã hoàn thành.** Cả bốn thủ tục `ETV.P29`, `ETV.P33`, `ETV.P34`, `ETV.P35` đều có hiệu lực từ 30/08/2026, không còn dẫn chiếu treo (hồ sơ ban hành chùm: [`ETV.P.F14.01_2026-08-30_P33_P34_P35_ChumQuanTriSo`](ETV.P.F14.01_2026-08-30_P33_P34_P35_ChumQuanTriSo.md)). Cùng với ĐK1 — chính phiếu này — **`ETV.GAI 01` đủ điều kiện ban hành**; bước còn lại do Văn thư/QLCL thực hiện theo ETV.P14 §6.6.1 bước 6–9. Theo dõi chi tiết tại mục 5 phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md).
 
 ---
 
