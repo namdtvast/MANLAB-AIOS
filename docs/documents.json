@@ -1,30 +1,239 @@
 {
-  "generated_at": "2026-07-08T14:50:41.996628",
-  "total_documents": 27,
+  "generated_at": "2026-08-31T00:16:03.817773",
+  "total_documents": 214,
   "documents": [
     {
-      "code": "ETV.MCA 04",
-      "title": "Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh — Quy trình hiệu chuẩn",
-      "type": "Quy-trinh",
-      "status": "Da-phe-duyet",
-      "effective_date": "11/09/2023",
+      "code": "ETV.GAI 01",
+      "title": "Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS",
+      "type": "Huong-dan",
+      "status": "Cho-phe-duyet",
+      "effective_date": "",
       "revision": "01",
-      "author": "Trần Sơn Tùng",
+      "author": "..................................",
+      "reviewer": "..................................",
+      "approver": "..................................",
+      "iso_clause": [
+        "ISO/IEC 42001:2023 §6.1.4, §8.1, §8.4",
+        "ISO/IEC 27001:2022 A.5.9, A.5.19–A.5.23, A.8.9, A.8.16, A.8.31",
+        "ISO/IEC 17025:2017 §7.11",
+        "ISO 9001:2015 §7.1.3, §8.5.1"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Pháp luật hiện hành về an toàn thông tin mạng",
+        "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI01_MayChuMoHinhAI/ETV.GAI01_TichHopMayChuMoHinhAINoiBo.md",
+      "relative_path": "03_M/ETV.G_HuongDan/GAI01_MayChuMoHinhAI/ETV.GAI01_TichHopMayChuMoHinhAINoiBo.md",
+      "iso_standard": "ISO/IEC 42001:2023, ISO/IEC 27001:2022, ISO/IEC 17025:2017, ISO 9001:2015"
+    },
+    {
+      "code": "ETV.GAI 02",
+      "title": "Hướng dẫn Kiến trúc tri thức và ngữ nghĩa cho trí tuệ nhân tạo trong hệ sinh thái ManLab",
+      "type": "Huong-dan",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "..................................",
+      "reviewer": "..................................",
+      "approver": "..................................",
+      "iso_clause": [
+        "ISO/IEC 42001:2023 §6.1.4, §8.1, §8.3, §8.4",
+        "ISO/IEC 27001:2022 A.5.9, A.5.12, A.5.23, A.8.3, A.8.12, A.8.16",
+        "ISO/IEC 17025:2017 §7.11",
+        "ISO 9001:2015 §7.1.6, §8.5.1"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Pháp luật hiện hành về an toàn thông tin mạng",
+        "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/ETV.GAI02_KienTrucTriThucVaNguNghiaAI.md",
+      "relative_path": "03_M/ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/ETV.GAI02_KienTrucTriThucVaNguNghiaAI.md",
+      "iso_standard": "ISO/IEC 42001:2023, ISO/IEC 27001:2022, ISO/IEC 17025:2017, ISO 9001:2015"
+    },
+    {
+      "code": "ETV.MCA 01",
+      "title": "Phương tiện đo nồng độ khí của trạm quan trắc không khí tự động, liên tục — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Huy",
       "reviewer": "Trần Thị Hoa",
       "approver": "Nguyễn Hoàng Giang",
       "iso_clause": [
         "ISO/IEC 17025:2017",
-        "JCGM 100:2008 (GUM)",
-        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)"
+        "ISO 6145",
+        "ISO 14956",
+        "ISO 20988"
       ],
       "legal_basis": [
-        "40 CFR Part 50 Appendix D",
-        "EPA-454/B-22-003",
-        "ĐLVN 389:2021"
+        "ĐLVN 45:2001",
+        "Quyết định 1292/QĐ-TCMT ngày 28/10/2013",
+        "TCVN 6751:2009 (ISO 9169:2006)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/1. Quy trinh/ETV.MCA.01_QTHC_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/1. Quy trinh/ETV.MCA.01_QTHC_KhiTuDong.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA 02",
+      "title": "Phương tiện đo nồng độ khí — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Huy",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2002",
+        "ĐLVN 265:2016",
+        "Thông tư 10/2021/TT-BTNMT",
+        "Nghị định 08/2021/NĐ-CP"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/1. Quy trinh/ETV.MCA.02_QTHC_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/1. Quy trinh/ETV.MCA.02_QTHC_NongDoKhi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA 03",
+      "title": "Phương tiện tạo khí O3 — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Huy",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/1. Quy trinh/ETV.MCA.03_QTHC_TaoKhiO3.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/1. Quy trinh/ETV.MCA.03_QTHC_TaoKhiO3.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA 04",
+      "title": "Phương tiện đo nồng độ khí Ôzôn (O3) của trạm quan trắc chất lượng không khí xung quanh — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Huy",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO 6145",
+        "ISO 14956",
+        "ISO 20988"
+      ],
+      "legal_basis": [
+        "ĐLVN 389:2021",
+        "ĐLVN 45:2001",
+        "Quyết định 1292/QĐ-TCMT ngày 28/10/2013"
       ],
       "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh/ETV.MCA.04_QTHC_GasO3.md",
       "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/1. Quy trinh/ETV.MCA.04_QTHC_GasO3.md",
       "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA 05",
+      "title": "Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Huy",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO 6145",
+        "ISO 14956",
+        "ISO 20988"
+      ],
+      "legal_basis": [
+        "ĐLVN 45:2001",
+        "Quyết định 1292/QĐ-TCMT ngày 28/10/2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ/1. Quy trinh/ETV.MCA.05_QTHC_TramQTCLKKXQ.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA05_TramQTCLKKXQ/1. Quy trinh/ETV.MCA.05_QTHC_TramQTCLKKXQ.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA 06",
+      "title": "Hệ thống phân tích sắc ký khí (GC) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/06/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Huy",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC/1. Quy trinh/ETV.MCA.06_QTHC_GC.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA06_GC/1. Quy trinh/ETV.MCA.06_QTHC_GC.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo nồng độ khí của trạm quan trắc không khí tự động, liên tục",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/2. Bieu mau/ETV.MCA.F01.01_BBHC_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/2. Bieu mau/ETV.MCA.F01.01_BBHC_KhiTuDong.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCA.F02.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo nồng độ khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/2. Bieu mau/ETV.MCA.F02.01_BBHC_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/2. Bieu mau/ETV.MCA.F02.01_BBHC_NongDoKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCA.F03.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện tạo khí O3",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/2. Bieu mau/ETV.MCA.F03.01_BBHC_TaoKhiO3.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/2. Bieu mau/ETV.MCA.F03.01_BBHC_TaoKhiO3.md",
+      "iso_standard": ""
     },
     {
       "code": "ETV.MCA.F04.01",
@@ -33,15 +242,607 @@
       "status": "Da-phe-duyet",
       "effective_date": "11/09/2023",
       "revision": "01",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [
         "ISO/IEC 17025:2017"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau/ETV.MCA.F04.01_BienBanHieuChuan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau/ETV.MCA.F04.01_BienBanHieuChuan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau/ETV.MCA.F04.01_BBHC_GasO3.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/2. Bieu mau/ETV.MCA.F04.01_BBHC_GasO3.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCE.F01.01",
+      "title": "Biên bản hiệu chuẩn — Thiết bị đo điện vạn năng",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/8. MC_Electric/MCE01_DienVanNang/2. Bieu mau/ETV.MCE.F01.01_BBHC_DienVanNang.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/8. MC_Electric/MCE01_DienVanNang/2. Bieu mau/ETV.MCE.F01.01_BBHC_DienVanNang.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF 01",
+      "title": "Phương tiện đo lưu lượng khí — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2004",
+        "ĐLVN 253:2015",
+        "ĐLVN 304:2016",
+        "ASTM D5337-11"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/1. Quy trinh/ETV.MCF.01_QTHC_LuuLuongKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/1. Quy trinh/ETV.MCF.01_QTHC_LuuLuongKhi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 02",
+      "title": "Đồng hồ đo thể tích khí — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2004",
+        "ĐLVN 253:2015",
+        "ĐLVN 304:2016",
+        "ASTM D5337-11"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/1. Quy trinh/ETV.MCF.02_QTHC_DongHoDoKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/1. Quy trinh/ETV.MCF.02_QTHC_DongHoDoKhi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 03",
+      "title": "Phương tiện đo vận tốc gió ở dải thấp — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 345:2018",
+        "ĐLVN 92:2001",
+        "VMI-CP 11:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/1. Quy trinh/ETV.MCF.03_QTHC_TocDoGio.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/1. Quy trinh/ETV.MCF.03_QTHC_TocDoGio.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 04",
+      "title": "Phương tiện đo lưu lượng khí thải — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "TCVN 6910"
+      ],
+      "legal_basis": [
+        "Thông tư 24/2017/TT-BTNMT"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/1. Quy trinh/ETV.MCF.04_QTHC_LuuLuongKhiThai.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/1. Quy trinh/ETV.MCF.04_QTHC_LuuLuongKhiThai.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 05",
+      "title": "Phương tiện đo lưu lượng kênh hở — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/1. Quy trinh/ETV.MCF.05_QTHC_LuuLuongKenhHo.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/1. Quy trinh/ETV.MCF.05_QTHC_LuuLuongKenhHo.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 06",
+      "title": "Phương tiện đo lưu lượng ống kín — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2005",
+        "TCVN 8112",
+        "TCVN 8440",
+        "TCVN 8114",
+        "TCVN 9496",
+        "TCVN 9497",
+        "ISO 3966:1997",
+        "ISO 7066-1:1989",
+        "ISO 7066-2:1988"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/1. Quy trinh/ETV.MCF.06_QTHC_LuuLuongOngKin.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/1. Quy trinh/ETV.MCF.06_QTHC_LuuLuongOngKin.md",
+      "iso_standard": "ISO/IEC 17025:2005"
+    },
+    {
+      "code": "ETV.MCF 07",
+      "title": "Micropipet — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO/TR 20461:2000",
+        "OIML R 76-1:1992",
+        "JCGM 106:2012",
+        "GUM"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 68:2001",
+        "ĐLVN 311:2016",
+        "TCVN 10505-6:2015"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/1. Quy trinh/ETV.MCF.07_QTHC_Micropipet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/1. Quy trinh/ETV.MCF.07_QTHC_Micropipet.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 08",
+      "title": "Phương tiện đo mức tự động — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "11/08/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/1. Quy trinh/ETV.MCF.08_QTHC_DoMucTuDong.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 09",
+      "title": "Phương tiện đo dung tích thí nghiệm (buret, pipet, bình định mức, ống đong…) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO/TR 20461:2000",
+        "OIML R 76-1:1992",
+        "JCGM 106:2012",
+        "GUM"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 68:2001",
+        "ĐLVN 311:2016",
+        "ĐLVN 346:2021",
+        "TCVN 10505-6:2015"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/1. Quy trinh/ETV.MCF.09_QTHC_DungCuThuyTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/1. Quy trinh/ETV.MCF.09_QTHC_DungCuThuyTinh.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 10",
+      "title": "Thiết bị pha loãng khí chuẩn — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ASTM D5337-11"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/1. Quy trinh/ETV.MCF.10_QTHC_PhaLoangKhiChuan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/1. Quy trinh/ETV.MCF.10_QTHC_PhaLoangKhiChuan.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 11",
+      "title": "Phương tiện đo lượng mưa — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/1. Quy trinh/ETV.MCF.11_QTHC_PTDLuongMua.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/1. Quy trinh/ETV.MCF.11_QTHC_PTDLuongMua.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 12",
+      "title": "Phương tiện đo mực nước — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/1. Quy trinh/ETV.MCF.12_QTHC_DoMucNuoc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/1. Quy trinh/ETV.MCF.12_QTHC_DoMucNuoc.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 13",
+      "title": "Phương tiện đo vận tốc gió ở dải cao — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "JCGM 106:2012",
+        "GUM"
+      ],
+      "legal_basis": [
+        "ĐLVN 345:2018",
+        "ĐLVN 92:2001",
+        "VMI-CP 11:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF13_VanTocGioDaiCao/1. Quy trinh/ETV.MCF.13_QTHC_VanTocGioDaiCao.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF13_VanTocGioDaiCao/1. Quy trinh/ETV.MCF.13_QTHC_VanTocGioDaiCao.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF 14",
+      "title": "Phương tiện đo vận tốc và lưu lượng thể tích khí thải trong ống khói — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "Thông tư 24/2017/TT-BTNMT"
+      ],
+      "legal_basis": [
+        "Thông tư 24/2017/TT-BTNMT"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF14_LuuLuongKhiThaiOngKhoi/1. Quy trinh/ETV.MCF.14_QTHC_LuuLuongKhiThaiOngKhoi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF14_LuuLuongKhiThaiOngKhoi/1. Quy trinh/ETV.MCF.14_QTHC_LuuLuongKhiThaiOngKhoi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCF.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo lưu lượng khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/2. Bieu mau/ETV.MCF.F01.01_BBHC_LuuLuongKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/2. Bieu mau/ETV.MCF.F01.01_BBHC_LuuLuongKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F02.01",
+      "title": "Biên bản hiệu chuẩn — Đồng hồ đo thể tích khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/2. Bieu mau/ETV.MCF.F02.01_BBHC_DongHoDoKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/2. Bieu mau/ETV.MCF.F02.01_BBHC_DongHoDoKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F03.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo vận tốc gió ở dải thấp",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/2. Bieu mau/ETV.MCF.F03.01_BBHC_TocDoGio.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/2. Bieu mau/ETV.MCF.F03.01_BBHC_TocDoGio.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F04.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo lưu lượng khí thải",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/2. Bieu mau/ETV.MCF.F04.01_BBHC_LuuLuongKhiThai.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/2. Bieu mau/ETV.MCF.F04.01_BBHC_LuuLuongKhiThai.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F05.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo lưu lượng kênh hở",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/2. Bieu mau/ETV.MCF.F05.01_BBHC_LuuLuongKenhHo.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/2. Bieu mau/ETV.MCF.F05.01_BBHC_LuuLuongKenhHo.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F06.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo lưu lượng ống kín",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/2. Bieu mau/ETV.MCF.F06.01_BBHC_LuuLuongOngKin.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/2. Bieu mau/ETV.MCF.F06.01_BBHC_LuuLuongOngKin.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F07.01",
+      "title": "Biên bản hiệu chuẩn — Micropipet",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/2. Bieu mau/ETV.MCF.F07.01_BBHC_Micropipet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/2. Bieu mau/ETV.MCF.F07.01_BBHC_Micropipet.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F08.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo mức tự động",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "11/08/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/2. Bieu mau/ETV.MCF.F08.01_BBHC_DoMucTuDong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/2. Bieu mau/ETV.MCF.F08.01_BBHC_DoMucTuDong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F09.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo dung tích thí nghiệm (buret, pipet, bình định mức, ống đong…)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/2. Bieu mau/ETV.MCF.F09.01_BBHC_DungCuThuyTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/2. Bieu mau/ETV.MCF.F09.01_BBHC_DungCuThuyTinh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F10.01",
+      "title": "Biên bản hiệu chuẩn — Thiết bị pha loãng khí chuẩn",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/2. Bieu mau/ETV.MCF.F10.01_BBHC_PhaLoangKhiChuan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/2. Bieu mau/ETV.MCF.F10.01_BBHC_PhaLoangKhiChuan.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F11.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo lượng mưa",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/2. Bieu mau/ETV.MCF.F11.01_BBHC_PTDLuongMua.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/2. Bieu mau/ETV.MCF.F11.01_BBHC_PTDLuongMua.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCF.F12.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo mực nước",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/2. Bieu mau/ETV.MCF.F12.01_BBHC_DoMucNuoc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/2. Bieu mau/ETV.MCF.F12.01_BBHC_DoMucNuoc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCH 01",
+      "title": "Phương tiện đo độ ẩm không khí — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 359:2019",
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/1. Quy trinh/ETV.MCH.01_QTHC_DoAm.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/1. Quy trinh/ETV.MCH.01_QTHC_DoAm.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCH.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo độ ẩm không khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/2. Bieu mau/ETV.MCH.F01.01_BBHC_DoAm.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/2. Bieu mau/ETV.MCH.F01.01_BBHC_DoAm.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCL 01",
+      "title": "Thước Panme — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/1. Quy trinh/ETV.MCL.01_QTHC_ThuocPanme.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL01_ThuocPanme/1. Quy trinh/ETV.MCL.01_QTHC_ThuocPanme.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCL 02",
+      "title": "Thước cặp — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/1. Quy trinh/ETV.MCL.02_QTHC_ThuocCap.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL02_ThuocCap/1. Quy trinh/ETV.MCL.02_QTHC_ThuocCap.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -51,8 +852,8 @@
       "status": "Da-phe-duyet",
       "effective_date": "18/05/2026",
       "revision": "01",
-      "author": "Trần Thị Hoa",
-      "reviewer": "Nguyễn Ngọc Tuấn",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa",
       "approver": "Nguyễn Hoàng Giang",
       "iso_clause": [
         "ISO/IEC 17025:2017",
@@ -73,15 +874,15 @@
       "status": "Da-phe-duyet",
       "effective_date": "18/05/2026",
       "revision": "01",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [
         "ISO/IEC 17025:2017"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BienBan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BienBan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BBHC_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.01_BBHC_MaydinhviGPS.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -91,7 +892,7 @@
       "status": "Da-phe-duyet",
       "effective_date": "18/05/2026",
       "revision": "01",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [
@@ -99,8 +900,8 @@
         "JCGM 100:2008 (GUM)"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.02_BangTinh_MaydinhviGPS.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -110,7 +911,7 @@
       "status": "Da-phe-duyet",
       "effective_date": "18/05/2026",
       "revision": "1.0",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [
@@ -118,8 +919,8 @@
         "ILAC-P10:01/2020"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HosoDiemchuan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HosoDiemchuan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HoSoDiemChuan_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/2. Bieu mau/ETV.MCL.F04.03_HoSoDiemChuan_MaydinhviGPS.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -129,15 +930,1378 @@
       "status": "Da-phe-duyet",
       "effective_date": "18/05/2026",
       "revision": "01",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [
         "ISO/IEC 17025:2017"
       ],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN_MaydinhviGPS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/9. MC_Length/MCL04_MaydinhviGPS/3. GCN/ETV.MCL.F04.04_GCN_MaydinhviGPS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCM 01",
+      "title": "Cân phân tích và cân kỹ thuật — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "04",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 16:2021",
+        "OIML R76"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/1. Quy trinh/ETV.MCM.01_QTHC_Can.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/1. Quy trinh/ETV.MCM.01_QTHC_Can.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCM.F01.01",
+      "title": "Biên bản hiệu chuẩn — Cân phân tích và cân kỹ thuật",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "04",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/2. Bieu mau/ETV.MCM.F01.01_BBHC_Can.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/2. Bieu mau/ETV.MCM.F01.01_BBHC_Can.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCO 01",
+      "title": "Phương tiện đo quang phổ tử ngoại khả kiến — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/1. Quy trinh/ETV.MCO.01_QTHC_UVVIS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/1. Quy trinh/ETV.MCO.01_QTHC_UVVIS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCO 02",
+      "title": "Phương tiện đo cường độ ánh sáng — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 257:2014",
+        "ĐLVN 270:2015"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO02_CuongDoAnhSang/1. Quy trinh/ETV.MCO.02_QTHC_CuongDoAnhSang.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO02_CuongDoAnhSang/1. Quy trinh/ETV.MCO.02_QTHC_CuongDoAnhSang.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCO 03",
+      "title": "Phương tiện đo nồng độ khối lượng bụi (PM10; PM2,5) trong môi trường không khí xung quanh — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO 12103-1 A1"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/1. Quy trinh/ETV.MCO.03_QTHC_BuiXQ.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/1. Quy trinh/ETV.MCO.03_QTHC_BuiXQ.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCO 04",
+      "title": "Phương tiện đo hàm lượng bụi trong khí thải — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "Thông tư 24/2017/TT-BTNMT"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/1. Quy trinh/ETV.MCO.04_QTHC_BuiKhiThai.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/1. Quy trinh/ETV.MCO.04_QTHC_BuiKhiThai.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCO 05",
+      "title": "Hệ thống chuẩn nồng độ khối lượng bụi PM10, PM2,5 — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "EN 12341:2014",
+        "EN 14907:2005"
+      ],
+      "legal_basis": [
+        "ĐLVN 294:2016"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui/1. Quy trinh/ETV.MCO.05_QTHC_ChuanBui.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO05_ChuanBui/1. Quy trinh/ETV.MCO.05_QTHC_ChuanBui.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCO.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo quang phổ tử ngoại khả kiến",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/2. Bieu mau/ETV.MCO.F01.01_BBHC_UVVIS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/2. Bieu mau/ETV.MCO.F01.01_BBHC_UVVIS.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCO.F03.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo nồng độ khối lượng bụi (PM10; PM2,5) trong môi trường không khí xung quanh",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/2. Bieu mau/ETV.MCO.F03.01_BBHC_BuiXQ.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/2. Bieu mau/ETV.MCO.F03.01_BBHC_BuiXQ.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCO.F04.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo hàm lượng bụi trong khí thải",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/2. Bieu mau/ETV.MCO.F04.01_BBHC_BuiKhiThai.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/2. Bieu mau/ETV.MCO.F04.01_BBHC_BuiKhiThai.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCP 01",
+      "title": "Huyết áp kế — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 76:2001",
+        "ĐLVN 09:2011"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/1. Quy trinh/ETV.MCP.01_QTHC_HuyetApKe.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/1. Quy trinh/ETV.MCP.01_QTHC_HuyetApKe.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCP 02",
+      "title": "Áp kế kiểu chênh áp — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Ngọc Tuấn",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 76:2001",
+        "ĐLVN 236:2011"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/1. Quy trinh/ETV.MCP.02_QTHC_ChenhAp.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/1. Quy trinh/ETV.MCP.02_QTHC_ChenhAp.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCP 03",
+      "title": "Nồi hấp tiệt trùng (áp suất) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(cần xác nhận — xem ghi chú)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "TCVN 6792:2001",
+        "ĐLVN 131:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 113:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/1. Quy trinh/ETV.MCP.03_QTHC_ApSuatNoiHap.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP03_ApSuatNoiHap/1. Quy trinh/ETV.MCP.03_QTHC_ApSuatNoiHap.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCP.F01.01",
+      "title": "Biên bản hiệu chuẩn — Huyết áp kế",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/2. Bieu mau/ETV.MCP.F01.01_BBHC_HuyetApKe.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/2. Bieu mau/ETV.MCP.F01.01_BBHC_HuyetApKe.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCP.F02.01",
+      "title": "Biên bản hiệu chuẩn — Áp kế kiểu chênh áp",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/2. Bieu mau/ETV.MCP.F02.01_BBHC_ChenhAp.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/2. Bieu mau/ETV.MCP.F02.01_BBHC_ChenhAp.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCS 01",
+      "title": "Phương tiện đo độ ồn — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2015"
+      ],
+      "legal_basis": [
+        "ĐLVN 89:2010",
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/1. Quy trinh/ETV.MCS.01_QTHC_DoOn.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/1. Quy trinh/ETV.MCS.01_QTHC_DoOn.md",
+      "iso_standard": "ISO/IEC 17025:2015"
+    },
+    {
+      "code": "ETV.MCS 02",
+      "title": "Máy tốc độ vòng quay — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 165:2005",
+        "ĐLVN 131:2004"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/1. Quy trinh/ETV.MCS.02_QTHC_TocDoVongQuay.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/1. Quy trinh/ETV.MCS.02_QTHC_TocDoVongQuay.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCS 03",
+      "title": "Máy thử độ hòa tan viên nén và viên nang — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen/1. Quy trinh/ETV.MCS.03_QTHC_HoaTanVienNen.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS03_HoaTanVienNen/1. Quy trinh/ETV.MCS.03_QTHC_HoaTanVienNen.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCS 04",
+      "title": "Máy thử độ mài mòn — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon/1. Quy trinh/ETV.MCS.04_QTHC_MaiMon.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS04_MaiMon/1. Quy trinh/ETV.MCS.04_QTHC_MaiMon.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCS 05",
+      "title": "Máy thử độ tan rã — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa/1. Quy trinh/ETV.MCS.05_QTHC_TanRa.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS05_TanRa/1. Quy trinh/ETV.MCS.05_QTHC_TanRa.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCS 06",
+      "title": "Đồng hồ bấm giây — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "01",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay/1. Quy trinh/ETV.MCS.06_QTHC_DongHoBamGiay.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS06_DongHoBamGiay/1. Quy trinh/ETV.MCS.06_QTHC_DongHoBamGiay.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCS.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo độ ồn",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/2. Bieu mau/ETV.MCS.F01.01_BBHC_DoOn.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/2. Bieu mau/ETV.MCS.F01.01_BBHC_DoOn.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCS.F02.01",
+      "title": "Biên bản hiệu chuẩn — Máy tốc độ vòng quay",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/2. Bieu mau/ETV.MCS.F02.01_BBHC_TocDoVongQuay.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/2. Bieu mau/ETV.MCS.F02.01_BBHC_TocDoVongQuay.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT 01",
+      "title": "Tủ nhiệt — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003",
+        "VMI-CP 17:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/1. Quy trinh/ETV.MCT.01_QTHC_TuNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/1. Quy trinh/ETV.MCT.01_QTHC_TuNhiet.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 02",
+      "title": "Thiết bị phá mẫu COD và thiết bị tương tự — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/1. Quy trinh/ETV.MCT.02_QTHC_PhaMauCOD.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/1. Quy trinh/ETV.MCT.02_QTHC_PhaMauCOD.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 03",
+      "title": "Phương tiện đo nhiệt độ không khí — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/1. Quy trinh/ETV.MCT.03_QTHC_NhietDoKhongKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/1. Quy trinh/ETV.MCT.03_QTHC_NhietDoKhongKhi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 04",
+      "title": "Cặp nhiệt điện công nghiệp — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 123:2003",
+        "ĐLVN 131:2003",
+        "ĐLVN 161:2005"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/1. Quy trinh/ETV.MCT.04_QTHC_CapNhietDoK.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/1. Quy trinh/ETV.MCT.04_QTHC_CapNhietDoK.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 05",
+      "title": "Lò nhiệt độ — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003",
+        "VMI-CP 16:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/1. Quy trinh/ETV.MCT.05_QTHC_LoNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/1. Quy trinh/ETV.MCT.05_QTHC_LoNhiet.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 06",
+      "title": "Nồi hấp tiệt trùng (Nhiệt độ) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003",
+        "TCVN 6792:2001"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/1. Quy trinh/ETV.MCT.06_QTHC_HapTietTrung.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/1. Quy trinh/ETV.MCT.06_QTHC_HapTietTrung.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 07",
+      "title": "Bể điều nhiệt — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003",
+        "VMI-CP 17:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/1. Quy trinh/ETV.MCT.07_QTHC_BeDieuNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/1. Quy trinh/ETV.MCT.07_QTHC_BeDieuNhiet.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 08",
+      "title": "Thiết bị chưng cất đạm — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/1. Quy trinh/ETV.MCT.08_QTHC_ChungCatDam.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/1. Quy trinh/ETV.MCT.08_QTHC_ChungCatDam.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 09",
+      "title": "Nhiệt kế thủy tinh chất lỏng — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 131:2003",
+        "ĐLVN 137:2004"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/1. Quy trinh/ETV.MCT.09_QTHC_NhietKeThuyTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/1. Quy trinh/ETV.MCT.09_QTHC_NhietKeThuyTinh.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 10",
+      "title": "Nhiệt kế thuỷ tinh — thuỷ ngân có cơ cấu cực đại — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 131:2003",
+        "ĐLVN 159:2017"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT10_NhietKeTTTNCucDai/1. Quy trinh/ETV.MCT.10_QTHC_NhietKeCucDai.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT10_NhietKeTTTNCucDai/1. Quy trinh/ETV.MCT.10_QTHC_NhietKeCucDai.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 11",
+      "title": "Nhiệt kế y học thuỷ tinh — thuỷ ngân có cơ cấu cực đại — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 131:2003",
+        "ĐLVN 21:2017"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT11_NhietKeYHoc/1. Quy trinh/ETV.MCT.11_QTHC_NhietKeYHoc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT11_NhietKeYHoc/1. Quy trinh/ETV.MCT.11_QTHC_NhietKeYHoc.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 12",
+      "title": "Lò nung — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 138:2004",
+        "ĐLVN 127:2003",
+        "ĐLVN 131:2003",
+        "VMI-CP 17:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/1. Quy trinh/ETV.MCT.12_QTHC_LoNung.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/1. Quy trinh/ETV.MCT.12_QTHC_LoNung.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT 13",
+      "title": "Lò vi sóng — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "*(bản gốc để trống)*",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "TCVN 5699-2-25:2007",
+        "ASTM F1317-98"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/1. Quy trinh/ETV.MCT.13_QTHC_LoViSong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/1. Quy trinh/ETV.MCT.13_QTHC_LoViSong.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCT.F01.01",
+      "title": "Biên bản hiệu chuẩn — Tủ nhiệt",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/2. Bieu mau/ETV.MCT.F01.01_BBHC_TuNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/2. Bieu mau/ETV.MCT.F01.01_BBHC_TuNhiet.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F02.01",
+      "title": "Biên bản hiệu chuẩn — Thiết bị phá mẫu COD và thiết bị tương tự",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/2. Bieu mau/ETV.MCT.F02.01_BBHC_PhaMauCOD.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/2. Bieu mau/ETV.MCT.F02.01_BBHC_PhaMauCOD.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F03.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo nhiệt độ không khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/2. Bieu mau/ETV.MCT.F03.01_BBHC_NhietDoKhongKhi.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/2. Bieu mau/ETV.MCT.F03.01_BBHC_NhietDoKhongKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F04.01",
+      "title": "Biên bản hiệu chuẩn — Cặp nhiệt điện công nghiệp",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/2. Bieu mau/ETV.MCT.F04.01_BBHC_CapNhietDoK.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/2. Bieu mau/ETV.MCT.F04.01_BBHC_CapNhietDoK.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F05.01",
+      "title": "Biên bản hiệu chuẩn — Lò nhiệt độ",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/2. Bieu mau/ETV.MCT.F05.01_BBHC_LoNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/2. Bieu mau/ETV.MCT.F05.01_BBHC_LoNhiet.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F06.01",
+      "title": "Biên bản hiệu chuẩn — Nồi hấp tiệt trùng (Nhiệt độ)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/2. Bieu mau/ETV.MCT.F06.01_BBHC_HapTietTrung.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/2. Bieu mau/ETV.MCT.F06.01_BBHC_HapTietTrung.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F07.01",
+      "title": "Biên bản hiệu chuẩn — Bể điều nhiệt",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/2. Bieu mau/ETV.MCT.F07.01_BBHC_BeDieuNhiet.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/2. Bieu mau/ETV.MCT.F07.01_BBHC_BeDieuNhiet.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F08.01",
+      "title": "Biên bản hiệu chuẩn — Thiết bị chưng cất đạm",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/2. Bieu mau/ETV.MCT.F08.01_BBHC_ChungCatDam.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/2. Bieu mau/ETV.MCT.F08.01_BBHC_ChungCatDam.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F09.01",
+      "title": "Biên bản hiệu chuẩn — Nhiệt kế thủy tinh chất lỏng",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/2. Bieu mau/ETV.MCT.F09.01_BBHC_NhietKeThuyTinh.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/2. Bieu mau/ETV.MCT.F09.01_BBHC_NhietKeThuyTinh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F12.01",
+      "title": "Biên bản hiệu chuẩn — Lò nung",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/2. Bieu mau/ETV.MCT.F12.01_BBHC_LoNung.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/2. Bieu mau/ETV.MCT.F12.01_BBHC_LoNung.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCT.F13.01",
+      "title": "Biên bản hiệu chuẩn — Lò vi sóng",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/2. Bieu mau/ETV.MCT.F13.01_BBHC_LoViSong.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/2. Bieu mau/ETV.MCT.F13.01_BBHC_LoViSong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW 01",
+      "title": "Phương tiện đo pH — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 31:2017",
+        "ĐLVN 381:2021"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/1. Quy trinh/ETV.MCW.01_QTHC_pH.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/1. Quy trinh/ETV.MCW.01_QTHC_pH.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 02",
+      "title": "Phương tiện đo độ dẫn điện (EC) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 274:2014",
+        "ĐLVN 383:2021"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/1. Quy trinh/ETV.MCW.02_QTHC_EC.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/1. Quy trinh/ETV.MCW.02_QTHC_EC.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 03",
+      "title": "Phương tiện đo độ đục — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 275:2016",
+        "ĐLVN 384:2021"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/1. Quy trinh/ETV.MCW.03_QTHC_DoDuc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/1. Quy trinh/ETV.MCW.03_QTHC_DoDuc.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 04",
+      "title": "Phương tiện đo thế ôxy hoá khử (ORP) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/1. Quy trinh/ETV.MCW.04_QTHC_ORP.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/1. Quy trinh/ETV.MCW.04_QTHC_ORP.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 05",
+      "title": "Phương tiện đo tổng chất rắn hòa tan (TDS) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 80:2016",
+        "ĐLVN 382:2021"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/1. Quy trinh/ETV.MCW.05_QTHC_TDS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/1. Quy trinh/ETV.MCW.05_QTHC_TDS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 06",
+      "title": "Phương tiện đo oxy hòa tan (DO) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017",
+        "ISO 5814:2012"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 276:2014",
+        "ĐLVN 385:2021",
+        "TCVN 7325:2016",
+        "TCVN 7324:2004"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/1. Quy trinh/ETV.MCW.06_QTHC_DO.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/1. Quy trinh/ETV.MCW.06_QTHC_DO.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 07",
+      "title": "Phương tiện đo độ mặn (SALT) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 274:2014"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/1. Quy trinh/ETV.MCW.07_QTHC_DoMan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/1. Quy trinh/ETV.MCW.07_QTHC_DoMan.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 08",
+      "title": "Phương tiện đo nồng độ các chất trong nước — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/1. Quy trinh/ETV.MCW.08_QTHC_NongDoChatTrongNuoc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/1. Quy trinh/ETV.MCW.08_QTHC_NongDoChatTrongNuoc.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 09",
+      "title": "Phương tiện đo quang phổ hấp thụ nguyên tử (AAS) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003",
+        "ĐLVN 353:2020",
+        "JCGM 100:2008 (GUM)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/1. Quy trinh/ETV.MCW.09_QTHC_AAS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/1. Quy trinh/ETV.MCW.09_QTHC_AAS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 10",
+      "title": "Phương tiện đo điện trở suất trong nước — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 131:2003"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat/1. Quy trinh/ETV.MCW.10_QTHC_DienTroSuat.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW10_DienTroSuat/1. Quy trinh/ETV.MCW.10_QTHC_DienTroSuat.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 12",
+      "title": "Hệ thống phân tích sắc ký lỏng (HPLC) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC/1. Quy trinh/ETV.MCW.12_QTHC_HPLC.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW12_HPLC/1. Quy trinh/ETV.MCW.12_QTHC_HPLC.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW 13",
+      "title": "Hệ thống cảm ứng cao tần plasma (ICP) — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Nguyễn Văn Đồng",
+      "reviewer": "Trần Thị Hoa",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP/1. Quy trinh/ETV.MCW.13_QTHC_ICP.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW13_ICP/1. Quy trinh/ETV.MCW.13_QTHC_ICP.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MCW.F01.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo pH",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/2. Bieu mau/ETV.MCW.F01.01_BBHC_pH.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/2. Bieu mau/ETV.MCW.F01.01_BBHC_pH.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F02.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo độ dẫn điện (EC)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/2. Bieu mau/ETV.MCW.F02.01_BBHC_EC.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/2. Bieu mau/ETV.MCW.F02.01_BBHC_EC.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F03.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo độ đục",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/2. Bieu mau/ETV.MCW.F03.01_BBHC_DoDuc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/2. Bieu mau/ETV.MCW.F03.01_BBHC_DoDuc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F04.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo thế ôxy hoá khử (ORP)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/2. Bieu mau/ETV.MCW.F04.01_BBHC_ORP.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/2. Bieu mau/ETV.MCW.F04.01_BBHC_ORP.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F05.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo tổng chất rắn hòa tan (TDS)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/2. Bieu mau/ETV.MCW.F05.01_BBHC_TDS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/2. Bieu mau/ETV.MCW.F05.01_BBHC_TDS.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F06.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo oxy hòa tan (DO)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/2. Bieu mau/ETV.MCW.F06.01_BBHC_DO.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/2. Bieu mau/ETV.MCW.F06.01_BBHC_DO.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F07.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo độ mặn (SALT)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/2. Bieu mau/ETV.MCW.F07.01_BBHC_DoMan.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/2. Bieu mau/ETV.MCW.F07.01_BBHC_DoMan.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F08.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo nồng độ các chất trong nước",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/2. Bieu mau/ETV.MCW.F08.01_BBHC_NongDoChatTrongNuoc.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/2. Bieu mau/ETV.MCW.F08.01_BBHC_NongDoChatTrongNuoc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MCW.F09.01",
+      "title": "Biên bản hiệu chuẩn — Phương tiện đo quang phổ hấp thụ nguyên tử (AAS)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2026",
+      "revision": "03",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/2. Bieu mau/ETV.MCW.F09.01_BBHC_AAS.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/2. Bieu mau/ETV.MCW.F09.01_BBHC_AAS.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MEL 02",
+      "title": "Giáo trình đào tạo phương tiện đo định vị bằng vệ tinh (GPS/GNSS)",
+      "type": "Giao-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "27/05/2026",
+      "revision": "01",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 2011"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/1. Quy trinh/ETV.MEL.02_Giao_trinh_Ma_dinh_vi_GPS.md",
+      "relative_path": "03_M/ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/1. Quy trinh/ETV.MEL.02_Giao_trinh_Ma_dinh_vi_GPS.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MEMC 01",
+      "title": "Giáo trình đào tạo nhận thức chung về tổ chức và hội nhập nhân sự",
+      "type": "Giao-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "20/07/2026",
+      "revision": "01",
+      "author": "**Dương Thành Nam**",
+      "reviewer": "**Trần Thị Hoa**",
+      "approver": "**Nguyễn Hoàng Giang**",
+      "iso_clause": [
+        "ISO 9001:2015",
+        "ISO/IEC 17025:2017",
+        "ISO/IEC 27001:2022"
+      ],
+      "legal_basis": [
+        "Bộ luật Lao động 2019"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
+      "relative_path": "03_M/ETV.ME_DaoTao/12. ME_MetrologyFoundation/MEMC01_NhanThucToChucHoiNhap/1. Quy trinh/ETV.MEMC.01_Giao_trinh_Nhan_thuc_chung_ve_to_chuc_va_hoi_nhap_nhan_su.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO/IEC 27001:2022"
+    },
+    {
+      "code": "ETV.MES 02",
+      "title": "Giáo trình đào tạo phương tiện đo đồng hồ bấm giây",
+      "type": "Giao-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "27/05/2026",
+      "revision": "01",
+      "author": "**Dương Thành Nam**",
+      "reviewer": "**Trần Thị Hoa**",
+      "approver": "**Nguyễn Hoàng Giang**",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 2011"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.ME_DaoTao/5. ME_Frequency/MES02_DongHoBamGiay/1. Quy trinh/ETV.MES.02_Giao_trinh_dao_tao_Dong_ho_bam_giay.md",
+      "relative_path": "03_M/ETV.ME_DaoTao/5. ME_Frequency/MES02_DongHoBamGiay/1. Quy trinh/ETV.MES.02_Giao_trinh_dao_tao_Dong_ho_bam_giay.md",
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
@@ -147,18 +2311,98 @@
       "status": "Da-phe-duyet",
       "effective_date": "22/04/2023",
       "revision": "02",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BienBanKiemDinh.md",
-      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BienBanKiemDinh.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BBKD_NongDoKhiXQ.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BBKD_NongDoKhiXQ.md",
       "iso_standard": ""
     },
     {
-      "code": "ETV.P.F14.01",
-      "title": "ETV.P.F14.01 DeNghiSoatXetBanHanhVanBan",
+      "code": "ETV.P.F01.01",
+      "title": "Biểu mẫu Hành động khắc phục, giải quyết rủi ro, cải tiến",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "",
+      "reviewer": "..../..../....",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
+      "relative_path": "04_F/ETV.P.F01.01_HanhDongKhacPhuc_GiaiQuyetRuiRo_CaiTien.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F01.02-MucTieu",
+      "title": "Bảng nhận diện và quản lý rủi ro (theo Mục tiêu)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2019",
+      "revision": "01",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.02_BangTongHop_MucTieu.md",
+      "relative_path": "04_F/ETV.P.F01.02_BangTongHop_MucTieu.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F01.02-QuaTrinh",
+      "title": "Bảng tổng hợp hành động khắc phục, giải quyết rủi ro và cải tiến (theo Quá trình)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2019",
+      "revision": "01",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.02_BangTongHop_QuaTrinh.md",
+      "relative_path": "04_F/ETV.P.F01.02_BangTongHop_QuaTrinh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F01.03",
+      "title": "Biện pháp đảm bảo VSMT, PCCC, ATLĐ (Phương án thi công và biện pháp an toàn lao động)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
+      "relative_path": "04_F/ETV.P.F01.03_BienPhapDamBao_VSMT_PCCC_ATLD.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F01.04",
+      "title": "Cam kết thực hiện an toàn lao động (làm việc trên cao)",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "2023",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
+      "relative_path": "04_F/ETV.P.F01.04_CamKet_ATLD_TrenCao.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.01",
+      "title": "ETV.P.F10.01 KeHoachDamBaoHieuLuc",
       "type": "Biểu-mẫu",
       "status": "Da-phe-duyet",
       "effective_date": "",
@@ -168,8 +2412,152 @@
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
-      "relative_path": "04_F/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
+      "relative_path": "04_F/ETV.P.F10.01_KeHoachDamBaoHieuLuc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.02",
+      "title": "ETV.P.F10.02 HoSoQCNoiBo",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.02_HoSoQCNoiBo.md",
+      "relative_path": "04_F/ETV.P.F10.02_HoSoQCNoiBo.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.03",
+      "title": "ETV.P.F10.03 DanhGiaTayNghe",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.03_DanhGiaTayNghe.md",
+      "relative_path": "04_F/ETV.P.F10.03_DanhGiaTayNghe.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.04",
+      "title": "ETV.P.F10.04 HoSoPT ILC",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.04_HoSoPT_ILC.md",
+      "relative_path": "04_F/ETV.P.F10.04_HoSoPT_ILC.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.05",
+      "title": "ETV.P.F10.05 DongNhatRM CRM",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.05_DongNhatRM_CRM.md",
+      "relative_path": "04_F/ETV.P.F10.05_DongNhatRM_CRM.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.06",
+      "title": "ETV.P.F10.06 OnDinhRM CRM",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.06_OnDinhRM_CRM.md",
+      "relative_path": "04_F/ETV.P.F10.06_OnDinhRM_CRM.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.07",
+      "title": "ETV.P.F10.07 DacTrungAnDinhGiaTri",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
+      "relative_path": "04_F/ETV.P.F10.07_DacTrungAnDinhGiaTri.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.08",
+      "title": "ETV.P.F10.08 XacNhanCongCuSoAI",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.08_XacNhanCongCuSoAI.md",
+      "relative_path": "04_F/ETV.P.F10.08_XacNhanCongCuSoAI.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F10.09",
+      "title": "ETV.P.F10.09 CongBoTrangThaiP10",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F10.09_CongBoTrangThaiP10.md",
+      "relative_path": "04_F/ETV.P.F10.09_CongBoTrangThaiP10.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F14.01",
+      "title": "Phiếu đề nghị ban hành văn bản — Hướng dẫn ETV.GAI 01 Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "30/08/2026",
+      "revision": "01",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
+      "relative_path": "04_F/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md",
       "iso_standard": ""
     },
     {
@@ -253,15 +2641,451 @@
       "iso_standard": ""
     },
     {
+      "code": "ETV.P.F19.01",
+      "title": "ETV.P.F19.01_LapKeHoach.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "Lãnh đạo Phòng",
+      "approver": "Lãnh đạo Viện",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.01_LapKeHoach.md",
+      "relative_path": "04_F/ETV.P.F19.01_LapKeHoach.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F19.02",
+      "title": "ETV.P.F19.02_DanhGiaKeHoach.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "Lãnh đạo Phòng",
+      "approver": "Lãnh đạo Viện",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.02_DanhGiaKeHoach.md",
+      "relative_path": "04_F/ETV.P.F19.02_DanhGiaKeHoach.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F19.03",
+      "title": "ETV.P.F19.03_KetQuaSanXuat.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "Lãnh đạo Phòng",
+      "approver": "Lãnh đạo Viện",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F19.03_KetQuaSanXuat.md",
+      "relative_path": "04_F/ETV.P.F19.03_KetQuaSanXuat.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F24.01",
+      "title": "ETV.P.F24.01_BangChamCong.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "---\n\n## CHỮ KÝ & PHÊDUYỆT",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.01_BangChamCong.md",
+      "relative_path": "04_F/ETV.P.F24.01_BangChamCong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F24.02",
+      "title": "ETV.P.F24.02_TheoDoiLuongThuong.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.02_TheoDoiLuongThuong.md",
+      "relative_path": "04_F/ETV.P.F24.02_TheoDoiLuongThuong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F24.03",
+      "title": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F24.03_QuyetDinhLuongThuong.md",
+      "relative_path": "04_F/ETV.P.F24.03_QuyetDinhLuongThuong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F42.01",
+      "title": "ETV.P.F42.01 XacNhan CamKetNoiQuy",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+      "relative_path": "04_F/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F42.02",
+      "title": "ETV.P.F42.02 QuyetDinhBanHanh",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.02_QuyetDinhBanHanh.md",
+      "relative_path": "04_F/ETV.P.F42.02_QuyetDinhBanHanh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F42.03",
+      "title": "ETV.P.F42.03 DeNghiDangKy",
+      "type": "Biểu-mẫu",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/04_F/ETV.P.F42.03_DeNghiDangKy.md",
+      "relative_path": "04_F/ETV.P.F42.03_DeNghiDangKy.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P01",
+      "title": "Thủ tục Giải quyết rủi ro và cơ hội",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/07/2026",
+      "revision": "03",
+      "author": "Dương Thanh Nam (17/07/2026)",
+      "reviewer": "Trần Thị Hoa (18/07/2026)",
+      "approver": "Nguyễn Hoàng Giang (19/07/2026)",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §8.5",
+        "ISO 9001:2015 §6.1"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P01_RuiRoCoHoi.md",
+      "relative_path": "02_P/ETV.P01_RuiRoCoHoi.md",
+      "iso_standard": "ISO/IEC 17025:2017, ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P02",
+      "title": "Thủ tục Bảo mật",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "18/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 18/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 18/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.5",
+        "ISO/IEC 17025:2017 §4.2, §8.3",
+        "ISO/IEC 27001:2022 A.5.9–A.5.18, A.5.37, A.8.13"
+      ],
+      "legal_basis": [
+        "Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân — cần LĐP xác nhận định kỳ hiệu lực/văn bản thay thế"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P02_BaoMat.md",
+      "relative_path": "02_P/ETV.P02_BaoMat.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO/IEC 27001:2022"
+    },
+    {
+      "code": "ETV.P03",
+      "title": "Thủ tục Quản lý Nhân sự",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "20/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 18/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 19/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 20/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.2, §7.2",
+        "ISO/IEC 17025:2017 §6.2"
+      ],
+      "legal_basis": [
+        "Bộ luật Lao động số 45/2019/QH14",
+        "Nghị định 145/2020/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Bộ luật Lao động về điều kiện lao động và quan hệ lao động",
+        "Luật Bảo hiểm xã hội số 41/2024/QH15 (hiệu lực từ 01/7/2025) — cần LĐP xác nhận hiệu lực/văn bản thay thế tại thời điểm ban hành",
+        "Luật An toàn, vệ sinh lao động số 84/2015/QH13"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P03_NhanSu.md",
+      "relative_path": "02_P/ETV.P03_NhanSu.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P04",
+      "title": "Thủ tục Cơ sở vật chất và Điều kiện môi trường",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.3 (Cơ sở hạ tầng), §7.1.4 (Môi trường cho việc thực hiện quá trình)",
+        "ISO/IEC 17025:2017 §6.3 (Tiện nghi và điều kiện môi trường)"
+      ],
+      "legal_basis": [
+        "Luật An toàn, vệ sinh lao động số 84/2015/QH13",
+        "Luật Bảo vệ môi trường số 72/2020/QH14",
+        "Luật Hóa chất hiện hành và các nghị định hướng dẫn về quản lý hóa chất — cần LĐP xác nhận số hiệu/hiệu lực tại thời điểm ban hành do có nhóm nghị định hướng dẫn mới ban hành năm 2026",
+        "QCVN 03:2011/BLĐTBXH (an toàn điện)",
+        "QCVN 18:2004/BXD (an toàn trong xây dựng, chiếu sáng công trường)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P04_MoiTruong.md",
+      "relative_path": "02_P/ETV.P04_MoiTruong.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P05",
+      "title": "Thủ tục Kiểm soát Thiết bị, Chuẩn và Chất chuẩn",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.5 (Nguồn lực theo dõi và đo lường)",
+        "ISO/IEC 17025:2017 §6.4 (Thiết bị)",
+        "ISO/IEC 17025:2017 §6.5 (Liên kết chuẩn đo lường)"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 04/2011/QH13",
+        "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP",
+        "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md",
+      "relative_path": "02_P/ETV.P05_ThietBi.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P06",
+      "title": "Thủ tục Mua Sản phẩm và Dịch vụ do Bên ngoài Cung cấp",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §8.4 (Kiểm soát các quá trình, sản phẩm và dịch vụ do bên ngoài cung cấp)",
+        "ISO/IEC 17025:2017 §6.6 (Sản phẩm và dịch vụ do bên ngoài cung cấp)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P06_MuaSam.md",
+      "relative_path": "02_P/ETV.P06_MuaSam.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P07",
+      "title": "Thủ tục Xem xét Yêu cầu, Đề nghị thầu và Hợp đồng",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §8.2 (Yêu cầu đối với sản phẩm và dịch vụ)",
+        "ISO/IEC 17025:2017 §7.1 (Xem xét yêu cầu, đề nghị thầu và hợp đồng)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P07_HopDong.md",
+      "relative_path": "02_P/ETV.P07_HopDong.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P08",
+      "title": "Thủ tục Lựa chọn Phương pháp, Kiểm tra Xác nhận, Xác nhận Giá trị Sử dụng và Đánh giá Độ không đảm bảo đo",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §8.3 (Thiết kế và phát triển sản phẩm, dịch vụ)",
+        "ISO/IEC 17025:2017 §7.2 (Lựa chọn, kiểm tra xác nhận và xác nhận giá trị sử dụng của phương pháp)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md",
+      "relative_path": "02_P/ETV.P08_PhuongPhap.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P09",
+      "title": "Thủ tục Lấy mẫu, Xử lý và Bảo quản mẫu",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §7.4 (Xử lý đối tượng thử nghiệm/hiệu chuẩn)",
+        "ISO/IEC 17025:2017 §7.3 (Lấy mẫu)"
+      ],
+      "legal_basis": [
+        "Luật Bảo vệ môi trường 72/2020/QH14",
+        "Nghị định 08/2022/NĐ-CP quy định chi tiết một số điều của Luật Bảo vệ môi trường",
+        "Nghị định 05/2025/NĐ-CP sửa đổi, bổ sung Nghị định 08/2022/NĐ-CP",
+        "Thông tư 02/2022/TT-BTNMT quy định chi tiết thi hành một số điều của Luật Bảo vệ môi trường",
+        "Thông tư 10/2021/TT-BTNMT quy định kỹ thuật quan trắc môi trường"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P09_LayMau.md",
+      "relative_path": "02_P/ETV.P09_LayMau.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P10",
+      "title": "Thủ tục Đảm bảo hiệu lực của các kết quả",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "15/07/2026",
+      "revision": "04",
+      "author": "Trần Thị Hoa",
+      "reviewer": "Nguyễn Ngọc Tuấn",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO 9001:2015 §4.2/6.1/7.5/8.1/8.4/8.6/8.7/9.1/10.2",
+        "ISO/IEC 17025:2017 §4.1/4.2/7.5/7.7/7.10/7.11/8.3/8.5-8.7",
+        "ISO 17034:2016 §7.7-7.15/8.3",
+        "ISO/IEC 27001:2022 §6.1/7.5/8-10",
+        "ISO/IEC 42001:2023 §7.5"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 04/2011/QH13",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Luật Dữ liệu 60/2024/QH15",
+        "Luật Bảo vệ môi trường 72/2020/QH14",
+        "Luật An ninh mạng 24/2018/QH14",
+        "Luật Bảo vệ quyền lợi người tiêu dùng 19/2023/QH15"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md",
+      "relative_path": "02_P/ETV.P10_DamBaoHieuLucKetQua.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P11",
+      "title": "Thủ tục Báo cáo Kết quả (Quản lý Nhãn, Tem, Giấy chứng nhận)",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §8.6 (Thông qua sản phẩm và dịch vụ)",
+        "ISO/IEC 17025:2017 §7.8 (Báo cáo kết quả)"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 04/2011/QH13",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Nghị định 107/2016/NĐ-CP quy định về điều kiện kinh doanh dịch vụ đánh giá sự phù hợp — cần LĐP xác nhận số hiệu/hiệu lực hiện hành, bản gốc chỉ ghi tắt \"Nghị định 107\"",
+        "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP và Nghị định 107/2016/NĐ-CP",
+        "Nghị định 23/2025/NĐ-CP quy định về chữ ký điện tử và dịch vụ tin cậy",
+        "Thông tư 54/2025/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn phương tiện đo, chuẩn đo lường"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md",
+      "relative_path": "02_P/ETV.P11_BaoCao.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P12",
+      "title": "Thủ tục Giải quyết Khiếu nại, Phàn nàn, Góp ý",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §9.1.2 (Sự thỏa mãn của khách hàng), §10.2 (Sự không phù hợp và hành động khắc phục)",
+        "ISO/IEC 17025:2017 §7.9 (Phàn nàn)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
+      "relative_path": "02_P/ETV.P12_KhieuNai.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P13",
+      "title": "Thủ tục Kiểm soát Công việc Không phù hợp",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §10.2 (Sự không phù hợp và hành động khắc phục)",
+        "ISO/IEC 17025:2017 §7.10 (Công việc không phù hợp)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md",
+      "relative_path": "02_P/ETV.P13_KhacPhuc.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
       "code": "ETV.P14",
       "title": "Thủ tục Kiểm soát tài liệu, dữ liệu, thông tin",
       "type": "Thu-tuc",
       "status": "Da-phe-duyet",
-      "effective_date": "01/07/2026",
-      "revision": "03",
-      "author": "Nguyễn Văn Đồng",
-      "reviewer": "Trần Thị Hoa",
-      "approver": "Nguyễn Hoàng Giang",
+      "effective_date": "30/08/2026",
+      "revision": "04",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa (30/08/2026)",
+      "approver": "Nguyễn Hoàng Giang (30/08/2026)",
       "iso_clause": [
         "ISO/IEC 17025:2017 §8.3",
         "ISO 9001:2015 §7.5",
@@ -304,6 +3128,101 @@
       "iso_standard": "ISO/IEC 17025:2017, ISO 9001:2015, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
     },
     {
+      "code": "ETV.P16",
+      "title": "Thủ tục Đánh giá Nội bộ/Bên ngoài",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §9.2 (Đánh giá nội bộ)",
+        "ISO/IEC 17025:2017 §8.8 (Đánh giá nội bộ)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P16_DanhGiaNoiBo.md",
+      "relative_path": "02_P/ETV.P16_DanhGiaNoiBo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P17",
+      "title": "Thủ tục Xem xét của Lãnh đạo",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "03",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §9.3 (Xem xét của lãnh đạo)",
+        "ISO/IEC 17025:2017 §8.9 (Xem xét của lãnh đạo)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P17_XemXetLanhDao.md",
+      "relative_path": "02_P/ETV.P17_XemXetLanhDao.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P18",
+      "title": "Thủ tục Quy tắc Quyết định và Tuyên bố Sự phù hợp",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §3.7 (Định nghĩa quy tắc quyết định)",
+        "ISO/IEC 17025:2017 §7.1.3 (Thỏa thuận về quy tắc quyết định với khách hàng)",
+        "ISO/IEC 17025:2017 §7.8.6 (Báo cáo tuyên bố sự phù hợp)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P18_QuyTacQuyetDinh.md",
+      "relative_path": "02_P/ETV.P18_QuyTacQuyetDinh.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P19",
+      "title": "ETV.P19_SanXuatCRM.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
+      "relative_path": "02_P/ETV.P19_SanXuatCRM.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P20",
+      "title": "Thủ tục Phân phối Sản phẩm và Truy xuất Nguồn gốc",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO 17034:2016 §7.14, §7.15 (tài liệu kèm theo, nhãn mẫu, bảo quản và phân phối mẫu chuẩn)",
+        "ISO/IEC 17025:2017 §6.4 (kiểm soát thiết bị), §7.8 và §7.11 (kiểm soát dữ liệu, báo cáo kết quả)",
+        "ISO 33401:2024 (nội dung chứng chỉ, nhãn, tài liệu kèm theo mẫu chuẩn)",
+        "ISO 33405:2023 (đánh giá độ đồng nhất và ổn định mẫu chuẩn)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md",
+      "relative_path": "02_P/ETV.P20_PhanPhoi.md",
+      "iso_standard": "ISO 17034:2016, ISO/IEC 17025:2017"
+    },
+    {
       "code": "ETV.P21",
       "title": "Thủ tục Công bố, Thông báo và Kiểm soát Năng lực Đo lường và Quan trắc Môi trường",
       "type": "Thu-tuc",
@@ -324,6 +3243,608 @@
       "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
       "relative_path": "02_P/ETV.P21_CongBoKiemSoatNangLuc.md",
       "iso_standard": "ISO/IEC 17025:2017, ISO 17034:2016"
+    },
+    {
+      "code": "ETV.P22",
+      "title": "Thủ tục Đảm bảo Đo lường tại Doanh nghiệp",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 (tham chiếu chung — thủ tục dựa trên chương trình quốc gia, không gắn một điều khoản cụ thể)"
+      ],
+      "legal_basis": [
+        "Quyết định số 510/QĐ-BKHCN ngày 17/3/2021 của Bộ trưởng Bộ Khoa học và Công nghệ ban hành Hướng dẫn xây dựng và triển khai thực hiện Chương trình đảm bảo đo lường tại doanh nghiệp",
+        "Quyết định số 996/QĐ-TTg ngày 10/8/2018 của Thủ tướng Chính phủ phê duyệt Đề án Tăng cường, đổi mới hoạt động đo lường hỗ trợ doanh nghiệp Việt Nam nâng cao năng lực cạnh tranh và hội nhập quốc tế đến năm 2025, định hướng đến năm 2030",
+        "Luật Đo lường 04/2011/QH13"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P22_DamBaoDoLuongDN.md",
+      "relative_path": "02_P/ETV.P22_DamBaoDoLuongDN.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P23",
+      "title": "Thủ tục Công bố Giá trị Danh định và Độ không đảm bảo đo của Chất chuẩn",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "21/07/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 21/07/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 21/07/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 21/07/2026",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 (tham chiếu chung)",
+        "ISO 17034:2016/2017 (yêu cầu chung năng lực nhà sản xuất chất chuẩn)",
+        "ISO 33401:2024 (nội dung chứng chỉ, nhãn, tài liệu kèm theo mẫu chuẩn)"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P23_CongBoCRM.md",
+      "relative_path": "02_P/ETV.P23_CongBoCRM.md",
+      "iso_standard": "ISO/IEC 17025:2017, ISO 17034:2016"
+    },
+    {
+      "code": "ETV.P24",
+      "title": "ETV.P24_QuanLyLuongThuong.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "LĐP",
+      "approver": "LĐV",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
+      "relative_path": "02_P/ETV.P24_QuanLyLuongThuong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P25",
+      "title": "ETV.P25_QuanLyBoiCanh.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "TP (≠ người lập)",
+      "approver": "**LĐV**",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P25_QuanLyBoiCanh.md",
+      "relative_path": "02_P/ETV.P25_QuanLyBoiCanh.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P26",
+      "title": "ETV.P26_QuanLyTriThuc.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "TP (≠ người lập)",
+      "approver": "**LĐV**",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P26_QuanLyTriThuc.md",
+      "relative_path": "02_P/ETV.P26_QuanLyTriThuc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P27",
+      "title": "Thủ tục Quản trị dữ liệu và tài sản thông tin",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "26/08/2026",
+      "revision": "01",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 26/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 26/08/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.5",
+        "ISO/IEC 17025:2017 §4.2, §7.11",
+        "ISO 17034:2016 §7.4",
+        "ISO/IEC 27001:2022 §8.2, A.5.9–A.5.14, A.5.33, A.7.10, A.8.10, A.8.13",
+        "ISO/IEC 42001:2023 §7.4"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân (theo dẫn chiếu tại ETV.P02 §6.9)",
+        "Pháp luật hiện hành về an toàn thông tin mạng"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P27_QuanTriDuLieuTaiSanTT.md",
+      "relative_path": "02_P/ETV.P27_QuanTriDuLieuTaiSanTT.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P28",
+      "title": "Thủ tục Quản lý an toàn thông tin",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "26/08/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, ngày 26/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ngày 26/08/2026",
+      "iso_clause": [
+        "ISO/IEC 27001:2022 §4, §5.2, §5.3, §6.1.2, §6.1.3, §6.2, §7.2, §7.3, §7.5, §8.1, §8.2, §8.3, §9.1, §9.2, §9.3, §10, Phụ lục A (A.5–A.8)",
+        "ISO/IEC 27002:2022 (tham khảo khi lập SoA)",
+        "ISO/IEC 27005 (tham khảo phương pháp rủi ro)",
+        "ISO 9001:2015 §6.1, §7.5, §9.3",
+        "ISO/IEC 17025:2017 §4.1, §4.2, §6.2, §7.11, §8.3, §8.5",
+        "ISO 17034:2016 §7.4, §8.3",
+        "ISO/IEC 42001:2023 §6.1, §8.1"
+      ],
+      "legal_basis": [
+        "Luật An toàn thông tin mạng 86/2015/QH13",
+        "Luật An ninh mạng 24/2018/QH14",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 13/2023/NĐ-CP",
+        "Nghị định 85/2016/NĐ-CP"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P28_QuanLyAnToanThongTin.md",
+      "relative_path": "02_P/ETV.P28_QuanLyAnToanThongTin.md",
+      "iso_standard": "ISO/IEC 27001:2022, ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P29",
+      "title": "ETV.P29_QuanLyTriTueNhanTao.md",
+      "type": "",
+      "status": "",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "**PT.AI** (≠ người lập)",
+      "approver": "**LĐV**",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P29_QuanLyTriTueNhanTao.md",
+      "relative_path": "02_P/ETV.P29_QuanLyTriTueNhanTao.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P30",
+      "title": "Thủ tục Quản lý thay đổi",
+      "type": "Thu-tuc",
+      "status": "Cho-soat-xet",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dương Thành Nam — ..../..../........",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........",
+      "iso_clause": [
+        "ISO 9001:2015 §6.3 (Hoạch định thay đổi)",
+        "ISO 9001:2015 §8.5.6 (Kiểm soát thay đổi)",
+        "ISO/IEC 17025:2017 §8.2.4 (Thay đổi hệ thống quản lý)",
+        "ISO/IEC 17025:2017 §7.2 (Phương pháp)",
+        "ISO 17034:2016 §8.2.4",
+        "ISO/IEC 27001:2022 §6.3, A.8.32 (Quản lý thay đổi)",
+        "ISO/IEC 42001:2023 §8.1"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 04/2011/QH13",
+        "Nghị định 105/2016/NĐ-CP",
+        "Nghị định 154/2018/NĐ-CP",
+        "Nghị định 107/2016/NĐ-CP",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 30/2020/NĐ-CP"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P30_QuanLyThayDoi.md",
+      "relative_path": "02_P/ETV.P30_QuanLyThayDoi.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P31",
+      "title": "Thủ tục Quản lý tính liên tục hoạt động",
+      "type": "Thu-tuc",
+      "status": "Cho-soat-xet",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dương Thành Nam — ..../..../........",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........",
+      "iso_clause": [
+        "ISO/IEC 27001:2022 A.5.29 (An toàn thông tin trong gián đoạn)",
+        "ISO/IEC 27001:2022 A.5.30 (Sẵn sàng CNTT cho tính liên tục)",
+        "ISO/IEC 27001:2022 A.8.13, A.8.14",
+        "ISO 9001:2015 §6.1, §7.1.3, §8.1",
+        "ISO/IEC 17025:2017 §6.3, §6.4, §7.10, §7.11, §8.5",
+        "ISO 17034:2016 §7.4, §7.7",
+        "ISO/IEC 42001:2023 §8.1"
+      ],
+      "legal_basis": [
+        "Luật An toàn thông tin mạng 86/2015/QH13",
+        "Luật An ninh mạng 24/2018/QH14",
+        "Nghị định 85/2016/NĐ-CP",
+        "Nghị định 13/2023/NĐ-CP",
+        "Luật Đo lường 04/2011/QH13",
+        "Nghị định 105/2016/NĐ-CP",
+        "Nghị định 154/2018/NĐ-CP",
+        "Bộ luật Lao động 45/2019/QH14"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P31_QuanLyLienTuc.md",
+      "relative_path": "02_P/ETV.P31_QuanLyLienTuc.md",
+      "iso_standard": "ISO/IEC 27001:2022, ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P32",
+      "title": "Thủ tục Chuyển đổi số và cải tiến hệ thống",
+      "type": "Thu-tuc",
+      "status": "Cho-soat-xet",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dương Thành Nam",
+      "reviewer": "Trần Thị Hoa (..../..../......)",
+      "approver": "Nguyễn Hoàng Giang (..../..../......)",
+      "iso_clause": [
+        "ISO 9001:2015 §6.2, §6.3, §9.1, §10.1, §10.3",
+        "ISO/IEC 17025:2017 §7.11, §8.2.4, §8.5, §8.6, §8.9",
+        "ISO 17034:2016 §7.4, §8.5, §8.6, §8.9",
+        "ISO/IEC 27001:2022 §6.2, §6.3, §10.1, A.5.23, A.8.25, A.8.31, A.8.32, A.8.33",
+        "ISO/IEC 42001:2023 §6.1, §6.2, §8.1, §10.1"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 30/2020/NĐ-CP",
+        "Luật Đo lường 04/2011/QH13; Nghị định 105/2016/NĐ-CP; Nghị định 154/2018/NĐ-CP; Nghị định 107/2016/NĐ-CP"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P32_ChuyenDoiSo.md",
+      "relative_path": "02_P/ETV.P32_ChuyenDoiSo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P33",
+      "title": "Thủ tục Quản lý hệ thống thông tin",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "30/08/2026",
+      "revision": "01",
+      "author": "Dương Thành Nam — 30/08/2026",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.3, §9.3",
+        "ISO/IEC 17025:2017 §6.4, §7.11",
+        "ISO 17034:2016 §7.4",
+        "ISO/IEC 27001:2022 A.5.9, A.7.9–A.7.10, A.8.1, A.8.7–A.8.9, A.8.19–A.8.22, A.8.32",
+        "ISO/IEC 42001:2023 §8.1"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Pháp luật hiện hành về an toàn thông tin mạng",
+        "Pháp luật hiện hành về sở hữu trí tuệ đối với phần mềm"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P33_QuanLyHeThongThongTin.md",
+      "relative_path": "02_P/ETV.P33_QuanLyHeThongThongTin.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P34",
+      "title": "Thủ tục Quản lý dữ liệu số",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "30/08/2026",
+      "revision": "01",
+      "author": "Dương Thành Nam — 30/08/2026",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.6, §7.5, §9.1",
+        "ISO/IEC 17025:2017 §7.5, §7.11, §8.4",
+        "ISO 17034:2016 §7.4",
+        "ISO/IEC 27001:2022 §8.1, A.5.12, A.5.13, A.5.14, A.5.33, A.8.10, A.8.11, A.8.12",
+        "ISO/IEC 42001:2023 §7.4, §8.1, A.7 (dữ liệu cho hệ thống AI)"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân",
+        "Pháp luật hiện hành về an toàn thông tin mạng"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P34_QuanLyDuLieuSo.md",
+      "relative_path": "02_P/ETV.P34_QuanLyDuLieuSo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P35",
+      "title": "Thủ tục Quản lý nền tảng số",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "30/08/2026",
+      "revision": "02",
+      "author": "Dương Thành Nam — 30/08/2026",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, 30/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1.3, §8.4, §8.5.1, §9.3",
+        "ISO/IEC 17025:2017 §6.6, §7.11, §8.5",
+        "ISO 17034:2016 §6.6, §7.4",
+        "ISO/IEC 27001:2022 §8.1, A.5.9, A.5.19–A.5.23, A.5.30, A.8.9, A.8.16, A.8.31",
+        "ISO/IEC 42001:2023 §6.1, §8.1, §8.4"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Pháp luật hiện hành về an toàn thông tin mạng",
+        "Pháp luật hiện hành về bảo vệ dữ liệu cá nhân"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
+      "relative_path": "02_P/ETV.P35_QuanLyNenTangSo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P37",
+      "title": "Thủ tục Quản lý tích hợp dữ liệu",
+      "type": "Thu-tuc",
+      "status": "Cho-soat-xet",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dương Thành Nam — ..../..../........",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........",
+      "iso_clause": [
+        "ISO 9001:2015 §7.5, §8.4",
+        "ISO/IEC 17025:2017 §6.6, §7.11",
+        "ISO 17034:2016 §7.4",
+        "ISO/IEC 27001:2022 §8.1, A.5.14, A.5.19–A.5.22, A.8.20–A.8.22, A.8.26",
+        "ISO/IEC 42001:2023 §8.1, §8.4"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 47/2020/NĐ-CP về quản lý, kết nối và chia sẻ dữ liệu số (áp dụng khi kết nối với hệ thống của cơ quan nhà nước)",
+        "Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P37_QuanLyTichHopDuLieu.md",
+      "relative_path": "02_P/ETV.P37_QuanLyTichHopDuLieu.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P38",
+      "title": "Thủ tục Quản lý dịch vụ số",
+      "type": "Thu-tuc",
+      "status": "Cho-soat-xet",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dương Thành Nam — ..../..../........",
+      "reviewer": "Đỗ Văn Vinh — Lãnh đạo Phòng, ..../..../........",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, ..../..../........",
+      "iso_clause": [
+        "ISO 9001:2015 §8.2, §8.5.1, §9.1.2",
+        "ISO/IEC 17025:2017 §4.2, §7.1, §7.8, §7.9",
+        "ISO/IEC 27001:2022 §8.1, A.5.14, A.8.26",
+        "ISO/IEC 42001:2023 §8.1"
+      ],
+      "legal_basis": [
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân",
+        "Pháp luật hiện hành về bảo vệ quyền lợi người tiêu dùng và về thương mại điện tử"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P38_QuanLyDichVuSo.md",
+      "relative_path": "02_P/ETV.P38_QuanLyDichVuSo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P41",
+      "title": "ETV.P41 DieuLeToChuc",
+      "type": "Thủ-tục",
+      "status": "Da-phe-duyet",
+      "effective_date": "",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P41_DieuLeToChuc.md",
+      "relative_path": "02_P/ETV.P41_DieuLeToChuc.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P42",
+      "title": "Thủ tục xây dựng, ban hành, phổ biến Nội quy lao động và Quy tắc ứng xử",
+      "type": "Thu-tuc",
+      "status": "Da-phe-duyet",
+      "effective_date": "27/07/2026",
+      "revision": "01",
+      "author": "Dương Thành Nam",
+      "reviewer": "Nguyễn Văn Đồng",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017 §4.2",
+        "ISO 9001:2015 §8.1",
+        "ISO/IEC 42001:2023 §8.2"
+      ],
+      "legal_basis": [
+        "Bộ luật Lao động 45/2019/QH14",
+        "Luật An toàn Lao động 84/2015/QH13",
+        "Luật Bảo vệ DLC 91/2025/QH15"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md",
+      "relative_path": "02_P/ETV.P42_NoiQuyLaoDong.md",
+      "iso_standard": "ISO/IEC 17025:2017, ISO 9001:2015, ISO/IEC 42001:2023"
+    },
+    {
+      "code": "ETV.P43",
+      "title": "ETV.P43_QuyCheChiTieuNoiBo.md",
+      "type": "Quy-che",
+      "status": "",
+      "effective_date": "27/07/2026",
+      "revision": "01",
+      "author": "Dương Thành Nam",
+      "reviewer": "Đỗ Văn Vinh",
+      "approver": "Trần Sơn Tùng",
+      "iso_clause": [
+        "ISO 9001:2015 §8.1",
+        "ISO/IEC 17025:2017 §6.5"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P43_QuyCheChiTieuNoiBo.md",
+      "relative_path": "02_P/ETV.P43_QuyCheChiTieuNoiBo.md",
+      "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.P44",
+      "title": "Thủ tục Quản lý Doanh thu & Hóa đơn",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực), §7.5 (Thông tin dạng văn bản) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực tại thời điểm ban hành)",
+        "Nghị định về hóa đơn điện tử (cần xác nhận số hiệu/hiệu lực hiện hành)",
+        "Luật Quản lý thuế (cần xác nhận số hiệu/hiệu lực)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P44_QuanLyDoanhThuHoaDon.md",
+      "relative_path": "02_P/ETV.P44_QuanLyDoanhThuHoaDon.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P45",
+      "title": "Thủ tục Quản lý Công nợ (Phải thu/Phải trả)",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực tại thời điểm ban hành)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P45_QuanLyCongNo.md",
+      "relative_path": "02_P/ETV.P45_QuanLyCongNo.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P46",
+      "title": "Thủ tục Quản lý Thu–Chi, Quỹ tiền mặt & Ngân hàng",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "Quy định về hạn mức thanh toán tiền mặt (cần xác nhận văn bản hiện hành)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P46_QuanLyThuChiQuy.md",
+      "relative_path": "02_P/ETV.P46_QuanLyThuChiQuy.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P47",
+      "title": "Thủ tục Quản lý Tài sản cố định & Khấu hao",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực, cơ sở hạ tầng) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "Thông tư hướng dẫn chế độ quản lý, sử dụng và trích khấu hao TSCĐ (cần xác nhận số hiệu hiện hành)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P47_QuanLyTaiSanCoDinh.md",
+      "relative_path": "02_P/ETV.P47_QuanLyTaiSanCoDinh.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P48",
+      "title": "Thủ tục Lập & Kiểm soát Ngân sách",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực), §9.3 (Xem xét của lãnh đạo) — cần LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P48_LapKiemSoatNganSach.md",
+      "relative_path": "02_P/ETV.P48_LapKiemSoatNganSach.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P49",
+      "title": "Thủ tục Báo cáo Tài chính & Kế toán",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.5 (Thông tin dạng văn bản), §9.1 (Theo dõi, đo lường) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Kế toán (cần xác nhận số hiệu/hiệu lực)",
+        "Chuẩn mực kế toán Việt Nam — VAS (cần xác nhận phạm vi áp dụng cụ thể)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P49_BaoCaoTaiChinhKeToan.md",
+      "relative_path": "02_P/ETV.P49_BaoCaoTaiChinhKeToan.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P50",
+      "title": "Thủ tục Quản lý Thuế",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §7.1 (Nguồn lực) — cần Kế toán trưởng/LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [
+        "Luật Quản lý thuế số 38/2019/QH14 (cần xác nhận hiệu lực/văn bản sửa đổi tại thời điểm ban hành)",
+        "Luật thuế Giá trị gia tăng, Luật thuế Thu nhập doanh nghiệp và văn bản hướng dẫn liên quan (cần Kế toán trưởng xác nhận cụ thể theo loại hình đơn vị)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P50_QuanLyThue.md",
+      "relative_path": "02_P/ETV.P50_QuanLyThue.md",
+      "iso_standard": "ISO 9001:2015"
+    },
+    {
+      "code": "ETV.P51",
+      "title": "Thủ tục Kiểm soát Nội bộ Tài chính",
+      "type": "Thu-tuc",
+      "status": "Nhap",
+      "effective_date": "",
+      "revision": "01",
+      "author": "Dự thảo do AI soạn theo yêu cầu người dùng, 20/07/2026",
+      "reviewer": "— (chưa thực hiện)",
+      "approver": "— (chưa thực hiện)",
+      "iso_clause": [
+        "ISO 9001:2015 §9.2 (Đánh giá nội bộ), §10.2 (Sự không phù hợp và hành động khắc phục) — cần LĐV xác nhận điều khoản áp dụng cụ thể"
+      ],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P51_KiemSoatNoiBoTaiChinh.md",
+      "relative_path": "02_P/ETV.P51_KiemSoatNoiBoTaiChinh.md",
+      "iso_standard": "ISO 9001:2015"
     },
     {
       "code": "ETV.QM",
@@ -405,19 +3926,150 @@
       "iso_standard": "ISO 9001:2015, ISO/IEC 17025:2017, ISO 17034:2016, ISO/IEC 27001:2022, ISO/IEC 42001:2023"
     },
     {
+      "code": "ETV.ĐLVN.133",
+      "title": "Biên bản hiệu chuẩn — Thiết bị đặt mức áp suất",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/2. Bieu mau/ETV.DLVN.133_BBHC_DatMucApSuat.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/2. Bieu mau/ETV.DLVN.133_BBHC_DatMucApSuat.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.ĐLVN.138",
+      "title": "Biên bản hiệu chuẩn — Nhiệt kế chỉ thị hiện số và tương tự",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/2. Bieu mau/ETV.DLVN.138_BBHC_NhietKeHienSoTuongTu.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/2. Bieu mau/ETV.DLVN.138_BBHC_NhietKeHienSoTuongTu.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.ĐLVN.160",
+      "title": "Biên bản hiệu chuẩn — Thiết bị chỉ thị nhiệt độ hiện số và tương tự",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "22/04/2023",
+      "revision": "02",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/2. Bieu mau/ETV.DLVN.160_BBHC_ChiThiNhietDo.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/2. Bieu mau/ETV.DLVN.160_BBHC_ChiThiNhietDo.md",
+      "iso_standard": ""
+    },
+    {
       "code": "ETV.ĐLVN.76",
       "title": "Biên bản hiệu chuẩn — Áp kế, chân không kế kiểu lò xo và hiện số",
       "type": "Bieu-mau",
       "status": "Da-phe-duyet",
       "effective_date": "22/04/2023",
       "revision": "02",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau/ETV.DLVN.76_BienBanHieuChuan.md",
-      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau/ETV.DLVN.76_BienBanHieuChuan.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau/ETV.DLVN.76_BBHC_ApKe.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/2. Bieu mau/ETV.DLVN.76_BBHC_ApKe.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 112:2002",
+      "title": "Thiết bị chuyển đổi áp suất — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2002",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Nghị định 65/2001/NĐ-CP",
+        "Luật Đo lường 2011",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/1. Quy trinh/DLVN112_QTHC_ChuyenDoiApSuat.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/1. Quy trinh/DLVN112_QTHC_ChuyenDoiApSuat.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 133:2004",
+      "title": "Thiết bị đặt mức áp suất — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2004",
+      "revision": "",
+      "author": "Ban kỹ thuật đo lường TC 10 \"Phương tiện đo áp suất, lực và các đại lượng liên quan\"",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ISO/TAG 4"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/1. Quy trinh/DLVN133_QTHC_DatMucApSuat.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/1. Quy trinh/DLVN133_QTHC_DatMucApSuat.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 138:2004",
+      "title": "Nhiệt kế chỉ thị hiện số và tương tự — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2004",
+      "revision": "",
+      "author": "",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ITS-90"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/1. Quy trinh/DLVN138_QTHC_NhietKeHienSoTuongTu.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/1. Quy trinh/DLVN138_QTHC_NhietKeHienSoTuongTu.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 160:2005",
+      "title": "Thiết bị chỉ thị nhiệt độ hiện số và tương tự — Quy trình hiệu chuẩn",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2005",
+      "revision": "",
+      "author": "Ban kỹ thuật đo lường TC 11 \"Phương tiện đo nhiệt độ và các đại lượng liên quan\"",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [
+        "ITS-90"
+      ],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
+      "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
       "iso_standard": ""
     },
     {
@@ -453,13 +4105,13 @@
       "status": "Da-ban-hanh",
       "effective_date": "",
       "revision": "",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BienBanKiemDinh.md",
-      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BienBanKiemDinh.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BBKD_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN333_KhiTuDong/2. Bieu mau/DLVN333_BBKD_KhiTuDong.md",
       "iso_standard": ""
     },
     {
@@ -494,13 +4146,13 @@
       "status": "Da-ban-hanh",
       "effective_date": "",
       "revision": "",
-      "author": "(cập nhật — chức danh LĐP phụ trách)",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
       "reviewer": "",
       "approver": "",
       "iso_clause": [],
       "legal_basis": [],
-      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BienBanKiemDinh.md",
-      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BienBanKiemDinh.md",
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BBKD_NongDoKhiThai.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN380_NongDoKhiThai/2. Bieu mau/DLVN380_BBKD_NongDoKhiThai.md",
       "iso_standard": ""
     },
     {
