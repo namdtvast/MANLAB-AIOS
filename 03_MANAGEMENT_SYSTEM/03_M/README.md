@@ -34,7 +34,7 @@ ETV.G_HuongDan/
 
 `b` = ký hiệu phân loại của hướng dẫn (vd. `AI` — máy chủ/dịch vụ trí tuệ nhân tạo). Ký hiệu phân loại phi đo lường **chưa có trong bảng tại ETV.P14 §6.2** — khi dùng ký hiệu mới phải ghi rõ là mã đề xuất trong chính văn bản và trình bổ sung vào ETV.P14 ở lần ban hành kế tiếp.
 
-Biểu mẫu **gốc** của hướng dẫn vẫn lưu tại `06_SHARED_RESOURCES/01_Forms/` theo nguyên tắc một nguồn sự thật; thư mục `2. Bieu mau/` chỉ dùng cho phụ lục tính toán/mẫu thao tác không phải biểu mẫu kiểm soát.
+Biểu mẫu riêng của hướng dẫn lưu tại `2. Bieu mau/` ngay trong thư mục hướng dẫn đó — xem quy tắc chung **Nơi lưu biểu mẫu** ở mục *Cấp 4* bên dưới.
 
 | Đường dẫn | Nội dung |
 |---|---|
@@ -102,11 +102,25 @@ Trong mỗi thư mục quy trình (Cấp 3), tạo thư mục con đánh số th
 | Số | Thư mục | Nội dung |
 |---|---|---|
 | 1 | `1. Quy trinh` | Văn bản quy trình chính |
-| 2 | `2. Bieu mau` | Biên bản, bảng tính, hồ sơ đi kèm |
+| 2 | `2. Bieu mau` | Biểu mẫu kiểm soát của quy trình (mã `ETV.M{Dịch vụ}{Lĩnh vực}.F {số}.{yy}`): biên bản hiệu chuẩn/kiểm định, bảng tính, hồ sơ đi kèm |
 | 3 | `3. GCN` | Mẫu giấy chứng nhận (hiệu chuẩn/kiểm định) |
 | 4 | `4. Diagrams` | Sơ đồ, hình ảnh minh hoạ |
 
 Chỉ tạo những thư mục con thực sự có tài liệu — không cần đủ 1–4 ngay từ đầu (vd. quy trình chỉ có Quy trình + Biểu mẫu thì không cần tạo `3. GCN`/`4. Diagrams`).
+
+### Nơi lưu biểu mẫu — phân biệt theo loại tài liệu mẹ
+
+Mã biểu mẫu quyết định nơi lưu, không phải loại nội dung:
+
+| Biểu mẫu của | Mã biểu mẫu | Nơi lưu bản gốc |
+|---|---|---|
+| Thủ tục quản lý `ETV.Pxx` | `ETV.P.F {xx}.{yy}` | `06_SHARED_RESOURCES/01_Forms/` — một nguồn sự thật dùng chung cho nhiều thủ tục; `03_MANAGEMENT_SYSTEM/04_F/` chỉ là bản tham chiếu |
+| Quy trình kỹ thuật `ETV.M{DV}{LV} xx` | `ETV.M{DV}{LV}.F {xx}.{yy}` | `2. Bieu mau/` **ngay trong thư mục quy trình đó** |
+| Hướng dẫn công việc `ETV.G{b} xx` | `ETV.G{b}.F {xx}.{yy}` | `2. Bieu mau/` **ngay trong thư mục hướng dẫn đó** |
+
+Biểu mẫu kỹ thuật đi liền văn bản mẹ vì mã của nó gắn cứng vào số hiệu quy trình (`ETV.MCA.F 01.01` chỉ thuộc `ETV.MCA 01`, không dùng lại được ở quy trình khác) — tách ra `06_SHARED_RESOURCES` sẽ làm đứt liên kết mã số và buộc phải nuôi hai đường dẫn cho cùng một tài liệu. Ngược lại, biểu mẫu thủ tục `ETV.P.F*` dùng chung xuyên nhiều thủ tục nên phải tập trung.
+
+Ví dụ: `ETV.MCA.F 01.01` → `ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/2. Bieu mau/ETV.MCA.F01.01_BienBanHieuChuan.md`.
 
 ## **Mã số văn bản và cách xếp thư mục**
 
@@ -166,7 +180,7 @@ Bảng chữ ký hiển thị ở đầu thân văn bản (`Biên soạn` / `So�
 | [`ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP_DLVN76_ApKe/) | `ĐLVN 76:2001` — Áp kế, chân không kế kiểu lò xo và hiện số: `1. Quy trinh/` (quy trình hiệu chuẩn, chuyển đổi `.md` từ bản scan PDF), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.ĐLVN.76`) — không lưu bản `.pdf`/`.docx` gốc trong repo |
 | [`ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP_DLVN112_ChuyenDoiApSuat/) | `ĐLVN 112:2002` — Thiết bị chuyển đổi áp suất (pressure transducer/transmitter): `1. Quy trinh/`; PDF gốc dùng phông chữ TCVN3 không giải mã được bằng trích xuất trực tiếp, chuyển đổi bằng OCR (`tesseract` tiếng Việt) trên ảnh quét — Phụ lục 1 (ví dụ số ĐKĐB) không transcribe đầy đủ số liệu do OCR sai lệch nhiều |
 | [`ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/`](ETV.MC_HieuChuan/7.%20MC_Pressure/MCP_DLVN133_DatMucApSuat/) | `ĐLVN 133:2004` — Thiết bị đặt mức áp suất (pressure switch): `1. Quy trinh/`; chuyển đổi bằng OCR (cùng lý do phông chữ TCVN3); công thức ĐKĐB mục 8 phục hồi theo cấu trúc GUM chuẩn từ ngữ cảnh OCR, đã ghi chú |
-| [`ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Air/MCA01_KhiTuDong/) | `ETV.MCA 01` — Phương tiện đo nồng độ khí (SO₂, CO, NOₓ, THC, O₃) của trạm quan trắc không khí tự động, liên tục: `1. Quy trinh/` (quy trình hiệu chuẩn, lần ban hành 02 — 22/04/2026), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.MCA.F 01.01`, chuyển đổi `.md` từ bản PDF gốc, gồm cả Biên bản ghi nhận hiệu chỉnh phương tiện đo) — không lưu bản `.pdf`/`.doc` gốc trong repo; **lưu ý** chân trang biểu mẫu ghi Ngày BH 22/04/2023 lệch với ngày ban hành lần 02 của quy trình mẹ (22/04/2026), đã ghi chú trong file biểu mẫu |
+| [`ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Air/MCA01_KhiTuDong/) | `ETV.MCA 01` — Phương tiện đo nồng độ khí (SO₂, CO, NOₓ, THC, O₃) của trạm quan trắc không khí tự động, liên tục: `1. Quy trinh/` (quy trình hiệu chuẩn, lần ban hành 02 — 22/04/2026), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.MCA.F 01.01`, chuyển đổi `.md` từ bản PDF gốc, gồm cả Biên bản ghi nhận hiệu chỉnh phương tiện đo) — không lưu bản `.pdf`/`.doc` gốc trong repo; biểu mẫu đã chốt cùng lần ban hành 02 — 22/04/2026 với quy trình mẹ (chân trang bản PDF gốc ghi nhầm 22/04/2023, đã đính chính và ghi chú trong file biểu mẫu) |
 | [`ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA04_GasO3/`](ETV.MC_HieuChuan/1.%20MC_Phy_Che_Air/MCA04_GasO3/) | `ETV.MCA 04` — Phương tiện đo nồng độ khí Ozone của trạm quan trắc chất lượng không khí xung quanh: `1. Quy trinh/` (quy trình hiệu chuẩn — tài liệu ETV tự soạn, tham khảo US EPA EPA-454/B-22-003, đang ở trạng thái **dự thảo** chờ soát xét/phê duyệt chính thức), `2. Bieu mau/` (biên bản hiệu chuẩn `ETV.MCA.F04.01`) |
 | [`ETV.ME_DaoTao/9. ME_Length/MEL02_MaydinhviGPS/`](ETV.ME_DaoTao/9.%20ME_Length/MEL02_MaydinhviGPS/) | `ETV.MEL 02` — Giáo trình đào tạo phương tiện đo định vị bằng vệ tinh (GPS/GNSS): `1. Quy trinh/` (giáo trình đào tạo, lần ban hành 01 — 27/05/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang) |
 | [`ETV.ME_DaoTao/5. ME_Frequency/MES02_DongHoBamGiay/`](ETV.ME_DaoTao/5.%20ME_Frequency/MES02_DongHoBamGiay/) | `ETV.MES 02` — Giáo trình đào tạo phương tiện đo đồng hồ bấm giây: `1. Quy trinh/` (giáo trình đào tạo, lần ban hành 01 — 27/05/2026; Biên soạn: Dương Thành Nam, Soát xét: Trần Thị Hoa, Phê duyệt: Nguyễn Hoàng Giang) |
