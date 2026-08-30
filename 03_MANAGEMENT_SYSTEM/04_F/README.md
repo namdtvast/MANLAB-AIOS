@@ -14,6 +14,7 @@ Biểu mẫu (ETV.P.Fxx.yy), mẫu báo cáo, mẫu biên bản, mẫu chứng c
 
 - `ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md` — Phiếu đề nghị soát xét/ban hành văn bản
 - `ETV.P.F14.01_2026-08-25_P29_P34_DuLieuHanChe.md` — **Đã điền:** đề nghị thống nhất ETV.P29 và ETV.P34 về dữ liệu mức Hạn chế (phân định lập chỉ mục với truy xuất trực tiếp) — chờ LĐV phê duyệt | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
+- `ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md` — **Đã điền:** đề nghị ban hành Hướng dẫn `ETV.GAI 01` (Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS) — chờ LĐP thẩm định; nêu 4 vướng mắc, trong đó thủ tục chủ trì ETV.P29 chưa có hiệu lực | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md)
 - `ETV.P.F14.02_DanhMucVanBanNoiBo.md` — Danh mục văn bản nội bộ | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md)
 - `ETV.P.F14.03_DanhMucVanBanBenNgoai.md` — Danh mục văn bản bên ngoài | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md)
 - `ETV.P.F14.04_GiaoNhanVanBan.md` — Phiếu giao nhận/thu hồi văn bản | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md)
