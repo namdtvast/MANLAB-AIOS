@@ -120,7 +120,38 @@ Mã biểu mẫu quyết định nơi lưu, không phải loại nội dung:
 
 Biểu mẫu kỹ thuật đi liền văn bản mẹ vì mã của nó gắn cứng vào số hiệu quy trình (`ETV.MCA.F 01.01` chỉ thuộc `ETV.MCA 01`, không dùng lại được ở quy trình khác) — tách ra `06_SHARED_RESOURCES` sẽ làm đứt liên kết mã số và buộc phải nuôi hai đường dẫn cho cùng một tài liệu. Ngược lại, biểu mẫu thủ tục `ETV.P.F*` dùng chung xuyên nhiều thủ tục nên phải tập trung.
 
-Ví dụ: `ETV.MCA.F 01.01` → `ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/2. Bieu mau/ETV.MCA.F01.01_BienBanHieuChuan.md`.
+Ví dụ: `ETV.MCA.F 01.01` → `ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA01_KhiTuDong/2. Bieu mau/ETV.MCA.F01.01_BBHC_KhiTuDong.md`.
+
+### Tên file biểu mẫu — soi gương tên file quy trình
+
+Tên file quy trình theo cấu trúc `{Mã}_{Loại}_{TenDoiTuong}` (vd. `ETV.MCA.01_QTHC_KhiTuDong.md`). **Biểu mẫu đi kèm dùng đúng cấu trúc đó**, chỉ đổi phần Mã sang mã biểu mẫu và phần Loại sang loại biểu mẫu — giữ nguyên `{TenDoiTuong}` của quy trình mẹ:
+
+```
+ETV.MCA.01_QTHC_KhiTuDong.md          ← quy trình
+ETV.MCA.F01.01_BBHC_KhiTuDong.md      ← biểu mẫu, cùng TenDoiTuong
+```
+
+Nhờ giữ nguyên `{TenDoiTuong}`, nhìn tên file là biết ngay biểu mẫu thuộc quy trình nào mà không phải mở file — và khi sắp xếp theo tên, quy trình với biểu mẫu của nó đứng liền nhau.
+
+| Phần | Quy tắc | Ví dụ |
+|---|---|---|
+| `{Mã}` | Mã biểu mẫu, bỏ dấu cách như trong tên file quy trình. Biểu mẫu là phụ lục của văn bản ĐLVN không có mã ETV riêng thì dùng tiền tố số hiệu ĐLVN như file quy trình | `ETV.MCA.F01.01`, `ETV.MVA.F389.01`, `DLVN333` |
+| `{Loại}` | Viết tắt loại tài liệu — xem bảng dưới | `BBHC` |
+| `{TenDoiTuong}` | **Sao đúng** phần `{TenDoiTuong}` của file quy trình mẹ | `KhiTuDong` |
+
+**Viết tắt loại tài liệu** (dùng chung cho cả quy trình và biểu mẫu):
+
+| Viết tắt | Nghĩa | Dùng cho |
+|---|---|---|
+| `QTHC` | Quy trình hiệu chuẩn | `1. Quy trinh` |
+| `QTKD` | Quy trình kiểm định | `1. Quy trinh` |
+| `QTTN` | Quy trình thử nghiệm | `1. Quy trinh` |
+| `BBHC` | Biên bản hiệu chuẩn | `2. Bieu mau` |
+| `BBKD` | Biên bản kiểm định | `2. Bieu mau` |
+| `BBTN` | Biên bản thử nghiệm | `2. Bieu mau` |
+| `GCN` | Mẫu giấy chứng nhận | `3. GCN` |
+
+Phụ lục không thuộc các loại trên (bảng tính, hồ sơ dữ liệu…) chưa có viết tắt — dùng tên mô tả không dấu viết hoa đầu từ, vẫn giữ đủ ba phần: `ETV.MCL.F04.02_BangTinh_MaydinhviGPS.md`. Khi một loại mới lặp lại đủ nhiều, bổ sung viết tắt vào bảng trên thay vì để mỗi nơi đặt một kiểu.
 
 ## **Mã số văn bản và cách xếp thư mục**
 
