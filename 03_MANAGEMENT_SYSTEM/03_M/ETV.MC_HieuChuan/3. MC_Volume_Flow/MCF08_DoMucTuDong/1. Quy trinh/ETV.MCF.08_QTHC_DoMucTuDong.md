@@ -42,7 +42,7 @@ superseded_by: null
 
 > **Tình trạng bản này:** Lần ban hành 03 — biên soạn lại toàn bộ thân bài (mục 1 trở đi) theo yêu cầu soát xét của người dùng, theo đúng ETV.P14 §6.4 (ban hành lại → lần ban hành tăng thêm 01). Lần ban hành 02 (22/04/2026, xem `supersedes`) là bản chuyển đổi trực tiếp từ PDF gốc `ETV.MCF 08_Do muc tu dong.pdf`, trong đó phát hiện toàn bộ nội dung thân bài trùng khớp gần như nguyên văn với `ETV.MCF 05` (Phương tiện đo lưu lượng kênh hở) — lỗi sao chép mẫu từ Viện, không mô tả đúng đối tượng "phương tiện đo mức tự động". Nội dung dưới đây được soạn lại đúng đối tượng, theo cấu trúc chuẩn chung của nhóm quy trình MCF và tham chiếu `ETV.MCF 12` (Đo mực nước — cùng lĩnh vực đo mức, gần nhất về phương pháp).
 >
-> **Hồ sơ soát xét/phê duyệt:** đã hoàn tất theo đúng luồng RACI của ETV.P14 §III/§6.6.1 — LĐP thẩm định cần thiết và phân công (Dương Thành Nam biên soạn, Trần Thị Hoa soát xét), soát xét đạt, LĐV Nguyễn Hoàng Giang phê duyệt, đều ngày 11/08/2026. Xem phiếu `ETV.P.F 14.01` đã ký: [`ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md`](../../../../../04_F/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md).
+> **Hồ sơ soát xét/phê duyệt:** đã hoàn tất theo đúng luồng RACI của ETV.P14 §III/§6.6.1 — LĐP thẩm định cần thiết và phân công (Dương Thành Nam biên soạn, Trần Thị Hoa soát xét), soát xét đạt, LĐV Nguyễn Hoàng Giang phê duyệt, đều ngày 11/08/2026. Xem phiếu `ETV.P.F 14.01` đã ký: [`ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md`](../../../../../05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-11_MCF08_DoMucTuDong.md).
 
 > **Chú ý:** Văn bản nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 

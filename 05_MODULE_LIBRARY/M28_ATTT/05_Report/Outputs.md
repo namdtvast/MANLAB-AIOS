@@ -12,7 +12,7 @@
 | **F28.04** — Phiếu yêu cầu cấp/thay đổi/thu hồi quyền truy cập | PDF | Kèm phần thu hồi khi chấm dứt công việc và bảng rà soát định kỳ |
 
 Bản xuất phải khớp bố cục và danh mục chuẩn của biểu mẫu gốc tại
-`06_SHARED_RESOURCES/01_Forms/ETV.P.F28.0{1..4}_*.md` (ban hành lần 01, ngày 24/08/2026).
+`06_SHARED_RESOURCES/01_Forms/F28_ATTT/ETV.P.F28.0{1..4}_*.md` (ban hành lần 01, ngày 24/08/2026).
 
 ## Báo cáo và màn hình theo dõi
 

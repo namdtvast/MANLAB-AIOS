@@ -18,9 +18,9 @@
 
 | Thứ này | Về đâu |
 |---|---|
-| Nhật ký sử dụng, phiếu theo dõi, sổ kết quả hiệu chuẩn **đã điền** (`F05.02`, `F05.03`, `F05.05`…) | CSDL (module [`M05_ThietBi`](../../05_MODULE_LIBRARY/M05_ThietBi)) và [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) |
+| Nhật ký sử dụng, phiếu theo dõi, sổ kết quả hiệu chuẩn **đã điền** (`F05.02`, `F05.03`, `F05.05`…) | CSDL (module [`M05_ThietBi`](../../05_MODULE_LIBRARY/M05_ThietBi)); bản dùng làm bằng chứng → [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) |
 | Giấy chứng nhận hiệu chuẩn do bên ngoài cấp | [`11_COMPLIANCE`](../../11_COMPLIANCE) — là bằng chứng |
-| Biểu mẫu trắng `ETV.P.F05.xx` | [`01_Forms`](../01_Forms) |
+| Biểu mẫu trắng `ETV.P.F05.xx` | [`01_Forms/F05_ThietBi`](../01_Forms/F05_ThietBi) |
 | Hướng dẫn sử dụng, catalogue của hãng | [`08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi`](../../08_KNOWLEDGE_GRAPH/15_HDSD_ThietBi) |
 
 ## Phép thử nhanh

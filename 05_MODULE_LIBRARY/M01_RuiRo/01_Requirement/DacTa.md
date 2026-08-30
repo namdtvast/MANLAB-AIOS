@@ -124,7 +124,7 @@ Bảng S (hậu quả, 1–5) và P (khả năng xảy ra, 1–5) đầy đủ +
 ## 7. Liên kết
 
 Quy trình: MP01 · Năng lực: CAP-16 · Thủ tục gốc: `03_MANAGEMENT_SYSTEM/02_P/ETV.P01_RuiRoCoHoi.md`
-(Đã phê duyệt, lần ban hành 03) · Biểu mẫu: `06_SHARED_RESOURCES/01_Forms/ETV.P.F01.01_...md`,
+(Đã phê duyệt, lần ban hành 03) · Biểu mẫu: `06_SHARED_RESOURCES/01_Forms/F01_RuiRo/ETV.P.F01.01_...md`,
 ETV.P.F01.02 (bảng tổng hợp, chưa có file số hóa riêng — kiểm tra lại khi BUILD) · Lưu hồ sơ:
 ETV.P15 · Ranh giới: M13_KhacPhuc (hình thức "Khắc phục", dùng chung biểu mẫu gốc) · Nguồn dữ
 liệu tham chiếu: M10 (TNTT/SSLP làm 1 nguồn xác định rủi ro) · Căn cứ: ISO/IEC 17025:2017 §8.5,

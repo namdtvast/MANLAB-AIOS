@@ -33,7 +33,7 @@ Chạy `validation/checklist_legal_compliance.md`. Cảnh báo nếu văn bản 
 
 ## 7. Kiểm tra tính nhất quán
 
-So sánh với văn bản hiện hành cùng phạm vi (tra `06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_...` và `.03_...` nếu có dữ liệu). Không được tự bịa số liệu văn bản hiện hành nếu không truy cập được — nêu rõ "cần người dùng cung cấp danh mục hiện hành để đối chiếu".
+So sánh với văn bản hiện hành cùng phạm vi (tra `06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.02_...` và `.03_...` nếu có dữ liệu). Không được tự bịa số liệu văn bản hiện hành nếu không truy cập được — nêu rõ "cần người dùng cung cấp danh mục hiện hành để đối chiếu".
 
 ## 8. Kiểm tra mã hoá
 

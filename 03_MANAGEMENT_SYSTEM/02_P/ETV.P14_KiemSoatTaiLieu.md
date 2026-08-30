@@ -37,7 +37,7 @@ superseded_by: null
 
 > **Tình trạng bản này: ĐÃ PHÊ DUYỆT** — thay thế lần ban hành 03 (01/07/2026). Bản này có hiệu lực từ ngày 30/08/2026.
 >
-> **Phạm vi sửa đổi so với lần 03:** chỉ §6.2 (bảng mã hoá) — bổ sung nhóm ký hiệu phân loại phi đo lường và đăng ký ký hiệu `AI`; gỡ dẫn chiếu danh mục ký hiệu tới `ETV.P.F 14.02` và đưa danh mục vào thẳng §6.2. Các mục còn lại giữ nguyên lần 03. Theo phiếu [`ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`](../04_F/ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md).
+> **Phạm vi sửa đổi so với lần 03:** chỉ §6.2 (bảng mã hoá) — bổ sung nhóm ký hiệu phân loại phi đo lường và đăng ký ký hiệu `AI`; gỡ dẫn chiếu danh mục ký hiệu tới `ETV.P.F 14.02` và đưa danh mục vào thẳng §6.2. Các mục còn lại giữ nguyên lần 03. Theo phiếu [`ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`](../05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI.md).
 
 ## NHỮNG THAY ĐỔI ĐÃ CÓ
 

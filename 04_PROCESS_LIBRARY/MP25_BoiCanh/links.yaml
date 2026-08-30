@@ -10,6 +10,6 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-25_BoiCanhTriThuc
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F25.02_BangBenQuanTamVaMongDoi.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F25.03_BienBanXemXetBoiCanh.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.01_BangPhanTichBoiCanhToChuc.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.02_BangBenQuanTamVaMongDoi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F25_BoiCanh/ETV.P.F25.03_BienBanXemXetBoiCanh.md

@@ -237,7 +237,7 @@ export function renderPhieuF2903(th: TongHop, ketQua: KetQuaCham[], ctx: { model
   const noiDung = `# PHIẾU KIỂM THỬ VÀ ĐÁNH GIÁ CHẤT LƯỢNG HỆ THỐNG TRÍ TUỆ NHÂN TẠO — BẢN NHÁP
 
 > **Bản nháp do máy sinh** từ \`npm run danh-gia-copilot\`. Đây KHÔNG phải hồ sơ đã lập.
-> Biểu mẫu gốc: [ETV.P.F29.03](../../../../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md).
+> Biểu mẫu gốc: [ETV.P.F29.03](../../../../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md).
 > Phần mềm chỉ điền số liệu đo được; **ô Kết luận và chữ ký để trống** — ETV.P29 §4.8: trợ lý AI
 > không kết luận Đạt/Không đạt và không phê duyệt phiếu này.
 

@@ -29,9 +29,9 @@ Cùng **một** biểu mẫu đi qua 3 chặng, mỗi chặng nằm một chỗ 
 
 | Chặng | Ví dụ với `ETV.P.F 03.08 — Danh sách nhân sự` | Lưu ở |
 |---|---|---|
-| ① Bản trắng, chưa điền | File mẫu có sẵn tiêu đề, các cột, ô ký | [`06/01_Forms`](../01_Forms/ETV.P.F03.08_DanhSachNhanSu.md) |
+| ① Bản trắng, chưa điền | File mẫu có sẵn tiêu đề, các cột, ô ký | [`06/01_Forms/F03_NhanSu`](../01_Forms/F03_NhanSu/ETV.P.F03.08_DanhSachNhanSu.md) |
 | ② Bảng tra dùng chung, không gắn với sự kiện nào | Danh mục chức danh, ma trận năng lực | **Thư mục này** |
-| ③ Bản **đã điền tên người thật, đã ký, đã đóng dấu, có ngày cụ thể** | Danh sách nhân sự PTN ký ngày 20/07/2026; Sơ yếu lý lịch của anh A; Biên bản đánh giá giám sát nhân viên mới; Chứng chỉ đào tạo nội bộ đã cấp | [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) (mã `EV-xxx`) |
+| ③ Bản **đã điền tên người thật, đã ký, đã đóng dấu, có ngày cụ thể** | Danh sách nhân sự PTN ký ngày 20/07/2026; Sơ yếu lý lịch của anh A; Biên bản đánh giá giám sát nhân viên mới; Chứng chỉ đào tạo nội bộ đã cấp | CSDL/ManLab (hồ sơ vận hành) · [`03/05_R`](../../03_MANAGEMENT_SYSTEM/05_R) (hồ sơ kiểm soát tài liệu) · [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) (bằng chứng `EV-xxx` cho đánh giá bên ngoài) |
 
 Chặng ③ gọi là **hồ sơ (record)** — thứ đưa cho đánh giá viên BoA/VILAS, TDC hay thanh tra xem để chứng minh "Viện đã làm thật".
 
@@ -59,7 +59,7 @@ Ba lý do:
 
 ## 3. Phép thử 3 câu trước khi đặt một file vào đây
 
-1. File có **tên người thật, chữ ký, ngày tháng của một sự việc cụ thể** không? → Có: đó là hồ sơ → `11_COMPLIANCE` (hoặc CSDL).
+1. File có **tên người thật, chữ ký, ngày tháng của một sự việc cụ thể** không? → Có: đó là hồ sơ → CSDL, `03/05_R` hoặc `11_COMPLIANCE`.
 2. Nội dung có **thay đổi theo từng bản ghi vận hành** không? → Có: → CSDL / ManLab.
 3. Nội dung **đã có sẵn** ở `ETV.QM` §6.2 hoặc `06/01_Forms` chưa? → Rồi: **đặt link, đừng chép**.
 
@@ -75,7 +75,7 @@ Trả lời "không" cả ba câu — bảng tra ổn định, dùng lại ở n
 | Hub quy trình | [`MP03_NhanSu`](../../04_PROCESS_LIBRARY/MP03_NhanSu) |
 | Module số hóa | [`M03_NhanSu`](../../05_MODULE_LIBRARY/M03_NhanSu) |
 | Yêu cầu năng lực từng vị trí | [`ETV.QM` §6.2](../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md) |
-| 18 biểu mẫu trắng `F03.01`–`F03.13` | [`06/01_Forms`](../01_Forms) |
-| Hồ sơ, bằng chứng đã phát hành | [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) |
+| 18 biểu mẫu trắng `F03.01`–`F03.13` | [`06/01_Forms/F03_NhanSu`](../01_Forms/F03_NhanSu) |
+| Hồ sơ đã điền, bằng chứng đã phát hành | CSDL · [`03/05_R`](../../03_MANAGEMENT_SYSTEM/05_R) · [`11_COMPLIANCE/03_Evidence`](../../11_COMPLIANCE/03_Evidence) |
 
 **Lưu ý:** Sửa một chỗ → mọi nơi dùng lại cập nhật. Đây là lý do tránh nhân bản.

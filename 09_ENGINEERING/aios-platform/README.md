@@ -619,7 +619,7 @@ Hồ sơ đã điền, dữ liệu khách hàng/nhân sự, bằng chứng đán
 in ra đầy đủ số file bị bỏ và lý do.
 
 Bộ kiểm thử chất lượng — **42 tình huống theo đúng 7 nhóm của biểu mẫu ban hành
-[ETV.P.F29.03](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md)**
+[ETV.P.F29.03](../../06_SHARED_RESOURCES/01_Forms/F29_AI/ETV.P.F29.03_PhieuKiemThuDanhGiaChatLuongAI.md)**
 (nhóm 3, 4, 5, 7 bắt buộc đạt). Nguồn sự thật: `src/lib/m29/copilot/bo-cau-hoi-vang.ts`.
 
 ```bash

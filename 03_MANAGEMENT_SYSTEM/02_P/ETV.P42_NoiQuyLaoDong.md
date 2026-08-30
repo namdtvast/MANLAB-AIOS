@@ -223,9 +223,9 @@ Quy định phương thức xây dựng, ban hành, phổ biến, áp dụng, gi
 
 | Mã biểu mẫu | Tên | Mục đích | Liên kết |
 |---|---|---|---|
-| **ETV.P.F42.01** | Phiếu xác nhận, cam kết tuân thủ Nội quy lao động | Xác nhận nhân viên đã nhận, đọc, hiểu và cam kết tuân thủ Nội quy; lấy chữ ký từ tất cả nhân viên | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md) |
-| **ETV.P.F42.02** | Quyết định ban hành Nội quy lao động và Quy tắc ứng xử | Quyết định chính thức của Viện trưởng ban hành Nội quy; niêm yết và đăng ký với cơ quan nhà nước | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.02_QuyetDinhBanHanh.md) |
-| **ETV.P.F42.03** | Văn bản đề nghị đăng ký Nội quy lao động | Công văn gửi Sở Nội vụ để đăng ký Nội quy theo Bộ luật Lao động (nếu số NLĐ >= 10) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/ETV.P.F42.03_DeNghiDangKy.md) |
+| **ETV.P.F42.01** | Phiếu xác nhận, cam kết tuân thủ Nội quy lao động | Xác nhận nhân viên đã nhận, đọc, hiểu và cam kết tuân thủ Nội quy; lấy chữ ký từ tất cả nhân viên | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md) |
+| **ETV.P.F42.02** | Quyết định ban hành Nội quy lao động và Quy tắc ứng xử | Quyết định chính thức của Viện trưởng ban hành Nội quy; niêm yết và đăng ký với cơ quan nhà nước | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.02_QuyetDinhBanHanh.md) |
+| **ETV.P.F42.03** | Văn bản đề nghị đăng ký Nội quy lao động | Công văn gửi Sở Nội vụ để đăng ký Nội quy theo Bộ luật Lao động (nếu số NLĐ >= 10) | [📍 Nguồn](../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.03_DeNghiDangKy.md) |
 | **ETV.P14** | Đề nghị/phiếu rà soát, sửa đổi tài liệu | Sử dụng để kiểm soát phiên bản, soát xét định kỳ hoặc cập nhật Nội quy | Xem ETV.P14 - Kiểm soát tài liệu |
 | **ETV.P01** | Phiếu đánh giá rủi ro (nếu cần) | Nếu phát hiện rủi ro lao động, an toàn, dữ liệu, quấy rối, AI | Xem ETV.P01 - Giải quyết rủi ro |
 

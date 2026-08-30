@@ -9,9 +9,9 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-14_TaiLieuHoSo
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.02_DanhMucVanBanNoiBo.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.03_DanhMucVanBanBenNgoai.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.04_GiaoNhanVanBan.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.05_DeNghiThanhLyVanBan.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.01_DeNghiSoatXetBanHanhVanBan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.02_DanhMucVanBanNoiBo.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.03_DanhMucVanBanBenNgoai.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.04_GiaoNhanVanBan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.05_DeNghiThanhLyVanBan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F14_TaiLieu/ETV.P.F14.06_DanhMucPhanQuyenThoiHanLuu.md

@@ -10,6 +10,6 @@ evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
 form_files:
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F30.01_SoDangKyThayDoi.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md
-  - ../../06_SHARED_RESOURCES/01_Forms/ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.01_SoDangKyThayDoi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.02_PhieuDeNghiThayDoiDanhGiaTacDong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F30_ThayDoi/ETV.P.F30.03_BienBanXacNhanHieuLucSauThayDoi.md

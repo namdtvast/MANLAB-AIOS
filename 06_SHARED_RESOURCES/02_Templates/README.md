@@ -18,7 +18,7 @@
 
 | Thứ này | Về đâu |
 |---|---|
-| Biểu mẫu có mã `ETV.P.Fxx.yy` | [`01_Forms`](../01_Forms) |
+| Biểu mẫu có mã `ETV.P.Fxx.yy` | [`01_Forms`](../01_Forms) — trong thư mục `Fxx_Slug/` của thủ tục ban hành |
 | Văn bản đã soạn xong, đã ban hành | [`03_MANAGEMENT_SYSTEM`](../../03_MANAGEMENT_SYSTEM) (nội bộ) · [`11_COMPLIANCE`](../../11_COMPLIANCE) (bằng chứng) |
 | Logo, bảng màu, font | [`13_Branding`](../13_Branding) |
 

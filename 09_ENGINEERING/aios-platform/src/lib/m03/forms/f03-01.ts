@@ -1,6 +1,6 @@
 // Bản xuất biểu mẫu ETV.P.F 03.01 — SƠ YẾU LÝ LỊCH.
 //
-// Bố cục bám đúng biểu mẫu gốc 06_SHARED_RESOURCES/01_Forms/ETV.P.F03.01_SoYeuLyLich.md
+// Bố cục bám đúng biểu mẫu gốc 06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.01_SoYeuLyLich.md
 // (mục I–VI, giữ nguyên thứ tự và tên trường). Trường nào M03Employee đã số hoá thì điền sẵn;
 // trường nào chưa có trong DB (ngày sinh, CCCD, nguyên quán, trình độ, quan hệ gia đình…) thì
 // in ra dòng chấm để điền tay — KHÔNG bỏ mục, vì đoàn đánh giá đối chiếu bản in với biểu mẫu
