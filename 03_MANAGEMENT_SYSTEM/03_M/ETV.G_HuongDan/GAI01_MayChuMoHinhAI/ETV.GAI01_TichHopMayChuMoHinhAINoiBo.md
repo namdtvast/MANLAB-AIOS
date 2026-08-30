@@ -51,6 +51,7 @@ superseded_by: null
 | 25/08/2026 | Dự thảo lần đầu | 01 |
 | 28/08/2026 | Cập nhật §3.6 theo hiện trạng phần mềm: khoá API tách theo từng nền tảng (`AIPlatform.apiKeyEnv`), giao diện hiện lý do nền tảng ngừng hoạt động, đã có màn hình tạo Provider/Model, màn hình chuyển tác tử sang mô hình khác và màn hình đặt ranh giới dữ liệu. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 | 25/08/2026 | Soát xét nội bộ trước khi trình: chặn dữ liệu mức Hạn chế do xung đột ETV.P29–P26–P34 chưa giải quyết (§3.7); siết điều kiện dùng đường hầm của bên thứ ba (§3.4 Bước 3); thêm kiểm soát chuỗi cung ứng mô hình/image (Bước 2) và kiểm soát nhật ký, dữ liệu tạm (Bước 3b); §3.6 chuyển thành bảng hiện trạng; bổ sung Gate và hồ sơ P01/P06/P30/P31/P34. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
+| 30/08/2026 | Thay các giá trị giả định bằng **cấu hình thật đã triển khai**: mô hình `Qwen/Qwen2.5-7B-Instruct` phục vụ dưới bí danh `manlab-ai` (thay `manlab-local-14b`), endpoint `https://ai.manlab.vn/v1` (thay `llm.manlab.vn`), ngữ cảnh chốt 8192, image vLLM `v0.10.2` đã ghim digest, mô hình chạy FP16 **không lượng tử hoá** nên bỏ `--quantization`. Ghi nhận **Phương án C (Cloudflare Tunnel)** là phương án đang áp dụng và hạ `dataBoundary` từ `NO_EXTERNAL_TRANSFER` xuống `EXTERNAL_WITH_COMMITMENT` theo đúng §3.4 Bước 3 (§3.2, §3.3, §3.4, §3.5, §3.7). **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 
 ---
 
@@ -120,7 +121,21 @@ Người dùng → aios.manlab.vn (ManLab AIOS)
 | GPU | 1 × NVIDIA GeForce RTX 3090, 24 GB GDDR6X |
 | Hệ điều hành | Ubuntu Server |
 
-**Các thông tin còn thiếu, phải điền khi kiểm kê theo F33.01 (không được suy đoán):** dung lượng và loại ổ đĩa, phiên bản NVIDIA Driver và CUDA, địa chỉ IP nội bộ, phương thức ra Internet (IP tĩnh hay tunnel), công suất nguồn và điều kiện làm mát, người quản trị máy chủ.
+**Cấu hình phần mềm đang vận hành (cập nhật 30/08/2026):**
+
+| Thành phần | Giá trị thật |
+| --- | --- |
+| Mô hình | `Qwen/Qwen2.5-7B-Instruct` — 7,6 tỷ tham số, **không lượng tử hoá** (FP16/BF16) |
+| Bí danh phục vụ (`--served-model-name`) | `manlab-ai` — đây là giá trị `AIModel.modelId` phải trùng |
+| Inference engine | vLLM, image `vllm/vllm-openai:v0.10.2` |
+| Độ dài ngữ cảnh chốt (`--max-model-len`) | 8192 token |
+| Endpoint công bố | `https://ai.manlab.vn/v1` (OpenAI-compatible: `/v1/models`, `/v1/chat/completions`) |
+| Phương thức công bố | **Phương án C — Cloudflare Tunnel** (xem §3.4 Bước 3 và §3.7) |
+| Xác thực | Khoá API bắt buộc trên mọi lượt gọi |
+
+> `GET /v1/models` trả `{"id":"manlab-ai","object":"model","owned_by":"openai"}`. Trường `owned_by` là **giá trị mặc định cứng của vLLM cho mọi mô hình**, không phản ánh nguồn gốc mô hình và không có nghĩa Viện đang gọi dịch vụ của OpenAI. Khi ảnh chụp màn hình này đưa vào hồ sơ F29.01, phải kèm chú thích đó — nếu không, đoàn đánh giá đọc bản ghi "nền tảng nội bộ" cạnh chữ `openai` sẽ đặt câu hỏi đúng.
+
+**Các thông tin còn thiếu, phải điền khi kiểm kê theo F33.01 (không được suy đoán):** dung lượng và loại ổ đĩa, phiên bản NVIDIA Driver và CUDA, địa chỉ IP nội bộ, digest thật của image đang chạy trên máy chủ (§3.4 Bước 2), công suất nguồn và điều kiện làm mát, người quản trị máy chủ.
 
 ### 3.3. Ràng buộc kỹ thuật rút ra từ phần cứng này
 
@@ -130,6 +145,7 @@ Người dùng → aios.manlab.vn (ManLab AIOS)
 | --- | --- |
 | RTX 3090 là kiến trúc Ampere (compute capability 8.6) | **Không hỗ trợ FP8.** Chỉ dùng FP16/BF16, hoặc lượng tử hoá INT4 (AWQ/GPTQ, nhân Marlin). Mọi cấu hình FP8 sẽ không khởi động được. |
 | VRAM 24 GB, **một** GPU duy nhất | Cỡ mô hình phù hợp: **7B–14B**. 14B ở INT4 chiếm ~9–10 GB trọng số, còn ~12 GB cho KV cache. Mô hình 70B **không** chạy được. `--tensor-parallel-size 1`; không có NVLink, không mở rộng ngang được. |
+| Lựa chọn thực tế: 7B ở **FP16, không lượng tử hoá** | Trọng số chiếm ~15 GB. Với `--gpu-memory-utilization 0.90` (~21,6 GB) chỉ còn ~5–6 GB cho KV cache — **đây là lý do `--max-model-len` phải hạ từ 16384 xuống 8192**, không phải một lựa chọn tuỳ ý. Ước tính KV cache của Qwen2.5-7B (28 lớp, GQA 4 đầu KV) ~57 KB/token → ~0,47 GB cho một lượt ở ngữ cảnh đầy, tức khoảng **10 lượt đồng thời**. Con số này phải **đo lại** theo §3.4 Bước 5(c), không lấy làm cam kết. Nếu cần ngữ cảnh dài hơn: đổi sang bản lượng tử hoá INT4 để giải phóng ~8 GB, đi lại đủ Bước 5–6 (§3.8). |
 | GeForce (không phải card trung tâm dữ liệu) | Không có ECC, không có MIG. Một GPU hỏng là mất toàn bộ năng lực suy luận cục bộ → **bắt buộc** có chính sách dự phòng ở §3.7. |
 | 2 socket CPU → có NUMA | Ghim tiến trình vLLM vào đúng NUMA node nối với GPU (`nvidia-smi topo -m`), tránh mất băng thông khi nạp mô hình. |
 | Swap chỉ 2 GB trên nền 64 GB RAM | Không dựa vào swap của hệ điều hành. RAM trống ~59 GiB là đủ cho `--swap-space` của vLLM (mặc định 4 GiB, lấy từ RAM, không phải swap hệ thống). |
@@ -162,7 +178,7 @@ Cài Docker Engine + Docker Compose + NVIDIA Container Toolkit. Kiểm tra conta
 docker run --rm --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
 ```
 
-Chọn mô hình theo §3.3 (7B–14B, ưu tiên bản lượng tử hoá INT4). Việc chọn mô hình căn cứ tác vụ thật của Viện — phân loại, bóc tách tài liệu, hỏi–đáp tiếng Việt, RAG, gọi công cụ, trả JSON có cấu trúc — **không** căn cứ bảng xếp hạng chung của nhà phát hành mô hình.
+Chọn mô hình theo §3.3 (7B–14B, ưu tiên bản lượng tử hoá INT4). **Mô hình đã chọn và đang chạy: `Qwen/Qwen2.5-7B-Instruct` ở FP16** — chọn bản không lượng tử hoá để loại bỏ sai khác chất lượng do lượng tử hoá khỏi đợt nghiệm thu đầu tiên, đổi lại phải chấp nhận ngữ cảnh 8192 (§3.3). Việc chọn mô hình căn cứ tác vụ thật của Viện — phân loại, bóc tách tài liệu, hỏi–đáp tiếng Việt, RAG, gọi công cụ, trả JSON có cấu trúc — **không** căn cứ bảng xếp hạng chung của nhà phát hành mô hình.
 
 **Kiểm soát chuỗi cung ứng — bắt buộc trước khi nạp (ETV.P28, ETV.P33).** Mô hình và image là phần mềm bên ngoài đưa vào hạ tầng Viện, áp cùng yêu cầu như mọi phần mềm khác:
 
@@ -183,7 +199,7 @@ services:
   vllm:
     # Ghim phiên bản + digest. KHÔNG dùng :latest — pull lại sẽ đổi phần mềm
     # ngoài kiểm soát, trái yêu cầu quản lý cấu hình của ETV.P33.
-    image: vllm/vllm-openai:v<phien-ban>@sha256:<digest>
+    image: vllm/vllm-openai:v0.10.2@sha256:607442e407b0fea97f8a132a78b787c121a996dd4de181fa08e8da06e71ec2db
     restart: unless-stopped
     ports:
       - "127.0.0.1:8000:8000"      # KHÔNG bỏ 127.0.0.1
@@ -200,17 +216,27 @@ services:
               count: 1
               capabilities: [gpu]
     command: >
-      --model /models/<ten-mo-hinh>
-      --served-model-name manlab-local-14b
-      --quantization awq_marlin
+      --model /models/Qwen2.5-7B-Instruct
+      --served-model-name manlab-ai
       --dtype float16
-      --max-model-len 16384
+      --max-model-len 8192
       --gpu-memory-utilization 0.90
       --tensor-parallel-size 1
       --swap-space 4
 ```
 
-Giải thích các tham số phụ thuộc phần cứng: `awq_marlin` + `float16` vì Ampere không có FP8 (§3.3); `--gpu-memory-utilization 0.90` chừa ~2,4 GB VRAM cho hệ thống; `--max-model-len 16384` là điểm khởi đầu an toàn — nếu gặp lỗi hết VRAM thì giảm xuống 8192 trước khi hạ `gpu-memory-utilization`.
+Giải thích các tham số phụ thuộc phần cứng:
+
+- `--dtype float16` vì Ampere không có FP8 (§3.3). **Không có `--quantization`** — mô hình đang chạy là bản gốc FP16, không lượng tử hoá; đặt `awq_marlin` cho một mô hình không phải AWQ sẽ làm engine không khởi động được.
+- `--gpu-memory-utilization 0.90` chừa ~2,4 GB VRAM cho hệ thống.
+- `--max-model-len 8192` là **giá trị đã chốt**, không phải điểm khởi đầu: 7B ở FP16 chiếm ~15 GB nên phần còn lại không đủ cho 16384 (§3.3). Nếu sau này đổi sang bản INT4 thì mới xét nâng lại, và phải đi lại Bước 5–6.
+- `--served-model-name manlab-ai` là **hợp đồng giữa máy chủ và AIOS**: đổi giá trị này mà không đổi `AIModel.modelId` ở Bước 4(b) thì mọi lượt gọi trả lỗi không tìm thấy mô hình.
+
+**Ghim digest.** Digest ghi trong mẫu trên lấy từ Docker Hub cho thẻ `v0.10.2`. Phải **đối chiếu với digest thật đã kéo về máy chủ** rồi ghi vào F33.01 — thẻ trên registry có thể bị đẩy lại, chỉ digest trên máy mới là bằng chứng:
+
+```bash
+docker inspect --format='{{index .RepoDigests 0}}' vllm/vllm-openai:v0.10.2
+```
 
 Kiểm tra API nội bộ:
 
@@ -229,6 +255,8 @@ curl -s -H "Authorization: Bearer $VLLM_API_KEY" http://127.0.0.1:8000/v1/models
 | **A** | Địa chỉ nội bộ + tường lửa, không phơi ra Internet | **Ưu tiên.** Khi ManLab chạy trong hạ tầng Viện |
 | **B** | IP tĩnh + tường lửa + Nginx/Caddy + TLS do Viện quản lý | Khi cần truy cập từ ngoài mà vẫn giữ toàn bộ đường truyền trong tầm kiểm soát của Viện |
 | **C** | Đường hầm của nhà cung cấp (Cloudflare Tunnel hoặc tương đương) | **Chỉ khi A và B không khả thi**, và phải qua các điều kiện dưới đây |
+
+> **Phương án đang áp dụng: C — Cloudflare Tunnel.** Phương án A không dùng được vì ManLab AIOS chạy trên máy chủ ngoài, không cùng hạ tầng với máy chủ GPU. Hệ quả bắt buộc, không được bỏ qua: máy chủ này **không còn** thoả điều kiện "dữ liệu không rời hạ tầng của Viện", nên `AIPlatform.dataBoundary` là **`EXTERNAL_WITH_COMMITMENT`**, không phải `NO_EXTERNAL_TRANSFER` (xem Bước 4a và §3.7).
 
 **Phương án C làm thay đổi ranh giới "nội bộ" — không phải lựa chọn kỹ thuật thuần tuý.** Đường hầm kết thúc TLS tại hạ tầng của nhà cung cấp, nghĩa là nội dung lời nhắc và phản hồi **đi qua bên thứ ba dưới dạng rõ**. Khi đó máy chủ không còn thoả điều kiện "dữ liệu không rời hạ tầng của Viện", và trần mức bảo mật ở §3.7 phải hạ theo. Trước khi dùng, bắt buộc:
 
@@ -273,14 +301,17 @@ Bản ghi `AIPlatform` (M29/M35) điền như sau:
 | --- | --- |
 | `code` | `MANLAB_LOCAL_LLM` |
 | `name` | Máy chủ mô hình AI nội bộ ETV |
-| `apiBaseUrl` | `https://llm.manlab.vn/v1` |
-| `environment` | `INTERNAL` (máy chủ nằm trong hạ tầng của Viện) |
+| `apiBaseUrl` | `https://ai.manlab.vn/v1` |
+| `environment` | `INTERNAL` (bản thân máy chủ GPU đặt trong hạ tầng của Viện — đường truyền tới nó thì không, xem `dataBoundary`) |
 | `adapterType` | `LocalOpenAIPlatformAdapter` (xem §3.6) |
-| `dataBoundary` | `NO_EXTERNAL_TRANSFER` — dữ liệu không rời hạ tầng Viện. Trần tối đa là mức **Nội bộ** (§3.7) |
+| `apiKeyEnv` | `LOCAL_LLM_API_KEY` (bỏ trống cũng ra giá trị này) — lưu **tên biến môi trường**, không bao giờ lưu khoá |
+| `dataBoundary` | **`EXTERNAL_WITH_COMMITMENT`** kèm `dataBoundaryRef` = số hồ sơ F29.02. Vì đang dùng Cloudflare Tunnel (Bước 3), dữ liệu **có** đi qua bên thứ ba. Trần vẫn là mức **Nội bộ**, nhưng chỉ khi có hồ sơ chống lưng — phần mềm từ chối lưu trạng thái này nếu bỏ trống số hồ sơ (`kiemTraDatRanhGioi()`) |
 | `owner` | Người quản trị hệ thống được giao |
 | `approvalStatus` | `DRAFT` khi đăng ký → `APPROVED` khi được phê duyệt → `ACTIVE` khi đã bật giám sát và kết nối (Bước 6) |
 
-**(b) Provider và Model — F29.01.** Tạo `AIProvider` mã `MANLAB_LOCAL`, sau đó tạo `AIModel` trỏ về provider đó: `modelId` phải **trùng đúng** giá trị `--served-model-name` đã đặt ở Bước 2 (`manlab-local-14b`), `displayName`, `purpose` (nhóm tác vụ được phép), `maxTokens`, `costPer1kTokens = 0` (mô hình nội bộ không tính phí theo token; chi phí điện và khấu hao theo dõi ở F33.01).
+> **Số hồ sơ điền vào `dataBoundaryRef` phải trích được điều khoản thật.** Với nhà cung cấp *mô hình*, ETV.P29 §5.5 đòi điều khoản cam kết **không dùng dữ liệu để huấn luyện lại**. Cloudflare ở đây là **nhà cung cấp đường truyền**, không huấn luyện mô hình — nên điều khoản phải trích là cam kết về **ghi nhật ký nội dung, thời hạn lưu và quyền truy cập** trong DPA/điều khoản dịch vụ. Ghi rõ trong hồ sơ rằng đây là cam kết của nhà cung cấp đường truyền, để người đọc sau không hiểu nhầm là cam kết của nhà phát hành mô hình.
+
+**(b) Provider và Model — F29.01.** Tạo `AIProvider` mã `MANLAB_LOCAL`, sau đó tạo `AIModel` trỏ về provider đó: `modelId` phải **trùng đúng** giá trị `--served-model-name` đã đặt ở Bước 2 (`manlab-ai`), `displayName` (`Qwen2.5-7B-Instruct (FP16, tự vận hành)`), `purpose` (nhóm tác vụ được phép), `maxTokens` (8192, bằng `--max-model-len`), `costPer1kTokens = 0` (mô hình nội bộ không tính phí theo token; chi phí điện và khấu hao theo dõi ở F33.01).
 
 Hồ sơ mô hình ghi thêm vào F29.01: nguồn tải mô hình, giấy phép sử dụng, độ dài ngữ cảnh, mức lượng tử hoá, ngày triển khai, người phê duyệt.
 
@@ -320,13 +351,15 @@ Thẩm quyền phê duyệt theo **mức tác động của Agent sử dụng m�
 
 | Tham số | Giá trị dùng cho máy chủ hiện tại | Ghi chú |
 | --- | --- | --- |
-| Điểm cuối máy chủ mô hình | Theo phương án chọn ở Bước 3; `https://llm.manlab.vn` chỉ áp dụng nếu buộc phải phơi ra ngoài | Bước 3 |
+| Điểm cuối máy chủ mô hình | `https://ai.manlab.vn/v1` — qua Cloudflare Tunnel (Phương án C) | Bước 3 |
 | Cổng nội bộ của engine | `127.0.0.1:8000` | Không publish |
 | Mã nền tảng (`AIPlatform.code`) | `MANLAB_LOCAL_LLM` | Bước 4a |
 | Mã provider (`AIProvider.code`) | `MANLAB_LOCAL` | Bước 4b |
-| Tên mô hình phục vụ | `manlab-local-14b` | Trùng `--served-model-name` |
-| Cỡ mô hình | 7B–14B, INT4 (AWQ/GPTQ) | §3.3 |
-| `--max-model-len` | 16384 (hạ 8192 nếu thiếu VRAM) | §3.4 Bước 2 |
+| Ranh giới dữ liệu (`dataBoundary`) | `EXTERNAL_WITH_COMMITMENT` + số hồ sơ F29.02 | Bước 4a, §3.7 |
+| Tên mô hình phục vụ | `manlab-ai` | Trùng `--served-model-name` và `AIModel.modelId` |
+| Mô hình | `Qwen/Qwen2.5-7B-Instruct`, FP16, **không lượng tử hoá** | §3.2, §3.3 |
+| Image vLLM | `vllm/vllm-openai:v0.10.2` + digest ghim | Bước 2 |
+| `--max-model-len` | 8192 (đã chốt — không đủ VRAM cho 16384) | §3.3, §3.4 Bước 2 |
 | `--gpu-memory-utilization` | 0.90 | |
 | `--tensor-parallel-size` | 1 | Một GPU |
 | Timeout gọi mô hình | 30 000 ms | Bằng ngưỡng đang áp cho nền tảng mô hình hiện có |
@@ -334,7 +367,7 @@ Thẩm quyền phê duyệt theo **mức tác động của Agent sử dụng m�
 
 ### 3.6. Hiện trạng phía ManLab AIOS (dành cho người lập trình)
 
-Cập nhật tới 28/08/2026. **Phần lớn đã triển khai** — đọc bảng này trước khi viết mã để không làm lại.
+Cập nhật tới 30/08/2026. **Phần lớn đã triển khai** — đọc bảng này trước khi viết mã để không làm lại.
 
 | Hạng mục | Hiện trạng | Bằng chứng nghiệm thu |
 | --- | --- | --- |
@@ -372,6 +405,10 @@ Cập nhật tới 28/08/2026. **Phần lớn đã triển khai** — đọc b�
 > **Phần mềm cưỡng chế điều này ở tầng kiểu dữ liệu, không chỉ bằng câu chữ:** hàm tính trần trong `copilot/retrieval.ts` có kiểu trả về là `"Cong-khai" | "Noi-bo"`, nên mức Hạn chế **không biểu diễn được** — một thay đổi mã vô ý cũng không nới lên tới đó mà qua được kiểm kiểu. Có ca test duyệt toàn bộ enum ranh giới để khoá lại.
 >
 > **Việc dữ liệu không rời hạ tầng của Viện không tự nó tạo ra quyền xử lý mức Hạn chế.** Lập luận đó có sức nặng về mặt kỹ thuật, nhưng ETV.P28 mục 6.13 **không phân biệt** nơi mô hình vận hành — câu chữ áp cho mọi trợ lý AI và agent của Viện. Muốn đổi thì phải **ban hành lại ETV.P28**, là đề nghị riêng đã nêu tại mục 4 của phiếu trên, không thuộc phạm vi hướng dẫn này.
+
+> **Máy chủ mô hình của Viện nằm ở cột nào của bảng trên?** Cột **"Dịch vụ mô hình bên ngoài"** — không phải cột "Mô hình nội bộ", dù mô hình chạy trên GPU của Viện. Lý do: từ 30/08/2026 endpoint công bố qua Cloudflare Tunnel (§3.4 Bước 3), lời nhắc đi qua bên thứ ba dưới dạng rõ. Do đó tài liệu mức **Nội bộ** chỉ được gửi tới máy chủ này **khi đã có hồ sơ F29.02 dẫn trong `dataBoundaryRef`**; chưa có hồ sơ thì trần tự động rơi về **Công khai**.
+>
+> Đây là hành vi **fail-closed có chủ ý**, không phải lỗi: `mucBaoMatToiDa()` suy trần thẳng từ `dataBoundary`, và `kiemTraDatRanhGioi()` từ chối đặt `EXTERNAL_WITH_COMMITMENT` khi thiếu số hồ sơ. Muốn khôi phục đúng nghĩa "dữ liệu không rời hạ tầng Viện" thì phải bỏ đường hầm bên thứ ba khỏi đường dữ liệu (chuyển sang Phương án A hoặc B), không phải sửa giá trị enum.
 
 **Quy tắc dự phòng khi máy chủ nội bộ mất khả dụng:**
 
@@ -420,7 +457,7 @@ Chỉ đánh dấu hoàn thành khi **toàn bộ** các mục sau đạt:
 - [ ] Đã lập đủ hồ sơ: F33.01, F35.01, F35.02, F28.01, F29.01, F29.02, F29.03, F34.01, F34.03.
 - [ ] Đã thử nghiệm quay lại bản trước — cả **image, driver, CUDA và mô hình**, không chỉ mô hình.
 
-**Định nghĩa hoàn thành:** một lượt hỏi từ người dùng đi trọn vòng `ManLab AIOS → Control Plane → MANLAB_LOCAL → llm.manlab.vn → vLLM → RTX 3090 → phản hồi → nhật ký/chi phí/sức khoẻ`, và khi tắt máy chủ GPU thì AIOS nhận biết trạng thái `DOWN`, không sập, xử lý đúng chính sách dự phòng §3.7.
+**Định nghĩa hoàn thành:** một lượt hỏi từ người dùng đi trọn vòng `ManLab AIOS → Control Plane → MANLAB_LOCAL → ai.manlab.vn → vLLM → RTX 3090 → phản hồi → nhật ký/chi phí/sức khoẻ`, và khi tắt máy chủ GPU thì AIOS nhận biết trạng thái `DOWN`, không sập, xử lý đúng chính sách dự phòng §3.7.
 
 ---
 
