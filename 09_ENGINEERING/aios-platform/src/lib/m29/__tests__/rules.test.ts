@@ -14,6 +14,7 @@ import {
   promptTransitions,
   unregisteredTransitions,
   validateTool,
+  type DependentRef,
   type IncidentForRules,
   type SightingForRules,
   type TxResult,
@@ -96,13 +97,22 @@ describe("approvalTransitions — vòng đời phê duyệt dùng chung (Platfor
 
   // ETV.P35 §6.5.3: chặn cứng, và thủ tục đòi chỉ ra DANH SÁCH đối tượng còn phụ thuộc.
   it("không kết thúc vòng đời khi còn tác tử/công cụ đang hoạt động trỏ tới", () => {
-    const dep = { reason: "hết hạn hợp đồng", activeDependents: ["Tác tử AGENT_TROLY_M29", "Công cụ TOOL_KPI"] };
+    const dep = {
+      reason: "hết hạn hợp đồng",
+      activeDependents: [
+        { kind: "agent", id: "ag1", code: "AGENT_TROLY_M29" },
+        { kind: "tool", id: "tl1", code: "TOOL_KPI" },
+      ] as DependentRef[],
+    };
     const archived = approvalTransitions.archive({ approvalStatus: "ACTIVE" }, dep);
     expectErr(archived, "DEPENDENTS_ACTIVE");
     // §6.5.3 đòi hệ thống "chỉ ra danh sách đối tượng còn phụ thuộc" — thông báo phải nêu tên thật.
     if (!archived.ok) {
-      expect(archived.message).toContain("AGENT_TROLY_M29");
-      expect(archived.message).toContain("TOOL_KPI");
+      expect(archived.message).toContain("tác tử AGENT_TROLY_M29");
+      expect(archived.message).toContain("công cụ TOOL_KPI");
+      // Giao diện dựng liên kết từ đây, nên hai vế câu + id phải đi kèm chứ không chỉ có chuỗi.
+      expect(archived.dependents?.refs.map((r) => r.id)).toEqual(["ag1", "tl1"]);
+      expect(`${archived.dependents?.truoc}tác tử AGENT_TROLY_M29, công cụ TOOL_KPI${archived.dependents?.sau}`).toBe(archived.message);
     }
     expectErr(approvalTransitions.cancel({ approvalStatus: "DRAFT" }, dep), "DEPENDENTS_ACTIVE");
     // Danh sách rỗng không phải là lý do chặn.

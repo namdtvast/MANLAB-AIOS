@@ -28,6 +28,7 @@ import {
   promptTransitions,
   unregisteredTransitions,
   validateTool,
+  type DependentRef,
   type TxResult,
 } from "./rules";
 import { callTool as gatewayCallTool } from "./gateway";
@@ -559,12 +560,15 @@ async function updateApprovable(kind: ApprovalKind, id: string, data: { approval
  * Agent `SUSPENDED` KHÔNG tính: agent đã bị khống chế thì Tool Gateway đã chặn mọi lời gọi
  * (`AGENT_NOT_ACTIVE`), giữ nó trong danh sách chỉ làm LĐV không ngừng được nền tảng đã chết.
  */
-async function activePlatformDependents(platformId: string): Promise<string[]> {
+async function activePlatformDependents(platformId: string): Promise<DependentRef[]> {
   const [agents, tools] = await Promise.all([
-    prisma.aIAgent.findMany({ where: { platformId, status: "ACTIVE" }, select: { code: true } }),
-    prisma.aITool.findMany({ where: { platformId, status: "ACTIVE" }, select: { code: true } }),
+    prisma.aIAgent.findMany({ where: { platformId, status: "ACTIVE" }, select: { id: true, code: true } }),
+    prisma.aITool.findMany({ where: { platformId, status: "ACTIVE" }, select: { id: true, code: true } }),
   ]);
-  return [...agents.map((a) => `tác tử ${a.code}`), ...tools.map((t) => `công cụ ${t.code}`)];
+  return [
+    ...agents.map((a): DependentRef => ({ kind: "agent", id: a.id, code: a.code })),
+    ...tools.map((t): DependentRef => ({ kind: "tool", id: t.id, code: t.code })),
+  ];
 }
 
 export async function approvalAction(
