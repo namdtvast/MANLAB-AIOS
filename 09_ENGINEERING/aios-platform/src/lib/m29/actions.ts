@@ -25,6 +25,7 @@ import {
   incidentTransitions,
   kiemTraDoiMoHinh,
   kiemTraGanCongCu,
+  opStatusTransitions,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -245,6 +246,78 @@ export async function setToolStatus(id: string, status: AIOpStatus) {
   await logAudit(actor, "tools", id, { field: "status", before: before.status, after: status, reason: "update" });
   revalidateM29();
   return rec;
+}
+
+/**
+ * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model hoặc Skill.
+ *
+ * Đây là nhánh THAY CHO xóa bản ghi. Ba sổ này đã có sẵn cột `status` từ đầu nhưng chưa thao tác
+ * nào chạm tới, nên một bản ghi đăng ký nhầm kẹt vĩnh viễn ở ACTIVE và chỉ gỡ được bằng cách sửa
+ * thẳng CSDL. Không làm nút Xóa: ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc để giữ giá trị truy
+ * vết, còn AIRequest/AIToolCall/AIAuditLog trỏ tới các bản ghi này bằng khoá ngoại `Restrict` —
+ * xóa cứng vừa trái thủ tục vừa ném lỗi CSDL ngay khi bản ghi đã từng phát sinh lượt gọi.
+ */
+export async function datTrangThaiVanHanh(
+  kind: "provider" | "model" | "skill",
+  id: string,
+  action: "disable" | "enable",
+  reason?: string
+): Promise<TxResult> {
+  const actor = await getActor();
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+
+  const rec =
+    kind === "provider"
+      ? await prisma.aIProvider.findUniqueOrThrow({ where: { id }, select: { status: true } })
+      : kind === "model"
+        ? await prisma.aIModel.findUniqueOrThrow({ where: { id }, select: { status: true } })
+        : await prisma.aISkill.findUniqueOrThrow({ where: { id }, select: { status: true } });
+
+  const result =
+    action === "enable"
+      ? opStatusTransitions.enable(rec)
+      : opStatusTransitions.disable(rec, {
+          reason,
+          doiTuong: OP_DOI_TUONG[kind],
+          activeDependents: await activeOpDependents(kind, id),
+        });
+  if (!result.ok) return result;
+
+  const status = result.status as AIOpStatus;
+  if (kind === "provider") await prisma.aIProvider.update({ where: { id }, data: { status } });
+  else if (kind === "model") await prisma.aIModel.update({ where: { id }, data: { status } });
+  else await prisma.aISkill.update({ where: { id }, data: { status } });
+
+  await logAudit(actor, `${kind}s`, id, { field: "status", before: rec.status, after: status, reason: result.reason });
+  revalidateM29();
+  return result;
+}
+
+/** Danh từ chèn vào câu chặn DEPENDENTS_ACTIVE — mỗi sổ một cách gọi. */
+const OP_DOI_TUONG: Record<"provider" | "model" | "skill", string> = {
+  provider: "nhà cung cấp này",
+  model: "mô hình này",
+  skill: "kỹ năng này",
+};
+
+/**
+ * Bản ghi đang hoạt động trỏ tới một Provider/Model/Skill.
+ *
+ * Đi đúng một bậc trong thứ bậc chứa nhau của năm sổ (Provider → Model → Agent), không đi đệ quy:
+ * chặn Provider ở lớp Model là đủ, vì muốn vô hiệu hóa Provider thì phải vô hiệu hóa hết Model của
+ * nó trước, mà mỗi Model lại tự chặn theo Agent của mình. Kỹ năng không có khoá ngoại nào nên phải
+ * dò trong mảng `skillIds` của Agent.
+ */
+async function activeOpDependents(kind: "provider" | "model" | "skill", id: string): Promise<DependentRef[]> {
+  if (kind === "provider") {
+    const models = await prisma.aIModel.findMany({ where: { providerId: id, status: "ACTIVE" }, select: { id: true, modelId: true } });
+    return models.map((m): DependentRef => ({ kind: "model", id: m.id, code: m.modelId }));
+  }
+  const agents = await prisma.aIAgent.findMany({
+    where: kind === "model" ? { modelId: id, status: "ACTIVE" } : { skillIds: { has: id }, status: "ACTIVE" },
+    select: { id: true, code: true },
+  });
+  return agents.map((a): DependentRef => ({ kind: "agent", id: a.id, code: a.code }));
 }
 
 export async function createAgent(input: {

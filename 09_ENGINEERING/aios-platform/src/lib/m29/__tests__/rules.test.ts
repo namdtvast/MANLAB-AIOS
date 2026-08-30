@@ -11,6 +11,7 @@ import {
   incidentTransitions,
   kiemTraDoiMoHinh,
   kiemTraGanCongCu,
+  opStatusTransitions,
   promptTransitions,
   unregisteredTransitions,
   validateTool,
@@ -117,6 +118,51 @@ describe("approvalTransitions — vòng đời phê duyệt dùng chung (Platfor
     expectErr(approvalTransitions.cancel({ approvalStatus: "DRAFT" }, dep), "DEPENDENTS_ACTIVE");
     // Danh sách rỗng không phải là lý do chặn.
     expect(approvalTransitions.archive({ approvalStatus: "ACTIVE" }, { reason: "hết hạn", activeDependents: [] }).ok).toBe(true);
+  });
+});
+
+describe("opStatusTransitions — vòng đời vận hành Provider/Model/Skill (ETV.P29 mục 6.3)", () => {
+  it("vô hiệu hóa được bản ghi đang Hoạt động, kèm lý do", () => {
+    const r = opStatusTransitions.disable({ status: "ACTIVE" }, { reason: "đăng ký nhầm, không dùng nữa" });
+    expect(r).toMatchObject({ ok: true, status: "DISABLED", reason: "đăng ký nhầm, không dùng nữa" });
+  });
+
+  // ETV.P29 mục 6.3 câu cuối: mọi nhánh kết thúc bắt buộc ghi lý do. Khoảng trắng không phải lý do.
+  it("không vô hiệu hóa được khi bỏ trống lý do", () => {
+    expectErr(opStatusTransitions.disable({ status: "ACTIVE" }), "REASON_REQUIRED");
+    expectErr(opStatusTransitions.disable({ status: "ACTIVE" }, { reason: "   " }), "REASON_REQUIRED");
+  });
+
+  it("không vô hiệu hóa lại bản ghi đã hết hoạt động", () => {
+    for (const from of ["DISABLED", "DEPRECATED", "SUSPENDED"] as const)
+      expectErr(opStatusTransitions.disable({ status: from }, { reason: "x" }), "BAD_STATE");
+  });
+
+  // Cùng tinh thần chặn cứng ETV.P35 §6.5.3: không rút một mắt xích khi mắt sau còn đang chạy.
+  it("không vô hiệu hóa được khi còn bản ghi đang hoạt động trỏ tới", () => {
+    const r = opStatusTransitions.disable(
+      { status: "ACTIVE" },
+      {
+        reason: "ngừng hợp đồng",
+        doiTuong: "nhà cung cấp này",
+        activeDependents: [{ kind: "model", id: "md1", code: "gemini-2.5-flash" }] as DependentRef[],
+      }
+    );
+    expectErr(r, "DEPENDENTS_ACTIVE");
+    if (!r.ok) {
+      expect(r.message).toContain("mô hình gemini-2.5-flash");
+      expect(r.message).toContain("nhà cung cấp này");
+      expect(r.dependents?.refs.map((d) => d.id)).toEqual(["md1"]);
+      expect(`${r.dependents?.truoc}mô hình gemini-2.5-flash${r.dependents?.sau}`).toBe(r.message);
+    }
+    // Danh sách rỗng không phải là lý do chặn.
+    expect(opStatusTransitions.disable({ status: "ACTIVE" }, { reason: "x", activeDependents: [] }).ok).toBe(true);
+  });
+
+  it("kích hoạt lại được từ mọi trạng thái không Hoạt động, và không cần lý do", () => {
+    for (const from of ["DISABLED", "DEPRECATED", "SUSPENDED"] as const)
+      expect(opStatusTransitions.enable({ status: from })).toMatchObject({ ok: true, status: "ACTIVE" });
+    expectErr(opStatusTransitions.enable({ status: "ACTIVE" }), "BAD_STATE");
   });
 });
 

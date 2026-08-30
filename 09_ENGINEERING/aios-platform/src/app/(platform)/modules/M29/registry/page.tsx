@@ -16,7 +16,7 @@ import {
 } from "@/lib/m29/labels";
 import { mucBaoMatToiDa } from "@/lib/m29/copilot/muc-bao-mat";
 import { ADAPTER_TYPES } from "@/lib/m29/adapters";
-import { PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { OpStatusToggle, PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
 import { NewSkillForm } from "./NewSkillForm";
@@ -238,13 +238,14 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
           <NewProviderForm platforms={dsPlatform.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={maProvider.map((p) => p.code)} />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[36rem] text-sm">
+          <table className="w-full min-w-[46rem] text-sm">
             <thead>
               <tr>
                 <th className={TH}>Mã</th>
                 <th className={TH}>Tên</th>
                 <th className={TH}>Nền tảng phơi API</th>
                 <th className={TH}>Trạng thái</th>
+                {canWriteRegistry && <th className={TH}>Thao tác</th>}
               </tr>
             </thead>
             <tbody>
@@ -260,9 +261,14 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                   <td className="px-3 py-2">
                     <Badge tone={OP_STATUS_TONE[p.status]}>{OP_STATUS_LABEL[p.status]}</Badge>
                   </td>
+                  {canWriteRegistry && (
+                    <td className="px-3 py-2">
+                      <OpStatusToggle kind="provider" id={p.id} status={p.status} />
+                    </td>
+                  )}
                 </tr>
               ))}
-              {providers.length === 0 && <EmptyRow cols={4}>Chưa có nhà cung cấp nào.</EmptyRow>}
+              {providers.length === 0 && <EmptyRow cols={canWriteRegistry ? 5 : 4}>Chưa có nhà cung cấp nào.</EmptyRow>}
             </tbody>
           </table>
           <PhanTrang path="/modules/M29/registry" query={query} neo="#provider" tenTham="trangPv" trang={trangPv} tong={tongPv} donVi="nhà cung cấp" />
@@ -278,7 +284,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
       >
         {canWriteRegistry && <NewModelForm providers={dsProvider} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[44rem] text-sm">
+          <table className="w-full min-w-[60rem] text-sm">
             <thead>
               <tr>
                 <th className={TH}>Mã model</th>
@@ -286,6 +292,8 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                 <th className={TH}>Nhà cung cấp</th>
                 <th className={TH}>Giá / 1 triệu token</th>
                 {canWriteRegistry && <th className={TH}>Bảng giá</th>}
+                <th className={TH}>Trạng thái</th>
+                {canWriteRegistry && <th className={TH}>Thao tác</th>}
               </tr>
             </thead>
             <tbody>
@@ -310,9 +318,17 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                       />
                     </td>
                   )}
+                  <td className="px-3 py-2">
+                    <Badge tone={OP_STATUS_TONE[m.status]}>{OP_STATUS_LABEL[m.status]}</Badge>
+                  </td>
+                  {canWriteRegistry && (
+                    <td className="px-3 py-2">
+                      <OpStatusToggle kind="model" id={m.id} status={m.status} />
+                    </td>
+                  )}
                 </tr>
               ))}
-              {models.length === 0 && <EmptyRow cols={canWriteRegistry ? 5 : 4}>Chưa có Model nào để thiết lập bảng giá.</EmptyRow>}
+              {models.length === 0 && <EmptyRow cols={canWriteRegistry ? 7 : 5}>Chưa có Model nào để thiết lập bảng giá.</EmptyRow>}
             </tbody>
           </table>
           <PhanTrang path="/modules/M29/registry" query={query} neo="#model" tenTham="trangMd" trang={trangMd} tong={tongMd} donVi="model" />
@@ -381,7 +397,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
           <NewSkillForm platforms={dsPlatform.map((p) => ({ id: p.id, code: p.code, name: p.name }))} existingCodes={maSkill.map((s) => s.code)} />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[40rem] text-sm">
+          <table className="w-full min-w-[50rem] text-sm">
             <thead>
               <tr>
                 <th className={TH}>Mã</th>
@@ -390,6 +406,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                 <th className={TH}>Mức rủi ro</th>
                 <th className={TH}>Phiên bản</th>
                 <th className={TH}>Trạng thái</th>
+                {canWriteRegistry && <th className={TH}>Thao tác</th>}
               </tr>
             </thead>
             <tbody>
@@ -407,9 +424,14 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                   <td className="px-3 py-2">
                     <Badge tone={OP_STATUS_TONE[s.status]}>{OP_STATUS_LABEL[s.status]}</Badge>
                   </td>
+                  {canWriteRegistry && (
+                    <td className="px-3 py-2">
+                      <OpStatusToggle kind="skill" id={s.id} status={s.status} />
+                    </td>
+                  )}
                 </tr>
               ))}
-              {skills.length === 0 && <EmptyRow cols={6}>Chưa đăng ký kỹ năng nào.</EmptyRow>}
+              {skills.length === 0 && <EmptyRow cols={canWriteRegistry ? 7 : 6}>Chưa đăng ký kỹ năng nào.</EmptyRow>}
             </tbody>
           </table>
           <PhanTrang path="/modules/M29/registry" query={query} neo="#skill" tenTham="trangSk" trang={trangSk} tong={tongSk} donVi="kỹ năng" />

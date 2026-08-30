@@ -219,6 +219,19 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   token và vẫn có độ trễ, nên nếu chỉ nhìn token/latency thì nó trông y hệt một lượt trả lời thành
   công. Cùng lúc, hai trang `traces` và `audit` được bổ sung chốt phân quyền theo mục 4 — trước đó
   là hai trang M29 duy nhất render thẳng không kiểm `can()`.
+- ✅ **Vô hiệu hóa Provider/Model/Skill** (2026-08-30): ba sổ này có cột `status` (`AIOpStatus`) từ
+  đầu nhưng **không thao tác giao diện nào chạm tới**, nên một bản ghi đăng ký nhầm kẹt vĩnh viễn ở
+  `ACTIVE` và chỉ gỡ được bằng cách sửa thẳng CSDL — đúng mục 2 phần "Việc còn lại" của lượt 28/08.
+  Thêm `opStatusTransitions` (chuỗi ETV.P29 mục 6.3 *Đăng ký → Đang hiệu lực → Vô hiệu hóa*, bắt
+  buộc lý do khi vô hiệu hóa) và chốt phụ thuộc cùng tinh thần ETV.P35 §6.5.3: Provider chặn theo
+  Model `ACTIVE`, Model và Kỹ năng chặn theo Agent `ACTIVE`. **Vẫn không làm nút Xóa** — câu hỏi
+  "bổ sung chức năng xoá của tài khoản Super Admin?" được trả lời bằng chính nhánh này: §6.1.8 cấm
+  cấp lại mã đã kết thúc, `AIAuditLog` trỏ tới bản ghi bằng chuỗi không khoá ngoại nên xóa cứng để
+  lại nhật ký trỏ vào hư không, và `AIRequest`/`AIToolCall`/`AIAgent` khai `onDelete: Restrict` nên
+  nút Xóa sẽ ném lỗi CSDL ngay khi bản ghi đã từng phát sinh lượt gọi. Xem
+  [`_work/20260830-vo-hieu-hoa-provider-model-skill/verify.md`](_work/20260830-vo-hieu-hoa-provider-model-skill/verify.md).
+  **Chưa kiểm được chốt phân quyền với vai trò khác trên trình duyệt** (mật khẩu tài khoản demo do
+  `SEED_DEMO_PASSWORD` quyết định, không có sẵn); ranh giới `registry:write` nay có ca test riêng.
 - ❌ **Chưa làm**: UI cho AISecret (mask value — action đã có, chưa có trang), UI tạo/chạy
   Evaluation Suite tùy biến (chỉ verify được nhánh Evaluation PASS, chưa verify nhánh chặn
   `DEPLOYMENT_BLOCKED_BY_EVALUATION` qua Browser), health polling nền tự động (chỉ có nút thủ
