@@ -5,13 +5,13 @@ type: Bieu-mau
 owner: "Viện Kiểm định Công nghệ và Môi trường"
 department: "Phòng Đo lường Chất lượng"
 prepared_by: ""
-prepared_date: "22/04/2023"
+prepared_date: "22/04/2026"
 reviewed_by: "Trần Thị Hoa"
-reviewed_date: "22/04/2023"
+reviewed_date: "22/04/2026"
 approved_by: "Nguyễn Hoàng Giang"
-approved_date: "22/04/2023"
+approved_date: "22/04/2026"
 process: ""
-effective_date: "22/04/2023"
+effective_date: "22/04/2026"
 revision: "02"
 status: Da-phe-duyet
 keywords: [biên bản hiệu chuẩn, SO2, CO, NOx, THC, O3, trạm quan trắc không khí tự động, độ trôi, thời gian đáp ứng]
@@ -200,9 +200,9 @@ Nếu có hiệu chỉnh, ghi rõ:
 ## GHI CHÚ CHUYỂN ĐỔI
 
 - Bản `.md` này chuyển đổi định dạng từ file PDF gốc `ETV.MCA 01_KK tu dong_BBHC_V1.pdf` (5 trang) do Viện ban hành. Khi có khác biệt, bản PDF do Viện ban hành là bản có giá trị áp dụng.
-- Chân trang bản gốc ghi: `ETV.MCA.F 01.01 — Lần BH: 02 — Ngày BH: 22/04/2023 — Soát xét: 10/05/2026`. Trong khi đó quy trình mẹ [`ETV.MCA 01`](../1.%20Quy%20trinh/ETV.MCA.01_QTHC_KhiTuDong.md) ghi lần ban hành 02 ngày **22/04/2026**. Hai ngày ban hành lệch nhau — giữ nguyên ngày của bản gốc biểu mẫu (22/04/2023), cần đối chiếu và thống nhất khi soát xét lần tới theo `ETV.P14`.
+- **Đính chính ngày ban hành:** chân trang bản PDF gốc ghi `Ngày BH: 22/04/2023`, lệch với lần ban hành 02 của quy trình mẹ [`ETV.MCA 01`](../1.%20Quy%20trinh/ETV.MCA.01_QTHC_KhiTuDong.md) là **22/04/2026**. Biểu mẫu là phụ lục không tách rời của quy trình nên phải cùng lần ban hành và cùng ngày ban hành với quy trình mẹ. Đã chốt **22/04/2026** cho bản `.md` này; ngày `22/04/2023` ở chân trang bản PDF là sai sót cần đính chính khi in/phát hành lại bản giấy.
 - Bản gốc không có khối chữ ký biên soạn/soát xét/phê duyệt riêng cho biểu mẫu (biểu mẫu là phụ lục của quy trình), nên `prepared_by` để trống; `reviewed_by`/`approved_by` lấy theo quy trình mẹ.
 
 ---
 
-*Biên bản hiệu chuẩn — ETV.MCA.F 01.01 — Lần BH: 02 — Ngày BH: 22/04/2023 — Soát xét: 10/05/2026 — Phụ lục của ETV.MCA 01.*
+*Biên bản hiệu chuẩn — ETV.MCA.F 01.01 — Lần BH: 02 — Ngày BH: 22/04/2026 — Soát xét: 10/05/2026 — Phụ lục của ETV.MCA 01.*
