@@ -16,7 +16,7 @@ import {
 } from "@/lib/m29/labels";
 import { mucBaoMatToiDa } from "@/lib/m29/copilot/muc-bao-mat";
 import { ADAPTER_TYPES } from "@/lib/m29/adapters";
-import { OpStatusToggle, PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { OpStatusToggle, PlatformApprovalButton } from "./RegistryActions";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
 import { NewSkillForm } from "./NewSkillForm";
@@ -351,7 +351,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
           />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-          <table className="w-full min-w-[36rem] text-sm">
+          <table className="w-full min-w-[44rem] text-sm">
             <thead>
               <tr>
                 <th className={TH}>Tên</th>
@@ -374,7 +374,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
                   </td>
                   {canWriteRegistry && (
                     <td className="px-3 py-2">
-                      <ToolStatusToggle id={t.id} status={t.status} />
+                      <OpStatusToggle kind="tool" id={t.id} status={t.status} />
                     </td>
                   )}
                 </tr>

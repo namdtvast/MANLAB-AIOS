@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { approvalAction, datTrangThaiVanHanh, setToolStatus } from "@/lib/m29/actions";
+import { approvalAction, datTrangThaiVanHanh, type OpStatusKind } from "@/lib/m29/actions";
 import { DEPENDENT_KIND_LABEL, type DependentRef, type DependentsDetail } from "@/lib/m29/rules";
 import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
 
@@ -168,33 +168,19 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
   );
 }
 
-export function ToolStatusToggle({ id, status }: { id: string; status: AIOpStatus }) {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-
-  const toggle = () => {
-    startTransition(async () => {
-      await setToolStatus(id, status === "ACTIVE" ? "DISABLED" : "ACTIVE");
-      router.refresh();
-    });
-  };
-
-  return (
-    <button className={btnSm} disabled={isPending} onClick={toggle}>
-      {status === "ACTIVE" ? "Vô hiệu hóa" : "Kích hoạt lại"}
-    </button>
-  );
-}
-
 /**
- * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model hoặc Skill.
+ * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model, Skill hoặc Tool.
  *
  * Đây là thứ thay cho nút Xóa mà người dùng hay đi tìm: ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc
- * nên bản ghi phải ở lại danh mục làm chứng cứ, chỉ hết dùng. Khác `ToolStatusToggle` ở chỗ bắt
- * buộc ghi lý do trước khi vô hiệu hóa — ETV.P29 mục 6.3 câu cuối đòi lý do cho mọi nhánh kết
- * thúc, và lý do đó là thứ đoàn đánh giá đọc trong nhật ký thay đổi cấu hình.
+ * nên bản ghi phải ở lại danh mục làm chứng cứ, chỉ hết dùng. Vô hiệu hóa bắt buộc ghi lý do —
+ * ETV.P29 mục 6.3 câu cuối đòi lý do cho mọi nhánh kết thúc, và lý do đó là thứ đoàn đánh giá đọc
+ * trong nhật ký thay đổi cấu hình. Kích hoạt lại không hỏi lý do.
+ *
+ * Một thành phần cho cả bốn sổ, không tách riêng cho Tool: bốn bảng nằm cùng một trang nên hai
+ * kiểu ghi nhật ký cạnh nhau là chỗ người đọc nhật ký vấp — trước đây nút của Tool bấm phát đổi
+ * luôn, dòng audit để lại đúng chữ "update" không cho biết vì sao.
  */
-export function OpStatusToggle({ kind, id, status }: { kind: "provider" | "model" | "skill"; id: string; status: AIOpStatus }) {
+export function OpStatusToggle({ kind, id, status }: { kind: OpStatusKind; id: string; status: AIOpStatus }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<{ message: string; dependents?: DependentsDetail } | null>(null);

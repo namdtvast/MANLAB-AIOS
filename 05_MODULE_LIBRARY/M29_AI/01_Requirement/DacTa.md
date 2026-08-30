@@ -219,6 +219,19 @@ Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ t
   token và vẫn có độ trễ, nên nếu chỉ nhìn token/latency thì nó trông y hệt một lượt trả lời thành
   công. Cùng lúc, hai trang `traces` và `audit` được bổ sung chốt phân quyền theo mục 4 — trước đó
   là hai trang M29 duy nhất render thẳng không kiểm `can()`.
+- ✅ **Lý do bắt buộc khi vô hiệu hóa Công cụ** (2026-08-30): làm nốt mục 1 "Việc còn lại" của lượt
+  ngay trước. `ToolStatusToggle` cũ bấm phát đổi luôn nên hai dòng `AIAuditLog` thật (22/08, 29/08)
+  chỉ ghi được chữ `"update"` — không cho biết vì sao công cụ bị tắt, trong khi ETV.P29 mục 6.3 xếp
+  Công cụ vào cùng chuỗi *Đăng ký → Đang hiệu lực → Vô hiệu hóa* và câu cuối mục đó đòi lý do cho
+  mọi nhánh kết thúc. Gộp về một đường: bỏ `setToolStatus()`/`ToolStatusToggle`, `datTrangThaiVanHanh()`
+  nhận thêm `kind: "tool"`. **Công cụ cố ý KHÔNG có chốt phụ thuộc** như ba sổ kia — ETV.P29 mục
+  5.7.3 bước 1 đặt "vô hiệu hóa công cụ liên quan" làm bước khống chế khẩn cấp khi có sự cố, chặn
+  nó vì "còn tác tử đang dùng" là khóa mất đúng cái van cần mở nhất; và Tool Gateway đã từ chối
+  `TOOL_DISABLED` ngay tại cổng nên không cần rào thêm. Xem
+  [`_work/20260830-ly-do-vo-hieu-hoa-tool/verify.md`](_work/20260830-ly-do-vo-hieu-hoa-tool/verify.md).
+  **Chưa kiểm được nhánh "không chặn dù tác tử ACTIVE còn whitelist"** trên dữ liệu thật — tác tử
+  duy nhất whitelist công cụ đang `SUSPENDED`; bảo đảm ở mức mã (`activeOpDependents()` trả `[]`
+  ngay dòng đầu với `kind === "tool"`).
 - ✅ **Vô hiệu hóa Provider/Model/Skill** (2026-08-30): ba sổ này có cột `status` (`AIOpStatus`) từ
   đầu nhưng **không thao tác giao diện nào chạm tới**, nên một bản ghi đăng ký nhầm kẹt vĩnh viễn ở
   `ACTIVE` và chỉ gỡ được bằng cách sửa thẳng CSDL — đúng mục 2 phần "Việc còn lại" của lượt 28/08.

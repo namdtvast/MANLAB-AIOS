@@ -238,27 +238,21 @@ export async function createTool(input: {
   return rec;
 }
 
-export async function setToolStatus(id: string, status: AIOpStatus) {
-  const actor = await getActor();
-  if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
-  const before = await prisma.aITool.findUniqueOrThrow({ where: { id } });
-  const rec = await prisma.aITool.update({ where: { id }, data: { status } });
-  await logAudit(actor, "tools", id, { field: "status", before: before.status, after: status, reason: "update" });
-  revalidateM29();
-  return rec;
-}
+/** Bốn sổ dùng vòng đời vận hành (`AIOpStatus`) thay cho vòng đời phê duyệt của Platform. */
+export type OpStatusKind = "provider" | "model" | "skill" | "tool";
 
 /**
- * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model hoặc Skill.
+ * Vô hiệu hóa / kích hoạt lại một bản ghi Provider, Model, Skill hoặc Tool.
  *
- * Đây là nhánh THAY CHO xóa bản ghi. Ba sổ này đã có sẵn cột `status` từ đầu nhưng chưa thao tác
- * nào chạm tới, nên một bản ghi đăng ký nhầm kẹt vĩnh viễn ở ACTIVE và chỉ gỡ được bằng cách sửa
- * thẳng CSDL. Không làm nút Xóa: ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc để giữ giá trị truy
- * vết, còn AIRequest/AIToolCall/AIAuditLog trỏ tới các bản ghi này bằng khoá ngoại `Restrict` —
- * xóa cứng vừa trái thủ tục vừa ném lỗi CSDL ngay khi bản ghi đã từng phát sinh lượt gọi.
+ * Đây là nhánh THAY CHO xóa bản ghi. Bốn sổ này đã có sẵn cột `status` từ đầu nhưng chưa thao tác
+ * nào chạm tới (riêng Tool có nút nhưng bấm phát đổi luôn, không hỏi gì), nên một bản ghi đăng ký
+ * nhầm kẹt vĩnh viễn ở ACTIVE và chỉ gỡ được bằng cách sửa thẳng CSDL. Không làm nút Xóa:
+ * ETV.P35 §6.1.8 cấm cấp lại mã đã kết thúc để giữ giá trị truy vết, còn
+ * AIRequest/AIToolCall/AIAuditLog trỏ tới các bản ghi này bằng khoá ngoại `Restrict` — xóa cứng
+ * vừa trái thủ tục vừa ném lỗi CSDL ngay khi bản ghi đã từng phát sinh lượt gọi.
  */
 export async function datTrangThaiVanHanh(
-  kind: "provider" | "model" | "skill",
+  kind: OpStatusKind,
   id: string,
   action: "disable" | "enable",
   reason?: string
@@ -271,7 +265,9 @@ export async function datTrangThaiVanHanh(
       ? await prisma.aIProvider.findUniqueOrThrow({ where: { id }, select: { status: true } })
       : kind === "model"
         ? await prisma.aIModel.findUniqueOrThrow({ where: { id }, select: { status: true } })
-        : await prisma.aISkill.findUniqueOrThrow({ where: { id }, select: { status: true } });
+        : kind === "skill"
+          ? await prisma.aISkill.findUniqueOrThrow({ where: { id }, select: { status: true } })
+          : await prisma.aITool.findUniqueOrThrow({ where: { id }, select: { status: true } });
 
   const result =
     action === "enable"
@@ -286,7 +282,8 @@ export async function datTrangThaiVanHanh(
   const status = result.status as AIOpStatus;
   if (kind === "provider") await prisma.aIProvider.update({ where: { id }, data: { status } });
   else if (kind === "model") await prisma.aIModel.update({ where: { id }, data: { status } });
-  else await prisma.aISkill.update({ where: { id }, data: { status } });
+  else if (kind === "skill") await prisma.aISkill.update({ where: { id }, data: { status } });
+  else await prisma.aITool.update({ where: { id }, data: { status } });
 
   await logAudit(actor, `${kind}s`, id, { field: "status", before: rec.status, after: status, reason: result.reason });
   revalidateM29();
@@ -294,10 +291,12 @@ export async function datTrangThaiVanHanh(
 }
 
 /** Danh từ chèn vào câu chặn DEPENDENTS_ACTIVE — mỗi sổ một cách gọi. */
-const OP_DOI_TUONG: Record<"provider" | "model" | "skill", string> = {
+const OP_DOI_TUONG: Record<OpStatusKind, string> = {
   provider: "nhà cung cấp này",
   model: "mô hình này",
   skill: "kỹ năng này",
+  // Không dùng tới: công cụ cố ý không có chốt phụ thuộc, xem activeOpDependents().
+  tool: "công cụ này",
 };
 
 /**
@@ -307,8 +306,15 @@ const OP_DOI_TUONG: Record<"provider" | "model" | "skill", string> = {
  * chặn Provider ở lớp Model là đủ, vì muốn vô hiệu hóa Provider thì phải vô hiệu hóa hết Model của
  * nó trước, mà mỗi Model lại tự chặn theo Agent của mình. Kỹ năng không có khoá ngoại nào nên phải
  * dò trong mảng `skillIds` của Agent.
+ *
+ * **Công cụ cố ý KHÔNG có chốt phụ thuộc**, dù Agent whitelist nó qua `toolIds`. Vô hiệu hóa công
+ * cụ chính là bước khống chế khẩn cấp của ETV.P29 mục 5.7.3 bước 1 ("tạm dừng tác tử **hoặc vô
+ * hiệu hóa công cụ liên quan**) — chặn nó vì "còn tác tử đang dùng" là khóa mất cái van cần mở
+ * nhất đúng lúc sự cố. Và không cần chặn: Tool Gateway đã từ chối `TOOL_DISABLED` ngay tại cổng
+ * nên tác tử whitelist một công cụ đã vô hiệu hóa cũng không gọi được.
  */
-async function activeOpDependents(kind: "provider" | "model" | "skill", id: string): Promise<DependentRef[]> {
+async function activeOpDependents(kind: OpStatusKind, id: string): Promise<DependentRef[]> {
+  if (kind === "tool") return [];
   if (kind === "provider") {
     const models = await prisma.aIModel.findMany({ where: { providerId: id, status: "ACTIVE" }, select: { id: true, modelId: true } });
     return models.map((m): DependentRef => ({ kind: "model", id: m.id, code: m.modelId }));

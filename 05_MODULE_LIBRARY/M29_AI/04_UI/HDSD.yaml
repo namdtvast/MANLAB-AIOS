@@ -18,7 +18,7 @@ steps:
   - role: "Quản trị AI"
     action: "Vô hiệu hóa bản ghi Provider, Model, Skill, Tool không còn dùng; kích hoạt lại khi cần"
     path: "/modules/M29/registry"
-    note: "Danh mục KHÔNG có nút xóa — mã đã kết thúc không được cấp lại nên bản ghi ở lại làm chứng cứ, chỉ chuyển sang Vô hiệu hóa. Vô hiệu hóa Provider, Model, Skill bắt buộc ghi lý do và bị chặn khi còn bản ghi đang hoạt động trỏ tới: gỡ Provider phải vô hiệu hóa hết Model của nó trước, gỡ Model hay Kỹ năng phải dừng các tác tử đang dùng trước. Kích hoạt lại không cần lý do."
+    note: "Danh mục KHÔNG có nút xóa — mã đã kết thúc không được cấp lại nên bản ghi ở lại làm chứng cứ, chỉ chuyển sang Vô hiệu hóa. Cả bốn sổ đều bắt buộc ghi lý do khi vô hiệu hóa; kích hoạt lại không cần lý do. Provider, Model, Skill bị chặn khi còn bản ghi đang hoạt động trỏ tới: gỡ Provider phải vô hiệu hóa hết Model của nó trước, gỡ Model hay Kỹ năng phải dừng các tác tử đang dùng trước. Riêng Công cụ KHÔNG bị chặn dù tác tử còn whitelist nó — vô hiệu hóa công cụ chính là bước khống chế khẩn cấp khi có sự cố, và cổng công cụ đã chặn sẵn nên tác tử cũng không gọi được."
   - role: "Quản trị AI"
     action: "Lập hồ sơ đánh giá tác động (AIA) cho từng tác tử rồi trình soát xét, phê duyệt"
     note: "Chỉ tác tử có AIA đã phê duyệt mới được đưa vào vận hành."
