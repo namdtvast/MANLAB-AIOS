@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-08-30 16:17 UTC",
+ "generated_at": "2026-08-30 16:43 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "claude/quy-tac-ten-file-bieu-mau",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/quy-tac-ten-file-bieu-mau",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/quy-tac-ten-file-bieu-mau",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/quy-tac-ten-file-bieu-mau"
+  "branch": "claude/bo-sung-45-bieu-mau-bbhc",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/bo-sung-45-bieu-mau-bbhc",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/bo-sung-45-bieu-mau-bbhc",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/bo-sung-45-bieu-mau-bbhc"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 8102,
-  "dirs": 2136,
+  "files": 8149,
+  "dirs": 2185,
   "docs": 4725,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1252,
+   ".md": 1299,
    ".png": 96,
    ".pdf": 3422,
    ".yaml": 136,
@@ -3491,9 +3491,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.F02.01_BBHC_NongDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA02_NongDoKhi/2. Bieu mau/ETV.MCA.F02.01_BBHC_NongDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 10641
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3516,9 +3532,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCA.F03.01_BBHC_TaoKhiO3.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Air/MCA03_TaoKhiO3/2. Bieu mau/ETV.MCA.F03.01_BBHC_TaoKhiO3.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8349
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3641,9 +3673,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F01.01_BBHC_pH.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW01_pH/2. Bieu mau/ETV.MCW.F01.01_BBHC_pH.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9153
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3666,9 +3714,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F02.01_BBHC_EC.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW02_EC/2. Bieu mau/ETV.MCW.F02.01_BBHC_EC.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9208
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3691,9 +3755,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F03.01_BBHC_DoDuc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW03_DoDuc/2. Bieu mau/ETV.MCW.F03.01_BBHC_DoDuc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9249
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3716,9 +3796,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F04.01_BBHC_ORP.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW04_ORP/2. Bieu mau/ETV.MCW.F04.01_BBHC_ORP.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9225
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3741,9 +3837,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F05.01_BBHC_TDS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW05_TDS/2. Bieu mau/ETV.MCW.F05.01_BBHC_TDS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9239
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3766,9 +3878,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F06.01_BBHC_DO.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW06_DO/2. Bieu mau/ETV.MCW.F06.01_BBHC_DO.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8927
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3791,9 +3919,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F07.01_BBHC_DoMan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW07_SALT/2. Bieu mau/ETV.MCW.F07.01_BBHC_DoMan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9171
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3816,9 +3960,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F08.01_BBHC_NongDoChatTrongNuoc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW08_NongDoChatTrongNuoc/2. Bieu mau/ETV.MCW.F08.01_BBHC_NongDoChatTrongNuoc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8931
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3841,9 +4001,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCW.F09.01_BBHC_AAS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/1. MC_Phy_Che_Water/MCW09_AAS/2. Bieu mau/ETV.MCW.F09.01_BBHC_AAS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8676
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -3950,9 +4126,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCH.F01.01_BBHC_DoAm.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/10. MC_Hygro/MCH01_DoAm/2. Bieu mau/ETV.MCH.F01.01_BBHC_DoAm.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 10217
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            }
           ],
@@ -3984,9 +4176,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCM.F01.01_BBHC_Can.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/2. MC_Mass/MCM01_Can/2. Bieu mau/ETV.MCM.F01.01_BBHC_Can.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8844
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            }
           ],
@@ -4018,9 +4226,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F01.01_BBHC_LuuLuongKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF01_LuuLuongKhi/2. Bieu mau/ETV.MCF.F01.01_BBHC_LuuLuongKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9430
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4043,9 +4267,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F02.01_BBHC_DongHoDoKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF02_DongHoDoKhi/2. Bieu mau/ETV.MCF.F02.01_BBHC_DongHoDoKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9338
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4068,9 +4308,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F03.01_BBHC_TocDoGio.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF03_TocDoGio/2. Bieu mau/ETV.MCF.F03.01_BBHC_TocDoGio.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8541
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4093,9 +4349,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F04.01_BBHC_LuuLuongKhiThai.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF04_LuuLuongKhiThai/2. Bieu mau/ETV.MCF.F04.01_BBHC_LuuLuongKhiThai.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8203
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4118,9 +4390,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F05.01_BBHC_LuuLuongKenhHo.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF05_LuuLuongKenhHo/2. Bieu mau/ETV.MCF.F05.01_BBHC_LuuLuongKenhHo.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9077
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4143,9 +4431,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F06.01_BBHC_LuuLuongOngKin.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF06_LuuLuongDuongOngKin/2. Bieu mau/ETV.MCF.F06.01_BBHC_LuuLuongOngKin.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9257
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4168,9 +4472,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F07.01_BBHC_Micropipet.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF07_Micropipet/2. Bieu mau/ETV.MCF.F07.01_BBHC_Micropipet.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8640
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4193,9 +4513,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F08.01_BBHC_DoMucTuDong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF08_DoMucTuDong/2. Bieu mau/ETV.MCF.F08.01_BBHC_DoMucTuDong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8284
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4218,9 +4554,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F09.01_BBHC_DungCuThuyTinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF09_DungCuThuyTinh/2. Bieu mau/ETV.MCF.F09.01_BBHC_DungCuThuyTinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8380
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4243,9 +4595,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F10.01_BBHC_PhaLoangKhiChuan.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF10_PhaLoangKhiChuan/2. Bieu mau/ETV.MCF.F10.01_BBHC_PhaLoangKhiChuan.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 10335
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4268,9 +4636,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F11.01_BBHC_PTDLuongMua.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF11_PTDLuongMua/2. Bieu mau/ETV.MCF.F11.01_BBHC_PTDLuongMua.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8553
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4293,9 +4677,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCF.F12.01_BBHC_DoMucNuoc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/3. MC_Volume_Flow/MCF12_DoMucNuoc/2. Bieu mau/ETV.MCF.F12.01_BBHC_DoMucNuoc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8210
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4377,9 +4777,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.F01.01_BBHC_UVVIS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO01_UVVIS/2. Bieu mau/ETV.MCO.F01.01_BBHC_UVVIS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9913
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4427,9 +4843,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.F03.01_BBHC_BuiXQ.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO03_BuiXQ/2. Bieu mau/ETV.MCO.F03.01_BBHC_BuiXQ.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8476
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4452,9 +4884,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCO.F04.01_BBHC_BuiKhiThai.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/4. MC_Optics/MCO04_BuiKhiThai/2. Bieu mau/ETV.MCO.F04.01_BBHC_BuiKhiThai.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8117
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4511,9 +4959,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.F01.01_BBHC_DoOn.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS01_DoOn/2. Bieu mau/ETV.MCS.F01.01_BBHC_DoOn.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 17129
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4536,9 +5000,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCS.F02.01_BBHC_TocDoVongQuay.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/5. MC_Frequency/MCS02_TocDoVongQuay/2. Bieu mau/ETV.MCS.F02.01_BBHC_TocDoVongQuay.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9036
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4670,9 +5150,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F01.01_BBHC_TuNhiet.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT01_TuNhiet/2. Bieu mau/ETV.MCT.F01.01_BBHC_TuNhiet.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8880
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4695,9 +5191,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F02.01_BBHC_PhaMauCOD.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT02_PhaMauCOD/2. Bieu mau/ETV.MCT.F02.01_BBHC_PhaMauCOD.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8827
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4720,9 +5232,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F03.01_BBHC_NhietDoKhongKhi.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT03_NhietDoKhongKhi/2. Bieu mau/ETV.MCT.F03.01_BBHC_NhietDoKhongKhi.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9257
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4745,9 +5273,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F04.01_BBHC_CapNhietDoK.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT04_CapNhietDoK/2. Bieu mau/ETV.MCT.F04.01_BBHC_CapNhietDoK.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8170
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4770,9 +5314,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F05.01_BBHC_LoNhiet.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT05_LoNhiet/2. Bieu mau/ETV.MCT.F05.01_BBHC_LoNhiet.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 10336
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4795,9 +5355,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F06.01_BBHC_HapTietTrung.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT06_ThietBiHapTietTrung/2. Bieu mau/ETV.MCT.F06.01_BBHC_HapTietTrung.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8323
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4820,9 +5396,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F07.01_BBHC_BeDieuNhiet.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT07_BeDieuNhiet/2. Bieu mau/ETV.MCT.F07.01_BBHC_BeDieuNhiet.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9060
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4845,9 +5437,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F08.01_BBHC_ChungCatDam.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT08_ThietBiChungCat/2. Bieu mau/ETV.MCT.F08.01_BBHC_ChungCatDam.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8411
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4870,9 +5478,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F09.01_BBHC_NhietKeThuyTinh.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT09_NhietKeThuyTinh/2. Bieu mau/ETV.MCT.F09.01_BBHC_NhietKeThuyTinh.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8480
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4945,9 +5569,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F12.01_BBHC_LoNung.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT12_LoNung/2. Bieu mau/ETV.MCT.F12.01_BBHC_LoNung.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8638
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4970,9 +5610,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCT.F13.01_BBHC_LoViSong.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT13_LoViSong/2. Bieu mau/ETV.MCT.F13.01_BBHC_LoViSong.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9517
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -4995,9 +5651,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.DLVN.138_BBHC_NhietKeHienSoTuongTu.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN138_NhietKeHienSoTuongTu/2. Bieu mau/ETV.DLVN.138_BBHC_NhietKeHienSoTuongTu.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8416
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -5020,9 +5692,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.DLVN.160_BBHC_ChiThiNhietDo.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/2. Bieu mau/ETV.DLVN.160_BBHC_ChiThiNhietDo.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8544
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            }
           ],
@@ -5054,9 +5742,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCP.F01.01_BBHC_HuyetApKe.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP01_HuyetApKe/2. Bieu mau/ETV.MCP.F01.01_BBHC_HuyetApKe.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 7988
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -5079,9 +5783,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCP.F02.01_BBHC_ChenhAp.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP02_ChenhAp/2. Bieu mau/ETV.MCP.F02.01_BBHC_ChenhAp.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 8293
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -5154,9 +5874,25 @@
               ],
               "n_dirs": 0,
               "n_files": 1
+             },
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.DLVN.133_BBHC_DatMucApSuat.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN133_DatMucApSuat/2. Bieu mau/ETV.DLVN.133_BBHC_DatMucApSuat.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 7997
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 0
            },
            {
@@ -5202,6 +5938,40 @@
            }
           ],
           "n_dirs": 6,
+          "n_files": 0
+         },
+         {
+          "name": "8. MC_Electric",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/8. MC_Electric",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MCE01_DienVanNang",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/8. MC_Electric/MCE01_DienVanNang",
+            "type": "dir",
+            "children": [
+             {
+              "name": "2. Bieu mau",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/8. MC_Electric/MCE01_DienVanNang/2. Bieu mau",
+              "type": "dir",
+              "children": [
+               {
+                "name": "ETV.MCE.F01.01_BBHC_DienVanNang.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/8. MC_Electric/MCE01_DienVanNang/2. Bieu mau/ETV.MCE.F01.01_BBHC_DienVanNang.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 9964
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 1,
           "n_files": 0
          },
          {
@@ -5358,7 +6128,7 @@
           "n_files": 0
          }
         ],
-        "n_dirs": 10,
+        "n_dirs": 11,
         "n_files": 0
        },
        {
@@ -5618,7 +6388,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 33010
+        "size": 34607
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
