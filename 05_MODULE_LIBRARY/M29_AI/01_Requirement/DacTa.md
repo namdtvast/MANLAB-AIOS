@@ -164,6 +164,15 @@ Quy trình: MP29 · Năng lực: CAP-29_AIOffice · Căn cứ: ISO/IEC 42001 · 
 Vòng đời: [StateMachine.md](../07_Workflow/StateMachine.md) · Tiền lệ triển khai tham chiếu:
 [M10_DamBaoKQ/08_Source](../../M10_DamBaoKQ/08_Source).
 
+**Kiến trúc tầng tri thức–ngữ nghĩa** (Dịch vụ tri thức, Sổ đăng ký ngữ nghĩa, Cổng SQL, Dịch vụ và
+Cổng bằng chứng, Kiểm chứng câu trả lời, truy hồi lai + xếp hạng lại) quy định tại
+[`ETV.GAI 02`](../../../03_MANAGEMENT_SYSTEM/03_M/ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/ETV.GAI02_KienTrucTriThucVaNguNghiaAI.md)
+— **bản nháp, chưa có hiệu lực**. §3.3 của hướng dẫn đó ánh xạ tên gọi kiến trúc sang đúng thực thể
+M29 đã có (không tạo thực thể song song), §3.4 là bảng hiện trạng đã/chưa làm của chính module này,
+và §3.18 nêu ba điểm phải chốt trước khi hiện thực: hệ quản trị CSDL đích, có làm đa tổ chức
+(`tenant_id`) hay không, và mốc đo độ chính xác phải có hồ sơ F29.03 chứ không lấy con số truyền
+miệng.
+
 > Đặc tả này hợp nhất từ đặc tả làm việc chi tiết hơn (RECON/OUTCOME/SPEC/PLAN/Acceptance
 > Criteria đầy đủ, kiến trúc Tool Gateway, ví dụ AC-01..AC-09) tại
 > [`_work/20260822-aios-control-plane/`](_work/20260822-aios-control-plane/) — giữ lại làm

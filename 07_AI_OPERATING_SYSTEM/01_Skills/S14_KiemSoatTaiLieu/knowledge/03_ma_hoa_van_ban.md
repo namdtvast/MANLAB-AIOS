@@ -30,7 +30,7 @@ Trước khi ghi một trích dẫn điều khoản, **mở thủ tục ra đố
 
 `a`/`b` = lĩnh vực/phân loại: A-Không khí, W-Nước, M-Khối lượng, F-Lưu lượng, O-Quang, S-Thời gian-Tần số, T-Nhiệt độ, P-Áp suất, E-Điện, H-Độ ẩm.
 
-> **Ký hiệu phân loại phi đo lường (đề xuất, chưa có trong `ETV.P14` §6.2):** `AI` — hướng dẫn về máy chủ/dịch vụ trí tuệ nhân tạo (đang dùng cho `ETV.GAI 01`). Khi soạn văn bản dùng ký hiệu này, **phải ghi rõ trong chính văn bản rằng đây là mã đề xuất**, chờ Văn thư/QLCL cấp số chính thức và bổ sung ký hiệu vào `ETV.P14` §6.2 ở lần ban hành kế tiếp. Không tự sinh thêm ký hiệu mới ngoài danh sách này.
+> **Ký hiệu phân loại phi đo lường (đề xuất, chưa có trong `ETV.P14` §6.2):** `AI` — hướng dẫn về máy chủ/dịch vụ trí tuệ nhân tạo (đang dùng cho `ETV.GAI 01`, `ETV.GAI 02`). Khi soạn văn bản dùng ký hiệu này, **phải ghi rõ trong chính văn bản rằng đây là mã đề xuất**, chờ Văn thư/QLCL cấp số chính thức và bổ sung ký hiệu vào `ETV.P14` §6.2 ở lần ban hành kế tiếp. Không tự sinh thêm ký hiệu mới ngoài danh sách này.
 
 > Hợp đồng (mã `ETV.HĐ.*`) **không** thuộc P14 — quy tắc mã hoá hợp đồng do P03/P07 quy định. Nếu gặp hợp đồng, định tuyến về các thủ tục đó (xem `CLAUDE.md` bước 1).
 

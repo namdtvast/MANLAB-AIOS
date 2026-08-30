@@ -9,7 +9,7 @@
 | Năng lực liên quan | CAP-29 |
 | Module số hóa | M29_AI |
 | Chủ sở hữu | Người phụ trách quản trị AI (PT.AI) |
-| Hướng dẫn | `ETV.GAI 01` — Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS (bản **nháp**; mã số là mã đề xuất) |
+| Hướng dẫn | `ETV.GAI 01` — Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS (bản **nháp**; mã số là mã đề xuất) · `ETV.GAI 02` — Kiến trúc tri thức và ngữ nghĩa cho AI trong hệ sinh thái ManLab (bản **nháp**; mã số là mã đề xuất) |
 | Biểu mẫu | ETV.P.F29.01 (Danh mục hệ thống AI) · ETV.P.F29.02 (Phiếu đánh giá tác động AI – AIA) · ETV.P.F29.03 (Phiếu kiểm thử và đánh giá chất lượng AI) · ETV.P.F29.04 (Phiếu sự cố AI) |
 
 **Ranh giới:** MP35 quản lý *nền tảng* nơi phần mềm chạy; MP29 quản lý *hệ thống AI chạy trên nền tảng đó*. Rủi ro và sự cố an toàn thông tin thuộc MP28; tri thức cấp cho AI thuộc MP26; tài sản dữ liệu thuộc MP27/MP34.
