@@ -15,7 +15,32 @@ import { ROLE_RANK, TOOL_MIN_ROLE, type M29Role } from "./model";
 
 export type TxResult =
   | { ok: true; status: string; action: string; reason: string | null; patch: Record<string, unknown> }
-  | { ok: false; code: string; message: string };
+  | { ok: false; code: string; message: string; dependents?: DependentsDetail };
+
+/** Một tác tử/công cụ đang hoạt động trỏ tới bản ghi sắp kết thúc vòng đời. */
+export interface DependentRef {
+  kind: "agent" | "tool";
+  code: string;
+  /** Khoá chính, để giao diện dựng liên kết tới đúng bản ghi. */
+  id: string;
+}
+
+/**
+ * Phần cấu trúc của câu chặn DEPENDENTS_ACTIVE: cùng một bản chữ với `message`, nhưng tách hai vế
+ * để giao diện chèn liên kết vào giữa. Tách ở đây chứ không để giao diện cắt chuỗi `message` —
+ * cắt chuỗi thì đổi một dấu phẩy trong câu là hỏng liên kết mà không ai biết.
+ */
+export interface DependentsDetail {
+  truoc: string;
+  sau: string;
+  refs: DependentRef[];
+}
+
+/** Danh từ đứng trước mã, dùng chung cho câu thông báo và cho giao diện — chỉ có một bản. */
+export const DEPENDENT_KIND_LABEL: Record<DependentRef["kind"], string> = {
+  agent: "tác tử",
+  tool: "công cụ",
+};
 
 const ok = (status: string, action: string, reason: string | null = null, patch: Record<string, unknown> = {}): TxResult => ({
   ok: true,
@@ -24,7 +49,7 @@ const ok = (status: string, action: string, reason: string | null = null, patch:
   reason,
   patch,
 });
-const err = (code: string, message: string): TxResult => ({ ok: false, code, message });
+const err = (code: string, message: string, dependents?: DependentsDetail): TxResult => ({ ok: false, code, message, dependents });
 
 // Các bước "chưa phê duyệt" của ETV.P35 Phụ lục II.1 (trạng thái 1–5) — tập trạng thái duy nhất
 // mà nhánh Hủy mở ra.
@@ -33,19 +58,19 @@ const PRE_APPROVAL_STATUSES: AIApprovalStatus[] = ["DRAFT", "PENDING_REVIEW", "R
 /** Lý do + danh sách đối tượng còn phụ thuộc, dùng chung cho hai nhánh kết thúc vòng đời. */
 export interface EndOfLifeExtra {
   reason?: string;
-  /** Mô tả từng tác tử/công cụ đang hoạt động trỏ tới bản ghi, do tầng hành động nạp từ CSDL. */
-  activeDependents?: string[];
+  /** Từng tác tử/công cụ đang hoạt động trỏ tới bản ghi, do tầng hành động nạp từ CSDL. */
+  activeDependents?: DependentRef[];
 }
 
 // ETV.P35 §6.5.3: không kết thúc vòng đời bản ghi khi còn tác tử/công cụ đang hoạt động trỏ tới —
 // và thủ tục đòi hệ thống "chỉ ra danh sách đối tượng còn phụ thuộc", nên thông báo liệt kê tên
 // thật chứ không chỉ đếm. Áp cho cả nhánh Hủy vì §6.7 cấm tác tử/công cụ trỏ tới nền tảng đã Hủy.
-function dependentsBlock(activeDependents: string[] | undefined, action: string): TxResult | null {
+function dependentsBlock(activeDependents: DependentRef[] | undefined, action: string): TxResult | null {
   if (!activeDependents?.length) return null;
-  return err(
-    "DEPENDENTS_ACTIVE",
-    `Không ${action} được khi còn ${activeDependents.length} đối tượng đang hoạt động trỏ tới nền tảng này (ETV.P35 §6.5.3): ${activeDependents.join(", ")}. Hãy chuyển hướng hoặc dừng các đối tượng đó trước.`
-  );
+  const truoc = `Không ${action} được khi còn ${activeDependents.length} đối tượng đang hoạt động trỏ tới nền tảng này (ETV.P35 §6.5.3): `;
+  const sau = ". Hãy chuyển hướng hoặc dừng các đối tượng đó trước.";
+  const nhan = activeDependents.map((d) => `${DEPENDENT_KIND_LABEL[d.kind]} ${d.code}`).join(", ");
+  return err("DEPENDENTS_ACTIVE", `${truoc}${nhan}${sau}`, { truoc, sau, refs: activeDependents });
 }
 
 // Vòng đời chuẩn (Nháp→Chờ soát xét→Chờ phê duyệt→Đã phê duyệt→Hết hiệu lực/Hủy) — dùng chung

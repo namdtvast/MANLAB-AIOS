@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { approvalAction, setToolStatus } from "@/lib/m29/actions";
+import { DEPENDENT_KIND_LABEL, type DependentsDetail } from "@/lib/m29/rules";
 import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
 
 const btnSm =
@@ -25,10 +27,36 @@ const REASON_META: Record<ReasonKey, { label: string; prompt: string }> = {
 // lúc: trạng thái 9 (Hủy) chỉ mở trước khi phê duyệt, trạng thái 8 (Hết hiệu lực) chỉ mở sau đó.
 const PRE_APPROVAL: AIApprovalStatus[] = ["DRAFT", "PENDING_REVIEW", "RETURNED", "REJECTED", "PENDING_APPROVAL"];
 
+// Câu chặn ETV.P35 §6.5.3 với mã đối tượng bấm được: người đọc thông báo phải đi tới đúng chỗ xử
+// lý (tác tử → trang chi tiết để đổi mô hình hoặc dừng), chứ không phải tự dò mã trong danh sách.
+// Công cụ chưa có trang riêng nên trỏ về mục Tool của chính trang Danh mục.
+// Chữ nghĩa lấy nguyên từ rules.ts (`truoc`/`sau`/nhãn loại) — giao diện chỉ chèn liên kết vào
+// giữa, không giữ bản sao câu thông báo nào.
+function DependentsMessage({ detail }: { detail: DependentsDetail }) {
+  return (
+    <>
+      {detail.truoc}
+      {detail.refs.map((d, i) => (
+        <span key={d.id}>
+          {i > 0 && ", "}
+          {DEPENDENT_KIND_LABEL[d.kind]}{" "}
+          <Link
+            href={d.kind === "agent" ? `/modules/M29/agents/${d.id}` : "/modules/M29/registry#tool"}
+            className="font-mono font-semibold underline underline-offset-2 hover:no-underline"
+          >
+            {d.code}
+          </Link>
+        </span>
+      ))}
+      {detail.sau}
+    </>
+  );
+}
+
 export function PlatformApprovalButton({ id, status }: { id: string; status: AIApprovalStatus }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<{ message: string; dependents?: DependentsDetail } | null>(null);
   const [asking, setAsking] = useState<ReasonKey | null>(null);
   const [reason, setReason] = useState("");
 
@@ -36,7 +64,7 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
     setError(null);
     startTransition(async () => {
       const r = await approvalAction("platform", id, action, extra);
-      if (!r.ok) setError(r.message);
+      if (!r.ok) setError({ message: r.message, dependents: r.dependents });
       else {
         setAsking(null);
         setReason("");
@@ -125,7 +153,11 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
         </span>
       )}
 
-      {error && <span className="text-xs text-crit">{error}</span>}
+      {error && (
+        <span className="text-xs text-crit">
+          {error.dependents ? <DependentsMessage detail={error.dependents} /> : error.message}
+        </span>
+      )}
     </div>
   );
 }
