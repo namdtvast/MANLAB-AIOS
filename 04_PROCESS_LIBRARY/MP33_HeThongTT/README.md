@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP33 |
 | Tên gọi ngắn | HeThongTT |
-| Thủ tục ban hành | `ETV.P33` — Thủ tục Quản lý hệ thống thông tin (lần BH 01, chờ soát xét) |
+| Thủ tục ban hành | `ETV.P33` — Thủ tục Quản lý hệ thống thông tin (lần BH 01, ban hành 30/08/2026) |
 | Điều khoản/căn cứ | ISO 9001 §7.1.3 · ISO/IEC 17025 §6.4, §7.11 · ISO/IEC 27001 A.5.9, A.7.9–A.7.10, A.8.1, A.8.7–A.8.9, A.8.19–A.8.22 · ETV.QM §10.2 |
 | Năng lực liên quan | CAP-28 |
 | Module số hóa | M33_HeThongTT |

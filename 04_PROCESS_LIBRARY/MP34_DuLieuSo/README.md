@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP34 |
 | Tên gọi ngắn | DuLieuSo |
-| Thủ tục ban hành | `ETV.P34` — Thủ tục Quản lý dữ liệu số (lần BH 01, chờ soát xét) |
+| Thủ tục ban hành | `ETV.P34` — Thủ tục Quản lý dữ liệu số (lần BH 01, ban hành 30/08/2026) |
 | Điều khoản/căn cứ | ISO/IEC 17025 §7.5, §7.11 · ISO 17034 §7.4 · ISO 9001 §7.5 · ISO/IEC 27001 A.5.12–A.5.14, A.5.33, A.8.10–A.8.12 · ISO/IEC 42001 §7.4 · ETV.QM §10.3 |
 | Năng lực liên quan | CAP-28 |
 | Module số hóa | M34_DuLieuSo |

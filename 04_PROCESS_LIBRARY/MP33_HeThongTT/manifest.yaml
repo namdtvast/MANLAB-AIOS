@@ -16,11 +16,14 @@ menu_group: CONG_NGHE
 menu_order: 1
 document:
   doc_id: ETV.P33
-  # Dự thảo lần BH 01 đang chờ soát xét — chưa có ngày ban hành.
-  # LĐV điền issued_date khi chuyển doc_status sang Da-phe-duyet (ETV.P14 §6.6.1 bước 5–6).
-  doc_status: Cho-soat-xet
+  # Ban hành lần 01 ngày 30/08/2026 (ETV.P14 §6.6.1 bước 5–6).
+  # Giá trị ban hành ở manifest là "issued", KHÔNG phải "Da-phe-duyet": nền tảng đọc trường này
+  # qua PlatformModule.docStatus, mà DOC_STATUS trong CanCuBanner.tsx chỉ nhận issued/draft và
+  # dashboard đếm module đã ban hành bằng `docStatus === "issued"` — ghi giá trị khác thì huy hiệu
+  # "Đang hiệu lực" lặng lẽ biến mất và module không được đếm.
+  doc_status: issued
   doc_version: "01"
-  issued_date: ""
+  issued_date: "2026-08-30"
 forms:
   - ETV.P.F33.01
   - ETV.P.F33.02
