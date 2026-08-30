@@ -16,11 +16,15 @@ menu_group: CONG_NGHE
 menu_order: 4
 document:
   doc_id: ETV.P35
-  # Lần BH 02 (đưa về khung I-IX của ETV.P14) đang chờ soát xét;
-  # lần BH 01 ban hành 24/08/2026 vẫn là bản đang áp dụng cho tới khi 02 được phê duyệt.
-  doc_status: Cho-soat-xet
+  # Lần BH 02 phê duyệt và có hiệu lực 30/08/2026 (chỉ đưa về khung I-IX của ETV.P14;
+  # yêu cầu kỹ thuật và thẩm quyền giữ nguyên so với lần BH 01 ngày 24/08/2026).
+  # Giá trị ban hành ở manifest là "issued", KHÔNG phải "Da-phe-duyet": nền tảng đọc trường này
+  # qua PlatformModule.docStatus, mà DOC_STATUS trong CanCuBanner.tsx chỉ nhận issued/draft và
+  # dashboard đếm module đã ban hành bằng `docStatus === "issued"` — ghi giá trị khác thì huy hiệu
+  # "Đang hiệu lực" lặng lẽ biến mất và module không được đếm.
+  doc_status: issued
   doc_version: "02"
-  issued_date: 2026-08-24
+  issued_date: 2026-08-30
 forms:
   - ETV.P.F35.01
   - ETV.P.F35.02
