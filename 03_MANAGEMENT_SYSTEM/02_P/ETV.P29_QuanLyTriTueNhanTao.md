@@ -1,9 +1,9 @@
 ---
 doc_id: ETV.P29
 doc_name: Thủ tục Quản lý hệ thống trí tuệ nhân tạo
-doc_status: Cho-soat-xet
+doc_status: issued
 doc_version: 01
-issued_date: 2026-08-24
+issued_date: 2026-08-30
 responsibility:
   author: Dương Thành Nam
   reviewer: Đỗ Văn Vinh
@@ -22,7 +22,7 @@ applicable_standard:
 
 **Mã số:** ETV.MP 29  
 **Lần ban hành:** 01  
-**Ngày ban hành:** ..../..../........
+**Ngày ban hành:** 30/08/2026
 
 ## THEO DÕI SỬA ĐỔI TÀI LIỆU
 
@@ -30,6 +30,7 @@ applicable_standard:
 |---|---|---|
 | 24/08/2026 | Dự thảo lần đầu, trình soát xét (chưa ban hành) | 01 |
 | 25/08/2026 | Sửa dự thảo, **chưa ban hành**: dọn câu chữ lệch trong nội bộ về dữ liệu mức Hạn chế. Mục 1.3.6 trước chỉ cấm *lập chỉ mục* trong khi mục 5.1.5 cấm cả *truy cập*; mục 4.7 viết "khi không được phép" ngầm mở một ngoại lệ không có ở đâu. Nay cả ba mục nói cùng một điều, khớp **ETV.MP26 mục 5.5** và **ETV.MP28 mục 6.13** đang có hiệu lực. **Không nới rộng phạm vi cho phép.** | 01 |
+| 30/08/2026 | Ban hành lần thứ 01 | 01 |
 
 ---
 

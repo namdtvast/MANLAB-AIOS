@@ -4,7 +4,7 @@
 |---|---|
 | Mã quy trình | MP29 |
 | Tên gọi ngắn | AI |
-| Thủ tục ban hành | `ETV.P29` — Lần ban hành 01, đang **chờ soát xét** |
+| Thủ tục ban hành | `ETV.P29` — Lần ban hành 01, ban hành ngày **30/08/2026** |
 | Điều khoản/căn cứ | ISO/IEC 42001 §4–§10 (trọng tâm §6.1.4 đánh giá tác động, §8.1–§8.4 kiểm soát vận hành và vòng đời); ISO/IEC 27001 §6.1.2, §8.1, A.5.9–A.5.12, A.5.23, A.8.16; ISO 9001 §6.1, §7.1.6, §8.5.1; ISO/IEC 17025 §4.1, §7.7, §7.11; ISO 17034 §7.4 |
 | Năng lực liên quan | CAP-29 |
 | Module số hóa | M29_AI |
