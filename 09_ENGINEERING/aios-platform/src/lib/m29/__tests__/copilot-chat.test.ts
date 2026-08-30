@@ -99,6 +99,20 @@ describe("Đường đi thành công", () => {
     });
   });
 
+  // ETV.P29 mục 5.3.1 đòi đánh giá TRƯỚC khi kích hoạt; không có đường này thì trình chạy đánh giá
+  // buộc phải sửa activePromptVersionId trong CSDL để đo. Bản đo phải đi vào prompt hệ thống VÀ
+  // vào trace — hồ sơ đánh giá chỉ có giá trị khi chỉ đúng cấu hình đã sinh ra câu trả lời.
+  it("đo được một phiên bản lời nhắc chưa kích hoạt, và trace ghi đúng bản đã dùng", async () => {
+    prismaMock.aIPromptVersion.findUnique.mockResolvedValue({ id: "pv-2", content: "Bản lời nhắc đang thử.", status: "APPROVED" });
+
+    const r = await chat({ question: "Hỏi thử", history: [], user: USER, promptVersionId: "pv-2" });
+
+    expect(r.ok).toBe(true);
+    expect(prismaMock.aIPromptVersion.findUnique).toHaveBeenCalledWith({ where: { id: "pv-2" } });
+    expect(adapterChat.mock.calls[0][1].system).toContain("Bản lời nhắc đang thử.");
+    expect(prismaMock.aIRequest.create.mock.calls[0][0].data.promptVersionId).toBe("pv-2");
+  });
+
   it("prompt hệ thống lấy từ AIPromptVersion, không viết cứng trong mã", async () => {
     await ask();
     const sent = adapterChat.mock.calls[0][1];
@@ -142,6 +156,15 @@ describe("Không cổng nào được bỏ qua — không byte nào rời khỏi
   it("prompt hệ thống chưa được phê duyệt", async () => {
     prismaMock.aIPromptVersion.findUnique.mockResolvedValue({ id: "pv-1", content: "…", status: "DRAFT" });
     expect(await ask()).toMatchObject({ ok: false, code: "PROMPT_NOT_APPROVED" });
+    expect(adapterChat).not.toHaveBeenCalled();
+  });
+
+  // Cờ đo một phiên bản lời nhắc chưa kích hoạt KHÔNG được trở thành lối vòng qua vòng đời phê
+  // duyệt: bản Nháp vẫn phải bị chặn y như khi nó đang là bản hiệu lực.
+  it("bản lời nhắc chỉ định để đo vẫn phải đã phê duyệt", async () => {
+    prismaMock.aIPromptVersion.findUnique.mockResolvedValue({ id: "pv-2", content: "Bản nháp.", status: "DRAFT" });
+    const r = await chat({ question: "Hỏi thử", history: [], user: USER, promptVersionId: "pv-2" });
+    expect(r).toMatchObject({ ok: false, code: "PROMPT_NOT_APPROVED" });
     expect(adapterChat).not.toHaveBeenCalled();
   });
 

@@ -228,6 +228,22 @@ export const AIA_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral
   REVIEW_REQUIRED: "crit",
 };
 
+/**
+ * Trạng thái một lượt đánh giá chất lượng. CHO_KET_LUAN cố ý KHÔNG đọc thành "Chưa đạt": phần mềm
+ * mới đo xong, chưa ai kết luận — hai chuyện khác nhau (ETV.P29 §4.8).
+ */
+export const EVALUATION_RUN_STATUS_LABEL: Record<string, string> = {
+  CHO_KET_LUAN: "Chờ người kết luận",
+  PASS: "Đạt",
+  FAIL: "Không đạt",
+};
+
+export const EVALUATION_RUN_STATUS_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  CHO_KET_LUAN: "warn",
+  PASS: "good",
+  FAIL: "crit",
+};
+
 export const M29_ROLE_LABEL: Record<string, string> = {
   AI_VIEWER: "Người xem",
   AI_OPERATOR: "Vận hành",
