@@ -172,15 +172,19 @@ Máy chủ công bố endpoint qua **Cloudflare Tunnel** (Phương án C của �
 
 Đủ ĐK1 và ĐK2 rồi mới chạy tiếp ETV.P14 §6.6.1 bước 6–9 và `checklist_document_release.md`:
 
-| # | Việc | Trách nhiệm | Biểu mẫu |
-|---|---|---|---|
-| 1 | Cấp mã số chính thức theo ký hiệu `AI` đã được ETV.P14 lần 04 hợp thức hoá (ĐK1) | Văn thư/QLCL | — |
-| 2 | Đặt `effective_date` **không sớm hơn ngày hiệu lực của ETV.P29** (ĐK2), `revision: 01`, chuyển `status` sang **`Da-phe-duyet`** | Văn thư/QLCL | — |
-| 3 | Cập nhật danh mục văn bản nội bộ | Văn thư/QLCL | `ETV.P.F 14.02` |
-| 4 | Xác nhận thời hạn lưu và nhóm quyền truy cập | QLCL | `ETV.P.F 14.06` |
-| 5 | Phân phối, đóng dấu kiểm soát (nếu phát hành bản in) | NTH/QLCL | `ETV.P.F 14.04` |
-| 6 | Phổ biến cho nhân sự vận hành máy chủ và người quản trị AI | NTH | Biên bản phổ biến |
-| 7 | Lưu bản gốc | QLCL | Cặp công văn đi |
+| # | Việc | Trách nhiệm | Biểu mẫu | Trạng thái |
+|---|---|---|---|---|
+| 1 | Cấp mã số chính thức theo ký hiệu `AI` đã được ETV.P14 lần 04 hợp thức hoá (ĐK1) | Văn thư/QLCL | — | ✅ `ETV.GAI 01` |
+| 2 | Đặt `effective_date` **không sớm hơn ngày hiệu lực của ETV.P29** (ĐK2), `revision: 01`, chuyển `status` sang **`Da-phe-duyet`** | Văn thư/QLCL | — | ✅ 30/08/2026, cùng ngày hiệu lực ETV.P29 |
+| 3 | Cập nhật danh mục văn bản nội bộ | Văn thư/QLCL | `ETV.P.F 14.02` | ⬜ Chưa |
+| 4 | Xác nhận thời hạn lưu và nhóm quyền truy cập | QLCL | `ETV.P.F 14.06` | ⬜ Chưa |
+| 5 | Phân phối, đóng dấu kiểm soát (nếu phát hành bản in) | NTH/QLCL | `ETV.P.F 14.04` | ⬜ Chưa |
+| 6 | Phổ biến cho nhân sự vận hành máy chủ và người quản trị AI | NTH | Biên bản phổ biến | ⬜ Chưa |
+| 7 | Lưu bản gốc | QLCL | Cặp công văn đi | ⬜ Chưa |
+
+> **BAN HÀNH 30/08/2026.** Việc 1 và 2 đã thực hiện: `ETV.GAI 01` lần ban hành 01, hiệu lực 30/08/2026, `status: Da-phe-duyet`; trang bìa ghi Biên soạn Dương Thành Nam · Soát xét Trần Thị Hoa (LĐP) · Phê duyệt Nguyễn Hoàng Giang (LĐV).
+>
+> **Việc 3–7 chưa làm.** Đây là các bước hành chính ngoài repo (danh mục trên ManLab, phân phối bản in, biên bản phổ biến, lưu bản gốc) — Văn thư/QLCL và NTH thực hiện, đánh dấu lại vào bảng trên khi xong.
 
 > **Về mục 2 — dùng `Da-phe-duyet`, không dùng `Da-ban-hanh`.** Bảng trạng thái tại `M14_TaiLieu/07_Workflow/StateMachine.md` (được ETV.P14 §6.3 dẫn chiếu là nguồn duy nhất) chỉ có 7 giá trị, và giá trị cho văn bản có hiệu lực là **"Đã phê duyệt"** — không có giá trị nào tên "Đã ban hành".
 >
@@ -197,7 +201,9 @@ Bảng trạng thái M14 có đúng 7 giá trị và **không có giá trị nà
 
 **Xử lý:** giữ GAI 01 ở **`Cho-phe-duyet`** cho tới khi đủ ĐK1 và ĐK2. Giá trị này sai ít nhất và **fail-closed** — không văn bản nào tuyên bố hiệu lực mà nó chưa có. Quyết định phê duyệt nội dung ngày 30/08/2026 được ghi tại mục 8 của phiếu này, không ghi vào trường `status`.
 
-**Đề nghị riêng cho LĐP:** khe hở này sẽ lặp lại với mọi văn bản ban hành theo chùm. Cân nhắc bổ sung một trạng thái "Đã phê duyệt — chờ hiệu lực" vào `M14_TaiLieu/07_Workflow/StateMachine.md` ở lần soát xét kế tiếp. Không xử lý trong phiếu này.
+**Thời gian chờ đã kết thúc 30/08/2026** — đủ cả ĐK1 và ĐK2 trong cùng ngày, nên GAI 01 chuyển thẳng `Chờ phê duyệt` → `Đã phê duyệt` mà không phải nằm lâu ở trạng thái xấp xỉ.
+
+**Đề nghị riêng cho LĐP vẫn giữ nguyên:** khe hở này sẽ lặp lại với mọi văn bản ban hành theo chùm, và lần này chỉ không gây hậu quả vì hai điều kiện tình cờ xong cùng ngày. Cân nhắc bổ sung một trạng thái "Đã phê duyệt — chờ hiệu lực" vào `M14_TaiLieu/07_Workflow/StateMachine.md` ở lần soát xét kế tiếp. Không xử lý trong phiếu này.
 
 ---
 

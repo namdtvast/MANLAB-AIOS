@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-31T00:16:03.817773",
-  "total_documents": 214,
+  "generated_at": "2026-08-31T01:35:29.447644",
+  "total_documents": 227,
   "documents": [
     {
       "code": "ETV.GAI 01",
       "title": "Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS",
       "type": "Huong-dan",
-      "status": "Cho-phe-duyet",
-      "effective_date": "",
+      "status": "Da-phe-duyet",
+      "effective_date": "30/08/2026",
       "revision": "01",
-      "author": "..................................",
-      "reviewer": "..................................",
-      "approver": "..................................",
+      "author": "Dương Thành Nam — 30/08/2026",
+      "reviewer": "Trần Thị Hoa — Lãnh đạo Phòng, 30/08/2026",
+      "approver": "Nguyễn Hoàng Giang — Lãnh đạo Viện, 30/08/2026",
       "iso_clause": [
         "ISO/IEC 42001:2023 §6.1.4, §8.1, §8.4",
         "ISO/IEC 27001:2022 A.5.9, A.5.19–A.5.23, A.8.9, A.8.16, A.8.31",
@@ -2305,6 +2305,98 @@
       "iso_standard": "ISO/IEC 17025:2017"
     },
     {
+      "code": "ETV.MVA 01",
+      "title": "Phương tiện đo nồng độ khí của trạm quan trắc không khí tự động, liên tục — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/05/2020",
+      "revision": "01",
+      "author": "Nguyễn Ngọc Tuấn",
+      "reviewer": "Nguyễn Chu Anh Tuấn",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 265:2016",
+        "ĐLVN 333:2016"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/1. Quy trinh/ETV.MVA.01_QTKD_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/1. Quy trinh/ETV.MVA.01_QTKD_KhiTuDong.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MVA 02",
+      "title": "Phương tiện đo nồng độ khí — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/05/2020",
+      "revision": "01",
+      "author": "Nguyễn Ngọc Tuấn",
+      "reviewer": "Nguyễn Chu Anh Tuấn",
+      "approver": "Nguyễn Hoàng Giang",
+      "iso_clause": [
+        "ISO/IEC 17025:2017"
+      ],
+      "legal_basis": [
+        "ĐLVN 113:2003",
+        "ĐLVN 265:2016",
+        "ĐLVN 333:2016"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/1. Quy trinh/ETV.MVA.02_QTKD_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/1. Quy trinh/ETV.MVA.02_QTKD_NongDoKhi.md",
+      "iso_standard": "ISO/IEC 17025:2017"
+    },
+    {
+      "code": "ETV.MVA.F 01.01",
+      "title": "Biên bản kiểm định phương tiện đo khí — Trạm quan trắc không khí tự động, liên tục",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/05/2020",
+      "revision": "01",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/2. Bieu mau/ETV.MVA.F01.01_BBKD_KhiTuDong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA01_KhiTuDong/2. Bieu mau/ETV.MVA.F01.01_BBKD_KhiTuDong.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MVA.F 02.01",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ khí",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/05/2020",
+      "revision": "01",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.01_BBKD_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.01_BBKD_NongDoKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.MVA.F 02.02",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm tự động, liên tục",
+      "type": "Bieu-mau",
+      "status": "Da-phe-duyet",
+      "effective_date": "19/05/2020",
+      "revision": "01",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.02_BBKD_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA02_NongDoKhi/2. Bieu mau/ETV.MVA.F02.02_BBKD_NongDoKhi.md",
+      "iso_standard": ""
+    },
+    {
       "code": "ETV.MVA.F389.01",
       "title": "Biên bản kiểm định — Phương tiện đo nồng độ khí của trạm quan trắc chất lượng không khí xung quanh",
       "type": "Bieu-mau",
@@ -2318,6 +2410,38 @@
       "legal_basis": [],
       "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BBKD_NongDoKhiXQ.md",
       "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN389_NongDoKhiXQ/2. Bieu mau/ETV.MVA.F389.01_BBKD_NongDoKhiXQ.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F 11.01/265:2016",
+      "title": "Biên bản kiểm định — Phương tiện đo nồng độ SO₂, CO₂, CO, NOₓ trong không khí",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/2. Bieu mau/DLVN265_BBKD_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/2. Bieu mau/DLVN265_BBKD_NongDoKhi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ETV.P.F 11.01/90:2017",
+      "title": "Biên bản kiểm định PTĐ bụi — Phương tiện đo hàm lượng bụi tổng trong không khí",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/2. Bieu mau/DLVN90_BBKD_BuiTong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/2. Bieu mau/DLVN90_BBKD_BuiTong.md",
       "iso_standard": ""
     },
     {
@@ -3990,6 +4114,43 @@
       "iso_standard": ""
     },
     {
+      "code": "ĐLVN 107:2012",
+      "title": "Phương tiện đo hàm lượng cồn trong hơi thở — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2012",
+      "revision": "Soát xét lần 1",
+      "author": "Ban kỹ thuật đo lường ĐLVN/TC 17 “Phương tiện đo Hoá lý”",
+      "reviewer": "Lần 1",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "TCVN 3286:1979",
+        "TCVN 4851:1989",
+        "ISO 3696:1987"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/1. Quy trinh/DLVN107_QTKD_NongDoCon.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/1. Quy trinh/DLVN107_QTKD_NongDoCon.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 107:2012 — Phụ lục",
+      "title": "Biên bản kiểm định — Phương tiện đo hàm lượng cồn trong hơi thở",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/2. Bieu mau/DLVN107_BBKD_NongDoCon.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN107_NongDoCon/2. Bieu mau/DLVN107_BBKD_NongDoCon.md",
+      "iso_standard": ""
+    },
+    {
       "code": "ĐLVN 112:2002",
       "title": "Thiết bị chuyển đổi áp suất — Quy trình hiệu chuẩn",
       "type": "Quy-trinh",
@@ -4070,6 +4231,71 @@
       ],
       "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
       "relative_path": "03_M/ETV.MC_HieuChuan/6. MC_Temp/MCT_DLVN160_ChiThiNhietDo/1. Quy trinh/DLVN160_QTHC_ChiThiNhietDo.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 214:2017",
+      "title": "Phương tiện đo khí thải xe cơ giới — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2017",
+      "revision": "Soát xét lần 1",
+      "author": "Ban kỹ thuật đo lường TC 17 “Phương tiện đo hoá lý”",
+      "reviewer": "Lần 1",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "ĐLVN 214:2009",
+        "ĐLVN 265:2016",
+        "TCVN 6208:2014",
+        "ISO 3930:2000 (OIML R99:2000)",
+        "TCVN 6204:2008",
+        "ĐLVN 113:2003",
+        "TCVN 3286-79"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/1. Quy trinh/DLVN214_QTKD_KhiThaiXeCoGioi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/1. Quy trinh/DLVN214_QTKD_KhiThaiXeCoGioi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 214:2017 — Phụ lục",
+      "title": "Biên bản kiểm định — Phương tiện đo khí thải xe cơ giới",
+      "type": "Bieu-mau",
+      "status": "Da-ban-hanh",
+      "effective_date": "",
+      "revision": "",
+      "author": "Viện Kiểm định Công nghệ và Môi trường",
+      "reviewer": "",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/2. Bieu mau/DLVN214_BBKD_KhiThaiXeCoGioi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN214_KhiThaiXeCoGioi/2. Bieu mau/DLVN214_BBKD_KhiThaiXeCoGioi.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 265:2016",
+      "title": "Phương tiện đo nồng độ SO₂, CO₂, CO, NOₓ trong không khí — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2016",
+      "revision": "Soát xét lần 1",
+      "author": "Ban kỹ thuật đo lường TC 17 “Phương tiện đo hoá lý”",
+      "reviewer": "Lần 1",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011",
+        "ĐLVN 45:1999",
+        "ĐLVN 113:2003",
+        "ĐLVN 214:2009",
+        "TCVN 3286-79",
+        "TCVN 6165:2009 (ISO/IEC GUIDE 99:2007)",
+        "OIML R143:2009",
+        "OIML R144:2013"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/1. Quy trinh/DLVN265_QTKD_NongDoKhi.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN265_NongDoKhi/1. Quy trinh/DLVN265_QTKD_NongDoKhi.md",
       "iso_standard": ""
     },
     {
@@ -4198,6 +4424,24 @@
       ],
       "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/1. Quy trinh/DLVN76_QTHC_ApKe.md",
       "relative_path": "03_M/ETV.MC_HieuChuan/7. MC_Pressure/MCP_DLVN76_ApKe/1. Quy trinh/DLVN76_QTHC_ApKe.md",
+      "iso_standard": ""
+    },
+    {
+      "code": "ĐLVN 90:2017",
+      "title": "Phương tiện đo hàm lượng bụi tổng trong không khí — Quy trình kiểm định",
+      "type": "Quy-trinh",
+      "status": "Da-ban-hanh",
+      "effective_date": "2017",
+      "revision": "Soát xét lần 1",
+      "author": "Ban kỹ thuật đo lường TC 17 “Phương tiện đo hoá lý”",
+      "reviewer": "Lần 1",
+      "approver": "",
+      "iso_clause": [],
+      "legal_basis": [
+        "Luật Đo lường 2011"
+      ],
+      "file_path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/1. Quy trinh/DLVN90_QTKD_BuiTong.md",
+      "relative_path": "03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Air/MVA_DLVN90_BuiTong/1. Quy trinh/DLVN90_QTKD_BuiTong.md",
       "iso_standard": ""
     }
   ]
