@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-08-30 16:43 UTC",
+ "generated_at": "2026-08-30 17:27 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "claude/bo-sung-45-bieu-mau-bbhc",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/bo-sung-45-bieu-mau-bbhc",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/bo-sung-45-bieu-mau-bbhc",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/bo-sung-45-bieu-mau-bbhc"
+  "branch": "claude/water-quality-testing-procedures-dc643f",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/water-quality-testing-procedures-dc643f",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/water-quality-testing-procedures-dc643f",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/water-quality-testing-procedures-dc643f"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 8149,
-  "dirs": 2185,
+  "files": 8163,
+  "dirs": 2214,
   "docs": 4725,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1299,
+   ".md": 1313,
    ".png": 96,
    ".pdf": 3422,
    ".yaml": 136,
@@ -1444,8 +1444,8 @@
    "doc_controlled": "ETV.P35_QuanLyNenTangSo.md",
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
    "doc_edition": "02",
-   "doc_issued": null,
-   "doc_status": "Cho-soat-xet",
+   "doc_issued": "30/08/2026",
+   "doc_status": "Da-phe-duyet",
    "has_doc": true,
    "forms": [
     "ETV.P.F35.01",
@@ -3261,7 +3261,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
         "type": "file",
         "ext": ".md",
-        "size": 50898
+        "size": 51306
        },
        {
         "name": "ETV.P37_QuanLyTichHopDuLieu.md",
@@ -6378,9 +6378,368 @@
           ],
           "n_dirs": 3,
           "n_files": 0
+         },
+         {
+          "name": "1. MV_Phy_Che_Water",
+          "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water",
+          "type": "dir",
+          "children": [
+           {
+            "name": "MVW_DLVN274_EC",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN274_EC",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN274_EC/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN274_QTKD_EC.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN274_EC/1. Quy trinh/DLVN274_QTKD_EC.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15534
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN275_DoDuc",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN275_DoDuc",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN275_DoDuc/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN275_QTKD_DoDuc.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN275_DoDuc/1. Quy trinh/DLVN275_QTKD_DoDuc.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14042
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN276_DO",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN276_DO",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN276_DO/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN276_QTKD_DO.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN276_DO/1. Quy trinh/DLVN276_QTKD_DO.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14828
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN31_pH",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN31_pH",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN31_pH/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN31_QTKD_pH.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN31_pH/1. Quy trinh/DLVN31_QTKD_pH.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 13616
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN372_UVVis",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN372_UVVis",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN372_UVVis/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN372_QTKD_UVVis.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN372_UVVis/1. Quy trinh/DLVN372_QTKD_UVVis.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 18069
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN381_pHTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN381_pHTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN381_pHTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN381_QTKD_pHTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN381_pHTram/1. Quy trinh/DLVN381_QTKD_pHTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 15450
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN382_TDSTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN382_TDSTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN382_TDSTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN382_QTKD_TDSTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN382_TDSTram/1. Quy trinh/DLVN382_QTKD_TDSTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 23130
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN383_ECTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN383_ECTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN383_ECTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN383_QTKD_ECTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN383_ECTram/1. Quy trinh/DLVN383_QTKD_ECTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 19542
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN384_DoDucTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN384_DoDucTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN384_DoDucTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN384_QTKD_DoDucTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN384_DoDucTram/1. Quy trinh/DLVN384_QTKD_DoDucTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 23334
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN385_DOTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN385_DOTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN385_DOTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN385_QTKD_DOTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN385_DOTram/1. Quy trinh/DLVN385_QTKD_DOTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 20003
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN386_AmoniTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN386_AmoniTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN386_AmoniTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN386_QTKD_AmoniTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN386_AmoniTram/1. Quy trinh/DLVN386_QTKD_AmoniTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 22454
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN387_CODTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN387_CODTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN387_CODTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN387_QTKD_CODTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN387_CODTram/1. Quy trinh/DLVN387_QTKD_CODTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 22281
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN388_TSSTram",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN388_TSSTram",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN388_TSSTram/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN388_QTKD_TSSTram.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN388_TSSTram/1. Quy trinh/DLVN388_QTKD_TSSTram.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 21217
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           },
+           {
+            "name": "MVW_DLVN80_TDS",
+            "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN80_TDS",
+            "type": "dir",
+            "children": [
+             {
+              "name": "1. Quy trinh",
+              "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN80_TDS/1. Quy trinh",
+              "type": "dir",
+              "children": [
+               {
+                "name": "DLVN80_QTKD_TDS.md",
+                "path": "03_MANAGEMENT_SYSTEM/03_M/ETV.MV_KiemDinh/1. MV_Phy_Che_Water/MVW_DLVN80_TDS/1. Quy trinh/DLVN80_QTKD_TDS.md",
+                "type": "file",
+                "ext": ".md",
+                "size": 14124
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 1
+             }
+            ],
+            "n_dirs": 1,
+            "n_files": 0
+           }
+          ],
+          "n_dirs": 14,
+          "n_files": 0
          }
         ],
-        "n_dirs": 1,
+        "n_dirs": 2,
         "n_files": 0
        },
        {
@@ -6388,7 +6747,7 @@
         "path": "03_MANAGEMENT_SYSTEM/03_M/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 34607
+        "size": 36964
        }
       ],
       "desc": "Quy trình kỹ thuật, phương pháp, hướng dẫn công việc (SOP), quy trình hiệu chuẩn, quy trình kiểm định, quy trình thử nghiệm.",
@@ -8971,7 +9330,7 @@
         "path": "04_PROCESS_LIBRARY/MP35_NenTangSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 976
+        "size": 1407
        },
        {
         "name": "README.md",
@@ -9009,8 +9368,8 @@
         "controlled": "ETV.P35_QuanLyNenTangSo.md",
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P35_QuanLyNenTangSo.md",
         "edition": "02",
-        "issued": null,
-        "doc_status": "Cho-soat-xet"
+        "issued": "30/08/2026",
+        "doc_status": "Da-phe-duyet"
        },
        "forms": [
         "ETV.P.F35.01",
