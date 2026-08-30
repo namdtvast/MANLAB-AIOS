@@ -42,8 +42,8 @@ superseded_by: null
 >
 > Đã qua soát xét (Trần Thị Hoa, LĐP) và được Lãnh đạo Viện phê duyệt nội dung ngày **30/08/2026** theo phiếu [`ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`](../../../04_F/ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI.md). LĐV chọn **ban hành theo chùm**: văn bản chỉ được ban hành sau khi đủ hai điều kiện —
 >
-> 1. **ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu lĩnh vực `AI` vào bảng mã hoá §6.2. Mẫu hiện hành là `ETV.Gb xx` với `b` là **một** ký hiệu lĩnh vực đo lường, nên `GAI` chưa có căn cứ — **`ETV.GAI 01` vẫn là mã tạm** cho tới khi hợp thức hoá.
-> 2. **ETV.P29 có hiệu lực** (kèm ETV.P33, P34, P35). Hướng dẫn này dẫn chiếu tới F29.01–04, F33.01–04, F35.01–02 của chính các thủ tục đó; ban hành trước thủ tục mẹ sẽ tạo dẫn chiếu treo.
+> 1. ~~**ETV.P14 ban hành lại lần 04**, bổ sung ký hiệu `AI` vào bảng mã hoá §6.2.~~ ✅ **ĐÃ XONG 30/08/2026** — ETV.P14 lần ban hành 04 có hiệu lực; ký hiệu phân loại phi đo lường `AI` đã đăng ký tại §6.2. **`ETV.GAI 01` nay là mã chính thức.**
+> 2. **ETV.P29 có hiệu lực** (kèm ETV.P33, P34, P35) — **CHƯA XONG.** Hướng dẫn này dẫn chiếu tới F29.01–04, F33.01–04, F35.01–02 của chính các thủ tục đó; ban hành trước thủ tục mẹ sẽ tạo dẫn chiếu treo.
 >
 > Trong thời gian chờ, văn bản giữ `status: Cho-phe-duyet` — bảng trạng thái M14 không có giá trị cho tình huống "đã phê duyệt nội dung, chưa đủ điều kiện ban hành", và `Đã phê duyệt` theo ETV.P14 §6.5 nghĩa là **đã có hiệu lực**, nên không dùng được ở đây.
 
@@ -56,6 +56,7 @@ superseded_by: null
 | 25/08/2026 | Dự thảo lần đầu | 01 |
 | 28/08/2026 | Cập nhật §3.6 theo hiện trạng phần mềm: khoá API tách theo từng nền tảng (`AIPlatform.apiKeyEnv`), giao diện hiện lý do nền tảng ngừng hoạt động, đã có màn hình tạo Provider/Model, màn hình chuyển tác tử sang mô hình khác và màn hình đặt ranh giới dữ liệu. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 | 25/08/2026 | Soát xét nội bộ trước khi trình: chặn dữ liệu mức Hạn chế do xung đột ETV.P29–P26–P34 chưa giải quyết (§3.7); siết điều kiện dùng đường hầm của bên thứ ba (§3.4 Bước 3); thêm kiểm soát chuỗi cung ứng mô hình/image (Bước 2) và kiểm soát nhật ký, dữ liệu tạm (Bước 3b); §3.6 chuyển thành bảng hiện trạng; bổ sung Gate và hồ sơ P01/P06/P30/P31/P34. **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
+| 30/08/2026 | **ĐK1 hoàn thành:** ETV.P14 ban hành lại lần 04 (hiệu lực 30/08/2026) đăng ký ký hiệu phân loại `AI` tại §6.2 — `ETV.GAI 01` từ mã tạm thành **mã chính thức**, gỡ ghi chú "mã đề xuất". Còn ĐK2 (ETV.P29 có hiệu lực). | 01 |
 | 30/08/2026 | **Soát xét (LĐP) đạt và LĐV phê duyệt nội dung** theo phiếu `ETV.P.F14.01_2026-08-30_GAI01_MayChuMoHinhAI`. LĐV chọn ban hành theo chùm: chưa ban hành, chờ ETV.P14 lần 04 (hợp thức hoá ký hiệu `AI`) và ETV.P29 có hiệu lực. Trạng thái chuyển `Nháp` → `Chờ phê duyệt`; **chưa tăng lần ban hành, chưa đặt ngày hiệu lực**. | 01 |
 | 30/08/2026 | Thay các giá trị giả định bằng **cấu hình thật đã triển khai**: mô hình `Qwen/Qwen2.5-7B-Instruct` phục vụ dưới bí danh `manlab-ai` (thay `manlab-local-14b`), endpoint `https://ai.manlab.vn/v1` (thay `llm.manlab.vn`), ngữ cảnh chốt 8192, image vLLM `v0.10.2` đã ghim digest, mô hình chạy FP16 **không lượng tử hoá** nên bỏ `--quantization`. Ghi nhận **Phương án C (Cloudflare Tunnel)** là phương án đang áp dụng và hạ `dataBoundary` từ `NO_EXTERNAL_TRANSFER` xuống `EXTERNAL_WITH_COMMITMENT` theo đúng §3.4 Bước 3 (§3.2, §3.3, §3.4, §3.5, §3.7). **Vẫn là bản Nháp, không tăng lần ban hành** (ETV.P14 §6.5). | 01 |
 

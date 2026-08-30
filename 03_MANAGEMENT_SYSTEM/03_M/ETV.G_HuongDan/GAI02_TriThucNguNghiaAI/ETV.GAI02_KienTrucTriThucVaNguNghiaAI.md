@@ -40,7 +40,7 @@ superseded_by: null
 
 > **Tình trạng bản này: NHÁP** — chưa có hiệu lực. Bản dự thảo do AI hỗ trợ soạn trên cơ sở đặc tả thiết kế `MANLAB-AI-SPEC-001` v1.1 do Viện cung cấp, cần Lãnh đạo Phòng soát xét và Lãnh đạo Viện phê duyệt theo ETV.P14 §6.6 trước khi áp dụng.
 >
-> **Mã số `ETV.GAI 02` là mã đề xuất.** Ký hiệu lĩnh vực `AI` chưa có trong bảng mã hoá tại ETV.P14 §6.2 (bảng hiện chỉ liệt kê các lĩnh vực đo lường). Văn thư/QLCL cấp số chính thức; ký hiệu `AI` cần được bổ sung vào ETV.P14 §6.2 ở lần ban hành kế tiếp — cùng vướng mắc đã nêu tại ETV.GAI 01.
+> **Mã số `ETV.GAI 02` là mã chính thức.** Ký hiệu phân loại phi đo lường `AI` đã được đăng ký tại bảng mã hoá ETV.P14 §6.2 kể từ **lần ban hành 04** (hiệu lực 30/08/2026), theo phiếu `ETV.P.F14.01_2026-08-30_P14_KyHieuLinhVucAI`. Vướng mắc mã số nêu trước đây tại ETV.GAI 01 đã được xử lý.
 
 > **Chú ý:** Tài liệu nội bộ, nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện.
 

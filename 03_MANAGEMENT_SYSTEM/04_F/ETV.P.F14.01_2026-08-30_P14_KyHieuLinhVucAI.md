@@ -5,8 +5,8 @@ type: Bieu-mau
 process: MP14_TaiLieu
 module: M14_TaiLieu
 revision: "01"
-effective_date: ""
-status: Cho-soat-xet
+effective_date: "30/08/2026"
+status: Da-phe-duyet
 knowledge_category: HTQL-noi-bo
 permission: Noi-bo
 source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
@@ -123,32 +123,34 @@ Phiếu soạn theo hướng **lần 04** đúng quyết định của LĐV ngà
 
 ☐ Không cần thiết — lý do: .....................
 
-☐ Cần thiết — phân công:
+☒ **Cần thiết** — phân công:
 
 | Vai trò | Người được phân công | Thời hạn hoàn thành |
 |---|---|---|
-| Người biên soạn | | |
-| Người soát xét | | |
+| Người biên soạn | Dương Thành Nam | 30/08/2026 |
+| Người soát xét | Trần Thị Hoa (LĐP) | 30/08/2026 |
 
-Chữ ký LĐP: ..................... Ngày: .....................
+Chữ ký LĐP: **Trần Thị Hoa** Ngày: 30/08/2026
 
 ## 6. KẾT QUẢ SOÁT XÉT (LĐP — bước 4)
 
-☐ Đạt → chuyển `Chờ phê duyệt` · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
+☒ **Đạt** → chuyển `Chờ phê duyệt` · ☐ Không đạt → **Không soát xét** (bắt buộc lý do): .....................
 
-Người soát xét: ..................... · Ngày: .....................
+Người soát xét: **Trần Thị Hoa (LĐP)** · Ngày: 30/08/2026
 
-Ý kiến về mục 4 (lần ban hành 04 hay sửa đổi tại chỗ): .....................
+Ý kiến về mục 4 (lần ban hành 04 hay sửa đổi tại chỗ): **Thống nhất ban hành lại lần 04.**
 
 ## 7. KẾT QUẢ PHÊ DUYỆT (LĐV — bước 5)
 
-**Về nội dung sửa đổi tại mục 2:** ☐ Phê duyệt · ☐ Không phê duyệt (bắt buộc lý do): .....................
+**Về nội dung sửa đổi tại mục 2:** ☒ **Phê duyệt** · ☐ Không phê duyệt (bắt buộc lý do): .....................
 
-**Về mục 4(a):** ☐ Ban hành lại lần **04** · ☐ Sửa đổi tại chỗ, giữ lần **03** *(theo tiền lệ 01/07/2026)*
+**Về mục 4(a):** ☒ **Ban hành lại lần 04** · ☐ Sửa đổi tại chỗ, giữ lần **03** *(theo tiền lệ 01/07/2026)*
 
-Người phê duyệt: ..................... · Ngày phê duyệt: .....................
+Người phê duyệt: **TS. Nguyễn Hoàng Giang — Viện trưởng (LĐV)** · Ngày phê duyệt: **30/08/2026**
 
-Lần ban hành: ......... · Ngày ban hành: ......... · Chữ ký LĐV: .....................
+Lần ban hành: **04** · Ngày ban hành: **30/08/2026** · Chữ ký LĐV: **Nguyễn Hoàng Giang**
+
+> **Đã thực hiện xong.** ETV.P14 lần ban hành 04 có hiệu lực từ 30/08/2026; bản dự thảo `_ETV.P14_KiemSoatTaiLieu_lan04_duthao.md` đã hợp nhất vào `ETV.P14_KiemSoatTaiLieu.md` và xoá. Phụ lục III (`knowledge/03_ma_hoa_van_ban.md`) đã đồng bộ ở **cả hai bản** (repo và `~/.claude/skills`), đã chạy `validate_skill_sync.py`. Ghi chú "mã đề xuất" đã gỡ khỏi `ETV.GAI 01`, `ETV.GAI 02`, `03_M/README.md` và `MP29_AI/README.md`.
 
 ---
 

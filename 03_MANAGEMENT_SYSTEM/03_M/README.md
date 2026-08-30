@@ -32,7 +32,7 @@ ETV.G_HuongDan/
     └── 2. Bieu mau/                             ← chỉ tạo khi hướng dẫn có biểu mẫu riêng
 ```
 
-`b` = ký hiệu phân loại của hướng dẫn (vd. `AI` — máy chủ/dịch vụ trí tuệ nhân tạo). Ký hiệu phân loại phi đo lường **chưa có trong bảng tại ETV.P14 §6.2** — khi dùng ký hiệu mới phải ghi rõ là mã đề xuất trong chính văn bản và trình bổ sung vào ETV.P14 ở lần ban hành kế tiếp.
+`b` = ký hiệu phân loại của hướng dẫn. Nhóm **phân loại phi đo lường** đã được đăng ký chính thức tại ETV.P14 §6.2 (lần ban hành 04, hiệu lực 30/08/2026) và hiện có đúng một ký hiệu: `AI` — trí tuệ nhân tạo. Ký hiệu mới phải trình bổ sung vào ETV.P14 và được ban hành lại trước khi dùng.
 
 Biểu mẫu **gốc** của hướng dẫn vẫn lưu tại `06_SHARED_RESOURCES/01_Forms/` theo nguyên tắc một nguồn sự thật; thư mục `2. Bieu mau/` chỉ dùng cho phụ lục tính toán/mẫu thao tác không phải biểu mẫu kiểm soát.
 
