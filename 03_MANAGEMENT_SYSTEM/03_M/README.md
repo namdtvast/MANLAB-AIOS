@@ -38,7 +38,7 @@ Biểu mẫu riêng của hướng dẫn lưu tại `2. Bieu mau/` ngay trong th
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`ETV.G_HuongDan/GAI01_MayChuMoHinhAI/`](ETV.G_HuongDan/GAI01_MayChuMoHinhAI/) | `ETV.GAI 01` — Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS (chủ trì ETV.P29; liên thủ tục P33/P35/P28/P34; **không lập biểu mẫu mới**) |
+| [`ETV.G_HuongDan/GAI01_MayChuMoHinhAI/`](ETV.G_HuongDan/GAI01_MayChuMoHinhAI/) | `ETV.GAI 01` — Hướng dẫn Tích hợp máy chủ mô hình AI nội bộ vào ManLab AIOS (**ban hành lần 01, hiệu lực 30/08/2026**; chủ trì ETV.P29; liên thủ tục P33/P35/P28/P34; **không lập biểu mẫu mới**) |
 | [`ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/`](ETV.G_HuongDan/GAI02_TriThucNguNghiaAI/) | `ETV.GAI 02` — Hướng dẫn Kiến trúc tri thức và ngữ nghĩa cho AI trong hệ sinh thái ManLab (chủ trì ETV.P29; liên thủ tục P26/P34/P28/P35; **không lập biểu mẫu mới**). Cắt trục khác GAI 01: GAI 01 là mô hình chạy *ở đâu*, GAI 02 là mô hình được cấp *cái gì* để trả lời |
 
 ## **Cấp 2 — Thư mục con theo Lĩnh vực**
