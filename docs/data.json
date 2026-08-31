@@ -1,27 +1,27 @@
 {
- "generated_at": "2026-08-30 22:57 UTC",
+ "generated_at": "2026-08-31 09:57 UTC",
  "repo": {
   "owner": "namdtvast",
   "name": "MANLAB-AIOS",
-  "branch": "claude/form-folder-organization-7ff30f",
-  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/form-folder-organization-7ff30f",
-  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/form-folder-organization-7ff30f",
-  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/form-folder-organization-7ff30f"
+  "branch": "claude/form-missing-issue-6133c2",
+  "blob": "https://github.com/namdtvast/MANLAB-AIOS/blob/claude/form-missing-issue-6133c2",
+  "raw": "https://raw.githubusercontent.com/namdtvast/MANLAB-AIOS/claude/form-missing-issue-6133c2",
+  "tree": "https://github.com/namdtvast/MANLAB-AIOS/tree/claude/form-missing-issue-6133c2"
  },
  "architecture_version": "4.1",
  "enterprise": "Viện Kiểm định Công nghệ và Môi trường (ETV)",
  "counts": {
-  "files": 8273,
-  "dirs": 2236,
+  "files": 8163,
+  "dirs": 2242,
   "docs": 4725,
   "capabilities": 22,
   "processes": 38,
   "modules": 38,
   "by_ext": {
-   ".md": 1284,
+   ".md": 1305,
    ".png": 96,
    ".pdf": 3422,
-   ".yaml": 136,
+   ".yaml": 138,
    ".drawio": 31,
    ".jpg": 291,
    ".html": 6,
@@ -33,7 +33,7 @@
    ".docx": 228,
    ".pptx": 28,
    ".xlsx": 182,
-   ".py": 30,
+   ".py": 31,
    ".xsd": 39,
    "": 45,
    ".csv": 99,
@@ -122,12 +122,11 @@
    ".config": 2,
    ".conico": 1,
    ".service": 1,
-   ".ts": 288,
-   ".sql": 40,
+   ".ts": 153,
+   ".sql": 42,
    ".toml": 1,
    ".prisma": 1,
-   ".tsx": 243,
-   ".tsbuildinfo": 1
+   ".tsx": 243
   }
  },
  "standards": [
@@ -483,7 +482,12 @@
    "standards": [
     "ISO17025"
    ],
-   "legal": [],
+   "legal": [
+    "Luật Đo lường 04/2011/QH13",
+    "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+    "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP",
+    "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường"
+   ],
    "capabilities": [
     "CAP-05"
    ],
@@ -499,7 +503,18 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F05.01",
+    "ETV.P.F05.02",
+    "ETV.P.F05.03",
+    "ETV.P.F05.04",
+    "ETV.P.F05.05",
+    "ETV.P.F05.06",
+    "ETV.P.F05.07",
+    "ETV.P.F05.08",
+    "ETV.P.F05.09",
+    "ETV.P.F05.10"
+   ]
   },
   {
    "code": "MP06",
@@ -525,7 +540,16 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F06.01",
+    "ETV.P.F06.02",
+    "ETV.P.F06.04",
+    "ETV.P.F06.05",
+    "ETV.P.F06.06",
+    "ETV.P.F06.08",
+    "ETV.P.F06.11",
+    "ETV.P.F06.12"
+   ]
   },
   {
    "code": "MP07",
@@ -555,7 +579,12 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F07.02",
+    "ETV.P.F07.06",
+    "ETV.P.F07.06.02",
+    "ETV.P.F07.11"
+   ]
   },
   {
    "code": "MP08",
@@ -585,7 +614,10 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F08.01",
+    "ETV.P.F08.04"
+   ]
   },
   {
    "code": "MP09",
@@ -666,7 +698,16 @@
    "standards": [
     "ISO17025"
    ],
-   "legal": [],
+   "legal": [
+    "Luật Đo lường 04/2011/QH13",
+    "Luật Giao dịch điện tử 20/2023/QH15",
+    "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+    "Nghị định 107/2016/NĐ-CP quy định về điều kiện kinh doanh dịch vụ đánh giá sự phù hợp",
+    "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP và Nghị định 107/2016/NĐ-CP",
+    "Nghị định 23/2025/NĐ-CP quy định về chữ ký điện tử và dịch vụ tin cậy",
+    "Thông tư 54/2025/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+    "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn phương tiện đo, chuẩn đo lường"
+   ],
    "capabilities": [
     "CAP-08",
     "CAP-09",
@@ -688,7 +729,13 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F11.02",
+    "ETV.P.F11.03",
+    "ETV.P.F11.07",
+    "ETV.P.F11.08",
+    "ETV.P.F11.10"
+   ]
   },
   {
    "code": "MP12",
@@ -714,7 +761,11 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F12.01",
+    "ETV.P.F12.02",
+    "ETV.P.F12.03"
+   ]
   },
   {
    "code": "MP13",
@@ -912,9 +963,13 @@
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
    "doc_edition": null,
    "doc_issued": null,
-   "doc_status": null,
+   "doc_status": "issued",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F19.01",
+    "ETV.P.F19.02",
+    "ETV.P.F19.03"
+   ]
   },
   {
    "code": "MP20",
@@ -940,7 +995,9 @@
    "doc_issued": "21/07/2026",
    "doc_status": "Da-phe-duyet",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F20.01"
+   ]
   },
   {
    "code": "MP21",
@@ -1062,9 +1119,13 @@
    "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
    "doc_edition": null,
    "doc_issued": null,
-   "doc_status": null,
+   "doc_status": "issued",
    "has_doc": true,
-   "forms": []
+   "forms": [
+    "ETV.P.F24.01",
+    "ETV.P.F24.02",
+    "ETV.P.F24.03"
+   ]
   },
   {
    "code": "MP25",
@@ -1548,6 +1609,38 @@
     "ETV.P.F38.01",
     "ETV.P.F38.02",
     "ETV.P.F38.03"
+   ]
+  },
+  {
+   "code": "MP42",
+   "slug": "NoiQuyLaoDong",
+   "name": "Xây dựng, ban hành và phổ biến Nội quy lao động, Quy tắc ứng xử",
+   "status": "active",
+   "standards": [
+    "ISO9001",
+    "ISO17025",
+    "ISO42001"
+   ],
+   "legal": [
+    "Bộ luật Lao động 45/2019/QH14",
+    "Luật An toàn Lao động 84/2015/QH13",
+    "Luật Bảo vệ DLC 91/2025/QH15"
+   ],
+   "capabilities": [],
+   "cap_paths": {},
+   "module": "null",
+   "module_path": null,
+   "path": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong",
+   "doc_controlled": "ETV.P42_NoiQuyLaoDong.md",
+   "doc_path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md",
+   "doc_edition": "01",
+   "doc_issued": "27/07/2026",
+   "doc_status": "Da-phe-duyet",
+   "has_doc": true,
+   "forms": [
+    "ETV.P.F42.01",
+    "ETV.P.F42.02",
+    "ETV.P.F42.03"
    ]
   },
   {
@@ -3101,7 +3194,7 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md",
         "type": "file",
         "ext": ".md",
-        "size": 21705
+        "size": 23697
        },
        {
         "name": "ETV.P13_KhacPhuc.md",
@@ -6733,17 +6826,24 @@
           "type": "file",
           "ext": ".md",
           "size": 12554
+         },
+         {
+          "name": "ETV.P.F14.01_2026-08-31_F03.08_DoiChieuManLab.md",
+          "path": "03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/ETV.P.F14.01_2026-08-31_F03.08_DoiChieuManLab.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 9130
          }
         ],
         "n_dirs": 0,
-        "n_files": 8
+        "n_files": 9
        },
        {
         "name": "README.md",
         "path": "03_MANAGEMENT_SYSTEM/05_R/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 1355
+        "size": 2635
        }
       ],
       "desc": "Hồ sơ, minh chứng, dữ liệu phát sinh từ việc thực hiện các quy trình (kết quả đánh giá, hồ sơ hoàn thành, v.v.). Biểu mẫu **đã điền** thuộc về đây, không phải `04_F`.",
@@ -6937,7 +7037,7 @@
         "path": "04_PROCESS_LIBRARY/MP03_NhanSu/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 2120
+        "size": 2225
        },
        {
         "name": "manifest.yaml",
@@ -7094,14 +7194,14 @@
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 461
+        "size": 1384
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP05_ThietBi/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 548
+        "size": 1579
        },
        {
         "name": "README.md",
@@ -7124,7 +7224,12 @@
        "standards": [
         "ISO17025"
        ],
-       "legal": [],
+       "legal": [
+        "Luật Đo lường 04/2011/QH13",
+        "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP",
+        "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường"
+       ],
        "capabilities": [
         "CAP-05"
        ],
@@ -7137,7 +7242,19 @@
         "edition": "03",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F05.01",
+        "ETV.P.F05.02",
+        "ETV.P.F05.03",
+        "ETV.P.F05.04",
+        "ETV.P.F05.05",
+        "ETV.P.F05.06",
+        "ETV.P.F05.07",
+        "ETV.P.F05.08",
+        "ETV.P.F05.09",
+        "ETV.P.F05.10"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -7152,14 +7269,14 @@
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 458
+        "size": 1228
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP06_MuaSam/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 503
+        "size": 1048
        },
        {
         "name": "README.md",
@@ -7195,7 +7312,17 @@
         "edition": "03",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F06.01",
+        "ETV.P.F06.02",
+        "ETV.P.F06.04",
+        "ETV.P.F06.05",
+        "ETV.P.F06.06",
+        "ETV.P.F06.08",
+        "ETV.P.F06.11",
+        "ETV.P.F06.12"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -7210,14 +7337,14 @@
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 542
+        "size": 917
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP07_HopDong/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 585
+        "size": 1036
        },
        {
         "name": "README.md",
@@ -7255,7 +7382,13 @@
         "edition": "03",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F07.02",
+        "ETV.P.F07.06",
+        "ETV.P.F07.06.02",
+        "ETV.P.F07.11"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -7270,14 +7403,14 @@
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 554
+        "size": 759
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP08_PhuongPhap/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 600
+        "size": 1131
        },
        {
         "name": "README.md",
@@ -7315,7 +7448,11 @@
         "edition": "03",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F08.01",
+        "ETV.P.F08.04"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -7465,14 +7602,14 @@
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 588
+        "size": 1076
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP11_BaoCao/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 492
+        "size": 1838
        },
        {
         "name": "README.md",
@@ -7495,7 +7632,16 @@
        "standards": [
         "ISO17025"
        ],
-       "legal": [],
+       "legal": [
+        "Luật Đo lường 04/2011/QH13",
+        "Luật Giao dịch điện tử 20/2023/QH15",
+        "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Nghị định 107/2016/NĐ-CP quy định về điều kiện kinh doanh dịch vụ đánh giá sự phù hợp",
+        "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP và Nghị định 107/2016/NĐ-CP",
+        "Nghị định 23/2025/NĐ-CP quy định về chữ ký điện tử và dịch vụ tin cậy",
+        "Thông tư 54/2025/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường",
+        "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn phương tiện đo, chuẩn đo lường"
+       ],
        "capabilities": [
         "CAP-08",
         "CAP-09",
@@ -7511,7 +7657,14 @@
         "edition": "03",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F11.02",
+        "ETV.P.F11.03",
+        "ETV.P.F11.07",
+        "ETV.P.F11.08",
+        "ETV.P.F11.10"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -7526,14 +7679,14 @@
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 465
+        "size": 765
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP12_KhieuNai/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 837
+        "size": 895
        },
        {
         "name": "README.md",
@@ -7559,6 +7712,11 @@
        "legal": [],
        "capabilities": [
         "CAP-16"
+       ],
+       "forms": [
+        "ETV.P.F12.01",
+        "ETV.P.F12.02",
+        "ETV.P.F12.03"
        ],
        "module": "M12",
        "menu_group": "KHACH_HANG",
@@ -7972,14 +8130,14 @@
         "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 436
+        "size": 693
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP19_SanXuatCRM/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 534
+        "size": 758
        },
        {
         "name": "README.md",
@@ -8014,8 +8172,13 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md",
         "edition": null,
         "issued": null,
-        "doc_status": null
-       }
+        "doc_status": "issued"
+       },
+       "forms": [
+        "ETV.P.F19.01",
+        "ETV.P.F19.02",
+        "ETV.P.F19.03"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -8030,14 +8193,14 @@
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 459
+        "size": 562
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP20_PhanPhoi/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 531
+        "size": 1180
        },
        {
         "name": "README.md",
@@ -8073,7 +8236,10 @@
         "edition": "02",
         "issued": "21/07/2026",
         "doc_status": "Da-phe-duyet"
-       }
+       },
+       "forms": [
+        "ETV.P.F20.01"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -8283,14 +8449,14 @@
         "path": "04_PROCESS_LIBRARY/MP24_KPI/links.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 435
+        "size": 691
        },
        {
         "name": "manifest.yaml",
         "path": "04_PROCESS_LIBRARY/MP24_KPI/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 523
+        "size": 823
        },
        {
         "name": "README.md",
@@ -8325,8 +8491,13 @@
         "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P24_QuanLyLuongThuong.md",
         "edition": null,
         "issued": null,
-        "doc_status": null
-       }
+        "doc_status": "issued"
+       },
+       "forms": [
+        "ETV.P.F24.01",
+        "ETV.P.F24.02",
+        "ETV.P.F24.03"
+       ]
       },
       "n_dirs": 0,
       "n_files": 3
@@ -8483,7 +8654,7 @@
         "path": "04_PROCESS_LIBRARY/MP27_TaiSanTT/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 981
+        "size": 1059
        },
        {
         "name": "README.md",
@@ -8553,7 +8724,7 @@
         "path": "04_PROCESS_LIBRARY/MP28_ATTT/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1173
+        "size": 1231
        },
        {
         "name": "README.md",
@@ -8701,7 +8872,7 @@
         "path": "04_PROCESS_LIBRARY/MP30_ThayDoi/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 797
+        "size": 847
        },
        {
         "name": "README.md",
@@ -8768,7 +8939,7 @@
         "path": "04_PROCESS_LIBRARY/MP31_LienTuc/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 794
+        "size": 865
        },
        {
         "name": "README.md",
@@ -8836,7 +9007,7 @@
         "path": "04_PROCESS_LIBRARY/MP32_ChuyenDoiSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1016
+        "size": 1094
        },
        {
         "name": "README.md",
@@ -8904,7 +9075,7 @@
         "path": "04_PROCESS_LIBRARY/MP33_HeThongTT/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1296
+        "size": 1358
        },
        {
         "name": "README.md",
@@ -8971,7 +9142,7 @@
         "path": "04_PROCESS_LIBRARY/MP34_DuLieuSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1248
+        "size": 1303
        },
        {
         "name": "README.md",
@@ -9038,7 +9209,7 @@
         "path": "04_PROCESS_LIBRARY/MP35_NenTangSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 1407
+        "size": 1463
        },
        {
         "name": "README.md",
@@ -9164,7 +9335,7 @@
         "path": "04_PROCESS_LIBRARY/MP37_TichHopDuLieu/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 967
+        "size": 1029
        },
        {
         "name": "README.md",
@@ -9232,7 +9403,7 @@
         "path": "04_PROCESS_LIBRARY/MP38_DichVuSo/manifest.yaml",
         "type": "file",
         "ext": ".yaml",
-        "size": 967
+        "size": 1022
        },
        {
         "name": "README.md",
@@ -9276,6 +9447,71 @@
         "ETV.P.F38.01",
         "ETV.P.F38.02",
         "ETV.P.F38.03"
+       ]
+      },
+      "n_dirs": 0,
+      "n_files": 3
+     },
+     {
+      "name": "MP42_NoiQuyLaoDong",
+      "path": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong",
+      "type": "dir",
+      "children": [
+       {
+        "name": "links.yaml",
+        "path": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong/links.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 806
+       },
+       {
+        "name": "manifest.yaml",
+        "path": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong/manifest.yaml",
+        "type": "file",
+        "ext": ".yaml",
+        "size": 1156
+       },
+       {
+        "name": "README.md",
+        "path": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong/README.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 1383
+       }
+      ],
+      "desc": "Ba biểu mẫu này trước đây không có hub nào trỏ tới. Hub MP42 được lập theo đúng khai báo",
+      "readme": "04_PROCESS_LIBRARY/MP42_NoiQuyLaoDong/README.md",
+      "meta": {
+       "schema": "manlab-aios/process@1.2",
+       "code": "MP42",
+       "slug": "NoiQuyLaoDong",
+       "name": "Xây dựng, ban hành và phổ biến Nội quy lao động, Quy tắc ứng xử",
+       "purpose": ">-",
+       "owner": "HCNS (Hành chính - Nhân sự)",
+       "status": "active",
+       "standards": [
+        "ISO9001",
+        "ISO17025",
+        "ISO42001"
+       ],
+       "legal": [
+        "Bộ luật Lao động 45/2019/QH14",
+        "Luật An toàn Lao động 84/2015/QH13",
+        "Luật Bảo vệ DLC 91/2025/QH15"
+       ],
+       "capabilities": [],
+       "module": "null",
+       "document": {
+        "controlled": "ETV.P42_NoiQuyLaoDong.md",
+        "path": "03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md",
+        "edition": "01",
+        "issued": "27/07/2026",
+        "doc_status": "Da-phe-duyet"
+       },
+       "forms": [
+        "ETV.P.F42.01",
+        "ETV.P.F42.02",
+        "ETV.P.F42.03"
        ]
       },
       "n_dirs": 0,
@@ -9749,7 +9985,7 @@
     ],
     "desc": "**Ý nghĩa:** 38 quy trình MP01–MP38, mỗi MP là Hub điều hướng — không chứa nội dung, chỉ trỏ tới tầng khác.",
     "readme": "04_PROCESS_LIBRARY/README.md",
-    "n_dirs": 47,
+    "n_dirs": 48,
     "n_files": 1
    },
    {
@@ -10153,9 +10389,85 @@
             ],
             "n_dirs": 0,
             "n_files": 3
+           },
+           {
+            "name": "20260831-m03-k2-k3-k4",
+            "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k2-k3-k4",
+            "type": "dir",
+            "children": [
+             {
+              "name": "plan.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k2-k3-k4/plan.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 3240
+             },
+             {
+              "name": "spec.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k2-k3-k4/spec.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 6617
+             },
+             {
+              "name": "verify.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k2-k3-k4/verify.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 3692
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
+           },
+           {
+            "name": "20260831-m03-k5",
+            "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k5",
+            "type": "dir",
+            "children": [
+             {
+              "name": "spec.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k5/spec.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 8130
+             },
+             {
+              "name": "verify.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-m03-k5/verify.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 5335
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
+           },
+           {
+            "name": "20260831-nhap-nhan-su-manlab",
+            "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-nhap-nhan-su-manlab",
+            "type": "dir",
+            "children": [
+             {
+              "name": "spec.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-nhap-nhan-su-manlab/spec.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 7004
+             },
+             {
+              "name": "verify.md",
+              "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/_work/20260831-nhap-nhan-su-manlab/verify.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 4459
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 2
            }
           ],
-          "n_dirs": 1,
+          "n_dirs": 4,
           "n_files": 0
          },
          {
@@ -10163,7 +10475,7 @@
           "path": "05_MODULE_LIBRARY/M03_NhanSu/01_Requirement/DacTa.md",
           "type": "file",
           "ext": ".md",
-          "size": 12155
+          "size": 15013
          }
         ],
         "n_dirs": 1,
@@ -10195,7 +10507,7 @@
           "path": "05_MODULE_LIBRARY/M03_NhanSu/03_Database/DataModel.md",
           "type": "file",
           "ext": ".md",
-          "size": 518
+          "size": 21173
          }
         ],
         "n_dirs": 0,
@@ -10211,7 +10523,7 @@
           "path": "05_MODULE_LIBRARY/M03_NhanSu/04_UI/HDSD.yaml",
           "type": "file",
           "ext": ".yaml",
-          "size": 2284
+          "size": 2636
          }
         ],
         "n_dirs": 0,
@@ -14728,9 +15040,55 @@
             ],
             "n_dirs": 0,
             "n_files": 1
+           },
+           {
+            "name": "20260831-lop-danh-muc-dung-chung",
+            "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-danh-muc-dung-chung",
+            "type": "dir",
+            "children": [
+             {
+              "name": "de-xuat.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-danh-muc-dung-chung/de-xuat.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 17038
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "20260831-lop-ho-so-kiem-soat-tai-lieu",
+            "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-ho-so-kiem-soat-tai-lieu",
+            "type": "dir",
+            "children": [
+             {
+              "name": "de-xuat.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-ho-so-kiem-soat-tai-lieu/de-xuat.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 19829
+             },
+             {
+              "name": "F27.01_ban-nhap.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-ho-so-kiem-soat-tai-lieu/F27.01_ban-nhap.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 4826
+             },
+             {
+              "name": "F30.02_ban-nhap.md",
+              "path": "05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-ho-so-kiem-soat-tai-lieu/F30.02_ban-nhap.md",
+              "type": "file",
+              "ext": ".md",
+              "size": 12780
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 3
            }
           ],
-          "n_dirs": 16,
+          "n_dirs": 18,
           "n_files": 0
          },
          {
@@ -16509,6 +16867,13 @@
         "type": "dir",
         "children": [
          {
+          "name": "_ETV.P.F03.08_DanhSachNhanSu_soatxet_duthao.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/_ETV.P.F03.08_DanhSachNhanSu_soatxet_duthao.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4611
+         },
+         {
           "name": "ETV.P.F03.01_SoYeuLyLich.md",
           "path": "06_SHARED_RESOURCES/01_Forms/F03_NhanSu/ETV.P.F03.01_SoYeuLyLich.md",
           "type": "file",
@@ -16636,7 +17001,7 @@
          }
         ],
         "n_dirs": 0,
-        "n_files": 18
+        "n_files": 19
        },
        {
         "name": "F04_MoiTruong",
@@ -16996,6 +17361,36 @@
         "n_files": 5
        },
        {
+        "name": "F12_KhieuNai",
+        "path": "06_SHARED_RESOURCES/01_Forms/F12_KhieuNai",
+        "type": "dir",
+        "children": [
+         {
+          "name": "ETV.P.F12.01_PhieuTiepNhanGiaiQuyetPhanNan.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.01_PhieuTiepNhanGiaiQuyetPhanNan.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 5599
+         },
+         {
+          "name": "ETV.P.F12.02_PhieuTiepNhanYKienPhanNan_KhachHang.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.02_PhieuTiepNhanYKienPhanNan_KhachHang.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 4317
+         },
+         {
+          "name": "ETV.P.F12.03_PhieuKhaoSatNoiBo.md",
+          "path": "06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.03_PhieuKhaoSatNoiBo.md",
+          "type": "file",
+          "ext": ".md",
+          "size": 14790
+         }
+        ],
+        "n_dirs": 0,
+        "n_files": 3
+       },
+       {
         "name": "F14_TaiLieu",
         "path": "06_SHARED_RESOURCES/01_Forms/F14_TaiLieu",
         "type": "dir",
@@ -17056,21 +17451,21 @@
           "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.01_LapKeHoach.md",
           "type": "file",
           "ext": ".md",
-          "size": 8224
+          "size": 8441
          },
          {
           "name": "ETV.P.F19.02_DanhGiaKeHoach.md",
           "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.02_DanhGiaKeHoach.md",
           "type": "file",
           "ext": ".md",
-          "size": 8755
+          "size": 8972
          },
          {
           "name": "ETV.P.F19.03_KetQuaSanXuat.md",
           "path": "06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.03_KetQuaSanXuat.md",
           "type": "file",
           "ext": ".md",
-          "size": 7909
+          "size": 8126
          }
         ],
         "n_dirs": 0,
@@ -17102,21 +17497,21 @@
           "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.01_BangChamCong.md",
           "type": "file",
           "ext": ".md",
-          "size": 3293
+          "size": 3496
          },
          {
           "name": "ETV.P.F24.02_TheoDoiLuongThuong.md",
           "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.02_TheoDoiLuongThuong.md",
           "type": "file",
           "ext": ".md",
-          "size": 7656
+          "size": 7859
          },
          {
           "name": "ETV.P.F24.03_QuyetDinhLuongThuong.md",
           "path": "06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.03_QuyetDinhLuongThuong.md",
           "type": "file",
           "ext": ".md",
-          "size": 6195
+          "size": 6398
          }
         ],
         "n_dirs": 0,
@@ -17596,12 +17991,12 @@
         "path": "06_SHARED_RESOURCES/01_Forms/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 4830
+        "size": 5875
        }
       ],
-      "desc": "**Ý nghĩa:** Biểu mẫu gốc (ETV.P.Fxx.yy), bản trắng chưa điền. Đây là **nguồn sự thật duy nhất** của biểu mẫu trong toàn repo.",
+      "desc": "**Một câu:** bản trắng của mọi biểu mẫu `ETV.P.Fxx.yy` — chưa điền, chưa ký, ai cần thì lấy về dùng.",
       "readme": "06_SHARED_RESOURCES/01_Forms/README.md",
-      "n_dirs": 28,
+      "n_dirs": 29,
       "n_files": 1
      },
      {
@@ -17614,10 +18009,10 @@
         "path": "06_SHARED_RESOURCES/02_Templates/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 385
+        "size": 1687
        }
       ],
-      "desc": "**Ý nghĩa:** Mẫu báo cáo, công văn, slide",
+      "desc": "**Một câu:** khung trình bày dùng lại cho văn bản, báo cáo, slide — thứ quyết định *\"trông như thế nào\"*, không quyết định *\"nội dung nghiệp vụ gì\"*.",
       "readme": "06_SHARED_RESOURCES/02_Templates/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17632,10 +18027,10 @@
         "path": "06_SHARED_RESOURCES/03_Reference_Data/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 424
+        "size": 1877
        }
       ],
-      "desc": "**Ý nghĩa:** Bảng tra, danh mục đại lượng, hằng số",
+      "desc": "**Một câu:** những con số **không đổi** mà nhiều phép đo, nhiều báo cáo cùng tra — hệ số, bảng tra, hằng số.",
       "readme": "06_SHARED_RESOURCES/03_Reference_Data/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17646,17 +18041,31 @@
       "type": "dir",
       "children": [
        {
+        "name": "LoaiHopDong_TrangThai.md",
+        "path": "06_SHARED_RESOURCES/04_Master_Data/LoaiHopDong_TrangThai.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 5462
+       },
+       {
+        "name": "MaBoPhan.md",
+        "path": "06_SHARED_RESOURCES/04_Master_Data/MaBoPhan.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4755
+       },
+       {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/04_Master_Data/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 1517
+        "size": 3131
        }
       ],
-      "desc": "**Ý nghĩa:** Dữ liệu chủ mã hóa dùng chung",
+      "desc": "**Một câu:** bộ mã dùng chung của cả Viện — mã nào nghĩa là gì, để mọi module và mọi tài liệu gọi cùng một tên cho cùng một thứ.",
       "readme": "06_SHARED_RESOURCES/04_Master_Data/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 3
      },
      {
       "name": "05_Units",
@@ -17668,10 +18077,10 @@
         "path": "06_SHARED_RESOURCES/05_Units/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 383
+        "size": 1795
        }
       ],
-      "desc": "**Ý nghĩa:** Đơn vị SI và bảng quy đổi",
+      "desc": "**Một câu:** viết đơn vị thế nào cho đúng và quy đổi giữa các đơn vị ra sao — để kết quả trên mọi chứng chỉ, báo cáo, màn hình đọc giống nhau.",
       "readme": "06_SHARED_RESOURCES/05_Units/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17686,10 +18095,10 @@
         "path": "06_SHARED_RESOURCES/06_Customers/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 453
+        "size": 1929
        }
       ],
-      "desc": "**Ý nghĩa:** Danh mục khách hàng (master), không phải hồ sơ giao dịch",
+      "desc": "**Một câu:** sổ tra *\"khách hàng này là ai, mã bao nhiêu, tên pháp nhân viết thế nào\"* — không phải nơi lưu việc đã làm cho họ.",
       "readme": "06_SHARED_RESOURCES/06_Customers/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17704,10 +18113,10 @@
         "path": "06_SHARED_RESOURCES/07_Equipment/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 399
+        "size": 2169
        }
       ],
-      "desc": "**Ý nghĩa:** Danh mục thiết bị, chuẩn (master)",
+      "desc": "**Một câu:** sổ tra *\"Viện có thiết bị/chuẩn nào, đo được gì, tới đâu\"* — không phải nơi lưu nhật ký sử dụng hay giấy hiệu chuẩn.",
       "readme": "06_SHARED_RESOURCES/07_Equipment/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17718,17 +18127,31 @@
       "type": "dir",
       "children": [
        {
+        "name": "DanhMuc_ChucDanh.md",
+        "path": "06_SHARED_RESOURCES/08_Personnel/DanhMuc_ChucDanh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 4973
+       },
+       {
+        "name": "MaTranNangLuc_LinhVucKiemDinh.md",
+        "path": "06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md",
+        "type": "file",
+        "ext": ".md",
+        "size": 6182
+       },
+       {
         "name": "README.md",
         "path": "06_SHARED_RESOURCES/08_Personnel/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 407
+        "size": 8557
        }
       ],
-      "desc": "**Ý nghĩa:** Danh mục nhân sự & ma trận năng lực",
+      "desc": "**Một câu để nhớ:** thư mục này trả lời *\"Viện có những chức danh nào, mã nhân sự nào ứng với vai trò nào, và mỗi chức danh được phép làm/ký công việc gì\"* — dạng **bảng tra dùng lại nhiều lần**, không phải hồ sơ của từng con người.",
       "readme": "06_SHARED_RESOURCES/08_Personnel/README.md",
       "n_dirs": 0,
-      "n_files": 1
+      "n_files": 3
      },
      {
       "name": "09_Methods",
@@ -17740,10 +18163,10 @@
         "path": "06_SHARED_RESOURCES/09_Methods/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 413
+        "size": 1997
        }
       ],
-      "desc": "**Ý nghĩa:** Danh mục phương pháp/quy trình kỹ thuật",
+      "desc": "**Một câu:** bảng *\"Viện làm được phép đo nào, bằng phương pháp nào, trong phạm vi bao nhiêu\"* — chỉ mục, không phải nội dung quy trình.",
       "readme": "06_SHARED_RESOURCES/09_Methods/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17758,10 +18181,10 @@
         "path": "06_SHARED_RESOURCES/10_Standards/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 405
+        "size": 1854
        }
       ],
-      "desc": "**Ý nghĩa:** Chỉ mục tiêu chuẩn/ĐLVN viện dẫn",
+      "desc": "**Một câu:** danh sách tiêu chuẩn/ĐLVN mà Viện đang viện dẫn, kèm **tình trạng hiệu lực** — để không ai lỡ dùng bản đã bị thay thế.",
       "readme": "06_SHARED_RESOURCES/10_Standards/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17776,10 +18199,10 @@
         "path": "06_SHARED_RESOURCES/11_OCR_Models/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 392
+        "size": 1911
        }
       ],
-      "desc": "**Ý nghĩa:** Mô hình OCR, template nhận dạng",
+      "desc": "**Một câu:** cấu hình để máy đọc được **biểu mẫu giấy đã điền** — bản đồ vùng nhận dạng, từ điển sửa lỗi, tham số model.",
       "readme": "06_SHARED_RESOURCES/11_OCR_Models/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17794,10 +18217,10 @@
         "path": "06_SHARED_RESOURCES/12_Icons/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 377
+        "size": 1560
        }
       ],
-      "desc": "**Ý nghĩa:** Bộ biểu tượng giao diện",
+      "desc": "**Một câu:** biểu tượng dùng lại cho giao diện và tài liệu — để cùng một hành động luôn hiện cùng một hình.",
       "readme": "06_SHARED_RESOURCES/12_Icons/README.md",
       "n_dirs": 0,
       "n_files": 1
@@ -17840,10 +18263,10 @@
         "path": "06_SHARED_RESOURCES/13_Branding/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 1330
+        "size": 2232
        }
       ],
-      "desc": "**Ý nghĩa:** Logo, màu, font, nhận diện",
+      "desc": "**Một câu:** logo, màu, quy tắc dùng nhận diện ETV — bản gốc dùng cho mọi văn bản, chứng chỉ, giao diện và slide.",
       "readme": "06_SHARED_RESOURCES/13_Branding/README.md",
       "n_dirs": 0,
       "n_files": 5
@@ -74850,6 +75273,38 @@
             "n_files": 1
            },
            {
+            "name": "20260831090000_m03_k2_k3_k4",
+            "path": "09_ENGINEERING/aios-platform/prisma/migrations/20260831090000_m03_k2_k3_k4",
+            "type": "dir",
+            "children": [
+             {
+              "name": "migration.sql",
+              "path": "09_ENGINEERING/aios-platform/prisma/migrations/20260831090000_m03_k2_k3_k4/migration.sql",
+              "type": "file",
+              "ext": ".sql",
+              "size": 2242
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
+            "name": "20260831140000_m03_k5_the_kdv",
+            "path": "09_ENGINEERING/aios-platform/prisma/migrations/20260831140000_m03_k5_the_kdv",
+            "type": "dir",
+            "children": [
+             {
+              "name": "migration.sql",
+              "path": "09_ENGINEERING/aios-platform/prisma/migrations/20260831140000_m03_k5_the_kdv/migration.sql",
+              "type": "file",
+              "ext": ".sql",
+              "size": 1643
+             }
+            ],
+            "n_dirs": 0,
+            "n_files": 1
+           },
+           {
             "name": "migration_lock.toml",
             "path": "09_ENGINEERING/aios-platform/prisma/migrations/migration_lock.toml",
             "type": "file",
@@ -74857,7 +75312,7 @@
             "size": 128
            }
           ],
-          "n_dirs": 40,
+          "n_dirs": 42,
           "n_files": 1
          },
          {
@@ -74865,14 +75320,14 @@
           "path": "09_ENGINEERING/aios-platform/prisma/schema.prisma",
           "type": "file",
           "ext": ".prisma",
-          "size": 167542
+          "size": 172885
          },
          {
           "name": "seed.ts",
           "path": "09_ENGINEERING/aios-platform/prisma/seed.ts",
           "type": "file",
           "ext": ".ts",
-          "size": 203159
+          "size": 204835
          }
         ],
         "n_dirs": 1,
@@ -74960,11 +75415,18 @@
           "path": "09_ENGINEERING/aios-platform/scripts/nap-chi-muc-copilot.ts",
           "type": "file",
           "ext": ".ts",
-          "size": 12964
+          "size": 14521
+         },
+         {
+          "name": "nhap-nhan-su-manlab.ts",
+          "path": "09_ENGINEERING/aios-platform/scripts/nhap-nhan-su-manlab.ts",
+          "type": "file",
+          "ext": ".ts",
+          "size": 22967
          }
         ],
         "n_dirs": 0,
-        "n_files": 5
+        "n_files": 6
        },
        {
         "name": "src",
@@ -75421,7 +75883,7 @@
                       "path": "09_ENGINEERING/aios-platform/src/app/(platform)/modules/M03/employee/[id]/page.tsx",
                       "type": "file",
                       "ext": ".tsx",
-                      "size": 4757
+                      "size": 7612
                      },
                      {
                       "name": "ServiceContractActions.tsx",
@@ -78196,1008 +78658,6 @@
           "n_files": 9
          },
          {
-          "name": "generated",
-          "path": "09_ENGINEERING/aios-platform/src/generated",
-          "type": "dir",
-          "children": [
-           {
-            "name": "prisma",
-            "path": "09_ENGINEERING/aios-platform/src/generated/prisma",
-            "type": "dir",
-            "children": [
-             {
-              "name": "internal",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal",
-              "type": "dir",
-              "children": [
-               {
-                "name": "class.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/class.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 2117744
-               },
-               {
-                "name": "prismaNamespace.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/prismaNamespace.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 565968
-               },
-               {
-                "name": "prismaNamespaceBrowser.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/internal/prismaNamespaceBrowser.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 78613
-               }
-              ],
-              "n_dirs": 0,
-              "n_files": 3
-             },
-             {
-              "name": "models",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models",
-              "type": "dir",
-              "children": [
-               {
-                "name": "AccessRequest.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AccessRequest.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 65634
-               },
-               {
-                "name": "Account.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/Account.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 60966
-               },
-               {
-                "name": "AIAgent.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIAgent.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 146304
-               },
-               {
-                "name": "AIAuditLog.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIAuditLog.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 58979
-               },
-               {
-                "name": "AIBudget.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIBudget.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 63666
-               },
-               {
-                "name": "AIEvaluationCase.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationCase.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 52327
-               },
-               {
-                "name": "AIEvaluationRun.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationRun.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 57462
-               },
-               {
-                "name": "AIEvaluationSuite.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIEvaluationSuite.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 64529
-               },
-               {
-                "name": "AIGuardrail.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIGuardrail.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 48076
-               },
-               {
-                "name": "AIImpactAssessment.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIImpactAssessment.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 67626
-               },
-               {
-                "name": "AIIncident.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIIncident.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 152857
-               },
-               {
-                "name": "AIModel.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIModel.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 83927
-               },
-               {
-                "name": "AIPlatform.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPlatform.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 92373
-               },
-               {
-                "name": "AIPolicy.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPolicy.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 47633
-               },
-               {
-                "name": "AIPrompt.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPrompt.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 53309
-               },
-               {
-                "name": "AIPromptVersion.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIPromptVersion.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 67465
-               },
-               {
-                "name": "AIProvider.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIProvider.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 60162
-               },
-               {
-                "name": "AIRequest.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIRequest.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 101156
-               },
-               {
-                "name": "AISecret.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AISecret.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 42858
-               },
-               {
-                "name": "AISkill.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AISkill.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 44251
-               },
-               {
-                "name": "AITool.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AITool.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 73174
-               },
-               {
-                "name": "AIToolCall.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIToolCall.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 63737
-               },
-               {
-                "name": "AIUnregisteredSighting.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/AIUnregisteredSighting.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 103151
-               },
-               {
-                "name": "CopilotDocChunk.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotDocChunk.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 51003
-               },
-               {
-                "name": "CopilotMessage.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotMessage.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55490
-               },
-               {
-                "name": "CopilotThread.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/CopilotThread.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 58634
-               },
-               {
-                "name": "M01AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M01OpportunityItem.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01OpportunityItem.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 140743
-               },
-               {
-                "name": "M01RiskItem.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M01RiskItem.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 160389
-               },
-               {
-                "name": "M02AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M02DisclosureApproval.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02DisclosureApproval.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 71837
-               },
-               {
-                "name": "M02SecurityCommitment.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02SecurityCommitment.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 96492
-               },
-               {
-                "name": "M02SecurityIncident.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02SecurityIncident.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 96278
-               },
-               {
-                "name": "M02VisitorLog.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M02VisitorLog.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 72866
-               },
-               {
-                "name": "M03AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M03ContractTermination.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03ContractTermination.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 66856
-               },
-               {
-                "name": "M03Employee.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03Employee.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 146039
-               },
-               {
-                "name": "M03LaborContract.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03LaborContract.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 84009
-               },
-               {
-                "name": "M03RecruitmentPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03RecruitmentPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 88010
-               },
-               {
-                "name": "M03ServiceContract.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03ServiceContract.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 76662
-               },
-               {
-                "name": "M03TrainingPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03TrainingPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 69219
-               },
-               {
-                "name": "M03TrainingRecord.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M03TrainingRecord.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 137804
-               },
-               {
-                "name": "M04AreaSpec.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04AreaSpec.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 53127
-               },
-               {
-                "name": "M04AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M04ConditionLog.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04ConditionLog.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 76332
-               },
-               {
-                "name": "M04FieldWorkPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M04FieldWorkPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 85695
-               },
-               {
-                "name": "M10Assessment.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M10Assessment.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 128347
-               },
-               {
-                "name": "M10AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M10AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 62705
-               },
-               {
-                "name": "M12AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M12Complaint.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12Complaint.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 98171
-               },
-               {
-                "name": "M12Feedback.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M12Feedback.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 70930
-               },
-               {
-                "name": "M13AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M13CorrectiveActionPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13CorrectiveActionPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 110752
-               },
-               {
-                "name": "M13MonitoringNote.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13MonitoringNote.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 61922
-               },
-               {
-                "name": "M13NonconformingWork.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13NonconformingWork.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 133842
-               },
-               {
-                "name": "M13RevokedReport.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M13RevokedReport.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 53804
-               },
-               {
-                "name": "M14AiSuggestion.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14AiSuggestion.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 78899
-               },
-               {
-                "name": "M14AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M14Document.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M14Document.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 203103
-               },
-               {
-                "name": "M16AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M16AuditFinding.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditFinding.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 92059
-               },
-               {
-                "name": "M16AuditorQualification.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditorQualification.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 82919
-               },
-               {
-                "name": "M16AuditPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 114700
-               },
-               {
-                "name": "M16AuditProgram.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditProgram.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 137980
-               },
-               {
-                "name": "M16AuditReport.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16AuditReport.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 80540
-               },
-               {
-                "name": "M16ProgramMember.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16ProgramMember.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 60803
-               },
-               {
-                "name": "M16ReportDissent.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M16ReportDissent.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 63584
-               },
-               {
-                "name": "M17AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M17CorrectiveActionRequest.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17CorrectiveActionRequest.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 73095
-               },
-               {
-                "name": "M17ReviewActionTracking.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewActionTracking.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 71691
-               },
-               {
-                "name": "M17ReviewMinutes.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewMinutes.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 87216
-               },
-               {
-                "name": "M17ReviewPlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M17ReviewPlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 109282
-               },
-               {
-                "name": "M21AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 62177
-               },
-               {
-                "name": "M21Line.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21Line.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 64713
-               },
-               {
-                "name": "M21Record.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M21Record.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 102580
-               },
-               {
-                "name": "M25AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M25ContextIssue.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25ContextIssue.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 104057
-               },
-               {
-                "name": "M25ContextReview.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25ContextReview.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 146762
-               },
-               {
-                "name": "M25InterestedParty.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25InterestedParty.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 93751
-               },
-               {
-                "name": "M25IssueRiskLink.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25IssueRiskLink.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 72360
-               },
-               {
-                "name": "M25PartyExpectation.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M25PartyExpectation.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 67211
-               },
-               {
-                "name": "M26AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 58728
-               },
-               {
-                "name": "M26ItemRiskLink.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26ItemRiskLink.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 59305
-               },
-               {
-                "name": "M26KnowledgeHolder.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeHolder.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 62880
-               },
-               {
-                "name": "M26KnowledgeItem.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeItem.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 272911
-               },
-               {
-                "name": "M26KnowledgeNeed.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26KnowledgeNeed.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 143727
-               },
-               {
-                "name": "M26LessonLearned.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26LessonLearned.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 118077
-               },
-               {
-                "name": "M26SharingEvent.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingEvent.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 114479
-               },
-               {
-                "name": "M26SharingItem.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingItem.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 57043
-               },
-               {
-                "name": "M26SharingParticipant.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M26SharingParticipant.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 63262
-               },
-               {
-                "name": "M27AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M27ClassificationRule.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27ClassificationRule.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 60187
-               },
-               {
-                "name": "M27InfoAsset.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27InfoAsset.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 196569
-               },
-               {
-                "name": "M27RuleVersion.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M27RuleVersion.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 69683
-               },
-               {
-                "name": "M28AccessRequest.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AccessRequest.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 131719
-               },
-               {
-                "name": "M28AccessReview.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AccessReview.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 64579
-               },
-               {
-                "name": "M28AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M28RiskTreatment.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28RiskTreatment.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 93799
-               },
-               {
-                "name": "M28SecurityIncident.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SecurityIncident.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 121364
-               },
-               {
-                "name": "M28SecurityRisk.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SecurityRisk.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 194031
-               },
-               {
-                "name": "M28SoAControl.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SoAControl.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 77155
-               },
-               {
-                "name": "M28SoAVersion.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M28SoAVersion.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 81177
-               },
-               {
-                "name": "M33AccountReconciliation.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33AccountReconciliation.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 80494
-               },
-               {
-                "name": "M33AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M33ITAsset.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33ITAsset.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 313149
-               },
-               {
-                "name": "M33ITIncident.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33ITIncident.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 132179
-               },
-               {
-                "name": "M33MaintenancePlan.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33MaintenancePlan.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 101397
-               },
-               {
-                "name": "M33MaintenanceTask.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33MaintenanceTask.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 162975
-               },
-               {
-                "name": "M33SystemAccount.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M33SystemAccount.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 100737
-               },
-               {
-                "name": "M34AIDataApproval.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34AIDataApproval.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 83549
-               },
-               {
-                "name": "M34AuditEntry.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34AuditEntry.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55810
-               },
-               {
-                "name": "M34DataCorrection.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DataCorrection.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 100599
-               },
-               {
-                "name": "M34DataSet.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DataSet.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 301110
-               },
-               {
-                "name": "M34DictionaryField.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DictionaryField.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 62997
-               },
-               {
-                "name": "M34DictionaryVersion.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34DictionaryVersion.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 68827
-               },
-               {
-                "name": "M34MasterDataSource.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34MasterDataSource.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 88443
-               },
-               {
-                "name": "M34MasterMergeMap.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34MasterMergeMap.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 56639
-               },
-               {
-                "name": "M34ParallelLookupFinding.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34ParallelLookupFinding.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 75519
-               },
-               {
-                "name": "M34Party.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34Party.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 124760
-               },
-               {
-                "name": "M34PartyContact.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyContact.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 58907
-               },
-               {
-                "name": "M34PartyRole.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyRole.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 65278
-               },
-               {
-                "name": "M34PartyRoleType.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34PartyRoleType.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55006
-               },
-               {
-                "name": "M34QualityMeasurement.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34QualityMeasurement.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 109307
-               },
-               {
-                "name": "M34QualityRow.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34QualityRow.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 57944
-               },
-               {
-                "name": "M34SharingRequest.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/M34SharingRequest.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 140941
-               },
-               {
-                "name": "ModuleRoleAssignment.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/ModuleRoleAssignment.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 55946
-               },
-               {
-                "name": "PlatformModule.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/PlatformModule.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 68278
-               },
-               {
-                "name": "Session.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/Session.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 47038
-               },
-               {
-                "name": "User.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/User.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 8416309
-               },
-               {
-                "name": "VerificationToken.ts",
-                "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models/VerificationToken.ts",
-                "type": "file",
-                "ext": ".ts",
-                "size": 42057
-               }
-              ],
-              "n_dirs": 0,
-              "n_files": 130
-             },
-             {
-              "name": "browser.ts",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/browser.ts",
-              "type": "file",
-              "ext": ".ts",
-              "size": 14354
-             },
-             {
-              "name": "client.ts",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/client.ts",
-              "type": "file",
-              "ext": ".ts",
-              "size": 15302
-             },
-             {
-              "name": "commonInputTypes.ts",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/commonInputTypes.ts",
-              "type": "file",
-              "ext": ".ts",
-              "size": 390348
-             },
-             {
-              "name": "enums.ts",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/enums.ts",
-              "type": "file",
-              "ext": ".ts",
-              "size": 42608
-             },
-             {
-              "name": "models.ts",
-              "path": "09_ENGINEERING/aios-platform/src/generated/prisma/models.ts",
-              "type": "file",
-              "ext": ".ts",
-              "size": 6237
-             }
-            ],
-            "n_dirs": 2,
-            "n_files": 5
-           }
-          ],
-          "n_dirs": 1,
-          "n_files": 0
-         },
-         {
           "name": "lib",
           "path": "09_ENGINEERING/aios-platform/src/lib",
           "type": "dir",
@@ -79390,6 +78850,29 @@
             "type": "dir",
             "children": [
              {
+              "name": "__tests__",
+              "path": "09_ENGINEERING/aios-platform/src/lib/m03/__tests__",
+              "type": "dir",
+              "children": [
+               {
+                "name": "labels.test.ts",
+                "path": "09_ENGINEERING/aios-platform/src/lib/m03/__tests__/labels.test.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 2968
+               },
+               {
+                "name": "rules-the-kdv.test.ts",
+                "path": "09_ENGINEERING/aios-platform/src/lib/m03/__tests__/rules-the-kdv.test.ts",
+                "type": "file",
+                "ext": ".ts",
+                "size": 6152
+               }
+              ],
+              "n_dirs": 0,
+              "n_files": 2
+             },
+             {
               "name": "forms",
               "path": "09_ENGINEERING/aios-platform/src/lib/m03/forms",
               "type": "dir",
@@ -79417,7 +78900,7 @@
               "path": "09_ENGINEERING/aios-platform/src/lib/m03/actions.ts",
               "type": "file",
               "ext": ".ts",
-              "size": 15266
+              "size": 15657
              },
              {
               "name": "actor.ts",
@@ -79431,17 +78914,17 @@
               "path": "09_ENGINEERING/aios-platform/src/lib/m03/labels.ts",
               "type": "file",
               "ext": ".ts",
-              "size": 2459
+              "size": 4111
              },
              {
               "name": "rules.ts",
               "path": "09_ENGINEERING/aios-platform/src/lib/m03/rules.ts",
               "type": "file",
               "ext": ".ts",
-              "size": 7830
+              "size": 12372
              }
             ],
-            "n_dirs": 1,
+            "n_dirs": 2,
             "n_files": 4
            },
            {
@@ -80440,7 +79923,7 @@
           "size": 1176
          }
         ],
-        "n_dirs": 5,
+        "n_dirs": 4,
         "n_files": 1
        },
        {
@@ -80483,7 +79966,7 @@
         "path": "09_ENGINEERING/aios-platform/package.json",
         "type": "file",
         "ext": ".json",
-        "size": 1299
+        "size": 1364
        },
        {
         "name": "postcss.config.mjs",
@@ -80504,7 +79987,7 @@
         "path": "09_ENGINEERING/aios-platform/README.md",
         "type": "file",
         "ext": ".md",
-        "size": 53485
+        "size": 55092
        },
        {
         "name": "skills-lock.json",
@@ -80521,13 +80004,6 @@
         "size": 670
        },
        {
-        "name": "tsconfig.tsbuildinfo",
-        "path": "09_ENGINEERING/aios-platform/tsconfig.tsbuildinfo",
-        "type": "file",
-        "ext": ".tsbuildinfo",
-        "size": 263899
-       },
-       {
         "name": "vitest.config.ts",
         "path": "09_ENGINEERING/aios-platform/vitest.config.ts",
         "type": "file",
@@ -80538,7 +80014,7 @@
       "desc": "App Next.js + Prisma + PostgreSQL duy nhất, hợp nhất kiến trúc 12 tầng của",
       "readme": "09_ENGINEERING/aios-platform/README.md",
       "n_dirs": 4,
-      "n_files": 13
+      "n_files": 12
      },
      {
       "name": "README.md",
@@ -81592,7 +81068,7 @@
       "path": "_meta/extract_documents_metadata.py",
       "type": "file",
       "ext": ".py",
-      "size": 14054
+      "size": 15018
      },
      {
       "name": "github-setup.sh",
@@ -81630,6 +81106,13 @@
       "size": 10057
      },
      {
+      "name": "validate_forms.py",
+      "path": "_meta/validate_forms.py",
+      "type": "file",
+      "ext": ".py",
+      "size": 18315
+     },
+     {
       "name": "validate_links.py",
       "path": "_meta/validate_links.py",
       "type": "file",
@@ -81652,7 +81135,7 @@
      }
     ],
     "n_dirs": 2,
-    "n_files": 12
+    "n_files": 13
    },
    {
     "name": "ETV_Infographic",
@@ -81761,7 +81244,7 @@
     "path": "CLAUDE.md",
     "type": "file",
     "ext": ".md",
-    "size": 18326
+    "size": 21071
    },
    {
     "name": "README.md",

@@ -38,7 +38,7 @@ superseded_by: null
 > **Chú ý:** Tài liệu nội bộ nghiêm cấm cung cấp cho bên ngoài khi chưa có sự đồng ý của Lãnh đạo Viện Kiểm định Công nghệ và Môi trường.
 
 > **Ghi chú số hóa (AI).** Bản lần 03 do AI tái cấu trúc từ bản Word lần 02 (22/4/2023, soát xét bổ sung 26/11/2025, file `ETV.P 12_TT Giai quyet khieu nai_L3.doc`), đối chiếu khung mẫu chuẩn tại skill `s14-kiem-soat-tai-lieu` (soát xét bổ sung 22/08/2026: cập nhật định danh kích hoạt skill AI hỗ trợ kiểm soát tài liệu (S14) do đổi tên kỹ thuật, không đổi nội dung/thể thức — Biên soạn: Dương Thành Nam; Soát xét: Trần Thị Hoa; Phê duyệt: Nguyễn Hoàng Giang; giữ nguyên lần ban hành hiện tại). Lưu ý quan trọng:
-> 1. **3/3 biểu mẫu áp dụng (mục VII) hiện CHƯA số hóa được** — toàn bộ file biểu mẫu gốc (`ETV.P.F 12.01`–`12.03`) trên Dropbox nguồn vẫn ở dạng file rỗng 0 byte (placeholder online-only, chưa đồng bộ về máy dù thân thủ tục đã đọc được). Thân thủ tục vẫn ban hành vì nội dung quy trình đầy đủ; biểu mẫu chờ bổ sung — **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**.
+> 1. **3/3 biểu mẫu áp dụng (mục VII) ĐÃ SỐ HÓA ngày 31/08/2026** — tại lần ban hành 03 (21/07/2026) toàn bộ file biểu mẫu gốc (`ETV.P.F 12.01`–`12.03`) trên Dropbox nguồn còn ở dạng file rỗng 0 byte (placeholder online-only, chưa đồng bộ về máy dù thân thủ tục đã đọc được), nên thân thủ tục ban hành trước và biểu mẫu để chờ — **không tự suy diễn cấu trúc biểu mẫu khi chưa có bản gốc**. Ba file nay đã đồng bộ về máy và được số hóa vào `06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/`, giữ nguyên lần ban hành/ngày ban hành theo chân trang từng bản gốc. Bài học: "chờ Dropbox đồng bộ" là trạng thái nằm ngoài repo, không có gì canh — hệ quả là khung Căn cứ của module M12 ẩn hẳn dòng "Biểu mẫu áp dụng" suốt hơn một tháng mà không ai được báo. Đã dựng `_meta/validate_forms.py` để đối chiếu mục VII ↔ `manifest.yaml` cho mọi thủ tục.
 > 2. **Ẩn danh tên khách hàng thật** trong Phụ lục I (kịch bản xử lý phản ánh tiêu cực trên Google) — bản gốc dùng tên thật của một khách hàng cụ thể trong ví dụ minh họa; AI thay bằng placeholder `[Tên khách hàng]` vì tài liệu này đồng bộ lên repository công khai (tương tự lý do đã áp dụng khi ẩn số điện thoại lãnh đạo tại ETV.P04).
 > 3. Toàn bộ nội dung quy trình tiếp nhận/xử lý/trả lời khiếu nại, thu thập phàn nàn/góp ý được **giữ nguyên bản chất** so với lần 02; tách nội dung "Quy trình xử lý phản ánh tiêu cực trên Google" (vốn nằm cuối thân bài bản gốc, không có số mục) thành Phụ lục I để rõ ràng hơn.
 
@@ -51,6 +51,7 @@ superseded_by: null
 | 22/4/2023 | Ban hành lần thứ hai | 02 |
 | 26/11/2025 | Cập nhật xử lý khiếu nại bằng phần mềm ManLab, mô-đun F14.03 — Văn bản bên ngoài | 02 |
 | 21/07/2026 | Rà soát toàn diện theo khung mẫu chuẩn ETV.P14: bổ sung RACI đầy đủ, ẩn danh tên khách hàng thật trong ví dụ Phụ lục I, tách Phụ lục I khỏi thân bài; 3 biểu mẫu áp dụng vẫn chờ số hóa do nguồn Dropbox chưa đồng bộ đầy đủ. | 03 |
+| 31/08/2026 | Soát xét bổ sung: số hóa 3/3 biểu mẫu áp dụng (`ETV.P.F 12.01`–`12.03`) sau khi nguồn Dropbox đã đồng bộ; cập nhật trạng thái mục VII và nêu 3 điểm lệch trong bản gốc cần chốt. Không đổi nội dung quy trình, giữ nguyên lần ban hành 03. | 03 |
 
 ---
 
@@ -143,9 +144,14 @@ Các ý kiến phàn nàn/góp ý không yêu cầu phản hồi chính thức �
 
 | Mã | Tên biểu mẫu | Trạng thái số hóa |
 |---|---|---|
-| `ETV.P.F 12.01` | Tiếp nhận và giải quyết khiếu nại | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 12.02` | Thu thập phàn nàn/góp ý Khách hàng (link/QR: `etv.org.vn/danh-gia-va-phan-nan`) | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
-| `ETV.P.F 12.03` | Thu thập phàn nàn/góp ý Nội bộ | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng), chờ bổ sung |
+| `ETV.P.F 12.01` | Tiếp nhận và giải quyết khiếu nại | Đã số hóa 31/08/2026 — [`F12_KhieuNai/ETV.P.F12.01`](../../06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.01_PhieuTiepNhanGiaiQuyetPhanNan.md) |
+| `ETV.P.F 12.02` | Thu thập phàn nàn/góp ý Khách hàng (link/QR: `etv.org.vn/danh-gia-va-phan-nan`) | Đã số hóa 31/08/2026 — [`F12_KhieuNai/ETV.P.F12.02`](../../06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.02_PhieuTiepNhanYKienPhanNan_KhachHang.md) |
+| `ETV.P.F 12.03` | Thu thập phàn nàn/góp ý Nội bộ | Đã số hóa 31/08/2026 — [`F12_KhieuNai/ETV.P.F12.03`](../../06_SHARED_RESOURCES/01_Forms/F12_KhieuNai/ETV.P.F12.03_PhieuKhaoSatNoiBo.md) |
+
+> **Ba điểm cần chốt khi soát xét** (số hóa 31/08/2026 phát hiện, giữ nguyên bản gốc, không tự sửa):
+> 1. **`ETV.P.F 12.01` mang ba tên khác nhau** — thân bản gốc ghi "PHIẾU tiếp nhận và giải quyết ý kiến PHÀN NÀN của khách hàng", tên file gọi là "SỔ tiếp nhận và giải quyết phàn nàn", mục VII này gọi là "Tiếp nhận và giải quyết KHIẾU NẠI", còn mục 6.2/6.4 gọi là "Sổ tiếp nhận và giải quyết khiếu nại".
+> 2. **`ETV.P.F 12.03` có mã tự mâu thuẫn trong bản gốc** — chân trang ghi `ETV.P.F 12.02` (trang 1) và `ETV.P.F 12.04` (trang 2), không trang nào ghi 12.03; đã số hóa theo tên file và mục VII vì hai nguồn này khớp nhau.
+> 3. **`ETV.P.F 12.02` lệch lần ban hành** — tên file ghi `_L2` (lần 2) nhưng chân trang ghi "Lần BH: 01, ngày 22/04/2019".
 
 ## VIII. LƯU HỒ SƠ
 

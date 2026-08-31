@@ -10,6 +10,10 @@ status: active
 standards: ['ISO17025']
 legal: []
 capabilities: [CAP-16]
+forms:
+  - ETV.P.F12.01
+  - ETV.P.F12.02
+  - ETV.P.F12.03
 module: M12
 menu_group: KHACH_HANG
 menu_order: 2

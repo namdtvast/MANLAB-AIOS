@@ -91,6 +91,11 @@ def doc_muc_bieu_mau(text):
     sau = text[m.end():]
     ket = re.search(r"^#{1,%d}\s" % cap, sau, re.M)
     than = sau[: ket.start()] if ket else sau
+    # BỎ DÒNG TRÍCH DẪN KHỐI (`>`) — đó là ghi chú của người soạn, không phải danh mục. Cần vì ghi
+    # chú hay NHẮC TỚI mã để nói nó sai: ETV.P12 ghi "chân trang bản gốc ghi 12.02 và 12.04, không
+    # trang nào ghi 12.03" — đọc cả blockquote thì bộ kiểm hiểu thành thủ tục có thêm biểu mẫu
+    # F12.04 và đòi khai nó vào manifest, tức là biến một ghi chú cảnh báo lỗi thành lỗi mới.
+    than = "\n".join(d for d in than.split("\n") if not d.lstrip().startswith(">"))
     # Giữ thứ tự xuất hiện, bỏ trùng — danh mục thường nhắc lại mã ở dòng ghi chú nguồn cuối mục.
     ra, da_co = [], set()
     for ma in MA_BIEU_MAU.findall(than):
@@ -157,7 +162,13 @@ def main():
                 duong_dan[num] = os.path.relpath(f, root)
                 gop += [c for c in ma if c not in gop]
         danh_muc[num] = gop if co_muc else None
-        than_bai[num] = {chuan_hoa(x) for x in MA_BIEU_MAU.findall(text_gop)}
+        # Cùng lý do như trong doc_muc_bieu_mau: dòng `>` là ghi chú của người soạn. Ghi chú hay
+        # nhắc mã ĐỂ NÓI RÕ VÌ SAO KHÔNG LẬP nó — ETV.P27 viết "đặc tả đề xuất 05 biểu mẫu
+        # F27.01–F27.05, thủ tục này chỉ lập 03… tránh lập biểu mẫu trùng chức năng". Đọc cả
+        # blockquote thì bộ kiểm báo P27 "dùng F27.05 mà danh mục không liệt kê", tức là bắt lỗi
+        # đúng câu giải thích tại sao không có lỗi.
+        than = "\n".join(d for d in text_gop.split("\n") if not d.lstrip().startswith(">"))
+        than_bai[num] = {chuan_hoa(x) for x in MA_BIEU_MAU.findall(than)}
         duong_dan.setdefault(num, os.path.relpath(files[0], root))
 
     for num in sorted(thu_tuc):
