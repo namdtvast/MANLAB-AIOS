@@ -4,7 +4,18 @@
 
 Đây là tài nguyên dùng chung (tầng 06): mọi thủ tục, module, skill AI cần biết "ai giữ vai trò gì" đều **trỏ về đây**, thay vì mỗi nơi tự chép một bảng rồi lệch nhau.
 
-*(Hiện thư mục mới có README này, chưa có file dữ liệu — mục 1 mô tả những gì sẽ được đưa vào.)*
+**Hiện có trong thư mục này**
+
+| File | Nội dung |
+|---|---|
+| [`DanhMuc_ChucDanh.md`](DanhMuc_ChucDanh.md) | Chức danh/vị trí việc làm và viết tắt vai trò dùng trong RACI |
+| [`MaTranNangLuc_LinhVucKiemDinh.md`](MaTranNangLuc_LinhVucKiemDinh.md) | Trục lĩnh vực kiểm định của ma trận năng lực; thẻ kiểm định viên |
+
+Hai bảng tra liên quan **đặt ở [`06/04_Master_Data`](../04_Master_Data)**, không đặt ở đây, vì chúng là mã hoá dùng chung cho cả Viện chứ không riêng nhân sự: [`MaBoPhan.md`](../04_Master_Data/MaBoPhan.md) (mã bộ phận, quy tắc sinh mã nhân sự) và [`LoaiHopDong_TrangThai.md`](../04_Master_Data/LoaiHopDong_TrangThai.md) (loại hợp đồng, trạng thái, nhóm nhân sự, thuế/bảo hiểm).
+
+Cả bốn file dựng ngày 31/08/2026 bằng cách đối chiếu bản kết xuất `vw_tb_qlManLab_NhanSu` (145 bản ghi) — **chỉ rút tập giá trị mã hoá, không rút bản ghi nào**; bản kết xuất không được đưa vào repo, đúng mục 2.2 dưới đây.
+
+*(Ma trận năng lực đầy đủ — chức danh × phép đo × phương pháp × thiết bị — vẫn chưa lập; mới có một trục.)*
 
 ---
 

@@ -2,7 +2,14 @@
 
 > **Một câu:** bộ mã dùng chung của cả Viện — mã nào nghĩa là gì, để mọi module và mọi tài liệu gọi cùng một tên cho cùng một thứ.
 
-**Hiện có:** chưa có file danh mục — mục dưới mô tả những gì sẽ đưa vào; phần *Chủ thể (Party)* bên dưới là **ràng buộc kiến trúc đang có hiệu lực**.
+**Hiện có:**
+
+| File | Nội dung |
+|---|---|
+| [`MaBoPhan.md`](MaBoPhan.md) | Mã bộ phận ↔ đơn vị trong cơ cấu tổ chức; quy tắc sinh mã nhân sự |
+| [`LoaiHopDong_TrangThai.md`](LoaiHopDong_TrangThai.md) | Loại hợp đồng, trạng thái bản ghi nhân sự, nhóm nhân sự, cư trú thuế, bảo hiểm |
+
+Các danh mục còn lại chưa có — mục dưới mô tả những gì sẽ đưa vào; phần *Chủ thể (Party)* bên dưới là **ràng buộc kiến trúc đang có hiệu lực**.
 
 ## Lưu gì ở đây
 
