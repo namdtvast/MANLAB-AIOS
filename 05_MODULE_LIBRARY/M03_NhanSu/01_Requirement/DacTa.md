@@ -34,6 +34,24 @@ trùng và bị lệch dữ liệu so với ETV.QM).
 xong ở Increment 6, xem `M02_BaoMat/01_Requirement/DacTa.md` mục 6; trước đó là tham chiếu tự do
 vì M02 chưa có backend).
 
+**Ba trường bổ sung 31/08/2026** — chốt khoảng cách K2/K3/K4 phát hiện khi đối chiếu với danh sách
+nhân sự đang vận hành trên ManLab (đặc tả: `_work/20260831-m03-k2-k3-k4/`, đối chiếu:
+`03_Database/DataModel.md` §4):
+
+| Trường | Vì sao cần |
+|---|---|
+| `legacy_code` (unique, nullable) | Mã nhân sự cũ trên ManLab (`P. ĐL46`). Tiền tố mang phòng ban gốc — với nhân sự đã chấm dứt hợp đồng, đây là chỗ **duy nhất** còn giữ thông tin đó vì ManLab ghi đè cột Bộ phận thành `CDHĐ` |
+| `record_status` (Đang soạn/Chờ duyệt/Đã duyệt/Không duyệt) | **Trục thứ hai, độc lập với `status`.** `status` trả lời *người này còn làm việc không*, `record_status` trả lời *hồ sơ đã được xác nhận chưa*. Gộp hai trục làm một — cách ManLab đang làm — khiến người đã nghỉ việc không biểu diễn được là hồ sơ đã duyệt hay chưa |
+| `fields[]` → `EmployeeField` | Lĩnh vực kiểm định được ủy quyền, quan hệ **nhiều–nhiều** (18/145 nhân sự có ≥2 lĩnh vực). Đây là cái quyết định một người được ký kết quả nào — đầu vào của MP08, MP10, MP21. Danh mục 12 lĩnh vực: `06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md` |
+
+Hồ sơ nhân sự chỉ sinh ra từ một đường: đánh dấu **Đã tuyển** trên một đề xuất tuyển dụng đã được
+LĐV phê duyệt. Bản ghi sinh theo đường đó mang `record_status = Đã duyệt` ngay, kèm nhật ký nêu căn
+cứ — **không** có màn hình duyệt hồ sơ nhân sự riêng, tránh dựng luồng phê duyệt thứ hai chồng lên
+luồng đã có. `Đang soạn` chỉ phát sinh khi di trú dữ liệu ManLab.
+
+**Vẫn không lưu dữ liệu nhân thân** (CCCD, mã số thuế, BHXH, số tài khoản, lương, chỗ ở) — xem
+`03_Database/DataModel.md` §5.
+
 ### 2.2. `TrainingPlan` / `TrainingRecord`
 
 `content[]` (≥8 nội dung bắt buộc với nhân sự mới: nhận thức HTQL, nội quy, bảo mật, an toàn,
