@@ -10,3 +10,6 @@ capabilities:
   - ../../02_CAPABILITIES/CAP-08_HieuChuan
   - ../../02_CAPABILITIES/CAP-09_KiemDinh
   - ../../02_CAPABILITIES/CAP-10_ThuNghiem
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap/ETV.P.F08.01_KeHoachXacNhanGiaTriSuDung.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F08_PhuongPhap/ETV.P.F08.04_QuyetDinhBanHanhVaCongBoU.md

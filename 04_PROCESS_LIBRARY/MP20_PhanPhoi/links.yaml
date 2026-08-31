@@ -8,3 +8,5 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-12_CRM
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F20_PhanPhoi/ETV.P.F20.01_NhatKyPhanPhoiTruyXuat.md

@@ -13,3 +13,9 @@ capabilities: [CAP-08,CAP-09,CAP-10,CAP-11]
 module: M11
 menu_group: KY_THUAT
 menu_order: 5
+forms:
+  - ETV.P.F11.02
+  - ETV.P.F11.03
+  - ETV.P.F11.07
+  - ETV.P.F11.08
+  - ETV.P.F11.10

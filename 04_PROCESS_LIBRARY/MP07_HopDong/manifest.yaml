@@ -14,3 +14,8 @@ capabilities: [CAP-01,CAP-07,CAP-02]
 module: M07
 menu_group: KHACH_HANG
 menu_order: 1
+forms:
+  - ETV.P.F07.02
+  - ETV.P.F07.06
+  - ETV.P.F07.06.02
+  - ETV.P.F07.11

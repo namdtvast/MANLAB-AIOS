@@ -13,3 +13,14 @@ capabilities: [CAP-05]
 module: M05
 menu_group: NGUON_LUC
 menu_order: 3
+forms:
+  - ETV.P.F05.01
+  - ETV.P.F05.02
+  - ETV.P.F05.03
+  - ETV.P.F05.04
+  - ETV.P.F05.05
+  - ETV.P.F05.06
+  - ETV.P.F05.07
+  - ETV.P.F05.08
+  - ETV.P.F05.09
+  - ETV.P.F05.10

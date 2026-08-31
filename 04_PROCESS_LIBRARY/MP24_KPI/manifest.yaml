@@ -13,3 +13,7 @@ capabilities: [CAP-16]
 module: M24
 menu_group: DIEU_HANH
 menu_order: 3
+forms:
+  - ETV.P.F24.01
+  - ETV.P.F24.02
+  - ETV.P.F24.03

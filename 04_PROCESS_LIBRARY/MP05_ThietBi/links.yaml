@@ -8,3 +8,14 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-05_ThietBi
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.01_DanhMucQuanLyThietBiChuan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.02_PhieuTheoDoiThietBi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.03_NhatKySuDungThietBi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.04_KeHoachHieuChuanBaoDuongKiemTra.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.05_SoTheoDoiKetQuaHieuChuan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.06_SoTheoDoiNhapKhoHoaChat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.07_SoTheoDoiXuatKhoHoaChat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.08_SoTheoDoiPhaCheSuDungHoaChat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.09_SoTheoDoiHuyHoaChat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F05_ThietBi/ETV.P.F05.10_DanhMucQuanLyHoaChat.md

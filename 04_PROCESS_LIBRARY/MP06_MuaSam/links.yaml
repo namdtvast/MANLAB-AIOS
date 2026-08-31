@@ -8,3 +8,12 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-06_MuaSam
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.01_TheoDoiDanhGiaNhaCungCapDuocDuyet.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.02_DanhGiaThuThapThongTinNhaCungCap.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.04_PhieuDeNghiMuaDichVu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.05_BienBanBanGiaoNghiemThuVatTuHoaChat.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.06_BienBanBanGiaoNghiemThuThietBi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.08_SoTheoDoiNhaThauPhu.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.11_PhieuDeNghiThanhToanCongTacPhi.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F06_MuaSam/ETV.P.F06.12_HopDongMuaSanPhamDichVu.md

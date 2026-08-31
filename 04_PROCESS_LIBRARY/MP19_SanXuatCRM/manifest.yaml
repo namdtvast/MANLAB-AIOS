@@ -13,3 +13,7 @@ capabilities: [CAP-12]
 module: M19
 menu_group: KY_THUAT
 menu_order: 6
+forms:
+  - ETV.P.F19.01
+  - ETV.P.F19.02
+  - ETV.P.F19.03
