@@ -8,13 +8,39 @@
 
 ## 1. Việc trình
 
-Ngày 31/08/2026, 6 phiếu `ETV.P.F14.01` đã điền và đã ký (kèm 2 tệp PDF bản ký) được chuyển từ
+Ngày 31/08/2026, 6 phiếu `ETV.P.F14.01` đã điền (kèm 2 tệp PDF bản ký) được chuyển từ
 `03_MANAGEMENT_SYSTEM/04_F/` sang [`03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/`](../../../../../03_MANAGEMENT_SYSTEM/05_R/F14_TaiLieu/)
 cho đúng tầng — biểu mẫu **đã điền** là hồ sơ, không phải biểu mẫu.
 
 Hệ quả không mong muốn: `05_R` nằm trong danh sách **BLOCKED** của bộ nạp chỉ mục Copilot, nên
 3 phiếu ở trạng thái `Da-phe-duyet` trước đây Copilot dẫn được nay rơi khỏi chỉ mục. Đây là hành vi
 fail-closed đúng thiết kế, nhưng lý do chặn thì **không đứng vững khi đối chiếu thủ tục** (mục 3).
+
+### 1.1. Đếm lại ngày 31/08/2026 (sau khi PR #195 thêm 1 phiếu)
+
+Thư mục nay có **7 phiếu `.md` + 2 PDF**. Không phải phiếu nào cũng vào được chỉ mục kể cả khi lớp
+được mở — bộ nạp đòi **đồng thời** `status ∈ {Da-phe-duyet, issued, Ban-hanh}` và
+`permission ∈ {Cong-khai, Noi-bo}`:
+
+| # | Phiếu | `status` | `permission` | Vào chỉ mục nếu mở lớp? |
+|---|---|---|---|---|
+| 1 | `2026-07-01_P14_BoSungPhuLuc` | **không có frontmatter** | — | ✗ fail-closed |
+| 2 | `2026-08-11_MCF08_DoMucTuDong` | **không có frontmatter** | — | ✗ fail-closed |
+| 3 | `2026-08-25_P29_P34_DuLieuHanChe` | `Cho-phe-duyet` | `Noi-bo` | ✗ chưa phê duyệt |
+| 4 | `2026-08-30_GAI01_MayChuMoHinhAI` | `Da-phe-duyet` | `Noi-bo` | ✓ |
+| 5 | `2026-08-30_P14_KyHieuLinhVucAI` | `Da-phe-duyet` | `Noi-bo` | ✓ |
+| 6 | `2026-08-30_P33_P34_P35_ChumQuanTriSo` | `Da-phe-duyet` | `Noi-bo` | ✓ |
+| 7 | `2026-08-31_F03.08_DoiChieuManLab` | `Nhap` | `Noi-bo` | ✗ còn nháp |
+| — | 2 tệp PDF bản ký | — | — | ✗ bộ nạp chỉ đọc `.md` |
+
+**Số phiếu thực sự vào chỉ mục vẫn là 3**, không đổi so với bản trình đầu — phiếu mới của PR #195
+đang ở trạng thái `Nhap`.
+
+**Phát hiện thêm khi đếm: 2 phiếu ở mục 1 và 2 tự ghi trong thân văn bản là "ĐÃ KÝ — HỒ SƠ CHÍNH
+THỨC", có đủ chữ ký soát xét và phê duyệt LĐV, nhưng KHÔNG có khối frontmatter nào.** Với bộ nạp,
+thiếu nhãn là bị loại (fail-closed, đúng thiết kế). Nhưng đây là lỗi hồ sơ độc lập với đề xuất này:
+hai hồ sơ chính thức đang không mang metadata kiểm soát theo ETV.P14 §6.3. Đề nghị giao Kiểm soát
+tài liệu bổ sung frontmatter cho đúng, không gộp vào thay đổi này.
 
 Trình xin ý kiến về việc sửa bảng lớp tài liệu tại
 [`scripts/nap-chi-muc-copilot.ts`](../../../../../09_ENGINEERING/aios-platform/scripts/nap-chi-muc-copilot.ts)
