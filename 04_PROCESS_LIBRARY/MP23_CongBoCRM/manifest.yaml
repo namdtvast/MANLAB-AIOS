@@ -10,6 +10,9 @@ status: active
 standards: ['ISO17034']
 legal: []
 capabilities: [CAP-12]
+forms:
+  - ETV.P.F23.01
+  - ETV.P.F23.02
 module: M23
 menu_group: KY_THUAT
 menu_order: 7

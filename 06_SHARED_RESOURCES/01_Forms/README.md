@@ -35,6 +35,8 @@ Biểu mẫu gom theo **số thủ tục ban hành**, không phải mỗi biểu
 | `F08_PhuongPhap/` | 2 | [`ETV.P08_PhuongPhap`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P08_PhuongPhap.md) |
 | `F10_DamBaoKQ/` | 9 | [`ETV.P10_DamBaoHieuLucKetQua`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P10_DamBaoHieuLucKetQua.md) |
 | `F11_BaoCao/` | 5 | [`ETV.P11_BaoCao`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md) |
+| `F12_KhieuNai/` | 3 | [`ETV.P12_KhieuNai`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P12_KhieuNai.md) |
+| `F13_KhacPhuc/` | 1 | [`ETV.P13_KhacPhuc`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P13_KhacPhuc.md) |
 | `F14_TaiLieu/` | 6 | [`ETV.P14_KiemSoatTaiLieu`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P14_KiemSoatTaiLieu.md) |
 | `F19_SanXuatCRM/` | 3 | [`ETV.P19_SanXuatCRM`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P19_SanXuatCRM.md) |
 | `F20_PhanPhoi/` | 1 | [`ETV.P20_PhanPhoi`](../../03_MANAGEMENT_SYSTEM/02_P/ETV.P20_PhanPhoi.md) |

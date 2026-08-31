@@ -93,7 +93,20 @@ Mọi trích dẫn dạng `ETV.Pxx §y.z` / `ETV.MPxx mục y.z` phải trỏ t�
 
 **Giới hạn phải biết:** công cụ bắt được "mục không tồn tại", **không** bắt được "mục có thật nhưng sai mục" (vd dẫn RACI vào mục Thuật ngữ). Lớp lỗi đó nguy hơn vì người đọc mở ra thấy một mục hợp lệ nên tin luôn; nó cần đối chiếu ngữ nghĩa, cố ý không làm. Quét sạch **không** đồng nghĩa với trích dẫn đúng.
 
-Bộ kiểm thứ ba, **chỉ chạy được trên máy lập trình viên**:
+Bộ kiểm thứ ba, ở mức **biểu mẫu** — hỏi câu ngược lại với hai bộ trên:
+
+```bash
+python3 _meta/validate_forms.py          # cảnh báo, luôn thoát 0 — CI đang chạy chế độ này
+python3 _meta/validate_forms.py --chan   # thoát khác 0 nếu có lệch
+```
+
+Hai bộ kiểm trên chỉ soi thứ **đã được khai**: link khai ra có tồn tại không, điều khoản dẫn ra có tồn tại không. Không bộ nào hỏi được *"thủ tục có biểu mẫu mà manifest quên khai thì sao"* — và ở đó repo im lặng tuyệt đối: MP nào không có khóa `forms:` thì khai 0 đường dẫn nên `validate_links` xanh, còn banner Căn cứ của aios-platform render khối biểu mẫu theo điều kiện `forms.length > 0` nên **cả dòng "Biểu mẫu áp dụng" biến mất, không để lại dấu vết gì**. Bộ kiểm này lấy mục **BIỂU MẪU ÁP DỤNG** trong thân `ETV.Pxx` làm nguồn chuẩn (đó là danh mục đã qua soát xét/phê duyệt theo MP14; manifest chỉ là bản khai kỹ thuật phái sinh) rồi đối chiếu ngược về `MPxx/manifest.yaml`. Đo lần đầu 31/08/2026: **69** mã biểu mẫu nằm trong thủ tục đã ban hành mà chưa từng được khai, **16** mã mang số hiệu lệch số thủ tục (nguyên khối kế toán P44–P51 khai biểu mẫu số 40–47 — di chứng đánh số lại thủ tục mà quên đánh số biểu mẫu, khiến `ETV.P.F 44.01` lại nằm trong ETV.P48).
+
+**Phân biệt phải nắm:** mục VII chứa hai loại mã — mã **sở hữu** (số biểu mẫu trùng số thủ tục, phải vào `forms:` của chính MP đó) và mã **viện dẫn chéo** (dùng lại biểu mẫu của thủ tục chuyên trách, ví dụ ETV.P28 dùng `F02.01`). Bắt MP28 khai `F02.01` là ép nhân bản khai báo, đúng thứ quy ước "một nguồn sự thật" cấm — nên bộ kiểm chỉ đòi mã sở hữu, và với mã chéo thì chỉ kiểm thủ tục chủ có khai mã đó không.
+
+**Giới hạn phải biết:** công cụ đối chiếu **mã**, không đối chiếu **nội dung** — mã khai đúng mà file biểu mẫu sai nội dung thì không bắt được (cùng họ với lớp "dẫn đúng tên mục nhưng sai mục" của `validate_citations`). Công cụ cũng **không** đòi biểu mẫu phải có file: `buildForms()` trong `prisma/seed.ts` cho phép khai mã không kèm file và banner hiện chip xám không bấm được — đó là trạng thái **hợp lệ và có chủ đích**, vì biểu mẫu chưa số hóa vẫn phải hiện ra để người đọc biết nó tồn tại, thay vì im lặng.
+
+Bộ kiểm thứ tư, **chỉ chạy được trên máy lập trình viên**:
 
 ```bash
 python3 _meta/validate_skill_sync.py          # cảnh báo, luôn thoát 0
