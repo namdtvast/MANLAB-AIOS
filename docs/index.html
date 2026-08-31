@@ -893,10 +893,46 @@ function ghLinks(path){
           raw:DATA.repo.raw+'/'+path.split('/').map(encodeURIComponent).join('/')};
 }
 
+/* Đường dẫn hỏng thường là link cũ còn lưu sau khi tài liệu được gom lại thư mục
+   (vd 132 biểu mẫu gom vào 01_Forms/Fxx_Slug/ ngày 31/08/2026). Dò lại theo tên tệp
+   thay vì bỏ người đọc ở màn hình trắng. */
+function movedCandidates(path){
+  const base=(path.split('/').filter(Boolean).pop()||'').toLowerCase();
+  if(!base)return[];
+  return Object.keys(BYPATH).filter(p=>p.toLowerCase().endsWith('/'+base)).sort().slice(0,12);
+}
+function nearestExisting(path){
+  const parts=path.split('/').filter(Boolean);
+  for(let i=parts.length-1;i>0;i--){const p=parts.slice(0,i).join('/');if(BYPATH[p])return p;}
+  return '';
+}
+function renderNotFound(path){
+  const hits=movedCandidates(path), up=nearestExisting(path);
+  let h=`<div class="filehead"><div class="fi ic-file">${SVG.file}</div>
+    <div><h2>Không tìm thấy đường dẫn</h2>
+    <div class="meta"><span style="font-family:var(--mono)">${esc(path)}</span></div></div></div>`;
+  if(hits.length===1){
+    h+=note('Tệp cùng tên đang nằm ở vị trí khác — nhiều khả năng đường dẫn cũ đã được gom lại thư mục mới.');
+    h+=`<div class="doc-cta"><button class="btn btn-primary" onclick="openPath('${esc(hits[0])}')">${SVG.doc} Mở vị trí mới</button></div>`;
+    h+=`<div class="docnote" style="font-family:var(--mono)">${esc(hits[0])}</div>`;
+  }else if(hits.length>1){
+    h+=note('Kho có nhiều tệp cùng tên — chọn đúng vị trí cần mở:');
+    h+='<div class="child-grid">'+hits.map(p=>`<button class="child" onclick="openPath('${esc(p)}')">
+      <div class="ci ic-file">${SVG.file}</div><div class="ct"><div class="cn">${esc(p.split('/').pop())}</div>
+      <div class="cs">${esc(p)}</div></div></button>`).join('')+'</div>';
+  }else{
+    h+=note('Không có tệp nào cùng tên trong kho — đường dẫn có thể đã bị xoá hoặc đổi tên. Thử ô tìm kiếm phía trên.');
+  }
+  if(up){
+    h+=`<div class="doc-cta"><button class="btn btn-ghost" onclick="openPath('${esc(up)}')">${SVG.dir} Mở thư mục gần nhất còn tồn tại — ${esc(up)}</button></div>`;
+  }
+  $('#detail').innerHTML=`<div class="detail-body">${h}</div>`;
+}
+
 function renderDetail(path){
   const node=path===''?DATA.tree:BYPATH[path];
   const D=$('#detail');
-  if(!node){D.innerHTML='<div class="empty">Không tìm thấy đường dẫn.</div>';return;}
+  if(!node){renderNotFound(path);return;}
   if(node.type==='dir') renderDir(node,path); else renderFile(node,path);
   if(path) revealInTree(path);
 }
