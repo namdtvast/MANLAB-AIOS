@@ -1446,6 +1446,7 @@ model M03Employee {
 
   recruitmentPlan  M03RecruitmentPlan?     @relation(fields: [recruitmentPlanId], references: [id])
   fields           M03EmployeeField[] // lĩnh vực kiểm định được ủy quyền (DataModel.md K4)
+  inspectorCards   M03InspectorCard[] // thẻ kiểm định viên — bằng chứng ủy quyền (DataModel.md K5)
   trainingPlans    M03TrainingPlan[]
   trainingRecords  M03TrainingRecord[]
   laborContracts   M03LaborContract[]
@@ -1469,11 +1470,52 @@ model M03EmployeeField {
   employeeId String
   field      M03InspectionField
 
+  // Thẻ KĐV làm bằng chứng cho lĩnh vực này. NULLABLE có chủ ý: dữ liệu thật có 3 nhân sự được
+  // gán lĩnh vực mà chưa có thẻ — bắt buộc FK sẽ chặn di trú họ, hoặc buộc bịa ra thẻ giả.
+  cardId String?
+
   createdAt DateTime @default(now())
 
-  employee M03Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employee M03Employee       @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  card     M03InspectorCard? @relation(fields: [cardId], references: [id], onDelete: SetNull)
 
   @@unique([employeeId, field])
+}
+
+// K5 — Thẻ kiểm định viên đo lường. Là BẰNG CHỨNG cho lĩnh vực ở M03EmployeeField, đồng thời là
+// điều kiện CHẶN: ETV.P05 §6.2 và ETV.P11 §6.3 chỉ cho kiểm định viên "đã được chứng nhận, cấp
+// thẻ" thực hiện và ký kết quả. Đối chiếu 31/08/2026: 11/27 thẻ đang hết hạn mà không có cảnh báo.
+//
+// Một nhân sự có NHIỀU thẻ theo thời gian (hết hạn thì cấp mới, bản cũ giữ làm lịch sử). Thẻ hiện
+// hành tính bằng currentInspectorCard() trong rules.ts, không lưu cờ — tránh giữ đồng bộ trường
+// dẫn xuất.
+model M03InspectorCard {
+  id  String @id @default(cuid())
+  seq Int    @default(autoincrement())
+
+  employeeId String
+
+  // Hai định dạng cùng tồn tại trong dữ liệu thật: "0186-01" (cấp theo quyết định của ETV) và số
+  // trần 4 chữ số "3961" (cấp trước đó). Giữ nguyên chuỗi gốc, không chuẩn hoá lại.
+  cardNumber String
+
+  // KHÔNG unique — một quyết định cấp thẻ cho nhiều người (475/SKHCN cấp 13 thẻ).
+  decisionNumber String?
+
+  issuedAt  DateTime?
+  expiresAt DateTime? // nullable: dữ liệu thật có 1 thẻ thiếu ngày hết hạn
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  employee M03Employee        @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  fields   M03EmployeeField[]
+
+  // Chỉ unique trong phạm vi MỘT nhân sự, không unique toàn cục: số thẻ "3961" đang trùng ở hai
+  // người trong dữ liệu thật và chưa xác định được bên nào sai. Unique toàn cục sẽ chặn cả 145 bản
+  // ghi vì một dòng. Trùng chéo do duplicateCardNumbers() trong rules.ts báo cáo — ràng buộc này
+  // KHÔNG tự chặn được. Khi Văn phòng làm sạch xong, nâng lên unique toàn cục là migration nhỏ.
+  @@unique([employeeId, cardNumber])
 }
 model M03TrainingPlan {
   id   String @id @default(cuid())

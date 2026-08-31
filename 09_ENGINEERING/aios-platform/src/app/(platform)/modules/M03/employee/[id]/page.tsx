@@ -6,9 +6,12 @@ import {
   CONTRACT_TYPE_LABEL,
   EMPLOYEE_STATUS_LABEL,
   EMPLOYMENT_TYPE_LABEL,
+  INSPECTION_FIELD_LABEL,
+  INSPECTOR_CARD_STATE_LABEL,
   SERVICE_TYPE_LABEL,
   TRAINING_STATUS_LABEL,
 } from "@/lib/m03/labels";
+import { currentInspectorCard, inspectorCardState, validateInspectorCard } from "@/lib/m03/rules";
 import { NewTrainingForm } from "./NewTrainingForm";
 import { NewLaborContractForm } from "./NewLaborContractForm";
 import { NewServiceContractForm } from "./NewServiceContractForm";
@@ -20,6 +23,8 @@ export default async function M03EmployeeDetailPage({ params }: { params: Promis
     prisma.m03Employee.findUnique({
       where: { id },
       include: {
+        fields: { orderBy: { field: "asc" } },
+        inspectorCards: { orderBy: { expiresAt: "desc" } },
         trainingRecords: { orderBy: { createdAt: "desc" } },
         laborContracts: { orderBy: { createdAt: "desc" } },
         serviceContracts: { orderBy: { createdAt: "desc" } },
@@ -28,6 +33,19 @@ export default async function M03EmployeeDetailPage({ params }: { params: Promis
     getM03Role(),
   ]);
   if (!employee) notFound();
+
+  // Hiệu lực thẻ tính bằng hàm thuần trong rules.ts, không tính tay trong JSX — cùng một luật
+  // với mọi nơi khác đọc thẻ (M10/M11 sẽ gọi canPerformInspection từ đúng chỗ đó).
+  const card = currentInspectorCard(employee.inspectorCards);
+  const cardState = card ? inspectorCardState(card) : null;
+  const cardProblems = card ? validateInspectorCard(card) : [];
+  // Cùng bộ tone với M01/M12: good / warn / crit — không tự chế lớp màu mới.
+  const cardBadgeClass =
+    cardState === "VALID"
+      ? "bg-good-soft text-good"
+      : cardState === "EXPIRING_SOON"
+        ? "bg-warn-soft text-warn"
+        : "bg-crit-soft text-crit";
 
   return (
     <div className="flex max-w-4xl flex-col gap-6">
@@ -39,6 +57,40 @@ export default async function M03EmployeeDetailPage({ params }: { params: Promis
           {EMPLOYEE_STATUS_LABEL[employee.status]}
         </p>
       </div>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="font-head text-sm font-bold text-ink">Năng lực kiểm định</h2>
+        <div className="rounded-lg border border-border bg-surface p-3 text-sm">
+          <p className="text-ink-2">
+            <span className="text-ink-3">Lĩnh vực được ủy quyền: </span>
+            {employee.fields.length > 0
+              ? employee.fields.map((f) => INSPECTION_FIELD_LABEL[f.field] ?? f.field).join(" · ")
+              : "chưa gán lĩnh vực nào"}
+          </p>
+          {card && cardState ? (
+            <p className="mt-2 text-ink-2">
+              <span className="text-ink-3">Thẻ kiểm định viên: </span>
+              <span className="font-mono text-xs text-ink">{card.cardNumber}</span>
+              {card.decisionNumber && <span className="text-ink-3"> · QĐ {card.decisionNumber}</span>}
+              {card.expiresAt && <span className="text-ink-3"> · hạn {card.expiresAt.toLocaleDateString("vi-VN")}</span>}
+              <span className={`ml-2 inline-flex items-center rounded-full whitespace-nowrap px-2 py-0.5 text-xs font-medium ${cardBadgeClass}`}>
+                {INSPECTOR_CARD_STATE_LABEL[cardState]}
+              </span>
+            </p>
+          ) : (
+            <p className="mt-2 text-ink-3">Chưa có thẻ kiểm định viên.</p>
+          )}
+          {cardProblems.length > 0 && (
+            <p className="mt-2 text-xs text-crit">Dữ liệu thẻ cần kiểm tra: {cardProblems.join("; ")}.</p>
+          )}
+          {cardState === "EXPIRED" && (
+            <p className="mt-2 text-xs text-ink-2">
+              Thẻ hết hiệu lực thì không được sử dụng chuẩn đo lường và không được ký giấy chứng nhận kiểm định
+              (ETV.P05 §6.2, ETV.P11 §6.3).
+            </p>
+          )}
+        </div>
+      </section>
 
       <section className="flex flex-col gap-2">
         <h2 className="font-head text-sm font-bold text-ink">Đào tạo</h2>

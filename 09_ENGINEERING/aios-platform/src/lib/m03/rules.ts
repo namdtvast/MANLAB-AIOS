@@ -170,6 +170,100 @@ export function isContractType(t: unknown): t is M03ContractType {
   return typeof t === "string" && ["THOIVU", "KHONGTHOIHAN", "THUVIEC", "THUCTAP"].includes(t);
 }
 
+// ---------- InspectorCard (K5) — hiệu lực thẻ kiểm định viên ----------
+//
+// ETV.P05 §6.2 và ETV.P11 §6.3: chỉ kiểm định viên "đã được chứng nhận, cấp thẻ" mới được sử dụng
+// chuẩn đo lường và ký GCN kiểm định. Thẻ hết hạn vì vậy là điều kiện CHẶN, không phải thông tin
+// tham khảo. Đối chiếu dữ liệu ManLab 31/08/2026: 11/27 thẻ đã hết hạn mà không có cảnh báo nào.
+
+export type InspectorCardState = "VALID" | "EXPIRING_SOON" | "EXPIRED" | "NO_EXPIRY";
+
+export interface InspectorCardForRules {
+  cardNumber: string;
+  issuedAt: Date | null;
+  expiresAt: Date | null;
+}
+
+/**
+ * Số ngày trước hạn thì bắt đầu cảnh báo.
+ *
+ * CHƯA CÓ CĂN CỨ TRONG THỦ TỤC: ETV.P05 §6.2 và ETV.P11 §6.3 quy định thẻ hết hạn thì không được
+ * thực hiện, nhưng không quy định cảnh báo trước bao lâu. 90 là tham số đặt sẵn để có cảnh báo,
+ * không phải quy định của Viện — chờ LĐP chốt con số thật.
+ */
+export const INSPECTOR_CARD_EXPIRING_SOON_DAYS = 90;
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Thẻ hết hạn ĐÚNG vào ngày mốc thì tính là đã hết hạn — mốc là thời điểm hết hiệu lực, không
+ * phải ngày cuối còn hiệu lực. Chọn chặt hơn vì đây là điều kiện chặn.
+ */
+export function inspectorCardState(
+  card: Pick<InspectorCardForRules, "expiresAt">,
+  now: Date = new Date(),
+  expiringSoonDays: number = INSPECTOR_CARD_EXPIRING_SOON_DAYS
+): InspectorCardState {
+  if (!card.expiresAt) return "NO_EXPIRY";
+  const remainingMs = card.expiresAt.getTime() - now.getTime();
+  if (remainingMs <= 0) return "EXPIRED";
+  if (remainingMs <= expiringSoonDays * DAY_MS) return "EXPIRING_SOON";
+  return "VALID";
+}
+
+/** Thẻ hiện hành = thẻ có hạn xa nhất. Thẻ thiếu ngày hết hạn xếp sau, chỉ dùng khi không còn gì khác. */
+export function currentInspectorCard<T extends Pick<InspectorCardForRules, "expiresAt">>(cards: T[]): T | null {
+  if (cards.length === 0) return null;
+  const withExpiry = cards.filter((c) => c.expiresAt);
+  if (withExpiry.length === 0) return cards[0];
+  return withExpiry.reduce((a, b) => (b.expiresAt!.getTime() > a.expiresAt!.getTime() ? b : a));
+}
+
+/**
+ * Vấn đề dữ liệu của một thẻ. Bắt đúng ba lớp lỗi đã tìm thấy trong dữ liệu thật ngày 31/08/2026:
+ * thiếu số thẻ, thiếu ngày hết hạn (1 bản ghi), và ngày cấp ≥ ngày hết hạn (5 bản ghi ghi cấp
+ * 2031-03-31 / hết hạn 2026-03-31 — hai ngày bị nhập đảo).
+ */
+export function validateInspectorCard(card: InspectorCardForRules): string[] {
+  const problems: string[] = [];
+  if (!card.cardNumber.trim()) problems.push("thiếu số thẻ kiểm định viên");
+  if (!card.expiresAt) problems.push("thiếu ngày hết hạn thẻ");
+  if (card.issuedAt && card.expiresAt && card.issuedAt.getTime() >= card.expiresAt.getTime()) {
+    problems.push("ngày cấp không được bằng hoặc sau ngày hết hạn (kiểm tra xem hai ngày có bị nhập đảo không)");
+  }
+  return problems;
+}
+
+/**
+ * Số thẻ đang dùng cho nhiều nhân sự khác nhau. Ràng buộc @@unique của bảng chỉ chặn trùng trong
+ * phạm vi MỘT nhân sự, nên trùng chéo phải phát hiện bằng hàm này — xem chú thích trong schema.
+ */
+export function duplicateCardNumbers(cards: { employeeId: string; cardNumber: string }[]): string[] {
+  const owners = new Map<string, Set<string>>();
+  for (const c of cards) {
+    const set = owners.get(c.cardNumber) ?? new Set<string>();
+    set.add(c.employeeId);
+    owners.set(c.cardNumber, set);
+  }
+  return [...owners.entries()].filter(([, ids]) => ids.size > 1).map(([num]) => num);
+}
+
+/**
+ * Điều kiện chặn của ETV.P05 §6.2 — có được thực hiện kiểm định và ký kết quả không.
+ * Thẻ sắp hết hạn vẫn còn hiệu lực nên vẫn cho; chỉ EXPIRED và NO_EXPIRY là không.
+ *
+ * M03 chỉ CUNG CẤP vị ngữ này; việc chặn thật sự nằm ở M10/M11 khi hai module đó gọi tới.
+ */
+export function canPerformInspection(
+  cards: Pick<InspectorCardForRules, "expiresAt">[],
+  now: Date = new Date()
+): boolean {
+  const card = currentInspectorCard(cards);
+  if (!card) return false;
+  const state = inspectorCardState(card, now);
+  return state === "VALID" || state === "EXPIRING_SOON";
+}
+
 // ---------- ContractTermination — bắt buộc thu hồi bảo mật trước khi hoàn tất ----------
 
 export function validateTermination({

@@ -1409,9 +1409,27 @@ async function seedM03() {
       status: "CHINHTHUC",
       recordStatus: "APPROVED", // sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt
       recruitmentPlanId: plan1.id,
-      // Kiểm định viên hai lĩnh vực — dữ liệu demo cho quan hệ nhiều–nhiều (DataModel.md K4).
-      fields: { create: [{ field: "HOA_LY_NUOC" }, { field: "HOA_LY_KHI" }] },
     },
+  });
+  // Thẻ kiểm định viên — bằng chứng ủy quyền cho lĩnh vực (DataModel.md K5). Tạo thẻ trước rồi
+  // mới gắn lĩnh vực vào thẻ, vì M03EmployeeField.cardId trỏ tới thẻ.
+  // Hạn 5 năm đúng như dữ liệu thật trên ManLab (2026-03-31 → 2031-03-31).
+  const the1 = await prisma.m03InspectorCard.create({
+    data: {
+      employeeId: emp1.id,
+      cardNumber: "0186-01",
+      decisionNumber: "475/SKHCN",
+      issuedAt: new Date(`${year}-03-31`),
+      expiresAt: new Date(`${year + 5}-03-31`),
+    },
+  });
+  // Kiểm định viên hai lĩnh vực — dữ liệu demo cho quan hệ nhiều–nhiều (DataModel.md K4),
+  // cả hai đều lấy chính thẻ trên làm bằng chứng.
+  await prisma.m03EmployeeField.createMany({
+    data: [
+      { employeeId: emp1.id, field: "HOA_LY_NUOC", cardId: the1.id },
+      { employeeId: emp1.id, field: "HOA_LY_KHI", cardId: the1.id },
+    ],
   });
   await prisma.m03RecruitmentPlan.update({ where: { id: plan1.id }, data: { status: "FULFILLED" } });
   await prisma.m03AuditEntry.create({ data: { itemType: "RECRUITMENT", itemId: plan1.id, actorId: tp.id, role: "TP", action: `Đã tuyển — tạo hồ sơ nhân sự ${emp1.code}` } });

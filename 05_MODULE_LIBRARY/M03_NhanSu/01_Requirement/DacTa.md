@@ -43,11 +43,14 @@ nhân sự đang vận hành trên ManLab (đặc tả: `_work/20260831-m03-k2-k
 | `legacy_code` (unique, nullable) | Mã nhân sự cũ trên ManLab (`P. ĐL46`). Tiền tố mang phòng ban gốc — với nhân sự đã chấm dứt hợp đồng, đây là chỗ **duy nhất** còn giữ thông tin đó vì ManLab ghi đè cột Bộ phận thành `CDHĐ` |
 | `record_status` (Đang soạn/Chờ duyệt/Đã duyệt/Không duyệt) | **Trục thứ hai, độc lập với `status`.** `status` trả lời *người này còn làm việc không*, `record_status` trả lời *hồ sơ đã được xác nhận chưa*. Gộp hai trục làm một — cách ManLab đang làm — khiến người đã nghỉ việc không biểu diễn được là hồ sơ đã duyệt hay chưa |
 | `fields[]` → `EmployeeField` | Lĩnh vực kiểm định được ủy quyền, quan hệ **nhiều–nhiều** (18/145 nhân sự có ≥2 lĩnh vực). Đây là cái quyết định một người được ký kết quả nào — đầu vào của MP08, MP10, MP21. Danh mục 12 lĩnh vực: `06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md` |
+| `inspectorCards[]` → `InspectorCard` | Thẻ kiểm định viên — **bằng chứng** cho lĩnh vực ở trên, đồng thời là điều kiện **chặn**: `ETV.P05` §6.2 và `ETV.P11` §6.3 chỉ cho kiểm định viên đã được chứng nhận, cấp thẻ dùng chuẩn đo lường và ký GCN kiểm định. Đối chiếu 31/08/2026: **11/27 thẻ đã hết hạn** mà không có cảnh báo nào |
 
 Hồ sơ nhân sự chỉ sinh ra từ một đường: đánh dấu **Đã tuyển** trên một đề xuất tuyển dụng đã được
 LĐV phê duyệt. Bản ghi sinh theo đường đó mang `record_status = Đã duyệt` ngay, kèm nhật ký nêu căn
 cứ — **không** có màn hình duyệt hồ sơ nhân sự riêng, tránh dựng luồng phê duyệt thứ hai chồng lên
 luồng đã có. `Đang soạn` chỉ phát sinh khi di trú dữ liệu ManLab.
+
+Một nhân sự giữ **nhiều thẻ theo thời gian** (hết hạn thì cấp mới, bản cũ là lịch sử). Thẻ hiện hành tính bằng hàm, không lưu cờ. Hạn thẻ, tính hợp lý của cặp ngày cấp/hết hạn, và điều kiện được phép thực hiện kiểm định đều là hàm thuần trong `rules.ts` — M10/M11 gọi `canPerformInspection()` khi cần chặn ký kết quả.
 
 **Vẫn không lưu dữ liệu nhân thân** (CCCD, mã số thuế, BHXH, số tài khoản, lương, chỗ ở) — xem
 `03_Database/DataModel.md` §5.
