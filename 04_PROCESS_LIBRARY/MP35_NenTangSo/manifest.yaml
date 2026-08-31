@@ -16,6 +16,7 @@ menu_group: CONG_NGHE
 menu_order: 4
 document:
   doc_id: ETV.P35
+  doc_title: "Thủ tục Quản lý nền tảng số"
   # Lần BH 02 phê duyệt và có hiệu lực 30/08/2026 (chỉ đưa về khung I-IX của ETV.P14;
   # yêu cầu kỹ thuật và thẩm quyền giữ nguyên so với lần BH 01 ngày 24/08/2026).
   # Giá trị ban hành ở manifest là "issued", KHÔNG phải "Da-phe-duyet": nền tảng đọc trường này

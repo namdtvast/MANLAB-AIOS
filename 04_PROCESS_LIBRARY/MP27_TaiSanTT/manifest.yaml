@@ -18,6 +18,7 @@ menu_group: DU_LIEU_SO
 menu_order: 4
 document:
   doc_id: ETV.P27
+  doc_title: "Thủ tục Quản trị dữ liệu và tài sản thông tin"
   # Lần BH 01: soát xét Trần Thị Hoa, phê duyệt Nguyễn Hoàng Giang ngày 26/08/2026.
   doc_status: issued
   doc_version: "01"

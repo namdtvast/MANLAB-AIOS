@@ -21,6 +21,7 @@ menu_group: CONG_NGHE
 menu_order: 2
 document:
   doc_id: ETV.P28
+  doc_title: "Thủ tục Quản lý an toàn thông tin"
   # Lần BH 02: ranh giới kiểm kê thiết bị với ETV.P33 + tái cấu trúc khung I–IX;
   # soát xét Trần Thị Hoa, phê duyệt Nguyễn Hoàng Giang ngày 26/08/2026.
   doc_status: issued
