@@ -16,6 +16,7 @@ menu_group: DIEU_HANH
 menu_order: 6
 document:
   doc_id: ETV.P30
+  doc_title: "Thủ tục Quản lý thay đổi"
   doc_status: Cho-soat-xet
   doc_version: "01"
   issued_date: ""

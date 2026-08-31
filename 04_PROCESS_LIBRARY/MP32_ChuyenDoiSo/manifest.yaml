@@ -16,6 +16,7 @@ menu_group: DIEU_HANH
 menu_order: 8
 document:
   doc_id: ETV.P32
+  doc_title: "Thủ tục Chuyển đổi số và cải tiến hệ thống"
   # Dự thảo lần BH 01 đang chờ soát xét — chưa có ngày ban hành.
   # LĐV điền issued_date khi chuyển doc_status sang Da-phe-duyet (ETV.P14 §6.6.1 bước 5–6).
   doc_status: Cho-soat-xet

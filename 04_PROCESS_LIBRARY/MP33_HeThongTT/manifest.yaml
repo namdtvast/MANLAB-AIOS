@@ -16,6 +16,7 @@ menu_group: CONG_NGHE
 menu_order: 1
 document:
   doc_id: ETV.P33
+  doc_title: "Thủ tục Quản lý hệ thống thông tin"
   # Ban hành lần 01 ngày 30/08/2026 (ETV.P14 §6.6.1 bước 5–6).
   # Giá trị ban hành ở manifest là "issued", KHÔNG phải "Da-phe-duyet": nền tảng đọc trường này
   # qua PlatformModule.docStatus, mà DOC_STATUS trong CanCuBanner.tsx chỉ nhận issued/draft và

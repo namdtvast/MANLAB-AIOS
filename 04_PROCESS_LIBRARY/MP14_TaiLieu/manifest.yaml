@@ -18,8 +18,8 @@ document:
   doc_id: ETV.P14
   doc_title: "Thủ tục Kiểm soát tài liệu, dữ liệu, thông tin"
   doc_status: issued
-  doc_version: "03"
-  issued_date: 2026-07-01
+  doc_version: "04"
+  issued_date: 2026-08-30
   iso_clauses:
     - "ISO/IEC 17025:2017 §8.3"
     - "ISO 9001:2015 §7.5"
