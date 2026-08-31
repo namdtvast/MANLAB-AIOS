@@ -12,6 +12,7 @@
     "doi-mat-khau-demo": "tsx scripts/doi-mat-khau-demo.ts",
     "nap-chi-muc-copilot": "tsx scripts/nap-chi-muc-copilot.ts",
     "kiem-tra-hdsd": "tsx scripts/kiem-tra-hdsd.ts",
+    "nhap-nhan-su-manlab": "tsx scripts/nhap-nhan-su-manlab.ts",
     "danh-gia-copilot": "tsx scripts/chay-danh-gia-copilot.ts"
   },
   "dependencies": {
