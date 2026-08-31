@@ -1400,13 +1400,17 @@ async function seedM03() {
   const emp1 = await prisma.m03Employee.create({
     data: {
       code: `NS-${year}-0001`,
+      legacyCode: "P. ĐL01", // mã ManLab cũ — tiền tố giữ phòng ban gốc (DataModel.md K2)
       fullName: "Nguyễn Văn An",
       position: "Kỹ thuật viên hiệu chuẩn",
       department: "Phòng Đo lường Chất lượng",
       employmentType: "THUVIEC",
       hireDate: new Date(`${year}-01-15`),
       status: "CHINHTHUC",
+      recordStatus: "APPROVED", // sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt
       recruitmentPlanId: plan1.id,
+      // Kiểm định viên hai lĩnh vực — dữ liệu demo cho quan hệ nhiều–nhiều (DataModel.md K4).
+      fields: { create: [{ field: "HOA_LY_NUOC" }, { field: "HOA_LY_KHI" }] },
     },
   });
   await prisma.m03RecruitmentPlan.update({ where: { id: plan1.id }, data: { status: "FULFILLED" } });
@@ -1475,12 +1479,18 @@ async function seedM03() {
   const emp2 = await prisma.m03Employee.create({
     data: {
       code: `NS-${year}-0002`,
+      legacyCode: "VP07",
       fullName: "Trần Thị Bích",
       position: "Nhân viên hành chính",
       department: "Văn phòng",
       employmentType: "THUVIEC",
       hireDate: new Date(`${year}-06-01`),
+      // Hai trục trạng thái độc lập: đang thử việc (quan hệ lao động) NHƯNG hồ sơ chưa được
+      // duyệt (bản ghi). Trên ManLab hai trục này gộp một cột nên không biểu diễn được cặp này.
       status: "THUVIEC",
+      recordStatus: "PENDING_APPROVAL",
+      // Nhân viên hành chính không làm kiểm định — "Không áp dụng" biểu diễn bằng 0 dòng
+      // trong M03EmployeeField, không phải bằng một giá trị enum riêng.
     },
   });
   const trainingPlan2 = await prisma.m03TrainingPlan.create({

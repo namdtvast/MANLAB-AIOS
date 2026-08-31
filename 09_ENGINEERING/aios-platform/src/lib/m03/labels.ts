@@ -20,6 +20,32 @@ export const EMPLOYEE_STATUS_LABEL: Record<string, string> = {
   DANGHIVIEC: "Đã nghỉ việc",
 };
 
+// Trạng thái DUYỆT BẢN GHI hồ sơ nhân sự — trục độc lập với EMPLOYEE_STATUS_LABEL ở trên.
+// Hai trục này trên ManLab đang gộp làm một cột; nhãn tách riêng để giao diện không tái tạo lỗi đó.
+export const EMPLOYEE_RECORD_STATUS_LABEL: Record<string, string> = {
+  DRAFT: "Đang soạn",
+  PENDING_APPROVAL: "Chờ duyệt",
+  APPROVED: "Đã duyệt",
+  REJECTED: "Không duyệt",
+};
+
+// 12 lĩnh vực kiểm định — nhãn giữ đúng cách viết đang dùng trên ManLab và tại
+// 06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md §1.
+export const INSPECTION_FIELD_LABEL: Record<string, string> = {
+  KHOI_LUONG: "Khối lượng",
+  DUNG_TICH_LUU_LUONG: "Dung tích – Lưu lượng",
+  AP_SUAT: "Áp suất",
+  NHIET_DO: "Nhiệt độ",
+  DO_AM: "Độ ẩm",
+  QUANG_HOC: "Quang học",
+  THOI_GIAN_TAN_SO: "Thời gian – Tần số",
+  HOA_LY_NUOC: "Hoá lý (nước)",
+  HOA_LY_KHI: "Hoá lý (khí)",
+  Y_TE: "Y tế",
+  QUAN_TRAC_RA_KHI: "Quan trắc (RA khí)",
+  QUAN_TRAC_RA_NUOC: "Quan trắc (RA nước)",
+};
+
 export const TRAINING_PLAN_TYPE_LABEL: Record<string, string> = {
   BAN_DAU: "Ban đầu (nhân sự mới)",
   DINH_KY: "Định kỳ",

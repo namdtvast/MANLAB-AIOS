@@ -1306,6 +1306,33 @@ enum M03EmployeeStatus {
   DANGHIVIEC
 }
 
+// Trạng thái DUYỆT BẢN GHI hồ sơ nhân sự — trục thứ hai, độc lập với M03EmployeeStatus.
+// Bốn giá trị lấy đúng theo M03RecruitmentStatus đã có (bỏ FULFILLED vì không áp dụng), để
+// không sinh bộ từ vựng trạng thái thứ ba trong cùng một module.
+enum M03EmployeeRecordStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+}
+
+// 12 lĩnh vực kiểm định — đúng tập giá trị đang dùng thật trên ManLab, đối chiếu tại
+// 06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md §1. Không tự thêm bớt.
+enum M03InspectionField {
+  KHOI_LUONG
+  DUNG_TICH_LUU_LUONG
+  AP_SUAT
+  NHIET_DO
+  DO_AM
+  QUANG_HOC
+  THOI_GIAN_TAN_SO
+  HOA_LY_NUOC
+  HOA_LY_KHI
+  Y_TE
+  QUAN_TRAC_RA_KHI
+  QUAN_TRAC_RA_NUOC
+}
+
 enum M03TrainingPlanType {
   BAN_DAU
   DINH_KY
@@ -1391,12 +1418,25 @@ model M03Employee {
   seq  Int    @default(autoincrement())
   code String @unique // vd "NS-2026-0001"
 
+  // Mã nhân sự cũ trên ManLab, giữ nguyên chuỗi gốc kể cả khoảng trắng ("P. ĐL46", "VP01").
+  // Cấu trúc <mã bộ phận><số thứ tự> nên tiền tố là chỗ DUY NHẤT còn giữ phòng ban gốc của
+  // nhân sự đã chấm dứt hợp đồng (ManLab ghi đè cột Bộ phận thành "CDHĐ") — xem DataModel.md K1/K2.
+  legacyCode            String?           @unique
+
   fullName              String
   position              String
   department            String
   employmentType        M03EmploymentType
   hireDate              DateTime
+
+  // Hai trục trạng thái ĐỘC LẬP, không gộp (DataModel.md K3 — trên ManLab đang gộp làm một cột,
+  // hệ quả là người đã nghỉ việc không biểu diễn được là bản ghi đã duyệt hay chưa).
+  //   status       = quan hệ lao động  (Thử việc / Chính thức / Đã nghỉ)
+  //   recordStatus = bản ghi đã được xác nhận chưa
+  // Mặc định DRAFT là giá trị dè dặt nhất; luồng tạo duy nhất (fulfillRecruitmentPlan) ghi đè
+  // thành APPROVED vì bản ghi đó sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt.
   status                M03EmployeeStatus @default(THUVIEC)
+  recordStatus          M03EmployeeRecordStatus @default(DRAFT)
   securityCommitmentRef String            @default("") // tham chiếu tự do M02 — chưa có backend thật
 
   recruitmentPlanId String?
@@ -1405,6 +1445,7 @@ model M03Employee {
   updatedAt DateTime @updatedAt
 
   recruitmentPlan  M03RecruitmentPlan?     @relation(fields: [recruitmentPlanId], references: [id])
+  fields           M03EmployeeField[] // lĩnh vực kiểm định được ủy quyền (DataModel.md K4)
   trainingPlans    M03TrainingPlan[]
   trainingRecords  M03TrainingRecord[]
   laborContracts   M03LaborContract[]
@@ -1417,6 +1458,23 @@ model M03Employee {
   m16ProgramMemberships M16ProgramMember[]        @relation("M16ProgramMember")
 }
 
+// K4 — lĩnh vực kiểm định là quan hệ NHIỀU–NHIỀU (18/145 nhân sự trên ManLab có ≥2 lĩnh vực,
+// hiện nén thành chuỗi phân tách bằng ";" trong một ô văn bản nên không truy vấn được).
+// Bảng nối giữ tối thiểu cặp (nhân sự, lĩnh vực); bằng chứng ủy quyền — số thẻ KĐV, quyết định
+// cấp, ngày hết hạn — là khoảng cách K5, chưa thuộc phạm vi.
+// "Không áp dụng"/"Không lĩnh vực" của ManLab KHÔNG là giá trị enum: biểu diễn bằng 0 dòng.
+model M03EmployeeField {
+  id String @id @default(cuid())
+
+  employeeId String
+  field      M03InspectionField
+
+  createdAt DateTime @default(now())
+
+  employee M03Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@unique([employeeId, field])
+}
 model M03TrainingPlan {
   id   String @id @default(cuid())
   seq  Int    @default(autoincrement())

@@ -17,6 +17,7 @@
 | `M03LaborContract` | Hợp đồng lao động | FK `employeeId`, `signedById` |
 | `M03ServiceContract` | Hợp đồng dịch vụ (chuyên môn / phổ thông) | FK `employeeId`, `signedById` |
 | `M03ContractTermination` | Nghiệm thu – thanh lý hợp đồng | `contractId` **trỏ tự do** vào một trong hai loại hợp đồng |
+| `M03EmployeeField` | Lĩnh vực kiểm định được ủy quyền (bảng nối) | FK `employeeId`; unique `(employeeId, field)` |
 
 Liên kết ra ngoài module: `M02SecurityCommitment` (cam kết bảo mật), `M16AuditorQualification` / `M16AuditProgram` / `M16ProgramMember` (năng lực đánh giá viên nội bộ), `M26KnowledgeNeed` / `M26SharingEvent` (tri thức).
 
@@ -25,7 +26,9 @@ Liên kết ra ngoài module: `M02SecurityCommitment` (cam kết bảo mật), `
 | Enum | Giá trị |
 |---|---|
 | `M03EmploymentType` | CHINHTHUC · THUVIEC · THUCTAP · HDDV |
-| `M03EmployeeStatus` | THUVIEC · CHINHTHUC · DANGHIVIEC |
+| `M03EmployeeStatus` | THUVIEC · CHINHTHUC · DANGHIVIEC — **quan hệ lao động** |
+| `M03EmployeeRecordStatus` | DRAFT · PENDING_APPROVAL · APPROVED · REJECTED — **duyệt bản ghi**, trục độc lập |
+| `M03InspectionField` | 12 lĩnh vực kiểm định |
 | `M03ContractType` | THOIVU · KHONGTHOIHAN · THUVIEC · THUCTAP |
 | `M03ContractStatus` | DRAFT · PENDING_SIGN · ACTIVE · TERMINATED |
 | `M03ServiceType` | CHUYENMON · PHOTHONG |
@@ -42,10 +45,15 @@ Liên kết ra ngoài module: `M02SecurityCommitment` (cam kết bảo mật), `
 - `M03TrainingRecord` có 6 cờ `c1…c6` — sáu điều kiện hoàn thành đào tạo phải **đồng thời** đúng mới được kết luận `DAT` (quy tắc 3, `DacTa.md`); ràng buộc này áp ở `rules.ts`, không ở tầng CSDL.
 - `M03ContractTermination.contractId` **không có FK thật** — trỏ tự do vào `M03LaborContract.id` hoặc `M03ServiceContract.id`, phân biệt bằng `contractType`. CSDL không chặn được id sai.
 - `M03Employee.securityCommitmentRef` là tham chiếu chuỗi tự do đã bị thay thế bằng quan hệ thật `m02Commitments`; trường cũ còn lại vì lý do lịch sử.
+- `M03Employee.legacyCode` **unique, nullable** — mã ManLab cũ. `NULL` với nhân sự tạo mới trên nền tảng.
+- `M03Employee.recordStatus` mặc định `DRAFT`; `fulfillRecruitmentPlan()` — đường tạo hồ sơ nhân sự **duy nhất** — ghi đè thành `APPROVED` vì bản ghi sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt. `DRAFT` chỉ phát sinh khi di trú dữ liệu ManLab.
+- `M03EmployeeField` unique `(employeeId, field)`; `onDelete: Cascade`. Không có lĩnh vực nào = **không có dòng nào**, không phải một giá trị enum riêng.
 
 ---
 
 ## 4. Khoảng cách với dữ liệu vận hành thật trên ManLab
+
+> **Cập nhật 31/08/2026 — K2, K3, K4 đã chốt vào schema** (migration `20260831090000_m03_k2_k3_k4`, đặc tả tại [`01_Requirement/_work/20260831-m03-k2-k3-k4/`](../01_Requirement/_work/20260831-m03-k2-k3-k4)). Ba mục đó giữ nguyên phần mô tả khoảng cách bên dưới — vì đó là căn cứ của thiết kế — và bổ sung dòng **Đã chốt** ở cuối. K1, K5–K9 chưa xử lý.
 
 **Cách đo.** Đối chiếu mô hình trên với bản kết xuất `vw_tb_qlManLab_NhanSu` ngày **31/08/2026** — 145 bản ghi, 53 cột — là dữ liệu nhân sự đang chạy thật. Bản kết xuất **không** được đưa vào repo (dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP, repo công khai); chỉ tập giá trị mã hoá được rút ra, đặt tại [`06/04_Master_Data`](../../../06_SHARED_RESOURCES/04_Master_Data) và [`06/08_Personnel`](../../../06_SHARED_RESOURCES/08_Personnel).
 
@@ -68,17 +76,23 @@ Không phải khác định dạng mà khác **ngữ nghĩa**: mã ManLab mang t
 
 **Đề nghị:** giữ mã ManLab làm `code` (nó đang được in trên thẻ, dùng trong hồ sơ giấy), hoặc bổ sung trường `legacyCode` giữ nguyên mã cũ trước khi đổi. Quyết định thuộc Văn phòng — không tự đổi.
 
+> **Đã chốt:** giữ cả hai — `code` theo `NS-YYYY-NNNN` cho nền tảng, thêm `legacyCode String? @unique` giữ nguyên mã ManLab. Không xoá thông tin phòng ban gốc nằm ở tiền tố.
+
 ### K3 — Trạng thái duyệt bản ghi và trạng thái lao động bị gộp
 
 Cột *Trạng thái (NS)* chứa lẫn hai loại: `Nháp` · `Chờ duyệt` · `Đã duyệt` · `Không duyệt` (trạng thái duyệt bản ghi) và `Chấm dứt HĐLĐ` (trạng thái quan hệ lao động). Hệ quả: người đã nghỉ việc **không biểu diễn được** là bản ghi của họ đã duyệt hay chưa.
 
 Mô hình module chỉ có `M03EmployeeStatus` (THUVIEC/CHINHTHUC/DANGHIVIEC) — tức là mô hình hoá **đúng một** trong hai trục, và thiếu hẳn trục duyệt bản ghi. Cần bổ sung một trường trạng thái duyệt riêng cho `M03Employee`. Danh mục hai trục: [`06/04_Master_Data/LoaiHopDong_TrangThai.md`](../../../06_SHARED_RESOURCES/04_Master_Data/LoaiHopDong_TrangThai.md) §2.
 
+> **Đã chốt:** thêm `recordStatus M03EmployeeRecordStatus @default(DRAFT)`, độc lập với `status`. Chưa xây màn hình duyệt hồ sơ nhân sự riêng — hồ sơ tạo trên nền tảng đã mang dấu vết phê duyệt từ đề xuất tuyển dụng.
+
 ### K4 — Năng lực theo lĩnh vực kiểm định chưa có trong mô hình
 
 ManLab theo dõi *Lĩnh vực kiểm định (M4-TT24)* cho từng nhân sự — 12 lĩnh vực, **18/145 người có từ 2 lĩnh vực trở lên**, hiện nén thành chuỗi phân tách bằng `;` trong một ô văn bản. Đây là quan hệ nhiều–nhiều.
 
 `M03Employee` **không có trường nào tương ứng**. Đây là thiếu sót đáng kể chứ không phải chi tiết phụ: lĩnh vực kiểm định là cái quyết định một người được ký kết quả nào, và là đầu vào của MP08 (phương pháp), MP10 (đảm bảo kết quả), MP21 (công bố năng lực). Cần bảng nối `M03EmployeeField` (employeeId × field). Trục lĩnh vực: [`06/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md`](../../../06_SHARED_RESOURCES/08_Personnel/MaTranNangLuc_LinhVucKiemDinh.md).
+
+> **Đã chốt:** thêm bảng nối `M03EmployeeField` + enum `M03InspectionField` (12 giá trị). Bằng chứng ủy quyền vẫn thuộc K5.
 
 ### K5 — Thẻ kiểm định viên chưa có trong mô hình, chưa có cảnh báo hết hạn
 

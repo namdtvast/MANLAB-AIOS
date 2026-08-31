@@ -102,6 +102,10 @@ export async function fulfillRecruitmentPlan(
         department: employee.department,
         employmentType: employee.employmentType,
         hireDate: new Date(employee.hireDate),
+        // Hồ sơ này sinh từ đề xuất tuyển dụng ĐÃ được LĐV phê duyệt (txFulfillRecruitment chỉ
+        // cho chạy khi đề xuất ở trạng thái APPROVED), nên bản ghi đã có dấu vết phê duyệt ở
+        // thượng nguồn — ghi thẳng APPROVED thay vì để rơi về mặc định DRAFT của schema.
+        recordStatus: "APPROVED",
         recruitmentPlanId: id,
       },
     });
