@@ -13,6 +13,15 @@ capabilities: [CAP-06]
 module: M06
 menu_group: NGUON_LUC
 menu_order: 4
+document:
+  doc_id: ETV.P06
+  doc_title: "Thủ tục Mua Sản phẩm và Dịch vụ do Bên ngoài Cung cấp"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §8.4 (Kiểm soát các quá trình, sản phẩm và dịch vụ do bên ngoài cung cấp)"
+    - "ISO/IEC 17025:2017 §6.6 (Sản phẩm và dịch vụ do bên ngoài cung cấp)"
 forms:
   - ETV.P.F06.01
   - ETV.P.F06.02

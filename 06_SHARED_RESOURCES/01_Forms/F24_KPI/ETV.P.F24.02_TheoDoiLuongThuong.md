@@ -1,12 +1,19 @@
 ---
-form_code: ETV.P.F24.02
-form_name: Bảng Theo Dõi Lương/Thưởng
-form_type: Salary & Bonus Tracking Form
-procedure_ref: ETV.P24
-issue_date: 2025-11-30
-version: 01
-applicable_to: Salary Calculation & Bonus Payment Processing
-responsible_dept: Văn phòng & Kỹ thuật vụ
+id: ETV.P.F24.02
+title: "Bảng Theo Dõi Lương/Thưởng"
+type: Bieu-mau
+process: MP24_KPI
+module: M24_KPI
+revision: "01"
+effective_date: "30/11/2025"
+status: Da-phe-duyet
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
+related_documents: [ETV.P24]
+form_type: "Salary & Bonus Tracking Form"
+applicable_to: "Salary Calculation & Bonus Payment Processing"
+responsible_dept: "Văn phòng & Kỹ thuật vụ"
 ---
 
 # ETV.P.F24.02 – BẢNG THEO DÕI LƯƠNG/THƯỞNG

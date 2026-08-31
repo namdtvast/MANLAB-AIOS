@@ -14,6 +14,15 @@ capabilities: [CAP-08,CAP-09,CAP-10]
 module: M08
 menu_group: KY_THUAT
 menu_order: 2
+document:
+  doc_id: ETV.P08
+  doc_title: "Thủ tục Lựa chọn Phương pháp, Kiểm tra Xác nhận, Xác nhận Giá trị Sử dụng và Đánh giá Độ không đảm bảo đo"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §8.3 (Thiết kế và phát triển sản phẩm, dịch vụ)"
+    - "ISO/IEC 17025:2017 §7.2 (Lựa chọn, kiểm tra xác nhận và xác nhận giá trị sử dụng của phương pháp)"
 forms:
   - ETV.P.F08.01
   - ETV.P.F08.04
