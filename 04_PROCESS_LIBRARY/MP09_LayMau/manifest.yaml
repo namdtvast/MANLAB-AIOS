@@ -10,6 +10,12 @@ status: active
 standards: ['ISO17025']
 legal: []
 capabilities: [CAP-04,CAP-11]
+forms:
+  - ETV.P.F09.01
+  - ETV.P.F09.02
+  - ETV.P.F09.03
+  - ETV.P.F09.04
+  - ETV.P.F09.05
 module: M09
 menu_group: KY_THUAT
 menu_order: 1

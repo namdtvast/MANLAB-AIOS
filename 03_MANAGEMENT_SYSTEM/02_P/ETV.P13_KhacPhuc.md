@@ -124,7 +124,9 @@ Thủ tục này được xây dựng phù hợp với yêu cầu tại mục 7.
 
 | Mã | Tên biểu mẫu | Trạng thái số hóa |
 |---|---|---|
-| `ETV.P.F 13.01` | Sổ theo dõi công việc không phù hợp | Chưa số hóa — nguồn Dropbox chưa đồng bộ (file rỗng, cả 3 phiên bản theo năm 2020/2022/2024), chờ bổ sung |
+| `ETV.P.F 13.01` | Sổ theo dõi công việc không phù hợp | Đã số hóa 31/08/2026 — [`F13_KhacPhuc/ETV.P.F13.01`](../../06_SHARED_RESOURCES/01_Forms/F13_KhacPhuc/ETV.P.F13.01_SoTheoDoiCongViecKhongPhuHop.md) |
+
+> **Cần chốt khi soát xét** (số hóa 31/08/2026 phát hiện): ba file nguồn trên Dropbox (bản 2020/2022/2024) **không phải bản mẫu trống mà là hồ sơ đã điền** — có nội dung điểm không phù hợp thật và tên thật người phát hiện/người thực hiện. Bản trắng ở tầng `06` dựng lại từ hàng tiêu đề 9 cột của bản gốc, không thêm bớt cột nào; ba hồ sơ đã điền thuộc tầng `03_MANAGEMENT_SYSTEM/05_R` và cần Lãnh đạo Viện quyết định phạm vi công bố vì chứa dữ liệu cá nhân. Chân trang bản gốc cũng tự mâu thuẫn về lần ban hành (bản 2024 ghi cả "lần 02 ngày 22/04/2023" lẫn "lần 01 ngày 22/04/2019") và gõ nhầm mã thành `ETV.P,F 13.01`.
 
 ## VIII. LƯU HỒ SƠ
 

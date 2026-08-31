@@ -10,6 +10,11 @@ status: active
 standards: ['ISO17025']
 legal: []
 capabilities: [CAP-16]
+forms:
+  - ETV.P.F16.01
+  - ETV.P.F16.02
+  - ETV.P.F16.03
+  - ETV.P.F16.04
 module: M16
 menu_group: DIEU_HANH
 menu_order: 5

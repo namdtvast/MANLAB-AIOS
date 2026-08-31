@@ -197,7 +197,11 @@ function buildForms(num: string, manifest: MpManifest | null, links: MpLinks | n
     .map(String)
     .filter((code) => !covered.has(code) && !covered.has(`ETV.P.${code}`))
     .map((code) => ({ code, title: code, path: null, revision: null, effectiveDate: null }));
-  return [...byFile, ...declaredOnly];
+  // SẮP THEO MÃ, đừng để nguyên thứ tự [file, rồi mã-không-file]. Trước 31/08/2026 hầu hết MP chỉ
+  // khai biểu mẫu đã có file nên thứ tự tự nhiên đã đúng; sau khi khai đủ mã theo mục VII của thủ
+  // tục, M11 hiện ra "F11.02 · F11.03 · F11.07 · F11.08 · F11.10 · F11.01 · F11.04 …" — người đọc
+  // thấy dãy mã nhảy cóc và tưởng banner thiếu biểu mẫu.
+  return [...byFile, ...declaredOnly].sort((a, b) => a.code.localeCompare(b.code, "en"));
 }
 
 async function main() {

@@ -114,6 +114,13 @@ def doc_khoi_yaml(duong_dan, khoa):
     ra, trong_khoi = [], False
     for dong in open(duong_dan, encoding="utf-8"):
         if re.match(r"^%s\s*:" % re.escape(khoa), dong):
+            # HAI LỐI VIẾT YAML CÙNG TỒN TẠI, phải đọc được cả hai. MP21 viết gọn một dòng
+            # `forms: [F21.01, F21.02, ...]` trong khi 30 MP còn lại viết khối `- mục`. Bản đầu chỉ
+            # đọc khối và báo MP21 "khai thiếu 10 mã" — trong khi seed.ts dùng yaml.load nên vẫn
+            # nạp đủ 12 mã và banner M21 vẫn hiện đúng. Tố oan đúng cái đang chạy tốt.
+            trong_dong = dong.split(":", 1)[1].strip()
+            if trong_dong.startswith("["):
+                return [x.strip().strip("\"'") for x in trong_dong.strip("[]").split(",") if x.strip()]
             trong_khoi = True
             continue
         if trong_khoi:

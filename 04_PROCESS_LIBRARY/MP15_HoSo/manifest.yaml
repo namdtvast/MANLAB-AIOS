@@ -10,6 +10,11 @@ status: active
 standards: ['ISO17025']
 legal: []
 capabilities: [CAP-14]
+forms:
+  - ETV.P.F15.01
+  - ETV.P.F15.02
+  - ETV.P.F15.03
+  - ETV.P.F15.04
 module: M15
 menu_group: CHAT_LUONG
 menu_order: 4

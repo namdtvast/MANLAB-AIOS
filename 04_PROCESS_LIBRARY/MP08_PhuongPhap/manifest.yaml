@@ -25,4 +25,6 @@ document:
     - "ISO/IEC 17025:2017 §7.2 (Lựa chọn, kiểm tra xác nhận và xác nhận giá trị sử dụng của phương pháp)"
 forms:
   - ETV.P.F08.01
+  - ETV.P.F08.02
+  - ETV.P.F08.03
   - ETV.P.F08.04
