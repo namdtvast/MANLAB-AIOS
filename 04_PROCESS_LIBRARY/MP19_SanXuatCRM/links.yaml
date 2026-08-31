@@ -8,3 +8,7 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-12_CRM
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.01_LapKeHoach.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.02_DanhGiaKeHoach.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F19_SanXuatCRM/ETV.P.F19.03_KetQuaSanXuat.md

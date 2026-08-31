@@ -8,3 +8,7 @@ law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
 evidence:   ../../11_COMPLIANCE/03_Evidence
 capabilities:
   - ../../02_CAPABILITIES/CAP-16_ChatLuong
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.01_BangChamCong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.02_TheoDoiLuongThuong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F24_KPI/ETV.P.F24.03_QuyetDinhLuongThuong.md

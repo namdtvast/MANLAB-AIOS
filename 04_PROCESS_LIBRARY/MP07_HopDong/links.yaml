@@ -10,3 +10,8 @@ capabilities:
   - ../../02_CAPABILITIES/CAP-01_BaoGia
   - ../../02_CAPABILITIES/CAP-07_HopDong
   - ../../02_CAPABILITIES/CAP-02_KeHoach
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.02_BienBanBanGiaoSanPham.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.06_HopDongDichVuKHCN.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.06.02_BienBanNghiemThuThanhLyHopDong.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F07_HopDong/ETV.P.F07.11_QuyetDinhCuDiCongTac.md

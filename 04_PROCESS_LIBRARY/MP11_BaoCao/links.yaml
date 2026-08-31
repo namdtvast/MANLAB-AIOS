@@ -11,3 +11,9 @@ capabilities:
   - ../../02_CAPABILITIES/CAP-09_KiemDinh
   - ../../02_CAPABILITIES/CAP-10_ThuNghiem
   - ../../02_CAPABILITIES/CAP-11_QuanTrac
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.02_GiayChungNhanHieuChuan.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.03_GiayChungNhanKiemDinhNhom2.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.07_BienBanDanhGiaTramQuanTracNuocThai.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.08_BienBanDanhGiaTramQuanTracKhiThai.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F11_BaoCao/ETV.P.F11.10_GiayChungNhanKiemDinhNhom1.md
