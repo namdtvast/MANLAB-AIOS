@@ -16,7 +16,7 @@ Hệ quả không mong muốn: `05_R` nằm trong danh sách **BLOCKED** của b
 3 phiếu ở trạng thái `Da-phe-duyet` trước đây Copilot dẫn được nay rơi khỏi chỉ mục. Đây là hành vi
 fail-closed đúng thiết kế, nhưng lý do chặn thì **không đứng vững khi đối chiếu thủ tục** (mục 3).
 
-### 1.1. Đếm lại ngày 31/08/2026 (sau khi PR #195 thêm 1 phiếu)
+### 1.1. Đếm lại ngày 31/08/2026 (đối chiếu lần hai, sau PR #195, #197, #199)
 
 Thư mục nay có **7 phiếu `.md` + 2 PDF**. Không phải phiếu nào cũng vào được chỉ mục kể cả khi lớp
 được mở — bộ nạp đòi **đồng thời** `status ∈ {Da-phe-duyet, issued, Ban-hanh}` và
@@ -34,13 +34,28 @@ Thư mục nay có **7 phiếu `.md` + 2 PDF**. Không phải phiếu nào cũng
 | — | 2 tệp PDF bản ký | — | — | ✗ bộ nạp chỉ đọc `.md` |
 
 **Số phiếu thực sự vào chỉ mục vẫn là 3**, không đổi so với bản trình đầu — phiếu mới của PR #195
-đang ở trạng thái `Nhap`.
+đang ở trạng thái `Nhap`. Đối chiếu lần hai sau khi PR #197 và #199 hợp nhất: hai PR đó không thêm,
+bớt hay đổi trạng thái phiếu nào trong thư mục, nên **con số 3 giữ nguyên**.
+
+Lần đếm này không đọc bằng mắt: trạng thái lấy từ khối frontmatter của từng file, còn tiêu chí lọc
+đối chiếu thẳng vào hằng số trong bộ nạp — `APPROVED_STATUS = {Da-phe-duyet, issued, Ban-hanh}`,
+`VALID_LEVELS = {Cong-khai, Noi-bo}`, và dòng `05_R` trong `BLOCKED` — chứ không chép lại từ bản
+trình trước. Cả ba khớp với bảng trên.
 
 **Phát hiện thêm khi đếm: 2 phiếu ở mục 1 và 2 tự ghi trong thân văn bản là "ĐÃ KÝ — HỒ SƠ CHÍNH
 THỨC", có đủ chữ ký soát xét và phê duyệt LĐV, nhưng KHÔNG có khối frontmatter nào.** Với bộ nạp,
 thiếu nhãn là bị loại (fail-closed, đúng thiết kế). Nhưng đây là lỗi hồ sơ độc lập với đề xuất này:
 hai hồ sơ chính thức đang không mang metadata kiểm soát theo ETV.P14 §6.3. Đề nghị giao Kiểm soát
 tài liệu bổ sung frontmatter cho đúng, không gộp vào thay đổi này.
+
+> **Nói cho gọn con số này, vì hai cách đếm ra hai kết quả khác nhau.** Trong 7 phiếu, có **5 phiếu
+> đã được phê duyệt trên thực tế** (3 phiếu mang `status: Da-phe-duyet` + 2 phiếu ký tay không có
+> frontmatter), nhưng **chỉ 3 phiếu đếm được bằng máy**. Chênh lệch 2 phiếu đó không phải sai sót
+> khi đếm — nó chính là mức độ của lỗi hồ sơ nêu ngay trên: hai hồ sơ đã ký của Viện hiện **vô
+> hình** với mọi công cụ lọc theo trạng thái, kể cả khi lớp `05_R/F14_TaiLieu` được mở.
+>
+> Nghĩa là **mở lớp thôi chưa đủ**: duyệt PA2 mà không bổ sung frontmatter cho hai phiếu đó thì
+> Copilot vẫn chỉ dẫn được 3/5 hồ sơ đã ký.
 
 Trình xin ý kiến về việc sửa bảng lớp tài liệu tại
 [`scripts/nap-chi-muc-copilot.ts`](../../../../../09_ENGINEERING/aios-platform/scripts/nap-chi-muc-copilot.ts)
@@ -203,6 +218,10 @@ dự kiến dưới 10 phút, không mất dữ liệu nghiệp vụ nào — ch
 | 5 | Phê duyệt thay đổi Mức 2 | **Lãnh đạo Viện** | ETV.P30 §6.2.2 |
 | 6 | Lập `F29.02` trích điều khoản không huấn luyện lại của nhà cung cấp | PT.AI + chủ sở hữu | ETV.P29 §5.5 |
 | 7 | Xác nhận hiệu lực sau thay đổi bằng `F30.03` | QLCL | ETV.P30 §6.2.2 |
+| 8 | Bổ sung khối metadata cho 2 phiếu đã ký nhưng không có frontmatter *(mục 1.1)* | **Kiểm soát tài liệu** | ETV.P14 §6.3 |
+
+Việc 8 **không thuộc thay đổi kỹ thuật ở mục 5** và không chặn việc duyệt PA2 — nêu ở đây để nó
+không rơi mất. Nhưng nếu chưa làm thì lợi ích của PA2 chỉ đạt **3/5** hồ sơ đã ký (mục 1.1).
 
 ## 9. Ý kiến và phê duyệt
 
