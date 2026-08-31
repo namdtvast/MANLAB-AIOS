@@ -146,9 +146,19 @@ Thêm một lớp vào `ALLOWED`:
 | `defaultLevel` | `Noi-bo` |
 | `requireApproved` | `true` |
 
-Giữ nguyên dòng `05_R` trong `BLOCKED`; bộ nạp xét `ALLOWED` cho đường dẫn cụ thể hơn, mọi thư mục
-con khác của `05_R` vẫn chặn mặc định. Phạm vi mở đúng bằng nhóm dữ liệu đã có mức tối thiểu Nội bộ
-tại §6.1.3, không rộng hơn một thư mục.
+Giữ nguyên dòng `05_R` trong `BLOCKED`, mọi thư mục con khác của `05_R` vẫn chặn mặc định. Phạm vi
+mở đúng bằng nhóm dữ liệu đã có mức tối thiểu Nội bộ tại §6.1.3, không rộng hơn một thư mục.
+
+> **Sửa 31/08/2026 — bản trước mô tả sai mã nguồn.** Câu cũ viết *"bộ nạp xét `ALLOWED` cho đường
+> dẫn cụ thể hơn"*. Không đúng: trong `nap-chi-muc-copilot.ts`, `blockedReason()` chạy **trước**
+> `classOf()` và `continue` ngay, không có logic đường-dẫn-cụ-thể-hơn-thắng. Thêm lớp vào `ALLOWED`
+> cho thư mục con của một root đang bị chặn **không có tác dụng gì** — phiếu vẫn bị đếm vào
+> `camNap`.
+>
+> Vì vậy PA2 cần thêm **một sửa đổi cơ chế**: bổ sung vị ngữ `except` tuỳ chọn cho từng dòng
+> `BLOCKED` (sửa ba dòng, không đổi hành vi lớp nào đang có). Đặc tả tại
+> [`20260831-lop-danh-muc-dung-chung`](../20260831-lop-danh-muc-dung-chung/de-xuat.md) §3.1 và
+> PA2(a) — **dùng chung cho cả hai đề xuất, triển khai một lần**.
 
 **Lý do chọn:** mức Nội bộ ở đây không do đề xuất này đặt ra — nó là mức tối thiểu đã ghi tại
 ETV.P27 §6.1.3 cho nhóm "hồ sơ ISO". PA2 chỉ đưa hiện trạng kỹ thuật về đúng thủ tục và bổ hồ sơ
@@ -174,7 +184,8 @@ căn cứ không có.
 | # | Việc | Tệp | Đổi hành vi? |
 |---|---|---|---|
 | 1 | Sửa chuỗi lý do dẫn sai điều khoản | `nap-chi-muc-copilot.ts`, `05_R/README.md` | Không |
-| 2 | Thêm lớp `HO_SO_KSTL` vào `ALLOWED` | `nap-chi-muc-copilot.ts` | Có — cổng A |
+| 2a | Bổ sung vị ngữ `except` cho `BLOCKED` *(điều kiện cần — xem PA2)* | `nap-chi-muc-copilot.ts` | Không |
+| 2b | Khai `except` cho `05_R/F14_TaiLieu` + thêm lớp `HO_SO_KSTL` vào `ALLOWED` | `nap-chi-muc-copilot.ts` | Có — cổng A |
 | 3 | Lập bản ghi `ETV.P.F27.01` cho lớp tài sản này | Hồ sơ giấy/ManLab | Không |
 | 4 | Lập hồ sơ `ETV.P.F29.02` và đặt `dataBoundary` = `EXTERNAL_WITH_COMMITMENT` qua `datRanhGioiDuLieu()` | Giao diện M29 | Có — cổng B |
 | 5 | Chạy lại `npm run nap-chi-muc-copilot` | — | Có hiệu lực |
