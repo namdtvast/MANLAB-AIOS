@@ -90,7 +90,22 @@ const ALLOWED: DocClass[] = [
 // danh sách để kiểm tra E3 (CI chặn nếu một file trong các lớp này khai mức Công khai/Nội bộ).
 export const BLOCKED: { roots: string[]; reason: string }[] = [
   { roots: ["03_MANAGEMENT_SYSTEM/03_M"], reason: "84 SOP chưa rà mức Nội bộ/Hạn chế từng file (Q1 §5 việc #2) — fail-closed" },
-  { roots: ["03_MANAGEMENT_SYSTEM/05_R"], reason: "Hồ sơ đã điền — Hạn chế/Mật theo ETV.P02 §4.1" },
+  // Chặn CẢ THƯ MỤC là fail-closed có chủ đích, KHÔNG phải kết luận về mức của từng lớp bên trong.
+  //
+  // Trước 31/08/2026 lý do ở đây ghi "Hạn chế/Mật theo ETV.P02 §4.1". Dẫn sai điều khoản: P02 §4.1
+  // là bảng thuật ngữ, chia nhị phân *Thông tin bảo mật* / *Thông tin công khai* — đỡ được "hồ sơ
+  // là thông tin không công khai", nhưng mức Nội bộ cũng đã là không công khai, nên mục đó không
+  // suy ra được "Hạn chế/Mật". Thang 4 mức thuộc ETV.P27 §6.2 (chính ETV.P28 §4.1 nói định nghĩa
+  // và tiêu chí gán mức thuộc ETV.P02/ETV.P27), và ETV.P27 §6.1.3 đặt nhóm "dữ liệu hệ thống quản
+  // lý — tài liệu, hồ sơ ISO, đánh giá nội bộ" ở mức TỐI THIỂU Nội bộ.
+  //
+  // Vẫn giữ chặn cả thư mục vì 05_R sẽ nhận hồ sơ của mọi thủ tục về sau — nhân sự và hợp đồng tối
+  // thiểu Mật, kết quả đo tối thiểu Hạn chế, theo cùng bảng §6.1.3 — trong khi CHƯA lớp nào có bản
+  // ghi ETV.P.F27.01 gán mức, mà ETV.P29 §5.5 đòi nguồn cấp cho AI phải là tài sản đã đăng ký.
+  // Mở theo từng lớp là quyết định quản trị (PT.ATTT + LĐV, ETV.P27 §5.1), không phải tinh chỉnh
+  // kỹ thuật. Đề xuất đang trình:
+  // 05_MODULE_LIBRARY/M29_AI/01_Requirement/_work/20260831-lop-ho-so-kiem-soat-tai-lieu/de-xuat.md
+  { roots: ["03_MANAGEMENT_SYSTEM/05_R"], reason: "Hồ sơ đã điền — chưa có bản ghi F27.01 gán mức theo từng lớp (ETV.P27 §6.1.3, §6.2)" },
   { roots: ["06_SHARED_RESOURCES/06_Customers"], reason: "Dữ liệu khách hàng — ISO/IEC 17025 §4.2" },
   { roots: ["06_SHARED_RESOURCES/08_Personnel"], reason: "Hồ sơ nhân sự — NĐ 13/2023/NĐ-CP" },
   { roots: ["11_COMPLIANCE"], reason: "Bằng chứng, hồ sơ đánh giá, KPH/CAPA — Hạn chế" },
