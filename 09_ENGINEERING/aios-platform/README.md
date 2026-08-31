@@ -368,6 +368,11 @@ văn bản pháp luật · biểu mẫu áp dụng (mỗi mã là một link t�
 - ⚠️ M12/M13/M16/M17/M21 chưa có file biểu mẫu trong `06_SHARED_RESOURCES/01_Forms` (M21 mới có mã
   F21.01–F21.12 khai trong manifest, chưa có file) — chip mã vẫn hiện nhưng không bấm mở được.
 - ⚠️ Banner chỉ gắn ở **trang chính** của 13 module đang chạy, chưa gắn ở các trang chi tiết.
+- ⚠️ **`PlatformModule` là bản chụp, không phải bản đọc trực tiếp** — banner và link biểu mẫu đọc
+  từ DB, không đọc `manifest.yaml`/`links.yaml` lúc chạy (cố ý: xem lý do "không đọc file trong
+  repo" ở Increment 16). Nên **mọi thay đổi ở `manifest.yaml`/`links.yaml`, kể cả chỉ dời hoặc đổi
+  tên file biểu mẫu, đều phải chạy lại `npx prisma db seed`** trên cả DB dev lẫn DB production —
+  xem "Seed lại sau khi đổi căn cứ/biểu mẫu trong repo" ở mục *Build production*.
 
 ## Trạng thái Increment 16 — xuất biểu mẫu ra PDF có dữ liệu (M03: F03.01 + F03.08)
 
@@ -398,8 +403,9 @@ Kiến trúc — cố ý dựng để dùng lại cho ~100 biểu mẫu còn l�
 thì mỗi biểu mẫu phải viết hai lần — với ~100 biểu mẫu của Viện là không kham nổi.
 
 - ✅ Metadata biểu mẫu đi đúng đường sẵn có: frontmatter file biểu mẫu ở `06_SHARED_RESOURCES` →
-  `prisma/seed.ts` → `PlatformModule.forms` → bản xuất. Biểu mẫu ban hành lại thì chạy lại seed,
-  bản xuất tự đổi theo — **không viết cứng mã số/lần ban hành trong template**.
+  `prisma/seed.ts` → `PlatformModule.forms` → bản xuất. Biểu mẫu ban hành lại — **hoặc chỉ dời/đổi
+  tên file** — thì chạy lại seed, bản xuất tự đổi theo; **không viết cứng mã số/lần ban hành trong
+  template**.
 - ✅ Lúc chạy **không đọc file trong repo**: truy cập filesystem động khiến Next trace và đóng gói
   toàn bộ repo vào bundle deploy (Next cảnh báo thẳng khi build).
 - ✅ `next.config.ts` khai `serverExternalPackages: ["puppeteer"]` — Puppeteer nạp Chromium từ ổ
@@ -527,6 +533,23 @@ curl -sSI https://aios.manlab.vn/login | grep -iE "strict-transport|content-secu
 CSP đầy đủ (`script-src`/`style-src`) **chưa làm** — cần phát nonce trong `src/proxy.ts` cho script
 nội tuyến ở `src/app/layout.tsx` và style nội tuyến ở `M26/print/PrintFrame.tsx`; lý do và các bước
 ghi ở cuối `next.config.ts`.
+
+### Seed lại sau khi đổi căn cứ/biểu mẫu trong repo
+
+Deploy một commit có đụng `04_PROCESS_LIBRARY/MPxx/{manifest,links}.yaml`, file `04_UI/HDSD.yaml`
+của module, hoặc **dời/đổi tên file biểu mẫu** trong `06_SHARED_RESOURCES/01_Forms` thì phải chạy
+lại seed trên máy chủ:
+
+```bash
+npx prisma db seed
+```
+
+**Bỏ qua bước này thì hỏng im lặng**: `PlatformModule` vẫn giữ đường dẫn cũ, khung *Căn cứ* vẫn
+hiện đủ mã biểu mẫu như thường, chỉ có điều bấm vào thì cổng tài liệu báo "Không tìm thấy đường
+dẫn". Không có test hay CI nào bắt được — `validate_links.py` kiểm file trong repo, không kiểm bản
+chụp trong DB. Đã xảy ra thật: commit `8b6f584` gom 132 biểu mẫu vào 28 thư mục `Fxx_Slug`, DB
+không seed lại nên toàn bộ link biểu mẫu của 20 MP trỏ vào đường dẫn phẳng cũ (phát hiện qua
+F04.01 ở trang M04).
 
 ### Lịch quét AIA quá hạn (M29)
 
