@@ -26,3 +26,10 @@ jobs:
       # vẫn lọt — CI xanh KHÔNG đồng nghĩa với trích dẫn đúng.
       - name: Kiểm tra trích dẫn điều khoản ETV.Pxx §y.z
         run: python3 _meta/validate_citations.py --chan
+
+      # Chế độ CẢNH BÁO (không --chan) là CÓ CHỦ ĐÍCH, đừng "sửa" thành chặn khi chưa dọn xong.
+      # Bộ kiểm này ra đời ngày 31/08/2026 và ngay lần chạy đầu đã lộ 69 mã biểu mẫu nằm trong thủ
+      # tục đã ban hành mà manifest chưa từng khai. Chặn ngay sẽ làm đỏ mọi PR không liên quan; dọn
+      # xong tồn đọng thì đổi sang `--chan` như validate_citations đã làm.
+      - name: Kiểm tra biểu mẫu áp dụng (mục VII ↔ manifest.forms)
+        run: python3 _meta/validate_forms.py
