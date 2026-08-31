@@ -1,0 +1,13 @@
+schema: manlab-aios/links@1.0
+procedure:  ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P42_NoiQuyLaoDong.md
+annex:      ../../03_MANAGEMENT_SYSTEM/02_P/ETV.P42_Phan_luc_I_Noi_quy_mau.md
+iso:        ../../03_MANAGEMENT_SYSTEM/01_QM/ETV.QM_QuanlyChatluong.md
+module:     (chưa có — thủ tục ETV.P42 khai module null, chưa số hóa)
+forms:      ../../06_SHARED_RESOURCES/01_Forms
+skill:      ../../07_AI_OPERATING_SYSTEM/01_Skills
+law:        ../../08_KNOWLEDGE_GRAPH/01_Regulations
+evidence:   ../../11_COMPLIANCE/03_Evidence
+form_files:
+  - ../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.01_XacNhan_CamKetNoiQuy.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.02_QuyetDinhBanHanh.md
+  - ../../06_SHARED_RESOURCES/01_Forms/F42_NoiQuyLaoDong/ETV.P.F42.03_DeNghiDangKy.md

@@ -13,6 +13,12 @@ capabilities: [CAP-12]
 module: M19
 menu_group: KY_THUAT
 menu_order: 6
+document:
+  doc_id: ETV.P19
+  doc_title: "Thủ tục hoạch định sản xuất chất chuẩn"
+  doc_status: issued
+  doc_version: "01"
+  issued_date: 2025-04-22
 forms:
   - ETV.P.F19.01
   - ETV.P.F19.02

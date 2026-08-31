@@ -1,0 +1,31 @@
+schema: manlab-aios/process@1.2
+code: MP42
+slug: NoiQuyLaoDong
+name: Xây dựng, ban hành và phổ biến Nội quy lao động, Quy tắc ứng xử
+purpose: >-
+  Quy định phương thức xây dựng, ban hành, phổ biến, áp dụng, giám sát và rà soát Nội quy lao động
+  và Quy tắc ứng xử nghề nghiệp của Viện; bảo đảm tuân thủ pháp luật, tính khách quan, bảo mật, an
+  toàn, năng lực, văn hóa chất lượng và quản trị AI có trách nhiệm.
+owner: "HCNS (Hành chính - Nhân sự)"
+status: active
+standards: ['ISO9001', 'ISO17025', 'ISO42001']
+legal:
+  - "Bộ luật Lao động 45/2019/QH14"
+  - "Luật An toàn Lao động 84/2015/QH13"
+  - "Luật Bảo vệ DLC 91/2025/QH15"
+capabilities: []
+module: null
+document:
+  doc_id: ETV.P42
+  doc_title: "Thủ tục xây dựng, ban hành, phổ biến Nội quy lao động và Quy tắc ứng xử"
+  doc_status: issued
+  doc_version: "01"
+  issued_date: 2026-07-27
+  iso_clauses:
+    - "ISO/IEC 17025:2017 §4.2"
+    - "ISO 9001:2015 §8.1"
+    - "ISO/IEC 42001:2023 §8.2"
+forms:
+  - ETV.P.F42.01
+  - ETV.P.F42.02
+  - ETV.P.F42.03

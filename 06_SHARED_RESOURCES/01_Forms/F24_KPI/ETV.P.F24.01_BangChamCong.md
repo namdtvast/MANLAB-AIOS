@@ -1,12 +1,19 @@
 ---
-form_code: ETV.P.F24.01
-form_name: Bảng Chấm Công
-form_type: Attendance Tracking Form
-procedure_ref: ETV.P24
-issue_date: 2025-11-30
-version: 01
-applicable_to: Attendance & Time Tracking for Salary Calculation
-responsible_dept: Văn phòng & Phòng Tài chính
+id: ETV.P.F24.01
+title: "Bảng Chấm Công"
+type: Bieu-mau
+process: MP24_KPI
+module: M24_KPI
+revision: "01"
+effective_date: "30/11/2025"
+status: Da-phe-duyet
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
+related_documents: [ETV.P24]
+form_type: "Attendance Tracking Form"
+applicable_to: "Attendance & Time Tracking for Salary Calculation"
+responsible_dept: "Văn phòng & Phòng Tài chính"
 ---
 
 # ETV.P.F24.01 – BẢNG CHẤM CÔNG

@@ -13,6 +13,12 @@ capabilities: [CAP-16]
 module: M24
 menu_group: DIEU_HANH
 menu_order: 3
+document:
+  doc_id: ETV.P24
+  doc_title: "Thủ tục Đánh giá Hiệu suất Công việc, Quản lý Công nhật và Chi trả Lương-Thưởng theo Mô hình 3P (KPI)"
+  doc_status: issued
+  doc_version: "01"
+  issued_date: 2025-11-30
 forms:
   - ETV.P.F24.01
   - ETV.P.F24.02

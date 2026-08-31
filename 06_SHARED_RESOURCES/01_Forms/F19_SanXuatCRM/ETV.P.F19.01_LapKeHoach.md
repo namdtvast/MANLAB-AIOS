@@ -1,12 +1,19 @@
 ---
-form_code: ETV.P.F19.01
-form_name: Lập Kế hoạch Sản xuất Chất chuẩn
-form_type: Planning Form
-procedure_ref: ETV.P19
-issue_date: 2025-04-22
-version: 01
-applicable_to: Certified Reference Material (CRM) / Reference Material (RM) Production
-responsible_dept: Phòng Đo lường Chất lượng
+id: ETV.P.F19.01
+title: "Lập Kế hoạch Sản xuất Chất chuẩn"
+type: Bieu-mau
+process: MP19_SanXuatCRM
+module: M19_SanXuatCRM
+revision: "01"
+effective_date: "22/04/2025"
+status: Da-phe-duyet
+knowledge_category: HTQL-noi-bo
+permission: Noi-bo
+source: "Viện Kiểm định Công nghệ và Môi trường (ETV)"
+related_documents: [ETV.P19]
+form_type: "Planning Form"
+applicable_to: "Certified Reference Material (CRM) / Reference Material (RM) Production"
+responsible_dept: "Phòng Đo lường Chất lượng"
 ---
 
 # F19.01 – LẬP KẾ HOẠCH SẢN XUẤT CHẤT CHUẨN

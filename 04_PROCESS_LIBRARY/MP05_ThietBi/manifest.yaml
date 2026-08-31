@@ -8,11 +8,25 @@ purpose: >-
 owner: "Lãnh đạo Viện (LĐV)"
 status: active
 standards: ['ISO17025']
-legal: []
+legal:
+  - "Luật Đo lường 04/2011/QH13"
+  - "Nghị định 105/2016/NĐ-CP quy định về điều kiện hoạt động của tổ chức kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường"
+  - "Nghị định 154/2018/NĐ-CP sửa đổi, bổ sung Nghị định 105/2016/NĐ-CP"
+  - "Thông tư 24/2013/TT-BKHCN quy định về hoạt động kiểm định, hiệu chuẩn, thử nghiệm phương tiện đo, chuẩn đo lường"
 capabilities: [CAP-05]
 module: M05
 menu_group: NGUON_LUC
 menu_order: 3
+document:
+  doc_id: ETV.P05
+  doc_title: "Thủ tục Kiểm soát Thiết bị, Chuẩn và Chất chuẩn"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §7.1.5 (Nguồn lực theo dõi và đo lường)"
+    - "ISO/IEC 17025:2017 §6.4 (Thiết bị)"
+    - "ISO/IEC 17025:2017 §6.5 (Liên kết chuẩn đo lường)"
 forms:
   - ETV.P.F05.01
   - ETV.P.F05.02

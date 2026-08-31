@@ -14,6 +14,15 @@ capabilities: [CAP-01,CAP-07,CAP-02]
 module: M07
 menu_group: KHACH_HANG
 menu_order: 1
+document:
+  doc_id: ETV.P07
+  doc_title: "Thủ tục Xem xét Yêu cầu, Đề nghị thầu và Hợp đồng"
+  doc_status: issued
+  doc_version: "03"
+  issued_date: 2026-07-21
+  iso_clauses:
+    - "ISO 9001:2015 §8.2 (Yêu cầu đối với sản phẩm và dịch vụ)"
+    - "ISO/IEC 17025:2017 §7.1 (Xem xét yêu cầu, đề nghị thầu và hợp đồng)"
 forms:
   - ETV.P.F07.02
   - ETV.P.F07.06
