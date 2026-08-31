@@ -46,6 +46,16 @@ export const INSPECTION_FIELD_LABEL: Record<string, string> = {
   QUAN_TRAC_RA_NUOC: "Quan trắc (RA nước)",
 };
 
+// Trạng thái hiệu lực thẻ kiểm định viên (K5). Bốn giá trị, không gộp NO_EXPIRY vào EXPIRED:
+// "hết hạn" và "không biết hạn" đòi hai cách xử lý khác nhau — cái đầu là gia hạn, cái sau là
+// bổ sung dữ liệu. Gộp lại thì Văn phòng không biết phải làm gì.
+export const INSPECTOR_CARD_STATE_LABEL: Record<string, string> = {
+  VALID: "Còn hiệu lực",
+  EXPIRING_SOON: "Sắp hết hạn",
+  EXPIRED: "Đã hết hạn",
+  NO_EXPIRY: "Thiếu ngày hết hạn",
+};
+
 export const TRAINING_PLAN_TYPE_LABEL: Record<string, string> = {
   BAN_DAU: "Ban đầu (nhân sự mới)",
   DINH_KY: "Định kỳ",

@@ -17,7 +17,8 @@
 | `M03LaborContract` | Hợp đồng lao động | FK `employeeId`, `signedById` |
 | `M03ServiceContract` | Hợp đồng dịch vụ (chuyên môn / phổ thông) | FK `employeeId`, `signedById` |
 | `M03ContractTermination` | Nghiệm thu – thanh lý hợp đồng | `contractId` **trỏ tự do** vào một trong hai loại hợp đồng |
-| `M03EmployeeField` | Lĩnh vực kiểm định được ủy quyền (bảng nối) | FK `employeeId`; unique `(employeeId, field)` |
+| `M03EmployeeField` | Lĩnh vực kiểm định được ủy quyền (bảng nối) | FK `employeeId`, `cardId?`; unique `(employeeId, field)` |
+| `M03InspectorCard` | Thẻ kiểm định viên — bằng chứng ủy quyền | FK `employeeId`; unique `(employeeId, cardNumber)` |
 
 Liên kết ra ngoài module: `M02SecurityCommitment` (cam kết bảo mật), `M16AuditorQualification` / `M16AuditProgram` / `M16ProgramMember` (năng lực đánh giá viên nội bộ), `M26KnowledgeNeed` / `M26SharingEvent` (tri thức).
 
@@ -48,12 +49,15 @@ Liên kết ra ngoài module: `M02SecurityCommitment` (cam kết bảo mật), `
 - `M03Employee.legacyCode` **unique, nullable** — mã ManLab cũ. `NULL` với nhân sự tạo mới trên nền tảng.
 - `M03Employee.recordStatus` mặc định `DRAFT`; `fulfillRecruitmentPlan()` — đường tạo hồ sơ nhân sự **duy nhất** — ghi đè thành `APPROVED` vì bản ghi sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt. `DRAFT` chỉ phát sinh khi di trú dữ liệu ManLab.
 - `M03EmployeeField` unique `(employeeId, field)`; `onDelete: Cascade`. Không có lĩnh vực nào = **không có dòng nào**, không phải một giá trị enum riêng.
+- `M03EmployeeField.cardId` **nullable** — dữ liệu thật có 3 nhân sự được gán lĩnh vực mà chưa có thẻ.
+- `M03InspectorCard` unique **chỉ trong phạm vi một nhân sự**, không unique toàn cục — số thẻ `3961` đang trùng ở hai người và chưa biết bên nào sai; unique toàn cục sẽ chặn cả 145 bản ghi vì một dòng. Trùng chéo do `duplicateCardNumbers()` báo cáo, ràng buộc CSDL **không** tự chặn.
+- Quan hệ `issuedAt < expiresAt` **không** cưỡng chế được ở tầng CSDL — kiểm bằng `validateInspectorCard()`. Dữ liệu thật có 5 bản ghi vi phạm (hai ngày bị nhập đảo).
 
 ---
 
 ## 4. Khoảng cách với dữ liệu vận hành thật trên ManLab
 
-> **Cập nhật 31/08/2026 — K2, K3, K4 đã chốt vào schema** (migration `20260831090000_m03_k2_k3_k4`, đặc tả tại [`01_Requirement/_work/20260831-m03-k2-k3-k4/`](../01_Requirement/_work/20260831-m03-k2-k3-k4)). Ba mục đó giữ nguyên phần mô tả khoảng cách bên dưới — vì đó là căn cứ của thiết kế — và bổ sung dòng **Đã chốt** ở cuối. K1, K5–K9 chưa xử lý.
+> **Cập nhật 31/08/2026 — K2, K3, K4, K5 đã chốt vào schema** (migration `20260831090000_m03_k2_k3_k4` và `20260831140000_m03_k5_the_kdv`; đặc tả tại [`_work/20260831-m03-k2-k3-k4/`](../01_Requirement/_work/20260831-m03-k2-k3-k4) và [`_work/20260831-m03-k5/`](../01_Requirement/_work/20260831-m03-k5)). Bốn mục đó giữ nguyên phần mô tả khoảng cách bên dưới — vì đó là căn cứ của thiết kế — và bổ sung dòng **Đã chốt** ở cuối. K1, K6–K9 chưa xử lý.
 
 **Cách đo.** Đối chiếu mô hình trên với bản kết xuất `vw_tb_qlManLab_NhanSu` ngày **31/08/2026** — 145 bản ghi, 53 cột — là dữ liệu nhân sự đang chạy thật. Bản kết xuất **không** được đưa vào repo (dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP, repo công khai); chỉ tập giá trị mã hoá được rút ra, đặt tại [`06/04_Master_Data`](../../../06_SHARED_RESOURCES/04_Master_Data) và [`06/08_Personnel`](../../../06_SHARED_RESOURCES/08_Personnel).
 
@@ -97,6 +101,23 @@ ManLab theo dõi *Lĩnh vực kiểm định (M4-TT24)* cho từng nhân sự �
 ### K5 — Thẻ kiểm định viên chưa có trong mô hình, chưa có cảnh báo hết hạn
 
 Bốn trường trên ManLab (số thẻ, số QĐ cấp, ngày QĐ cấp, **ngày hết hạn**) điền cho 27–29/145 nhân sự; mô hình module không có trường nào. Ngày hết hạn là điều kiện **chặn** — hết thẻ thì không còn được ký kết quả kiểm định — nhưng hiện không có cảnh báo trước hạn ở cả hai phía.
+
+Đối chiếu kỹ bốn cột này ngày 31/08/2026 cho ra bốn con số:
+
+| Phát hiện | Số liệu |
+|---|---|
+| Thẻ **đã hết hạn** tính đến 31/08/2026 | **11/27** |
+| Ngày cấp và ngày hết hạn **bị nhập đảo** (cấp 2031-03-31, hết hạn 2026-03-31) | 5 bản ghi |
+| Số thẻ trùng ở hai nhân sự (`3961`) | 1 |
+| Thẻ thiếu ngày hết hạn | 1 |
+
+Hạn thẻ quan sát được là đúng **5 năm**. Căn cứ pháp lý của việc coi hạn thẻ là điều kiện chặn: [`ETV.P05` §6.2](../../../03_MANAGEMENT_SYSTEM/02_P/ETV.P05_ThietBi.md) (chỉ kiểm định viên đã được chứng nhận, cấp thẻ mới được dùng chuẩn đo lường) và [`ETV.P11` §6.3](../../../03_MANAGEMENT_SYSTEM/02_P/ETV.P11_BaoCao.md) (người ký GCN kiểm định phải là kiểm định viên đã được cấp thẻ).
+
+> **Đã chốt:** thêm model `M03InspectorCard` (nhiều thẻ trên một nhân sự, giữ lịch sử gia hạn) + `M03EmployeeField.cardId?` nối lĩnh vực với bằng chứng. Logic hiệu lực là hàm thuần trong `rules.ts`: `inspectorCardState` · `currentInspectorCard` · `validateInspectorCard` · `duplicateCardNumbers` · `canPerformInspection`. Hồ sơ nhân sự hiện mục **Năng lực kiểm định** kèm huy hiệu hạn thẻ.
+>
+> **Chưa chốt — cần LĐP:** cửa sổ cảnh báo trước hạn đang đặt **90 ngày**, không có căn cứ trong thủ tục (P05 §6.2 và P11 §6.3 chỉ nói hết hạn thì không được thực hiện, không nói cảnh báo trước bao lâu). Đổi chỉ là sửa hằng số `INSPECTOR_CARD_EXPIRING_SOON_DAYS`.
+>
+> **Việc chặn thật sự chưa nối dây:** `canPerformInspection()` là vị ngữ M03 cung cấp; M10/M11 gọi tới khi tới lượt chúng.
 
 ### K6 — Đơn vị công tác: mô hình giả định một pháp nhân
 
