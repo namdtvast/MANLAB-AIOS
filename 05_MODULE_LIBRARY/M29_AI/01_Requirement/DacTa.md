@@ -41,7 +41,7 @@ AIA Gate và biến M29 thành sổ sách trang trí. Đặc tả đầy đủ:
 |---|---|---|
 | `AIProvider` | Nhà cung cấp model (Anthropic/Gemini/máy chủ nội bộ…) | PK `id`; 1—N `AIModel`; FK tùy chọn `platform_id` → `AIPlatform` (bắt buộc với nhà cung cấp **tự vận hành** — endpoint và kiểm tra sức khoẻ chỉ nằm ở `AIPlatform`, không nhân đôi sang đây) |
 | `AIModel` | Model cụ thể được cấu hình dùng | FK `provider_id`; N—1 `AIProvider` |
-| `AIAgent` | Tác nhân AI vận hành trên một nền tảng | FK `platform_id` (→ M35), `model_id`, `active_prompt_version_id` |
+| `AIAgent` | Tác nhân AI vận hành trên một nền tảng — đồng thời là **một dòng của danh mục hệ thống AI** (ETV.P.F 29.01 phần 1) | FK `platform_id` (→ M35), `model_id`, `active_prompt_version_id`; trường danh mục theo ETV.P29 mục 5.1.2: `systemGroup`, `acquisition`, `technicalContact`, `personalData`, `reviewCycle`; vòng đời hồ sơ `approvalStatus` (mục 6.1) **tách khỏi** vòng đời vận hành `status` |
 | `AISkill` | Năng lực/skill Agent có thể dùng | N—N `AIAgent` qua `AIAgentSkill` |
 | `AITool` | Điểm gọi API thật (qua Tool Gateway) | FK `platform_id`; N—N `AISkill`/`AIAgent`; `permission_level` (READ/COMPUTE/PROPOSE/EXECUTE) |
 | `AIPrompt` / `AIPromptVersion` | Prompt và lịch sử phiên bản | FK `agent_id`; `status` DRAFT/REVIEW/APPROVED/ACTIVE/ARCHIVED |
@@ -156,6 +156,20 @@ mức Nghiêm trọng và hủy phiếu chỉ `SUPER_ADMIN` — vai Lãnh đạo
 24. Lượt chạy bộ đánh giá **dưới trần thu hẹp không được ghi** thành `AIEvaluationRun`: §5.3.1 đánh
     giá hệ thống đúng như nó sẽ vận hành, nên hồ sơ chạy trên phạm vi hẹp hơn là hồ sơ nói về một
     hệ thống khác.
+25. **Đăng ký hệ thống AI vào danh mục** (ETV.P29 mục 5.1.1–5.1.3, biểu mẫu F29.01 phần 1):
+    `createAgent()` từ chối bản khai tự mâu thuẫn với bảng mức tác động — có xử lý dữ liệu cá nhân
+    thì `riskLevel` bắt buộc `HIGH`; chu kỳ rà soát không được thưa hơn mức tác động cho phép (Cao
+    ≤ 06 tháng · Trung bình ≤ 01 năm · Thấp theo sự kiện). Phần mềm **chỉ từ chối, không tự sửa**
+    mức tác động — mức tác động là kết luận của người lập hồ sơ (mục 4.8). Nền tảng nhận tác tử
+    phải có `approvalStatus ∈ {APPROVED, ACTIVE}` (mục 5.1.1: đã đăng ký **và đang hiệu lực** tại
+    ETV.MP35), kiểm ở máy chủ chứ không tin ô chọn.
+26. **Vòng đời hồ sơ đăng ký hệ thống AI** (ETV.P29 mục 6.1): bản ghi mới luôn sinh ở `DRAFT`,
+    không có tham số nào đặt thẳng trạng thái khác. Trình soát xét cần `registry:write`; soát xét
+    cần `registry:write` **và người soát xét ≠ người lập** (đọc từ `AIAuditLog`, không thêm cột
+    `createdBy` — nhật ký đã là nguồn sự thật append-only theo quy tắc 2); phê duyệt, cho hết hiệu
+    lực và hủy cần `platforms:write` (vai Lãnh đạo Viện). Chốt tách vai trò **không trừ**
+    `SUPER_ADMIN`. Không cho hồ sơ hết hiệu lực/hủy khi tác tử còn `status = ACTIVE`, vì Tool
+    Gateway chỉ đọc `status` nên tác tử đó vẫn gọi được công cụ sau khi hồ sơ đã đóng.
 
 ## 6. Liên kết
 
@@ -198,6 +212,13 @@ miệng.
   `test-aios-platform.yml`. Đã kiểm chứng bằng 5 đột biến gieo vào mã sản phẩm, xem
   [`_work/20260824-m29-bo-test-logic/verify.md`](_work/20260824-m29-bo-test-logic/verify.md).
   Chưa có test tích hợp trên DB thật, test `actions.ts` và test giao diện.
+- ✅ **Danh mục hệ thống AI nhập được** (2026-09-01): `createAgent()` có từ Increment 3 nhưng chưa
+  bao giờ có giao diện gọi — tác tử chỉ vào CSDL qua `prisma/seed.ts`, nên phần 1 biểu mẫu
+  **ETV.P.F 29.01** không ai nhập được. Bù 6 trường của mục 5.1.2 và 6.1 vào `AIAgent`, thêm biểu
+  mẫu đăng ký + sổ Agent ở `/modules/M29/registry`, mở vòng đời phê duyệt cho bản ghi hệ thống AI —
+  xem [`_work/20260901-f2901-dang-ky-he-thong-ai/`](_work/20260901-f2901-dang-ky-he-thong-ai/).
+  **Chưa làm:** Tool Gateway vẫn chưa đọc `approvalStatus` (chỉ đọc `status` + cổng AIA), và chưa
+  có route xuất biểu mẫu F29.01 thành PDF có dữ liệu.
 - ✅ **Increment 5 — Copilot tra cứu** (2026-08-25): `AnthropicAdapter` + `gateway.chat()` (đường
   gọi mô hình ngôn ngữ **duy nhất**, dùng lại AIA Gate và chốt trạng thái Agent của `callTool()`),
   điểm cưỡng chế guardrail lúc chạy (`GR-PII-OUT`/`GR-SCOPE`/`GR-NO-SOURCE`), chỉ mục toàn văn

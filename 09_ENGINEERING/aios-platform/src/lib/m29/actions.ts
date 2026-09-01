@@ -6,6 +6,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import type {
+  AIAcquisitionType,
   AIApprovalStatus,
   AIAStatus,
   AIGuardrailAction,
@@ -15,10 +16,12 @@ import type {
   AIOpStatus,
   AIPermissionLevel,
   AIPromptStatus,
+  AIReviewCycle,
+  AISystemGroup,
   AIUnregisteredStatus,
 } from "@/generated/prisma/enums";
 import { getActor, type M29ActorUser } from "./actor";
-import { can } from "./model";
+import { can, type PermCategory } from "./model";
 import {
   aiaTransitions,
   approvalTransitions,
@@ -27,8 +30,11 @@ import {
   kiemTraGanCongCu,
   opStatusTransitions,
   promptTransitions,
+  nenTangNhanDuocTacTu,
   unregisteredTransitions,
+  validateDangKyHeThongAI,
   validateTool,
+  type ApprovalKind,
   type DependentRef,
   type TxResult,
 } from "./rules";
@@ -320,6 +326,18 @@ async function activeOpDependents(kind: "provider" | "model" | "skill", id: stri
   return agents.map((a): DependentRef => ({ kind: "agent", id: a.id, code: a.code }));
 }
 
+/**
+ * Đăng ký một hệ thống AI vào danh mục — bước 1 của ETV.P29 mục 5.1.6, tức một dòng của phần 1
+ * biểu mẫu ETV.P.F 29.01.
+ *
+ * Bản ghi mới luôn ra đời ở **Nháp** (`approvalStatus` mặc định `DRAFT`) và KHÔNG có tham số nào
+ * đặt thẳng trạng thái khác: đường duy nhất tới Đã phê duyệt là đi hết vòng đời ở `approvalAction`,
+ * nơi chốt "người soát xét ≠ người lập" và chốt Lãnh đạo Viện nằm.
+ *
+ * Trả `TxResult` thay vì ném lỗi — ba nhánh từ chối dưới đây đều là điều người nhập sửa được, mà
+ * lỗi ném từ server action tới trình duyệt ở bản dựng production chỉ còn một câu chung chung
+ * (cùng lý do đã ghi ở `ghiKetLuanDanhGia`).
+ */
 export async function createAgent(input: {
   platformId: string;
   code: string;
@@ -330,13 +348,53 @@ export async function createAgent(input: {
   owner?: string;
   skillIds?: string[];
   toolIds?: string[];
-}) {
+  systemGroup?: AISystemGroup;
+  acquisition?: AIAcquisitionType;
+  technicalContact?: string;
+  personalData?: boolean;
+  reviewCycle?: AIReviewCycle;
+}): Promise<TxResult> {
   const actor = await getActor();
-  if (!can(actor.m29Role, "registry", "write")) throw new Error("Không đủ quyền.");
-  const rec = await prisma.aIAgent.create({ data: { ...input, skillIds: input.skillIds ?? [], toolIds: input.toolIds ?? [] } });
+  if (!can(actor.m29Role, "registry", "write")) return forbidden();
+
+  const riskLevel = input.riskLevel ?? "MEDIUM";
+  const reviewCycle = input.reviewCycle ?? "BY_EVENT";
+  const personalData = input.personalData ?? false;
+  const kiem = validateDangKyHeThongAI({ riskLevel, personalData, reviewCycle });
+  if (!kiem.ok) return kiem;
+
+  // ETV.P29 mục 5.1.1 — nền tảng phải đang hiệu lực. Kiểm ở máy chủ chứ không tin ô chọn: ô chọn
+  // chỉ liệt kê nền tảng hợp lệ, nhưng form gửi lên `platformId` dạng chuỗi tự do.
+  const platform = await prisma.aIPlatform.findUnique({ where: { id: input.platformId } });
+  if (!platform) return { ok: false, code: "PLATFORM_NOT_FOUND", message: "Không tìm thấy nền tảng." };
+  if (!nenTangNhanDuocTacTu(platform))
+    return {
+      ok: false,
+      code: "PLATFORM_NOT_EFFECTIVE",
+      message: `Nền tảng "${platform.code}" đang ở trạng thái ${APPROVAL_STATUS_LABEL[platform.approvalStatus] ?? platform.approvalStatus} — ETV.P29 mục 5.1.1 đòi nền tảng đã đăng ký và đang hiệu lực tại ETV.MP35.`,
+    };
+
+  const rec = await prisma.aIAgent.create({
+    data: {
+      platformId: input.platformId,
+      code: input.code,
+      name: input.name,
+      purpose: input.purpose ?? "",
+      modelId: input.modelId,
+      riskLevel,
+      owner: input.owner ?? "",
+      skillIds: input.skillIds ?? [],
+      toolIds: input.toolIds ?? [],
+      systemGroup: input.systemGroup ?? "EMBEDDED_AGENT",
+      acquisition: input.acquisition ?? "SELF_DEVELOPED",
+      technicalContact: input.technicalContact ?? "",
+      personalData,
+      reviewCycle,
+    },
+  });
   await logAudit(actor, "agents", rec.id, { after: rec, reason: "create" });
   revalidateM29();
-  return rec;
+  return { ok: true, status: rec.approvalStatus, action: "Đăng ký hệ thống AI", reason: null, patch: { id: rec.id } };
 }
 
 /**
@@ -614,18 +672,46 @@ export async function datRanhGioiDuLieu(platformId: string, ranhGioi: AIDataBoun
 
 // ---------- Vòng đời phê duyệt dùng chung (Platform/Guardrail/Policy) ----------
 
-type ApprovalKind = "platform" | "guardrail" | "policy";
+/**
+ * Các bước vòng đời do LÃNH ĐẠO VIỆN quyết định với bản ghi hệ thống AI — ETV.P29 mục 6.1.
+ *
+ * Tách khỏi hai bước đầu (lập, trình soát xét) vì chúng là việc của CSH/ĐMKT: nếu bắt cả vòng đời
+ * phải `platforms:write` thì người lập không tự trình được hồ sơ của chính mình, còn nếu cho cả
+ * vòng đời ở `registry:write` thì Quản trị AI tự phê duyệt được — hỏng đúng chốt mà mục 6.1 dựng.
+ */
+const BUOC_LANH_DAO_VIEN = ["approve", "archive", "cancel"] as const;
 
 async function findApprovable(kind: ApprovalKind, id: string) {
   if (kind === "platform") return prisma.aIPlatform.findUniqueOrThrow({ where: { id } });
   if (kind === "guardrail") return prisma.aIGuardrail.findUniqueOrThrow({ where: { id } });
+  if (kind === "agent") return prisma.aIAgent.findUniqueOrThrow({ where: { id } });
   return prisma.aIPolicy.findUniqueOrThrow({ where: { id } });
 }
 
 async function updateApprovable(kind: ApprovalKind, id: string, data: { approvalStatus: AIApprovalStatus; approvedBy?: string }) {
   if (kind === "platform") return prisma.aIPlatform.update({ where: { id }, data });
   if (kind === "guardrail") return prisma.aIGuardrail.update({ where: { id }, data });
+  if (kind === "agent") return prisma.aIAgent.update({ where: { id }, data });
   return prisma.aIPolicy.update({ where: { id }, data });
+}
+
+/**
+ * Ai đã LẬP bản ghi này — đọc từ nhật ký, không thêm cột `createdBy`.
+ *
+ * `AIAuditLog` là bảng chỉ-thêm (quy tắc 2 của DacTa M29) và `createAgent` đã ghi bản ghi
+ * `reason: "create"` ngay từ đầu, nên nhật ký đã là nguồn sự thật sẵn có; thêm một cột nữa là
+ * dựng nguồn thứ hai cho cùng một sự việc, rồi hai nguồn lệch nhau.
+ *
+ * Bản ghi sinh từ `prisma/seed.ts` không có dòng nhật ký nào ⇒ trả `null` ⇒ không chặn ai. Đúng
+ * ý muốn: dữ liệu mẫu không có người lập để mà trùng.
+ */
+async function nguoiLapBanGhi(entityType: string, entityId: string): Promise<string | null> {
+  const dong = await prisma.aIAuditLog.findFirst({
+    where: { entityType, entityId, reason: "create" },
+    orderBy: { at: "asc" },
+    select: { actorId: true },
+  });
+  return dong?.actorId || null;
 }
 
 /**
@@ -651,10 +737,37 @@ export async function approvalAction(
   extra: { decision?: "return" | "approve" | "reject"; reason?: string } = {}
 ): Promise<TxResult> {
   const actor = await getActor();
-  const category = kind === "platform" ? "platforms" : "governance";
+  // Bản ghi hệ thống AI đi theo mục 6.1: hai bước đầu ở Quản trị AI (người lập), ba bước quyết
+  // định ở Lãnh đạo Viện. Nền tảng vẫn nguyên như cũ — cả vòng đời ở `platforms`.
+  const category: PermCategory =
+    kind === "platform"
+      ? "platforms"
+      : kind === "agent"
+        ? ((BUOC_LANH_DAO_VIEN as readonly string[]).includes(action) ? "platforms" : "registry")
+        : "governance";
   if (!can(actor.m29Role, category, "write")) return forbidden();
 
   const rec = await findApprovable(kind, id);
+
+  if (kind === "agent") {
+    // ETV.P29 mục 4.8 và mục 6.1 bước 3: người soát xét phải KHÁC người lập. Chặn tuyệt đối, không
+    // trừ SUPER_ADMIN — tách vai trò mà có cửa cho vai cao nhất đi vòng thì không còn là tách vai.
+    if (action === "review" && (await nguoiLapBanGhi("agents", id)) === actor.id)
+      return {
+        ok: false,
+        code: "SELF_REVIEW",
+        message: "Người lập bản ghi không tự soát xét được bản ghi của mình (ETV.P29 mục 4.8) — chuyển cho người phụ trách quản trị AI khác.",
+      };
+
+    // Hồ sơ Hết hiệu lực/Hủy trong khi tác tử vẫn đang chạy là trạng thái tự mâu thuẫn: Tool
+    // Gateway chỉ đọc `status`, nên tác tử đó vẫn gọi được công cụ sau khi hồ sơ đã đóng.
+    if ((action === "archive" || action === "cancel") && "status" in rec && rec.status === "ACTIVE")
+      return {
+        ok: false,
+        code: "AGENT_STILL_ACTIVE",
+        message: "Tác tử còn đang Hoạt động — dừng vận hành (Vô hiệu hóa) trước khi cho hồ sơ đăng ký hết hiệu lực hoặc hủy.",
+      };
+  }
   // Chỉ nạp danh sách phụ thuộc cho hai nhánh kết thúc vòng đời của nền tảng — guardrail/policy
   // không có đối tượng nào trỏ tới qua khoá ngoại.
   const endOfLifeExtra =
