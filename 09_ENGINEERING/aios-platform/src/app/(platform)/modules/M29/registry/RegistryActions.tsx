@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { approvalAction, datTrangThaiVanHanh, setToolStatus } from "@/lib/m29/actions";
-import { DEPENDENT_KIND_LABEL, type DependentRef, type DependentsDetail } from "@/lib/m29/rules";
+import { DEPENDENT_KIND_LABEL, type ApprovalKind, type DependentRef, type DependentsDetail } from "@/lib/m29/rules";
 import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
 
 const btnSm =
@@ -59,17 +59,50 @@ function DependentsMessage({ detail }: { detail: DependentsDetail }) {
   );
 }
 
-export function PlatformApprovalButton({ id, status }: { id: string; status: AIApprovalStatus }) {
+/**
+ * Bộ nút vòng đời phê duyệt, dùng chung cho NỀN TẢNG (ETV.P35 Phụ lục II.1) và cho BẢN GHI HỆ
+ * THỐNG AI (ETV.P29 mục 6.1).
+ *
+ * Hai thủ tục vẽ gần như cùng một vòng đời, khác nhau đúng hai chỗ nên tham số hoá thay vì chép
+ * đôi bộ nút: (1) nền tảng có bước "Đưa vào vận hành" tách khỏi Phê duyệt — ETV.P29 mục 6.1
+ * không có trạng thái tương ứng cho hệ thống AI, tác tử chạy hay không do trạng thái VẬN HÀNH
+ * quyết định; (2) căn cứ phải ghi khi cho hết hiệu lực là hai số phiếu khác nhau.
+ */
+function ApprovalButtons({
+  kind,
+  id,
+  status,
+  coBuocVanHanh,
+  archivePrompt,
+  quyenLanhDao,
+}: {
+  kind: ApprovalKind;
+  id: string;
+  status: AIApprovalStatus;
+  coBuocVanHanh: boolean;
+  archivePrompt: string;
+  /**
+   * Người đang xem có thẩm quyền của các bước cuối (phê duyệt, hết hiệu lực, hủy) hay không.
+   *
+   * Có tham số này vì với bản ghi hệ thống AI, hai nhóm bước thuộc HAI quyền khác nhau: trình và
+   * soát xét ở `registry`, còn quyết định ở `platforms` (vai Lãnh đạo Viện). Hiện nút cho người
+   * không có quyền là mời gọi một thao tác chắc chắn bị máy chủ từ chối — cùng lý do đã ẩn nút ở
+   * biểu mẫu đăng ký công cụ. Máy chủ vẫn kiểm lại; giao diện không phải nơi giữ luật.
+   */
+  quyenLanhDao: boolean;
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<{ message: string; dependents?: DependentsDetail } | null>(null);
   const [asking, setAsking] = useState<ReasonKey | null>(null);
   const [reason, setReason] = useState("");
 
+  const promptOf = (key: ReasonKey) => (key === "archive" ? archivePrompt : REASON_META[key].prompt);
+
   const run = (action: "submit" | "review" | "approve" | "activate" | "archive" | "cancel", extra?: { decision?: "return" | "reject"; reason?: string }) => {
     setError(null);
     startTransition(async () => {
-      const r = await approvalAction("platform", id, action, extra);
+      const r = await approvalAction(kind, id, action, extra);
       if (!r.ok) setError({ message: r.message, dependents: r.dependents });
       else {
         setAsking(null);
@@ -100,7 +133,8 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
 
   // Hết hiệu lực và Hủy là hai trạng thái kết thúc: không còn thao tác nào. Bản ghi KHÔNG xóa
   // được — ETV.P35 §6.1.8 cấm cấp lại mã nền tảng đã Hủy/Hết hiệu lực để giữ giá trị truy vết,
-  // nên bản ghi phải ở lại danh mục làm chứng cứ.
+  // nên bản ghi phải ở lại danh mục làm chứng cứ. ETV.P29 mục 6.1 đặt cùng hai trạng thái đó cho
+  // bản ghi hệ thống AI.
   if (status === "ARCHIVED" || status === "CANCELLED") return <span className="text-xs text-ink-3">—</span>;
 
   return (
@@ -119,23 +153,26 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
             {reasonButton("return")}
           </>
         )}
-        {status === "PENDING_APPROVAL" && (
-          <>
-            <button className={btnSm} disabled={isPending} onClick={() => run("approve", {})}>
-              Phê duyệt
-            </button>
-            {reasonButton("reject")}
-          </>
-        )}
+        {status === "PENDING_APPROVAL" &&
+          (quyenLanhDao ? (
+            <>
+              <button className={btnSm} disabled={isPending} onClick={() => run("approve", {})}>
+                Phê duyệt
+              </button>
+              {reasonButton("reject")}
+            </>
+          ) : (
+            <span className="text-xs text-ink-3">Chờ Lãnh đạo Viện phê duyệt</span>
+          ))}
         {/* Bước cuối của ETV.P35 §6.1.7: phê duyệt xong vẫn phải đưa vào vận hành thì bản ghi mới
             Hiệu lực và mới vào vòng dò sức khoẻ. Không gộp vào nút Phê duyệt. */}
-        {status === "APPROVED" && (
+        {coBuocVanHanh && status === "APPROVED" && (
           <button className={btnSm} disabled={isPending} onClick={() => run("activate")}>
             Đưa vào vận hành
           </button>
         )}
-        {(["APPROVED", "ACTIVE"] as AIApprovalStatus[]).includes(status) && reasonButton("archive")}
-        {PRE_APPROVAL.includes(status) && reasonButton("cancel")}
+        {quyenLanhDao && (["APPROVED", "ACTIVE"] as AIApprovalStatus[]).includes(status) && reasonButton("archive")}
+        {quyenLanhDao && PRE_APPROVAL.includes(status) && reasonButton("cancel")}
       </span>
 
       {asking && (
@@ -144,7 +181,7 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
             className="w-56 rounded-md border border-border-strong bg-surface px-2 py-1 text-xs text-ink"
             rows={2}
             autoFocus
-            placeholder={REASON_META[asking].prompt}
+            placeholder={promptOf(asking)}
             value={reason}
             onChange={(e) => setReason(e.target.value)}
           />
@@ -165,6 +202,33 @@ export function PlatformApprovalButton({ id, status }: { id: string; status: AIA
         </span>
       )}
     </div>
+  );
+}
+
+export function PlatformApprovalButton({ id, status }: { id: string; status: AIApprovalStatus }) {
+  // Trang Danh mục chỉ dựng nút này khi người xem có `platforms:write`, nên tới đây thẩm quyền đã
+  // chắc chắn — khác bản ghi hệ thống AI, nơi người lập (`registry:write`) cũng thấy bộ nút.
+  return <ApprovalButtons kind="platform" id={id} status={status} coBuocVanHanh archivePrompt={REASON_META.archive.prompt} quyenLanhDao />;
+}
+
+/**
+ * Vòng đời hồ sơ đăng ký một hệ thống AI — ETV.P29 mục 6.1, tức cột "Trạng thái" của phần 1 biểu
+ * mẫu ETV.P.F 29.01.
+ *
+ * Không có nút "Đưa vào vận hành": với hệ thống AI, chạy hay không là trạng thái VẬN HÀNH
+ * (`AIAgent.status`) và còn phải qua cổng AIA, nên gắn thêm một bước "kích hoạt hồ sơ" ở đây sẽ
+ * dựng ra trạng thái thứ hai nói về cùng một việc.
+ */
+export function AgentApprovalButton({ id, status, quyenLanhDao }: { id: string; status: AIApprovalStatus; quyenLanhDao: boolean }) {
+  return (
+    <ApprovalButtons
+      kind="agent"
+      id={id}
+      status={status}
+      coBuocVanHanh={false}
+      archivePrompt="Căn cứ ngừng sử dụng hệ thống AI (ETV.P29 mục 5.8)"
+      quyenLanhDao={quyenLanhDao}
+    />
   );
 }
 

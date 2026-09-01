@@ -691,6 +691,15 @@ async function seedM29() {
       owner: "Dương Thành Nam",
       skillIds: [skill.id],
       toolIds: [tool.id],
+      // Trường danh mục theo ETV.P29 mục 5.1.2 (phần 1 biểu mẫu ETV.P.F 29.01). Hồ sơ để
+      // "Đã phê duyệt" vì đây là tác tử mẫu đang vận hành — đường dây Tool Gateway của bản demo
+      // dựa vào nó; bản ghi do người dùng tự đăng ký thì luôn bắt đầu ở Nháp.
+      systemGroup: "EMBEDDED_AGENT",
+      acquisition: "SELF_DEVELOPED",
+      technicalContact: "Tổ CNTT — Viện ETV",
+      personalData: false,
+      reviewCycle: "ONE_YEAR",
+      approvalStatus: "APPROVED",
     },
   });
 
@@ -770,6 +779,12 @@ async function seedM29() {
       modelId: agent.modelId,
       owner: "Phòng Kỹ thuật",
       riskLevel: "MEDIUM",
+      systemGroup: "DOCUMENT_PROCESSING",
+      acquisition: "SELF_DEVELOPED",
+      technicalContact: "Tổ CNTT — Viện ETV",
+      personalData: false,
+      reviewCycle: "ONE_YEAR",
+      approvalStatus: "APPROVED",
     },
   });
   await prisma.aIImpactAssessment.create({
@@ -1051,6 +1066,12 @@ async function seedCopilot() {
       modelId: model.id,
       riskLevel: "MEDIUM",
       owner: "Dương Thành Nam",
+      systemGroup: "EMBEDDED_AGENT",
+      acquisition: "SELF_DEVELOPED",
+      technicalContact: "Tổ CNTT — Viện ETV",
+      personalData: false,
+      reviewCycle: "ONE_YEAR",
+      approvalStatus: "APPROVED",
     },
     update: {},
   });

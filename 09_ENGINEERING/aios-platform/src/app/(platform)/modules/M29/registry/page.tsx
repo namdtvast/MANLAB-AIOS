@@ -1,8 +1,12 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import {
+  ACQUISITION_LABEL,
+  AIA_STATUS_LABEL,
+  AIA_STATUS_TONE,
   APPROVAL_STATUS_LABEL,
   APPROVAL_STATUS_TONE,
   DATA_BOUNDARY_LABEL,
@@ -10,13 +14,17 @@ import {
   OP_STATUS_LABEL,
   OP_STATUS_TONE,
   PERMISSION_LEVEL_LABEL,
+  REVIEW_CYCLE_LABEL,
   RISK_LEVEL_LABEL,
   RISK_LEVEL_TONE,
   SECURITY_LEVEL_LABEL,
+  SYSTEM_GROUP_SHORT,
 } from "@/lib/m29/labels";
 import { mucBaoMatToiDa } from "@/lib/m29/copilot/muc-bao-mat";
 import { ADAPTER_TYPES } from "@/lib/m29/adapters";
-import { OpStatusToggle, PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { nenTangNhanDuocTacTu } from "@/lib/m29/rules";
+import { AgentApprovalButton, OpStatusToggle, PlatformApprovalButton, ToolStatusToggle } from "./RegistryActions";
+import { NewAgentForm } from "./NewAgentForm";
 import { NewPlatformForm } from "./NewPlatformForm";
 import { NewToolForm } from "./NewToolForm";
 import { NewSkillForm } from "./NewSkillForm";
@@ -85,7 +93,7 @@ function Section({
   );
 }
 
-type Trang = { trang?: string; trangPv?: string; trangMd?: string; trangTl?: string; trangSk?: string };
+type Trang = { trang?: string; trangPv?: string; trangMd?: string; trangTl?: string; trangSk?: string; trangAg?: string };
 
 export default async function M29RegistryPage({ searchParams }: { searchParams: Promise<Trang> }) {
   const query: Trang = await searchParams;
@@ -96,20 +104,22 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
   // tảng — ETV.P29 §5.5.
   const canWriteGovernance = can(role, "governance", "write");
 
-  const [tongPl, tongPv, tongMd, tongTl, tongSk] = await Promise.all([
+  const [tongPl, tongPv, tongMd, tongTl, tongSk, tongAg] = await Promise.all([
     prisma.aIPlatform.count(),
     prisma.aIProvider.count(),
     prisma.aIModel.count(),
     prisma.aITool.count(),
     prisma.aISkill.count(),
+    prisma.aIAgent.count(),
   ]);
   const trangPl = chotTrang(query.trang, tongPl);
   const trangPv = chotTrang(query.trangPv, tongPv);
   const trangMd = chotTrang(query.trangMd, tongMd);
   const trangTl = chotTrang(query.trangTl, tongTl);
   const trangSk = chotTrang(query.trangSk, tongSk);
+  const trangAg = chotTrang(query.trangAg, tongAg);
 
-  const [platforms, providers, models, skills, tools, dsPlatform, dsProvider, maProvider, maSkill] = await Promise.all([
+  const [platforms, providers, models, skills, tools, agents, dsPlatform, dsProvider, dsModel, maProvider, maSkill, maAgent] = await Promise.all([
     // Mới thao tác nhất lên đầu — xem chú thích cùng truy vấn ở trang Tổng quan M29.
     prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" }, skip: boQua(trangPl), take: KICH_THUOC_TRANG }),
     // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
@@ -117,13 +127,23 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
     prisma.aIModel.findMany({ orderBy: { updatedAt: "desc" }, include: { provider: true }, skip: boQua(trangMd), take: KICH_THUOC_TRANG }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" }, skip: boQua(trangSk), take: KICH_THUOC_TRANG }),
     prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true }, skip: boQua(trangTl), take: KICH_THUOC_TRANG }),
+    // Bảng danh mục hệ thống AI — phần 1 biểu mẫu ETV.P.F 29.01. Kèm AIA vì cột "Mã hồ sơ AIA" là
+    // một cột của chính biểu mẫu, không phải thông tin phụ.
+    prisma.aIAgent.findMany({
+      orderBy: { updatedAt: "desc" },
+      include: { platform: { select: { code: true } }, model: { select: { modelId: true } }, aia: { orderBy: { createdAt: "desc" }, take: 1 } },
+      skip: boQua(trangAg),
+      take: KICH_THUOC_TRANG,
+    }),
     // Danh sách cho ô chọn và cho kiểm tra trùng mã của các biểu mẫu thêm mới: phải là TOÀN BỘ sổ,
     // không phải trang đang xem — nếu lấy theo trang thì đứng ở trang 2 sẽ không chọn được nền tảng
     // nằm ở trang 1, còn kiểm tra trùng mã thì bỏ lọt.
     prisma.aIPlatform.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true, approvalStatus: true } }),
     prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true } }),
+    prisma.aIModel.findMany({ orderBy: { modelId: "asc" }, where: { status: "ACTIVE" }, select: { id: true, modelId: true, provider: { select: { name: true } } } }),
     prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
+    prisma.aIAgent.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
   ]);
 
   const mucLuc: [string, string, number][] = [
@@ -132,6 +152,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
     ["model", "Model", tongMd],
     ["tool", "Tool", tongTl],
     ["skill", "Skill", tongSk],
+    ["agent", "Agent", tongAg],
   ];
 
   return (
@@ -139,11 +160,12 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
       <div className="flex flex-col gap-3">
         <div>
           <p className="text-xs font-medium text-ink-3">M29 · Danh mục</p>
-          <h1 className="font-head text-2xl font-bold text-ink">Platform · Provider · Model · Tool · Skill</h1>
+          <h1 className="font-head text-2xl font-bold text-ink">Platform · Provider · Model · Tool · Skill · Agent</h1>
         </div>
         <p className="max-w-3xl text-sm text-ink-2">
-          Năm sổ đăng ký, xếp từ lớn đến nhỏ theo thứ bậc chứa nhau. Đăng ký lần đầu thì đi từ trên xuống: có nền tảng mới gắn được nhà cung cấp, có nhà
-          cung cấp mới tạo được mô hình. AI không nằm trong năm sổ này là AI chưa đăng ký — không được dùng cho công việc của Viện.
+          Sáu sổ đăng ký, xếp theo thứ bậc chứa nhau. Đăng ký lần đầu thì đi từ trên xuống: có nền tảng mới gắn được nhà cung cấp, có nhà cung cấp mới tạo
+          được mô hình, và hệ thống AI ở sổ cuối cùng thì trỏ tới tất cả những thứ trên. AI không nằm trong sáu sổ này là AI chưa đăng ký — không được dùng
+          cho công việc của Viện.
         </p>
         <nav className="flex flex-wrap gap-1.5">
           {mucLuc.map(([id, ten, so], i) => (
@@ -435,6 +457,108 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
             </tbody>
           </table>
           <PhanTrang path="/modules/M29/registry" query={query} neo="#skill" tenTham="trangSk" trang={trangSk} tong={tongSk} donVi="kỹ năng" />
+        </div>
+      </Section>
+
+      {/* Sổ thứ 6 — DANH MỤC HỆ THỐNG AI, tức phần 1 biểu mẫu ETV.P.F 29.01. Xếp cuối vì bản ghi ở
+          đây trỏ tới cả năm sổ trên: nền tảng, mô hình (qua nhà cung cấp), công cụ và kỹ năng.
+          Bảng ở trang Tổng quan hiển thị cùng những tác tử này nhưng theo cột VẬN HÀNH (sức khoẻ,
+          AIA quá hạn, lý do tạm dừng); bảng dưới đây theo cột của BIỂU MẪU. */}
+      <Section
+        n={6}
+        id="agent"
+        title="Agent — Hệ thống AI"
+        count={tongAg}
+        desc="Sổ đăng ký hệ thống AI của Viện — phần 1 biểu mẫu ETV.P.F 29.01. Bản ghi mới ra đời ở trạng thái Nháp và phải đi hết vòng soát xét — phê duyệt của ETV.P29 mục 6.1 trước khi được vận hành."
+      >
+        {canWriteRegistry && (
+          <NewAgentForm
+            platforms={dsPlatform.filter(nenTangNhanDuocTacTu).map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            models={dsModel.map((m) => ({ id: m.id, modelId: m.modelId, providerName: m.provider.name }))}
+            existingCodes={maAgent.map((a) => a.code)}
+          />
+        )}
+        <div className="overflow-x-auto rounded-xl border border-border bg-surface">
+          <table className="w-full min-w-[76rem] text-sm">
+            <thead>
+              <tr>
+                <th className={TH}>Mã · Nhóm</th>
+                <th className={TH}>Tên · Mục đích</th>
+                <th className={TH}>Nền tảng · Mô hình</th>
+                <th className={TH}>Hình thức</th>
+                <th className={TH}>CSH · ĐMKT</th>
+                <th className={TH}>Mức tác động</th>
+                <th className={TH}>DL cá nhân</th>
+                <th className={TH}>Chu kỳ rà soát</th>
+                <th className={TH}>Hồ sơ AIA</th>
+                <th className={TH}>Trạng thái hồ sơ</th>
+                <th className={TH}>Vận hành</th>
+                {canWriteRegistry && <th className={TH}>Thao tác</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {agents.map((a) => {
+                const aia = a.aia[0];
+                return (
+                  <tr key={a.id} className="border-b border-border last:border-0">
+                    <td className="px-3 py-2">
+                      <Link href={`/modules/M29/agents/${a.id}`} className="font-mono text-xs font-medium text-accent hover:underline">
+                        {a.code}
+                      </Link>
+                      <div className="text-xs text-ink-3">{SYSTEM_GROUP_SHORT[a.systemGroup]}</div>
+                    </td>
+                    <td className="px-3 py-2">
+                      <div className="text-ink">{a.name}</div>
+                      {/* Mục đích sử dụng là cột bắt buộc của mục 5.1.2 nên phải hiện, nhưng nó là
+                          câu văn — cắt ngắn ở đây, đọc đủ ở trang chi tiết. */}
+                      <div className="line-clamp-2 max-w-[22rem] text-xs text-ink-3">{a.purpose || "—"}</div>
+                    </td>
+                    <td className="px-3 py-2">
+                      <div className="font-mono text-xs text-ink-2">{a.platform.code}</div>
+                      <div className="font-mono text-xs text-ink-3">{a.model?.modelId ?? "—"}</div>
+                    </td>
+                    <td className="px-3 py-2 text-xs text-ink-2">{ACQUISITION_LABEL[a.acquisition]}</td>
+                    <td className="px-3 py-2">
+                      <div className="text-xs text-ink-2">{a.owner || "—"}</div>
+                      <div className="text-xs text-ink-3">{a.technicalContact || "—"}</div>
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge tone={RISK_LEVEL_TONE[a.riskLevel]}>{RISK_LEVEL_LABEL[a.riskLevel] ?? a.riskLevel}</Badge>
+                    </td>
+                    <td className="px-3 py-2">
+                      {/* Có dữ liệu cá nhân là điều kiện kéo mức tác động lên Cao (mục 5.1.3), nên
+                          tô cảnh báo — không phải để chê, mà để người soát xét nhìn thấy ngay. */}
+                      {a.personalData ? <Badge tone="warn">Có</Badge> : <span className="text-xs text-ink-3">Không</span>}
+                    </td>
+                    <td className="px-3 py-2 text-xs text-ink-2">{REVIEW_CYCLE_LABEL[a.reviewCycle]}</td>
+                    <td className="px-3 py-2">
+                      {aia ? (
+                        <>
+                          <div className="font-mono text-xs text-ink-2">{aia.code}</div>
+                          <Badge tone={AIA_STATUS_TONE[aia.status]}>{AIA_STATUS_LABEL[aia.status]}</Badge>
+                        </>
+                      ) : (
+                        <span className="text-xs text-ink-3">Chưa có</span>
+                      )}
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge tone={APPROVAL_STATUS_TONE[a.approvalStatus]}>{APPROVAL_STATUS_LABEL[a.approvalStatus]}</Badge>
+                    </td>
+                    <td className="px-3 py-2">
+                      <Badge tone={OP_STATUS_TONE[a.status]}>{OP_STATUS_LABEL[a.status]}</Badge>
+                    </td>
+                    {canWriteRegistry && (
+                      <td className="px-3 py-2">
+                        <AgentApprovalButton id={a.id} status={a.approvalStatus} quyenLanhDao={canWritePlatform} />
+                      </td>
+                    )}
+                  </tr>
+                );
+              })}
+              {agents.length === 0 && <EmptyRow cols={canWriteRegistry ? 12 : 11}>Chưa đăng ký hệ thống AI nào.</EmptyRow>}
+            </tbody>
+          </table>
+          <PhanTrang path="/modules/M29/registry" query={query} neo="#agent" tenTham="trangAg" trang={trangAg} tong={tongAg} donVi="hệ thống AI" />
         </div>
       </Section>
     </div>

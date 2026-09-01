@@ -11,9 +11,11 @@ import {
   incidentTransitions,
   kiemTraDoiMoHinh,
   kiemTraGanCongCu,
+  nenTangNhanDuocTacTu,
   opStatusTransitions,
   promptTransitions,
   unregisteredTransitions,
+  validateDangKyHeThongAI,
   validateTool,
   type DependentRef,
   type IncidentForRules,
@@ -479,5 +481,48 @@ describe("kiemTraGanCongCu", () => {
     const r = kiemTraGanCongCu({ lyDo: "", truoc: [doc, tinh], sau: [tinh, doc] });
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.code).toBe("NO_CHANGE");
+  });
+});
+
+describe("validateDangKyHeThongAI — đăng ký hệ thống AI vào danh mục (ETV.P29 mục 5.1.3)", () => {
+  it("dữ liệu cá nhân buộc mức tác động Cao", () => {
+    expectErr(validateDangKyHeThongAI({ riskLevel: "MEDIUM", personalData: true, reviewCycle: "ONE_YEAR" }), "PERSONAL_DATA_REQUIRES_HIGH");
+    expectErr(validateDangKyHeThongAI({ riskLevel: "LOW", personalData: true, reviewCycle: "SIX_MONTHS" }), "PERSONAL_DATA_REQUIRES_HIGH");
+    expect(validateDangKyHeThongAI({ riskLevel: "HIGH", personalData: true, reviewCycle: "SIX_MONTHS" }).ok).toBe(true);
+  });
+
+  it("mức Cao chỉ chấp nhận chu kỳ rà soát ≤ 06 tháng", () => {
+    for (const cycle of ["ONE_YEAR", "BY_EVENT"] as const)
+      expectErr(validateDangKyHeThongAI({ riskLevel: "HIGH", personalData: false, reviewCycle: cycle }), "REVIEW_CYCLE_TOO_SPARSE");
+    expect(validateDangKyHeThongAI({ riskLevel: "HIGH", personalData: false, reviewCycle: "SIX_MONTHS" }).ok).toBe(true);
+  });
+
+  it("mức Trung bình chấp nhận ≤ 01 năm, không chấp nhận theo sự kiện", () => {
+    expectErr(validateDangKyHeThongAI({ riskLevel: "MEDIUM", personalData: false, reviewCycle: "BY_EVENT" }), "REVIEW_CYCLE_TOO_SPARSE");
+    for (const cycle of ["SIX_MONTHS", "ONE_YEAR"] as const)
+      expect(validateDangKyHeThongAI({ riskLevel: "MEDIUM", personalData: false, reviewCycle: cycle }).ok).toBe(true);
+  });
+
+  it("mức Thấp chấp nhận mọi chu kỳ — theo sự kiện là mức ĐÚNG của mức Thấp, không phải mức thiếu", () => {
+    for (const cycle of ["SIX_MONTHS", "ONE_YEAR", "BY_EVENT"] as const)
+      expect(validateDangKyHeThongAI({ riskLevel: "LOW", personalData: false, reviewCycle: cycle }).ok).toBe(true);
+  });
+
+  it("không tự sửa mức tác động cho khớp — chỉ từ chối (mục 4.8)", () => {
+    const r = validateDangKyHeThongAI({ riskLevel: "MEDIUM", personalData: true, reviewCycle: "ONE_YEAR" });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.message).toContain("sửa mức tác động");
+  });
+});
+
+describe("nenTangNhanDuocTacTu — nền tảng phải đang hiệu lực (ETV.P29 mục 5.1.1)", () => {
+  it("chỉ nhận nền tảng Đã phê duyệt hoặc Hiệu lực", () => {
+    expect(nenTangNhanDuocTacTu({ approvalStatus: "APPROVED" })).toBe(true);
+    expect(nenTangNhanDuocTacTu({ approvalStatus: "ACTIVE" })).toBe(true);
+  });
+
+  it("từ chối nền tảng chưa qua phê duyệt hoặc đã kết thúc vòng đời", () => {
+    for (const st of ["DRAFT", "PENDING_REVIEW", "RETURNED", "PENDING_APPROVAL", "REJECTED", "ARCHIVED", "CANCELLED"] as const)
+      expect(nenTangNhanDuocTacTu({ approvalStatus: st })).toBe(false);
   });
 });

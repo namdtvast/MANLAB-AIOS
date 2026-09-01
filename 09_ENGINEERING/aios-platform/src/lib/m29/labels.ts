@@ -244,6 +244,49 @@ export const EVALUATION_RUN_STATUS_TONE: Record<string, "good" | "warn" | "crit"
   FAIL: "crit",
 };
 
+// ---------- Danh mục hệ thống AI — ETV.P29 mục 5.1.2 (phần 1 biểu mẫu ETV.P.F 29.01) ----------
+
+// Số thứ tự (1)–(5) giữ nguyên trong nhãn, không bỏ cho gọn: bảng "Chú giải danh mục chuẩn" của
+// biểu mẫu đánh số đúng năm nhóm này, và người điền biểu mẫu giấy tra theo số.
+export const SYSTEM_GROUP_LABEL: Record<string, string> = {
+  EMBEDDED_AGENT: "(1) Tác tử AI nhúng trong nền tảng nghiệp vụ",
+  OFFICE_ASSIST: "(2) AI hỗ trợ hành chính — văn phòng",
+  TECHNICAL_ANALYSIS: "(3) AI hỗ trợ kỹ thuật — phân tích dữ liệu",
+  DOCUMENT_PROCESSING: "(4) AI xử lý tài liệu, hình ảnh",
+  EXTERNAL_MODEL_SERVICE: "(5) Dịch vụ mô hình của nhà cung cấp bên ngoài",
+};
+
+/** Bản ngắn cho ô hẹp trong bảng — bảng danh mục đã có 12 cột, nhãn đầy đủ ở trên làm vỡ bề ngang. */
+export const SYSTEM_GROUP_SHORT: Record<string, string> = {
+  EMBEDDED_AGENT: "(1) Nhúng nghiệp vụ",
+  OFFICE_ASSIST: "(2) Hành chính",
+  TECHNICAL_ANALYSIS: "(3) Kỹ thuật",
+  DOCUMENT_PROCESSING: "(4) Tài liệu, ảnh",
+  EXTERNAL_MODEL_SERVICE: "(5) Dịch vụ ngoài",
+};
+
+export const ACQUISITION_LABEL: Record<string, string> = {
+  SELF_DEVELOPED: "Tự phát triển",
+  PURCHASED: "Mua",
+  SUBSCRIBED: "Thuê dịch vụ",
+  THIRD_PARTY_EMBEDDED: "Nhúng sẵn trong nền tảng bên thứ ba",
+};
+
+export const REVIEW_CYCLE_LABEL: Record<string, string> = {
+  SIX_MONTHS: "≤ 06 tháng",
+  ONE_YEAR: "≤ 01 năm",
+  BY_EVENT: "Theo sự kiện",
+};
+
+// Chu kỳ rà soát KHÔNG tô theo "thưa là xấu": theo mục 5.1.3, Theo sự kiện là mức ĐÚNG của hệ
+// thống tác động Thấp. Cái sai là chu kỳ thưa hơn mức tác động cho phép, và đó là việc của quy
+// tắc R-F29-2 trong rules.ts, không phải của bảng màu.
+export const REVIEW_CYCLE_TONE: Record<string, "good" | "warn" | "crit" | "neutral"> = {
+  SIX_MONTHS: "neutral",
+  ONE_YEAR: "neutral",
+  BY_EVENT: "neutral",
+};
+
 export const M29_ROLE_LABEL: Record<string, string> = {
   AI_VIEWER: "Người xem",
   AI_OPERATOR: "Vận hành",

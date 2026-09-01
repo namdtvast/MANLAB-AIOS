@@ -4,6 +4,7 @@
 import type {
   AIApprovalStatus,
   AIAStatus,
+  AIReviewCycle,
   AIIncidentSeverity,
   AIOpStatus,
   AIIncidentStatus,
@@ -74,8 +75,16 @@ function dependentsBlock(activeDependents: DependentRef[] | undefined, action: s
   return err("DEPENDENTS_ACTIVE", `${truoc}${nhan}${sau}`, { truoc, sau, refs: activeDependents });
 }
 
+/**
+ * Các loại bản ghi đi theo vòng đời phê duyệt chuẩn.
+ *
+ * Khai ở đây chứ không ở actions.ts vì file đó mang "use server" — chỉ nên xuất hàm async, và
+ * giao diện cần chính kiểu này để gọi `approvalAction`.
+ */
+export type ApprovalKind = "platform" | "guardrail" | "policy" | "agent";
+
 // Vòng đời chuẩn (Nháp→Chờ soát xét→Chờ phê duyệt→Đã phê duyệt→Hết hiệu lực/Hủy) — dùng chung
-// cho Platform/Guardrail/Policy.
+// cho Platform/Guardrail/Policy, và cho bản ghi hệ thống AI theo ETV.P29 mục 6.1.
 export const approvalTransitions = {
   submit(entity: { approvalStatus: AIApprovalStatus }): TxResult {
     if (!(["DRAFT", "RETURNED", "REJECTED"] as AIApprovalStatus[]).includes(entity.approvalStatus))
@@ -217,6 +226,74 @@ export function validateTool(t: { permissionLevel: AIPermissionLevel; requireCon
   if (t.permissionLevel === "EXECUTE" && !t.requireConfirmation && !t.requireApproval)
     return err("EXECUTE_REQUIRES_GUARD", "Tool permissionLevel=EXECUTE bắt buộc requireConfirmation hoặc requireApproval.");
   return { ok: true, status: "", action: "", reason: null, patch: {} };
+}
+
+// ---------- Đăng ký hệ thống AI vào danh mục (ETV.P29 mục 5.1.2, 5.1.3) ----------
+
+/**
+ * Chu kỳ rà soát tối đa cho từng mức tác động — ETV.P29 mục 5.1.3, cột "Kiểm soát bắt buộc":
+ * Cao ≤ 06 tháng · Trung bình ≤ 01 năm · Thấp theo sự kiện.
+ *
+ * Xếp theo ĐỘ THƯA tăng dần để so sánh được bằng số. Không dùng chung thang với PERMISSION_RANK
+ * hay ROLE_RANK: ba thang trả lời ba câu hỏi khác nhau, gộp lại là mời gọi so nhầm.
+ */
+const REVIEW_CYCLE_RANK: Record<AIReviewCycle, number> = {
+  SIX_MONTHS: 1,
+  ONE_YEAR: 2,
+  BY_EVENT: 3,
+};
+
+const CHU_KY_TOI_DA: Record<string, AIReviewCycle> = {
+  HIGH: "SIX_MONTHS",
+  MEDIUM: "ONE_YEAR",
+  LOW: "BY_EVENT",
+};
+
+export interface DangKyHeThongAI {
+  riskLevel: string;
+  personalData: boolean;
+  reviewCycle: AIReviewCycle;
+}
+
+/**
+ * Hai ràng buộc của mục 5.1.3 mà bản ghi danh mục phải thoả ngay từ lúc lập.
+ *
+ * Vì sao chặn ở đây chứ không để người soát xét bắt: PT.AI soát xét theo mục 5.1.6 bước 3 là chốt
+ * NGƯỜI, đọc những thứ phần mềm không đọc được (mục đích sử dụng có thật không, cơ chế con người
+ * trong vòng lặp có khả thi không). Hai điều dưới đây thì suy được thẳng từ bảng 5.1.3, để lọt
+ * xuống chốt người chỉ làm chốt người bận với lỗi máy bắt được.
+ *
+ * KHÔNG tự sửa `riskLevel` cho khớp: mức tác động là kết luận của người lập hồ sơ, phần mềm chỉ
+ * được từ chối bản khai mâu thuẫn, không được tự kết luận thay (mục 4.8).
+ */
+export function validateDangKyHeThongAI(a: DangKyHeThongAI): TxResult {
+  if (a.personalData && a.riskLevel !== "HIGH")
+    return err(
+      "PERSONAL_DATA_REQUIRES_HIGH",
+      "Hệ thống AI có xử lý dữ liệu cá nhân bắt buộc ở mức tác động Cao (ETV.P29 mục 5.1.3) — sửa mức tác động, hoặc bỏ đánh dấu dữ liệu cá nhân nếu khai nhầm."
+    );
+
+  const toiDa = CHU_KY_TOI_DA[a.riskLevel];
+  if (toiDa && REVIEW_CYCLE_RANK[a.reviewCycle] > REVIEW_CYCLE_RANK[toiDa])
+    return err(
+      "REVIEW_CYCLE_TOO_SPARSE",
+      a.riskLevel === "HIGH"
+        ? "Mức tác động Cao bắt buộc rà soát ≤ 06 tháng (ETV.P29 mục 5.1.3)."
+        : "Mức tác động Trung bình bắt buộc rà soát ≤ 01 năm (ETV.P29 mục 5.1.3)."
+    );
+
+  return { ok: true, status: "", action: "", reason: null, patch: {} };
+}
+
+/**
+ * Nền tảng có được phép nhận tác tử mới không — ETV.P29 mục 5.1.1: bản ghi phải trỏ tới một mã
+ * nền tảng đã đăng ký **và đang hiệu lực** tại ETV.MP35.
+ *
+ * Dùng cho cả ô chọn trên giao diện và chốt phía máy chủ, để hai nơi không lệch nhau về định
+ * nghĩa "đang hiệu lực".
+ */
+export function nenTangNhanDuocTacTu(p: { approvalStatus: AIApprovalStatus }): boolean {
+  return p.approvalStatus === "APPROVED" || p.approvalStatus === "ACTIVE";
 }
 
 // Tool Gateway: user có đủ quyền tối thiểu theo permissionLevel của Tool không.
