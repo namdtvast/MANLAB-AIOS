@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
+import { trangHaiNhom } from "@/lib/phan-trang";
+import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
 import { getM29Role } from "@/lib/m29/actor";
 import { can } from "@/lib/m29/model";
 import {
@@ -25,6 +27,16 @@ import { NewProviderForm } from "./NewProviderForm";
 import { NewModelForm } from "./NewModelForm";
 import { PlatformKeyEnvForm } from "./PlatformKeyEnvForm";
 import { DataBoundaryForm } from "./DataBoundaryForm";
+
+// Bản ghi "đang dùng được" luôn nằm trên đầu bảng, phần còn lại xuống dưới: người vận hành mở
+// danh mục là để nhìn thứ đang chạy, không phải để lục qua các bản đã hết hiệu lực. Xếp theo lần
+// thao tác gần nhất thì một nền tảng vừa bị lưu trữ lại đứng trên nền tảng đang chạy.
+const DANG_DUNG_DUOC: AIOpStatus[] = ["ACTIVE"];
+
+// Nền tảng không có trạng thái "Hoạt động" mà đi theo vòng đời phê duyệt: dùng được nghĩa là Đã
+// phê duyệt hoặc Hiệu lực — đúng tập trạng thái mà biểu mẫu thêm Tool bên dưới đang lọc theo
+// (ETV.P35 §6.7).
+const NEN_TANG_DUNG_DUOC: AIApprovalStatus[] = ["APPROVED", "ACTIVE"];
 
 const TONE_CLASS: Record<string, string> = {
   good: "bg-good-soft text-good",
@@ -96,12 +108,19 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
   // tảng — ETV.P29 §5.5.
   const canWriteGovernance = can(role, "governance", "write");
 
-  const [tongPl, tongPv, tongMd, tongTl, tongSk] = await Promise.all([
+  const [tongPl, tongPv, tongMd, tongTl, tongSk, dungPl, dungPv, dungMd, dungTl, dungSk] = await Promise.all([
     prisma.aIPlatform.count(),
     prisma.aIProvider.count(),
     prisma.aIModel.count(),
     prisma.aITool.count(),
     prisma.aISkill.count(),
+    // Đếm riêng nhóm đang dùng được: `trangHaiNhom` cần con số này mới tính được cửa sổ `skip/take`
+    // của từng nhóm (xem chú thích hàm).
+    prisma.aIPlatform.count({ where: { approvalStatus: { in: NEN_TANG_DUNG_DUOC } } }),
+    prisma.aIProvider.count({ where: { status: { in: DANG_DUNG_DUOC } } }),
+    prisma.aIModel.count({ where: { status: { in: DANG_DUNG_DUOC } } }),
+    prisma.aITool.count({ where: { status: { in: DANG_DUNG_DUOC } } }),
+    prisma.aISkill.count({ where: { status: { in: DANG_DUNG_DUOC } } }),
   ]);
   const trangPl = chotTrang(query.trang, tongPl);
   const trangPv = chotTrang(query.trangPv, tongPv);
@@ -109,14 +128,45 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
   const trangTl = chotTrang(query.trangTl, tongTl);
   const trangSk = chotTrang(query.trangSk, tongSk);
 
-  const [platforms, providers, models, skills, tools, dsPlatform, dsProvider, maProvider, maSkill] = await Promise.all([
-    // Mới thao tác nhất lên đầu — xem chú thích cùng truy vấn ở trang Tổng quan M29.
-    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" }, skip: boQua(trangPl), take: KICH_THUOC_TRANG }),
-    // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
-    prisma.aIProvider.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true }, skip: boQua(trangPv), take: KICH_THUOC_TRANG }),
-    prisma.aIModel.findMany({ orderBy: { updatedAt: "desc" }, include: { provider: true }, skip: boQua(trangMd), take: KICH_THUOC_TRANG }),
-    prisma.aISkill.findMany({ orderBy: { code: "asc" }, skip: boQua(trangSk), take: KICH_THUOC_TRANG }),
-    prisma.aITool.findMany({ orderBy: { updatedAt: "desc" }, include: { platform: true }, skip: boQua(trangTl), take: KICH_THUOC_TRANG }),
+  const [platforms, providers, models, skills, tools, dsPlatform, dsProvider, maProvider, maSkill, maTool] = await Promise.all([
+    // Đang dùng được lên đầu bảng, trong mỗi nhóm thì mới thao tác nhất lên trước — xem chú thích
+    // cùng truy vấn ở trang Tổng quan M29.
+    trangHaiNhom(
+      dungPl,
+      (skip, take) => prisma.aIPlatform.findMany({ where: { approvalStatus: { in: NEN_TANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, skip, take }),
+      (skip, take) => prisma.aIPlatform.findMany({ where: { approvalStatus: { notIn: NEN_TANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, skip, take }),
+      boQua(trangPl),
+      KICH_THUOC_TRANG,
+    ),
+    trangHaiNhom(
+      dungPv,
+      (skip, take) => prisma.aIProvider.findMany({ where: { status: { in: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { platform: true }, skip, take }),
+      (skip, take) => prisma.aIProvider.findMany({ where: { status: { notIn: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { platform: true }, skip, take }),
+      boQua(trangPv),
+      KICH_THUOC_TRANG,
+    ),
+    trangHaiNhom(
+      dungMd,
+      (skip, take) => prisma.aIModel.findMany({ where: { status: { in: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { provider: true }, skip, take }),
+      (skip, take) => prisma.aIModel.findMany({ where: { status: { notIn: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { provider: true }, skip, take }),
+      boQua(trangMd),
+      KICH_THUOC_TRANG,
+    ),
+    // Kỹ năng xếp theo mã chứ không theo lần thao tác — mã là thứ người ta tra.
+    trangHaiNhom(
+      dungSk,
+      (skip, take) => prisma.aISkill.findMany({ where: { status: { in: DANG_DUNG_DUOC } }, orderBy: { code: "asc" }, skip, take }),
+      (skip, take) => prisma.aISkill.findMany({ where: { status: { notIn: DANG_DUNG_DUOC } }, orderBy: { code: "asc" }, skip, take }),
+      boQua(trangSk),
+      KICH_THUOC_TRANG,
+    ),
+    trangHaiNhom(
+      dungTl,
+      (skip, take) => prisma.aITool.findMany({ where: { status: { in: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { platform: true }, skip, take }),
+      (skip, take) => prisma.aITool.findMany({ where: { status: { notIn: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { platform: true }, skip, take }),
+      boQua(trangTl),
+      KICH_THUOC_TRANG,
+    ),
     // Danh sách cho ô chọn và cho kiểm tra trùng mã của các biểu mẫu thêm mới: phải là TOÀN BỘ sổ,
     // không phải trang đang xem — nếu lấy theo trang thì đứng ở trang 2 sẽ không chọn được nền tảng
     // nằm ở trang 1, còn kiểm tra trùng mã thì bỏ lọt.
@@ -124,6 +174,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
     prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { id: true, code: true, name: true } }),
     prisma.aIProvider.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
     prisma.aISkill.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
+    prisma.aITool.findMany({ orderBy: { code: "asc" }, select: { code: true } }),
   ]);
 
   const mucLuc: [string, string, number][] = [
@@ -166,7 +217,7 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
         count={tongPl}
         desc="Nơi duy nhất giữ địa chỉ API, tên biến chứa khoá, ranh giới dữ liệu và trạng thái sức khoẻ. Mọi sổ bên dưới đều quy về đây."
       >
-        {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={platforms.map((p) => p.code)} />}
+        {canWritePlatform && <NewPlatformForm adapterTypes={ADAPTER_TYPES} existingCodes={dsPlatform.map((p) => p.code)} />}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
           <table className="w-full min-w-[52rem] text-sm">
             <thead>
@@ -346,8 +397,8 @@ export default async function M29RegistryPage({ searchParams }: { searchParams: 
           <NewToolForm
             /* ETV.P35 §6.7: công cụ chỉ được trỏ tới nền tảng Đã phê duyệt/Hiệu lực. Lọc ở đây
                cho khỏi mời gọi thao tác sai; createTool vẫn kiểm lại phía máy chủ. */
-            platforms={dsPlatform.filter((p) => p.approvalStatus === "APPROVED" || p.approvalStatus === "ACTIVE").map((p) => ({ id: p.id, code: p.code, name: p.name }))}
-            existingCodes={tools.map((t) => t.code)}
+            platforms={dsPlatform.filter((p) => NEN_TANG_DUNG_DUOC.includes(p.approvalStatus)).map((p) => ({ id: p.id, code: p.code, name: p.name }))}
+            existingCodes={maTool.map((t) => t.code)}
           />
         )}
         <div className="overflow-x-auto rounded-xl border border-border bg-surface">
