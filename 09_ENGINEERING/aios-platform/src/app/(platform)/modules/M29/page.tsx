@@ -19,6 +19,12 @@ import { Badge } from "./ui";
 import { CanCuBanner } from "@/components/CanCuBanner";
 import { StatCard } from "@/components/StatCard";
 import { KICH_THUOC_TRANG, PhanTrang, boQua, chotTrang } from "@/components/PhanTrang";
+import { trangHaiNhom } from "@/lib/phan-trang";
+import type { AIApprovalStatus, AIOpStatus } from "@/generated/prisma/enums";
+
+// Đang dùng được lên đầu bảng — cùng một quy ước với trang Danh mục, xem chú thích ở đó.
+const DANG_DUNG_DUOC: AIOpStatus[] = ["ACTIVE"];
+const NEN_TANG_DUNG_DUOC: AIApprovalStatus[] = ["APPROVED", "ACTIVE"];
 
 type Trang = { trang?: string; trangAg?: string };
 
@@ -37,22 +43,34 @@ export default async function M29OverviewPage({ searchParams }: { searchParams: 
   // 15 phút/lần. Cron ngoài gọi POST /api/m29/sweep cho môi trường không ai truy cập thường xuyên.
   await maybeSweep();
 
-  const [tongPl, tongAg] = await Promise.all([prisma.aIPlatform.count(), prisma.aIAgent.count()]);
+  const [tongPl, tongAg, dungPl, dungAg] = await Promise.all([
+    prisma.aIPlatform.count(),
+    prisma.aIAgent.count(),
+    // `trangHaiNhom` cần số bản ghi nhóm đầu mới tính được cửa sổ lấy của từng nhóm.
+    prisma.aIPlatform.count({ where: { approvalStatus: { in: NEN_TANG_DUNG_DUOC } } }),
+    prisma.aIAgent.count({ where: { status: { in: DANG_DUNG_DUOC } } }),
+  ]);
   const trangPl = chotTrang(query.trang, tongPl);
   const trangAg = chotTrang(query.trangAg, tongAg);
 
   const [platforms, agents, pendingAia, disabledTools, openIncidents, overdueSightings] = await Promise.all([
-    // Mới thao tác nhất lên đầu: đăng ký, đổi trạng thái phê duyệt, đặt biến khoá và cả vòng dò
-    // sức khoẻ đều chạm `updatedAt`. Xếp theo mã thì bản ghi vừa đụng tới nằm lẫn giữa danh sách,
-    // đúng lúc người vận hành đang cần nhìn nó.
-    prisma.aIPlatform.findMany({ orderBy: { updatedAt: "desc" }, skip: boQua(trangPl), take: KICH_THUOC_TRANG }),
-    // Mới thao tác nhất lên đầu — cùng cách xếp với bảng Platform (xem chú thích ở trang Tổng quan M29).
-    prisma.aIAgent.findMany({
-      orderBy: { updatedAt: "desc" },
-      include: { model: true, aia: true },
-      skip: boQua(trangAg),
-      take: KICH_THUOC_TRANG,
-    }),
+    // Đang dùng được lên đầu; trong mỗi nhóm thì mới thao tác nhất lên trước: đăng ký, đổi trạng
+    // thái phê duyệt, đặt biến khoá và cả vòng dò sức khoẻ đều chạm `updatedAt`. Xếp theo mã thì
+    // bản ghi vừa đụng tới nằm lẫn giữa danh sách, đúng lúc người vận hành đang cần nhìn nó.
+    trangHaiNhom(
+      dungPl,
+      (skip, take) => prisma.aIPlatform.findMany({ where: { approvalStatus: { in: NEN_TANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, skip, take }),
+      (skip, take) => prisma.aIPlatform.findMany({ where: { approvalStatus: { notIn: NEN_TANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, skip, take }),
+      boQua(trangPl),
+      KICH_THUOC_TRANG,
+    ),
+    trangHaiNhom(
+      dungAg,
+      (skip, take) => prisma.aIAgent.findMany({ where: { status: { in: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { model: true, aia: true }, skip, take }),
+      (skip, take) => prisma.aIAgent.findMany({ where: { status: { notIn: DANG_DUNG_DUOC } }, orderBy: { updatedAt: "desc" }, include: { model: true, aia: true }, skip, take }),
+      boQua(trangAg),
+      KICH_THUOC_TRANG,
+    ),
     prisma.aIImpactAssessment.count({ where: { status: { in: ["NOT_ASSESSED", "DRAFT", "REVIEWED", "REVIEW_REQUIRED"] } } }),
     prisma.aITool.count({ where: { status: "DISABLED" } }),
     prisma.aIIncident.count({ where: { status: { notIn: ["CLOSED", "CANCELLED"] } } }),
@@ -75,13 +93,13 @@ export default async function M29OverviewPage({ searchParams }: { searchParams: 
         <StatCard label="Platform" value={tongPl} href="#platform" />
         <StatCard label="Agent" value={tongAg} href="#agent" />
         <StatCard
-          label="AIA chưa Đã phê duyệt"
+          label="AIA chưa phê duyệt"
           value={pendingAia}
           tone={pendingAia > 0 ? "warn" : "good"}
           href="#agent"
         />
         <StatCard
-          label="Tool đang Vô hiệu hóa"
+          label="Tool bị vô hiệu hóa"
           value={disabledTools}
           tone={disabledTools > 0 ? "crit" : "good"}
           href="/modules/M29/registry#tool"
