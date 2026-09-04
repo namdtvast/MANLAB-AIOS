@@ -33,6 +33,25 @@ function HomeIcon() {
   );
 }
 
+function UsersShieldIcon() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 shrink-0"
+    >
+      <circle cx="7.5" cy="6" r="2.75" />
+      <path d="M2.5 16c0-2.7 2.3-4.4 5-4.4" />
+      <path d="M15.5 9.5 12.5 11v3c0 1.6 1.4 2.7 3 3.3 1.6-.6 3-1.7 3-3.3v-3l-3-1.5Z" />
+    </svg>
+  );
+}
+
 function UserPlusIcon() {
   return (
     <svg
@@ -91,6 +110,7 @@ export function Sidebar({
   const searchRef = useRef<HTMLInputElement>(null);
   const onHome = pathname === "/dashboard";
   const onAccessRequests = pathname.startsWith("/admin/access-requests");
+  const onUsers = pathname.startsWith("/admin/users");
 
   // Gom 38 module thành các nhóm nghiệp vụ theo menuGroup (nạp từ manifest.yaml
   // của MPxx qua seed). Trong nhóm sắp theo menuOrder — thứ tự dòng chảy nghiệp
@@ -312,6 +332,22 @@ export function Sidebar({
                   <span className="sr-only"> yêu cầu đang chờ xử lý</span>
                 </span>
               )}
+            </Link>
+          )}
+
+          {isAdmin && (
+            <Link
+              href="/admin/users"
+              onClick={closeSidebarOnMobile}
+              aria-current={onUsers ? "page" : undefined}
+              className={`mb-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
+                onUsers
+                  ? "bg-accent-soft font-semibold text-accent"
+                  : "text-ink-2 hover:bg-sunk hover:text-ink"
+              }`}
+            >
+              <UsersShieldIcon />
+              <span className="min-w-0 flex-1 truncate">Người dùng và phân quyền</span>
             </Link>
           )}
 
