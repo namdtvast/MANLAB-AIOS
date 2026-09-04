@@ -56,6 +56,10 @@ model User {
   sessions    Session[]
   moduleRoles ModuleRoleAssignment[]
 
+  moduleRolesGranted   ModuleRoleAssignment[] @relation("ModuleRoleGrantedBy")
+  accessAuditActed     PlatformAccessAudit[]  @relation("PlatformAccessActor")
+  accessAuditSubjected PlatformAccessAudit[]  @relation("PlatformAccessSubject")
+
   m10Created      M10Assessment[] @relation("M10Created")
   m10Reviewed     M10Assessment[] @relation("M10Reviewed")
   m10Approved     M10Assessment[] @relation("M10Approved")
@@ -232,6 +236,10 @@ model User {
 // AI_ADMIN/...— đã xác nhận khác nhau khi RECON api/model.mjs của 2 module gốc).
 // role là String tự do theo vocabulary của module đó, KHÔNG phải PlatformRole
 // (PlatformRole là quyền truy cập nền tảng nói chung: ADMIN/MEMBER/VIEWER).
+// Quyền ĐANG CÓ HIỆU LỰC, không phải lịch sử: thu hồi thì xóa dòng, vết nằm ở
+// PlatformAccessAudit. Cố ý không thêm cột trạng thái vào đây — hơn 20 file src/lib/mXX/actor.ts
+// đọc bảng này không kèm điều kiện lọc, thêm cột trạng thái là đặt sẵn ở mỗi chỗ đó một lỗi
+// "quên lọc" mà không gì báo. Xem _meta/specs/20260904-admin-users-phan-quyen/spec.md §2.3.
 model ModuleRoleAssignment {
   id         String   @id @default(cuid())
   userId     String
@@ -239,9 +247,46 @@ model ModuleRoleAssignment {
   role       String // vd "LDP" — theo đúng vocabulary gốc của module đó
   createdAt  DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // Căn cứ cấp quyền: phiếu F28.04 đã phê duyệt ở M28 (ETV.P28 §6.7.1; Phụ lục II điểm 5 xếp
+  // cấp quyền không phiếu là vi phạm nghiêm trọng). Nullable vì prisma/seed.ts tạo hàng trăm
+  // assignment demo có trước cơ chế này — lập phiếu giả cho từng dòng chỉ để thỏa NOT NULL là
+  // bịa bằng chứng tuân thủ. Ràng buộc "không cấp ngoài phiếu" do tầng ứng dụng giữ, và số
+  // quyền chưa có phiếu được phơi ra ngay trên /admin/users thay vì giấu đi (spec §3.5).
+  accessRequestId String?
+  grantedById     String?
+
+  user          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessRequest M28AccessRequest? @relation(fields: [accessRequestId], references: [id])
+  grantedBy     User?             @relation("ModuleRoleGrantedBy", fields: [grantedById], references: [id])
 
   @@unique([userId, moduleCode, role])
+}
+
+enum PlatformAccessAction {
+  CAP_VAI_TRO_MODULE
+  THU_HOI_VAI_TRO_MODULE
+  DOI_VAI_TRO_NEN_TANG
+}
+
+// Lịch sử thao tác phân quyền trên nền tảng. CHỈ GHI THÊM: không có action nào sửa hay xóa
+// bản ghi ở đây — đây là thứ kỳ rà soát quyền 06 tháng/lần của ETV.P28 §6.7.1 đọc.
+model PlatformAccessAudit {
+  id        String               @id @default(cuid())
+  at        DateTime             @default(now())
+  actorId   String // người thực hiện
+  subjectId String // người bị tác động
+  action    PlatformAccessAction
+
+  moduleCode      String? // với vai trò module
+  role            String? // vai trò được cấp/thu hồi, hoặc vai trò nền tảng mới
+  previousRole    String? // vai trò nền tảng cũ
+  accessRequestId String? // phiếu F28.04 làm căn cứ
+  note            String? // lý do — bắt buộc khi thu hồi (spec §2.2)
+
+  actor   User @relation("PlatformAccessActor", fields: [actorId], references: [id])
+  subject User @relation("PlatformAccessSubject", fields: [subjectId], references: [id])
+
+  @@index([subjectId, at])
 }
 
 model Account {
@@ -5010,6 +5055,10 @@ model M28AccessRequest {
   executedAt    DateTime?
 
   systemLogRef String? // mã nhật ký hệ thống của thao tác
+
+  // Vai trò module đã cấp trên nền tảng CĂN CỨ vào phiếu này — đối chiếu "phiếu ↔ quyền thực tế"
+  // của kỳ rà soát P28 §6.7.1 đọc quan hệ này.
+  moduleRolesGranted ModuleRoleAssignment[]
 
   revokedAt      DateTime? // thu hồi trong ngày làm việc khi chấm dứt/chuyển công tác
   assetsReturned Boolean   @default(false) // thiết bị, thẻ ra vào, USB token chữ ký số
