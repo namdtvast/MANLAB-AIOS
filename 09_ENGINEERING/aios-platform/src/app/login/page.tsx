@@ -5,9 +5,9 @@ import { LoginForm } from "./LoginForm";
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ callbackUrl?: string }>;
+  searchParams: Promise<{ callbackUrl?: string; loi?: string }>;
 }) {
-  const { callbackUrl } = await searchParams;
+  const { callbackUrl, loi } = await searchParams;
 
   return (
     <div className="relative flex flex-1 flex-col items-center justify-center gap-6 bg-bg px-6">
@@ -26,6 +26,13 @@ export default async function LoginPage({
             </p>
           </div>
         </div>
+        {loi === "khoa" && (
+          // Một câu duy nhất cho cả tạm khóa lẫn thu hồi, không nêu lý do: trang đăng nhập là bề
+          // mặt công khai, nói rõ hơn là kể tình trạng nhân sự cho người chưa đăng nhập được.
+          <p className="mb-4 rounded-lg border border-crit/30 bg-crit-soft px-3 py-2 text-sm text-crit">
+            Tài khoản này hiện không còn hiệu lực đăng nhập. Liên hệ Quản trị hệ thống để được xem xét.
+          </p>
+        )}
         <LoginForm callbackUrl={callbackUrl ?? "/dashboard"} />
       </div>
       <p className="max-w-sm text-center text-xs text-ink-3">

@@ -15,6 +15,16 @@ export default auth((req) => {
   const isPublic =
     PUBLIC_EXACT.includes(pathname) || PUBLIC_PREFIXES.some((p) => pathname.startsWith(p));
 
+  // Tài khoản bị tạm khóa/thu hồi vẫn còn cookie phiên, nên req.auth vẫn có — thứ phân biệt là
+  // cờ biKhoa do session callback đặt (src/lib/auth.ts). Đẩy về /login kèm lý do chung chung,
+  // không phân biệt tạm khóa với thu hồi: /login là bề mặt công khai.
+  if (req.auth?.user?.biKhoa) {
+    if (pathname === "/login") return;
+    const loginUrl = new URL("/login", req.nextUrl.origin);
+    loginUrl.searchParams.set("loi", "khoa");
+    return NextResponse.redirect(loginUrl);
+  }
+
   if (!req.auth && !isPublic) {
     const loginUrl = new URL("/login", req.nextUrl.origin);
     loginUrl.searchParams.set("callbackUrl", pathname);

@@ -13,6 +13,18 @@ datasource db {
 
 // ---------- Auth (NextAuth / Auth.js — Prisma adapter) ----------
 
+// Trạng thái hiệu lực của TÀI KHOẢN ĐĂNG NHẬP, tách hẳn khỏi vai trò. Nguồn quyết định là sổ
+// tài khoản hệ thống F33.03 của M33 (ETV.P33 §6.4) — xem M33SystemAccount.platformUserId; ở đây
+// chỉ giữ kết quả để lớp đăng nhập đọc được mà không phải tra sang M33 mỗi lần.
+// Vì sao cần: trước 04/09/2026 bảng này không có trạng thái nào, nên ghi "đã thu hồi" trong sổ
+// M33 mà người đó vẫn đăng nhập và ghi được dữ liệu — trái ETV.P28 §6.7.1 (thu hồi trong ngày
+// làm việc) và Phụ lục II điểm 6. Xem _meta/specs/20260904-thu-hoi-tai-khoan/spec.md.
+enum UserAccountStatus {
+  DANG_HOAT_DONG
+  TAM_KHOA // khóa tạm, mở lại được sau khi PT.ATTT xem xét (ETV.P33 §6.4.3)
+  DA_THU_HOI // một chiều, không quay lại
+}
+
 enum PlatformRole {
   ADMIN
   MEMBER
@@ -31,7 +43,14 @@ model User {
   // xuất hiện trong bộ chuyển tài khoản ở header — xem src/lib/doi-tai-khoan.ts. Mặc định
   // false nên tài khoản người thật không bao giờ chuyển được sang, kể cả khi cần gạt bật nhầm.
   demoAccount   Boolean      @default(false)
-  createdAt     DateTime     @default(now())
+
+  // Hiệu lực đăng nhập. Đặt bởi M33 khi khóa/thu hồi tài khoản trong sổ F33.03; lý do và căn cứ
+  // phiếu F28.04 nằm ở bản ghi M33SystemAccount tương ứng, KHÔNG nhân bản sang đây.
+  accountStatus       UserAccountStatus @default(DANG_HOAT_DONG)
+  accountStatusAt     DateTime?
+  accountStatusReason String?
+
+  createdAt DateTime @default(now())
 
   accounts    Account[]
   sessions    Session[]
@@ -163,26 +182,29 @@ model User {
   m34PartiesReviewed     M34Party[]              @relation("M34PartyReviewed")
   m34PartiesApproved     M34Party[]              @relation("M34PartyApproved")
 
-  m33AssetUserOwner    M33ITAsset[]               @relation("M33AssetUserOwner")
-  m33AssetCustodian    M33ITAsset[]               @relation("M33AssetCustodian")
-  m33AssetCreated      M33ITAsset[]               @relation("M33AssetCreated")
-  m33AssetApproved     M33ITAsset[]               @relation("M33AssetApproved")
-  m33PlanCreated       M33MaintenancePlan[]       @relation("M33PlanCreated")
-  m33PlanApproved      M33MaintenancePlan[]       @relation("M33PlanApproved")
-  m33TaskCreated       M33MaintenanceTask[]       @relation("M33TaskCreated")
-  m33TaskPerformed     M33MaintenanceTask[]       @relation("M33TaskPerformed")
-  m33TaskAccepted      M33MaintenanceTask[]       @relation("M33TaskAccepted")
-  m33AccountHeld       M33SystemAccount[]         @relation("M33AccountHolder")
-  m33ReconPerformed    M33AccountReconciliation[] @relation("M33ReconPerformed")
-  m33IncidentReported  M33ITIncident[]            @relation("M33IncidentReported")
-  m33IncidentAssigned  M33ITIncident[]            @relation("M33IncidentAssigned")
-  m33AuditEntries      M33AuditEntry[]
+  m33AssetUserOwner   M33ITAsset[]               @relation("M33AssetUserOwner")
+  m33AssetCustodian   M33ITAsset[]               @relation("M33AssetCustodian")
+  m33AssetCreated     M33ITAsset[]               @relation("M33AssetCreated")
+  m33AssetApproved    M33ITAsset[]               @relation("M33AssetApproved")
+  m33PlanCreated      M33MaintenancePlan[]       @relation("M33PlanCreated")
+  m33PlanApproved     M33MaintenancePlan[]       @relation("M33PlanApproved")
+  m33TaskCreated      M33MaintenanceTask[]       @relation("M33TaskCreated")
+  m33TaskPerformed    M33MaintenanceTask[]       @relation("M33TaskPerformed")
+  m33TaskAccepted     M33MaintenanceTask[]       @relation("M33TaskAccepted")
+  m33AccountHeld      M33SystemAccount[]         @relation("M33AccountHolder")
+  // Bản ghi sổ F33.03 mô tả CHÍNH tài khoản đăng nhập ManLab này (khác m33AccountHeld — đó là
+  // mọi tài khoản người này giữ trên mọi hệ thống, gồm cả email công vụ, tài khoản trên thiết bị).
+  m33PlatformAccount  M33SystemAccount?          @relation("M33PlatformLogin")
+  m33ReconPerformed   M33AccountReconciliation[] @relation("M33ReconPerformed")
+  m33IncidentReported M33ITIncident[]            @relation("M33IncidentReported")
+  m33IncidentAssigned M33ITIncident[]            @relation("M33IncidentAssigned")
+  m33AuditEntries     M33AuditEntry[]
 
-  m27AssetOwner     M27InfoAsset[]  @relation("M27AssetOwner")
-  m27AssetCustodian M27InfoAsset[]  @relation("M27AssetCustodian")
-  m27AssetCreated   M27InfoAsset[]  @relation("M27AssetCreated")
-  m27AssetReviewed  M27InfoAsset[]  @relation("M27AssetReviewed")
-  m27AssetApproved  M27InfoAsset[]  @relation("M27AssetApproved")
+  m27AssetOwner     M27InfoAsset[]   @relation("M27AssetOwner")
+  m27AssetCustodian M27InfoAsset[]   @relation("M27AssetCustodian")
+  m27AssetCreated   M27InfoAsset[]   @relation("M27AssetCreated")
+  m27AssetReviewed  M27InfoAsset[]   @relation("M27AssetReviewed")
+  m27AssetApproved  M27InfoAsset[]   @relation("M27AssetApproved")
   m27RulesApproved  M27RuleVersion[] @relation("M27RulesApproved")
   m27AuditEntries   M27AuditEntry[]
 
@@ -1421,13 +1443,13 @@ model M03Employee {
   // Mã nhân sự cũ trên ManLab, giữ nguyên chuỗi gốc kể cả khoảng trắng ("P. ĐL46", "VP01").
   // Cấu trúc <mã bộ phận><số thứ tự> nên tiền tố là chỗ DUY NHẤT còn giữ phòng ban gốc của
   // nhân sự đã chấm dứt hợp đồng (ManLab ghi đè cột Bộ phận thành "CDHĐ") — xem DataModel.md K1/K2.
-  legacyCode            String?           @unique
+  legacyCode String? @unique
 
-  fullName              String
-  position              String
-  department            String
-  employmentType        M03EmploymentType
-  hireDate              DateTime
+  fullName       String
+  position       String
+  department     String
+  employmentType M03EmploymentType
+  hireDate       DateTime
 
   // Hai trục trạng thái ĐỘC LẬP, không gộp (DataModel.md K3 — trên ManLab đang gộp làm một cột,
   // hệ quả là người đã nghỉ việc không biểu diễn được là bản ghi đã duyệt hay chưa).
@@ -1435,9 +1457,9 @@ model M03Employee {
   //   recordStatus = bản ghi đã được xác nhận chưa
   // Mặc định DRAFT là giá trị dè dặt nhất; luồng tạo duy nhất (fulfillRecruitmentPlan) ghi đè
   // thành APPROVED vì bản ghi đó sinh từ đề xuất tuyển dụng đã được LĐV phê duyệt.
-  status                M03EmployeeStatus @default(THUVIEC)
+  status                M03EmployeeStatus       @default(THUVIEC)
   recordStatus          M03EmployeeRecordStatus @default(DRAFT)
-  securityCommitmentRef String            @default("") // tham chiếu tự do M02 — chưa có backend thật
+  securityCommitmentRef String                  @default("") // tham chiếu tự do M02 — chưa có backend thật
 
   recruitmentPlanId String?
 
@@ -1517,6 +1539,7 @@ model M03InspectorCard {
   // KHÔNG tự chặn được. Khi Văn phòng làm sạch xong, nâng lên unique toàn cục là migration nhỏ.
   @@unique([employeeId, cardNumber])
 }
+
 model M03TrainingPlan {
   id   String @id @default(cuid())
   seq  Int    @default(autoincrement())
@@ -3469,7 +3492,6 @@ enum M34PartyStatus {
   ARCHIVED
 }
 
-
 model M34Party {
   id           String         @id @default(cuid())
   seq          Int            @default(autoincrement())
@@ -3531,8 +3553,8 @@ model M34PartyRole {
   active       Boolean   @default(true)
   createdAt    DateTime  @default(now())
 
-  party    M34Party          @relation(fields: [partyId], references: [id], onDelete: Cascade)
-  roleType M34PartyRoleType  @relation(fields: [roleTypeCode], references: [code])
+  party    M34Party         @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  roleType M34PartyRoleType @relation(fields: [roleTypeCode], references: [code])
 
   @@unique([partyId, roleTypeCode])
   @@index([roleTypeCode])
@@ -4075,7 +4097,7 @@ model M33ITAsset {
   name       String
   assetClass M33AssetClass
   model      String?
-  serial     String? @unique // nhận dạng duy nhất thiết bị vật lý
+  serial     String?       @unique // nhận dạng duy nhất thiết bị vật lý
 
   networkZone M33NetworkZone?
   environment M33Environment  @default(VAN_HANH)
@@ -4248,6 +4270,13 @@ model M33SystemAccount {
   holderId    String? // bắt buộc khi ≠ DICH_VU_HE_THONG
   holderNote  String? // bên thứ ba không có tài khoản User
 
+  // Bản ghi này có phải CHÍNH tài khoản đăng nhập ManLab của người đó không. Chỉ khi có cột này,
+  // khóa/thu hồi ở sổ mới cắt được đăng nhập (User.accountStatus) — cố ý KHÔNG suy từ holderId:
+  // holderId là "người giữ" một tài khoản trên một hệ thống bất kỳ, khóa email công vụ của ai đó
+  // không được phép khóa luôn đăng nhập ManLab của họ. @unique: mỗi tài khoản nền tảng chỉ có
+  // đúng một bản ghi sổ. Ràng buộc đi kèm ở validateAccountInput (rules.ts).
+  platformUserId String? @unique
+
   accessRequestRef String // phiếu F28.04 đã phê duyệt ở M28 — R6, NOT NULL
   grantedAt        DateTime
 
@@ -4271,8 +4300,9 @@ model M33SystemAccount {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  holder User?       @relation("M33AccountHolder", fields: [holderId], references: [id])
-  asset  M33ITAsset? @relation(fields: [assetId], references: [id])
+  holder       User?       @relation("M33AccountHolder", fields: [holderId], references: [id])
+  platformUser User?       @relation("M33PlatformLogin", fields: [platformUserId], references: [id])
+  asset        M33ITAsset? @relation(fields: [assetId], references: [id])
 
   @@index([status, revocationDueAt])
   @@index([validUntil])
@@ -4312,10 +4342,10 @@ model M33ITIncident {
   seq  Int    @default(autoincrement())
   code String @unique // vd "SC-2026-0001"
 
-  kind        M33IncidentKind
+  kind         M33IncidentKind
   reportedById String
-  reportedAt  DateTime        @default(now())
-  description String
+  reportedAt   DateTime        @default(now())
+  description  String
 
   impact   M33Impact
   priority M33Priority // tự tính theo bảng 4.6 + 3 điều kiện nâng bắt buộc lên Cao
@@ -4325,16 +4355,16 @@ model M33ITIncident {
   resolutionDueAt  DateTime?
   escalatedToLdvAt DateTime? // priority CAO: trong 01 giờ (R18)
 
-  securityFlag        Boolean @default(false)
-  securityIncidentRef String? // → M28 (F28.03) — bắt buộc khi securityFlag; chặn đóng khi M28 chưa kết luận (R9)
-  securityConcluded   Boolean @default(false) // M28 đã kết luận — điều kiện mở khóa đóng phiếu
-  platformIncidentRef String? // → M35 (F35.03)
+  securityFlag         Boolean @default(false)
+  securityIncidentRef  String? // → M28 (F28.03) — bắt buộc khi securityFlag; chặn đóng khi M28 chưa kết luận (R9)
+  securityConcluded    Boolean @default(false) // M28 đã kết luận — điều kiện mở khóa đóng phiếu
+  platformIncidentRef  String? // → M35 (F35.03)
   measurementImpactRef String? // → M10/M11 — dừng sử dụng kết quả liên quan (§6.5.3)
-  continuityRef       String? // → M31 khi gián đoạn vượt ngưỡng
-  capaRef             String? // → M13 — bắt buộc khi lặp ≥ 3 lần/90 ngày (R9)
-  lessonRef           String? // → M26 — hoặc noLessonReason khi đóng (§6.5.4)
-  noLessonReason      String?
-  maintenanceRef      String? // công việc sửa chữa phát sinh
+  continuityRef        String? // → M31 khi gián đoạn vượt ngưỡng
+  capaRef              String? // → M13 — bắt buộc khi lặp ≥ 3 lần/90 ngày (R9)
+  lessonRef            String? // → M26 — hoặc noLessonReason khi đóng (§6.5.4)
+  noLessonReason       String?
+  maintenanceRef       String? // công việc sửa chữa phát sinh
 
   assignedToId String?
 
@@ -4564,7 +4594,7 @@ model M27RuleVersion {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  approvedBy User?                 @relation("M27RulesApproved", fields: [approvedById], references: [id])
+  approvedBy User?                   @relation("M27RulesApproved", fields: [approvedById], references: [id])
   rules      M27ClassificationRule[]
 
   @@index([status])
@@ -4735,9 +4765,9 @@ model M28SecurityRisk {
   // rủi ro không gắn được tài sản thì KHÔNG CHO LƯU (P28 Phụ lục I mục 1).
   assetRefs String[]
 
-  classification Classification // mức phân loại thông tin bị ảnh hưởng, kế thừa M27
-  threat         String
-  vulnerability  String
+  classification   Classification // mức phân loại thông tin bị ảnh hưởng, kế thừa M27
+  threat           String
+  vulnerability    String
   existingControls String?
 
   // Chấm điểm: T = max(C, I, A); R = K × T (P28 mục 6.4.2). Cả hai do hệ thống tính,
@@ -4756,9 +4786,9 @@ model M28SecurityRisk {
 
   ownerId String // chủ sở hữu rủi ro: TP hoặc LĐV, KHÔNG được là QTHT (P28 mục 6.4.3)
 
-  residualLikelihood Int?
-  residualImpact     Int?
-  residualScore      Int?
+  residualLikelihood   Int?
+  residualImpact       Int?
+  residualScore        Int?
   residualAcceptedById String? // BẮT BUỘC là LĐV khi residualScore ≥ 7 — không uỷ quyền
   residualAcceptedAt   DateTime?
   residualAcceptReason String?
@@ -4906,9 +4936,9 @@ model M28SecurityIncident {
   symptom   String
   assetRefs String[] // → M27
 
-  classification         Classification
-  involvesCustomerData   M28TriState    @default(CHUA_XAC_DINH)
-  involvesPersonalData   M28TriState    @default(CHUA_XAC_DINH)
+  classification       Classification
+  involvesCustomerData M28TriState    @default(CHUA_XAC_DINH)
+  involvesPersonalData M28TriState    @default(CHUA_XAC_DINH)
 
   severity M28Severity
 
@@ -4984,7 +5014,7 @@ model M28AccessRequest {
   revokedAt      DateTime? // thu hồi trong ngày làm việc khi chấm dứt/chuyển công tác
   assetsReturned Boolean   @default(false) // thiết bị, thẻ ra vào, USB token chữ ký số
 
-  status M28AccessStatus @default(DE_NGHI)
+  status       M28AccessStatus @default(DE_NGHI)
   // `reason` ở trên là lý do ĐỀ NGHỊ cấp quyền; trường này là lý do của lần đổi trạng thái
   // gần nhất (từ chối, thu hồi) — bắt buộc ghi theo P28 Phụ lục II.
   statusReason String?

@@ -37,12 +37,14 @@ import {
   txFlagOrphanAccount,
   txIsolateAsset,
   txLockAccount,
+  txUnlockAccount,
   txMarkAssetReviewed,
   txMarkResolved,
   txPerformTask,
   txResumeAsset,
   txRetireAsset,
   txRevokeAccount,
+  TRANG_THAI_NGUOI_DUNG,
   txReviewAsset,
   txRespondIncident,
   txStartTask,
@@ -498,6 +500,28 @@ export async function cancelTask(id: string, reason?: string) {
 
 // ---------- Tài khoản hệ thống ----------
 
+// Sổ F33.03 → hiệu lực đăng nhập ManLab. Chỉ bản ghi khai platformUserId mới cắt đăng nhập; bản
+// ghi của email công vụ hay tài khoản trên một thiết bị thì không đụng tới bảng User.
+// Luôn gọi TRONG CÙNG transaction với lần cập nhật sổ — sổ ghi "đã thu hồi" mà người đó vẫn đăng
+// nhập được chính là lỗ hổng mà thay đổi này sinh ra để bịt (ETV.P28 §6.7.1).
+async function dongBoTaiKhoanNenTang(
+  tx: Parameters<Parameters<typeof prisma.$transaction>[0]>[0],
+  platformUserId: string | null,
+  trangThaiSo: keyof typeof TRANG_THAI_NGUOI_DUNG,
+  reason: string | null,
+) {
+  if (!platformUserId) return;
+  await tx.user.update({
+    where: { id: platformUserId },
+    data: {
+      accountStatus: TRANG_THAI_NGUOI_DUNG[trangThaiSo],
+      accountStatusAt: new Date(),
+      accountStatusReason: reason,
+    },
+  });
+}
+
+
 export async function createAccount(input: {
   loginName: string;
   accountType: M33AccountType;
@@ -505,6 +529,7 @@ export async function createAccount(input: {
   platformRef?: string | null;
   holderId?: string | null;
   holderNote?: string | null;
+  platformUserId?: string | null;
   accessRequestRef: string;
   secretLocation: string;
   secretIssuer: string;
@@ -526,6 +551,7 @@ export async function createAccount(input: {
         platformRef: input.platformRef?.trim() || null,
         holderId: input.holderId || null,
         holderNote: input.holderNote?.trim() || null,
+        platformUserId: input.platformUserId || null,
         accessRequestRef: input.accessRequestRef.trim(),
         grantedAt: new Date(),
         secretLocation: input.secretLocation.trim(),
@@ -543,33 +569,40 @@ export async function createAccount(input: {
 }
 
 export async function lockAccount(id: string, reason?: string) {
-  const actor = await getActor();
-  const s = await prisma.m33SystemAccount.findUniqueOrThrow({ where: { id }, select: { status: true } });
-  const r = txLockAccount(s, actor, reason);
-  if (!r.ok) return r;
-  await prisma.m33SystemAccount.update({ where: { id }, data: { status: r.status as never, reason: r.reason } });
-  await logAudit("ACCOUNT", id, actor, r.action, r.reason);
-  revalidateM33();
-  return { ok: true as const };
+  return doiTrangThaiTaiKhoan(id, (s, actor) => txLockAccount(s, actor, reason));
+}
+
+// §6.4.3 — khóa tạm là để chờ PT.ATTT xem xét, nên phải có lối ra. Xem txUnlockAccount.
+export async function unlockAccount(id: string, reason?: string) {
+  return doiTrangThaiTaiKhoan(id, (s, actor) => txUnlockAccount(s, actor, reason));
 }
 
 export async function revokeAccount(id: string, reason?: string) {
-  const actor = await getActor();
-  const s = await prisma.m33SystemAccount.findUniqueOrThrow({ where: { id }, select: { status: true } });
-  const r = txRevokeAccount(s, actor, reason);
-  if (!r.ok) return r;
-  await prisma.m33SystemAccount.update({ where: { id }, data: { status: r.status as never, reason: r.reason, ...r.patch } });
-  await logAudit("ACCOUNT", id, actor, r.action, r.reason);
-  revalidateM33();
-  return { ok: true as const };
+  return doiTrangThaiTaiKhoan(id, (s, actor) => txRevokeAccount(s, actor, reason));
 }
 
 export async function flagOrphanAccount(id: string) {
+  return doiTrangThaiTaiKhoan(id, (s, actor) => txFlagOrphanAccount(s, actor));
+}
+
+// Bốn action trên chỉ khác nhau ở rule được gọi — phần còn lại (đọc bản ghi, ghi sổ, đồng bộ hiệu
+// lực đăng nhập, ghi vết) phải giống hệt nhau, nên viết một lần ở đây thay vì lặp bốn lần và để
+// một bản quên mất bước đồng bộ.
+async function doiTrangThaiTaiKhoan(id: string, quyetDinh: (s: { status: string }, actor: M33ActorUser) => TxResult) {
   const actor = await getActor();
-  const s = await prisma.m33SystemAccount.findUniqueOrThrow({ where: { id }, select: { status: true } });
-  const r = txFlagOrphanAccount(s, actor);
+  const s = await prisma.m33SystemAccount.findUniqueOrThrow({
+    where: { id },
+    select: { status: true, platformUserId: true },
+  });
+  const r = quyetDinh(s, actor);
   if (!r.ok) return r;
-  await prisma.m33SystemAccount.update({ where: { id }, data: { status: r.status as never, reason: r.reason } });
+  await prisma.$transaction(async (tx) => {
+    await tx.m33SystemAccount.update({
+      where: { id },
+      data: { status: r.status as never, reason: r.reason, ...r.patch },
+    });
+    await dongBoTaiKhoanNenTang(tx, s.platformUserId, r.status as keyof typeof TRANG_THAI_NGUOI_DUNG, r.reason);
+  });
   await logAudit("ACCOUNT", id, actor, r.action, r.reason);
   revalidateM33();
   return { ok: true as const };
