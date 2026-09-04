@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { createAccount, flagOrphanAccount, lockAccount, recordHrEvent, revokeAccount } from "@/lib/m33/actions";
+import { createAccount, flagOrphanAccount, lockAccount, recordHrEvent, revokeAccount, unlockAccount } from "@/lib/m33/actions";
 import { ACCOUNT_TYPE_LABEL } from "@/lib/m33/labels";
 import type { M33AccountType } from "@/generated/prisma/enums";
 
@@ -53,6 +53,10 @@ export function NewAccountForm({
     validUntil: "",
     sharedApprovalRef: "",
   });
+  // Khai bản ghi này là chính tài khoản đăng nhập ManLab của người giữ. Không có ô chọn người
+  // riêng: platformUserId luôn bằng holderId (rules.ts đòi đúng như vậy), nên không có đường
+  // khai nhầm sang người khác — mà khai nhầm ở đây nghĩa là khóa oan một người.
+  const [laTaiKhoanNenTang, setLaTaiKhoanNenTang] = useState(false);
   const set = (k: string, v: unknown) => setForm((f) => ({ ...f, [k]: v }));
 
   return (
@@ -100,6 +104,14 @@ export function NewAccountForm({
             <input type="checkbox" checked={form.mfaEnabled} onChange={(e) => set("mfaEnabled", e.target.checked)} />
             MFA đã bật (bắt buộc với đặc quyền)
           </label>
+          <label className="flex items-center gap-2 text-xs text-ink">
+            <input
+              type="checkbox"
+              checked={laTaiKhoanNenTang}
+              onChange={(e) => setLaTaiKhoanNenTang(e.target.checked)}
+            />
+            Là tài khoản đăng nhập ManLab của người giữ — khóa/thu hồi ở đây sẽ cắt đăng nhập
+          </label>
           {form.accountType === "DUNG_CHUNG_NGOAI_LE" && (
             <input placeholder="Phê duyệt ngoại lệ dùng chung *" className={inputCls} value={form.sharedApprovalRef} onChange={(e) => set("sharedApprovalRef", e.target.value)} />
           )}
@@ -115,10 +127,14 @@ export function NewAccountForm({
                       assetId: form.assetId || null,
                       platformRef: form.platformRef || null,
                       holderId: form.holderId || null,
+                      platformUserId: laTaiKhoanNenTang ? form.holderId || null : null,
                       validUntil: form.validUntil || null,
                       sharedApprovalRef: form.sharedApprovalRef || null,
                     }),
-                  () => setOpen(false),
+                  () => {
+                    setOpen(false);
+                    setLaTaiKhoanNenTang(false);
+                  },
                 )
               }
             >
@@ -131,15 +147,32 @@ export function NewAccountForm({
   );
 }
 
-export function AccountActions({ id, status, role }: { id: string; status: string; role: string | null }) {
+export function AccountActions({
+  id,
+  status,
+  role,
+  catDangNhap,
+}: {
+  id: string;
+  status: string;
+  role: string | null;
+  /** Bản ghi này gắn với một tài khoản đăng nhập ManLab — thao tác ở đây cắt luôn đăng nhập. */
+  catDangNhap: boolean;
+}) {
   const { isPending, error, run } = useRun();
   const [reason, setReason] = useState("");
   const [hrEvent, setHrEvent] = useState("");
   void role;
+  // Một ô lý do dùng chung cho mọi nút của dòng, nên phải xoá sau mỗi lần chạy được: bỏ lại nội
+  // dung cũ thì thao tác sau ghi nhầm căn cứ của thao tác trước vào sổ.
+  const xoaLyDo = () => setReason("");
 
   return (
     <div className="flex flex-col gap-1">
       {error && <span className="max-w-64 text-xs text-crit">{error}</span>}
+      {catDangNhap && status !== "DA_THU_HOI" && (
+        <span className="max-w-64 text-xs text-warn">Thao tác ở dòng này cắt luôn quyền đăng nhập ManLab.</span>
+      )}
       <div className="flex flex-wrap items-center gap-1">
         {status === "DANG_HOAT_DONG" && (
           <>
@@ -147,13 +180,21 @@ export function AccountActions({ id, status, role }: { id: string; status: strin
               Bất thường → khóa
             </button>
             <input placeholder="Lý do/phiếu" className={inputCls} value={reason} onChange={(e) => setReason(e.target.value)} />
-            <button className={btnGhost} disabled={isPending} onClick={() => run(() => lockAccount(id, reason))}>
+            <button className={btnGhost} disabled={isPending} onClick={() => run(() => lockAccount(id, reason), xoaLyDo)}>
               Tạm khóa
             </button>
           </>
         )}
+        {status === "TAM_KHOA" && (
+          <>
+            <input placeholder="Kết luận xem xét của PT.ATTT" className={inputCls} value={reason} onChange={(e) => setReason(e.target.value)} />
+            <button className={btnGhost} disabled={isPending} onClick={() => run(() => unlockAccount(id, reason), xoaLyDo)}>
+              Mở lại
+            </button>
+          </>
+        )}
         {status !== "DA_THU_HOI" && (
-          <button className={btnGhost} disabled={isPending} onClick={() => run(() => revokeAccount(id, reason || "Theo phiếu M28"))}>
+          <button className={btnGhost} disabled={isPending} onClick={() => run(() => revokeAccount(id, reason || "Theo phiếu M28"), xoaLyDo)}>
             Thu hồi
           </button>
         )}

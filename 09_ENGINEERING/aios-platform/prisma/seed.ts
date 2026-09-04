@@ -3761,6 +3761,27 @@ async function seedM33() {
     },
   });
 
+  // Tài khoản ĐĂNG NHẬP ManLab của một người dùng thật trên nền tảng (không phải trên một thiết
+  // bị). Khai platformUserId nghĩa là tạm khóa/thu hồi dòng này cắt luôn quyền đăng nhập của
+  // người đó, kể cả phiên đang mở — ETV.P28 §6.7.1; xem _meta/specs/20260904-thu-hoi-tai-khoan/.
+  // Chọn LĐP chứ không chọn QTHT: seed một bản ghi có thể tự khóa chính người quản trị là bày sẵn
+  // một cái bẫy.
+  await prisma.m33SystemAccount.create({
+    data: {
+      code: `TK-${year}-0003`,
+      loginName: "ldp@manlab.vn",
+      accountType: "CA_NHAN_DINH_DANH",
+      platformRef: "NT-01 — Nền tảng số hợp nhất ManLab (M35)",
+      holderId: tp.id,
+      platformUserId: tp.id,
+      accessRequestRef: "F28.04-2026-027 (M28)",
+      grantedAt: daysAgo(120),
+      secretLocation: "Người dùng tự đặt khi gửi đề nghị cấp tài khoản",
+      secretIssuer: "Đỗ A. (QTHT)",
+      mfaEnabled: false,
+    },
+  });
+
   // Kỳ đối chiếu toàn bộ đã chốt (R20).
   await prisma.m33AccountReconciliation.create({
     data: {

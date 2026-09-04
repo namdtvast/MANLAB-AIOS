@@ -43,6 +43,7 @@ export default async function M33AccountsPage({ searchParams }: { searchParams: 
         <h1 className="font-head text-2xl font-bold text-ink">Tài khoản hệ thống</h1>
         <p className="mt-1 text-sm text-ink-2">
           M33 giữ danh mục và <strong>thực thi</strong> theo phiếu F28.04 — phê duyệt quyền thuộc M28 (R6). Không lưu bí mật xác thực (R7).
+          Bản ghi gắn nhãn <em>đăng nhập ManLab</em>: tạm khóa hoặc thu hồi là cắt quyền đăng nhập ngay, kể cả phiên đang mở (ETV.P28 §6.7.1).
           Hàng chờ thu hồi: <strong>{pendingRevocation}</strong>, quá hạn:{" "}
           <strong className={overdueRevocation > 0 ? "text-crit" : "text-ink"}>{overdueRevocation}</strong> (R16 — trong ngày làm việc).
         </p>
@@ -89,7 +90,14 @@ export default async function M33AccountsPage({ searchParams }: { searchParams: 
                     s.platformRef
                   )}
                 </td>
-                <td className="px-3 py-2 text-xs text-ink-2">{s.holder?.name ?? s.holderNote ?? "—"}</td>
+                <td className="px-3 py-2 text-xs text-ink-2">
+                  {s.holder?.name ?? s.holderNote ?? "—"}
+                  {s.platformUserId && (
+                    <span className="ml-1 rounded-full bg-accent-soft px-2 py-0.5 text-xs font-medium text-accent">
+                      đăng nhập ManLab
+                    </span>
+                  )}
+                </td>
                 <td className="px-3 py-2 text-xs text-ink-2">{s.accessRequestRef}</td>
                 <td className="px-3 py-2 text-xs text-ink-2">{s.mfaEnabled ? "✓" : "—"}</td>
                 <td className="px-3 py-2 text-xs text-ink-2">{s.secretLocation}</td>
@@ -104,7 +112,7 @@ export default async function M33AccountsPage({ searchParams }: { searchParams: 
                   )}
                 </td>
                 <td className="px-3 py-2">
-                  <AccountActions id={s.id} status={s.status} role={role} />
+                  <AccountActions id={s.id} status={s.status} role={role} catDangNhap={Boolean(s.platformUserId)} />
                 </td>
               </tr>
             ))}

@@ -20,11 +20,14 @@ import {
   txCloseRecon,
   txDisposeAsset,
   txFlagOrphanAccount,
+  txLockAccount,
   txPerformTask,
   txRespondIncident,
   txRetireAsset,
   txReviewAsset,
   txSubmitAsset,
+  txRevokeAccount,
+  txUnlockAccount,
   validateAccountInput,
   validateAssetInput,
   type AssetForRules,
@@ -276,6 +279,57 @@ describe("R6/R7/R16 — tài khoản hệ thống (ETV.P33 §6.4)", () => {
   it("tài khoản không phiếu ⇒ khóa tạm ngay, không có đường xóa (§6.4.3)", () => {
     expect(txFlagOrphanAccount({ status: "DANG_HOAT_DONG" }, { id: "u-attt", m33Role: "ATTT" })).toMatchObject({ ok: true, status: "TAM_KHOA" });
     expectErr(txFlagOrphanAccount({ status: "DANG_HOAT_DONG" }, { id: "u-nth", m33Role: null }), "FORBIDDEN");
+  });
+});
+
+// Nối sổ F33.03 với hiệu lực đăng nhập ManLab — _meta/specs/20260904-thu-hoi-tai-khoan/spec.md
+describe("Thu hồi/tạm khóa tài khoản đăng nhập (ETV.P28 §6.7.1; ETV.P33 §6.4)", () => {
+  const qtht = { id: "u-qtht", m33Role: "QTHT" };
+  const admin = { id: "u-admin", m33Role: null, platformRole: "ADMIN" as const };
+  const nth = { id: "u-nth", m33Role: null };
+  const hoatDong = { status: "DANG_HOAT_DONG" };
+
+  it("QTHT và ADMIN nền tảng đều thu hồi được; người khác thì không", () => {
+    expect(txRevokeAccount(hoatDong, qtht, "F28.04-2026-031")).toMatchObject({ ok: true, status: "DA_THU_HOI" });
+    expect(txRevokeAccount(hoatDong, admin, "F28.04-2026-031")).toMatchObject({ ok: true, status: "DA_THU_HOI" });
+    expectErr(txRevokeAccount(hoatDong, nth, "lý do"), "FORBIDDEN");
+    expectErr(txRevokeAccount(hoatDong, { id: "u-attt", m33Role: "ATTT" }, "lý do"), "FORBIDDEN");
+  });
+
+  it("thu hồi và tạm khóa đều bắt buộc lý do — không có đường đổi trạng thái im lặng", () => {
+    expectErr(txRevokeAccount(hoatDong, qtht, "  "), "REASON_REQUIRED");
+    expectErr(txLockAccount(hoatDong, qtht, ""), "REASON_REQUIRED");
+    expectErr(txUnlockAccount({ status: "TAM_KHOA" }, qtht, ""), "REASON_REQUIRED");
+  });
+
+  it("tạm khóa mở lại được sau xem xét; đã thu hồi thì một chiều (§6.4.3)", () => {
+    expect(txLockAccount(hoatDong, admin, "Nghi ngờ lộ mật khẩu")).toMatchObject({ ok: true, status: "TAM_KHOA" });
+    expect(txUnlockAccount({ status: "TAM_KHOA" }, admin, "PT.ATTT kết luận không có dấu hiệu xâm nhập")).toMatchObject({
+      ok: true,
+      status: "DANG_HOAT_DONG",
+    });
+    expectErr(txUnlockAccount({ status: "DA_THU_HOI" }, qtht, "xin mở lại"), "BAD_STATE");
+    expectErr(txRevokeAccount({ status: "DA_THU_HOI" }, qtht, "lại lần nữa"), "BAD_STATE");
+  });
+
+  it("khai bản ghi là tài khoản đăng nhập ManLab ⇒ ba điều kiện chặn khai nhầm", () => {
+    const tk = {
+      loginName: "nguyenvana",
+      accountType: "CA_NHAN_DINH_DANH" as const,
+      platformRef: "NT-01 ManLab-AIOS",
+      accessRequestRef: "F28.04-2026-031",
+      secretLocation: "Người dùng tự đặt trên form đăng ký",
+      secretIssuer: "Đỗ A. (QTHT)",
+      mfaEnabled: false,
+      holderId: "u-a",
+      platformUserId: "u-a",
+    };
+    expect(validateAccountInput(tk)).toBeNull();
+    // tài khoản đăng nhập nền tảng thì không nằm trên một tài sản
+    expect(validateAccountInput({ ...tk, platformRef: null, assetId: "asset-1" })).toMatch(/NỀN TẢNG/);
+    // người giữ phải chính là người đăng nhập — chặn khóa oan người khác
+    expect(validateAccountInput({ ...tk, holderId: "u-b" })).toMatch(/NGƯỜI GIỮ/);
+    expect(validateAccountInput({ ...tk, accountType: "DICH_VU_HE_THONG" })).toMatch(/dịch vụ/);
   });
 });
 

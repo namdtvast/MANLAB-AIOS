@@ -18,6 +18,9 @@ import type {
   M33Severity,
   M33TaskStatus,
   Classification,
+  M33AccountStatus,
+  UserAccountStatus,
+  PlatformRole,
 } from "@/generated/prisma/enums";
 
 export type TxResult =
@@ -35,7 +38,26 @@ const err = (code: string, message: string): TxResult => ({ ok: false, code, mes
 export interface M33ActorUser {
   id: string;
   m33Role: string | null; // QTHT / ATTT / VP / TP / QLCL / LDV — vai trò toàn cục qua ModuleRoleAssignment
+  platformRole?: PlatformRole | null; // vai trò nền tảng (User.role) — chỉ dùng cho thẩm quyền tài khoản, xem laQuanTriTaiKhoan
 }
+
+/**
+ * Ai được khóa/thu hồi tài khoản. ETV.P33 §6.4 giao QTHT thực thi, nhưng vai trò QTHT nằm ở
+ * ModuleRoleAssignment — bảng mà hiện chỉ prisma/seed.ts ghi được (không giao diện, không script).
+ * Chỉ chấp nhận QTHT thì trên môi trường thật không ai bấm được nút, tức kiểm soát thu hồi của
+ * ETV.P28 §6.7.1 vẫn không thi hành được. Nên chấp nhận thêm ADMIN nền tảng như hiện thân kỹ thuật
+ * của QTHT; vai trò THẬT của người thực hiện vẫn được ghi vào M33AuditEntry.role nên vết phân biệt
+ * được. Siết lại về đúng QTHT khi có trang cấp vai trò module.
+ */
+export const laQuanTriTaiKhoan = (u: M33ActorUser): boolean =>
+  u.m33Role === "QTHT" || u.platformRole === "ADMIN";
+
+/** Trạng thái sổ F33.03 quyết định hiệu lực đăng nhập tương ứng (spec §3.2 R-TK5). */
+export const TRANG_THAI_NGUOI_DUNG: Record<M33AccountStatus, UserAccountStatus> = {
+  DANG_HOAT_DONG: "DANG_HOAT_DONG",
+  TAM_KHOA: "TAM_KHOA",
+  DA_THU_HOI: "DA_THU_HOI",
+};
 
 // ---------- Danh mục chuẩn suy từ lớp tài sản (DacTa mục 4) ----------
 
@@ -396,6 +418,7 @@ export function validateAccountInput(input: {
   accountType: string;
   assetId?: string | null;
   platformRef?: string | null;
+  platformUserId?: string | null;
   accessRequestRef?: string | null;
   secretLocation?: string | null;
   secretIssuer?: string | null;
@@ -420,6 +443,16 @@ export function validateAccountInput(input: {
     return "Tài khoản đặc quyền – quản trị bắt buộc bật MFA (ETV.P28 mục 5.7.1).";
   if (input.accountType === "DUNG_CHUNG_NGOAI_LE" && !input.sharedApprovalRef?.trim())
     return "Tài khoản dùng chung là ngoại lệ — bắt buộc phê duyệt kèm rủi ro tương ứng (ETV.P33 §6.4.3).";
+  // Khai bản ghi này là tài khoản đăng nhập ManLab thì khóa/thu hồi ở đây sẽ CẮT ĐĂNG NHẬP của
+  // người đó — nên ba điều kiện dưới đây chặn khai nhầm, hậu quả của khai nhầm là khóa oan.
+  if (input.platformUserId) {
+    if (!hasPlatform)
+      return "Tài khoản đăng nhập ManLab tồn tại trên NỀN TẢNG, không phải trên một tài sản — điền ô nền tảng (M35).";
+    if (input.accountType === "DICH_VU_HE_THONG")
+      return "Tài khoản dịch vụ – hệ thống không gắn với một người đăng nhập ManLab.";
+    if (input.holderId !== input.platformUserId)
+      return "Tài khoản đăng nhập ManLab của một người thì NGƯỜI GIỮ phải chính là người đó.";
+  }
   for (const t of input.freeTexts ?? []) {
     const hits = detectSecretPatterns(t);
     if (hits.length > 0)
@@ -430,21 +463,33 @@ export function validateAccountInput(input: {
 
 export function txLockAccount(s: { status: string }, u: M33ActorUser, reason?: string): TxResult {
   if (s.status !== "DANG_HOAT_DONG") return err("BAD_STATE", "Chỉ tài khoản đang hoạt động mới tạm khóa được.");
-  if (u.m33Role !== "QTHT" && u.m33Role !== "ATTT") return err("FORBIDDEN", "QTHT/PT.ATTT thực hiện tạm khóa.");
+  if (!laQuanTriTaiKhoan(u) && u.m33Role !== "ATTT") return err("FORBIDDEN", "QTHT/PT.ATTT thực hiện tạm khóa.");
   if (!reason?.trim()) return err("REASON_REQUIRED", "Tạm khóa bắt buộc nêu lý do/phiếu tương ứng.");
   return ok("TAM_KHOA", "Tạm khóa tài khoản", reason);
 }
 
+/**
+ * Mở lại tài khoản đang tạm khóa. §6.4.3 khóa tạm là để CHỜ PT.ATTT xem xét, nên phải có lối ra —
+ * thiếu nó thì một lần khóa nhầm là mất truy cập vĩnh viễn, không sửa được bằng giao diện. Thu hồi
+ * thì không có đường quay lại: cấp lại quyền phải đi bằng phiếu F28.04 mới ở M28.
+ */
+export function txUnlockAccount(s: { status: string }, u: M33ActorUser, reason?: string): TxResult {
+  if (s.status !== "TAM_KHOA") return err("BAD_STATE", "Chỉ tài khoản đang tạm khóa mới mở lại được.");
+  if (!laQuanTriTaiKhoan(u) && u.m33Role !== "ATTT") return err("FORBIDDEN", "QTHT/PT.ATTT mở lại tài khoản.");
+  if (!reason?.trim()) return err("REASON_REQUIRED", "Mở lại bắt buộc dẫn kết luận xem xét của PT.ATTT (§6.4.3).");
+  return ok("DANG_HOAT_DONG", "Mở lại tài khoản sau xem xét", reason);
+}
+
 export function txRevokeAccount(s: { status: string }, u: M33ActorUser, reason?: string): TxResult {
   if (s.status === "DA_THU_HOI") return err("BAD_STATE", "Tài khoản đã thu hồi.");
-  if (u.m33Role !== "QTHT") return err("FORBIDDEN", "QTHT thực hiện thu hồi theo phiếu M28 (R6).");
+  if (!laQuanTriTaiKhoan(u)) return err("FORBIDDEN", "QTHT thực hiện thu hồi theo phiếu M28 (R6).");
   if (!reason?.trim()) return err("REASON_REQUIRED", "Thu hồi bắt buộc dẫn phiếu M28/sự kiện nhân sự tương ứng.");
   return ok("DA_THU_HOI", "Thu hồi tài khoản", reason, { revokedAt: new Date() });
 }
 
 // §6.4.3 — tài khoản không phiếu: khóa tạm NGAY, không có đường xóa trước khi PT.ATTT xem xét
 export function txFlagOrphanAccount(s: { status: string }, u: M33ActorUser): TxResult {
-  if (u.m33Role !== "QTHT" && u.m33Role !== "ATTT") return err("FORBIDDEN", "QTHT/PT.ATTT đánh dấu tài khoản bất thường.");
+  if (!laQuanTriTaiKhoan(u) && u.m33Role !== "ATTT") return err("FORBIDDEN", "QTHT/PT.ATTT đánh dấu tài khoản bất thường.");
   if (s.status !== "DANG_HOAT_DONG") return err("BAD_STATE", "Tài khoản không ở trạng thái hoạt động.");
   return ok("TAM_KHOA", "Tài khoản bất thường (không phiếu) — khóa tạm ngay, mở sự cố ở M28", "Không có phiếu F28.04 tương ứng (§6.4.3)");
 }

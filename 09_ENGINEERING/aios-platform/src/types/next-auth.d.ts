@@ -9,6 +9,12 @@ declare module "@auth/core/types" {
   interface Session {
     user: {
       role: PlatformRole;
+      /**
+       * Tài khoản đã bị tạm khóa/thu hồi trong sổ F33.03 (M33). Khi cờ này bật thì `id` và `role`
+       * CỐ Ý không được gán — mọi thứ đọc quyền từ phiên sẽ coi như chưa đăng nhập. Xem
+       * src/lib/auth.ts và _meta/specs/20260904-thu-hoi-tai-khoan/spec.md.
+       */
+      biKhoa?: boolean;
     } & DefaultSession["user"];
   }
 }

@@ -13,7 +13,14 @@ export async function getActor(): Promise<M33ActorUser & { name: string | null }
   const assignment = await prisma.moduleRoleAssignment.findFirst({
     where: { userId: session.user.id, moduleCode: MODULE_CODE },
   });
-  return { id: session.user.id, m33Role: assignment?.role ?? null, name: session.user.name ?? null };
+  // platformRole chỉ phục vụ thẩm quyền khóa/thu hồi tài khoản đăng nhập (laQuanTriTaiKhoan trong
+  // rules.ts) — mọi gate nghiệp vụ khác của M33 vẫn đi bằng m33Role.
+  return {
+    id: session.user.id,
+    m33Role: assignment?.role ?? null,
+    platformRole: session.user.role ?? null,
+    name: session.user.name ?? null,
+  };
 }
 
 export async function getM33Role(): Promise<string | null> {
